@@ -1,1 +1,8 @@
 controllers\HomeController.class
+models\Newfeed.class
+models\Product.class
+models\User.class
+Nghia\Util\RESTHelper.class
+interceptor\MenuHandleInterceptor.class
+models\Restaurant.class
+Nghia\Util\RESTHelper$1.class

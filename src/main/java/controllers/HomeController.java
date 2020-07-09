@@ -5,9 +5,16 @@
  */
 package controllers;
 
-import java.util.ArrayList;
+import Nghia.Util.RESTHelper;
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import models.Product;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,21 +22,52 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView index() {
-        List<String> list = new ArrayList<String>();
-        list.add("Home");
-        list.add("View");
-        list.add("Exit");
-        return new ModelAndView("index").addObject("menu", list);
+    private RESTHelper<Product> restHelper;
+
+    public HomeController() throws InstantiationException, IllegalAccessException {
+        restHelper = new RESTHelper(Product.class);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login() {
-        List<String> list = new ArrayList<String>();
-        list.add("Home");
-        list.add("View");
-        list.add("Exit");
-        return new ModelAndView("login").addObject("menu", list);
+    @RequestMapping(value = "/product", method = RequestMethod.GET)
+    public ModelAndView getAll() throws IOException {
+        List<Product> list = restHelper.getAll();
+        return new ModelAndView("index").addObject("list", list);
     }
+
+    @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
+    public ModelAndView getUpdate(@PathVariable("id") String id) throws IOException {
+        Object product =  restHelper.getOne(id);
+        return new ModelAndView("update").addObject("product", product);
+    }
+
+    @RequestMapping(value = "/product/delete/{id}", method = RequestMethod.GET)
+    public ModelAndView delete(@PathVariable("id") String id) throws IOException {
+        Object obj = restHelper.delete(id);
+        return getAll();
+    }
+    
+    @RequestMapping(value = "/product/create", method = RequestMethod.GET)
+    public ModelAndView getCreate() throws IOException {
+        return new ModelAndView("postProduct");
+    }
+    
+    @RequestMapping(value = "/product/postUpdate", method = RequestMethod.POST)
+    public ModelAndView postUpdate(HttpServletRequest request) throws IOException {
+        Product product = new Product();
+        product.set_id(request.getParameter("id").toString());
+        product.setName(request.getParameter("name").toString());
+        product.setPrice(Double.parseDouble(request.getParameter("price").toString()));
+        restHelper.put(product);
+        return getAll();
+    }
+    
+    @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
+    public ModelAndView postProduct(HttpServletRequest request) throws IOException {
+        Product product = new Product();
+        product.setName(request.getParameter("name").toString());
+        product.setPrice(Double.parseDouble(request.getParameter("price").toString()));
+        restHelper.post(product);
+        return getAll();
+    }
+
 }
