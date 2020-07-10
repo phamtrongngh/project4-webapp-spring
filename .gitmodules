@@ -1,3 +1,1 @@
-[submodule "src/main/webapp/WEB-INF/test-submodule-frontend"]
-	path = src/main/webapp/WEB-INF/test-submodule-frontend
-	url = https://github.com/phamtrongngh/test-submodule-frontend.git
+
