@@ -21,8 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController implements IController{
-    IController productController = new ProductController();
-    private RESTHelper<Product> restHelper;
+    private RESTHelper restHelper;
 
     public HomeController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTHelper(Product.class);

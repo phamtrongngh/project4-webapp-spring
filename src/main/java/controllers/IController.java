@@ -10,12 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- *
- * @author BEN ALPHA
- */
 public interface IController {
-
+    
     public ModelAndView getAll() throws IOException;
 
     public ModelAndView delete(String id) throws IOException;
