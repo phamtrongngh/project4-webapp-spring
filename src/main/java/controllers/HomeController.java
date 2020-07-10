@@ -20,27 +20,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController {
-
-    private RESTHelper<Product> restHelper;
+public class HomeController implements IController{
+    private final RESTHelper restHelper;
 
     public HomeController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTHelper(Product.class);
     }
 
     @RequestMapping(value = "/product", method = RequestMethod.GET)
+    @Override
     public ModelAndView getAll() throws IOException {
         List<Product> list = restHelper.getAll();
         return new ModelAndView("index").addObject("list", list);
     }
 
     @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
-    public ModelAndView getUpdate(@PathVariable("id") String id) throws IOException {
+    @Override
+    public ModelAndView getOne(@PathVariable("id") String id) throws IOException {
         Object product =  restHelper.getOne(id);
         return new ModelAndView("update").addObject("product", product);
     }
 
     @RequestMapping(value = "/product/delete/{id}", method = RequestMethod.GET)
+    @Override
     public ModelAndView delete(@PathVariable("id") String id) throws IOException {
         Object obj = restHelper.delete(id);
         return getAll();
@@ -52,7 +54,8 @@ public class HomeController {
     }
     
     @RequestMapping(value = "/product/postUpdate", method = RequestMethod.POST)
-    public ModelAndView postUpdate(HttpServletRequest request) throws IOException {
+    @Override
+    public ModelAndView put(HttpServletRequest request) throws IOException {
         Product product = new Product();
         product.set_id(request.getParameter("id").toString());
         product.setName(request.getParameter("name").toString());
@@ -62,12 +65,14 @@ public class HomeController {
     }
     
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
-    public ModelAndView postProduct(HttpServletRequest request) throws IOException {
+    @Override
+    public ModelAndView post(HttpServletRequest request) throws IOException {
         Product product = new Product();
         product.setName(request.getParameter("name").toString());
         product.setPrice(Double.parseDouble(request.getParameter("price").toString()));
         restHelper.post(product);
         return getAll();
     }
+
 
 }
