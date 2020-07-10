@@ -19,7 +19,7 @@ public class Product {
     private Double price; 
     private List<String> category;
     private Double saleOff;
-    private String idRes; 
+    private String restaurant; 
     private List<String> rating;
     private Date createdAt;
     private Date updatedAt;
@@ -65,12 +65,12 @@ public class Product {
         this.saleOff = saleOff;
     }
 
-    public String getIdRes() {
-        return idRes;
+    public String getRestaurant() {
+        return restaurant;
     }
 
-    public void setIdRes(String idRes) {
-        this.idRes = idRes;
+    public void setRestaurant(String idRes) {
+        this.restaurant = idRes;
     }
 
     public List<String> getRating() {
