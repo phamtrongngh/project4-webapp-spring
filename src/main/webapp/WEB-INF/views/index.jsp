@@ -6,7 +6,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+
+        <title>Post Restaurant Page</title>
     </head>
     <body>
         <table border="1">
@@ -25,7 +26,9 @@
                             <c:forEach var="itemCat" items="${item.category}">${itemCat.name}
                             </c:forEach> 
                         </td>
+
                         <td>${item.restaurant.name}</td>
+
                     </tr>
                 </c:forEach>
             </tbody>
