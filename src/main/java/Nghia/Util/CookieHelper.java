@@ -18,8 +18,11 @@ import org.springframework.web.util.WebUtils;
  * @author BEN ALPHA
  */
 public class CookieHelper {
+
     public static void setCookie(String name, String value, int expiry) {
+
         FacesContext facesContext = FacesContext.getCurrentInstance();
+
         HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
         Cookie cookie = null;
 
@@ -41,6 +44,7 @@ public class CookieHelper {
         }
         HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
         response.addCookie(cookie);
+
     }
 
     public static void deleteCookie(String name) {

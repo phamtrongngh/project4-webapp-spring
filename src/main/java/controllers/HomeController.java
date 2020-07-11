@@ -21,25 +21,28 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController implements IController{
-    private RESTHelper restHelper;
+    private final RESTHelper restHelper;
 
     public HomeController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTHelper(Product.class);
     }
 
     @RequestMapping(value = "/product", method = RequestMethod.GET)
+    @Override
     public ModelAndView getAll() throws IOException {
         List<Product> list = restHelper.getAll();
         return new ModelAndView("index").addObject("list", list);
     }
 
     @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
+    @Override
     public ModelAndView getOne(@PathVariable("id") String id) throws IOException {
         Object product =  restHelper.getOne(id);
         return new ModelAndView("update").addObject("product", product);
     }
 
     @RequestMapping(value = "/product/delete/{id}", method = RequestMethod.GET)
+    @Override
     public ModelAndView delete(@PathVariable("id") String id) throws IOException {
         Object obj = restHelper.delete(id);
         return getAll();
@@ -51,7 +54,8 @@ public class HomeController implements IController{
     }
     
     @RequestMapping(value = "/product/postUpdate", method = RequestMethod.POST)
-    public ModelAndView  put(HttpServletRequest request) throws IOException{
+    @Override
+    public ModelAndView put(HttpServletRequest request) throws IOException {
         Product product = new Product();
         product.set_id(request.getParameter("id").toString());
         product.setName(request.getParameter("name").toString());
@@ -61,6 +65,7 @@ public class HomeController implements IController{
     }
     
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
+    @Override
     public ModelAndView post(HttpServletRequest request) throws IOException {
         Product product = new Product();
         product.setName(request.getParameter("name").toString());
@@ -68,4 +73,6 @@ public class HomeController implements IController{
         restHelper.post(product);
         return getAll();
     }
+
+
 }
