@@ -9,6 +9,7 @@
 
         <title>Post Restaurant Page</title>
     </head>
+    
     <body>
         <table border="1">
             <thead>
