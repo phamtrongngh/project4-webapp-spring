@@ -35,7 +35,7 @@ public class AuthController implements IController<Authorization> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public ModelAndView put(Authorization authorization) throws IOException {
+    public ModelAndView put(HttpServletRequest request ,Authorization authorization) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

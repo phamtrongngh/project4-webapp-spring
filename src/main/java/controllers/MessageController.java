@@ -55,7 +55,7 @@ public class MessageController implements IController<Message>{
     }
 
 
-    public ModelAndView put(Message message) throws IOException {
+    public ModelAndView put(HttpServletRequest request ,Message message) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
     

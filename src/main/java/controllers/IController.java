@@ -21,5 +21,5 @@ public interface IController<T> {
 
     public ModelAndView getOne(String id) throws IOException;
 
-    public ModelAndView put(T t) throws IOException;
+    public ModelAndView put(HttpServletRequest request ,T t) throws IOException;
 }

@@ -61,17 +61,17 @@ public class ProductController implements IController<Product> {
 
     @RequestMapping(value = "/product/postUpdate", method = RequestMethod.POST)
     @Override
-    public ModelAndView put(Product product) throws IOException {
+    public ModelAndView put(HttpServletRequest request, Product product) throws IOException {
+        product.set_id(request.getParameter("id").toString());
         restHelper.put(product);
         return getAll();
     }
 
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
     @Override
-    public ModelAndView post(Product product,HttpServletResponse response) throws IOException {
+    public ModelAndView post(Product product, HttpServletResponse response) throws IOException {
         restHelper.post(product);
         return getAll();
     }
-
 
 }

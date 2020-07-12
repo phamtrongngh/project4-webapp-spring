@@ -68,7 +68,8 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/restaurant/updateRestaurant", method = RequestMethod.POST)
     @Override
-    public ModelAndView put(Restaurant restaurant) throws IOException {
+    public ModelAndView put(HttpServletRequest request, Restaurant restaurant) throws IOException {
+        restaurant.set_id(request.getParameter("id").toString());
         restHelper.put(restaurant);
         return getAll();
     }
