@@ -19,7 +19,7 @@ import org.codehaus.jackson.type.TypeReference;
  *
  * @author BEN ALPHA
  */
-public class RESTAuthorizeHelper<T> extends RESTHelper {
+public class RESTAuthorizeHelper<T> {
 
     private WebTarget webTarget;
     private Client client;
@@ -27,7 +27,7 @@ public class RESTAuthorizeHelper<T> extends RESTHelper {
     private ObjectMapper mapper;
 
     public RESTAuthorizeHelper(Class aClazz) throws InstantiationException, IllegalAccessException {
-        super(aClazz);
+
         client = ClientBuilder.newClient();
         BASE_URI = "http://localhost:9032/" + aClazz.toString().substring(13) + "/";
         webTarget = client.target(BASE_URI);

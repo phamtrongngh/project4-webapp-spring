@@ -23,6 +23,7 @@ public class RESTHelper<T> {
     private Client client;
     private final String BASE_URI;
     private final ObjectMapper mapper;
+
     public RESTHelper(Class<T> aClazz) throws InstantiationException, IllegalAccessException {
         client = ClientBuilder.newClient();
         BASE_URI = "http://localhost:9032/" + aClazz.toString().substring(13) + "/";
@@ -39,7 +40,6 @@ public class RESTHelper<T> {
         return (List<T>) tmpObject;
     }
 
-
     public Map<String, T> put(T t) throws IOException {
         String string = webTarget.request(MediaType.APPLICATION_JSON)
                 .header("authorization", CookieHelper.getCookie("accessToken"))
@@ -48,7 +48,16 @@ public class RESTHelper<T> {
         });
         return tmpObject;
     }
-    
+
+    public Map<String, T> post(T t) throws IOException {
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.entity(t, MediaType.APPLICATION_JSON), String.class);
+        Map<String, T> tmpObject = mapper.readValue(string, new TypeReference<Map<String, T>>() {
+        });
+        return tmpObject;
+    }
+
     public <T> T delete(String id) throws IOException {
         String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
                 .header("authorization", CookieHelper.getCookie("accessToken"))
@@ -57,7 +66,7 @@ public class RESTHelper<T> {
         });
         return (T) obj;
     }
-    
+
     public <T> T getOne(String id) throws IOException {
         String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
                 .header("authorization", CookieHelper.getCookie("accessToken"))
