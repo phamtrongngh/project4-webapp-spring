@@ -7,10 +7,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Post Restaurant Page</title>
+        <title>JSP Page</title>
     </head>
 
     <body>
+        <form action="/Authorize/logout" method="POST">
+            <button>Logout</button>
+        </form>
         <table border="1">
             <thead>
                 <tr>
@@ -20,22 +23,22 @@
                 </tr>
             </thead>
             <tbody>
-            <form action="/Authorize/logout" method="POST">
-                <button>Logout</button>
-            </form>
-            <c:forEach var="item" items="${list}">
-                <tr>
-                    <td>${item.name}</td>
-                    <td>
-                        <c:forEach var="itemCat" items="${item.category}">${itemCat.name}
-                        </c:forEach> 
-                    </td>
 
-                    <td>${item.restaurant.name}</td>
+                <c:forEach var="item" items="${list}">
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>
+                            <c:forEach var="itemCat" items="${item.category}">${itemCat.name}
+                            </c:forEach> 
+                        </td>
 
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
-</body>
+                        <td>${item.restaurant.name}</td>
+
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+
+    </body>
+
 </html>
