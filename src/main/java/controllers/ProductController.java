@@ -60,22 +60,16 @@ public class ProductController implements IController<Product> {
     }
 
     @RequestMapping(value = "/product/postUpdate", method = RequestMethod.POST)
+    @Override
     public ModelAndView put(Product product) throws IOException {
-//        Product product = new Product();
-//        product.set_id(request.getParameter("id").toString());
-//        product.setName(request.getParameter("name").toString());
-//        product.setPrice(Double.parseDouble(request.getParameter("price").toString()));
-//        restHelper.put(product);
+        restHelper.put(product);
         return getAll();
     }
 
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
     @Override
     public ModelAndView post(Product product,HttpServletResponse response) throws IOException {
-//        Product product = new Product();
-//        product.setName(request.getParameter("name").toString());
-//        product.setPrice(Double.parseDouble(request.getParameter("price").toString()));
-//        restHelper.post(product);
+        restHelper.post(product);
         return getAll();
     }
 

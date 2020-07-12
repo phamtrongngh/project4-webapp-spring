@@ -1,6 +1,7 @@
 models\Newfeed.class
 Nghia\Util\CookieHelper.class
 controllers\IController.class
+Nghia\Util\RESTAuthorizeHelper$1.class
 controllers\AuthController.class
 models\User.class
 Nghia\Util\RESTHelper.class
@@ -9,10 +10,13 @@ models\Authorization.class
 models\Message.class
 Nghia\Util\RESTHelper$3.class
 WebConfig\ApplicationConfiguration.class
+Nghia\Util\RESTAuthorizeHelper.class
+controllers\NewfeedController.class
 interceptor\AuthorizeHandleInterceptor.class
 models\Product.class
 Nghia\Util\RESTHelper$4.class
 Nghia\Util\RESTHelper$2.class
+Nghia\Util\RESTHelper$5.class
 controllers\MessageController.class
 controllers\ProductController.class
 models\Restaurant.class

@@ -14,7 +14,7 @@
     <body>
         <h1>UPDATE</h1>
         <form action="/restaurant/updateRestaurant" method="post">
-            <input value="${restaurant._id}" name="id" hidden/>
+            <input type="text" value="${restaurant._id}" name="id" hidden/>
             Name: <input type="text" value="${restaurant.name}" name="name" /> <br/>
             Address: <input type="text" value="${restaurant.address}" name="address" /> <br/>
             <button>SUBMIT</button>

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controllers;
 
 import Nghia.Util.RESTHelper;
@@ -23,54 +22,55 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Admin
  */
 @Controller
-public class RestaurantController implements IController<Restaurant>{
+public class RestaurantController implements IController<Restaurant> {
+
     private final RESTHelper restHelper;
-    public RestaurantController() throws InstantiationException, IllegalAccessException{
+
+    public RestaurantController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTHelper(Restaurant.class);
     }
-    
+
     @RequestMapping(value = "/restaurant", method = RequestMethod.GET)
 
+    @Override
     public ModelAndView getAll() throws IOException {
         List<Restaurant> list = restHelper.getAll();
         return new ModelAndView("restaurantList").addObject("list", list);
     }
+
     @RequestMapping(value = "/restaurant/delete/{id}", method = RequestMethod.GET)
 
+    @Override
     public ModelAndView delete(@PathVariable("id") String id) throws IOException {
         Object obj = restHelper.delete(id);
         return getAll();
     }
-    
+
     @RequestMapping(value = "/restaurant/create", method = RequestMethod.GET)
     public ModelAndView getCreate() throws IOException {
         return new ModelAndView("postRestaurant");
     }
-    
-    @RequestMapping(value = "/restaurant/postRestaurant", method = RequestMethod.POST)        
- 
-    public ModelAndView post(Restaurant restaurant,HttpServletResponse response) throws IOException {
-//        Restaurant restaurant = new Restaurant();
-//        restaurant.setName(request.getParameter("name").toString());
-//        restaurant.setAddress(request.getParameter("address").toString());
-//        restHelper.post(restaurant);
+
+    @RequestMapping(value = "/restaurant/postRestaurant", method = RequestMethod.POST)
+
+    @Override
+    public ModelAndView post(Restaurant restaurant, HttpServletResponse response) throws IOException {
+        restHelper.post(restaurant);
         return getAll();
     }
-    @RequestMapping(value = "/restaurant/{id}")
 
+    @RequestMapping(value = "/restaurant/{id}")
+    @Override
     public ModelAndView getOne(@PathVariable("id") String id) throws IOException {
-        Object restaurant =  restHelper.getOne(id);
+        Object restaurant = restHelper.getOne(id);
         return new ModelAndView("updateRestaurant").addObject("restaurant", restaurant);
     }
+
     @RequestMapping(value = "/restaurant/updateRestaurant", method = RequestMethod.POST)
+    @Override
     public ModelAndView put(Restaurant restaurant) throws IOException {
-//        Restaurant restaurant = new Restaurant();
-//        restaurant.set_id(request.getParameter("id").toString());
-//        restaurant.setName(request.getParameter("name").toString());
-//        restaurant.setAddress(request.getParameter("address").toString());
-//        restHelper.put(restaurant);
+        restHelper.put(restaurant);
         return getAll();
     }
 
-    
 }
