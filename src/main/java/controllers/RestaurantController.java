@@ -28,9 +28,12 @@ public class RestaurantController implements IController<Restaurant>{
     public RestaurantController() throws InstantiationException, IllegalAccessException{
         restHelper = new RESTHelper(Restaurant.class);
     }
+    @RequestMapping(value = "/statistical", method = RequestMethod.GET)
+    public ModelAndView statistical() throws IOException {
+        return new ModelAndView("statistical");
+    }
     
     @RequestMapping(value = "/restaurant", method = RequestMethod.GET)
-
     public ModelAndView getAll() throws IOException {
         List<Restaurant> list = restHelper.getAll();
         return new ModelAndView("restaurantList").addObject("list", list);

@@ -43,12 +43,12 @@ public class AuthController implements IController<Authorization> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @RequestMapping(value = "/Authorize/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
         return new ModelAndView("login");
     }
 
-    @RequestMapping(value = "/Authorize/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public void login(Authorization authorization, HttpServletResponse response) throws IOException {
         Map<String, ?> responseMap = rest.post(authorization);
         String accessToken = (String) responseMap.get("access_token");
@@ -64,7 +64,7 @@ public class AuthController implements IController<Authorization> {
         }
     }
 
-    @RequestMapping(value = "/Authorize/logout", method = RequestMethod.POST)
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
@@ -80,7 +80,7 @@ public class AuthController implements IController<Authorization> {
 
     }
 
-    @RequestMapping(value = "/Authorize/register", method = RequestMethod.GET)
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView register() {
         return new ModelAndView("register");
     }
