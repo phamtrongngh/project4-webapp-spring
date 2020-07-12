@@ -13,6 +13,10 @@
     </head>
     <body>
         <h1>Login</h1>
-        <%@include  file="menu.jsp" %>
+        <form action="/Authorize/login" method="POST">
+            Phone: <input type="text" name="phone"/> <br/>
+            Pass: <input type="password" name="password"/> <br/>
+            <button>LOGIN</button>
+        </form>
     </body>
 </html>

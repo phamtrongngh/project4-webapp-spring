@@ -6,36 +6,56 @@
 
 package controllers;
 
+import Nghia.Util.RESTHelper;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import models.Message;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class MessageController implements IController{
+@RequestMapping(value = "/message")
+public class MessageController implements IController<Message>{
 
-    @Override
+    
+    private RESTHelper rest;
+
+    public MessageController() throws InstantiationException, IllegalAccessException {
+        rest = new RESTHelper(Message.class);
+    }
+            
+    
+
+    @RequestMapping(value = "/getMessage", method = RequestMethod.GET)
     public ModelAndView getAll() throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
-    @Override
+
     public ModelAndView delete(String id) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public ModelAndView post(HttpServletRequest request) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    @ResponseBody
+    public ModelAndView post(Message message,HttpServletResponse response) throws IOException {
+        
+        return null;
     }
 
-    @Override
+
+    @ResponseBody
     public ModelAndView getOne(String id) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public ModelAndView put(HttpServletRequest request) throws IOException {
+
+    public ModelAndView put(Message message) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
     

@@ -21,6 +21,10 @@
         <property name="suffix" value=".jsp" />
     </bean>
     <mvc:interceptors>
-        <bean class="interceptor.MenuHandleInterceptor"></bean>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/Authorize/**" />
+            <bean class="interceptor.AuthorizeHandleInterceptor"></bean>
+        </mvc:interceptor>
     </mvc:interceptors>
 </beans>

@@ -17,44 +17,16 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.util.WebUtils;
 
-/**
- *
- * @author BEN ALPHA
- * @param <T>
- */
-//public class RESTHelper<T> {
-//    
-//    private final RestTemplate restTemplate;
-//    private final ObjectMapper mapper;
-//    private String URL;
-//    
-//    public RESTHelper(Class<T> aClazz) throws InstantiationException, IllegalAccessException {
-//        restTemplate  = new RestTemplate();
-//        restTemplate.getMessageConverters()
-//                .add(new StringHttpMessageConverter());
-//        mapper = new ObjectMapper();
-//        URL = "http://localhost:9032/" + aClazz.toString().substring(13) + "/";
-//    }
-//    
-//    public <T> List<T> getAll() throws IOException {
-//        String string = restTemplate.getForObject(URL, String.class);
-//        Object tmpObject = (Object) mapper.readValue(string, new TypeReference<List<Object>>() {
-//        });
-//        return (List<T>) tmpObject;
-//    }
-//}
 public class RESTHelper<T> {
 
     private WebTarget webTarget;
     private Client client;
     private final String BASE_URI;
     private final ObjectMapper mapper;
-    private T object;
     public RESTHelper(Class<T> aClazz) throws InstantiationException, IllegalAccessException {
         client = ClientBuilder.newClient();
         BASE_URI = "http://localhost:9032/" + aClazz.toString().substring(13) + "/";
         webTarget = client.target(BASE_URI);
-        object = (T) aClazz.newInstance();
         mapper = new ObjectMapper();
     }
 
@@ -67,14 +39,6 @@ public class RESTHelper<T> {
         return (List<T>) tmpObject;
     }
 
-    public Map<String, T> post(T t) throws IOException {
-        String string = webTarget.request(MediaType.APPLICATION_JSON)
-                .header("authorization", CookieHelper.getCookie("accessToken"))
-                .post(Entity.entity(t, MediaType.APPLICATION_JSON), String.class);
-        Map<String, T> tmpObject = mapper.readValue(string, new TypeReference<Map<String, T>>() {
-        });
-        return tmpObject;
-    }
 
     public Map<String, T> put(T t) throws IOException {
         String string = webTarget.request(MediaType.APPLICATION_JSON)

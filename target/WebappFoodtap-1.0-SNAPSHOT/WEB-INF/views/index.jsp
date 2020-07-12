@@ -9,7 +9,7 @@
 
         <title>Post Restaurant Page</title>
     </head>
-    
+
     <body>
         <table border="1">
             <thead>
@@ -20,19 +20,22 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="item" items="${list}">
-                    <tr>
-                        <td>${item.name}</td>
-                        <td>
-                            <c:forEach var="itemCat" items="${item.category}">${itemCat.name}
-                            </c:forEach> 
-                        </td>
+            <form action="/Authorize/logout" method="POST">
+                <button>Logout</button>
+            </form>
+            <c:forEach var="item" items="${list}">
+                <tr>
+                    <td>${item.name}</td>
+                    <td>
+                        <c:forEach var="itemCat" items="${item.category}">${itemCat.name}
+                        </c:forEach> 
+                    </td>
 
-                        <td>${item.restaurant.name}</td>
+                    <td>${item.restaurant.name}</td>
 
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </body>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+</body>
 </html>
