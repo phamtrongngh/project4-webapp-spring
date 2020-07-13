@@ -1,8 +1,3 @@
-<%-- 
-    Document   : statistical
-    Created on : Jul 13, 2020, 2:03:56 AM
-    Author     : BEN ALPHA
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>

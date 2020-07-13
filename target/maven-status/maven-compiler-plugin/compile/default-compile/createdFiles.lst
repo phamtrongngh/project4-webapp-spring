@@ -1,7 +1,9 @@
+controllers\HomeController.class
 Nghia\Util\CookieHelper.class
 controllers\IController.class
 controllers\AuthController.class
 models\User.class
+controllers\UserController.class
 Nghia\Util\RESTHelper$3.class
 Nghia\Util\RESTAuthorizeHelper.class
 controllers\NewfeedController.class
