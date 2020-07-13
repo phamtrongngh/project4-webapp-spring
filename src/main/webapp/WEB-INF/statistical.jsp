@@ -1,7 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
-    <div class="container">
+    <div class="container" style="margin-top: 150px">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item text-center" style="width:32%">
@@ -14,7 +14,6 @@
                 <a class="nav-link" data-toggle="tab" href="#chart">Sơ đồ thống kê</a>
             </li>
         </ul>
-
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active container" id="order">
