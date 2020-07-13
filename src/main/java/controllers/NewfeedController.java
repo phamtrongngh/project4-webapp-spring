@@ -9,6 +9,7 @@ import Nghia.Util.RESTHelper;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import models.Newfeed;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Admin
  */
 @Controller
-public class NewfeedController implements IController {
+public class NewfeedController implements IController<Newfeed> {
 
     private final RESTHelper restHelper;
 
@@ -47,10 +48,7 @@ public class NewfeedController implements IController {
     }
 
     @RequestMapping(value = "/newfeed/postNewfeed", method = RequestMethod.POST)
-    @Override
-    public ModelAndView post(HttpServletRequest request) throws IOException {
-        Newfeed newfeed = new Newfeed();
-        newfeed.setContent(request.getParameter("content").toString());
+    public ModelAndView post(Newfeed newfeed, HttpServletResponse response) throws IOException {
         restHelper.post(newfeed);
         return getAll();
     }
@@ -64,12 +62,10 @@ public class NewfeedController implements IController {
 
     @RequestMapping(value = "/newfeed/postUpdate", method = RequestMethod.POST)
     @Override
-    public ModelAndView put(HttpServletRequest request) throws IOException {
-        Newfeed newfeed = new Newfeed();
-        newfeed.set_id(request.getParameter("id").toString());
-        newfeed.setContent(request.getParameter("content").toString());
+    public ModelAndView put(Newfeed newfeed) throws IOException {
         restHelper.put(newfeed);
         return getAll();
     }
+
 
 }
