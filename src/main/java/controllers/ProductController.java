@@ -28,11 +28,16 @@ public class ProductController implements IController<Product> {
         restHelper = new RESTHelper(Product.class);
     }
 
+    @RequestMapping(value = "/cart", method = RequestMethod.GET)
+    public ModelAndView cart() throws IOException {
+        return new ModelAndView("cart");
+    }
+    
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index() throws IOException {
-        return getAll();
+        return new ModelAndView("index");
     }
-
+    
     @RequestMapping(value = "/product", method = RequestMethod.GET)
     @Override
     public ModelAndView getAll() throws IOException {

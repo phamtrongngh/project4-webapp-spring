@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/message")
 public class MessageController implements IController<Message>{
 
     
@@ -30,10 +29,10 @@ public class MessageController implements IController<Message>{
             
     
 
-    @RequestMapping(value = "/getMessage", method = RequestMethod.GET)
+    @RequestMapping(value = "/message/", method = RequestMethod.GET)
     public ModelAndView getAll() throws IOException {
         
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return new ModelAndView("message");
     }
 
 
