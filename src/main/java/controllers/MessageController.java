@@ -7,7 +7,9 @@
 package controllers;
 
 import Nghia.Util.RESTHelper;
+import Nghia.Util.RESTMessageHelper;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.Message;
@@ -21,18 +23,18 @@ import org.springframework.web.servlet.ModelAndView;
 public class MessageController implements IController<Message>{
 
     
-    private RESTHelper rest;
+    private RESTMessageHelper rest;
 
     public MessageController() throws InstantiationException, IllegalAccessException {
-        rest = new RESTHelper(Message.class);
+        rest = new RESTMessageHelper(Message.class);
     }
             
     
 
     @RequestMapping(value = "/message/", method = RequestMethod.GET)
     public ModelAndView getAll() throws IOException {
-        
-        return new ModelAndView("message");
+        List listFriends = rest.getListFriends();
+        return new ModelAndView("message").addObject("listFriends", listFriends);
     }
 
 
@@ -57,5 +59,8 @@ public class MessageController implements IController<Message>{
     public ModelAndView put(Message message) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
+    
+    
+    
     
 }
