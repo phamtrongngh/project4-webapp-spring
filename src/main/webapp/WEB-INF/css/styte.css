@@ -670,6 +670,15 @@ p {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
+@media (max-width: 992px){
+    #login .login-container{
+        height: 90%;
+        padding: 50px 0px 0px 0px;
+    }
+    #login .login-form .form-group input.form-control{
+        margin-left: 100px !important;
+    }
+}
 #register .login-container {
     width: 100%;
     height: 94%;
@@ -682,6 +691,32 @@ p {
     margin-bottom: 20px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+@media (max-width: 992px){
+    #register .login-container{
+        height: 90%;
+        padding: 0px 0px 0px 0px ;
+    }
+    #register .login-form .form-group input.form-control {
+        margin-top: 5px !important;
+    }
+    #register .login-container .login-form label {
+        font-size: 15px !important;
+        margin-left: 20px !important;
+    }   
+    #register .login-container .login-form .input-name {
+        width: 90% !important;
+              margin-left: 20px !important;
+    }
+
+    #register .login-container .login-form .input-phone {
+        width: 90% !important;
+               margin-left: 20px !important;
+    }
+    #register .select-address {
+    width: 43% !important;
+        margin-left: 20px !important;
+}
 }
 .login-sign ul li{
     width: 50%;
@@ -755,6 +790,7 @@ p {
     margin-left: 30px;
 }
 .login-foods {
+    padding:80px 5px;
     background-color: #da484a;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;

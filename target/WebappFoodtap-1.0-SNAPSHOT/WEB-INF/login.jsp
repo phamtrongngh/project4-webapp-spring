@@ -21,15 +21,15 @@
         <p class="text-center login-hello">Chào mừng bạn đến food tap</p>
         <div class="container login">
             <div class="row login-row">
-                <div class="col-md-1 col-sm-3 login-food d-flex align-items-md-center">
+                <div class="col-md-1 col-sm-1 login-food d-flex align-items-md-center">
                     <div>
                         <img src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" class="img-login-logo" alt="" />
                         <h1>Food<br/>tap</h1>
                         <img src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" class="img-login-logo" alt="" />
                     </div>
                 </div>
-                <br/>
-                <div class="col-md-10 col-sm-9 login-sign">
+                
+                <div class="col-md-10 col-sm-10 login-sign">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs justify-content-center text-center" >
                         <li class="nav-item">
@@ -72,7 +72,7 @@
                                     <div class="form-group ">
                                         <input type="text" class="form-control input-phone" placeholder="SĐT " />
                                     </div>
-                                    <div class="form-group ">
+                                    <div class=" ">
                                         <label >Giới tính: </label><br/>
                                         <input type="radio" name="gender" class="input-male" checked/><label style="margin-left: 10px; ">Nam</label>
                                         <input type="radio" name="gender" class="input-female" /><label style="margin-left: 10px; ">Nữ</label>
@@ -114,13 +114,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-1 col-sm-3 login-foods d-flex align-items-md-center ">
+                <div class="col-md-1 col-sm-1 login-foods d-flex align-items-md-center ">
                     <div class="text ">
-                        <div>
                             <img src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png " class="img-login-logo " alt=" " />
                             <h1>one<br/>tap<br/>for<br/>all<br/>foods</h1>
                             <img src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png " class="img-login-logo " alt=" " />
-                        </div>
                     </div>
                 </div>
             </div>
