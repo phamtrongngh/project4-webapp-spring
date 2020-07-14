@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\controllers\HomeController.java
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\models\User.java
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\models\Message.java
@@ -18,44 +17,3 @@ D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\Nghia\Util\
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\controllers\NewfeedController.java
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\models\Newfeed.java
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\Nghia\Util\RESTHelper.java
-=======
-<<<<<<< HEAD
-D:\project4-webapp-spring\src\main\java\controllers\ProductController.java
-D:\project4-webapp-spring\src\main\java\models\Message.java
-D:\project4-webapp-spring\src\main\java\controllers\RestaurantController.java
-D:\project4-webapp-spring\src\main\java\controllers\MessageController.java
-D:\project4-webapp-spring\src\main\java\controllers\NewfeedController.java
-D:\project4-webapp-spring\src\main\java\controllers\IController.java
-D:\project4-webapp-spring\src\main\java\Nghia\Util\RESTHelper.java
-D:\project4-webapp-spring\src\main\java\WebConfig\ApplicationConfiguration.java
-D:\project4-webapp-spring\src\main\java\interceptor\AuthorizeHandleInterceptor.java
-D:\project4-webapp-spring\src\main\java\models\Newfeed.java
-D:\project4-webapp-spring\src\main\java\models\Authorization.java
-D:\project4-webapp-spring\src\main\java\controllers\AuthController.java
-D:\project4-webapp-spring\src\main\java\Nghia\Util\RESTAuthorizeHelper.java
-D:\project4-webapp-spring\src\main\java\Nghia\Util\CookieHelper.java
-D:\project4-webapp-spring\src\main\java\models\Restaurant.java
-D:\project4-webapp-spring\src\main\java\models\User.java
-D:\project4-webapp-spring\src\main\java\models\Product.java
-=======
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\User.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\Nghia\Util\RESTHelper.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\MessageController.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Message.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\HomeController.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\interceptor\AuthorizeHandleInterceptor.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\ProductController.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Product.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\NewfeedController.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\IController.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\RestaurantController.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\Nghia\Util\CookieHelper.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\WebConfig\ApplicationConfiguration.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\Nghia\Util\RESTAuthorizeHelper.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\UserController.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Newfeed.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Authorization.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\AuthController.java
-C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Restaurant.java
->>>>>>> master
->>>>>>> master
