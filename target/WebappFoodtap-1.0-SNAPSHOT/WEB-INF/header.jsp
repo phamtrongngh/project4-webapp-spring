@@ -1,5 +1,6 @@
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html"  pageEncoding="UTF-8"%>
+${pageContext.ELContext.importHandler.importClass('java.net.URLDecoder')}
 <!doctype html>
 <html lang="en">
 
@@ -47,7 +48,7 @@
                     <li class="nav-item media">
                         <img class="mr-3 rounded-circle img-avatar" src="/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar" />
                         <div class="media-body">
-                            <a href="#">Nghia Pham</a>
+                            <a href="/user-profile/${cookie.idUser.getValue()}">${cookie.inforUser.getValue()}</a>
                         </div>
                     </li>
 

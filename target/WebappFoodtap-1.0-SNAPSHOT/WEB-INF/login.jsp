@@ -35,12 +35,12 @@
                         <h1>Đăng Nhập</h1>
                     </div>
                     <div class="login-container">
-                        <form class="login-form">
+                        <form class="login-form" action="/login" method="POST">
                             <div class="form-group ">
-                                <input type="text" class="form-control " placeholder="SĐT " />
+                                <input type="text" class="form-control " placeholder="SĐT " name="phone"/>
                             </div>
                             <div class="form-group ">
-                                <input type="text" class="form-control " placeholder="Mật Khẩu " />
+                                <input type="text" class="form-control " placeholder="Mật Khẩu " name="password"/>
                             </div>
 
                             <button class="btn btn-danger form-control btn-login ">Đăng nhập</button>

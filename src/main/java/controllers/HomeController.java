@@ -6,9 +6,15 @@
 
 package controllers;
 
+import Nghia.Util.CookieHelper;
 import java.io.IOException;
+import java.util.Base64;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -16,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author BEN ALPHA
  */
 public class HomeController implements IController{
-
+    
     @Override
     public ModelAndView getAll() throws IOException {
         return new ModelAndView("index");
