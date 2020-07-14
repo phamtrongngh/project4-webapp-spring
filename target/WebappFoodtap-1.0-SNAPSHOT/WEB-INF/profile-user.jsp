@@ -3,7 +3,7 @@
     
     <!--Content-->
     <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
-    <div class="container">
+    <div class="container" style="margin-top: 100px">
         <div class="row">
             <!-- Menu of food -->
             <div class="col-10 col-sm-10 col-md-11">
