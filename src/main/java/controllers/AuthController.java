@@ -54,7 +54,7 @@ public class AuthController implements IController<Authorization> {
         return new ModelAndView("login");
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "text/plain; charset=UTF-8")
     public void login(Authorization authorization, HttpServletResponse response) throws IOException {
         Map<String, ?> responseMap = rest.post(authorization);
         String accessToken = (String) responseMap.get("access_token");
