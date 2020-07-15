@@ -39,33 +39,26 @@ $(document).ready(function() {
 
     });
     $(".btn-down").click(function() {
-        $(".list-friends").css("background-color", "white")
+        $("#three").css("background-color", "white")
         $(".box").slideDown();
 
     });
 });
 $(document).ready(function() {
     $(window).scroll(function(event) {
-        var pos_body = $('html,body').scrollTop();
+        var pos_body = $('html,body').scrollTop(); 
         var h = $(window).width();
-
-        // console.log(pos_body);
-        if (pos_body > 20 && h > 768) {
+        
+        if (pos_body > 20 && h>768) {
             $('#one').addClass("order-fix");
             $('#three').addClass("list-friend-fix");
 
 
-        } else if (pos_body > 20 && h > 414 && h <= 768) {
-            $('#one').addClass("order-fix");
-            $('#three').addClass("list-friend-fix");
-
-
-        } else if (pos_body > 700 && h <= 414) {
-
-            $('#three').addClass("list-friend-fix-sm");
         } else {
-            $('#three').removeClass("list-friend-fix-sm");
-        }
+            $('#three').removeClass("list-friend-fix");
+            $('#one').removeClass("order-fix");
+            
+        } 
 
     });
 

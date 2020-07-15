@@ -1,11 +1,10 @@
 body {
     background-color: #dee2e6;
     overflow: auto;
-    width: 1536px;
-    height: 690px;
+    width: 100%;
+    
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
 .navbar {
     padding-right: 20px !important;
 }
@@ -56,7 +55,7 @@ ul.navbar-nav li.nav-item {
 
 @media (min-width: 768px) {
     .navbar.top-nav-collapse {
-        opacity: 0.8;
+        background-color: rgba(255, 0, 0, 0.5);
     }
 }
 
@@ -136,7 +135,7 @@ ul.navbar-nav li.nav-item {
 /*ORDER*/
 
 .img-order {
-    width: 100%;
+    max-width: 100%;
     height: 140px;
 }
 
@@ -521,8 +520,8 @@ p {
 }
 
 .fa-chevron-circle-up {
-    font-size: 50px;
-    margin-left: 10px;
+    font-size: 30px;
+    
     color: red;
     transition: 0.5s ease;
 }
@@ -534,8 +533,8 @@ p {
 
 .fa-chevron-circle-down {
     margin-top: 40px;
-    font-size: 50px;
-    margin-left: 10px;
+    font-size: 30px;
+   
     color: red;
     transition: 0.5s ease;
     padding-bottom: 20px;
@@ -568,28 +567,28 @@ p {
     position: fixed;
     max-width: 10.666667%;
 }
+.order-fix-mobile {
+    display: flex;
+    max-width: 100%;
+    position: relative;
+}
 
 .list-friend-fix {
     position: fixed;
     max-width: 4.333333%;
+    text-align: center;
 }
-
-.list-friends {
-    background-clip: border-box;
+#three{
     background-color: white;
-    padding-top: 20px;
-    height: 600px;
+    width: 100%;
+    padding: 10px 5px;
     border-radius: 0.8rem !important;
-    position: fixed;
-    right: 150px;
-    width: 95px;
+     background-clip: border-box;
+     text-align: center;
 }
 
-.list-friend-fix-sm {
-    position: fixed;
-    top: 80px;
-    max-width: 8%;
-}
+
+
 
 
 /* END INDEX */
@@ -631,11 +630,30 @@ p {
     max-width: 55%;
     padding: 0 !important;
 }
-
+@media (min-width: 576px){
+.container {
+    max-width: 84% !important;
+}
+}
 @media (max-width: 768px) {
     .login-sign {
         margin-left: 0px;
         max-width: 100%;
+    }
+    .list-friends{
+        display: none;
+    }
+    #left-menu{
+        margin-top: 0!important;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding-right: 2px; 
+        padding-left: 2px;
+    }
+    #one{
+        display: flex;
     }
 }
 
