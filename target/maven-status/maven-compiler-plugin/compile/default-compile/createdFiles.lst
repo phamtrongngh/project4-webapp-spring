@@ -4,6 +4,7 @@ controllers\IController.class
 controllers\AuthController.class
 models\User.class
 controllers\UserController.class
+Nghia\Util\RESTAuthorizeHelper$2.class
 Nghia\Util\RESTHelper$3.class
 Nghia\Util\RESTAuthorizeHelper.class
 controllers\NewfeedController.class
