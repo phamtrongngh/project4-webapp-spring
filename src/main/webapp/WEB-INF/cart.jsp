@@ -63,7 +63,6 @@
 
 
         <div class="col-md-5 info-user">
-
             <h1 style="margin-top: 20px;text-align: left;">Thông tin đơn hàng</h1>
             <div>
                 <form class="form-group form-order">
