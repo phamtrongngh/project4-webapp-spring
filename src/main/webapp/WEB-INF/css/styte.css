@@ -395,8 +395,7 @@ h1 {
     opacity: 0.7;
     font-weight: bold;
 }
-
-p {
+.modal-body p  {
     text-align: left;
     padding-left: 20px;
     opacity: 0.7;
@@ -706,17 +705,17 @@ p {
     }   
     #register .login-container .login-form .input-name {
         width: 90% !important;
-              margin-left: 20px !important;
+        margin-left: 20px !important;
     }
 
     #register .login-container .login-form .input-phone {
         width: 90% !important;
-               margin-left: 20px !important;
+        margin-left: 20px !important;
     }
     #register .select-address {
-    width: 43% !important;
+        width: 43% !important;
         margin-left: 20px !important;
-}
+    }
 }
 .login-sign ul li{
     width: 50%;
@@ -820,10 +819,6 @@ p {
 
 /* 4) PROFILE PAGR */
 
-.profile-introduction {
-    display: flex;
-}
-
 .profile-container-button button.btn-success,
 .profile-container-button button.btn-danger {
     margin-top: 12px;
@@ -836,15 +831,17 @@ p {
     padding: 0;
 }
 
-.profile-container {
+.profile-container-img {
     float: left;
     width: 40%;
 }
 
-.profile-introduction .profile-container .img-avartar {
+.profile-header .profile-container-img .img-avartar {
     max-width: 100%;
 }
-
+.profile-name{
+    display: table-header-group;
+}
 .profile-name .text-name {
     color: red;
     font-size: 27px;
@@ -917,13 +914,13 @@ label.star:before {
 
 /* END RATE */
 
-.profile-introduction .col-md-2 .far {
+.profile-header .fa-comment {
     font-size: 60px;
 }
 
-.btn-sendmess button {
+.profile-header .container-sendmess button {
     height: 100%;
-    width: 100%;
+    width: 90%;
 }
 
 .profile-container-button {
@@ -1345,7 +1342,21 @@ label.star:before {
 .input-group-append {
     margin-left: 10px;
 }
-
+ .profile-intro{
+    background-color: white;
+    width: 100%;
+    margin-left: 15px;
+}
+.profile-intro p{
+    font-size: 15px;
+    font-weight: bold;
+    opacity: 0.7;
+}
+.containers-sendmess button {
+    height: 100%;
+    width: 100%;
+    margin-left: 20px;
+}
 .post-store {
     width: 100%;
     padding: 10px 10px;
@@ -1365,8 +1376,62 @@ label.star:before {
 .post-store button {
     padding: 5px;
     width: 100%;
+    font-size:12px; 
 }
+.profile-list{
+    background-color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+.img-list h3{
+    font-size: 15px;
+    padding-top: 10px ;
 
+}
+.img-list h3 .fa-image{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: greenyellow;
+}
+.img-list h3 a{
+    float: right;
+      margin-right: 10px;
+}
+.img-list .img-contain .img-contains {
+    width: 100%;
+}
+.img-list .img-contain .img-contains img{
+    width: 90%;
+
+}
+.friend-list h3{
+    font-size: 15px;
+    padding-top: 10px ;
+
+}
+.friend-list h3 .fa-user-friends{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: crimson;
+}
+.friend-list h3 a{
+    float: right;
+      margin-right: 10px;
+}
+.friend-list h3 span{
+    opacity: 0.6;
+}
+.friend-list .img-contain .img-contains {
+    width: 100%;
+}
+.friend-list .img-contain .img-contains img{
+    width: 90%;
+
+}
+.img-contains a{
+    font-size: 15px;
+    float: left
+}
 .modal-dialog {
     max-width: 50%;
 }
