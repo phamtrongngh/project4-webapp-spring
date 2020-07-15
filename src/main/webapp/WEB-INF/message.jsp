@@ -1,8 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@include  file="header.jsp" %>
 
-<div class="container-fluid h-100 ">
+<div class="container-fluid h-100 " style="margin-top: 100px">
     <div class="row justify-content-center h-100">
         <div class="col-md-4 col-xl-3 chat">
             <div class="card mb-sm-3 mb-md-0 contacts-card">
@@ -17,7 +17,7 @@
                 <div class="card-body contacts-body">
                     <ui class="contacts">
                         <c:forEach var="item" items="${listFriends}">
-                            <li class="active rounded">
+                            <li class="active rounded ${item._id}" >
                                 <div class="d-flex bd-highlight">
                                     <div class="img-cont">
                                         <img src="http://localhost:9032/public/image/${item.avatar}" class="rounded-circle user-img" />

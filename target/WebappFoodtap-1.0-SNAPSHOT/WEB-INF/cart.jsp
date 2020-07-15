@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 
-<div class="container contain">
+<div class="container contain" style="margin-top: 100px">
     <div class="row">
         <div class="col-md-7 col-sm-12 info-product">
 

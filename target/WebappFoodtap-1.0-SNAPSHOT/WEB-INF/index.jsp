@@ -2,13 +2,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 
-
 <!--Content-->
-<div class="container" style="margin-top: 150px">
+<div class="container" style="margin-top: 100px">
     <div class="row">
+        <h1>${test}</h1>
         <!-- ORDER -->
         <div class="col-sm-12 col-md-2 ">
-            <div id="one">
+            <div id="one" >
                 <div>
                     <a href="#"><img class="rounded img-order" src="image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                         <div class="rounded photo">
@@ -19,8 +19,7 @@
                         </div>
                     </a>
                 </div>
-                <br/>
-                <div>
+                <div style="margin-top: 20px">
                     <a href="#"><img class="rounded img-order" src="image/Background/set-of-children-eating-together-vector-22784582.jpg" alt="" />
                         <div class="rounded photo ">
                             <div>
@@ -29,8 +28,7 @@
                         </div>
                     </a>
                 </div>
-                <br/>
-                <div>
+                <div style="margin-top: 20px">
                     <a href="#"><img class="rounded img-order" src="image/Background/street-food-trailer-food-truck-cartoon-vector-19682966.jpg" alt="" />
                         <div class="rounded photo ">
 
@@ -39,8 +37,7 @@
                         </div>
                     </a>
                 </div>
-                <br/>
-                <div>
+                <div style="margin-top: 20px">
                     <a href="#"><img class="rounded img-order" src="image/Background/sale-tag-icon-flat-cartoon-discount-label-vector-23608810.jpg" alt="" />
 
                         <div class="rounded photo ">

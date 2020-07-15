@@ -13,6 +13,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import models.Message;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
@@ -44,5 +45,21 @@ public class RESTMessageHelper extends RESTHelper {
         List<Map<String, ?>> tmpObject = mapper.readValue(string, new TypeReference<List<Map<String, ?>>>() {
         });
         return tmpObject;
+    }
+    public String getConversation(String id) throws IOException{
+        String url = BASE_URI + "getConversation/";
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        return string;
+    }
+    
+    public void postMessage(Message message){
+        String url = BASE_URI + "sendMessage";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                                 .header("authorization", CookieHelper.getCookie("accessToken"))
+                                 .post(Entity.entity(message, MediaType.APPLICATION_JSON),String.class);
     }
 }
