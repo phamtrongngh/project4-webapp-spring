@@ -288,7 +288,7 @@
                                 </div>
                                 <p>Mem mem<br/>
                                     <a href="#">Thích</a>
-                                    <a href="#" data-toggle="collapse" data-target="#reply1" 5>Trả lời</a>
+                                    <a href="#" data-toggle="collapse" data-target="#reply1" >Trả lời</a>
                                 <div id="reply1" class="collapse">
                                     <div class="input-group" style="margin-left: -60px;">
                                         <a class="pull-left " href="# ">

@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 
-<div class="container-fluid h-100 ">
+<div class="container-fluid h-100 " style="margin-top: 100px">
     <div class="row justify-content-center h-100">
         <div class="col-md-4 col-xl-3 chat">
             <div class="card mb-sm-3 mb-md-0 contacts-card">
