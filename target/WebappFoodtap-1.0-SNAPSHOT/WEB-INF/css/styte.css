@@ -829,6 +829,7 @@ h1 {
     border-top-left-radius: 45%;
     border-bottom-left-radius: 45%;
     padding: 0;
+    height: 100%;
 }
 
 .profile-container-img {
@@ -1058,7 +1059,7 @@ label.star:before {
 }
 
 .card {
-    height: 590x;
+    height: 590px;
     border-radius: 15px !important;
     background-color: white;
 }
@@ -1081,7 +1082,9 @@ label.star:before {
     border-radius: 0 0 15px 15px !important;
     border-top: 0 !important;
 }
-
+.chat{
+    margin-left: 10px !important;
+}
 .chat.search {
     border-radius: 15px 0 0 15px !important;
     background-color: rgba(0, 0, 0, 0.3) !important;
@@ -1345,17 +1348,35 @@ label.star:before {
  .profile-intro{
     background-color: white;
     width: 100%;
-    margin-left: 15px;
+    margin-left: 20px;
 }
 .profile-intro p{
     font-size: 15px;
     font-weight: bold;
     opacity: 0.7;
 }
+.profile-container-buttons{
+    margin-left: 5px;
+}
+.profile-container-buttons .btn-success,
+.profile-container-buttons .btn-danger{
+      margin-top:  12px;
+}
+.profile-container-buttons button{
+
+  height: 30%;
+ opacity: 0.8;
+}
+.profile-container-buttons button i{
+    margin-right:  10px;
+}
+.containers-sendmess{
+    margin-left: -10px;
+}
 .containers-sendmess button {
     height: 100%;
-    width: 100%;
-    margin-left: 20px;
+    width: 175%;
+     opacity: 0.8;
 }
 .post-store {
     width: 100%;
@@ -1372,7 +1393,11 @@ label.star:before {
     border: none;
     padding: 10px 8px;
 }
-
+.list{
+     position: relative;
+    left: 15px;
+    bottom: 100px;
+}
 .post-store button {
     padding: 5px;
     width: 100%;
@@ -1417,9 +1442,6 @@ label.star:before {
 .friend-list h3 a{
     float: right;
       margin-right: 10px;
-}
-.friend-list h3 span{
-    opacity: 0.6;
 }
 .friend-list .img-contain .img-contains {
     width: 100%;
