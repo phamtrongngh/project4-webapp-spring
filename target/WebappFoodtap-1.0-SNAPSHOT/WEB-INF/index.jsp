@@ -12,7 +12,7 @@
                     <a href="#"><img class="rounded img-order" src="image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                         <div class="rounded photo">
                             <div>
-                                Khám phá món ngon
+                                Khám phá<br/> món ngon
                             </div>
 
                         </div>

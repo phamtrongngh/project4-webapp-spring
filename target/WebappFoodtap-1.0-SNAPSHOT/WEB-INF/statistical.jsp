@@ -256,7 +256,7 @@
     <script src="/js/script.js "></script>
     <script>
         var progress = document.getElementById('animationProgress');
-        let myChart = document.getElementById('myChart').getContext('2d');
+                                                                                                                                                                                                           let myChart = document.getElementById('myChart').getContext('2d');
         // Global options
         Chart.defaults.global.defaultFontFamily = 'Lato';
         Chart.defaults.global.defaultFontSize = 20;
@@ -274,7 +274,7 @@
                         50,
                         80,
                         70,
-                        59,
+                        90,
                         179,
                         190,
                         150,
@@ -286,9 +286,7 @@
                     borderColor: '#da484a',
                     hoverborderWidth: 3,
                     hoverborderColor: '#000',
-
                 }],
-
             },
             options: {
                 title: {
@@ -309,11 +307,11 @@
                         left: 50,
                         right: 0,
                         bottom: 50,
-                        top: 50
+                        top: 50,
                     },
                 },
                 animation: {
-                    duration: 3000,
+                    duration: 2000,
                     easing: 'linear',
                 },
 
