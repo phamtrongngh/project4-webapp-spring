@@ -1110,31 +1110,5 @@
                 </div>
             </div>
         </div>
-        <!-- LiST CHAT -->
-        <div class="col-2 col-sm-2 col-md-1 list-friends rounded">
-            <div id="three">
-                <div style="margin-left: -3px">
-                    <a class="btn-up "><i class="fa fa-chevron-circle-up " aria-hidden="true "></i></a>
-                </div>
-                <div class="box ">
-                    <div>
-                        <a href="# "><img src="/image/avatar/talin.JPG " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                    <div>
-                        <a href="# "><img src="/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                    <div>
-                        <a href="# "><img src="/image/avatar/unnamed.png " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                    <div>
-                        <a href="# "><img src="/image/avatar/Hot-Food-Logo-991x991.jpg " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                </div>
-                <div style="margin-left: -3px">
-                    <a class="btn-down "><i class="fa fa-chevron-circle-down "  aria-hidden="true "></i></a>
-                </div>
-            </div>
-        </div>
-
-    </div>
+       
     <%@include  file="footer.jsp" %>
