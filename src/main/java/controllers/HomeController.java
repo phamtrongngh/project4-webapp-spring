@@ -7,6 +7,7 @@
 package controllers;
 
 import java.io.IOException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +20,7 @@ public class HomeController implements IController{
 
     @Override
     public ModelAndView getAll() throws IOException {
+
         return new ModelAndView("index");
     }
 
