@@ -21,8 +21,8 @@ public class RESTHelper<T> {
 
     private WebTarget webTarget;
     private Client client;
-    private final String BASE_URI;
-    private final ObjectMapper mapper;
+    private String BASE_URI;
+    private ObjectMapper mapper;
 
     public RESTHelper(Class<T> aClazz) throws InstantiationException, IllegalAccessException {
         client = ClientBuilder.newClient();
