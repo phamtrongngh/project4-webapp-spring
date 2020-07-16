@@ -46,7 +46,7 @@ public class AuthController implements IController<Authorization> {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
-        return new ModelAndView("login");
+        return new ModelAndView("index");
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)

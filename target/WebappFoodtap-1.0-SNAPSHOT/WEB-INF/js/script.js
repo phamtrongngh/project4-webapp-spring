@@ -3,6 +3,7 @@
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
+        $(".img-logo").css("opacity","0.2");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
     }
