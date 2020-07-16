@@ -5,6 +5,7 @@
 <!--Content-->
 <div class="container" style="margin-top: 100px">
     <div class="row">
+        <h1>${test}</h1>
         <!-- ORDER -->
         <div class="col-sm-12 col-md-2 ">
             <div id="one" >
