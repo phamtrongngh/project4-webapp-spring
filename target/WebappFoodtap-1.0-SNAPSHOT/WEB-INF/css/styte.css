@@ -565,7 +565,7 @@ p {
 
 .order-fix {
     position: fixed;
-    max-width: 10.666667%;
+    max-width: 12%;
 }
 .order-fix-mobile {
     display: flex;
