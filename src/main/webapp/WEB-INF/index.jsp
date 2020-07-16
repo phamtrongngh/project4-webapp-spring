@@ -9,17 +9,17 @@
         <!-- ORDER -->
         <div class="col-sm-12 col-md-2 ">
             <div id="one" >
-                <div>
+                <div id="left-menu">
                     <a href="#"><img class="rounded img-order" src="image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                         <div class="rounded photo">
                             <div>
-                                Khám phá món ngon
+                                Khám phá <br/>món ngon
                             </div>
 
                         </div>
                     </a>
                 </div>
-                <div style="margin-top: 20px">
+                <div id="left-menu" style="margin-top: 20px">
                     <a href="#"><img class="rounded img-order" src="image/Background/set-of-children-eating-together-vector-22784582.jpg" alt="" />
                         <div class="rounded photo ">
                             <div>
@@ -28,21 +28,21 @@
                         </div>
                     </a>
                 </div>
-                <div style="margin-top: 20px">
+                <div id="left-menu" style="margin-top: 20px">
                     <a href="#"><img class="rounded img-order" src="image/Background/street-food-trailer-food-truck-cartoon-vector-19682966.jpg" alt="" />
                         <div class="rounded photo ">
 
-                            Gian hàng <br/> của tôi
+                            Gian hàng<br/> của tôi
 
                         </div>
                     </a>
                 </div>
-                <div style="margin-top: 20px">
+                <div id="left-menu" style="margin-top: 20px">
                     <a href="#"><img class="rounded img-order" src="image/Background/sale-tag-icon-flat-cartoon-discount-label-vector-23608810.jpg" alt="" />
 
                         <div class="rounded photo ">
                             <div>
-                                Phiếu ăn <br/> giảm giá
+                                Phiếu ăn<br/>giảm giá
                             </div>
                         </div>
                     </a>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <!-- STATUS -->
-        <div class="col-10 col-sm-10 col-md-9">
+        <div class="col-12 col-sm-12 col-md-9">
             <div class="rounded status">
                 <div class="alignment">
                     <div class="media">

@@ -3,6 +3,7 @@
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
+        $(".img-logo").css("opacity", "0.2");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
     }
@@ -19,25 +20,62 @@ window.onscroll = function() {
 };
 
 //Ajax call function
-function callAjax(url, type, data) {
+function callAjax(url, type, data, fn) {
     $.ajax({
         url: url,
         type: type,
-        data: data
+        data: data,
+        success: fn
     })
 }
 function getIdOfAnElement(className) {
     return $(className)[0].className.split(" ")[$(className)[0].className.split(" ").length - 1];
 }
+function getSenderBox(message) {
+    var senderBox = '<div class="d-flex justify-content-end mb-4">';
+    senderBox += '<div class="msg-cotainer-send">';
+    senderBox += message.content;
+    senderBox += '<br/>'
+    senderBox += '<span class="msg-time-send">' + message.createAt + '</span>';
+    senderBox += '</div>';
+    senderBox += '</div>';
+    return senderBox;
+}
+
+function getReceiveBox(message) {
+    var receiveBox = '<div class="d-flex justify-content-start mb-4">';
+    receiveBox += '<div class="img-cont-msg">';
+    receiveBox += '<img src="/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img-msg" />'
+    receiveBox += '</div>'
+    receiveBox += '<div class="msg-cotainer">'
+    receiveBox += message.content;
+    receiveBox += '<br/>';
+    receiveBox += '<span class="msg-time">' + message.createAt + '</span>';
+    receiveBox += '</div>';
+    receiveBox += '</div>';
+    return receiveBox;
+}
+
 $(document).ready(function() {
     //Click to show conservation
     $(".contacts-body .contacts li").click(function() {
-        var array = this.className.split(" ");
-        var id = array[array.length - 1];
+        var id = $(this).attr("idValue");
+        var chatBox = $(".card-body.msg-card-body");
+        var chatBoxvalue = "";
         $(".send-btn")[0].className = "input-group-text send-btn " + id;
-        callAjax("/message/" + id, "GET");
+        callAjax("/message/" + id, "GET", null, function(data) {
+            data.forEach(function(item) {
+                if (item.sender == id) {
+                    chatBoxvalue += getSenderBox(item);
+                }
+                else {
+                    chatBoxvalue += getReceiveBox(item);
+                }
+            });
+            $(".card-body.msg-card-body").html(chatBoxvalue);
+        });
     })
-    
+
     //Send message
     $(".send-btn").click(function() {
         if ($(".type-msg").val()) {
@@ -46,7 +84,7 @@ $(document).ready(function() {
                 content: $(".type-msg").val(),
                 messageType: "text"
             }
-            callAjax("/message/","POST",message);
+            callAjax("/message/", "POST", message);
         }
 
     })
@@ -73,7 +111,7 @@ $(document).ready(function() {
 
     });
     $(".btn-down").click(function() {
-        $(".list-friends").css("background-color", "white")
+        $("#three").css("background-color", "white")
         $(".box").slideDown();
 
     });
@@ -83,22 +121,15 @@ $(document).ready(function() {
         var pos_body = $('html,body').scrollTop();
         var h = $(window).width();
 
-        // console.log(pos_body);
         if (pos_body > 20 && h > 768) {
             $('#one').addClass("order-fix");
             $('#three').addClass("list-friend-fix");
 
 
-        } else if (pos_body > 20 && h > 414 && h <= 768) {
-            $('#one').addClass("order-fix");
-            $('#three').addClass("list-friend-fix");
-
-
-        } else if (pos_body > 700 && h <= 414) {
-
-            $('#three').addClass("list-friend-fix-sm");
         } else {
-            $('#three').removeClass("list-friend-fix-sm");
+            $('#three').removeClass("list-friend-fix");
+            $('#one').removeClass("order-fix");
+
         }
 
     });
