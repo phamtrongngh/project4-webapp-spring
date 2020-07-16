@@ -39,7 +39,7 @@ $(document).ready(function() {
 
     });
     $(".btn-down").click(function() {
-        $(".list-friends").css("background-color", "white")
+        $("#three").css("background-color", "white")
         $(".box").slideDown();
 
     });
