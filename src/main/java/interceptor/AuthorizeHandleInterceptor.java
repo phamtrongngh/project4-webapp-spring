@@ -32,6 +32,7 @@ public class AuthorizeHandleInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView mav) throws Exception {
+        
     }
 
     @Override

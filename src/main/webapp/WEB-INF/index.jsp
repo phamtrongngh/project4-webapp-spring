@@ -5,6 +5,7 @@
 <!--Content-->
 <div class="container" style="margin-top: 100px">
     <div class="row">
+        <h1>${test}</h1>
         <!-- ORDER -->
         <div class="col-sm-12 col-md-2 ">
             <div id="one" >
@@ -288,7 +289,7 @@
                                 </div>
                                 <p>Mem mem<br/>
                                     <a href="#">Thích</a>
-                                    <a href="#" data-toggle="collapse" data-target="#reply1" 5>Trả lời</a>
+                                    <a href="#" data-toggle="collapse" data-target="#reply1" >Trả lời</a>
                                 <div id="reply1" class="collapse">
                                     <div class="input-group" style="margin-left: -60px;">
                                         <a class="pull-left " href="# ">

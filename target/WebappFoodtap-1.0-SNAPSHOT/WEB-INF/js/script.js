@@ -19,6 +19,40 @@ window.onscroll = function() {
     scrollFunction()
 };
 
+//Ajax call function
+function callAjax(url, type, data) {
+    $.ajax({
+        url: url,
+        type: type,
+        data: data
+    })
+}
+function getIdOfAnElement(className) {
+    return $(className)[0].className.split(" ")[$(className)[0].className.split(" ").length - 1];
+}
+$(document).ready(function() {
+    //Click to show conservation
+    $(".contacts-body .contacts li").click(function() {
+        var array = this.className.split(" ");
+        var id = array[array.length - 1];
+        $(".send-btn")[0].className = "input-group-text send-btn " + id;
+        callAjax("/message/" + id, "GET");
+    })
+    
+    //Send message
+    $(".send-btn").click(function() {
+        if ($(".type-msg").val()) {
+            var message = {
+                receiver: getIdOfAnElement(".send-btn"),
+                content: $(".type-msg").val(),
+                messageType: "text"
+            }
+            callAjax("/message/","POST",message);
+        }
+
+    })
+})
+
 function scrollFunction() {
     if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
         mybutton.style.display = "block";
@@ -150,7 +184,7 @@ $(document).ready(function() {
 //              <input class="cart-quantity-input" type="number" value="1">
 //              <button class="btn btn-danger" type="button">REMOVE</button>
 //          </div>'
-          
+
         cartRow.innerHTML = cartRowContents
         cartItems.append(cartRow)
         cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
