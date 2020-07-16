@@ -4,6 +4,7 @@ import Nghia.Util.CookieHelper;
 import Nghia.Util.RESTAuthorizeHelper;
 import Nghia.Util.RESTHelper;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +36,7 @@ public class AuthController implements IController<Authorization> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public ModelAndView put(Authorization authorization) throws IOException {
+    public ModelAndView put(HttpServletRequest request ,Authorization authorization) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -84,5 +85,21 @@ public class AuthController implements IController<Authorization> {
     public ModelAndView register() {
         return new ModelAndView("register");
     }
-
+    
+    @RequestMapping(value = "/Authorize/register", method = RequestMethod.POST)
+    public ModelAndView register(Authorization authorization, HttpServletRequest request) throws IOException{
+        
+        Map<String, String> address = new HashMap<>();
+        authorization.setPhone(request.getParameter("phone").toString());
+        authorization.setPassword(request.getParameter("password").toString());
+        authorization.setGender(Boolean.getBoolean(request.getParameter("gender").toString()));
+        authorization.setFullname(request.getParameter("fullname").toString());
+        address.put("city", request.getParameter("city"));
+        address.put("town", request.getParameter("town"));
+        address.put("ward", request.getParameter("ward"));
+        address.put("street", request.getParameter("street"));
+        authorization.setAddress(address);
+        rest.postRegister(authorization);
+        return new ModelAndView("login");
+    }
 }

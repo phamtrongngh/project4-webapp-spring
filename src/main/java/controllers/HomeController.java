@@ -7,6 +7,7 @@
 package controllers;
 
 import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,8 +38,9 @@ public class HomeController implements IController{
     }
 
     @Override
-    public ModelAndView put(Object t) throws IOException {
+    public ModelAndView put(HttpServletRequest request, Object t) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }

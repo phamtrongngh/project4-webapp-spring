@@ -4,13 +4,13 @@
 
 <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
 <!--Content-->
-<div class="container">
+<div class="container" style="margin-top: 100px">
     <div class="row">
         <!-- Menu of food -->
         <div class="col-10 col-sm-10 col-md-11">
-            <div class="profile-introduction">
+            <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div class="profile-container">
+                    <div class="profile-container-img">
                         <img src="/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
                     </div>
                     <div class="profile-name">
@@ -49,7 +49,7 @@
                     <div><button class="btn btn-success form-control">Giới thiệu</button></div>
                     <div><button class="btn btn-danger form-control">Báo cáo</button></div>
                 </div>
-                <div class="col-md-2 btn-sendmess" style="padding-right: 0 !important;">
+                <div class="col-md-2 container-sendmess" style="padding-right: 0 !important;">
                     <button class="btn btn-primary "><i class="far fa-comment"></i><br/>Gửi tin</button>
                 </div>
             </div>
