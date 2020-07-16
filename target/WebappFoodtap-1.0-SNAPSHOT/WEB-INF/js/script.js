@@ -16,7 +16,7 @@ mybutton = document.getElementById("myBtn");
 
 // // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {
-    scrollFunction()
+    scrollFunction();
 };
 
 //Ajax call function
@@ -26,28 +26,25 @@ function callAjax(url, type, data, fn) {
         type: type,
         data: data,
         success: fn
-    })
+    });
 }
-function getIdOfAnElement(className) {
-    return $(className)[0].className.split(" ")[$(className)[0].className.split(" ").length - 1];
-}
-function getSenderBox(message) {
+function getReceiveBox(message) {
     var senderBox = '<div class="d-flex justify-content-end mb-4">';
     senderBox += '<div class="msg-cotainer-send">';
     senderBox += message.content;
-    senderBox += '<br/>'
+    senderBox += '<br/>';
     senderBox += '<span class="msg-time-send">' + message.createAt + '</span>';
     senderBox += '</div>';
     senderBox += '</div>';
     return senderBox;
 }
 
-function getReceiveBox(message) {
+function getSenderBox(message) {
     var receiveBox = '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
-    receiveBox += '<img src="/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img-msg" />'
-    receiveBox += '</div>'
-    receiveBox += '<div class="msg-cotainer">'
+    receiveBox += '<img src="/image/avatar/'+message.avatar+'" class="rounded-circle user-img-msg" />';
+    receiveBox += '</div>';
+    receiveBox += '<div class="msg-cotainer">';
     receiveBox += message.content;
     receiveBox += '<br/>';
     receiveBox += '<span class="msg-time">' + message.createAt + '</span>';
@@ -62,7 +59,7 @@ $(document).ready(function() {
         var id = $(this).attr("idValue");
         var chatBox = $(".card-body.msg-card-body");
         var chatBoxvalue = "";
-        $(".send-btn")[0].className = "input-group-text send-btn " + id;
+        $(".send-btn").attr("idValue",id)
         callAjax("/message/" + id, "GET", null, function(data) {
             data.forEach(function(item) {
                 if (item.sender == id) {
@@ -80,7 +77,7 @@ $(document).ready(function() {
     $(".send-btn").click(function() {
         if ($(".type-msg").val()) {
             var message = {
-                receiver: getIdOfAnElement(".send-btn"),
+                receiver: $(this).attr("idValue"),
                 content: $(".type-msg").val(),
                 messageType: "text"
             }
