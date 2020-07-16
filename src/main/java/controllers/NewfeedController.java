@@ -48,6 +48,7 @@ public class NewfeedController implements IController<Newfeed> {
     }
 
     @RequestMapping(value = "/newfeed/postNewfeed", method = RequestMethod.POST)
+    @Override
     public ModelAndView post(Newfeed newfeed, HttpServletResponse response) throws IOException {
         restHelper.post(newfeed);
         return getAll();
@@ -62,7 +63,8 @@ public class NewfeedController implements IController<Newfeed> {
 
     @RequestMapping(value = "/newfeed/postUpdate", method = RequestMethod.POST)
     @Override
-    public ModelAndView put(Newfeed newfeed) throws IOException {
+    public ModelAndView put(HttpServletRequest request ,Newfeed newfeed) throws IOException {
+        newfeed.set_id(request.getParameter("id").toString());
         restHelper.put(newfeed);
         return getAll();
     }

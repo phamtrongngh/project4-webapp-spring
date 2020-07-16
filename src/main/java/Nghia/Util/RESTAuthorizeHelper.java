@@ -44,4 +44,15 @@ public class RESTAuthorizeHelper<T> {
         });
         return tmpObject;
     }
+    
+    public Map<String, T> postRegister(T t) throws IOException {
+        String urlRegister = BASE_URI + "register";
+        webTarget = client.target(urlRegister);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.entity(t, MediaType.APPLICATION_JSON), String.class);
+        Map<String, T> tmpObject = mapper.readValue(string, new TypeReference<Map<String, T>>() {
+        });
+        return tmpObject;
+    }
 }

@@ -28,11 +28,16 @@ public class ProductController implements IController<Product> {
         restHelper = new RESTHelper(Product.class);
     }
 
+    @RequestMapping(value = "/cart", method = RequestMethod.GET)
+    public ModelAndView cart() throws IOException {
+        return new ModelAndView("cart");
+    }
+    
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index() throws IOException {
-        return getAll();
+        return new ModelAndView("index");
     }
-
+    
     @RequestMapping(value = "/product", method = RequestMethod.GET)
     @Override
     public ModelAndView getAll() throws IOException {
@@ -60,24 +65,18 @@ public class ProductController implements IController<Product> {
     }
 
     @RequestMapping(value = "/product/postUpdate", method = RequestMethod.POST)
-    public ModelAndView put(Product product) throws IOException {
-//        Product product = new Product();
-//        product.set_id(request.getParameter("id").toString());
-//        product.setName(request.getParameter("name").toString());
-//        product.setPrice(Double.parseDouble(request.getParameter("price").toString()));
-//        restHelper.put(product);
+    @Override
+    public ModelAndView put(HttpServletRequest request, Product product) throws IOException {
+        product.set_id(request.getParameter("id").toString());
+        restHelper.put(product);
         return getAll();
     }
 
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
     @Override
-    public ModelAndView post(Product product,HttpServletResponse response) throws IOException {
-//        Product product = new Product();
-//        product.setName(request.getParameter("name").toString());
-//        product.setPrice(Double.parseDouble(request.getParameter("price").toString()));
-//        restHelper.post(product);
+    public ModelAndView post(Product product, HttpServletResponse response) throws IOException {
+        restHelper.post(product);
         return getAll();
     }
-
 
 }
