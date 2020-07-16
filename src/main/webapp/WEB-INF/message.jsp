@@ -94,7 +94,7 @@
                                     <li class="dropdown-item"><i class="fas fa-user-circle"></i> View profile</li>
                                 </a>
                                 <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-users"></i> Add to close friends</li>
+                                    <li class="dropdown-item"><i class="fas fa-users"></i> Add to friends</li>
                                 </a>
                                 <a href="#">
                                     <li class="dropdown-item"><i class="fas fa-plus"></i> Add to group</li>
