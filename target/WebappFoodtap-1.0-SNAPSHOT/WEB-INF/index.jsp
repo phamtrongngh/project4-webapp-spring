@@ -12,7 +12,7 @@
                     <a href="#"><img class="rounded img-order" src="image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                         <div class="rounded photo">
                             <div>
-                                Khám phá món ngon
+                                Khám phá <br/>món ngon
                             </div>
 
                         </div>
@@ -22,7 +22,7 @@
                     <a href="#"><img class="rounded img-order" src="image/Background/set-of-children-eating-together-vector-22784582.jpg" alt="" />
                         <div class="rounded photo ">
                             <div>
-                                Bạn cùng khẩu vị
+                                Bạn cùng<br/> khẩu vị
                             </div>
                         </div>
                     </a>
@@ -31,7 +31,7 @@
                     <a href="#"><img class="rounded img-order" src="image/Background/street-food-trailer-food-truck-cartoon-vector-19682966.jpg" alt="" />
                         <div class="rounded photo ">
 
-                            Gian hàng của tôi
+                            Gian hàng<br/> của tôi
 
                         </div>
                     </a>
@@ -41,7 +41,7 @@
 
                         <div class="rounded photo ">
                             <div>
-                                Phiếu ăn giảm giá
+                                Phiếu ăn<br/>giảm giá
                             </div>
                         </div>
                     </a>
