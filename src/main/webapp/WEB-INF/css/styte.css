@@ -22,7 +22,7 @@ label {
 #myBtn {
     position: fixed;
     z-index: 999;
-    right: 12px;
+    left: 50px;
     bottom: 12px;
     width: 42px;
     height: 42px;
@@ -43,7 +43,112 @@ label {
     }
 }
 
+/* popup chat */
+#sidebar-user-box span{
+    display: none;
+}
+.msg_box {
+    position: fixed;
+    bottom: -5px;
+    width: 20%;
+    background: white;
+    border-radius: 5px 5px 0px 0px;
+}
 
+.msg_head {
+    background: #da484a;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.msg_body {
+    background: white;
+    height: 200px;
+    font-size: 12px;
+    padding: 15px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+
+.close {
+    float: right;
+    cursor: pointer;
+    color: white;
+    opacity: 1;
+    margin-top: -3px;
+}
+
+.minimize {
+    float: right;
+    cursor: pointer;
+    padding-right: 5px;
+}
+
+.msg-left {
+    position: relative;
+    background: #e2e2e2;
+    padding: 5px;
+    min-height: 10px;
+    margin-bottom: 5px;
+    margin-right: 100px;
+    border-radius: 5px;
+    word-break: break-all;
+}
+
+.msg-right {
+    background: #d4e7fa;
+    padding: 5px;
+    min-height: 15px;
+    margin-bottom: 5px;
+    position: relative;
+    margin-left: 100px;
+    border-radius: 5px;
+    word-break: break-all;
+}
+.msg_footer > textarea {
+    border-bottom: 1px solid #b2b2b2 !important;
+    height: 34px !important;
+    margin: 7px;
+    padding: 5px !important;
+     border: medium none;
+    width: 95% !important;
+    overflow: hidden;
+}
+.msg_footer > textarea:focus{
+    outline: none;
+}
+.msg_footer .btn-footer {
+    overflow: hidden;
+    padding: 2px 5px 10px 6px;
+    width: 100%;
+}
+.bg_none i {
+    border: 1px solid #da484a;
+    border-radius: 25px;
+    color: #da484a;
+    font-size: 17px;
+    height: 33px;
+    line-height: 30px;
+    width: 33px;
+    transition: .5s ease;
+}
+.bg_none:hover i {
+    border: 1px solid #000;
+    border-radius: 25px;
+    color: #000;
+    font-size: 17px;
+    height: 33px;
+    line-height: 30px;
+    width: 33px;
+}
+.bg_none {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+}
 /* 1) INDEX PAGE */
 
 
@@ -1771,7 +1876,7 @@ input[type="radio"]:checked {
 #myCart {
     position: fixed;
     z-index: 999;
-    right: 53px;
+    left: 30px;
     bottom: 90px;
     width: 60px;
     height: 60px;

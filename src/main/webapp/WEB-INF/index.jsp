@@ -1049,20 +1049,24 @@
                 <div>
                     <a class="btn-up "><i class="fa fa-chevron-circle-up " aria-hidden="true "></i></a>
                 </div>
-                <div class="box ">
-                    <div>
-                        <a href="# "><img src="image/avatar/talin.JPG " class="rounded-circle img-avatar1 " alt=" "></a>
+               <div class="box" id="chat-sidebar">
+                        <div id="sidebar-user-box" class="100">
+                            <img src="image/avatar/talin.JPG " class="rounded-circle img-avatar1 " />
+                            <span id="slider-username">Sumit Kumar Pradhan </span>
+                        </div>
+                        <div id="sidebar-user-box" class="101">
+                            <img src="image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png " class="rounded-circle img-avatar1 " alt=" " />
+                            <span id="slider-username">Amit Singh </span>
+                        </div>
+                        <div id="sidebar-user-box" class="102">
+                            <img src="image/avatar/unnamed.png " class="rounded-circle img-avatar1 " alt=" " />
+                            <span id="slider-username">Pragaya Mishra </span>
+                        </div>
+                        <div id="sidebar-user-box" class="103">
+                            <img src="image/avatar/Hot-Food-Logo-991x991.jpg " class="rounded-circle img-avatar1 " alt=" " />
+                            <span id="slider-username">Neeraj Tiwari </span>
+                        </div>
                     </div>
-                    <div>
-                        <a href="# "><img src="image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                    <div>
-                        <a href="# "><img src="image/avatar/unnamed.png " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                    <div>
-                        <a href="# "><img src="image/avatar/Hot-Food-Logo-991x991.jpg " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                </div>
                 <div>
                     <a class="btn-down "><i class="fa fa-chevron-circle-down "  aria-hidden="true "></i></a>
                 </div>
