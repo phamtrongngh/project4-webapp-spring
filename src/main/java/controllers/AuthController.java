@@ -88,7 +88,6 @@ public class AuthController implements IController<Authorization> {
     
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView register(Authorization authorization, HttpServletRequest request) throws IOException{
-        
         Map<String, String> address = new HashMap<>();
         authorization.setPhone(request.getParameter("phone").toString());
         authorization.setPassword(request.getParameter("password").toString());
