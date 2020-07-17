@@ -6,6 +6,7 @@ $(window).scroll(function() {
         $(".img-logo").css("opacity","0.2");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        $(".img-logo").css("opacity","1");
     }
 });
 
@@ -87,12 +88,13 @@ $(document).ready(function() {
         if (pos_body > 20 && h>768) {
             $('#one').addClass("order-fix");
             $('#three').addClass("list-friend-fix");
+            $('#four').addClass("mission-fix");
 
 
         } else {
             $('#three').removeClass("list-friend-fix");
             $('#one').removeClass("order-fix");
-            
+            $('#four').removeClass("mission-fix");
         } 
 
     });
