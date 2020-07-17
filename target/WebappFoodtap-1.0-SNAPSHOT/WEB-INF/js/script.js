@@ -25,27 +25,26 @@ function scrollFunction() {
         mybutton.style.display = "none";
     }
 }
-
-// // When the user clicks on the button, scroll to the top of the document
+// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+//Buttom slideToggle
 $(document).ready(function() {
-    $(".btn-up ").click(function() {
-        $(".list-friends").css("background", "none");
-        $(".box").slideUp();
 
-
+    $(".btn-up").click(function() {
+        $('.box').slideToggle();
     });
-    $(".btn-down").click(function() {
-        $(".list-friends").css("background-color", "white")
-        $(".box").slideDown();
-
+    $('.box').find('div#sidebar-user-box:gt(2)').hide();
+    $('.viewMore, .viewLess').click(function(e) {
+        e.preventDefault();
+        $('.box').find('div#sidebar-user-box:gt(2)').slideToggle(500);
     });
+
 });
 $(document).ready(function() {
-    $(window).scroll(function(event) {
+    $(window).scroll(function() {
         var pos_body = $('html,body').scrollTop();
         var h = $(window).width();
 
