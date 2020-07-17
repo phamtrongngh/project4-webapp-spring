@@ -227,19 +227,19 @@ ul.navbar-nav li.nav-item {
 }
 
 .subicon1 .fa-utensils {
-    color: red;
+    color: #da484a;
     margin-right: 130px;
     font-size: 30px;
 }
 
 .subicon1 .fa-comment {
     margin-left: 130px;
-    color: red;
+    color: #da484a;
     font-size: 30px;
 }
 
 .subicon1 .fa-heart {
-    color: red;
+    color: #da484a;
     font-size: 30px;
 }
 
@@ -520,12 +520,12 @@ h1 {
 .fa-chevron-circle-up {
     font-size: 30px;
     
-    color: red;
+    color: #da484a;
     transition: 0.5s ease;
 }
 
 .fa-chevron-circle-up:hover {
-    color: red;
+    color: #da484a;
     cursor: pointer;
 }
 
@@ -1852,3 +1852,28 @@ input[type="radio"]:checked {
 /* Load post */
 .loading { color: red; }
 .scrollpane { height: 100px; overflow: auto; width: 200px; }
+
+#upload-photo {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+.mission{
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 5px 15px;
+    margin-bottom: 20px;
+}
+.detail-mission{
+    border-bottom: 0.5px solid #c4ccd3;
+}
+.header-mission{
+    background-color: white;
+   padding: 0px 5px;
+   border-radius: 0.2rem;
+    color: #da484a;
+}
+.mission-fix{
+    position: fixed;
+    max-width: 18.7%;
+}
