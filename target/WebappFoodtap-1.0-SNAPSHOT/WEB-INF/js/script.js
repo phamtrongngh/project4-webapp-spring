@@ -3,8 +3,10 @@
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
+        $(".img-logo").css("opacity", "0.2");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        $(".img-logo").css("opacity", "1");
     }
 });
 
@@ -17,6 +19,40 @@ mybutton = document.getElementById("myBtn");
 window.onscroll = function() {
     scrollFunction()
 };
+
+//Ajax call function
+function callAjax(url, type, data) {
+    $.ajax({
+        url: url,
+        type: type,
+        data: data
+    })
+}
+function getIdOfAnElement(className) {
+    return $(className)[0].className.split(" ")[$(className)[0].className.split(" ").length - 1];
+}
+$(document).ready(function() {
+    //Click to show conservation
+    $(".contacts-body .contacts li").click(function() {
+        var array = this.className.split(" ");
+        var id = array[array.length - 1];
+        $(".send-btn")[0].className = "input-group-text send-btn " + id;
+        callAjax("/message/" + id, "GET");
+    })
+
+    //Send message
+    $(".send-btn").click(function() {
+        if ($(".type-msg").val()) {
+            var message = {
+                receiver: getIdOfAnElement(".send-btn"),
+                content: $(".type-msg").val(),
+                messageType: "text"
+            }
+            callAjax("/message/", "POST", message);
+        }
+
+    })
+})
 
 function scrollFunction() {
     if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
@@ -41,29 +77,29 @@ $(document).ready(function() {
         e.preventDefault();
         $('.box').find('div#sidebar-user-box:gt(2)').slideToggle(500);
     });
+    $(".btn-down").click(function() {
+        $("#three").css("background-color", "white")
+        $(".box").slideDown();
+
+    });
 
 });
 $(document).ready(function() {
-    $(window).scroll(function() {
+
+    $(window).scroll(function(event) {
         var pos_body = $('html,body').scrollTop();
         var h = $(window).width();
 
-        // console.log(pos_body);
         if (pos_body > 20 && h > 768) {
             $('#one').addClass("order-fix");
             $('#three').addClass("list-friend-fix");
+            $('#four').addClass("mission-fix");
 
 
-        } else if (pos_body > 20 && h > 414 && h <= 768) {
-            $('#one').addClass("order-fix");
-            $('#three').addClass("list-friend-fix");
-
-
-        } else if (pos_body > 700 && h <= 414) {
-
-            $('#three').addClass("list-friend-fix-sm");
         } else {
-            $('#three').removeClass("list-friend-fix-sm");
+            $('#three').removeClass("list-friend-fix");
+            $('#one').removeClass("order-fix");
+            $('#four').removeClass("mission-fix");
         }
 
     });

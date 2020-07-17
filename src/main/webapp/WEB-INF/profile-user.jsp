@@ -90,14 +90,15 @@
                 </div>
                 <div class="col-md-8">
                     <div class="post-store rounded">
-                        <div class="row">
+                        <form class="row" action="/newfeed/postNewfeed" method="POST">
                             <div class="col-md-8 post-content">
-                                <textarea class="rounded" name="" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                             </div>
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</button>
+                                        <label  style="font-size: 12px;" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+                                        <input type="file"  id="upload-photo"/>
                                     </div>
                                     <div class="col-md-6">
                                         <button class="btn btn-success" style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
@@ -113,7 +114,7 @@
                                     <button class="btn btn-primary">Đăng</button>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                      <div class="rounded status">
                     <div class="alignment">

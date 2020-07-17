@@ -54,9 +54,9 @@
                 </div>
             </div>
             <div class="post-store">
-                <div class="row">
+                <form class="row" action="/newfeed/postNewfeed">
                     <div class="col-md-8 post-content">
-                        <textarea name="" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                        <textarea name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                     </div>
                     <div class="col-md-4">
                         <div class="row">
@@ -77,7 +77,7 @@
                             <button class="btn btn-primary">Đăng</button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="profile-menu">
                 <div class="col-md-1">Danh mục sản phẩm</div>
