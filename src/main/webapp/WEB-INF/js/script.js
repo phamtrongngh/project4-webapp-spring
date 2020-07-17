@@ -3,10 +3,10 @@
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
-        $(".img-logo").css("opacity","0.2");
+        $(".img-logo").css("opacity", "0.2");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
-        $(".img-logo").css("opacity","1");
+        $(".img-logo").css("opacity", "1");
     }
 });
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
         $(".send-btn")[0].className = "input-group-text send-btn " + id;
         callAjax("/message/" + id, "GET");
     })
-    
+
     //Send message
     $(".send-btn").click(function() {
         if ($(".type-msg").val()) {
@@ -48,7 +48,7 @@ $(document).ready(function() {
                 content: $(".type-msg").val(),
                 messageType: "text"
             }
-            callAjax("/message/","POST",message);
+            callAjax("/message/", "POST", message);
         }
 
     })
@@ -61,31 +61,36 @@ function scrollFunction() {
         mybutton.style.display = "none";
     }
 }
-
-// // When the user clicks on the button, scroll to the top of the document
+// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+//Buttom slideToggle
 $(document).ready(function() {
-    $(".btn-up ").click(function() {
-        $(".list-friends").css("background", "none");
-        $(".box").slideUp();
 
-
+    $(".btn-up").click(function() {
+        $('.box').slideToggle();
+    });
+    $('.box').find('div#sidebar-user-box:gt(2)').hide();
+    $('.viewMore, .viewLess').click(function(e) {
+        e.preventDefault();
+        $('.box').find('div#sidebar-user-box:gt(2)').slideToggle(500);
     });
     $(".btn-down").click(function() {
         $("#three").css("background-color", "white")
         $(".box").slideDown();
 
     });
+
 });
 $(document).ready(function() {
+
     $(window).scroll(function(event) {
-        var pos_body = $('html,body').scrollTop(); 
+        var pos_body = $('html,body').scrollTop();
         var h = $(window).width();
-        
-        if (pos_body > 20 && h>768) {
+
+        if (pos_body > 20 && h > 768) {
             $('#one').addClass("order-fix");
             $('#three').addClass("list-friend-fix");
             $('#four').addClass("mission-fix");
@@ -95,7 +100,7 @@ $(document).ready(function() {
             $('#three').removeClass("list-friend-fix");
             $('#one').removeClass("order-fix");
             $('#four').removeClass("mission-fix");
-        } 
+        }
 
     });
 
@@ -272,3 +277,76 @@ $(document).ready(function() {
 //         }
 //     });
 // });
+//Popup chat
+$(document).ready(function() {
+
+    var arr = []; // List of users 
+
+    $(document).on('click', '.msg_head', function() {
+        var chatbox = $(this).parents().attr("rel");
+        $('[rel="' + chatbox + '"] .msg_wrap').slideToggle('slow');
+        return false;
+    });
+
+
+    $(document).on('click', '.close', function() {
+        var chatbox = $(this).parents().parents().attr("rel");
+        $('[rel="' + chatbox + '"]').hide();
+        arr.splice($.inArray(chatbox, arr), 1);
+        displayChatBox();
+        return false;
+    });
+
+    $(document).on('click', '#sidebar-user-box', function() {
+
+        var userID = $(this).attr("class");
+        var username = $(this).children().text();
+
+        if ($.inArray(userID, arr) != -1) {
+            arr.splice($.inArray(userID, arr), 1);
+        }
+
+        arr.unshift(userID);
+        chatPopup = '<div class="msg_box" style="right:270px" rel="' + userID + '">' +
+                '<div class="msg_head">' + username +
+                '<div class="close">x</div> </div>' +
+                '<div class="msg_wrap"> <div class="msg_body"> <div class="msg_push"></div> </div>' +
+                '<div class="msg_footer"><textarea class="msg_input" rows="10"></textarea><div class="btn-footer">\n\
+<button class="bg_none"><i class="fas fa-image"></i></button>\n\
+<button class="bg_none"><i class="fas fa-plus"></i></button>\n\
+<button class="bg_none pull-right"><i class="fas fa-thumbs-up"></i> </button> \n\
+</div></div></div></div>';
+
+        $("body").append(chatPopup);
+        displayChatBox();
+    });
+
+
+    $(document).on('keypress', 'textarea', function(e) {
+        if (e.keyCode == 13) {
+            var msg = $(this).val();
+            $(this).val('');
+            if (msg.trim().length != 0) {
+                var chatbox = $(this).parents().parents().parents().attr("rel");
+                $('<div class="msg-right">' + msg + '</div>').insertBefore('[rel="' + chatbox + '"] .msg_push');
+                $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
+            }
+        }
+    });
+
+    function displayChatBox() {
+        i = 270; // start position
+        j = 320; //next position
+
+        $.each(arr, function(index, value) {
+            if (index < 4) {
+                $('[rel="' + value + '"]').css("right", i);
+                $('[rel="' + value + '"]').show();
+                i = i + j;
+            } else {
+                $('[rel="' + value + '"]').hide();
+            }
+        });
+    }
+
+});
