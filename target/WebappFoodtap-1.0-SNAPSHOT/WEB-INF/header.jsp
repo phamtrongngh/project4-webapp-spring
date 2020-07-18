@@ -117,7 +117,7 @@
                                 <div>12:00</div>
                             </div>
                             <div class="messenger-footer">
-                                <span><a  href="#">Xem tất cả</a></span>
+                                <span><a  href="/message/">Xem tất cả</a></span>
                                 <span style="float: right;"><a href="#">Đánh dấu đã đọc tất cả</a></span>
                             </div>
                         </div>

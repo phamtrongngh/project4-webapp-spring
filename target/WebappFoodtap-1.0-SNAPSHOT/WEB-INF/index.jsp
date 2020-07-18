@@ -30,10 +30,10 @@
                     </a>
                 </div>
                 <div id="left-menu" style="margin-top: 20px">
-                    <a href="#"><img class="rounded img-order" src="image/Background/street-food-trailer-food-truck-cartoon-vector-19682966.jpg" alt="" />
+                    <a href="/mystore"><img class="rounded img-order" src="image/Background/street-food-trailer-food-truck-cartoon-vector-19682966.jpg" alt="" />
                         <div class="rounded photo ">
 
-                            Gian hàng<br/> của tôi
+                            Cửa hàng<br/> của tôi
 
                         </div>
                     </a>
