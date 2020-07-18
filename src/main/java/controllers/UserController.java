@@ -16,6 +16,10 @@ public class UserController {
     public ModelAndView profile(){
         return new ModelAndView("profile-user");
     }
+    @RequestMapping(value="/myprofile-user")
+    public ModelAndView myprofileuser(){
+        return new ModelAndView("myprofile-user");
+    }
     @RequestMapping(value="/User/statistical")
     public ModelAndView statistical(){
         return new ModelAndView("statistical");
