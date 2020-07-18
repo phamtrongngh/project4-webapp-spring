@@ -116,7 +116,7 @@ label {
     height: 34px !important;
     margin: 7px;
     padding: 5px !important;
-     border: medium none;
+    border: medium none;
     width: 95% !important;
     overflow: hidden;
 }
@@ -1603,6 +1603,7 @@ label.star:before {
     margin-top: 20px;
 }
 
+
 .nav-tabs li a.active {
     background-color: #da484a !important;
     color: white !important;
@@ -1611,12 +1612,7 @@ label.star:before {
 .nav-tabs li a {
     background-color: white !important;
     color: #da484a !important;
-    transition: .5s ease;
-}
-
-.nav-tabs li a:hover {
-    background-color: #da484a !important;
-    color: white !important;
+    border-left: 1px solid  #000 !important;
 }
 
 
@@ -1631,13 +1627,13 @@ label.star:before {
 }
 
 .info-user .input-sđt {
-   margin-left: 60px;
+    margin-left: 60px;
     width: 60%  !important;
 }
 
 .select-city {
-  margin-left: 60px;
-     width: 60%  !important;
+    margin-left: 60px;
+    width: 60%  !important;
 }
 
 .select-district {
@@ -1650,13 +1646,13 @@ label.star:before {
     width: 60%  !important;
 }
 
-.input-address {
-   margin-left: 60px;
-     width: 60%  !important;
+.info-more .input-address {
+    margin-left: 60px;
+    width: 60%  !important;
 }
 
 .input-radio {
- margin-left: 60px;
+    margin-left: 60px;
 }
 
 .input-radio2 {
@@ -1669,12 +1665,12 @@ input[type="radio"]:checked {
 
 .input-date {
     margin-left: 60px;
-       width: 60%!important;
+    width: 60%!important;
 }
 
 .textarea-note {
-      width: 70%;
-   margin-left: 60px;
+    width: 70%;
+    margin-left: 60px;
 }
 
 .info-product {
@@ -1993,3 +1989,52 @@ input[type="radio"]:checked {
     position: fixed;
     max-width: 18.7%;
 }
+//9) Register Store
+.registerstore .tab-pane
+{
+    width: 70% !important;
+}
+.registerstore .tab-content{
+    height: 100%;
+}
+.registerstore .font-margin{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.registerstore .form-group {
+    margin-bottom: 30px;
+    margin-left:  160px;
+}
+.registerstore .form-group .form-control{
+    width: 80% !important;
+}
+.registerstore .form-group.input-phone{
+    margin-left:  0px !important;
+}
+.registerstore .form-group .input-address{
+    margin-left: 32px;
+}
+.registerstore .form-group.container-address{
+    margin-left:  0px !important;}
+.registerstore .form-group.container-city{
+    margin-left: 58px !important;
+}.registerstore .form-group.container-address{
+    margin-left:  15px !important;
+}.registerstore .form-inline select.select-address ,
+.registerstore .form-inline select.select-address-district ,
+.registerstore .form-inline select.select-address-ward {
+    width: 100% !important
+}
+.registerstore .form-group .input-namestore{
+    width: 60% !important;
+    margin-left: 30px;
+}
+.registerstore .form-group .input-info,.registerstore .form-group .select-species{
+    width: 60% !important;
+    margin-left: 5px;
+}
+.gallery{
+    border: 1px solid #ccc;
+    width: 82%;
+}
+//End Register Store
