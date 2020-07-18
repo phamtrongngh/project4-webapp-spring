@@ -37,14 +37,13 @@ public class AuthorizeHandleInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {      
-//        if (CookieHelper.getCookie("accessToken") != "") {
-//            return true;
-//        } else {
-//            response.sendRedirect("/Authorize/login");
-//            return false;
-//        }
+        if (CookieHelper.getCookie("accessToken") != "") {
             return true;
-            
+        } else {
+            response.sendRedirect("/login");
+            return false;
+        }
+//           return true; 
     }
 
 }

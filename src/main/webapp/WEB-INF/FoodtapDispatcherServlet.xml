@@ -20,11 +20,12 @@
         <property name="prefix" value="/WEB-INF/" />
         <property name="suffix" value=".jsp" />
     </bean>
-    <mvc:resources mapping="/**" location="/WEB-INF/"/>
+    <mvc:resources mapping="/public/**" location="/WEB-INF/"/>
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/Authorize/**" />
+            <mvc:exclude-mapping path="/login" />
+            <mvc:exclude-mapping path="/public/**"/>
             <bean class="interceptor.AuthorizeHandleInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
