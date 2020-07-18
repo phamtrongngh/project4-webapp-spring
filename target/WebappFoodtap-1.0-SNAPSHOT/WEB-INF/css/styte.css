@@ -1594,6 +1594,7 @@ label.star:before {
 #order {
     margin-left: -20px;
     margin-top: 20px;
+    max-width: 100% !important;
 }
 
 .nav-tabs li a.active {
@@ -1991,4 +1992,11 @@ input[type="radio"]:checked {
 .count-comment{
     margin-right: 10px;
     color: black;
+}
+.create-DMmenu{
+    margin-top: 100px;
+    padding: 0 160px;
+}
+.form-create-dmmenu{
+   margin-top: 100px;
 }

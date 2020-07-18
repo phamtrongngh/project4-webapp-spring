@@ -48,7 +48,7 @@
                     <li class="nav-item media">
                         <img class="mr-3 rounded-circle img-avatar" src="/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar" />
                         <div class="media-body">
-                            <a href="#">Nghia Pham</a>
+                            <a href="/user-profile/${cookie.idUser.getValue()}">${cookie.inforUser.getValue()}</a>
                         </div>
                     </li>
 
@@ -121,6 +121,12 @@
                                 <span style="float: right;"><a href="#">Đánh dấu đã đọc tất cả</a></span>
                             </div>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <form action="/logout" method="POST">
+                            <a onclick="this.parentNode.submit()" style="color: white;text-decoration: none;"><i class="fas fa-sign-out-alt"></i></a>
+                        </form>
+                        
                     </li>
                 </ul>
             </div>
