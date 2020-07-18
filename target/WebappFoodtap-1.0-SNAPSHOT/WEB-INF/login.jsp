@@ -44,7 +44,7 @@
                     <div class="tab-content " style="height: 100%">
                         <div class="tab-pane container active login-in text-center" id="login"> 
                             <div class="search-background">
-                                <img src="/image/Background/33367357.jpg" width="100%">
+                                <img src="/image/Background/33367357.jpg" width="100%"/>
                             </div>
                             <div class="login-container">
                                 <form class="login-form ">
@@ -62,7 +62,7 @@
                         </div>
                         <div class="tab-pane container fade" id="register">
                             <div class="search-background">
-                                <img src="/image/Background/33367357.jpg" width="100%">
+                                <img src="/image/Background/33367357.jpg" width="100%">/
                             </div>
                             <div class="login-container">
                                 <form class="login-form ">
@@ -80,7 +80,7 @@
                                     <div>
                                         <label >Địa chỉ: </label><br/>
                                         <div class="form-inline ">
-                                            <select class="form-control select-address ">
+                                            <select class="form-control select-address">
                                                 <option value=" " disabled selected>Tỉnh/Thành phố</option>
                                                 <option value="1 ">Option 1</option>
                                                 <option value="2 ">Option 2</option>
@@ -103,7 +103,7 @@
                                                 <option value="2 ">Option 2</option>
                                                 <option value="3 ">Option 3</option>
                                             </select>
-                                            <input type="text" placeholder="Đường, số nhà " class="form-control input-address " />
+                                            <input type="text" placeholder="Đường, số nhà " class="form-control" />
                                         </div>
                                     </div><br/>
                                     <div class="text-center">
