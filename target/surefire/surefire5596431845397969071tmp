@@ -1,0 +1,8 @@
+#surefire
+#Sat Jul 18 15:15:51 ICT 2020
+maven.ext.class.path=C\:\\Program Files\\NetBeans 7.4\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=D\:\\Project\\Project4WebappSpring\\project4-webapp-spring
+localRepository=C\:\\Users\\Admin\\.m2\\repository
+netbeans.deploy=true
+netbeans.deploy.debugmode=true
+basedir=D\:\\Project\\Project4WebappSpring\\project4-webapp-spring

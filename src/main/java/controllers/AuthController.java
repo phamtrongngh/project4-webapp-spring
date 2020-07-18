@@ -99,6 +99,6 @@ public class AuthController implements IController<Authorization> {
         address.put("street", request.getParameter("street"));
         authorization.setAddress(address);
         rest.postRegister(authorization);
-        return new ModelAndView("login");
+        return new ModelAndView("index");
     }
 }

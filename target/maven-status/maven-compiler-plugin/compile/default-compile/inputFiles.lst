@@ -10,7 +10,6 @@ D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\controllers
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\controllers\AuthController.java
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\models\Product.java
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\Nghia\Util\RESTMessageHelper.java
-D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\WebConfig\ApplicationConfiguration.java
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\interceptor\AuthorizeHandleInterceptor.java
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\controllers\UserController.java
 D:\Project\Project4WebappSpring\project4-webapp-spring\src\main\java\controllers\ProductController.java

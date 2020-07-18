@@ -40,11 +40,10 @@ public class AuthorizeHandleInterceptor implements HandlerInterceptor {
 //        if (CookieHelper.getCookie("accessToken") != "") {
 //            return true;
 //        } else {
-//            response.sendRedirect("/Authorize/login");
+//            response.sendRedirect("/login");
 //            return false;
 //        }
-            return true;
-            
+        return true;
     }
 
 }

@@ -54,9 +54,9 @@
                 </div>
             </div>
             <div class="post-store">
-                <div class="row">
+                <form class="row" action="/newfeed/postNewfeed">
                     <div class="col-md-8 post-content">
-                        <textarea name="" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                        <textarea name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                     </div>
                     <div class="col-md-4">
                         <div class="row">
@@ -77,7 +77,7 @@
                             <button class="btn btn-primary">Đăng</button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="profile-menu">
                 <div class="col-md-1">Danh mục sản phẩm</div>
@@ -467,34 +467,5 @@
                 </div>
             </div>
         </div>
-
-        <!-- LiST CHAT -->
-        <div class="col-2 col-sm-2 col-md-1 list-friends rounded">
-            <div id="three">
-                <div>
-                    <a class="btn-up "><i class="fa fa-chevron-circle-up " aria-hidden="true "></i></a>
-                </div>
-                <div class="box ">
-                    <div>
-                        <a href="# "><img src="/image/avatar/talin.JPG " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                    <div>
-                        <a href="# "><img src="/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                    <div>
-                        <a href="# "><img src="/image/avatar/unnamed.png " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                    <div>
-                        <a href="# "><img src="/image/avatar/Hot-Food-Logo-991x991.jpg " class="rounded-circle img-avatar1 " alt=" " /></a>
-                    </div>
-                </div>
-                <div>
-                    <a class="btn-down "><i class="fa fa-chevron-circle-down "  aria-hidden="true "></i></a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 <%@include  file="footer.jsp" %>

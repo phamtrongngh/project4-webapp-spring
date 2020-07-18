@@ -1,7 +1,7 @@
 body {
     background-color: #dee2e6;
     overflow: auto;
-    
+
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .navbar {
@@ -20,7 +20,7 @@ label {
 #myBtn {
     position: fixed;
     z-index: 999;
-    right: 12px;
+    left: 50px;
     bottom: 12px;
     width: 42px;
     height: 42px;
@@ -40,8 +40,110 @@ label {
         bottom: 20px;
     }
 }
+.box{
+    display: none;
+}
+.viewLess {display:none;}
+
+/* popup chat */
+#sidebar-user-box span{
+    display: none;
+}
+.msg_box {
+    position: fixed;
+    bottom: -5px;
+    width: 20%;
+    background: white;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.msg_head {
+    background: #da484a;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.msg_body {
+    background: white;
+    height: 200px;
+    font-size: 12px;
+    padding: 15px;
+    overflow: auto;
+    overflow-x: hidden;
+}
 
 
+.close {
+    float: right;
+    cursor: pointer;
+    color: white;
+    opacity: 1;
+    margin-top: -3px;
+}
+
+.minimize {
+    float: right;
+    cursor: pointer;
+    padding-right: 5px;
+}
+
+.msg-left {
+    position: relative;
+    background: #e2e2e2;
+    padding: 5px;
+    min-height: 10px;
+    margin-bottom: 5px;
+    margin-right: 100px;
+    border-radius: 5px;
+    word-break: break-all;
+}
+
+.msg-right {
+    background: #d4e7fa;
+    padding: 5px;
+    min-height: 15px;
+    margin-bottom: 5px;
+    position: relative;
+    margin-left: 100px;
+    border-radius: 5px;
+    word-break: break-all;
+}
+.msg_footer > textarea {
+    border-bottom: 1px solid #b2b2b2 !important;
+    height: 34px !important;
+    margin: 7px;
+    padding: 5px !important;
+    border: medium none;
+    width: 95% !important;
+    overflow: hidden;
+}
+.msg_footer > textarea:focus{
+    outline: none;
+}
+.msg_footer .btn-footer {
+    overflow: hidden;
+    padding: 2px 5px 10px 6px;
+    width: 100%;
+}
+.bg_none i {
+
+    color: #da484a;
+    font-size: 17px;
+
+    line-height: 30px;
+
+}
+.bg_none:focus {
+    outline: none;
+
+}
+.bg_none {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+}
 /* 1) INDEX PAGE */
 
 
@@ -227,36 +329,36 @@ ul.navbar-nav li.nav-item {
 }
 
 .subicon1 .fa-utensils {
-    color: red;
+    color: #da484a;
     margin-right: 130px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .subicon1 .fa-comment {
     margin-left: 130px;
-    color: red;
-    font-size: 30px;
+    color: #da484a;
+    font-size: 25px;
 }
 
 .subicon1 .fa-heart {
-    color: red;
-    font-size: 30px;
+    color: #da484a;
+    font-size: 25px;
 }
 
 @media (max-width: 768px) {
     .fa-utensils {
         color: red;
         margin-right: 100px;
-        font-size: 30px;
+        font-size: 20px;
     }
     .fa-comment {
         margin-left: 100px;
         color: red;
-        font-size: 30px;
+        font-size: 20px;
     }
     .fa-heart {
         color: red;
-        font-size: 30px;
+        font-size: 20px;
     }
     #one {
         margin-bottom: 20px;
@@ -287,8 +389,8 @@ ul.navbar-nav li.nav-item {
 }
 
 .icon2 {
-    padding-bottom: 10px;
-    margin-top: 10px;
+    padding-bottom: 3px;
+    margin-top: 3px;
 }
 
 .rounded-circle.avatar {
@@ -519,21 +621,21 @@ h1 {
 
 .fa-chevron-circle-up {
     font-size: 30px;
-    
-    color: red;
+
+    color: #da484a;
     transition: 0.5s ease;
 }
 
 .fa-chevron-circle-up:hover {
-    color: red;
+    color: #da484a;
     cursor: pointer;
 }
 
 .fa-chevron-circle-down {
     margin-top: 40px;
     font-size: 30px;
-   
-    color: red;
+
+    color: #da484a;
     transition: 0.5s ease;
     padding-bottom: 20px;
 }
@@ -576,13 +678,20 @@ h1 {
     max-width: 4.333333%;
     text-align: center;
 }
+
+.list-friends {
+    background-clip: border-box;
+    padding-top: 20px;
+    height: 600px;
+}
 #three{
     background-color: white;
     width: 100%;
     padding: 10px 5px;
+
     border-radius: 0.8rem !important;
-     background-clip: border-box;
-     text-align: center;
+    background-clip: border-box;
+    text-align: center;
 }
 
 
@@ -629,9 +738,9 @@ h1 {
     padding: 0 !important;
 }
 @media (min-width: 576px){
-.container {
-    max-width: 84% !important;
-}
+    .container {
+        max-width: 84% !important;
+    }
 }
 @media (max-width: 768px) {
     .login-sign {
@@ -1362,7 +1471,7 @@ label.star:before {
 .input-group-append {
     margin-left: 10px;
 }
- .profile-intro{
+.profile-intro{
     background-color: white;
     width: 100%;
     margin-left: 20px;
@@ -1377,12 +1486,12 @@ label.star:before {
 }
 .profile-container-buttons .btn-success,
 .profile-container-buttons .btn-danger{
-      margin-top:  12px;
+    margin-top:  12px;
 }
 .profile-container-buttons button{
 
-  height: 30%;
- opacity: 0.8;
+    height: 30%;
+    opacity: 0.8;
 }
 .profile-container-buttons button i{
     margin-right:  10px;
@@ -1393,7 +1502,7 @@ label.star:before {
 .containers-sendmess button {
     height: 100%;
     width: 175%;
-     opacity: 0.8;
+    opacity: 0.8;
 }
 .post-store {
     width: 100%;
@@ -1411,7 +1520,7 @@ label.star:before {
     padding: 10px 8px;
 }
 .list{
-     position: relative;
+    position: relative;
     left: 15px;
     bottom: 100px;
 }
@@ -1437,7 +1546,7 @@ label.star:before {
 }
 .img-list h3 a{
     float: right;
-      margin-right: 10px;
+    margin-right: 10px;
 }
 .img-list .img-contain .img-contains {
     width: 100%;
@@ -1458,7 +1567,7 @@ label.star:before {
 }
 .friend-list h3 a{
     float: right;
-      margin-right: 10px;
+    margin-right: 10px;
 }
 .friend-list .img-contain .img-contains {
     width: 100%;
@@ -1487,6 +1596,7 @@ label.star:before {
     margin-top: 20px;
 }
 
+
 .nav-tabs li a.active {
     background-color: #da484a !important;
     color: white !important;
@@ -1495,12 +1605,7 @@ label.star:before {
 .nav-tabs li a {
     background-color: white !important;
     color: #da484a !important;
-    transition: .5s ease;
-}
-
-.nav-tabs li a:hover {
-    background-color: #da484a !important;
-    color: white !important;
+    border-left: 1px solid  #000 !important;
 }
 
 
@@ -1509,38 +1614,38 @@ label.star:before {
 
 /* 8) CART PAGE */
 
-info-user .input-name {
-    margin-left: 100px;
-    width: 270px !important;
+.info-user .input-name {
+    margin-left: 60px;
+    width: 60% !important;
 }
 
-info-user .input-sđt {
-    margin-left: 100px;
-    width: 270px !important;
+.info-user .input-sđt {
+    margin-left: 60px;
+    width: 60%  !important;
 }
 
 .select-city {
-    margin-left: 100px;
-    width: 270px !important;
+    margin-left: 60px;
+    width: 60%  !important;
 }
 
 .select-district {
-    margin-left: 100px;
-    width: 270px !important;
+    margin-left: 60px;
+    width: 60%  !important;
 }
 
 .select-ward {
-    margin-left: 100px;
-    width: 270px !important;
+    margin-left: 60px;
+    width: 60%  !important;
 }
 
-.input-address {
-    margin-left: 100px;
-    width: 270px !important;
+.info-more .input-address {
+    margin-left: 60px;
+    width: 60%  !important;
 }
 
 .input-radio {
-    margin-left: 100px;
+    margin-left: 60px;
 }
 
 .input-radio2 {
@@ -1552,18 +1657,16 @@ input[type="radio"]:checked {
 }
 
 .input-date {
-    margin-left: 100px;
-    width: 270px !important;
+    margin-left: 60px;
+    width: 60%!important;
 }
 
 .textarea-note {
-    width: 270px;
-    margin-left: 100px;
+    width: 70%;
+    margin-left: 60px;
 }
 
-.info-product {
-    border-right: solid 1px;
-}
+
 
 .input-pay2 {
     margin-left: 20px;
@@ -1585,7 +1688,7 @@ input[type="radio"]:checked {
 
 .info-pay {
     padding-top: 20px;
-    padding-left: 100px;
+    padding-left: 60px;
 }
 
 .img-momo {
@@ -1788,7 +1891,7 @@ input[type="radio"]:checked {
 #myCart {
     position: fixed;
     z-index: 999;
-    right: 53px;
+    left: 30px;
     bottom: 90px;
     width: 60px;
     height: 60px;
@@ -1852,3 +1955,113 @@ input[type="radio"]:checked {
 /* Load post */
 .loading { color: red; }
 .scrollpane { height: 100px; overflow: auto; width: 200px; }
+
+#upload-photo {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+.mission{
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 5px 15px;
+    margin-bottom: 20px;
+}
+.detail-mission{
+    border-bottom: 0.5px solid #c4ccd3;
+}
+.header-mission{
+    background-color: white;
+    padding: 0px 5px;
+    border-radius: 0.2rem;
+    color: #da484a;
+}
+.mission-fix{
+    position: fixed;
+    max-width: 18.7%;
+}
+
+//9) Register Store
+.registerstore .tab-pane
+{
+    width: 70% !important;
+}
+.registerstore .tab-content{
+    height: 100%;
+}
+.registerstore .font-margin{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.registerstore .form-group {
+    margin-bottom: 30px;
+    margin-left:  160px;
+}
+.registerstore .form-group .form-control{
+    width: 80% !important;
+}
+.registerstore .form-group.input-phone{
+    margin-left:  0px !important;
+}
+.registerstore .form-group .input-address{
+    margin-left: 32px;
+}
+.registerstore .form-group.container-address{
+    margin-left:  0px !important;}
+.registerstore .form-group.container-city{
+    margin-left: 58px !important;
+}.registerstore .form-group.container-address{
+    margin-left:  15px !important;
+}.registerstore .form-inline select.select-address ,
+.registerstore .form-inline select.select-address-district ,
+.registerstore .form-inline select.select-address-ward {
+    width: 100% !important
+}
+.registerstore .form-group .input-namestore{
+    width: 60% !important;
+    margin-left: 30px;
+}
+.registerstore .form-group .input-info,.registerstore .form-group .select-species{
+    width: 60% !important;
+    margin-left: 5px;
+}
+.gallery{
+    border: 1px solid #ccc;
+    width: 82%;
+}
+//End Register Store
+.hr-newsfeed{
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+.count-comment{
+    margin-right: 10px;
+    color: black;
+}
+.modal-sothich{
+    max-width: 100%;
+    height: 100%;
+}
+
+.img-store{
+    max-width: 80%;
+    height: 200px;
+}
+#sothich{
+    padding: 0 30px !important;
+}
+.store-sothich:focus{
+    border: 1px solid black;
+}
+.store-sothich-fix{
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388; 
+    border-radius:0.5rem; 
+    font-size: 18px;
+    font-weight: 500;
+}
+
+

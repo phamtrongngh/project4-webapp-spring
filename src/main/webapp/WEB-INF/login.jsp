@@ -8,11 +8,11 @@
         <title>Login</title>
         <!--CSS-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/fonts/mvboli.ttf" />
+        <link rel="stylesheet" href="/public/fontawesome-free-5.13.1-web/fonts/mvboli.ttf" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
-        <link href="/fontawesome-free-5.13.1-web/css/all.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="/css/styte.css"/>
+        <link href="/public/fontawesome-free-5.13.1-web/css/all.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/public/css/styte.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css" />
     </head>
@@ -23,9 +23,9 @@
             <div class="row login-row">
                 <div class="col-md-1 col-sm-1 login-food d-flex align-items-md-center">
                     <div>
-                        <img src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" class="img-login-logo" alt="" />
+                        <img src="/public/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" class="img-login-logo" alt="" />
                         <h1>Food<br/>tap</h1>
-                        <img src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" class="img-login-logo" alt="" />
+                        <img src="/public/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" class="img-login-logo" alt="" />
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                     <div class="tab-content " style="height: 100%">
                         <div class="tab-pane container active login-in text-center" id="login"> 
                             <div class="search-background">
-                                <img src="/image/Background/33367357.jpg" width="100%">
+                                <img src="/public/image/Background/33367357.jpg" width="100%"/>
                             </div>
                             <div class="login-container">
                                 <form class="login-form " action="/login" method="POST">
@@ -62,10 +62,10 @@
                         </div>
                         <div class="tab-pane container fade" id="register">
                             <div class="search-background">
-                                <img src="/image/Background/33367357.jpg" width="100%">
+                                <img src="/public/image/Background/33367357.jpg" width="100%">/
                             </div>
                             <div class="login-container">
-                                <form class="login-form"  action="/Authorize/register" method = "POST">
+                                <form class="login-form"  action="/register" method = "POST">
                                     <div class="form-group ">
                                         <input type="text" name="fullname" class="form-control input-name" placeholder="Họ tên" />
                                     </div>
@@ -84,6 +84,7 @@
                                         <label >Địa chỉ: </label><br/>
                                         <div class="form-inline ">
                                             <select name="city" class="form-control select-address ">
+
                                                 <option value=" " disabled selected>Tỉnh/Thành phố</option>
                                                 <option value="1 ">Option 1</option>
                                                 <option value="2 ">Option 2</option>
@@ -119,21 +120,21 @@
                 </div>
                 <div class="col-md-1 col-sm-1 login-foods d-flex align-items-md-center ">
                     <div class="text ">
-                        <img src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png " class="img-login-logo " alt=" " />
+                        <img src="/public/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png " class="img-login-logo " alt=" " />
                         <h1>one<br/>tap<br/>for<br/>all<br/>foods</h1>
-                        <img src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png " class="img-login-logo " alt=" " />
+                        <img src="/public/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png " class="img-login-logo " alt=" " />
                     </div>
                 </div>
             </div>
         </div>
 
         <!--Bootstrap-->
-        <script src="/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
-        <script src="/js/bootstrap/popper.min.js "></script>
-        <script src="/js/bootstrap/bootstrap.min.js "></script>
-        <script src="/js/jquery/jquery.min.js "></script>
-        <script src="js/swiper.min.js "></script>
-        <script src="/js/script.js "></script>
+        <script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
+        <script src="/public/js/jquery/jquery.min.js"></script>
+        <script src="/public/js/bootstrap/popper.min.js "></script>
+        <script src="/public/js/bootstrap/bootstrap.min.js "></script>
+        <script src="/public/js/swiper.min.js "></script>
+        <script src="/public/js/script.js "></script>
     </body>
 
 </html>
