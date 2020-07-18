@@ -27,7 +27,7 @@
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">
             <!-- Brand -->
-            <a class="navbar-brand" href="index.html"><img class="img-logo" src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" alt="logo" />foodtap</a>
+            <a class="navbar-brand" href="/"><img class="img-logo" src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" alt="logo" />foodtap</a>
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
                     <li class="nav-item media">
                         <img class="mr-3 rounded-circle img-avatar" src="/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar" />
                         <div class="media-body">
-                            <a href="#">Nghia Pham</a>
+                            <a href="/user-profile/${cookie.idUser.getValue()}">${cookie.inforUser.getValue()}</a>
                         </div>
                     </li>
 
@@ -122,6 +122,11 @@
                             </div>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <form action="/logout" method="POST">
+                            <a onclick="this.parentNode.submit()" style="color: white;text-decoration: none;"><i class="fas fa-sign-out-alt"></i></a>
+                        </form>
+                    </li>  
                 </ul>
             </div>
         </nav>

@@ -1992,3 +1992,30 @@ input[type="radio"]:checked {
     margin-right: 10px;
     color: black;
 }
+.modal-sothich{
+    max-width: 100%;
+   height: 100%;
+}
+
+.img-store{
+    max-width: 80%;
+    height: 200px;
+}
+#sothich{
+    padding: 0 30px !important;
+}
+.store-sothich:focus{
+    border: 1px solid black;
+}
+.store-sothich-fix{
+    border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+  border-radius:0.5rem; 
+  font-size: 18px;
+  font-weight: 500;
+}
+
+

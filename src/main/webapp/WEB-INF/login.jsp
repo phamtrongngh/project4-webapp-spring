@@ -65,7 +65,7 @@
                                 <img src="/image/Background/33367357.jpg" width="100%">
                             </div>
                             <div class="login-container">
-                                <form class="login-form"  action="/Authorize/register" method = "POST">
+                                <form class="login-form"  action="/register" method = "POST">
                                     <div class="form-group ">
                                         <input type="text" name="fullname" class="form-control input-name" placeholder="Họ tên" />
                                     </div>
