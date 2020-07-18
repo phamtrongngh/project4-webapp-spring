@@ -17,7 +17,6 @@ Nghia\Util\RESTHelper.class
 controllers\RestaurantController.class
 models\Authorization.class
 models\Message.class
-WebConfig\ApplicationConfiguration.class
 interceptor\AuthorizeHandleInterceptor.class
 models\Product.class
 Nghia\Util\RESTHelper$4.class

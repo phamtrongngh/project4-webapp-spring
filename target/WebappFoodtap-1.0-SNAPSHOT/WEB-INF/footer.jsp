@@ -36,7 +36,6 @@
 <script src="/public/js/jquery/jquery.min.js "></script>
 <script src="/public/js/bootstrap/popper.min.js "></script>
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
 </body>
