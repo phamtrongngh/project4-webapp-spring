@@ -1522,7 +1522,7 @@ label.star:before {
 .list{
     position: relative;
     left: 15px;
-    bottom: 100px;
+    
 }
 .post-store button {
     padding: 5px;
@@ -1594,6 +1594,7 @@ label.star:before {
 #order {
     margin-left: -20px;
     margin-top: 20px;
+    max-width: 100% !important;
 }
 
 
@@ -2064,4 +2065,10 @@ input[type="radio"]:checked {
     font-weight: 500;
 }
 
-
+.create-DMmenu{
+    margin-top: 100px;
+    padding: 0 160px;
+}
+.form-create-dmmenu{
+   margin-top: 100px;
+}

@@ -37,7 +37,7 @@
                 <div class="nav-item search order-0 mx-auto">
                     <form class="form-inline ">
                         <div class="input-group">
-                            <input type="text" class="form-control inputsearch" placeholder="Username" />
+                            <input type="text" class="form-control inputsearch" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary btn-Search rounded" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
@@ -126,7 +126,7 @@
                         <form action="/logout" method="POST">
                             <a onclick="this.parentNode.submit()" style="color: white;text-decoration: none;"><i class="fas fa-sign-out-alt"></i></a>
                         </form>
-                    </li>  
+                    </li>
                 </ul>
             </div>
         </nav>
