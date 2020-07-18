@@ -442,9 +442,9 @@
 </div>
 <!--Bootstrap-->
 <script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
+<script src="/public/js/jquery/jquery.min.js "></script>
 <script src="/public/js/bootstrap/popper.min.js "></script>
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
-<script src="/public/js/jquery/jquery.min.js "></script>
 <script src="/public/js/sb-admin-2.min.js"></script>
 <script src="/public/js/jquery.dataTables.min.js"></script>
 <script src="/public/js/dataTables.bootstrap4.min.js"></script>
