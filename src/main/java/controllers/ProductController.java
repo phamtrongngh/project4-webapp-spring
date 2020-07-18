@@ -32,6 +32,14 @@ public class ProductController implements IController<Product> {
     public ModelAndView cart() throws IOException {
         return new ModelAndView("cart");
     }
+    @RequestMapping(value = "/create-DMmenu", method = RequestMethod.GET)
+    public ModelAndView createDMmenu() throws IOException {
+        return new ModelAndView("create-DMmenu");
+    }
+    @RequestMapping(value = "/create-menu", method = RequestMethod.GET)
+    public ModelAndView createmenu() throws IOException {
+        return new ModelAndView("create-menu");
+    }
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index() throws IOException {

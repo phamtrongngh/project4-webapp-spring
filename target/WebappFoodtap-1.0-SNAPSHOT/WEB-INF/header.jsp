@@ -126,7 +126,7 @@
                         <form action="/logout" method="POST">
                             <a onclick="this.parentNode.submit()" style="color: white;text-decoration: none;"><i class="fas fa-sign-out-alt"></i></a>
                         </form>
-                    </li>  
+                    </li>
                 </ul>
             </div>
         </nav>
