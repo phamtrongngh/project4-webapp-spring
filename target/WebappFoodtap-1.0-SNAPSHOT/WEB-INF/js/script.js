@@ -1,5 +1,25 @@
 /* NAVBAR SCRIPTS */
 //jQuery to collapse the navbar on scroll
+$(document).ready(function() {
+    $('#sothich').modal('show');
+    $('.store-sothich').click(function() {
+        
+        if ($(this).css("border") == "1px solid rgb(33, 37, 41)") {
+            $(this).removeClass('store-sothich-fix');
+        }
+        else {
+            $(this).addClass('store-sothich-fix');
+        }
+
+    });
+
+//     for (i = 0; i < sothichs.length; i++) {
+//        sothichs[i].onclick = function (){
+//        console.log("hi");
+//        
+//    };
+//     }
+});
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
@@ -32,6 +52,7 @@ function getIdOfAnElement(className) {
     return $(className)[0].className.split(" ")[$(className)[0].className.split(" ").length - 1];
 }
 $(document).ready(function() {
+
     //Click to show conservation
     $(".contacts-body .contacts li").click(function() {
         var array = this.className.split(" ");
@@ -77,13 +98,13 @@ $(document).ready(function() {
         e.preventDefault();
         $('.box').find('div#sidebar-user-box:gt(3)').slideToggle(500);
     });
-    
 
-    
+
+
     $(".btn-down").click(function() {
         $("#three").css("background-color", "white")
         $(".box").slideDown();
-});
+    });
 });
 $(document).ready(function() {
 
