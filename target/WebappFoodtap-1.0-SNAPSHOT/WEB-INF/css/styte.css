@@ -1,7 +1,7 @@
 body {
     background-color: #dee2e6;
     overflow: auto;
-    
+
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .navbar {
@@ -129,16 +129,16 @@ label {
     width: 100%;
 }
 .bg_none i {
-   
+
     color: #da484a;
     font-size: 17px;
-    
+
     line-height: 30px;
-    
+
 }
 .bg_none:focus {
     outline: none;
-    
+
 }
 .bg_none {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
@@ -621,7 +621,7 @@ h1 {
 
 .fa-chevron-circle-up {
     font-size: 30px;
-    
+
     color: #da484a;
     transition: 0.5s ease;
 }
@@ -634,7 +634,7 @@ h1 {
 .fa-chevron-circle-down {
     margin-top: 40px;
     font-size: 30px;
-   
+
     color: #da484a;
     transition: 0.5s ease;
     padding-bottom: 20px;
@@ -690,8 +690,8 @@ h1 {
     padding: 10px 5px;
 
     border-radius: 0.8rem !important;
-     background-clip: border-box;
-     text-align: center;
+    background-clip: border-box;
+    text-align: center;
 }
 
 
@@ -738,9 +738,9 @@ h1 {
     padding: 0 !important;
 }
 @media (min-width: 576px){
-.container {
-    max-width: 84% !important;
-}
+    .container {
+        max-width: 84% !important;
+    }
 }
 @media (max-width: 768px) {
     .login-sign {
@@ -1957,9 +1957,9 @@ input[type="radio"]:checked {
 .scrollpane { height: 100px; overflow: auto; width: 200px; }
 
 #upload-photo {
-   opacity: 0;
-   position: absolute;
-   z-index: -1;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
 }
 .mission{
     background-color: white;
@@ -1972,8 +1972,8 @@ input[type="radio"]:checked {
 }
 .header-mission{
     background-color: white;
-   padding: 0px 5px;
-   border-radius: 0.2rem;
+    padding: 0px 5px;
+    border-radius: 0.2rem;
     color: #da484a;
 }
 .mission-fix{
@@ -2038,3 +2038,30 @@ input[type="radio"]:checked {
     margin-right: 10px;
     color: black;
 }
+.modal-sothich{
+    max-width: 100%;
+    height: 100%;
+}
+
+.img-store{
+    max-width: 80%;
+    height: 200px;
+}
+#sothich{
+    padding: 0 30px !important;
+}
+.store-sothich:focus{
+    border: 1px solid black;
+}
+.store-sothich-fix{
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388; 
+    border-radius:0.5rem; 
+    font-size: 18px;
+    font-weight: 500;
+}
+
+

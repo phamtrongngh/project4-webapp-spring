@@ -126,12 +126,12 @@
         <div class="clearfix"></div>
     </div>
 </div>
-<script src="/js/jquery/jquery.min.js "></script>
-<script src="/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
-<script src="/js/bootstrap/popper.min.js "></script>
-<script src="/js/bootstrap/bootstrap.min.js "></script>
-<script src="/js/swiper.min.js "></script>
-<script src="/js/script.js "></script>
+<script src="/public/js/jquery/jquery.min.js "></script>
+<script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
+<script src="/public/js/bootstrap/popper.min.js "></script>
+<script src="/public/js/bootstrap/bootstrap.min.js "></script>
+<script src="/public/js/swiper.min.js "></script>
+<script src="/public/js/script.js "></script>
 <script>
 
 

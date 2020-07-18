@@ -7,19 +7,19 @@
         </div>
         <div class="box" id="chat-sidebar">
             <div id="sidebar-user-box" class="100">
-                <img src="image/avatar/talin.JPG " class="rounded-circle img-avatar1 " />
+                <img src="/public/image/avatar/talin.JPG " class="rounded-circle img-avatar1 " />
                 <span id="slider-username">Sumit Kumar Pradhan </span>
             </div>
             <div id="sidebar-user-box" class="101">
-                <img src="image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png " class="rounded-circle img-avatar1 " alt=" " />
+                <img src="/public/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png " class="rounded-circle img-avatar1 " alt=" " />
                 <span id="slider-username">Amit Singh </span>
             </div>
             <div id="sidebar-user-box" class="102">
-                <img src="image/avatar/unnamed.png " class="rounded-circle img-avatar1 " alt=" " />
+                <img src="/public/image/avatar/unnamed.png " class="rounded-circle img-avatar1 " alt=" " />
                 <span id="slider-username">Pragaya Mishra </span>
             </div>
             <div id="sidebar-user-box" class="103">
-                <img src="image/avatar/Hot-Food-Logo-991x991.jpg " class="rounded-circle img-avatar1 " alt=" " />
+                <img src="/public/image/avatar/Hot-Food-Logo-991x991.jpg " class="rounded-circle img-avatar1 " alt=" " />
                 <span id="slider-username">Neeraj Tiwari </span>
             </div>
         </div>
@@ -32,11 +32,11 @@
 </div>
 </div>
 <!--Bootstrap-->
-<script src="/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
-<script src="/js/jquery/jquery.min.js "></script>
-<script src="/js/bootstrap/popper.min.js "></script>
-<script src="/js/bootstrap/bootstrap.min.js "></script>
-<script src="/js/swiper.min.js "></script>
-<script src="/js/script.js "></script>
+<script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
+<script src="/public/js/jquery/jquery.min.js "></script>
+<script src="/public/js/bootstrap/popper.min.js "></script>
+<script src="/public/js/bootstrap/bootstrap.min.js "></script>
+<script src="/public/js/swiper.min.js "></script>
+<script src="/public/js/script.js "></script>
 </body>
 </html>
