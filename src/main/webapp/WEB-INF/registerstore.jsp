@@ -126,8 +126,9 @@
         <div class="clearfix"></div>
     </div>
 </div>
-<script src="/js/jquery/jquery.min.js "></script>
+
 <script src="/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
+<script src="/js/jquery/jquery.min.js "></script>
 <script src="/js/bootstrap/popper.min.js "></script>
 <script src="/js/bootstrap/bootstrap.min.js "></script>
 <script src="/js/swiper.min.js "></script>

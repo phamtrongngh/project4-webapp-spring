@@ -1501,7 +1501,7 @@ label.star:before {
     border: none;
     padding: 10px 8px;
 }
-.list{
+.user-profile .list{
     position: relative;
     left: 15px;
     bottom: 100px;
@@ -1988,3 +1988,19 @@ input[type="radio"]:checked {
     width: 82%;
 }
 //End Register Store
+//10) STORE
+.store-menu{
+    width: 100%;
+    margin-left: 20px;
+}
+.store .profile-container-buttons button{
+
+    height: 27.5%;
+    opacity: 0.8;
+}
+.store .containers-sendmess button {
+    height: 100%;
+    width: 205%;
+    opacity: 0.8;
+}
+//End STORE
