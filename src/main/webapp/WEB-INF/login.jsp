@@ -52,7 +52,7 @@
                                         <input type="text" name="phone" class="form-control " placeholder="SĐT "  />
                                     </div>
                                     <div class="form-group ">
-                                        <input type="text" name="password" class="form-control " placeholder="Mật Khẩu " />
+                                        <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
                                     </div>
                                     <div>
                                         <button class="btn btn-danger form-control btn-login ">Đăng nhập</button>
