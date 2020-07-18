@@ -1,6 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include  file="header.jsp" %>
+<%@include  file="headerstore.jsp" %>
     <div class="container" style="margin-top: 150px">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
