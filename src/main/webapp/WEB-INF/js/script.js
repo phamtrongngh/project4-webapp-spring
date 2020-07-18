@@ -89,7 +89,7 @@ function topFunction() {
 }
 //Buttom slideToggle
 $(document).ready(function() {
-
+    
     $(".btn-up").click(function() {
         $('.box').slideToggle();
     });
@@ -301,7 +301,7 @@ $(document).ready(function() {
 // });
 //Popup chat
 $(document).ready(function() {
-
+    
     var arr = []; // List of users 
 
     $(document).on('click', '.msg_head', function() {
@@ -372,7 +372,6 @@ $(document).ready(function() {
     }
 
 });
-//Steps
 
 $(document).ready(function() {
     //Initialize tooltips
@@ -407,3 +406,11 @@ function prevTab(elem) {
 
 
 
+$(document).ready(function () {
+  $('#dtBasicExample').DataTable();
+  $('.dataTables_length').addClass('bs-select');
+});
+$(document).ready(function () {
+  $('#dtmenu').DataTable();
+  $('.dataTables_length').addClass('bs-select');
+});
