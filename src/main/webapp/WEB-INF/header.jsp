@@ -27,7 +27,7 @@
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">
             <!-- Brand -->
-            <a class="navbar-brand" href="index.html"><img class="img-logo" src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" alt="logo" />foodtap</a>
+            <a class="navbar-brand" href="/"><img class="img-logo" src="/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" alt="logo" />foodtap</a>
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
