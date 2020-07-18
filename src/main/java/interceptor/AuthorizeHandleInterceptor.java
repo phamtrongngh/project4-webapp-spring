@@ -43,7 +43,6 @@ public class AuthorizeHandleInterceptor implements HandlerInterceptor {
             response.sendRedirect("/login");
             return false;
         }
-//           return true; 
     }
 
 }

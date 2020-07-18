@@ -73,7 +73,7 @@
                                         <input type="text" name="phone" class="form-control input-phone" placeholder="SĐT " />
                                     </div>
                                     <div class="form-group ">
-                                        <input type="text" name="password" class="form-control input-phone" placeholder="Password " />
+                                        <input type="password" name="password" class="form-control input-phone" placeholder="Mật khẩu" />
                                     </div>
                                     <div class=" ">
                                         <label >Giới tính: </label><br/>
