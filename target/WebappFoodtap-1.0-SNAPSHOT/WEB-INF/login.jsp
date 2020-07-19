@@ -52,7 +52,7 @@
                                         <input type="text" name="phone" class="form-control " placeholder="SĐT "  />
                                     </div>
                                     <div class="form-group ">
-                                        <input type="text" name="password" class="form-control " placeholder="Mật Khẩu " />
+                                        <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
                                     </div>
                                     <div>
                                         <button class="btn btn-danger form-control btn-login ">Đăng nhập</button>
@@ -73,12 +73,12 @@
                                         <input type="text" name="phone" class="form-control input-phone" placeholder="SĐT " />
                                     </div>
                                     <div class="form-group ">
-                                        <input type="text" name="password" class="form-control input-phone" placeholder="Password " />
+                                        <input type="password" name="password" class="form-control input-phone" placeholder="Mật khẩu" />
                                     </div>
                                     <div class=" ">
                                         <label >Giới tính: </label><br/>
-                                        <input type="radio" name="gender" class="input-male" checked/><label style="margin-left: 10px; ">Nam</label>
-                                        <input type="radio" name="gender" class="input-female" /><label style="margin-left: 10px; ">Nữ</label>
+                                        <input type="radio" name="gender" value="false" class="input-male" checked/><label style="margin-left: 10px; ">Nam</label>
+                                        <input type="radio" name="gender" value="true" class="input-female" /><label style="margin-left: 10px; ">Nữ</label>
                                     </div>
                                     <div>
                                         <label >Địa chỉ: </label><br/>

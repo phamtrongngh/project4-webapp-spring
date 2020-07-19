@@ -1,4 +1,5 @@
 
+<%@page import="java.net.URLDecoder"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -14,10 +15,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
         <link href="/public/fontawesome-free-5.13.1-web/css/all.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="/public/css/styte.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.css">
         <link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css" />
+        
+        <link rel="stylesheet" type="text/css" href="/public/css/styte.css" />
     </head>
 
     <body>
@@ -37,18 +39,29 @@
                 <div class="nav-item search order-0 mx-auto">
                     <form class="form-inline ">
                         <div class="input-group">
-                            <input type="text" class="form-control inputsearch" placeholder="Username" />
+                            <input type="text" class="form-control inputsearch" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary btn-Search rounded" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </form>
                 </div>
+                <%
+                    String fullname = "";
+                    Cookie[] cookies = request.getCookies();
+                    if (cookies != null) {
+                        for (Cookie cookie : cookies) {
+                            if (cookie.getName().equals("fullname")) {
+                                fullname = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                            }
+                        }
+                    }
+                %>
                 <ul class="navbar-nav">
                     <li class="nav-item media">
-                        <img class="mr-3 rounded-circle img-avatar" src="/public/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar" />
+                        <img class="mr-3 rounded-circle img-avatar" src="http://localhost:9032/public/image/${cookie["avatar"].getValue()}" alt="avatar" />
                         <div class="media-body">
-                            <a href="/user-profile/${cookie.idUser.getValue()}">${cookie.inforUser.getValue()}</a>
+                            <a href="/user-profile/"><%=fullname%></a>
                         </div>
                     </li>
 
@@ -126,7 +139,7 @@
                         <form action="/logout" method="POST">
                             <a onclick="this.parentNode.submit()" style="color: white;text-decoration: none;"><i class="fas fa-sign-out-alt"></i></a>
                         </form>
-                    </li>  
+                    </li>
                 </ul>
             </div>
         </nav>
