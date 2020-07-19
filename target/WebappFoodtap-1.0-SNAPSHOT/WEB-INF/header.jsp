@@ -61,7 +61,8 @@
                     <li class="nav-item media">
                         <img class="mr-3 rounded-circle img-avatar" src="http://localhost:9032/public/image/${cookie["avatar"].getValue()}" alt="avatar" />
                         <div class="media-body">
-                            <a href="/user-profile"><%=fullname%></a>
+
+                            <a href="/myprofile-user"><%=fullname%></a>
                         </div>
                     </li>
 
