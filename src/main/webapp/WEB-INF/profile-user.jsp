@@ -11,7 +11,7 @@
                 <div class="col-md-4 profile-avartar">
                     <div>
                         <div class="profile-container-img">
-                            <img src="/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
+                            <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
                         </div>
                         <div class="profile-name">
                             <div class="text-name">SWEETLANE</div>
@@ -57,13 +57,13 @@
                             <h3><i class="fas fa-image"></i>Ảnh<a href="#">Thêm ảnh</a></h3>
                             <div class="img-contain d-flex ">
                                 <div class="img-contains">
-                                    <image class="rounded" src ="/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                 </div>
                                 <div class="img-contains">
-                                    <image class="rounded" src ="/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                 </div>
                                 <div class="img-contains">
-                                    <image class="rounded" src ="/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                 </div>
                             </div>
                         </div>
@@ -73,15 +73,15 @@
                             <h3><i class="fas fa-user-friends"></i>Bạn bè <a href="#">Thêm Bạn</a></h3>
                             <div class="img-contain d-flex ">
                                 <div class="img-contains">
-                                    <image class="rounded" src ="/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
+                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
                                     <a href="#">Nguyễn Hạ</a>
                                 </div>
                                 <div class="img-contains">
-                                    <image class="rounded" src ="/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                     <a href="#">Nguyễn Hạ</a>
                                 </div>
                                 <div class="img-contains">
-                                    <image class="rounded" src ="/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                     <a href="#">Nguyễn Hạ</a>
                                 </div>
                             </div>
@@ -119,9 +119,9 @@
                     <div class="rounded status">
                         <div class="alignment">
                             <div class="media">
-                                <img src="image/avatar/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
+                                <img src="/public/image/avatar/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
                                 <div class="media-body">
-                                    <div class="name"> Sweetlane <img src="image/icons/check.svg" class="check" alt="" />
+                                    <div class="name"> Sweetlane <img src="/public/image/icons/check.svg" class="check" alt="" />
                                     </div>
                                 </div>
                                 <a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                         <div class="image1">
-                            <img src="/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" class="rounded background" alt="" />
+                            <img src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" class="rounded background" alt="" />
                         </div>
                         <div style="margin-top: 2px;display: flex;">
                             <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>4,5k</span>
@@ -196,7 +196,7 @@
                                                                     <button class="plus is-form" type="button"><i class="fa fa-plus"
                                                                                                                   aria-hidden="true"></i></button>
                                                                 </p>
-                                                                <p class="price-food">Giá : 22.000</p>
+                                                                <p class="price-food">Giá: 22.000</p>
 
                                                             </div>
 
@@ -204,7 +204,7 @@
                                                                 <ul class="comments-list first navbar-nav">
                                                                     <li class="comment nav-item">
                                                                         <a class="pull-left" href="#">
-                                                                            <img class="avatar" src="image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar" />
+                                                                            <img class="avatar" src="/public/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar" />
                                                                         </a>
                                                                         <div class="comment-body">
                                                                             <div class="comment-heading">
@@ -225,7 +225,7 @@
                                                                             <div id="reply1" class="collapse">
                                                                                 <div class="input-group" style="margin-left: -60px;">
                                                                                     <a class="pull-left" href="#">
-                                                                                        <img class="avatar" src="image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
+                                                                                        <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
                                                                                     </a>
                                                                                     <input class="form-control input-comments" placeholder="Add a comment" type="text" />
                                                                                     <button class="input-group-addon">
@@ -238,7 +238,7 @@
                                                                         <ul class="comments-list navbar-nav">
                                                                             <li class="comment">
                                                                                 <a class="pull-left" href="#">
-                                                                                    <img class="avatar" src="image/avatar/Hot-Food-Logo-991x991.jpg" alt="avatar" />
+                                                                                    <img class="avatar" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="avatar" />
                                                                                 </a>
                                                                                 <div class="comment-body">
                                                                                     <div class="comment-heading">
@@ -261,7 +261,7 @@
                                                                                     <div id="reply2" class="collapse">
                                                                                         <div class="input-group" style="margin-left: -60px;">
                                                                                             <a class="pull-left" href="#">
-                                                                                                <img class="avatar" src="image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
+                                                                                                <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
                                                                                             </a>
                                                                                             <input class="form-control input-comments" placeholder="Add a comment" type="text" />
                                                                                             <button class="input-group-addon">
@@ -274,7 +274,7 @@
                                                                             </li>
                                                                             <li class="comment">
                                                                                 <a class="pull-left" href="#">
-                                                                                    <img class="avatar" src="image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
+                                                                                    <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
                                                                                 </a>
                                                                                 <div class="comment-body">
                                                                                     <div class="comment-heading">
@@ -297,7 +297,7 @@
                                                                                     <div id="reply3" class="collapse">
                                                                                         <div class="input-group" style="margin-left: -60px;">
                                                                                             <a class="pull-left" href="#">
-                                                                                                <img class="avatar" src="image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
+                                                                                                <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
                                                                                             </a>
                                                                                             <input class="form-control input-comments" placeholder="Add a comment" type="text" />
                                                                                             <button class="input-group-addon">
@@ -344,7 +344,7 @@
                                     <ul class="comments-list navbar-nav">
                                         <li class="comment nav-item">
                                             <a class="pull-left" href="#">
-                                                <img class="avatar " src="image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar " />
+                                                <img class="avatar " src="/public/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar " />
                                             </a>
                                             <div class="comment-body ">
                                                 <div class="comment-heading ">
@@ -366,7 +366,7 @@
                                                 <div id="reply1" class="collapse">
                                                     <div class="input-group" style="margin-left: -60px;">
                                                         <a class="pull-left " href="# ">
-                                                            <img class="avatar" src="image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
+                                                            <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
                                                         </a>
                                                         <input class="form-control input-comments" placeholder="Add a comment" type="text" />
                                                         <button class="input-group-addon">
@@ -379,7 +379,7 @@
                                             <ul class="comments-list navbar-nav ">
                                                 <li class="comment ">
                                                     <a class="pull-left " href="# ">
-                                                        <img class="avatar " src="image/avatar/Hot-Food-Logo-991x991.jpg " alt="avatar " />
+                                                        <img class="avatar " src="/public/image/avatar/Hot-Food-Logo-991x991.jpg " alt="avatar " />
                                                     </a>
                                                     <div class="comment-body ">
                                                         <div class="comment-heading ">
@@ -402,7 +402,7 @@
                                                         <div id="reply2" class="collapse">
                                                             <div class="input-group" style="margin-left: -60px;">
                                                                 <a class="pull-left " href="# ">
-                                                                    <img class="avatar" src="image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
+                                                                    <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
                                                                 </a>
                                                                 <input class="form-control input-comments" placeholder="Add a comment" type="text" />
                                                                 <button class="input-group-addon">
@@ -415,7 +415,7 @@
                                                 </li>
                                                 <li class="comment ">
                                                     <a class="pull-left " href="# ">
-                                                        <img class="avatar " src="image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
+                                                        <img class="avatar " src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
                                                     </a>
                                                     <div class="comment-body ">
                                                         <div class="comment-heading ">
@@ -438,7 +438,7 @@
                                                         <div id="reply3" class="collapse">
                                                             <div class="input-group" style="margin-left: -60px;">
                                                                 <a class="pull-left " href="# ">
-                                                                    <img class="avatar" src="image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
+                                                                    <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
                                                                 </a>
                                                                 <input class="form-control input-comments" placeholder="Add a comment" type="text" />
                                                                 <button class="input-group-addon">
