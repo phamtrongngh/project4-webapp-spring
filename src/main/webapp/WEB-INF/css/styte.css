@@ -42,9 +42,7 @@ label {
         bottom: 20px;
     }
 }
-.box{
-    display: none;
-}
+
 .viewLess {display:none;}
 
 /* popup chat */
@@ -929,7 +927,11 @@ h1 {
 
 .profile-container-button button.btn-success,
 .profile-container-button button.btn-danger {
-    margin-top: 12px;
+    margin-top: 14px;
+        opacity: 0.8;
+}
+.profile-container-button button.btn-primary{
+    opacity: 0.8;
 }
 
 .profile-avartar {
@@ -1030,6 +1032,7 @@ label.star:before {
 .profile-header .container-sendmess button {
     height: 100%;
     width: 90%;
+   opacity: 0.8;
 }
 
 .profile-container-button {
