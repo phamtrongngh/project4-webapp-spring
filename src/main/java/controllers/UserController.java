@@ -21,10 +21,10 @@ public class UserController {
         return new ModelAndView("profile");
     }
    
-    @RequestMapping(value="/user-profile/{id}", method = RequestMethod.GET)
-    public ModelAndView profile(@PathVariable("id") String id) throws IOException{
-        Object user = restHelper.getOne(id);
-        return new ModelAndView("profile-user").addObject("user", user);
+    @RequestMapping(value="/user-profile", method = RequestMethod.GET)
+    public ModelAndView profile() throws IOException{
+      
+        return new ModelAndView("profile-user");
     }
     @RequestMapping(value="/myprofile-user")
     public ModelAndView myprofileuser(){
