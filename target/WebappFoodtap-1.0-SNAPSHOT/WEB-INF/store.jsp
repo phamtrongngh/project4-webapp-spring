@@ -14,7 +14,7 @@
                     </div>
                     <div class="profile-name">
                         <div class="text-name">SWEETLANE</div>
-                        <div class="text-like">14k lượt thích</div>
+                        <div class="text-like">14k theo dõi</div>
                         <div class="stars">
                             <form action="">
                                 <input class="star star-5" id="star-5" type="radio" name="star" />
@@ -34,8 +34,8 @@
                 </div>
                 <div class="col-md-4 store-menu">
                        <div>
-                           <a href="/profile"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
-                            <div class="rounded photo">
+                           <a href="/profile"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
+                            <div class="rounded photo-header">
                                 <div>
                                     Thực đơn
                                 </div>
@@ -46,7 +46,7 @@
                 </div>
                    <div class="col-md-2 profile-container-buttons">
                     <button class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Theo dõi</button>
-                    <button class="btn btn-success form-control"><i class="fas fa-user-plus"></i>Kết bạn</button>
+                    <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
                     <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3" style="position: relative;left: 15px;top:10px">
+                <div class="col-md-2" style="position: relative;left: 15px;top:10px">
                     <div>
                     <a href="#"><img class="rounded img-order" src="public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                         <div class="rounded photo">
@@ -84,7 +84,7 @@
                     </a>
                 </div>
                 </div>
-                <div class="col-md-9" style="margin-top: 10px">
+                <div class="col-md-7" style="margin-top: 10px">
                      <div class="rounded status">
                     <div class="alignment">
                         <div class="media">
@@ -1077,6 +1077,20 @@
                         </ul>
                     </div>
                 </div>
+                </div>
+                <div class="col-md-3" style="    position: relative;right: 20px;">
+                    <div class="rounded voucher">
+                          <div class="header-voucher"><h4><i class="fa fa-list-alt" aria-hidden="true"></i> Khuyến mãi</h4></div>
+                    </div>
+                     <div class="rounded vouchers">
+                         <div class="header-mission"><h4><i class="fas fa-percent"></i> Nhập<br/>"CONOWGIAO"</h4></div>
+                    </div>
+                     <div class="rounded vouchers">
+                          <div class="header-mission"><h4><i class="fas fa-percent"></i> Nhập <br/> "FREESHIP"</h4></div>
+                    </div>
+                     <div class="rounded vouchers">
+                          <div class="header-mission"><h4><i class="fas fa-percent"></i> Giảm <br/> 15% trên giá món</h4></div>
+                    </div>
                 </div>
             </div>
         </div>

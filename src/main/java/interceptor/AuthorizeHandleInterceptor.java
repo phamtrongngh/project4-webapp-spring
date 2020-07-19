@@ -37,6 +37,7 @@ public class AuthorizeHandleInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {      
+
         if (CookieHelper.getCookie("accessToken") != "") {
             return true;
         } else {
