@@ -4,7 +4,7 @@
 
 <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
 <!--Content-->
-<div class="container" style="margin-top: 100px">
+<div class="container profile" style="margin-top: 100px">
     <div class="row">
         <!-- Menu of food -->
         <div class="col-10 col-sm-10 col-md-11">
@@ -34,8 +34,8 @@
                 </div>
                 <div class="col-md-4">
                     <div>
-                        <a href="/store"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
-                            <div class="rounded photo">
+                        <a href="/store"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
+                            <div class="rounded photo-header">
                                 <div>
                                     Menu chọn món
                                 </div>
@@ -45,9 +45,9 @@
                     </div>
                 </div>
                 <div class="col-md-2 profile-container-button">
-                    <div><button class="btn btn-primary form-control">Thích</button></div>
-                    <div><button class="btn btn-success form-control">Giới thiệu</button></div>
-                    <div><button class="btn btn-danger form-control">Báo cáo</button></div>
+                    <div><button class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button></div>
+                    <div><button class="btn btn-success form-control"><i class="fas fa-user-circle"></i>Giới thiệu</button></div>
+                    <div><button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i> Báo cáo</button></div>
                 </div>
                 <div class="col-md-2 container-sendmess" style="padding-right: 0 !important;">
                     <button class="btn btn-primary "><i class="far fa-comment"></i><br/>Gửi tin</button>

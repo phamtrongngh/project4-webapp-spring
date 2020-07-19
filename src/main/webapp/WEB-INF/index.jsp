@@ -126,7 +126,7 @@
                     <div class="media">
                         <img src="/public/image/avatar/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
                         <div class="media-body">
-                            <div class="name"> Sweetlane <img src="/public/image/icons/check.svg" class="check" alt="" />
+                            <div href="#" class="name"><a href="#">Sweet Lane</a>  <img src="/public/image/icons/check.svg" class="check" alt="" />
                             </div>
                         </div>
                         <a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
@@ -533,4 +533,5 @@
                 </div>
             </div>
         </div>
-        <%@include file="footer.jsp" %>
+
+<%@include file="footer.jsp" %>
