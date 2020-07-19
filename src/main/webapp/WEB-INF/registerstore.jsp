@@ -132,6 +132,7 @@
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
+
 <script>
 
 

@@ -42,6 +42,10 @@ public class RestaurantController implements IController<Restaurant> {
     public ModelAndView registerstore() throws IOException {
         return new ModelAndView("registerstore");
     }
+     @RequestMapping(value = "/store", method = RequestMethod.GET)
+    public ModelAndView store() throws IOException {
+        return new ModelAndView("store");
+    }
     @RequestMapping(value = "/restaurant", method = RequestMethod.GET)
     public ModelAndView getAll() throws IOException {
         List<Restaurant> list = restHelper.getAll();
