@@ -9,7 +9,7 @@
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div>
+                    <div style="margin-top: 40px">
                         <div class="profile-container-img">
                             <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
                         </div>

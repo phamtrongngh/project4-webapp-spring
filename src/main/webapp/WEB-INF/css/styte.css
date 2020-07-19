@@ -292,11 +292,13 @@ ul.navbar-nav li.nav-item {
         font-size: 0.9rem !important;
     }
 }
-
-.name {
-    font-size: 1.4rem;
+.name{
     padding-top: 7px;
     padding-left: 12px;
+}
+.name a {
+    font-size: 1.4rem;
+
     color: red;
     font-weight: 500;
 }
@@ -309,6 +311,7 @@ ul.navbar-nav li.nav-item {
     margin-left: 16px;
     margin-top: 10px;
     padding-right: 15px;
+    margin-bottom: 10px;
 }
 
 .rounded.background {
@@ -677,23 +680,15 @@ h1 {
     text-align: center;
 }
 
-.list-friends {
-    background-clip: border-box;
-    padding-top: 20px;
-    height: 600px;
-}
+
+
 #three{
     background-color: white;
     width: 100%;
     padding: 10px 5px;
-
     border-radius: 0.8rem !important;
-    background-clip: border-box;
     text-align: center;
 }
-
-
-
 
 
 /* END INDEX */
@@ -1064,7 +1059,7 @@ label.star:before {
 
 .profile-header .container-sendmess button {
     height: 100%;
-    width: 90%;
+    width: 91%;
     opacity: 0.8;
 }
 
@@ -1489,10 +1484,14 @@ label.star:before {
 .input-group-append {
     margin-left: 10px;
 }
+.user-profile .profile-container-img{
+    margin-right: 10px;
+    margin-left: -5px;
+}
 .profile-intro{
     background-color: white;
     width: 100%;
-    margin-left: 20px;
+    margin-left: 16px;
 }
 .profile-intro p{
     font-size: 15px;
@@ -1517,9 +1516,9 @@ label.star:before {
 .containers-sendmess{
     margin-left: -10px;
 }
-.containers-sendmess button {
+.user-profile .containers-sendmess button {
     height: 100%;
-    width: 175%;
+    width: 185%;
     opacity: 0.8;
 }
 .post-store {
@@ -2156,7 +2155,7 @@ input[type="radio"]:checked {
 }
 .store .header-mission h4 {
     font-size: 18px;
-    
+
 }
 .store .header-mission h4 i{
     font-size: 20px;
