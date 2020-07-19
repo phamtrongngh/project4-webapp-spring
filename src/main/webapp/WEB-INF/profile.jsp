@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-md-4">
                     <div>
-                        <a href="#"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
+                        <a href="/store"><img class="rounded img-order" src="/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                             <div class="rounded photo">
                                 <div>
                                     Menu chọn món
