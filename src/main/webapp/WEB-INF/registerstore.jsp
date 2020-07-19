@@ -23,7 +23,7 @@
                     <div class="gallery">
                         <div style="background-color: grey;width: 100%;height: 300px;">
                         </div>
-                        <div class="desc "> <input type="file" class="btn btn-danger"/></div>
+                        <div class="desc"><input type="file" class="btn btn-danger"/></div>
                     </div>
                 </div>
             </form>
@@ -33,7 +33,6 @@
               <h3 class="font-margin text-center">Nhập thông tin</h3>
             <form>
                 <div class="form-group form-inline">
-                    
                     <label>Tên cửa hàng:</label>
                     <input type="text" class="form-control input-namestore"/>
                 </div>
@@ -118,7 +117,7 @@
                     <button type="button" class="btn btn-outline-danger prev-step">Quay lại</button>
                 </li>
                 <li class="list-inline-item">
-                    <button type="button" class="btn btn-danger btn-info-full next-step">Hoàn thành</button>
+                    <button id="completeButton" type="button" class="btn btn-danger btn-info-full next-step">Hoàn thành</button>
                 </li>
             </ul>
         </div>

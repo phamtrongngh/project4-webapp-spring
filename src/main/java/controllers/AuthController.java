@@ -118,7 +118,7 @@ public class AuthController implements IController<Authorization> {
         Map<String, String> address = new HashMap<>();
         authorization.setPhone(request.getParameter("phone").toString());
         authorization.setPassword(request.getParameter("password").toString());
-        authorization.setGender(Boolean.getBoolean(request.getParameter("gender").toString()));
+        authorization.setGender(Boolean.parseBoolean(request.getParameter("gender")));
         authorization.setFullname(request.getParameter("fullname").toString());
         address.put("city", request.getParameter("city"));
         address.put("town", request.getParameter("town"));
