@@ -11,8 +11,6 @@
             <a href="#step2" class="nav-link disabled" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">Bước 2 </a>
         </li>
 
-
-
     </ul>
     <form action="/createRestaurant"  method="POST" enctype="multipart/form-data">
         <div class="tab-content py-2 " style="background-color: #c2c1be;">
@@ -23,7 +21,6 @@
                     <div class="gallery">
                         <a id="chossefile">
 
-                            <!--<img id="frame-image"  src=""/>-->
                             <div id="frame-image" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
                                 <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
                             </div>
@@ -138,7 +135,7 @@
                                 <span style="position: absolute;margin-top: 46px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: 290px;">+</span>
                             </div>
                         </a>
-                        <!--<div class="desc " style="display: none;"> <input type="file" name="licenseImage" class="btn btn-danger img-giayphep"/></div>-->
+                        <div class="desc " style="display: none;"> <input type="file" name="licenseImage" class="btn btn-danger img-giayphep"/></div>
                     </div>
                     <div class="col-md-5">
                         <h2>Chú ý:</h2>
@@ -163,6 +160,7 @@
             <div class="clearfix"></div>
         </div>
     </form>
+
 </div>
 <script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
 <script src="/public/js/jquery/jquery.min.js "></script>

@@ -57,6 +57,7 @@ public class RestaurantController implements IController<Restaurant> {
 //        List<Map<String, ?>> listRestaurants = restHelper.getMyRestaurants();
 //        return new ModelAndView("mystore").addObject("listRestaurants", listRestaurants);
         return new ModelAndView("mystore");
+
     }
 
     @RequestMapping(value = "/registerstore", method = RequestMethod.GET)

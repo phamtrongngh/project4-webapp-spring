@@ -18,6 +18,7 @@
         </thead>
         <tbody>
             <%--<c:forEach var="item" items="${listRestaurants}">
+
                 <tr>
                     <td><img height="100" width="100" src="http://localhost:9032/public/image/${item.avatar}" /></td>
                     <td>${item.name}</td>
@@ -27,6 +28,7 @@
                 </tr>
             </c:forEach>
 --%>
+
         </tbody>
     </table>
 

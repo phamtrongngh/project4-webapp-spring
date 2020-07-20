@@ -419,7 +419,6 @@ $(document).ready(function() {
         prevTab(active);
     });
 
-
     $("#chossefile").click(function(e) {
         e.preventDefault();
         $(".img-store-register").trigger('click');
@@ -451,13 +450,14 @@ $(document).ready(function() {
 //call ajax upload image
 $(document).ready(function() {
     $("input[type=file]").change(function() {
+
         if (this.files && this.files[0]) {
             var reader = new FileReader();
 
             reader.onload = function(e) {
                 console.log(e.target.result);
-                $('#frame-image')
-                        .css('background-image', 'url("' + e.target.result + '")')
+                $('#frame-image').css('background-image', 'url("' + e.target.result + '")')
+
             };
             reader.readAsDataURL(this.files[0]);
         }
