@@ -189,7 +189,7 @@ $(document).ready(function() {
             total = total + (price * quantity)
         }
         total = Math.round(total * 1000);
-        var totalformat = format2(total, '').replace(".0","");
+        var totalformat = format2(total, '').replace(".0", "");
 
         document.getElementsByClassName('cart-total-price')[0].innerText = totalformat + 'VNĐ';
     }
@@ -234,20 +234,20 @@ $(document).ready(function() {
     }
 //    cart index
     function update() {
-        
+
         var q = ($(".input-qty").val());
         var tien = $(".price-foodnumber").html();
         var total1 = q * tien;
         total1 = Math.round(total1 * 1000);
-        var t =format2(total1, '').replace(".0","");
-        
+        var t = format2(total1, '').replace(".0", "");
+
         $(".total-foodnumber").html(t + 'VNĐ');
-        
-   
+
+
     }
 
 
-    
+
     function quantityChanged1(event) {
         var input = event.target
         if (isNaN(input.value) || input.value <= 0) {
@@ -256,7 +256,7 @@ $(document).ready(function() {
         update()
     }
     var quantityInputs1 = $(".input-qty");
-    quantityInputs1.on('change',quantityChanged1);
+    quantityInputs1.on('change', quantityChanged1);
 });
 //count cart
 
@@ -416,16 +416,24 @@ $(document).ready(function() {
         var active = $('.nav-tabs li a.active');
         prevTab(active);
     });
+
+    $("#chossefile").click(function(e) {
+        e.preventDefault();
+        $(".img-store-register").trigger('click');
+
+    });
+    $("#chossefile-giayphep").click(function(e) {
+        e.preventDefault();
+        $(".img-giayphep").trigger('click');
+    });
+    $(function() {
+        $("#datepicker-history").datepicker();
+
+    });
+    $(".datepicker-history1").click(function(){
+         $("#datepicker-history").datepicker('show');
+    })
     
-    $("#chossefile").click(function(e){
-       e.preventDefault();
-       $(".img-store-register").trigger('click');
-  
-    });
-    $("#chossefile-giayphep").click(function(e){
-       e.preventDefault();
-       $(".img-giayphep").trigger('click');
-    });
 });
 function nextTab(elem) {
     $(elem).parent().next().find('a[data-toggle="tab"]').click();
@@ -444,5 +452,5 @@ $(document).ready(function() {
     $('#dtmenu').DataTable();
     $('.dataTables_length').addClass('bs-select');
 //    search date
-   
+
 });
