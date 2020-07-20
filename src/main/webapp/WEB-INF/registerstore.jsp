@@ -1,6 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="headerstore.jsp" %>
+<%@include file="header.jsp" %>
 
 <div class="container registerstore border rounded shadow-sm" style="margin-top:100px;padding-left: 0;padding-right: 0;">
     <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
@@ -11,16 +11,16 @@
             <a href="#step2" class="nav-link disabled" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">Bước 2 </a>
         </li>
 
-
     </ul>
     <form action="/createRestaurant"  method="POST" enctype="multipart/form-data">
         <div class="tab-content py-2 " style="background-color: #c2c1be;">
             <div class="tab-pane active" role="tabpanel" id="step1">
                 <h3 class="font-margin text-center">Nhập thông tin</h3>
                 <div class="form-group">
+
                     <div class="gallery">
                         <a id="chossefile">
-                            <!--<img id="frame-image"  src=""/>-->
+
                             <div id="frame-image" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
                                 <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
                             </div>
@@ -74,19 +74,49 @@
                             <option value="3 ">Option 3</option>
                         </select>
                     </div>
-                    <div class="form-group container-address">
-                        <input type="text" placeholder="Đường, số nhà " class="form-control input-address " />
+                    <div class="form-inline">
+                        <div class="form-group ">
+                            <select class="form-control select-address-ward  ">
+                                <option value=" " disabled selected>Xã/Phường</option>
+                                <option value="1 ">Option 1</option>
+                                <option value="2 ">Option 2</option>
+                                <option value="3 ">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group container-city">
+                            <select class="form-control select-address">
+                                <option value=" " disabled selected>Tỉnh/Thành phố</option>
+                                <option value="1 ">Option 1</option>
+                                <option value="2 ">Option 2</option>
+                                <option value="3 ">Option 3</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label>Họ tên người liên hệ:</label>
-                        <input type="text" class="form-control"/>
+                    <div class="form-inline">
+
+                        <div class="form-group container-district">
+                            <select class="form-control  select-address-district ">
+                                <option value=" " disabled selected>Quận/Huyện</option>
+                                <option value="1 ">Option 1</option>
+                                <option value="2 ">Option 2</option>
+                                <option value="3 ">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group container-address">
+                            <input type="text" placeholder="Đường, số nhà " class="form-control input-address " />
+                        </div>
                     </div>
-                    <div class="form-group input-phone">
-                        <label>Số điện thoại:</label>
-                        <input type="text" class="form-control"/>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label>Họ tên người liên hệ:</label>
+                            <input type="text" class="form-control"/>
+                        </div>
+                        <div class="form-group input-phone">
+                            <label>Số điện thoại:</label>
+                            <input type="text" class="form-control"/>
+                        </div>
                     </div>
+
                 </div>
 
                 <ul class="float-right">
@@ -97,6 +127,7 @@
             </div>
             <div class="tab-pane" role="tabpanel" id="step2">
                 <h3 class="font-margin text-center">Chọn ảnh giấy phép bán hàng</h3>
+
                 <div class="form-group row">
                     <div class="form-control col-md-7" style="width: 60%" >
                         <a id="chossefile-giayphep">
@@ -104,7 +135,7 @@
                                 <span style="position: absolute;margin-top: 46px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: 290px;">+</span>
                             </div>
                         </a>
-                        <!--<div class="desc " style="display: none;"> <input type="file" name="licenseImage" class="btn btn-danger img-giayphep"/></div>-->
+                        <div class="desc " style="display: none;"> <input type="file" name="licenseImage" class="btn btn-danger img-giayphep"/></div>
                     </div>
                     <div class="col-md-5">
                         <h2>Chú ý:</h2>

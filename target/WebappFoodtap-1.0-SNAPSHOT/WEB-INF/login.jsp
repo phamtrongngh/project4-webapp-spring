@@ -47,7 +47,7 @@
                                 <img src="/public/image/Background/33367357.jpg" width="100%"/>
                             </div>
                             <div class="login-container">
-                                <form class="login-form " action="/login" method="POST">
+                                <form class="login-form " id="commentForm" action="/login" method="POST">
                                     <div class="form-group ">
                                         <input type="text" name="phone" class="form-control " placeholder="SĐT "  />
                                     </div>
@@ -135,6 +135,7 @@
         <script src="/public/js/bootstrap/bootstrap.min.js "></script>
         <script src="/public/js/swiper.min.js "></script>
         <script src="/public/js/script.js "></script>
+       
     </body>
 
 </html>

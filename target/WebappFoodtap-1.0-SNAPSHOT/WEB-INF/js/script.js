@@ -192,6 +192,7 @@ $(document).ready(function() {
         total = Math.round(total * 1000);
         var totalformat = format2(total, '').replace(".0", "");
 
+
         document.getElementsByClassName('cart-total-price')[0].innerText = totalformat + 'VNĐ';
     }
 
@@ -240,14 +241,13 @@ $(document).ready(function() {
         var tien = $(".price-foodnumber").html();
         var total1 = q * tien;
         total1 = Math.round(total1 * 1000);
+
         var t = format2(total1, '').replace(".0", "");
 
         $(".total-foodnumber").html(t + 'VNĐ');
 
 
     }
-
-
 
     function quantityChanged1(event) {
         var input = event.target
@@ -257,6 +257,7 @@ $(document).ready(function() {
         update()
     }
     var quantityInputs1 = $(".input-qty");
+
     quantityInputs1.on('change', quantityChanged1);
 });
 //count cart
@@ -449,24 +450,14 @@ $(document).ready(function() {
 //call ajax upload image
 $(document).ready(function() {
     $("input[type=file]").change(function() {
-//        var formData = new FormData();
-//        formData.append("file",this.files[0])
-//        $.ajax({
-//            url: "/util/upload",
-//            type: "POST",
-//            data: formData,
-//            contentType: false,
-//            processData: false,
-//            success: function(x) {
-//            }
-//        })
+
         if (this.files && this.files[0]) {
             var reader = new FileReader();
 
             reader.onload = function(e) {
                 console.log(e.target.result);
-                $('#frame-image')
-                        .css('background-image', 'url("'+e.target.result+'")')
+                $('#frame-image').css('background-image', 'url("' + e.target.result + '")')
+
             };
             reader.readAsDataURL(this.files[0]);
         }
