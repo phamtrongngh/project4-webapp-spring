@@ -36,7 +36,7 @@ public class RESTMessageHelper extends RESTHelper {
         mapper = new ObjectMapper();
     }
 
-    public List<Map<String,?>> getListFriends() throws IOException{
+    public List<Map<String, ?>> getListFriends() throws IOException {
         String url = BASE_URI + "getListFriends";
         webTarget = client.target(url);
         String string = webTarget.request(MediaType.APPLICATION_JSON)
@@ -46,7 +46,8 @@ public class RESTMessageHelper extends RESTHelper {
         });
         return tmpObject;
     }
-    public String getConversation(String id) throws IOException{
+
+    public String getConversation(String id) throws IOException {
         String url = BASE_URI + "getConversation/";
         webTarget = client.target(url);
         String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
@@ -54,12 +55,12 @@ public class RESTMessageHelper extends RESTHelper {
                 .get(String.class);
         return string;
     }
-    
-    public void postMessage(Message message){
+
+    public void postMessage(Message message) {
         String url = BASE_URI + "sendMessage";
         webTarget = client.target(url);
         String string = webTarget.request(MediaType.APPLICATION_JSON)
-                                 .header("authorization", CookieHelper.getCookie("accessToken"))
-                                 .post(Entity.entity(message, MediaType.APPLICATION_JSON),String.class);
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.entity(message, MediaType.APPLICATION_JSON), String.class);
     }
 }
