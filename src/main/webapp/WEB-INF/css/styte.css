@@ -2020,7 +2020,7 @@ input[type="radio"]:checked {
     margin-left:  160px;
 }
 .registerstore .form-group .form-control{
-    width: 80% !important;
+    width: 70% !important;
 }
 .registerstore .form-group.input-phone{
     margin-left:  0px !important;
@@ -2040,16 +2040,18 @@ input[type="radio"]:checked {
     width: 100% !important
 }
 .registerstore .form-group .input-namestore{
-    width: 60% !important;
+    width: 38% !important;
     margin-left: 30px;
 }
 .registerstore .form-group .input-info,.registerstore .form-group .select-species{
-    width: 60% !important;
+    width: 38% !important;
     margin-left: 5px;
 }
 .gallery{
-    border: 1px solid #ccc;
-    width: 82%;
+    position: absolute;
+    right: 170px;
+    text-align: center;
+    width: 15%;
 }
 //End Register Store
 .hr-newsfeed{

@@ -1,9 +1,10 @@
 /* NAVBAR SCRIPTS */
 //jQuery to collapse the navbar on scroll
+
 $(document).ready(function() {
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
-        
+
         if ($(this).css("border") == "1px solid rgb(33, 37, 41)") {
             $(this).removeClass('store-sothich-fix');
         }
@@ -89,7 +90,7 @@ function topFunction() {
 }
 //Buttom slideToggle
 $(document).ready(function() {
-    
+
     $(".btn-up").click(function() {
         $('.box').slideToggle();
     });
@@ -188,9 +189,9 @@ $(document).ready(function() {
             total = total + (price * quantity)
         }
         total = Math.round(total * 1000);
+        var totalformat = format2(total, '').replace(".0","");
 
-
-        document.getElementsByClassName('cart-total-price')[0].innerText = format2(total, '') + 'VNĐ'
+        document.getElementsByClassName('cart-total-price')[0].innerText = totalformat + 'VNĐ';
     }
 
     function addItemToCart(title, price, imageSrc) {
@@ -231,17 +232,36 @@ $(document).ready(function() {
     function format2(n, currency) {
         return currency + n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     }
+//    cart index
+    function update() {
+        
+        var q = ($(".input-qty").val());
+        var tien = $(".price-foodnumber").html();
+        var total1 = q * tien;
+        total1 = Math.round(total1 * 1000);
+        var t =format2(total1, '').replace(".0","");
+        
+        $(".total-foodnumber").html(t + 'VNĐ');
+        
+   
+    }
+
+
+    
+    function quantityChanged1(event) {
+        var input = event.target
+        if (isNaN(input.value) || input.value <= 0) {
+            input.value = 1
+        }
+        update()
+    }
+    var quantityInputs1 = $(".input-qty");
+    quantityInputs1.on('change',quantityChanged1);
 });
 //count cart
 
 
-function quantityChanged(event) {
-    var input = event.target
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1
-    }
-    updateCartTotal()
-}
+
 //messenger
 $(document).ready(function() {
     var messs = document.getElementsByClassName('dropdown-messenger')[0];
@@ -254,6 +274,7 @@ $(document).ready(function() {
         }
     }
 });
+
 //load post
 // function loadResults() {
 //     var result = "";
@@ -301,7 +322,7 @@ $(document).ready(function() {
 // });
 //Popup chat
 $(document).ready(function() {
-    
+
     var arr = []; // List of users 
 
     $(document).on('click', '.msg_head', function() {
@@ -395,6 +416,16 @@ $(document).ready(function() {
         var active = $('.nav-tabs li a.active');
         prevTab(active);
     });
+    
+    $("#chossefile").click(function(e){
+       e.preventDefault();
+       $(".img-store-register").trigger('click');
+  
+    });
+    $("#chossefile-giayphep").click(function(e){
+       e.preventDefault();
+       $(".img-giayphep").trigger('click');
+    });
 });
 function nextTab(elem) {
     $(elem).parent().next().find('a[data-toggle="tab"]').click();
@@ -405,12 +436,11 @@ function prevTab(elem) {
 
 
 
-
-$(document).ready(function () {
-  $('#dtBasicExample').DataTable();
-  $('.dataTables_length').addClass('bs-select');
+$(document).ready(function() {
+    $('#dtBasicExample').DataTable();
+    $('.dataTables_length').addClass('bs-select');
 });
-$(document).ready(function () {
-  $('#dtmenu').DataTable();
-  $('.dataTables_length').addClass('bs-select');
+$(document).ready(function() {
+    $('#dtmenu').DataTable();
+    $('.dataTables_length').addClass('bs-select');
 });
