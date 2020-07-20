@@ -115,8 +115,10 @@ public class RestaurantController implements IController<Restaurant> {
         MultipartFile multipartFile = multipartContainer.getMultipartFile();
         String fileName = multipartFile.getOriginalFilename();
         String path = "./";
+        
         File file = new File(path, fileName);
         multipartFile.transferTo(file);
+        
         final Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
         final FileDataBodyPart filePart = new FileDataBodyPart("avatar", file);
         FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
@@ -126,6 +128,7 @@ public class RestaurantController implements IController<Restaurant> {
                 .header("authorization", CookieHelper.getCookie("accessToken"))
                 .post(Entity.entity(multipart, multipart.getMediaType()));
         file.delete();
+        
         return new ModelAndView("index");
     }
 

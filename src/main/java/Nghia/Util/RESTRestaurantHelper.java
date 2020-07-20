@@ -34,6 +34,7 @@ public class RESTRestaurantHelper extends RESTHelper {
         webTarget = client.target(BASE_URI);
         mapper = new ObjectMapper();
     }
+
     public List<Map<String, ?>> getMyRestaurants() throws IOException {
         String url = BASE_URI + "getMyRestaurants";
         webTarget = client.target(url);
@@ -44,6 +45,5 @@ public class RESTRestaurantHelper extends RESTHelper {
         });
         return tmpObject;
     }
-    
-    
+
 }

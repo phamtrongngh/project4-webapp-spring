@@ -5,12 +5,14 @@ controllers\AuthController.class
 models\User.class
 controllers\UserController.class
 Nghia\Util\RESTAuthorizeHelper$2.class
+Nghia\Util\RESTRestaurantHelper.class
 controllers\AuthController$2.class
 Nghia\Util\RESTHelper$3.class
 Nghia\Util\RESTAuthorizeHelper.class
 controllers\NewfeedController.class
 Nghia\Util\RESTHelper$2.class
 Nghia\Util\RESTHelper$5.class
+Nghia\Util\RESTUserHelper.class
 Nghia\Util\RESTMessageHelper$1.class
 controllers\ProductController.class
 controllers\UtilController.class
@@ -22,6 +24,7 @@ controllers\RestaurantController.class
 models\Authorization.class
 models\Message.class
 Nghia\Util\MultipartContainer.class
+Nghia\Util\RESTRestaurantHelper$1.class
 interceptor\AuthorizeHandleInterceptor.class
 models\Product.class
 Nghia\Util\RESTHelper$4.class
