@@ -54,9 +54,8 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/mystore", method = RequestMethod.GET)
     public ModelAndView mystore() throws IOException {
-//        List<Map<String, ?>> listRestaurants = restHelper.getMyRestaurants();
-//        return new ModelAndView("mystore").addObject("listRestaurants", listRestaurants);
-        return new ModelAndView("mystore");
+        List<Map<String, ?>> listRestaurants = restHelper.getMyRestaurants();
+        return new ModelAndView("mystore").addObject("listRestaurants", listRestaurants);
 
     }
 
@@ -114,24 +113,33 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/createRestaurant", method = RequestMethod.POST)
     public ModelAndView createRestaurant(MultipartContainer multipartContainer, Restaurant restaurant) throws IOException {
-        MultipartFile multipartFile = multipartContainer.getMultipartFile();
-        String fileName = multipartFile.getOriginalFilename();
+
+        MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         
+        String fileName = multipartFile[0].getOriginalFilename();
         File file = new File(path, fileName);
-        multipartFile.transferTo(file);
+        multipartFile[0].transferTo(file);
+        
+        String fileName2 = multipartFile[1].getOriginalFilename();
+        File file2 = new File(path, fileName2);
+        multipartFile[1].transferTo(file2);
         
         final Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
         final FileDataBodyPart filePart = new FileDataBodyPart("avatar", file);
+        final FileDataBodyPart filePart2 = new FileDataBodyPart("licenseImage", file2);
         FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
-        final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("restaurant", restaurant, MediaType.APPLICATION_JSON_TYPE).bodyPart(filePart);
+        formDataMultiPart.bodyPart(filePart);
+        formDataMultiPart.bodyPart(filePart2);
+        final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("restaurant", restaurant, MediaType.APPLICATION_JSON_TYPE);
         final WebTarget target = client.target("http://localhost:9032/Restaurant/");
         final Response response = target.request()
                 .header("authorization", CookieHelper.getCookie("accessToken"))
-                .post(Entity.entity(multipart, multipart.getMediaType()));
+                .post(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
         file.delete();
-        
-        return new ModelAndView("index");
+        file2.delete();
+
+        return mystore();
     }
 
 }
