@@ -2,9 +2,8 @@
 <%@include  file="header.jsp" %>
 
 <!--Content-->
-<a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
 <div class="container" style="margin-top: 100px">
-    <div class="row user-profile">
+    <div class="row user-profile myprofile-user">
         <!-- Menu of food -->
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
@@ -35,8 +34,8 @@
                 </div>
                 <div class="col-md-4">
                     <div>
-                        <a href="/statistical"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
-                            <div class="rounded photo">
+                        <a href="/statistical"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="height: 173px" alt="" />
+                            <div class="rounded photo" style="height: 173px;margin-top: -173px;">
                                 <div>
                                     Quản lý cửa hàng
                                 </div>
@@ -46,12 +45,12 @@
                     </div>
                 </div>
                 <div class="col-md-2 profile-container-buttons">
-                    <button class="btn btn-primary form-control"><i class="fas fa-store-alt"></i>Cửa hàng</button>
-                    <button class="btn btn-success form-control"><i class="fas fa-heart"></i>Yêu thích</button>
-                    <button class="btn btn-danger form-control"><i class="fas fa-history"></i>Lịch sử giao dịch</button>
+                    <button class="btn btn-primary form-control" style="margin-left: -10px"><i class="fas fa-store-alt"></i>Cửa hàng</button>
+                    <button class="btn btn-success form-control" style="margin-top: 8px;margin-left: -10px"><i class="fas fa-heart"></i>Yêu thích</button>
+                    <button class="btn btn-danger form-control" style="margin-top: 8px;margin-left: -10px"><i class="fas fa-history"></i>Lịch sử giao dịch</button>
                 </div>
-                <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
-                    <button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i>Sửa thông tin</button>
+                <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;margin-left: -15px">
+                    <button class="btn btn-primary form-control "style="width: 210%"><i class="fas fa-user-edit"></i>Sửa thông tin</button>
                 </div>
             </div>
             <div class="row">
@@ -101,11 +100,11 @@
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label  style="font-size: 12px;" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+                                        <label  style="font-size: 12px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
                                         <input type="file"  id="upload-photo"/>
                                     </div>
                                     <div class="col-md-6">
-                                        <button class="btn btn-success" style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                        <button class="btn btn-success" style="margin-bottom: -5px;"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
                                     </div>
                                 </div>
                                 <div class="row">

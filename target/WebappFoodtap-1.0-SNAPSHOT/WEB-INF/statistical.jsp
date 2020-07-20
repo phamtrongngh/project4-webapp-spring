@@ -1,7 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%@include  file="headerstore.jsp" %>
+<%@include  file="header.jsp" %>
 <div class="container" style="margin-top: 100px">
     <!-- Nav tabs -->
     <div class="form-inline" style="margin-bottom: 10px;text-align: end;flex-direction: row-reverse;padding-right: 30px;">

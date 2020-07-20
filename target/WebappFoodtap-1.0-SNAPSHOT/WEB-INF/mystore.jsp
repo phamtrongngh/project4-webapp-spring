@@ -1,6 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="headerstore.jsp" %>
+<%@include file="header.jsp" %>
 <div class="container" style="margin: 150px">
     <div class="d-flex justify-content-between">
     <h2>Quản lý cửa hàng</h2>

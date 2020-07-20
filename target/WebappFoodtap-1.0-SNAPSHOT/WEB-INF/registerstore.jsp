@@ -1,6 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="headerstore.jsp" %>
+<%@include file="header.jsp" %>
 
 <div class="container registerstore border rounded shadow-sm" style="margin-top:100px ">
     <ul class="nav nav-tabs flex-nowrap text-center" role="tablist">

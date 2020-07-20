@@ -45,9 +45,9 @@
                     </div>
                 </div>
                 <div class="col-md-2 profile-container-button">
-                    <div><button class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button></div>
-                    <div><button class="btn btn-success form-control"><i class="fas fa-user-circle"></i>Giới thiệu</button></div>
-                    <div><button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i> Báo cáo</button></div>
+                    <button class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
+                    <button class="btn btn-success form-control"><i class="fas fa-user-circle"></i>Giới thiệu</button>
+                    <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i> Báo cáo</button>
                 </div>
                 <div class="col-md-2 container-sendmess" style="padding-right: 0 !important;">
                     <button class="btn btn-primary "><i class="far fa-comment"></i><br/>Gửi tin</button>
