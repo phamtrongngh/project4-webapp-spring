@@ -42,11 +42,12 @@ window.onscroll = function() {
 };
 
 //Ajax call function
-function callAjax(url, type, data) {
+function callAjax(url, type, data, cb) {
     $.ajax({
         url: url,
         type: type,
-        data: data
+        data: data,
+        success: cb
     })
 }
 function getIdOfAnElement(className) {
@@ -445,27 +446,19 @@ $(document).ready(function() {
     $('.dataTables_length').addClass('bs-select');
 });
 
-//call ajax create restaurant
+//call ajax upload image
 $(document).ready(function() {
-//    $("#submit-create-restaurant").click(function() {
-//        $.ajax({
-//            headers: {
-//                 Authorization:'${cookie["accessToken"].getValue()}'
-//            },
-//            type:"POST",
-//            crossDomain: true,
-//            dataType: 'jsonp',
-//            contentType: 'multipart/form-data',
-//            url:"http://localhost:9032/Restaurant",
-//            data:{
-//                name: $(".input-namestore").val()
-//            },
-//            success:function(data){
-//                console.log(data);
-//            },
-//            error:function(){
-//                console.log("error")
-//            }
-//        });
-//    });
+    $("input[type=file]").change(function() {
+        var formData = new FormData();
+        formData.append("file",this.files[0])
+        $.ajax({
+            url: "/util/upload",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(x) {
+            }
+        })
+    })
 })

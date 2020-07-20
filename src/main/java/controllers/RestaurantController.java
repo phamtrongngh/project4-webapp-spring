@@ -109,10 +109,9 @@ public class RestaurantController implements IController<Restaurant> {
     public ModelAndView createRestaurant(MultipartContainer multipartContainer, Restaurant restaurant) throws IOException {
         MultipartFile multipartFile = multipartContainer.getMultipartFile();
         String fileName = multipartFile.getOriginalFilename();
-        String path= "./";
+        String path = "./";
         File file = new File(path, fileName);
         multipartFile.transferTo(file);
-
         final Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
         final FileDataBodyPart filePart = new FileDataBodyPart("avatar", file);
         FormDataMultiPart formDataMultiPart = new FormDataMultiPart();

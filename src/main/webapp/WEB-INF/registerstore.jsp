@@ -13,7 +13,7 @@
 
 
     </ul>
-    <form action="/createRestaurant" method="POST" enctype="multipart/form-data">
+    <form action="/createRestaurant" id="createRestaurantForm" method="POST" enctype="multipart/form-data">
         <div class="tab-content py-2 " style="background-color: #c2c1be;">
             <div class="tab-pane active" role="tabpanel" id="step1">
                 <h3 class="font-margin text-center">Nhập thông tin</h3>
@@ -25,7 +25,7 @@
                             </div>
 
                         </a>
-                        <div class="desc ">Chọn ảnh đại diện <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                        <div class="desc ">Chọn ảnh đại diện <input style="width: 100%; display: none;" type="file[]" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                     </div>
                 </div>
                 <div class="form-group form-inline">
