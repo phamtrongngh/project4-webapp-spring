@@ -19,7 +19,11 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import Nghia.Util.MultipartContainer;
+import Nghia.Util.RESTRestaurantHelper;
+import Nghia.Util.RESTUserHelper;
+import java.util.Map;
 import models.Restaurant;
+import models.User;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
@@ -37,10 +41,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RestaurantController implements IController<Restaurant> {
 
-    private final RESTHelper restHelper;
+    private final RESTRestaurantHelper restHelper;
 
     public RestaurantController() throws InstantiationException, IllegalAccessException {
-        restHelper = new RESTHelper(Restaurant.class);
+        restHelper = new RESTRestaurantHelper(Restaurant.class);
     }
 
     @RequestMapping(value = "/statistical", method = RequestMethod.GET)
@@ -50,7 +54,8 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/mystore", method = RequestMethod.GET)
     public ModelAndView mystore() throws IOException {
-        return new ModelAndView("mystore");
+        List<Map<String, ?>> listRestaurants = restHelper.getMyRestaurants();
+        return new ModelAndView("mystore").addObject("listRestaurants", listRestaurants);
     }
 
     @RequestMapping(value = "/registerstore", method = RequestMethod.GET)
@@ -121,7 +126,7 @@ public class RestaurantController implements IController<Restaurant> {
                 .header("authorization", CookieHelper.getCookie("accessToken"))
                 .post(Entity.entity(multipart, multipart.getMediaType()));
         file.delete();
-        return null;
+        return new ModelAndView("index");
     }
 
 }

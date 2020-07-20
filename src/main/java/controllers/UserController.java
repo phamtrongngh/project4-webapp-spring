@@ -32,9 +32,11 @@ public class UserController {
     public ModelAndView myprofileuser(){
         return new ModelAndView("myprofile-user");
     }
+    
     @RequestMapping(value="/User/statistical")
     public ModelAndView statistical(){
         return new ModelAndView("statistical");
     }
+    
     
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package models;
 
 import java.util.Date;
@@ -14,18 +13,28 @@ import java.util.List;
  * @author Admin
  */
 public class Restaurant {
+
     private String _id;
-    private String name; 
+    private String name;
     private List<User> managers;
     private List<Newfeed> newfeeds;
     private List<Product> menus;
-    private String address; 
+    private String address;
     private boolean verified;
     private String avatar;
-    private List<User> followers; 
+    private String description;
+    private List<User> followers;
     private Date createdAt;
     private Date updatedAt;
     private int __v;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String get_id() {
         return _id;
@@ -123,6 +132,4 @@ public class Restaurant {
         this.__v = __v;
     }
 
-   
-    
 }
