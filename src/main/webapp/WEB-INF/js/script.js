@@ -449,25 +449,14 @@ $(document).ready(function() {
 //call ajax upload image
 $(document).ready(function() {
     $("input[type=file]").change(function() {
-//        var formData = new FormData();
-//        formData.append("file",this.files[0])
-//        $.ajax({
-//            url: "/util/upload",
-//            type: "POST",
-//            data: formData,
-//            contentType: false,
-//            processData: false,
-//            success: function(x) {
-//            }
-//        })
+        
+        var imageFrame = $(this).parent().siblings(0).children(0);
+        console.log(imageFrame);
         if (this.files && this.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function(e) {
-                console.log(e.target.result);
-                $('#frame-image')
-                        .css('background-image', 'url("'+e.target.result+'")')
-            };
+                imageFrame.css('background-image', 'url("'+e.target.result+'")')
+            }
             reader.readAsDataURL(this.files[0]);
         }
     })

@@ -22,7 +22,7 @@
                     <td><img height="100" width="100" src="http://localhost:9032/public/image/${item.avatar}" /></td>
                     <td>${item.name}</td>
                     <td>${item.active?"Hoạt động":"Chưa có giấy phép"}</td>
-                    <td></td>
+                    <td><a href="/user-profile/${item.managers[0].user._id}">${item.managers[0].user.fullname}</a></td>
                     <td><a href="/statistical" class="btn btn-outline-danger form-control">Quản lý</a></td>
                 </tr>
             </c:forEach>

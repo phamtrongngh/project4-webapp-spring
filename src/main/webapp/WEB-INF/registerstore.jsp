@@ -20,11 +20,9 @@
                 <div class="form-group">
                     <div class="gallery">
                         <a id="chossefile">
-                            <!--<img id="frame-image"  src=""/>-->
-                            <div id="frame-image" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
+                            <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
                                 <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
                             </div>
-
                         </a>
                         <div class="desc ">Chọn ảnh đại diện <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                     </div>
@@ -100,11 +98,11 @@
                 <div class="form-group row">
                     <div class="form-control col-md-7" style="width: 60%" >
                         <a id="chossefile-giayphep">
-                            <div style="border: 1px solid blue;width: 100%;height: 300px;">
+                            <div class="image-frame-upload" style="border: 1px solid blue; background-size: cover;width: 100%;height: 300px;">
                                 <span style="position: absolute;margin-top: 46px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: 290px;">+</span>
                             </div>
                         </a>
-                        <!--<div class="desc " style="display: none;"> <input type="file" name="licenseImage" class="btn btn-danger img-giayphep"/></div>-->
+                        <div class="desc " style="display: none;"> <input type="file" name="multipartFile" class="btn btn-danger img-giayphep"/></div>
                     </div>
                     <div class="col-md-5">
                         <h2>Chú ý:</h2>
