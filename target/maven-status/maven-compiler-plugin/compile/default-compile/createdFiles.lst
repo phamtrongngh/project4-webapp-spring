@@ -5,20 +5,14 @@ controllers\AuthController.class
 models\User.class
 controllers\UserController.class
 Nghia\Util\RESTAuthorizeHelper$2.class
-<<<<<<< HEAD
-=======
 Nghia\Util\RESTRestaurantHelper.class
->>>>>>> f3de3eb4083bd534be4c67fbef4a511c1429cf83
 controllers\AuthController$2.class
 Nghia\Util\RESTHelper$3.class
 Nghia\Util\RESTAuthorizeHelper.class
 controllers\NewfeedController.class
 Nghia\Util\RESTHelper$2.class
 Nghia\Util\RESTHelper$5.class
-<<<<<<< HEAD
-=======
 Nghia\Util\RESTUserHelper.class
->>>>>>> f3de3eb4083bd534be4c67fbef4a511c1429cf83
 Nghia\Util\RESTMessageHelper$1.class
 controllers\ProductController.class
 controllers\UtilController.class
