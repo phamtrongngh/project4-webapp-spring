@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@include  file="header.jsp" %>
 
-<div class="container-fluid h-100 " style="margin-top: 100px">
+<div class="container-fluid h-100 " style="margin-top: 30px">
     <div class="row justify-content-center h-100">
         <div class="col-md-4 col-xl-3 chat">
             <div class="card mb-sm-3 mb-md-0 contacts-card">
@@ -155,4 +155,12 @@
         </div>
     </div>
 </div>
-<%@include  file="footer.jsp" %>
+<!--Bootstrap-->
+<script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
+<script src="/public/js/jquery/jquery.min.js "></script>
+<script src="/public/js/bootstrap/popper.min.js "></script>
+<script src="/public/js/bootstrap/bootstrap.min.js "></script>
+<script src="/public/js/swiper.min.js "></script>
+<script src="/public/js/script.js "></script>
+</body>
+</html>
