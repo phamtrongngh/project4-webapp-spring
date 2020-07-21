@@ -113,32 +113,39 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/createRestaurant", method = RequestMethod.POST)
     public ModelAndView createRestaurant(MultipartContainer multipartContainer, Restaurant restaurant) throws IOException {
-
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
-        
+        FileDataBodyPart filePart;
+        FileDataBodyPart filePart2;
+
+        Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
+        FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
         String fileName = multipartFile[0].getOriginalFilename();
         File file = new File(path, fileName);
-        multipartFile[0].transferTo(file);
-        
+        if (fileName != "") {
+            multipartFile[0].transferTo(file);
+            filePart = new FileDataBodyPart("avatar", file);
+            formDataMultiPart.bodyPart(filePart);
+
+        }
         String fileName2 = multipartFile[1].getOriginalFilename();
         File file2 = new File(path, fileName2);
-        multipartFile[1].transferTo(file2);
-        
-        final Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
-        final FileDataBodyPart filePart = new FileDataBodyPart("avatar", file);
-        final FileDataBodyPart filePart2 = new FileDataBodyPart("licenseImage", file2);
-        FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
-        formDataMultiPart.bodyPart(filePart);
-        formDataMultiPart.bodyPart(filePart2);
+        if (fileName2 != "") {
+            multipartFile[1].transferTo(file2);
+            filePart2 = new FileDataBodyPart("licenseImage", file2);
+            formDataMultiPart.bodyPart(filePart2);
+        }
         final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("restaurant", restaurant, MediaType.APPLICATION_JSON_TYPE);
         final WebTarget target = client.target("http://localhost:9032/Restaurant/");
         final Response response = target.request()
                 .header("authorization", CookieHelper.getCookie("accessToken"))
                 .post(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
-        file.delete();
-        file2.delete();
-
+        if (fileName != "") {
+            file.delete();
+        }
+        if (fileName2 != "") {
+            file2.delete();
+        }
         return mystore();
     }
 
