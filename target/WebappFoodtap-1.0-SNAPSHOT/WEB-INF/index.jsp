@@ -6,11 +6,9 @@
         <div class="modal-content modal-content-sothich">
             <div class="modal-header" style="background-color: #da484a;color: white;">
                 <h4 class="modal-title">Hãy chọn 3 mục bạn yêu thích nhất</h4>
-
             </div>
             <div class="modal-body">
                 <div class="row">
-
                     <div class="col-md-3 text-center" >
                         <div class="store-sothich">
                             <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>

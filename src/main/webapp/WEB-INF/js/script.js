@@ -381,7 +381,7 @@ $(document).ready(function() {
 
     function displayChatBox() {
         i = 270; // start position
-        j = 320; //next position
+        j = 350; //next position
 
         $.each(arr, function(index, value) {
             if (index < 3) {
