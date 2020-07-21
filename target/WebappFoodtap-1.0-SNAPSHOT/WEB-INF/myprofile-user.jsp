@@ -10,31 +10,17 @@
                 <div class="col-md-4 profile-avartar">
                     <div>
                         <div class="profile-container-img">
-                            <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
+                            <img src="http://localhost:9032/public/image/${user.avatar}" class="rounded-circle img-avartar" alt="" />
                         </div>
                         <div class="profile-name">
-                            <div class="text-name">SWEETLANE</div>
-                            <div class="text-like">14k lượt thích</div>
-                            <div class="stars">
-                                <form action="">
-                                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                                    <label class="star star-5" for="star-5"></label>
-                                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                                    <label class="star star-4" for="star-4"></label>
-                                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                                    <label class="star star-3" for="star-3"></label>
-                                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                                    <label class="star star-2" for="star-2"></label>
-                                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                                    <label class="star star-1" for="star-1"></label>
-                                </form>
-                            </div>
+                            <div class="text-name">${user.fullname}</div>
+                            <div class="text-like">14k lượt theo dõi</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div>
-                        <a href="/statistical"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="height: 173px" alt="" />
+                        <a href="/mystore"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="height: 173px" alt="" />
                             <div class="rounded photo" style="height: 173px;margin-top: -173px;">
                                 <div>
                                     Quản lý cửa hàng
