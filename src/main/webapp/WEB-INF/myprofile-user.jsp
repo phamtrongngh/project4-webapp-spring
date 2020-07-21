@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-md-4">
                     <div>
-                        <a href="/statistical"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="height: 173px" alt="" />
+                        <a href="/mystore"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="height: 173px" alt="" />
                             <div class="rounded photo" style="height: 173px;margin-top: -173px;">
                                 <div>
                                     Quản lý cửa hàng
