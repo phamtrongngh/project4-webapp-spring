@@ -34,5 +34,15 @@ public class RESTUserHelper extends RESTHelper {
         mapper = new ObjectMapper();
     }
 
-    
+    public Map<String, ?> getMyUser() throws IOException {
+        String url = BASE_URI + "/getMyUser";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        Map<String, ?> tmpObject = mapper.readValue(string, new TypeReference<Map<String, ?>>() {
+        });
+        return tmpObject;
+    }
+
 }
