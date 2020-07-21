@@ -24,7 +24,7 @@
                                 <div class="cart-row">
 
                                     <div class="cart-item cart-column">
-                                        <img class="cart-item-image" src="image/images new feed/buffalo-wings.jpg" width="100" height="100">
+                                        <img class="cart-item-image" src="/public/image/images new feed/buffalo-wings.jpg" width="100" height="100">
                                         <span class="cart-item-title">Buffalo</span>
                                     </div>
                                     <span class="cart-price cart-column">19.000 VNĐ</span>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="cart-row">
                                     <div class="cart-item cart-column">
-                                        <img class="cart-item-image" src="image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="100" height="100">
+                                        <img class="cart-item-image" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="100" height="100">
                                         <span class="cart-item-title">Kem</span>
                                     </div>
                                     <span class="cart-price cart-column">20.000 VNĐ</span>
@@ -63,7 +63,7 @@
 
 
         <div class="col-md-5 info-user">
-            <h1 style="margin-top: 20px;text-align: left;">Thông tin đơn hàng</h1>
+            <h1 style="margin-top: 10px;text-align: left;">Thông tin đơn hàng</h1>
             <div>
                 <form class="form-group form-order">
                     <div class="info-more">

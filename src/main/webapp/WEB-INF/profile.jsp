@@ -350,19 +350,19 @@
 
                             <div class="profile-menu-hot ">
                                 <div class="col-md-4">
-                                    <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
+                                    <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" /><br/>
                                     <a href="">Nui xào bơ tỏi</a>
-                                    <div class="text-price">77.000</div>
+                                    <div class="text-price">77.000VNĐ</div>
                                 </div>
                                 <div class="col-md-4">
                                     <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
                                     <a href="">Gà phô mai</a>
-                                    <div class="text-price">77.000</div>
+                                    <div class="text-price">77.000VNĐ</div>
                                 </div>
                                 <div class="col-md-4">
                                     <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
                                     <a href="">Gà nướng mật ong</a>
-                                    <div class="text-price">77.000</div>
+                                    <div class="text-price">77.000VNĐ</div>
                                 </div>
                             </div>
                             <div class="profile-menu-hot ">
