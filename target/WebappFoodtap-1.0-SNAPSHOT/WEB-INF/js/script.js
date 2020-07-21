@@ -451,14 +451,14 @@ $(document).ready(function() {
 $(document).ready(function() {
     $("input[type=file]").change(function() {
 
+        var imageFrame = $(this).parent().siblings(0).children(0);
+        console.log(imageFrame);
         if (this.files && this.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function(e) {
-                console.log(e.target.result);
-                $('#frame-image').css('background-image', 'url("' + e.target.result + '")')
 
-            };
+                imageFrame.css('background-image', 'url("'+e.target.result+'")')
+            }
             reader.readAsDataURL(this.files[0]);
         }
     })

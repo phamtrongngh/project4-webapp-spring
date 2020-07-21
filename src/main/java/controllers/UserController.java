@@ -16,11 +16,13 @@ public class UserController {
     public UserController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTHelper(User.class);
     }
+    
     @RequestMapping(value="/profile")
     public ModelAndView index(){
         return new ModelAndView("profile");
     }
-   
+    
+    
     @RequestMapping(value="/user-profile", method = RequestMethod.GET)
     public ModelAndView profile() throws IOException{
       
