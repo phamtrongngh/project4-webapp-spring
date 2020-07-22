@@ -10,8 +10,8 @@
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div class="profile-container-img">
-                        <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
+                    <div class="profile-container-img float-left">
+                        <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt=""  />
                     </div>
                     <div class="profile-name">
                         <div class="text-name">SWEETLANE</div>
@@ -64,17 +64,40 @@
                                 <button class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</button>
                             </div>
                             <div class="col-md-6">
-                                <button class="btn btn-success" style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                <button type="button" class="btn btn-success" style="margin-bottom: 10px;" data-toggle="modal" data-target="#mapModel"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                    <!-- The Modal -->
+                                        <div class="modal" id="mapModel">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title"> Bản đồ</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                       
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" >Chấp nhận</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="btn btn-success"><i class="fas fa-hamburger"></i> Đăng món</button>
+                                <button type="button" class="btn btn-success"><i class="fas fa-hamburger"></i> Đăng món</button>
                             </div>
                         </div>
                         <hr/>
                         <div>
-                            <button class="btn btn-primary">Đăng</button>
+                            <button type="button" class="btn btn-primary">Đăng</button>
                         </div>
                     </div>
                 </form>

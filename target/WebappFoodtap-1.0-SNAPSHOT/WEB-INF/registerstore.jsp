@@ -51,48 +51,47 @@
                         <option value="3 ">Option 3</option>
                     </select>
                 </div>
-                <div class="form-inline">
-                    <div class="form-group ">
-                        <select class="form-control select-address-ward  ">
-                            <option value=" " disabled selected>Xã/Phường</option>
-                            <option value="1 ">Option 1</option>
-                            <option value="2 ">Option 2</option>
-                            <option value="3 ">Option 3</option>
-                        </select>
-                    </div>
-                    <div class="form-group container-city">
-                        <select class="form-control select-address">
-                            <option value=" " disabled selected>Tỉnh/Thành phố</option>
-                            <option value="1 ">Option 1</option>
-                            <option value="2 ">Option 2</option>
-                            <option value="3 ">Option 3</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-inline">
-                    <div class="form-group container-district">
-                        <select class="form-control  select-address-district ">
-                            <option value=" " disabled selected>Quận/Huyện</option>
-                            <option value="1 ">Option 1</option>
-                            <option value="2 ">Option 2</option>
-                            <option value="3 ">Option 3</option>
-                        </select>
-                    </div>
-                    <div class="form-group container-address">
-                        <input type="text" placeholder="Đường, số nhà " class="form-control input-address " />
-                    </div>
-                </div>
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label>Họ tên người liên hệ:</label>
-                        <input type="text" class="form-control"/>
-                    </div>
-                    <div class="form-group input-phone">
-                        <label>Số điện thoại:</label>
-                        <input type="text" class="form-control"/>
-                    </div>
-                </div>
+                
+                <div class="form-group form-inline">
+                    <label>Địa chỉ cửa hàng</label>
+                    <div class="input-group flex-nowrap" style="width: 46.5%">
+                        <input type="text" class="form-control input-address" >
+                        <div class="input-group-prepend">
+                            <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel1" ><i class="fas fa-map-marker-alt"></i></button>
+                        </div>
+                        <!-- The Modal -->
+                        <div class="modal" id="mapModel1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> Bản đồ</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" >Chấp nhận</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label>Họ tên người liên hệ:</label>
+                    <input type="text" class="form-control input-name-user"/>
+                </div>
+                <div class="form-group form-inline">
+                    <label>Số điện thoại:</label>
+                    <input type="text" class="form-control input-phones"/>
+                </div>
 
                 <ul class="float-right">
                     <li class="list-inline-item">
@@ -107,7 +106,7 @@
                     <div class="form-control col-md-7" style="width: 60%" >
                         <a id="chossefile-giayphep">
                             <div class="image-frame-upload" style="border: 1px solid blue; background-size: cover;width: 100%;height: 300px;">
-                                <span style="position: absolute;margin-top: 46px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: 290px;">+</span>
+                                <span style="position: absolute;margin-top: 45px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: 190px;">+</span>
                             </div>
                         </a>
 
