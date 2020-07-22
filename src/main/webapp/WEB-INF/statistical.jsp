@@ -15,109 +15,25 @@
         </form>
     </div>
     <ul class="nav nav-tabs">
-        <li class="nav-item text-center" style="width:25%">
-            <a class="nav-link active" data-toggle="tab" href="#chart">Sơ đồ thống kê</a>
+        <li class="nav-item text-center" style="width:33%">
+            <a class="nav-link active" data-toggle="tab" href="#order">Đơn hàng</a>
         </li>
-        <li class="nav-item text-center" style="width:25%">
+<!--        <li class="nav-item text-center" style="width:25%">
             <a class="nav-link" data-toggle="tab" href="#DMmenu"> Danh mục menu</a>
+        </li>-->
+        <li class="nav-item text-center" style="width:34%">
+            <a class="nav-link" data-toggle="tab" href="#menu">Danh mục</a>
         </li>
-        <li class="nav-item text-center" style="width:25%">
-            <a class="nav-link" data-toggle="tab" href="#menu">Menu</a>
-        </li>
-        <li class="nav-item text-center" style="width:25%">
-            <a class="nav-link " data-toggle="tab" href="#order">Đơn hàng</a>
+        <li class="nav-item text-center" style="width:33%">
+            <a class="nav-link " data-toggle="tab" href="#chart">Sơ đồ thống kê</a>
         </li>
 
 
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
-        <div class="tab-pane active container" id="chart">
-            <canvas id="myChart">
-            </canvas>
-            <div class="row">
-
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kiếm (Hàng tháng)</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-success shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Kiếm (Hàng năm)</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-info shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nhiệm vụ</div>
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-auto">
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="progress progress-sm mr-2">
-                                                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pending Requests Card Example -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-warning shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">yêu cầu cần xử lý</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="tab-pane container" id="order">
-            <div class="card shadow mb-4" style="height: 100%;">
+        <div class="tab-pane active container" id="order">
+      <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold ">Bảng thống kê quản lí đơn hàng</h6>
                 </div>
@@ -254,8 +170,92 @@
                     </div>
                 </div>
             </div>
+
         </div>
-        <div class="tab-pane  container text-center" id="DMmenu" style="max-width: 100% !important;">
+        <div class="tab-pane container" id="chart">
+                  <canvas id="myChart">
+            </canvas>
+            <div class="row">
+
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kiếm (Hàng tháng)</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Kiếm (Hàng năm)</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nhiệm vụ</div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="progress progress-sm mr-2">
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pending Requests Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">yêu cầu cần xử lý</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--        <div class="tab-pane  container text-center" id="DMmenu" style="max-width: 100% !important;">
 
             <div class="mb-4" style="margin-top: 10px;text-align: start;">
                 <form class="form-inline">
@@ -318,11 +318,18 @@
                 </div>
             </div>
 
-        </div>
+        </div>-->
         <div class="tab-pane container" id="menu" style="max-width: 100% !important;">
-            <div class="mb-4" style="margin-top: 10px;text-align: start;">
+            <div class="mb-4 form-inline" style="margin-top: 10px;text-align: start;">
                 <button class="btn btn-info btn-icon-split" style="margin-left: 10px;" data-toggle="modal" data-target="#mdMenu"><i class="fas fa-file-medical" ></i> Thêm</button>
-                <!--                    modal create menu-->
+                <select name="" class="form-control " style="margin-left: 10px">
+                        <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                        <option value="1 ">Option 1</option>
+                        <option value="2 ">Option 2</option>
+                        <option value="3 ">Option 3</option>
+                    </select>
+            </div>
+                <!--modal create menu-->
                 <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -344,6 +351,19 @@
                                         <input type="file"  />
 
                                     </div>
+                                       <div class="d-flex" style="width: 30%">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="50%" height="85px" />
+                                    <div class="upload-img-status" >
+                                        <div class="gallery text-center">
+                                            <a id="chossefile">
+                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px;position: absolute">
+                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 27px;bottom:-20px;">+</span>
+                                                </div>
+                                            </a>
+                                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                                        </div>
+                                    </div>
+                                </div>
                                     <div class="form-group">
                                         <label>Giá:</label>
                                         <input type="number" class="form-control" />
@@ -366,9 +386,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="card shadow mb-4" style="height: 100%;">
+                <div class="card shadow mb-4" style="height: 100%;">
 
                 <div class="card-body">
                     <div class="">
@@ -433,6 +451,9 @@
                     </div>
                 </div>
             </div>
+            </div>
+
+            
 
         </div>
     </div>
