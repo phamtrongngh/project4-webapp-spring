@@ -617,7 +617,7 @@ h1 {
 
 /*LIST FRIENDS*/
 
-.rounded-circle.img-avatar1 {
+.list-friends .img-avatar1 {
     margin-top: 40px;
     width: 100%;
 }
@@ -806,32 +806,7 @@ h1 {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-@media (max-width: 992px){
-    #register .login-container{
-        height: 90%;
-        padding: 0px 0px 0px 0px ;
-    }
-    #register .login-form .form-group input.form-control {
-        margin-top: 5px !important;
-    }
-    #register .login-container .login-form label {
-        font-size: 15px !important;
-        margin-left: 20px !important;
-    }   
-    #register .login-container .login-form .input-name {
-        width: 90% !important;
-        margin-left: 20px !important;
-    }
 
-    #register .login-container .login-form .input-phone {
-        width: 90% !important;
-        margin-left: 20px !important;
-    }
-    #register .select-address {
-        width: 43% !important;
-        margin-left: 20px !important;
-    }
-}
 .login-sign ul li{
     width: 50%;
 }
@@ -861,8 +836,9 @@ h1 {
     margin-left: 35px;
 }   
 
-#register .login-form .form-group input.form-control {
-    margin-top: 25px;
+#register .login-form .form-group  {
+    margin-top: 20px;
+    padding-top: 20px;
 }
 
 #register .login-container .login-form .input-name {
@@ -884,23 +860,48 @@ h1 {
 
 }
 
-#register .select-address {
-    width: 43% !important;
-    margin-left: 35px;
-}
-
-#register .select-address-district {
-    margin-left: 20px;
-    width: 43% !important;
-}
-
 #register .login-container .login-form .input-address {
-    margin-left: 20px;
-    width: 43% !important;
+    margin-left: 35px;
 }
 
 #register .btn-register {
     width: 80%;
+}
+#register .btn-location{
+    background: white;
+    color: red;
+    transition: .5s ease;
+
+}
+#register .btn-location:hover{
+    background: red;
+    color: white;  
+}
+#register .btn-location:focus{
+    outline: none;
+
+}
+@media (max-width: 992px){
+    #register .login-container{
+        height: 90%;
+        padding: 0px 0px 0px 0px ;
+    }
+    #register .login-form .form-group input.form-control {
+        margin-top: 5px !important;
+    }
+    #register .login-container .login-form label {
+        font-size: 15px !important;
+        margin-left: 20px !important;
+    }   
+    #register .login-container .login-form .input-name {
+        width: 90% !important;
+        margin-left: 20px !important;
+    }
+
+    #register .login-container .login-form .input-phone {
+        width: 90% !important;
+        margin-left: 20px !important;
+    }
 }
 .login-foods {
     padding:80px 5px;
@@ -933,16 +934,16 @@ h1 {
 
 /* 4) PROFILE PAGR */
 
-.profile-container-button button.btn-success,
-.profile-container-button button.btn-danger {
+.profile .profile-container-button button.btn-success,
+.profile .profile-container-button button.btn-danger {
     margin-top: 8px;
     opacity: 0.8;
-    
+
 }
-.profile-container-button button{
+.profile .profile-container-button button{
     height: 30%;
 }
-.profile-container-button button.btn-primary{
+.profile .profile-container-button button.btn-primary{
     opacity: 0.8;
 }
 .profile .photo-header{
@@ -976,13 +977,13 @@ h1 {
     padding: 0;
 }
 
-.profile-container-img {
-    float: left;
-    width: 40%;
-}
+.profile .profile-container-img {
+    width: 50%;
 
-.profile-header .profile-container-img .img-avartar {
-    max-width: 100%;
+}
+.profile .profile-header .profile-container-img .img-avartar {
+    max-width: 82%;
+    
 }
 .profile-name{
     display: table-header-group;
@@ -1493,7 +1494,10 @@ label.star:before {
     margin-left: 10px;
 }
 .user-profile .profile-container-img{
-  
+width: 50%; 
+}
+.user-profile .profile-container-img img{
+width: 82%;
 }
 .profile-intro{
     background-color: white;
@@ -1547,9 +1551,12 @@ label.star:before {
     left: 15px;
 
 }
-.post-store button {
+.post-store button.btn-success, .post-store button.btn-primary {
     width: 100%;
     font-size:12px; 
+}
+.post-store .modal .close{
+    color: black;
 }
 .profile-list{
     background-color: white;
@@ -2012,7 +2019,7 @@ input[type="radio"]:checked {
     margin-left:  0px !important;
 }
 .registerstore .form-group .input-address{
-    margin-left: 32px;
+    margin-left: 54px;
 }
 .registerstore .form-group.container-address{
     margin-left:  0px !important;}
@@ -2026,17 +2033,26 @@ input[type="radio"]:checked {
     width: 100% !important
 }
 .registerstore .form-group .input-namestore{
-    width: 35% !important;
-    margin-left: 68px;
+    width: 40% !important;
+    margin-left: 80px;
 }
 .registerstore .form-group .input-info{
-    width: 35% !important;
-    margin-left:11px;
+    width: 40% !important;
+    margin-left:24px;
+}
+.registerstore .form-group .input-name-user{
+    width:  40% !important;
+    margin-left:16px;
+}
+
+.registerstore .form-group .input-phones{
+    width:  40% !important;
+    margin-left:80px;
 }
 
 .registerstore .form-group .select-species{
-    width: 35% !important;
-    margin-left: 44px;
+    width:  40% !important;
+    margin-left: 58px;
 }
 .registerstore .gallery{
     position: absolute;
@@ -2044,6 +2060,22 @@ input[type="radio"]:checked {
     text-align: center;
     width: 15%;
 }
+.registerstore .btn-location{
+    background-color: #fff;
+    color: red;
+    transition: .5s ease;
+}
+.registerstore .btn-location:hover{
+    background-color: red;
+    color: white;
+}
+.registerstore .btn-location:focus{
+    outline: none;
+}
+.registerstore .modal .close{
+    color: black;
+}
+
 /*End Register Store*/
 .hr-newsfeed{
     margin-bottom: 0;
@@ -2095,6 +2127,14 @@ input[type="radio"]:checked {
     width: 100%;
     height: 173px;
 }
+.store .profile-container-img {
+    width: 50%;
+
+}
+.store .profile-header .profile-container-img .img-avartar {
+    max-width: 82%;
+    
+}
 .store .photo-header{
     width: 100%;
     color: white;
@@ -2127,7 +2167,7 @@ input[type="radio"]:checked {
 .store .containers-sendmess button {
     margin-left: -20px ;
     height: 100%;
-    width: 205%;
+    width: 185%;
     opacity: 0.8;
 }
 .store .voucher{
@@ -2168,7 +2208,7 @@ input[type="radio"]:checked {
     color:red;
     width: 110%;
     height: 100%
-  
+
 }
 .myprofile-user .photo-header{
     width: 100%;
@@ -2189,19 +2229,19 @@ input[type="radio"]:checked {
     height: 170px;
 }
 .myprofile-user .profile-container-buttons{
- margin-left: 32px;
+    margin-left: 32px;
 }
 .myprofile-user .profile-container-buttons button{
-      width: 160%;
+    width: 160%;
 }
 .myprofile-user .containers-sendmess{
     padding-right: 0 !important;
     margin-left: 32px;
-  
+
 }
 .myprofile-user .containers-sendmess button{
     width: 130%;
-    
+
 }
 .myprofile-user .upload-img-status{
     margin-left: 10px;

@@ -8,9 +8,9 @@
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div>
-                        <div class="profile-container-img rounded-circle">
-                            <img src="http://localhost:9032/public/image/${user.avatar}" class=" img-avartar" alt="" />
+                    <div class="d-flex">
+                        <div class="profile-container-img ">
+                            <img src="http://localhost:9032/public/image/${user.avatar}" class="rounded-circle img-avartar" alt="" />
                         </div>
                         <div class="profile-name">
                             <div class="text-name">${user.fullname}</div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-md-2" style="padding-right: 0px !important">
                     <div>
-                        <a href="/mystore"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="height: 173px" alt="" />
+                        <a href="/mystore"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg"  alt="" />
                             <div class="rounded photo-header" >
                                 <div>
                                     Quản lý<br/> cửa hàng
@@ -115,13 +115,13 @@
                                                 <div class="modal-content">
                                                     <!-- Modal Header -->
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title">Bản đồ</h4>
+                                                        <h4 class="modal-title"> Bản đồ</h4>
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                     </div>
 
                                                     <!-- Modal body -->
                                                     <div class="modal-body">
-                                                        Modal body..
+                                                       
                                                     </div>
 
                                                     <!-- Modal footer -->
