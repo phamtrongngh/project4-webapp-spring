@@ -23,7 +23,7 @@
                         <td>${item.name}</td>
                         <td>${item.verified?"Hoạt động":"Chưa có giấy phép"}</td>
                         <td><a href="/user-profile/${item.managers[0].user._id}">${item.managers[0].user.fullname}</a></td>
-                        <td><a href="/statistical" class="btn btn-outline-danger form-control">Quản lý</a></td>
+                        <td><a href="/manageMyRestaurant/${item._id}" class="btn btn-outline-danger form-control">Quản lý</a></td>
                     </tr>
             </c:forEach>
 

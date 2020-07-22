@@ -2,8 +2,8 @@
 <%@include  file="header.jsp" %>
 
 <!--Content-->
-<div class="container" style="margin-top: 100px">
-    <div class="row user-profile myprofile-user">
+<div class="container myprofile-user" style="margin-top: 100px">
+    <div class="row user-profile ">
         <!-- Menu of food -->
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
@@ -18,25 +18,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                            <div class="col-md-2" style="padding-right: 0px !important">
                     <div>
-                        <a href="/mystore"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="height: 173px" alt="" />
-                            <div class="rounded photo" style="height: 173px;margin-top: -173px;">
+                        <a href="/mystore"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="height: 173px" alt="" />
+                            <div class="rounded photo-header" >
                                 <div>
-                                    Quản lý cửa hàng
+                                    Quản lý<br/> cửa hàng
                                 </div>
 
                             </div>
                         </a>
                     </div>
                 </div>
-                <div class="col-md-2 profile-container-buttons">
-                    <button class="btn btn-primary form-control" style="margin-left: -10px"><i class="fas fa-store-alt"></i>Cửa hàng</button>
-                    <button class="btn btn-success form-control" style="margin-top: 8px;margin-left: -10px"><i class="fas fa-heart"></i>Yêu thích</button>
-                    <button class="btn btn-danger form-control" style="margin-top: 8px;margin-left: -10px"><i class="fas fa-history"></i>Lịch sử giao dịch</button>
+                            <div class="col-md-3 rounded  " style="padding-left: 0 !important">
+                    <div class="profile-intro">
+                    <h4 class="text-center">Giới thiệu</h4>
+                    </div>
                 </div>
-                <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;margin-left: -15px">
-                    <button class="btn btn-primary form-control "style="width: 210%"><i class="fas fa-user-edit"></i>Sửa thông tin</button>
+                <div class="col-md-1 profile-container-buttons">
+                    <button class="btn btn-primary form-control" ><i class="fas fa-percent"></i>Coupon</button>
+                    <button class="btn btn-success form-control" style="margin-top: 8px"><i class="fas fa-heart"></i>Yêu thích</button>
+                    <button class="btn btn-danger form-control" style="margin-top: 8px"><i class="fas fa-history"></i>Lịch sử</button>
+                </div>
+                <div class="col-md-1 containers-sendmess" style="">
+                    <button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button>
                 </div>
             </div>
             <div class="row">
