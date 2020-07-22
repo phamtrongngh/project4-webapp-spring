@@ -9,8 +9,8 @@
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
                     <div>
-                        <div class="profile-container-img">
-                            <img src="http://localhost:9032/public/image/${user.avatar}" class="rounded-circle img-avartar" alt="" />
+                        <div class="profile-container-img rounded-circle">
+                            <img src="http://localhost:9032/public/image/${user.avatar}" class=" img-avartar" alt="" />
                         </div>
                         <div class="profile-name">
                             <div class="text-name">${user.fullname}</div>
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                 </div>
-                            <div class="col-md-2" style="padding-right: 0px !important">
+                <div class="col-md-2" style="padding-right: 0px !important">
                     <div>
                         <a href="/mystore"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="height: 173px" alt="" />
                             <div class="rounded photo-header" >
@@ -30,9 +30,9 @@
                         </a>
                     </div>
                 </div>
-                            <div class="col-md-3 rounded  " style="padding-left: 0 !important">
+                <div class="col-md-3 rounded  " style="padding-left: 0 !important">
                     <div class="profile-intro">
-                    <h4 class="text-center">Giới thiệu</h4>
+                        <h4 class="text-center">Giới thiệu</h4>
                     </div>
                 </div>
                 <div class="col-md-1 profile-container-buttons">
@@ -87,6 +87,19 @@
                         <form class="row" action="/newfeed/postNewfeed" method="POST">
                             <div class="col-md-8 post-content">
                                 <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                <div class="d-flex" style="width: 30%">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />
+                                    <div class="upload-img-status" >
+                                        <div class="gallery text-center">
+                                            <a id="chossefile">
+                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px;position: absolute">
+                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
+                                                </div>
+                                            </a>
+                                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="row">
@@ -95,17 +108,40 @@
                                         <input type="file"  id="upload-photo"/>
                                     </div>
                                     <div class="col-md-6">
-                                        <button class="btn btn-success" style="margin-bottom: -5px;"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                        <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                        <!-- The Modal -->
+                                        <div class="modal" id="mapModel">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Bản đồ</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        Modal body..
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" >Chấp nhận</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="btn btn-success"><i class="fas fa-hamburger"></i> Đăng món</button>
+                                        <button type="button" class="btn btn-success"><i class="fas fa-hamburger"></i> Đăng món</button>
                                     </div>
                                 </div>
                                 <hr/>
                                 <div>
-                                    <button class="btn btn-primary">Đăng</button>
+                                    <button type="button" class="btn btn-primary">Đăng</button>
                                 </div>
                             </div>
                         </form>
