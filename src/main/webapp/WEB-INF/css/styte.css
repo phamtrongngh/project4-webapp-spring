@@ -26,6 +26,7 @@ label {
     background: #da484a url(../image/icons/up-arrow.png) no-repeat center 47%;
     background-size: 18px 18px;
     text-indent: -9999px;
+    display: none;
 }
 
 #myBtn:hover {
