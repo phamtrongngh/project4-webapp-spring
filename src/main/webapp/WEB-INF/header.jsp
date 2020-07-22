@@ -61,7 +61,6 @@
                     <li class="nav-item media">
                         <img class="mr-3 rounded-circle img-avatar" src="http://localhost:9032/public/image/${cookie["avatar"].getValue()}" alt="avatar" />
                         <div class="media-body">
-
                             <a href="/myprofile-user"><%=fullname%></a>
                         </div>
                     </li>
@@ -69,7 +68,7 @@
 
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fa fa-bell fa-menu" aria-hidden="true" ></i>
-                            <span class="badge count-cart">3</span><span class="caret"></span></button></a>
+                            <span class="badge count-cart">3</span><span class="caret"></span></a>
                         <div class="dropdown-menu dropdown-notification">
                             <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
                                 <span>Mới</span>

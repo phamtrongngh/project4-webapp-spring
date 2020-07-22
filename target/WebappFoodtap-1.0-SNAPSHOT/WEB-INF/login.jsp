@@ -75,41 +75,39 @@
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control input-phone" placeholder="Mật khẩu" />
                                     </div>
-                                    <div class=" ">
+                                    <div class="form-group ">
                                         <label >Giới tính: </label><br/>
                                         <input type="radio" name="gender" value="false" class="input-male" checked/><label style="margin-left: 10px; ">Nam</label>
                                         <input type="radio" name="gender" value="true" class="input-female" /><label style="margin-left: 10px; ">Nữ</label>
                                     </div>
-                                    <div>
-                                        <label >Địa chỉ: </label><br/>
-                                        <div class="form-inline ">
-                                            <select name="city" class="form-control select-address ">
-
-                                                <option value=" " disabled selected>Tỉnh/Thành phố</option>
-                                                <option value="1 ">Option 1</option>
-                                                <option value="2 ">Option 2</option>
-                                                <option value="3 ">Option 3</option>
-                                            </select>
-                                            <select name="town" class="form-control select-address-district ">
-                                                <option value=" " disabled selected>Quận/Huyện</option>
-                                                <option value="1 ">Option 1</option>
-                                                <option value="2 ">Option 2</option>
-                                                <option value="3 ">Option 3</option>
-                                            </select>
+                                    <div class="form-group form-inline">
+                                        <div class="input-group flex-nowrap" style="width: 94.5%">
+                                            <input type="text" class="form-control input-address" >
+                                            <div class="input-group-prepend">
+                                                <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
+                                            </div>
+                                            <!-- The Modal -->
+                                            <div class="modal" id="mapModel">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title"> Bản đồ</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                                        </div>
+                                                        <!-- Modal footer -->
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" >Chấp nhận</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <br/>
-                                    <div>
-                                        <div class="form-inline ">
-                                            <select name="ward" class="form-control select-address ">
-                                                <option value=" " disabled selected>Xã/Phường</option>
-                                                <option value="1 ">Option 1</option>
-                                                <option value="2 ">Option 2</option>
-                                                <option value="3 ">Option 3</option>
-                                            </select>
-                                            <input name="street" type="text" placeholder="Đường, số nhà " class="form-control input-address " />
-                                        </div>
-                                    </div><br/>
                                     <div class="text-center">
                                         <button class="btn btn-danger form-control btn-register">Đăng Ký</button>
                                     </div>
@@ -135,7 +133,7 @@
         <script src="/public/js/bootstrap/bootstrap.min.js "></script>
         <script src="/public/js/swiper.min.js "></script>
         <script src="/public/js/script.js "></script>
-       
+
     </body>
 
 </html>
