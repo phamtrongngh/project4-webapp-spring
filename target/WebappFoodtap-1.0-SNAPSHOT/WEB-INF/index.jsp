@@ -6,11 +6,9 @@
         <div class="modal-content modal-content-sothich">
             <div class="modal-header" style="background-color: #da484a;color: white;">
                 <h4 class="modal-title">Hãy chọn 3 mục bạn yêu thích nhất</h4>
-
             </div>
             <div class="modal-body">
                 <div class="row">
-
                     <div class="col-md-3 text-center" >
                         <div class="store-sothich">
                             <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>
@@ -194,9 +192,9 @@
                                                     <div class="rounded box-quantity mx-auto">
                                                         <p class="form-inline quantity">
                                                             Số lượng :
-                                                            
+
                                                             <input aria-label="quantity" class="input-qty" min="1" max="999" name="" type="number" value="1" />
-                                                            
+
                                                         </p>
                                                         <p class="price-food">Giá : <span class="price-foodnumber">22.000</span></p>
                                                         <p class="total-food">Thành tiền : <span class="total-foodnumber">22.000</span></p>
@@ -532,4 +530,4 @@
             </div>
         </div>
 
-<%@include file="footer.jsp" %>
+        <%@include file="footer.jsp" %>

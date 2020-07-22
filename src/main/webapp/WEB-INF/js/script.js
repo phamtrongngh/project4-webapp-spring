@@ -381,7 +381,7 @@ $(document).ready(function() {
 
     function displayChatBox() {
         i = 270; // start position
-        j = 320; //next position
+        j = 350; //next position
 
         $.each(arr, function(index, value) {
             if (index < 3) {
@@ -451,14 +451,13 @@ $(document).ready(function() {
 $(document).ready(function() {
     $("input[type=file]").change(function() {
 
+        var imageFrame = $(this).parent().siblings(0).children(0);
         if (this.files && this.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function(e) {
-                console.log(e.target.result);
-                $('#frame-image').css('background-image', 'url("' + e.target.result + '")')
 
-            };
+                imageFrame.css('background-image', 'url("'+e.target.result+'")')
+            }
             reader.readAsDataURL(this.files[0]);
         }
     })

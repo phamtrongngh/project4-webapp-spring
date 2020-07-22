@@ -1141,7 +1141,7 @@ label.star:before {
 }
 
 .profile-menu-hot img {
-    max-width: 100%;
+    width: 100%;
     height: 260px;
     border-radius: 10px;
 }
@@ -1759,7 +1759,7 @@ input[type="radio"]:checked {
     display: flex;
     align-items: center;
     border-bottom: 1px solid black;
-    margin-right: 1.5em;
+    margin-right: 10px;
     padding-bottom: 10px;
     margin-top: 10px;
 }
@@ -1792,18 +1792,6 @@ input[type="radio"]:checked {
     width: 75px;
     height: auto;
     border-radius: 10px;
-}
-
-.btn-danger {
-    color: white;
-    background-color: #eb5757;
-    border: none;
-    border-radius: 0.3em;
-    font-weight: bold;
-}
-
-.btn-danger:hover {
-    background-color: #cc4c4c;
 }
 
 .cart-quantity-input {
@@ -2020,9 +2008,6 @@ input[type="radio"]:checked {
     margin-bottom: 30px;
     margin-left:  160px;
 }
-.registerstore .form-group .form-control{
-    width: 70% !important;
-}
 .registerstore .form-group.input-phone{
     margin-left:  0px !important;
 }
@@ -2041,12 +2026,17 @@ input[type="radio"]:checked {
     width: 100% !important
 }
 .registerstore .form-group .input-namestore{
-    width: 38% !important;
-    margin-left: 30px;
+    width: 35% !important;
+    margin-left: 68px;
 }
-.registerstore .form-group .input-info,.registerstore .form-group .select-species{
-    width: 38% !important;
-    margin-left: 5px;
+.registerstore .form-group .input-info{
+    width: 35% !important;
+    margin-left:11px;
+}
+
+.registerstore .form-group .select-species{
+    width: 35% !important;
+    margin-left: 44px;
 }
 .gallery{
     position: absolute;
@@ -2147,7 +2137,7 @@ input[type="radio"]:checked {
 .store .vouchers{
     background: url(../image/Background/pizza.jpg);
     background-repeat: no-repeat;
-    height: 5%;
+    height: 20%;
     width: 100%;
     margin-top: 10px;
     background-size: 100% 100%;
