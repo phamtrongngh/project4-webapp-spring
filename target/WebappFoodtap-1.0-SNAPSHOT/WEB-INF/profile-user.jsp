@@ -1,6 +1,28 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal -->
+<div class="modal" id="mapModel-user-profile">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bản đồ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
+            <!-- Modal body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" >Chấp nhận</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <!--Content-->
 <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
 <div class="container" style="margin-top: 100px">
@@ -35,12 +57,12 @@
                 </div>
                 <div class="col-md-4" style="padding-right: 0 !important;">
                     <div class="profile-intro">
-                    <h2 class="text-center ">Giới thiệu </h2>
-                    <p>Họ tên: </p>
-                    <p>Tỉnh/thành phố: </p>
-                    <p>Trường học: </p>
-                    <p>Quê quán: </p>
-                    <p>Tình trạng quan hệ: </p>    
+                        <h2 class="text-center ">Giới thiệu </h2>
+                        <p>Họ tên: </p>
+                        <p>Tỉnh/thành phố: </p>
+                        <p>Trường học: </p>
+                        <p>Quê quán: </p>
+                        <p>Tình trạng quan hệ: </p>    
                     </div>
                 </div>
                 <div class="col-md-2 profile-container-buttons">
@@ -104,31 +126,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <button type="button" class="btn btn-success" style="margin-bottom: 10px;" data-toggle="modal" data-target="#mapModel-user-profile"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
-                                    
+
                                     </div>
-                                        <!-- The Modal -->
-                                        <div class="modal" id="mapModel-user-profile">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <!-- Modal Header -->
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title"> Bản đồ</h4>
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    </div>
 
-                                                    <!-- Modal body -->
-                                                    <div class="modal-body">
-                                                       
-                                                    </div>
-
-                                                    <!-- Modal footer -->
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" >Chấp nhận</button>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -225,7 +225,7 @@
                                                                 <p class="price-food">Giá: 22.000</p>
 
 
-                                                                    <input aria-label="quantity" class="input-qty" min="1" max="999" name="" type="number" value="1" />
+                                                                <input aria-label="quantity" class="input-qty" min="1" max="999" name="" type="number" value="1" />
 
                                                                 </p>
                                                                 <p class="price-food">Giá : <span class="price-foodnumber">22.000</span></p>

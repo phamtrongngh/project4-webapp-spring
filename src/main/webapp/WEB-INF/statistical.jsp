@@ -1,6 +1,58 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--modal create menu-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="color: white; background-color: #da484a">
+                <h5 class="modal-title">Thêm món mới</h5>
+                <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <div class="form-group">
+                        <label >Tên món ăn:</label>
+                        <input type="text" class="form-control"  />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Hình:</label>
+                    </div>
+                    <div class="upload-img-status" >
+                        <div class="gallery text-center">
+                            <a id="chossefile">
+                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px">
+                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
+                                </div>
+                            </a>
+                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giá:</label>
+                        <input type="number" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label>Danh mục</label>
+                        <select name="" class="form-control select-address-district ">
+                            <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                            <option value="1 ">Option 1</option>
+                            <option value="2 ">Option 2</option>
+                            <option value="3 ">Option 3</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="container" style="margin-top: 100px">
     <!-- Nav tabs -->
     <div class="form-inline" style="margin-bottom: 10px;text-align: end;flex-direction: row-reverse;padding-right: 30px;">
@@ -257,61 +309,7 @@
                     <option value="3 ">Option 3</option>
                 </select>
             </div>
-            <!--modal create menu-->
-            <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header" style="color: white; background-color: #da484a">
-                            <h5 class="modal-title">Thêm món mới</h5>
-                            <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form >
-                                <div class="form-group">
-                                    <label >Tên món ăn:</label>
-                                    <input type="text" class="form-control"  />
 
-                                </div>
-                                <div class="form-group form-inline">
-                                    <label>Hình:</label>
-
-
-                                    </div>
-                                    <div class="upload-img-status" >
-                                        <div class="gallery text-center">
-                                            <a id="chossefile">
-                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px">
-                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
-                                                </div>
-                                            </a>
-                                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Giá:</label>
-                                        <input type="number" class="form-control" />
-
-                                </div>
-                                <div class="form-group">
-                                    <label>Danh mục</label>
-                                    <select name="" class="form-control select-address-district ">
-                                        <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                                        <option value="1 ">Option 1</option>
-                                        <option value="2 ">Option 2</option>
-                                        <option value="3 ">Option 3</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
-                            </form>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
             <div class="card shadow mb-4" style="height: 100%;">
 
                 <div class="card-body">
