@@ -2249,5 +2249,10 @@ input[type="radio"]:checked {
 .myprofile-user .upload-img-status .gallery{
     width: 100%;
 }
-
+.myprofile-user .profile-container-img{
+    width: 70%
+}
+.myprofile-user .profile-container-img img{
+    width: 100%
+}
 /*END */
