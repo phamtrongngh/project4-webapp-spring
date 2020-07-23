@@ -429,12 +429,12 @@ $(document).ready(function() {
         $(".img-giayphep").trigger('click');
     });
     //datepicker
-      $(function() {
+    $(function() {
         $("#datepicker-history").datepicker();
 
     });
-    $(".datepicker-history1").click(function(){
-         $("#datepicker-history").datepicker('show');
+    $(".datepicker-history1").click(function() {
+        $("#datepicker-history").datepicker('show');
     })
 });
 function nextTab(elem) {
@@ -464,9 +464,15 @@ $(document).ready(function() {
             var reader = new FileReader();
             reader.onload = function(e) {
 
-                imageFrame.css('background-image', 'url("'+e.target.result+'")')
+                imageFrame.css('background-image', 'url("' + e.target.result + '")')
             }
             reader.readAsDataURL(this.files[0]);
         }
     })
+
+
+
+    if (location.hash) {
+        $('a[href="' + location.hash + '"]').tab('show');
+    }
 })

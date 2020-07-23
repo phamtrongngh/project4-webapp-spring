@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public class MultipartContainer {
     private MultipartFile[] multipartFile;
-
     public MultipartContainer(MultipartFile[] multipartFile) {
         this.multipartFile = multipartFile;
     }
