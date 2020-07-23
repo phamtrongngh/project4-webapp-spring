@@ -86,7 +86,8 @@
                                             <div class="input-group-prepend">
                                                 <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
                                             </div>
-                                            <!-- The Modal -->
+                                        </div>
+                                          <!-- The Modal -->
                                             <div class="modal" id="mapModel">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -105,7 +106,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <br/>
                                     <div class="text-center">

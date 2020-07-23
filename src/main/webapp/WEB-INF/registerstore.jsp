@@ -59,7 +59,9 @@
                         <div class="input-group-prepend">
                             <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel1" ><i class="fas fa-map-marker-alt"></i></button>
                         </div>
-                        <!-- The Modal -->
+                   
+                    </div>
+                       <!-- The Modal -->
                         <div class="modal" id="mapModel1">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -82,7 +84,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
                 <div class="form-group form-inline">
                     <label>Họ tên người liên hệ:</label>
