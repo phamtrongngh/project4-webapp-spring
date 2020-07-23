@@ -351,19 +351,16 @@
                                         <input type="file"  />
 
                                     </div>
-                                       <div class="d-flex" style="width: 30%">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="50%" height="85px" />
                                     <div class="upload-img-status" >
                                         <div class="gallery text-center">
                                             <a id="chossefile">
-                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px;position: absolute">
-                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 27px;bottom:-20px;">+</span>
+                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px">
+                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
                                                 </div>
                                             </a>
                                             <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                                         </div>
                                     </div>
-                                </div>
                                     <div class="form-group">
                                         <label>Giá:</label>
                                         <input type="number" class="form-control" />

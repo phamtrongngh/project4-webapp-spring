@@ -33,13 +33,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 profile-intro">
-                    <h2 class="text-center">Giới thiệu </h2>
+                <div class="col-md-4" style="padding-right: 0 !important;">
+                    <div class="profile-intro">
+                    <h2 class="text-center ">Giới thiệu </h2>
                     <p>Họ tên: </p>
                     <p>Tỉnh/thành phố: </p>
                     <p>Trường học: </p>
                     <p>Quê quán: </p>
-                    <p>Tình trạng quan hệ: </p>       
+                    <p>Tình trạng quan hệ: </p>    
+                    </div>
                 </div>
                 <div class="col-md-2 profile-container-buttons">
                     <button class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Theo dõi</button>
@@ -101,9 +103,11 @@
                                         <input type="file"  id="upload-photo"/>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-success" style="margin-bottom: 10px;" data-toggle="modal" data-target="#mapModel"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                        <button type="button" class="btn btn-success" style="margin-bottom: 10px;" data-toggle="modal" data-target="#mapModel-user-profile"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                    
+                                    </div>
                                         <!-- The Modal -->
-                                        <div class="modal" id="mapModel">
+                                        <div class="modal" id="mapModel-user-profile">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <!-- Modal Header -->
@@ -125,7 +129,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">

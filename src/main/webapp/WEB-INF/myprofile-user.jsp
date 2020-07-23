@@ -108,9 +108,11 @@
                                         <input type="file"  id="upload-photo"/>
                                     </div>
                                     <div class="col-md-6">
-                                        <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
-                                        <!-- The Modal -->
-                                        <div class="modal" id="mapModel">
+                                        <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel-users"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                       
+                                        </div>
+                                     <!-- The Modal -->
+                                        <div class="modal" id="mapModel-users">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <!-- Modal Header -->
@@ -131,7 +133,6 @@
 
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">

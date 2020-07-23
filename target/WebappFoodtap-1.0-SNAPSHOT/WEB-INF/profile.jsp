@@ -64,9 +64,11 @@
                                 <button class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</button>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success" style="margin-bottom: 10px;" data-toggle="modal" data-target="#mapModel"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
-                                    <!-- The Modal -->
-                                        <div class="modal" id="mapModel">
+                                <button type="button" class="btn btn-success" style="margin-bottom: 10px;" data-toggle="modal" data-target="#mapModel-profile"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                  
+                            </div>
+                              <!-- The Modal -->
+                                        <div class="modal" id="mapModel-profile">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <!-- Modal Header -->
@@ -88,7 +90,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">

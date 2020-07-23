@@ -46,7 +46,10 @@ public class RestaurantController implements IController<Restaurant> {
     public RestaurantController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTRestaurantHelper(Restaurant.class);
     }
-
+   @RequestMapping(value = "/explorestore", method = RequestMethod.GET)
+    public ModelAndView explorestore() throws IOException {
+        return new ModelAndView("explorestore");
+    }
     @RequestMapping(value = "/statistical", method = RequestMethod.GET)
     public ModelAndView statistical() throws IOException {
         return new ModelAndView("statistical");
