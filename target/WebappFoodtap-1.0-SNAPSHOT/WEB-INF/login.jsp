@@ -18,7 +18,25 @@
     </head>
 
     <body>
-
+        <!-- The Modal -->
+        <div class="modal" id="mapModel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Bản đồ</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" >Chấp nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container login">
             <div class="row login-row">
                 <div class="col-md-1 col-sm-1 login-food d-flex align-items-md-center">
@@ -87,25 +105,7 @@
                                                 <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
                                             </div>
                                         </div>
-                                          <!-- The Modal -->
-                                            <div class="modal" id="mapModel">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <!-- Modal Header -->
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title"> Bản đồ</h4>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        </div>
-                                                        <!-- Modal body -->
-                                                        <div class="modal-body">
-                                                        </div>
-                                                        <!-- Modal footer -->
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-danger" >Chấp nhận</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                     </div>
                                     <br/>
                                     <div class="text-center">
