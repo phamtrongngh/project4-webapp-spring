@@ -105,25 +105,18 @@ public class ProductController implements IController<Product> {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
-        FileDataBodyPart filePart2;
-
+        
         Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
         FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
         String fileName = multipartFile[0].getOriginalFilename();
         File file = new File(path, fileName);
         if (fileName != "") {
             multipartFile[0].transferTo(file);
-            filePart = new FileDataBodyPart("avatar", file);
+            filePart = new FileDataBodyPart("image", file);
             formDataMultiPart.bodyPart(filePart);
 
         }
-        String fileName2 = multipartFile[1].getOriginalFilename();
-        File file2 = new File(path, fileName2);
-        if (fileName2 != "") {
-            multipartFile[1].transferTo(file2);
-            filePart2 = new FileDataBodyPart("licenseImage", file2);
-            formDataMultiPart.bodyPart(filePart2);
-        }
+        
         final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("product", product, MediaType.APPLICATION_JSON_TYPE);
         final WebTarget target = client.target("http://localhost:9032/Product/");
         final Response response = target.request()
@@ -132,9 +125,7 @@ public class ProductController implements IController<Product> {
         if (fileName != "") {
             file.delete();
         }
-        if (fileName2 != "") {
-            file2.delete();
-        }
+        
         return getAll();
     }
     
