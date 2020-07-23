@@ -428,6 +428,14 @@ $(document).ready(function() {
         e.preventDefault();
         $(".img-giayphep").trigger('click');
     });
+    //datepicker
+      $(function() {
+        $("#datepicker-history").datepicker();
+
+    });
+    $(".datepicker-history1").click(function(){
+         $("#datepicker-history").datepicker('show');
+    })
 });
 function nextTab(elem) {
     $(elem).parent().next().find('a[data-toggle="tab"]').click();
