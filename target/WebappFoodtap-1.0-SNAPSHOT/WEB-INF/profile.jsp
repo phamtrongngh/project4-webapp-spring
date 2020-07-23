@@ -1,7 +1,29 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal -->
+<div class="modal" id="mapModel-profile">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bản đồ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
+            <!-- Modal body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" >Chấp nhận</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
 <!--Content-->
 <div class="container profile" style="margin-top: 100px">
@@ -65,31 +87,9 @@
                             </div>
                             <div class="col-md-6">
                                 <button type="button" class="btn btn-success" style="margin-bottom: 10px;" data-toggle="modal" data-target="#mapModel-profile"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
-                                  
+
                             </div>
-                              <!-- The Modal -->
-                                        <div class="modal" id="mapModel-profile">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <!-- Modal Header -->
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title"> Bản đồ</h4>
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    </div>
 
-                                                    <!-- Modal body -->
-                                                    <div class="modal-body">
-                                                       
-                                                    </div>
-
-                                                    <!-- Modal footer -->
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" >Chấp nhận</button>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -492,4 +492,4 @@
             </div>
         </div>
 
-<%@include  file="footer.jsp" %>
+        <%@include  file="footer.jsp" %>
