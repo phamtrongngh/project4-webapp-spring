@@ -8,10 +8,10 @@
                 <div class="profile-text-hot">
                     Hot nhất
                 </div>
-                <div class="input-group flex-nowrap">
-                    <input type="text" class="search-food" placeholder="Tìm món ăn" >
-                      <div class="input-group-prepend">
-                          <button class="input-group-text" id="addon-wrapping"><i class="fas fa-search"></i></button>
+                <div class="input-group " style="position: relative;left: 20px; width: 34%">
+                    <input type="text" class="search-food rounded " placeholder="Tìm món ăn" >
+                    <div class="input-group-prepend">
+                        <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -51,10 +51,18 @@
                     <div class="text-price">108.000</div>
                 </div>
             </div>
-            <div class="profile-text-hot">
-                Gần tôi
+            <div class="d-flex justify-content-between">
+                <div class="profile-text-near">
+                    Gần tôi
+                </div>
+                <div class="input-group " style="position: relative;left: 20px; width: 34%">
+                    <input type="text" class="search-food rounded " placeholder="Tìm món ăn" >
+                    <div class="input-group-prepend">
+                        <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
             </div>
-            <div class="profile-menu-hot">
+            <div class="profile-menu-near">
                 <div class="col-md-4">
                     <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
                     <a href="">Nui xào bơ tỏi</a>
@@ -71,7 +79,7 @@
                     <div class="text-price">77.000</div>
                 </div>
             </div>
-            <div class="profile-menu-hot">
+            <div class="profile-menu-near">
                 <div class="col-md-4">
                     <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
                     <a href="">Nui xào bơ tỏi</a>
