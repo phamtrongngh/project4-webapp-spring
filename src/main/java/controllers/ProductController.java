@@ -5,18 +5,31 @@
  */
 package controllers;
 
+import Nghia.Util.CookieHelper;
+import Nghia.Util.MultipartContainer;
 import Nghia.Util.RESTHelper;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import models.Product;
+import org.glassfish.jersey.media.multipart.FormDataMultiPart;
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
+import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -32,20 +45,27 @@ public class ProductController implements IController<Product> {
     public ModelAndView cart() throws IOException {
         return new ModelAndView("cart");
     }
+
+    @Override
+    public ModelAndView post(Product t, HttpServletResponse response) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @RequestMapping(value = "/create-DMmenu", method = RequestMethod.GET)
     public ModelAndView createDMmenu() throws IOException {
         return new ModelAndView("create-DMmenu");
     }
+
     @RequestMapping(value = "/create-menu", method = RequestMethod.GET)
     public ModelAndView createmenu() throws IOException {
         return new ModelAndView("create-menu");
     }
-    
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index() throws IOException {
         return new ModelAndView("index");
     }
-    
+
     @RequestMapping(value = "/product", method = RequestMethod.GET)
     @Override
     public ModelAndView getAll() throws IOException {
@@ -81,9 +101,40 @@ public class ProductController implements IController<Product> {
     }
 
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
-    @Override
-    public ModelAndView post(Product product, HttpServletResponse response) throws IOException {
-        restHelper.post(product);
+    public ModelAndView post(MultipartContainer multipartContainer, Product product) throws IOException {
+        MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
+        String path = "./";
+        FileDataBodyPart filePart;
+        FileDataBodyPart filePart2;
+
+        Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
+        FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
+        String fileName = multipartFile[0].getOriginalFilename();
+        File file = new File(path, fileName);
+        if (fileName != "") {
+            multipartFile[0].transferTo(file);
+            filePart = new FileDataBodyPart("avatar", file);
+            formDataMultiPart.bodyPart(filePart);
+
+        }
+        String fileName2 = multipartFile[1].getOriginalFilename();
+        File file2 = new File(path, fileName2);
+        if (fileName2 != "") {
+            multipartFile[1].transferTo(file2);
+            filePart2 = new FileDataBodyPart("licenseImage", file2);
+            formDataMultiPart.bodyPart(filePart2);
+        }
+        final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("product", product, MediaType.APPLICATION_JSON_TYPE);
+        final WebTarget target = client.target("http://localhost:9032/Product/");
+        final Response response = target.request()
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
+        if (fileName != "") {
+            file.delete();
+        }
+        if (fileName2 != "") {
+            file2.delete();
+        }
         return getAll();
     }
 
