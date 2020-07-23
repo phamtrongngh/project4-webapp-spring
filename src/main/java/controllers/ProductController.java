@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.client.Client;
@@ -102,7 +101,7 @@ public class ProductController implements IController<Product> {
     }
 
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
-    public void post(MultipartContainer multipartContainer, Product product, HttpServletRequest request, HttpServletResponse responseServlet) throws IOException, ServletException {
+    public void post(MultipartContainer multipartContainer, Product product, HttpServletResponse responseServlet) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
@@ -119,18 +118,13 @@ public class ProductController implements IController<Product> {
         }
         final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("product", product, MediaType.APPLICATION_JSON_TYPE);
         final WebTarget target = client.target("http://localhost:9032/Product/");
-        final Response response = target.request()
+        String responseJSON = target.request()
                 .header("authorization", CookieHelper.getCookie("accessToken"))
-                .post(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
+                .post(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA),String.class);
         if (fileName != "") {
             file.delete();
         }
-        request.getRequestDispatcher("/").forward(request, responseServlet);
+        responseServlet.sendRedirect("/manageMyRestaurant/"+product.getRestaurant()+"#menu");
     }
 
-    @RequestMapping(value = "/product/create", method = RequestMethod.POST)
-    public ModelAndView createProduct() throws IOException {
-
-        return new ModelAndView("postProduct");
-    }
 }

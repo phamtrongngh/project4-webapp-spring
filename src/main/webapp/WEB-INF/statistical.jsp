@@ -272,7 +272,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="/product/create" method="POST">
+                            <form action="/product/postProduct" method="POST" enctype="multipart/form-data">
+                                <input name="restaurant" value="${restaurant._id}" type="text" hidden/>
                                 <div class="form-group">
                                     <label >Tên món ăn:</label>
                                     <input name="name" type="text" class="form-control"   />
@@ -302,7 +303,7 @@
                                                                             <option value="2 ">Option 2</option>
                                                                             <option value="3 ">Option 3</option>
                                                                         </select>-->
-                                    <input name="category" type="text" class="form-control" />
+                                    <input name="category" placeholder="Chưa có dữ liệu, khoan nhập mục này" type="text" class="form-control" />
                                 </div>
                                 <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
                             </form>
@@ -318,9 +319,8 @@
                         <table id="dtmenu" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Tên menu</th>
                                     <th>Ảnh</th>
+                                    <th>Tên món</th>
                                     <th>Danh mục</th>
                                     <th>Giá</th>
                                     <th></th>
@@ -328,20 +328,19 @@
                             </thead>
 
                             <tbody class="text-center">
-
-                                <tr role="row" class="even">
-                                    <td>1</td>
-                                    <td><a href="">Trà sữa</a></td>
-                                    <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
-                                    <td>Trà sửa</td>
-                                    <td>19.000đ</td>
-                                    <td>
-                                        <center
-                                            <button style="margin:5px;" type="button" class="btn btn-success">UPDATE</button>
-                                        </center>
-                                    </td>
-                                </tr>
-
+                                <c:forEach var="item" items="${restaurant.menus}">
+                                    <tr role="row" class="even">
+                                        <td><a href=""><image src="http://localhost:9032/public/image/${item.image}" style="width: 100px; height: 100px"/></a></td>
+                                        <td><a href="">${item.name} </a></td>
+                                        <td>Danh mục</td>
+                                        <td>${item.price} VND</td>
+                                        <td>
+                                            <center
+                                                <button style="margin:5px;" type="button" class="btn btn-success">UPDATE</button>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>

@@ -57,7 +57,7 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/statistical", method = RequestMethod.GET)
     public ModelAndView statistical() throws IOException {
-
+        
         return new ModelAndView("statistical");
     }
 
