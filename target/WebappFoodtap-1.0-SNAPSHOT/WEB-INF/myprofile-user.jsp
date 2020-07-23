@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+
 <!-- The Modal -->
 <div class="modal" id="mapModel-users">
     <div class="modal-dialog">
@@ -164,6 +165,7 @@
 
                                                         <a href="#">Thích</a>
 
+
                                                     <div id="reply3" class="collapse">
                                                         <div class="input-group" style="margin-left: -60px;">
                                                             <a class="pull-left" href="#">
@@ -248,11 +250,11 @@
                                         </div>
                                         </div>
                                         </div>
+
                                         </div>
                                         </div>
                                         </div>
                                         <!--end modal-->
-
                                         <!--Content-->
                                         <div class="container myprofile-user" style="margin-top: 100px">
                                             <div class="row user-profile ">
@@ -363,7 +365,29 @@
                                                                                 <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel-users"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
 
                                                                             </div>
+                                                                            <!-- The Modal -->
+                                                                            <div class="modal" id="mapModel-users">
+                                                                                <div class="modal-dialog">
+                                                                                    <div class="modal-content">
+                                                                                        <!-- Modal Header -->
+                                                                                        <div class="modal-header">
+                                                                                            <h4 class="modal-title"> Bản đồ</h4>
+                                                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                                        </div>
 
+                                                                                        <!-- Modal body -->
+                                                                                        <div class="modal-body">
+
+                                                                                        </div>
+
+                                                                                        <!-- Modal footer -->
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-danger" >Chấp nhận</button>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-6">
