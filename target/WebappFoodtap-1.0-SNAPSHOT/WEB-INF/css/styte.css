@@ -296,7 +296,8 @@ ul.navbar-nav li.nav-item {
     padding-left: 12px;
 }
 .name img{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+      margin-top: 10px;
 }
 .name a {
     font-size: 1.4rem;
@@ -490,7 +491,7 @@ ul.navbar-nav li.nav-item {
 .img-status {
     height: 250px;
     max-width: 350px;
-    margin: 20px 30px 20px;
+    margin: 20px 30px 20px 165px;
 }
 
 h1 {
@@ -504,7 +505,17 @@ h1 {
     opacity: 0.7;
     font-weight: bold;
 }
+.modal-dialog {
+    max-width: 50%;
+}
 
+.modal-header{
+    background-color: #da484a;
+    color: white;
+}
+.modal .close:focus{
+    outline: none;
+}
 .info-more label {
     padding-left: 50px;
     opacity: 0.7;
@@ -1493,11 +1504,9 @@ label.star:before {
 .input-group-append {
     margin-left: 10px;
 }
-.user-profile .profile-container-img{
-width: 50%; 
-}
+
 .user-profile .profile-container-img img{
-width: 82%;
+width: 165px;
 }
 .user-profile .profile-intro{
     background-color: white;
@@ -1557,9 +1566,7 @@ width: 82%;
     width: 100%;
     font-size:12px; 
 }
-.post-store .modal .close{
-    color: black;
-}
+
 .profile-list{
     background-color: white;
     width: 100%;
@@ -1611,9 +1618,9 @@ width: 82%;
     font-size: 15px;
     float: left
 }
-.modal-dialog {
-    max-width: 50%;
-}
+
+
+
 
 
 /* 7) STATISTICAL */
@@ -2074,9 +2081,7 @@ input[type="radio"]:checked {
 .registerstore .btn-location:focus{
     outline: none;
 }
-.registerstore .modal .close{
-    color: black;
-}
+
 
 /*End Register Store*/
 .hr-newsfeed{
@@ -2129,12 +2134,9 @@ input[type="radio"]:checked {
     width: 100%;
     height: 173px;
 }
-.store .profile-container-img {
-    width: 50%;
 
-}
 .store .profile-header .profile-container-img .img-avartar {
-    max-width: 78%;
+    width: 170px;
     
 }
 .store .photo-header{
@@ -2208,7 +2210,7 @@ input[type="radio"]:checked {
 .myprofile-user .profile-intro{
     background-color: white;
     color:red;
-    width: 110%;
+    width: 115%;
     height: 100%
 
 }
@@ -2251,11 +2253,10 @@ input[type="radio"]:checked {
 .myprofile-user .upload-img-status .gallery{
     width: 100%;
 }
-.myprofile-user .profile-container-img{
-    width: 70%
-}
+
 .myprofile-user .profile-container-img img{
-    width: 100%
+    width: 165px;
+    margin-top: 10px;
 }
 /*END */
 /*EXPLORE STORE*/
@@ -2303,13 +2304,64 @@ explorestore .profile-menu-hot .col-md-4 {
     font-size: 22.4px;
     font-weight: 800;
 }
-.explorestore .search-food{
-        margin-top: 25px;
-    margin-bottom: 10px;
-    width: 20%;
-    border-radius: .25rem;
 
+.explorestore .search-food{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    width: 90% ;
+    border: 1px solid #ced4da;
 }
+.explorestore .btn-search-hot{
+    margin-top: 24px;
+    margin-bottom: 10px;
+    background: white;
+}
+/*NEAR*/
+.explorestore .profile-text-near {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    background-color: red;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+.explorestore .profile-menu-near {
+    display: flex;
+}
+
+.explorestore .profile-menu-near .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 10px;
+    text-align: center;
+    background-color: white;
+    background-clip: content-box;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.explorestore .profile-menu-near img {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
+}
+
+.explorestore .profile-menu-near .text-price {
+    opacity: 0.5;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.explorestore .profile-menu-near a {
+    text-decoration: none;
+    color: black;
+    font-size: 22.4px;
+    font-weight: 800;
+}
+
 /*EXPLORE STORE*/
 .history-MDH{
     text-align: start;
