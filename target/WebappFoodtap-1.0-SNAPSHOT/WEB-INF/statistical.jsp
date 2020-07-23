@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <div class="container" style="margin-top: 100px">
@@ -54,7 +55,7 @@
                                         <thead>
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Mã đơn hàng: activate to sort column descending" style="width: 195px;">Mã đơn hàng</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Tên đơn hàng: activate to sort column ascending" style="width: 294px;">Tên đơn hàng</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="SĐT khách hàng: activate to sort column ascending" style="width: 294px;">Tên đơn hàng</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Ngày gửi</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày nhận: activate to sort column ascending" style="width: 140px;">Ngày nhận</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Đơn giá: activate to sort column ascending" style="width: 131px;">Đơn giá</th>
@@ -63,14 +64,16 @@
                                         </thead>
 
                                         <tbody>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                                <td>2008/11/28</td>
-                                                <td>$162,700</td>
-                                            </tr>
+                                            <c:forEach var="item" items="${restaurants.orders}">
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1">${item._id}</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>33</td>
+                                                    <td>2008/11/28</td>
+                                                    <td>$162,700</td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
@@ -261,6 +264,7 @@
             <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
+
                         <div class="modal-header" style="color: white; background-color: #da484a">
                             <h5 class="modal-title">Thêm món mới</h5>
                             <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
@@ -268,41 +272,37 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form >
+                            <form action="/product/create" method="POST">
                                 <div class="form-group">
                                     <label >Tên món ăn:</label>
-                                    <input type="text" class="form-control"  />
-
+                                    <input name="name" type="text" class="form-control"   />
                                 </div>
                                 <div class="form-group form-inline">
                                     <label>Hình:</label>
-
-
+                                </div>
+                                <div class="upload-img-status">
+                                    <div class="gallery text-center">
+                                        <a id="chossefile">
+                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px; background-repeat: no-repeat;background-size: cover">
+                                                <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
+                                            </div>
+                                        </a>
+                                        <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                                     </div>
-                                    <div class="upload-img-status" >
-                                        <div class="gallery text-center">
-                                            <a id="chossefile">
-                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px">
-                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
-                                                </div>
-                                            </a>
-                                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Giá:</label>
-                                        <input type="number" class="form-control" />
-
+                                </div>
+                                <div class="form-group">
+                                    <label>Giá:</label>
+                                    <input name="price" type="number" class="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <label>Danh mục</label>
-                                    <select name="" class="form-control select-address-district ">
-                                        <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                                        <option value="1 ">Option 1</option>
-                                        <option value="2 ">Option 2</option>
-                                        <option value="3 ">Option 3</option>
-                                    </select>
+                                    <!--<select name="" class="form-control select-address-district ">
+                                                                            <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                                                                            <option value="1 ">Option 1</option>
+                                                                            <option value="2 ">Option 2</option>
+                                                                            <option value="3 ">Option 3</option>
+                                                                        </select>-->
+                                    <input name="category" type="text" class="form-control" />
                                 </div>
                                 <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
                             </form>
@@ -313,10 +313,8 @@
                 </div>
             </div>
             <div class="card shadow mb-4" style="height: 100%;">
-
                 <div class="card-body">
                     <div class="">
-
                         <table id="dtmenu" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
@@ -325,7 +323,6 @@
                                     <th>Ảnh</th>
                                     <th>Danh mục</th>
                                     <th>Giá</th>
-
                                     <th></th>
                                 </tr>
                             </thead>
@@ -338,40 +335,13 @@
                                     <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
                                     <td>Trà sửa</td>
                                     <td>19.000đ</td>
-
                                     <td>
                                         <center
                                             <button style="margin:5px;" type="button" class="btn btn-success">UPDATE</button>
-
                                         </center>
                                     </td>
                                 </tr>
-                                <tr role="row" class="odd">
-                                    <td>2</td>
-                                    <td><a href="">Ăn vặt</a></td>
-                                    <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
-                                    <td>Trà sửa</td>
-                                    <td>19.000đ</td>
-                                    <td>
-                                        <center
-                                            <button style="margin:5px;" type="button" class="btn btn-success">XÓA</button>
 
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr role="row" class="even">
-                                    <td>3</td>
-                                    <td><a href="">Sinh tố</a></td>
-                                    <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
-                                    <td>Trà sửa</td>
-                                    <td>19.000đ</td>
-                                    <td>
-                                        <center
-                                            <button style="margin:5px;" type="button" class="btn btn-success">XÓA</button>
-
-                                        </center>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

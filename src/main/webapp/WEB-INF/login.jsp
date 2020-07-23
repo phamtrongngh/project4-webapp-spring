@@ -87,31 +87,32 @@
                                                 <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
                                             </div>
                                         </div>
-                                          <!-- The Modal -->
-                                            <div class="modal" id="mapModel">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <!-- Modal Header -->
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title"> Bản đồ</h4>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        </div>
-                                                        <!-- Modal body -->
-                                                        <div class="modal-body">
-                                                        </div>
-                                                        <!-- Modal footer -->
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-danger" >Chấp nhận</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <!-- The Modal -->
+
                                     </div>
                                     <br/>
                                     <div class="text-center">
                                         <button class="btn btn-danger form-control btn-register">Đăng Ký</button>
                                     </div>
                                 </form>
+                            </div>
+                        </div>
+                        <div class="modal" id="mapModel">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> Bản đồ</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" >Chấp nhận</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -125,7 +126,6 @@
                 </div>
             </div>
         </div>
-
         <!--Bootstrap-->
         <script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
         <script src="/public/js/jquery/jquery.min.js"></script>

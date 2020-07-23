@@ -86,5 +86,10 @@ public class ProductController implements IController<Product> {
         restHelper.post(product);
         return getAll();
     }
-
+    
+    @RequestMapping(value = "/product/create", method = RequestMethod.POST)
+    public ModelAndView createProduct() throws IOException {
+        
+        return new ModelAndView("postProduct");
+    }
 }
