@@ -2311,3 +2311,44 @@ explorestore .profile-menu-hot .col-md-4 {
 
 }
 /*EXPLORE STORE*/
+.history-MDH{
+    text-align: start;
+}
+.receivedday{
+    float: right;
+}
+.history-avatar{
+    width: 200px;
+    height: 125px;
+    margin-right: 10px;
+    
+}
+.history-đonhang{
+    padding: 10px;
+    background-color: antiquewhite;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+.history-contain{
+    display: flex;
+    border-bottom: 1px solid rgb(138,138,150,0.18);
+    padding-bottom: 10px;
+    
+}
+.history-namestore{
+    font-weight: bold;
+    font-size: 18px;
+}
+.history-address{
+    font-weight: 100;
+}
+.history-price {
+    font-weight: bold;
+    font-size: 18px;
+}
+.history-footer{
+    display: flow-root;
+    margin-top: 5px
+}
+
+

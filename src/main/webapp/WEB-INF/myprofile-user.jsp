@@ -1,6 +1,65 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 
+
+<!--                modal history-->
+                <div class="modal fade" id="history" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: #da484a; color: white;">
+                                <h5 class="modal-title" id="exampleModalLabel">Lịch sử đơn hàng</h5>
+                                <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div style="display: flex;">
+                                    <form class="form-inline" style="width: 60%;">
+                                        <i class="fas fa-search" aria-hidden="true"></i>
+                                        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Tìm kiếm tên cửa hàng"
+                                               aria-label="Search">
+                                    </form>
+                                    <div style="text-align: end; display: flex;">
+                                        <input id="datepicker-history" style="width: 245px;"/><button type="button" class="datepicker-history1"><i class="far fa-calendar-alt"></i></button>
+                                    </div>
+                                </div>
+
+
+                                <div class="history-đonhang">
+                                    <span class="history-MDH">
+                                        HX313123
+                                    </span>
+                                    <span class="receivedday">
+                                        15/06/2020
+                                    </span>
+                                    <div class="history-contain">
+                                        <img src="/public/image/Background/pizza.jpg" class="history-avatar" alt=""/>
+                                        <div>
+                                            <span class="history-namestore">PizzaHut</span>
+                                            <div class="history-address">226 Hậu giang</div>
+                                            <div style="display: flex;">
+                                                <div class="history-price">
+                                                    <span>25.000</span>VNĐ
+                                                </div>
+                                                <span class="history-item">(2 phần)<span>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        <div class="history-footer">
+                                                            <span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>
+                                                            <div style="float: right;">
+                                                                <button class="btn btn-history">Đặt lại</button>
+                                                            </div>
+
+
+                                                        </div>
+                                                        </div>
+                                                        </div>
+
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        <!--end modal-->
 <!--Content-->
 <div class="container myprofile-user" style="margin-top: 100px">
     <div class="row user-profile ">
@@ -38,7 +97,7 @@
                 <div class="col-md-1 profile-container-buttons">
                     <button class="btn btn-primary form-control" ><i class="fas fa-percent"></i>Coupon</button>
                     <button class="btn btn-success form-control" style="margin-top: 8px"><i class="fas fa-heart"></i>Yêu thích</button>
-                    <button class="btn btn-danger form-control" style="margin-top: 8px"><i class="fas fa-history"></i>Lịch sử</button>
+                    <button class="btn btn-danger form-control" data-toggle="modal" data-target="#history" style="margin-top: 8px"><i class="fas fa-history"></i>Lịch sử</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="">
                     <button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button>
