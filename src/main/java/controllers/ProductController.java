@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -101,11 +102,11 @@ public class ProductController implements IController<Product> {
     }
 
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
-    public ModelAndView post(MultipartContainer multipartContainer, Product product) throws IOException {
+    public void post(MultipartContainer multipartContainer, Product product, HttpServletRequest request, HttpServletResponse responseServlet) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
-        
+
         Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
         FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
         String fileName = multipartFile[0].getOriginalFilename();
@@ -116,7 +117,6 @@ public class ProductController implements IController<Product> {
             formDataMultiPart.bodyPart(filePart);
 
         }
-        
         final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("product", product, MediaType.APPLICATION_JSON_TYPE);
         final WebTarget target = client.target("http://localhost:9032/Product/");
         final Response response = target.request()
@@ -125,13 +125,12 @@ public class ProductController implements IController<Product> {
         if (fileName != "") {
             file.delete();
         }
-        
-        return getAll();
+        request.getRequestDispatcher("/").forward(request, responseServlet);
     }
-    
+
     @RequestMapping(value = "/product/create", method = RequestMethod.POST)
     public ModelAndView createProduct() throws IOException {
-        
+
         return new ModelAndView("postProduct");
     }
 }
