@@ -6,7 +6,6 @@
 package controllers;
 
 import Nghia.Util.CookieHelper;
-import Nghia.Util.RESTHelper;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -20,10 +19,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import Nghia.Util.MultipartContainer;
 import Nghia.Util.RESTRestaurantHelper;
-import Nghia.Util.RESTUserHelper;
 import java.util.Map;
 import models.Restaurant;
-import models.User;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
@@ -46,12 +43,21 @@ public class RestaurantController implements IController<Restaurant> {
     public RestaurantController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTRestaurantHelper(Restaurant.class);
     }
-   @RequestMapping(value = "/explorestore", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/manageMyRestaurant/{id}", method = RequestMethod.GET)
+    public ModelAndView statistical(@PathVariable("id") String id) throws IOException {
+        Object restaurant = restHelper.manageMyRestaurant(id);
+        return new ModelAndView("statistical").addObject("restaurant", restaurant);
+    }
+
+    @RequestMapping(value = "/explorestore", method = RequestMethod.GET)
     public ModelAndView explorestore() throws IOException {
         return new ModelAndView("explorestore");
     }
+
     @RequestMapping(value = "/statistical", method = RequestMethod.GET)
     public ModelAndView statistical() throws IOException {
+
         return new ModelAndView("statistical");
     }
 

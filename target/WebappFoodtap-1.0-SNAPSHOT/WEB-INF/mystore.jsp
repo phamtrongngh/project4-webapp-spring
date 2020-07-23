@@ -23,20 +23,13 @@
                         <td>${item.name}</td>
                         <td>${item.verified?"Hoạt động":"Chưa có giấy phép"}</td>
                         <td><a href="/user-profile/${item.managers[0].user._id}">${item.managers[0].user.fullname}</a></td>
-                        <td><a href="/statistical" class="btn btn-outline-danger form-control">Quản lý</a></td>
+                        <td><a href="/manageMyRestaurant/${item._id}" class="btn btn-outline-danger form-control">Quản lý</a></td>
                     </tr>
             </c:forEach>
 
         </tbody>
     </table>
-</div>
-<!--Bootstrap-->
-<script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
-<script src="/public/js/jquery/jquery.min.js "></script>
-<script src="/public/js/bootstrap/popper.min.js "></script>
-<script src="/public/js/bootstrap/bootstrap.min.js "></script>
-<script src="/public/js/swiper.min.js "></script>
-<script src="/public/js/script.js "></script>
 
+</div>
 </body>
 </html>

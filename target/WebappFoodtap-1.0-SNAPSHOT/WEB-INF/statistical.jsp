@@ -18,9 +18,9 @@
         <li class="nav-item text-center" style="width:33%">
             <a class="nav-link active" data-toggle="tab" href="#order">Đơn hàng</a>
         </li>
-<!--        <li class="nav-item text-center" style="width:25%">
-            <a class="nav-link" data-toggle="tab" href="#DMmenu"> Danh mục menu</a>
-        </li>-->
+        <!--        <li class="nav-item text-center" style="width:25%">
+                    <a class="nav-link" data-toggle="tab" href="#DMmenu"> Danh mục menu</a>
+                </li>-->
         <li class="nav-item text-center" style="width:34%">
             <a class="nav-link" data-toggle="tab" href="#menu">Danh mục</a>
         </li>
@@ -33,7 +33,7 @@
     <!-- Tab panes -->
     <div class="tab-content">
         <div class="tab-pane active container" id="order">
-      <div class="card shadow mb-4" style="height: 100%;">
+            <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold ">Bảng thống kê quản lí đơn hàng</h6>
                 </div>
@@ -71,78 +71,6 @@
                                                 <td>2008/11/28</td>
                                                 <td>$162,700</td>
                                             </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Angelica Ramos</td>
-                                                <td>Chief Executive Officer (CEO)</td>
-                                                <td>London</td>
-                                                <td>47</td>
-                                                <td>2009/10/09</td>
-                                                <td>$1,200,000</td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                <td>$86,000</td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Bradley Greer</td>
-                                                <td>Software Engineer</td>
-                                                <td>London</td>
-                                                <td>41</td>
-                                                <td>2012/10/13</td>
-                                                <td>$132,000</td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Brenden Wagner</td>
-                                                <td>Software Engineer</td>
-                                                <td>San Francisco</td>
-                                                <td>28</td>
-                                                <td>2011/06/07</td>
-                                                <td>$206,850</td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>2012/12/02</td>
-                                                <td>$372,000</td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Bruno Nash</td>
-                                                <td>Software Engineer</td>
-                                                <td>London</td>
-                                                <td>38</td>
-                                                <td>2011/05/03</td>
-                                                <td>$163,500</td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Caesar Vance</td>
-                                                <td>Pre-Sales Support</td>
-                                                <td>New York</td>
-                                                <td>21</td>
-                                                <td>2011/12/12</td>
-                                                <td>$106,450</td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Cara Stevens</td>
-                                                <td>Sales Assistant</td>
-                                                <td>New York</td>
-                                                <td>46</td>
-                                                <td>2011/12/06</td>
-                                                <td>$145,600</td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2012/03/29</td>
-                                                <td>$433,060</td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -173,7 +101,7 @@
 
         </div>
         <div class="tab-pane container" id="chart">
-                  <canvas id="myChart">
+            <canvas id="myChart">
             </canvas>
             <div class="row">
 
@@ -255,100 +183,100 @@
                 </div>
             </div>
         </div>
-<!--        <div class="tab-pane  container text-center" id="DMmenu" style="max-width: 100% !important;">
-
-            <div class="mb-4" style="margin-top: 10px;text-align: start;">
-                <form class="form-inline">
-                    <select name="" class="form-control select-address-district ">
-                        <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                        <option value="1 ">Option 1</option>
-                        <option value="2 ">Option 2</option>
-                        <option value="3 ">Option 3</option>
-                    </select>
-                    <button class="btn btn-info btn-icon-split" style="margin-left: 10px;"><i class="fas fa-file-medical" ></i> Thêm</button>
-                </form>
-
-            </div>
-
-            <div class="card shadow mb-4" style="height: 100%;">
-
-                <div class="card-body">
-                    <div class="">
-
-                        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên menu</th>
-                                    <th>Ảnh minh họa</th>
-
-                                    <th></th>
-                                </tr>
-                            </thead>
-
-                            <tbody id="myTable">
-
-                                <tr>
-                                    <td>1</td>
-                                    <td><a href="">Trà sữa</a></td>
-                                    <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
-
-                                    <td>
-                                        <center
-                                            <button style="margin:5px;" type="button" class="btn btn-success">XÓA</button>
-
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><a href="">Ăn vặt</a></td>
-                                    <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
-
-                                    <td>
-                                        <center
-                                            <button style="margin:5px;" type="button" class="btn btn-success">XÓA</button>
-
-                                        </center>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+        <!--        <div class="tab-pane  container text-center" id="DMmenu" style="max-width: 100% !important;">
+        
+                    <div class="mb-4" style="margin-top: 10px;text-align: start;">
+                        <form class="form-inline">
+                            <select name="" class="form-control select-address-district ">
+                                <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                                <option value="1 ">Option 1</option>
+                                <option value="2 ">Option 2</option>
+                                <option value="3 ">Option 3</option>
+                            </select>
+                            <button class="btn btn-info btn-icon-split" style="margin-left: 10px;"><i class="fas fa-file-medical" ></i> Thêm</button>
+                        </form>
+        
                     </div>
-                </div>
-            </div>
-
-        </div>-->
+        
+                    <div class="card shadow mb-4" style="height: 100%;">
+        
+                        <div class="card-body">
+                            <div class="">
+        
+                                <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tên menu</th>
+                                            <th>Ảnh minh họa</th>
+        
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+        
+                                    <tbody id="myTable">
+        
+                                        <tr>
+                                            <td>1</td>
+                                            <td><a href="">Trà sữa</a></td>
+                                            <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
+        
+                                            <td>
+                                                <center
+                                                    <button style="margin:5px;" type="button" class="btn btn-success">XÓA</button>
+        
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><a href="">Ăn vặt</a></td>
+                                            <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
+        
+                                            <td>
+                                                <center
+                                                    <button style="margin:5px;" type="button" class="btn btn-success">XÓA</button>
+        
+                                                </center>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>-->
         <div class="tab-pane container" id="menu" style="max-width: 100% !important;">
             <div class="mb-4 form-inline" style="margin-top: 10px;text-align: start;">
                 <button class="btn btn-info btn-icon-split" style="margin-left: 10px;" data-toggle="modal" data-target="#mdMenu"><i class="fas fa-file-medical" ></i> Thêm</button>
                 <select name="" class="form-control " style="margin-left: 10px">
-                        <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                        <option value="1 ">Option 1</option>
-                        <option value="2 ">Option 2</option>
-                        <option value="3 ">Option 3</option>
-                    </select>
+                    <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                    <option value="1 ">Option 1</option>
+                    <option value="2 ">Option 2</option>
+                    <option value="3 ">Option 3</option>
+                </select>
             </div>
-                <!--modal create menu-->
-                <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header" style="color: white; background-color: #da484a">
-                                <h5 class="modal-title">Thêm món mới</h5>
-                                <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form >
-                                    <div class="form-group">
-                                        <label >Tên món ăn:</label>
-                                        <input type="text" class="form-control"  />
+            <!--modal create menu-->
+            <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="color: white; background-color: #da484a">
+                            <h5 class="modal-title">Thêm món mới</h5>
+                            <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form >
+                                <div class="form-group">
+                                    <label >Tên món ăn:</label>
+                                    <input type="text" class="form-control"  />
 
-                                    </div>
-                                    <div class="form-group form-inline">
-                                        <label>Hình:</label>
-                                        <input type="file"  />
+                                </div>
+                                <div class="form-group form-inline">
+                                    <label>Hình:</label>
+
 
                                     </div>
                                     <div class="upload-img-status" >
@@ -361,29 +289,30 @@
                                             <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label>Giá:</label>
                                         <input type="number" class="form-control" />
 
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Danh mục</label>
-                                        <select name="" class="form-control select-address-district ">
-                                            <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                                            <option value="1 ">Option 1</option>
-                                            <option value="2 ">Option 2</option>
-                                            <option value="3 ">Option 3</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
-                                </form>
-
-                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Danh mục</label>
+                                    <select name="" class="form-control select-address-district ">
+                                        <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                                        <option value="1 ">Option 1</option>
+                                        <option value="2 ">Option 2</option>
+                                        <option value="3 ">Option 3</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
+                            </form>
 
                         </div>
+
                     </div>
                 </div>
-                <div class="card shadow mb-4" style="height: 100%;">
+            </div>
+            <div class="card shadow mb-4" style="height: 100%;">
 
                 <div class="card-body">
                     <div class="">
@@ -448,12 +377,12 @@
                     </div>
                 </div>
             </div>
-            </div>
-
-            
-
         </div>
+
+
+
     </div>
+</div>
 
 </div>
 </div>

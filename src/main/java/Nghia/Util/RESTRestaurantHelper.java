@@ -46,4 +46,14 @@ public class RESTRestaurantHelper extends RESTHelper {
         return tmpObject;
     }
 
+    public Map<String, ?> manageMyRestaurant(String id) throws IOException {
+        String url = BASE_URI + "manageMyRestaurant/";
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        Map<String, ?> tmpObject = mapper.readValue(string, new TypeReference<Map<String, ?>>() {
+        });
+        return tmpObject;
+    }
 }
