@@ -1,12 +1,34 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="header.jsp" %>
+<!-- The Modal -->
+<div class="modal" id="mapModel-regi">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bản đồ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
+            <!-- Modal body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" >Chấp nhận</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="container registerstore border rounded shadow-sm" style="margin-top:100px;padding-left: 0;padding-right: 0;">
     <div class="d-flex justify-content-between" style="margin-bottom: 10px">  
         <h3 class="font">Đăng ký cửa hàng</h3>
         <a href="/mystore" class="btn btn-danger">Bỏ đăng ký</a>
-</div>
+    </div>
     <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
         <li role="presentation" class="nav-item" style="width:50%">
             <a href="#step1" class="nav-link active" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">Bước 1 </a>
@@ -51,39 +73,15 @@
                         <option value="3 ">Option 3</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group form-inline">
                     <label>Địa chỉ cửa hàng</label>
                     <div class="input-group flex-nowrap" style="width: 46.5%">
                         <input type="text" class="form-control input-address" >
                         <div class="input-group-prepend">
-                            <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel1" ><i class="fas fa-map-marker-alt"></i></button>
+                            <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel-regi" ><i class="fas fa-map-marker-alt"></i></button>
                         </div>
-                   
                     </div>
-                       <!-- The Modal -->
-                        <div class="modal" id="mapModel1">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title"> Bản đồ</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-
-                                    </div>
-
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" >Chấp nhận</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
                 </div>
                 <div class="form-group form-inline">
                     <label>Họ tên người liên hệ:</label>
