@@ -22,6 +22,10 @@ public class UserController {
         restUser = new RESTUserHelper(User.class);
     }
     
+    @RequestMapping(value = "/user-info")
+    public ModelAndView userinfo() {
+        return new ModelAndView("user-info");
+    }
     @RequestMapping(value = "/profile")
     public ModelAndView index() {
         return new ModelAndView("profile");
