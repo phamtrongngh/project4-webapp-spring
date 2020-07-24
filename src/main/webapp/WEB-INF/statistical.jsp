@@ -7,7 +7,8 @@
     <div class="form-inline" style="margin-bottom: 10px;text-align: end;flex-direction: row-reverse;padding-right: 30px;">
         <form>
             <select name="" class="form-control select-address-district ">
-                <option value=" " disabled selected>Hãy chọn cửa hàng</option>
+                <option value=" " disabled selected>Chọn cửa hàng</option>
+                
                 <option value="1 ">Option 1</option>
                 <option value="2 ">Option 2</option>
                 <option value="3 ">Option 3</option>

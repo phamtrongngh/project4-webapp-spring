@@ -52,7 +52,17 @@ public class AuthController implements IController<Authorization> {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login() {
+    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                cookie.setValue("");
+                cookie.setMaxAge(0);
+                cookie.setHttpOnly(true);
+                cookie.setPath("/");
+                response.addCookie(cookie);
+            }
+        }
         return new ModelAndView("login");
     }
 
@@ -93,20 +103,18 @@ public class AuthController implements IController<Authorization> {
         }
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            cookie.setValue("");
-            cookie.setMaxAge(0);
-            cookie.setHttpOnly(true);
-            cookie.setPath("/");
-            response.addCookie(cookie);
-        }
-        return new ModelAndView("login");
-
-    }
-
+//    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+//    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        Cookie[] cookies = request.getCookies();
+//        for (Cookie cookie : cookies) {
+//            cookie.setValue("");
+//            cookie.setMaxAge(0);
+//            cookie.setHttpOnly(true);
+//            cookie.setPath("/");
+//            response.addCookie(cookie);
+//        }
+//        return new ModelAndView("login");
+//    }
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView register() {
         return new ModelAndView("register");
@@ -114,7 +122,7 @@ public class AuthController implements IController<Authorization> {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public void register(Authorization authorization, HttpServletResponse response) throws IOException {
-       
+
         rest.postRegister(authorization);
         Map<String, ?> responseMap = rest.post(authorization);
         String accessToken = (String) responseMap.get("access_token");
