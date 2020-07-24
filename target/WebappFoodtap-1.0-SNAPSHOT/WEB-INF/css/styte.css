@@ -2181,7 +2181,7 @@ input[type="radio"]:checked {
 .store .vouchers{
     background: url(../image/Background/pizza.jpg);
     background-repeat: no-repeat;
-    height: 20%;
+    height: 150px;
     width: 100%;
     margin-top: 10px;
     background-size: 100% 100%;
@@ -2402,5 +2402,18 @@ explorestore .profile-menu-hot .col-md-4 {
     display: flow-root;
     margin-top: 5px
 }
-
-
+/* user-info */
+.input-group-text:hover{
+    background-color: #da484a;
+}
+.input-group-text:hover i{
+    color: white;
+}
+/* like and share */
+.img-like{
+    width: 50px;
+}
+.row-like{
+    border-bottom: 1px solid rgba(100, 100, 100, .4);
+    margin-bottom: 5px;
+}
