@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import models.Authorization;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
+import org.springframework.security.jwt.Jwt;
+import org.springframework.security.jwt.JwtHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -66,10 +68,7 @@ public class AuthController implements IController<Authorization> {
             cookie.setMaxAge(9999999);
             cookie.setPath("/");
 
-            //set cookies for fullname and avatar 
-            String[] s = accessToken.split("\\.");
-            byte[] decodeJWT = Base64.getDecoder().decode(s[1]);
-            String decodeJWTString = new String(decodeJWT, "UTF-8");
+            String decodeJWTString = (JwtHelper.decode(accessToken)).getClaims();
 
             ObjectMapper mapper = new ObjectMapper();
             Map<String, String> convertTo = mapper.readValue(decodeJWTString, new TypeReference<Map<String, String>>() {
@@ -114,17 +113,8 @@ public class AuthController implements IController<Authorization> {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public void register(Authorization authorization, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Map<String, String> address = new HashMap<>();
-        authorization.setPhone(request.getParameter("phone").toString());
-        authorization.setPassword(request.getParameter("password").toString());
-        authorization.setGender(Boolean.parseBoolean(request.getParameter("gender")));
-        authorization.setFullname(request.getParameter("fullname").toString());
-        address.put("city", request.getParameter("city"));
-        address.put("town", request.getParameter("town"));
-        address.put("ward", request.getParameter("ward"));
-        address.put("street", request.getParameter("street"));
-        authorization.setAddress(address);
+    public void register(Authorization authorization, HttpServletResponse response) throws IOException {
+       
         rest.postRegister(authorization);
         Map<String, ?> responseMap = rest.post(authorization);
         String accessToken = (String) responseMap.get("access_token");
@@ -134,11 +124,8 @@ public class AuthController implements IController<Authorization> {
             cookie.setHttpOnly(true);
             cookie.setMaxAge(9999999);
             cookie.setPath("/");
-
             //set cookies for fullname and avatar 
-            String[] s = accessToken.split("\\.");
-            byte[] decodeJWT = Base64.getDecoder().decode(s[1]);
-            String decodeJWTString = new String(decodeJWT, "UTF-8");
+            String decodeJWTString = (JwtHelper.decode(accessToken)).getClaims();
 
             ObjectMapper mapper = new ObjectMapper();
             Map<String, String> convertTo = mapper.readValue(decodeJWTString, new TypeReference<Map<String, String>>() {
