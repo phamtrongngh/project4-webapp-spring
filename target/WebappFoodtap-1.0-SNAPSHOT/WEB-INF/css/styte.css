@@ -1,5 +1,4 @@
 body {
-    overflow: auto;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .navbar {
@@ -297,7 +296,6 @@ ul.navbar-nav li.nav-item {
 }
 .name img{
     margin-bottom: 5px;
-      margin-top: 10px;
 }
 .name a {
     font-size: 1.4rem;
@@ -716,7 +714,7 @@ h1 {
 
 .login {
     padding-top: 100px;
-    margin-left: 355px;
+    margin-left: 420px;
 }
 
 .login-food {
@@ -742,6 +740,11 @@ h1 {
     margin-left: 10px;
     max-width: 55%;
     padding: 0 !important;
+}
+@media (min-width: 576px){
+    .container.login {
+        max-width: 70% !important;
+    }
 }
 @media (min-width: 576px){
     .container {
@@ -781,7 +784,7 @@ h1 {
 }
 #login .login-container{
     width: 100%;
-    height: 94%;
+    height: 93%;
     padding: 108px 0px 0px 0px;
     position: absolute;
     z-index: 80;
@@ -793,7 +796,7 @@ h1 {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 #login .login-form .form-group{
-    margin-left: 30px;
+    margin-left: 15px;
 }
 @media (max-width: 992px){
     #login .login-container{
@@ -806,7 +809,7 @@ h1 {
 }
 #register .login-container {
     width: 100%;
-    height: 94%;
+    height: 93%;
     padding: 50px 0px 0px 0px;
     position: absolute;
     z-index: 80;
@@ -988,16 +991,15 @@ h1 {
     padding: 0;
 }
 
-.profile .profile-container-img {
-    width: 50%;
+.profile .profile-header .profile-container-img .img-avartar {
+    width: 165px;
 
 }
-.profile .profile-header .profile-container-img .img-avartar {
-    max-width: 80%;
-    
-}
-.profile-name{
+.profile .profile-name{
     display: table-header-group;
+    float: left;
+    margin-left: 40px;
+    margin-top: 15px;
 }
 .profile-name .text-name {
     color: red;
@@ -1506,12 +1508,18 @@ label.star:before {
 }
 
 .user-profile .profile-container-img img{
-width: 165px;
+    width: 165px;
+}
+.user-profile .profile-name{
+    display: table-header-group;
+    float: left;
+    margin-left: 40px;
+    margin-top: 15px;
 }
 .user-profile .profile-intro{
     background-color: white;
     width: 100%;
-  height: 100%;
+    height: 100%;
     padding-left: 10px;
 
 }
@@ -1532,7 +1540,7 @@ width: 165px;
     height: 30%;
     opacity: 0.8;
 }
-.profile-container-buttons button i{
+.user-profile .profile-container-buttons button i{
     margin-right:  10px;
 }
 .containers-sendmess{
@@ -2134,10 +2142,20 @@ input[type="radio"]:checked {
     width: 100%;
     height: 173px;
 }
-
+.store .name img{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
 .store .profile-header .profile-container-img .img-avartar {
     width: 170px;
-    
+
+}
+.store .profile-name{
+    display: table-header-group;
+    float: left;
+    margin-left: 40px;
+    margin-top: 15px;
 }
 .store .photo-header{
     width: 100%;
@@ -2164,6 +2182,18 @@ input[type="radio"]:checked {
     margin-left: -15px;
     height: 27.8%;
     opacity: 0.8;
+}
+.store .profile-container-buttons a i{
+    margin-right:  10px;
+}
+.store .profile-container-buttons button i{
+    margin-right:  10px;
+}
+.store .profile-container-buttons a{
+    margin-left: -15px;
+    height: 27.8%;
+    opacity: 0.8;
+    font-size: 18px;
 }
 .store .profile-container-buttons .btn-success,.store .profile-container-buttons .btn-danger {
     margin-top: 14px
@@ -2258,8 +2288,47 @@ input[type="radio"]:checked {
     width: 165px;
     margin-top: 10px;
 }
+.history-MDH{
+    text-align: start;
+}
+.receivedday{
+    float: right;
+}
+.history-avatar{
+    width: 200px;
+    height: 125px;
+    margin-right: 10px;
+
+}
+.history-đonhang{
+    padding: 10px;
+    background-color: antiquewhite;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+.history-contain{
+    display: flex;
+    border-bottom: 1px solid rgb(138,138,150,0.18);
+    padding-bottom: 10px;
+
+}
+.history-namestore{
+    font-weight: bold;
+    font-size: 18px;
+}
+.history-address{
+    font-weight: 100;
+}
+.history-price {
+    font-weight: bold;
+    font-size: 18px;
+}
+.history-footer{
+    display: flow-root;
+    margin-top: 5px
+}
 /*END */
-/*EXPLORE STORE*/
+/*11) EXPLORE STORE*/
 .explorestore .profile-text-hot {
     margin-top: 25px;
     margin-bottom: 10px;
@@ -2308,13 +2377,18 @@ explorestore .profile-menu-hot .col-md-4 {
 .explorestore .search-food{
     margin-top: 25px;
     margin-bottom: 10px;
-    width: 90% ;
     border: 1px solid #ced4da;
+    width: 85%;
 }
 .explorestore .btn-search-hot{
     margin-top: 24px;
     margin-bottom: 10px;
     background: white;
+    transition: .5s ease;
+}
+.explorestore .btn-search-hot:hover{
+    color: #fff;
+    background-color: red;
 }
 /*NEAR*/
 .explorestore .profile-text-near {
@@ -2362,46 +2436,216 @@ explorestore .profile-menu-hot .col-md-4 {
     font-weight: 800;
 }
 
-/*EXPLORE STORE*/
-.history-MDH{
-    text-align: start;
+/*END EXPLORE STORE*/
+
+/*12) STORE-INFO*/
+.store-info label{
+    font-size: 16px;
 }
-.receivedday{
-    float: right;
+.store-info .btn-location{
+    background-color: white;
+    transition: .5s ease;
+    color: red;
 }
-.history-avatar{
-    width: 200px;
-    height: 125px;
-    margin-right: 10px;
-    
+.store-info .btn-location:focus{
+    outline: none;
 }
-.history-đonhang{
-    padding: 10px;
-    background-color: antiquewhite;
-    border-radius: 7px;
-    margin-top: 10px;
+.store-info .btn-location:hover{
+    background-color: red;
+    color: white;
+
 }
-.history-contain{
+.store-info .add-paper p{
+    font-size: 24px;
+}
+/* END STORE-INFO*/
+/*13) SAME TASTE */
+.sametaste .profile-text-hot {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    background-color: #da484a;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+.sametaste .profile-menu-hot {
     display: flex;
-    border-bottom: 1px solid rgb(138,138,150,0.18);
-    padding-bottom: 10px;
-    
 }
-.history-namestore{
-    font-weight: bold;
-    font-size: 18px;
+
+.sametaste .profile-menu-hot .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 10px;
+    text-align: center;
+    background-color: white;
+    background-clip: content-box;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
-.history-address{
-    font-weight: 100;
+
+.sametaste .profile-menu-hot img {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
 }
-.history-price {
-    font-weight: bold;
-    font-size: 18px;
+
+.sametaste .profile-menu-hot .text-price {
+    opacity: 0.5;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
-.history-footer{
-    display: flow-root;
-    margin-top: 5px
+
+.sametaste .profile-menu-hot a {
+    text-decoration: none;
+    color: black;
+    font-size: 22.4px;
+    font-weight: 800;
 }
+
+.sametaste .search-food{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    width: 85% ;
+    border: 1px solid #ced4da;
+}
+.sametaste .btn-search-hot{
+    margin-top: 24px;
+    margin-bottom: 10px;
+    background: white;
+    transition: .5s ease;
+}
+.sametaste .btn-search-hot:hover{
+    color: #fff;
+    background-color: red;
+}
+/*NEAR*/
+.sametaste .profile-text-near {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    background-color: #da484a;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+.sametaste .profile-menu-near {
+    display: flex;
+}
+
+.sametaste .profile-menu-near .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 10px;
+    text-align: center;
+    background-color: white;
+    background-clip: content-box;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.sametaste .profile-menu-near img {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
+}
+
+.sametaste .profile-menu-near .text-price {
+    opacity: 0.5;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.sametaste .profile-menu-near a {
+    text-decoration: none;
+    color: black;
+    font-size: 22.4px;
+    font-weight: 800;
+}
+.sametaste .hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    padding-left: 0px;
+
+}
+.sametaste .hovereffect .overlay {
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    padding: 1em;
+    height: 4.75em;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);
+    visibility: hidden;
+
+}
+
+.sametaste .hovereffect img {
+    display: block;
+    position: relative;
+
+}
+
+.sametaste .hovereffect h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: #da484a;
+    bottom: 40px;
+    float: left;
+    margin: 0px;
+    display: inline-block;
+    width: 80%;
+    transition: .5s ease
+}
+.sametaste .hovereffect h2:hover
+{
+    background: white;
+    color:#da484a; 
+}
+.sametaste .hovereffect p.icon-links 
+{
+    background-color: white}
+.sametaste .hovereffect p.icon-links a:hover{
+    color: white;
+    background-color:#da484a; 
+}
+.sametaste .hovereffect p.icon-links a {
+    float: right;
+    color: #da484a;
+    font-size: 1.4em;
+    width: 20%;
+    height: 40px;
+    position: relative;
+    bottom: 40px;
+    transition: .5s ease;
+    background-color: white;
+}
+
+
+
+
+/* END SAME TASTE */
+
+
+
 /* user-info */
 .input-group-text:hover{
     background-color: #da484a;
