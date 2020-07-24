@@ -18,6 +18,7 @@ public class User {
     private String fullname;
     private String phone;
     private String password;
+    private String address;
     private List<String> newfeeds;
     private List<String> followers;
     private List<String> following;
@@ -31,7 +32,11 @@ public class User {
     public String getPassword() {
         return password;
     }
-    
+
+    public User(String address) {
+        this.address = address;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
