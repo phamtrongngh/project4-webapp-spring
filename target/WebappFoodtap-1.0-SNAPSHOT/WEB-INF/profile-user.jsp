@@ -320,7 +320,7 @@
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label  style="font-size: 12px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+                                        <label  style="font-size: 10px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
                                         <input type="file"  id="upload-photo"/>
                                     </div>
                                     <div class="col-md-6">

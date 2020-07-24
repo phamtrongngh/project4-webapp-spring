@@ -201,7 +201,7 @@ ul.navbar-nav li.nav-item {
 }
 
 .btn-Search:hover {
-    background-color: red !important;
+    background-color: #da484a !important;
 }
 
 .media.avatar {
@@ -300,7 +300,7 @@ ul.navbar-nav li.nav-item {
 .name a {
     font-size: 1.4rem;
 
-    color: red;
+    color: #da484a;
     font-weight: 500;
 }
 
@@ -349,17 +349,17 @@ ul.navbar-nav li.nav-item {
 
 @media (max-width: 768px) {
     .fa-utensils {
-        color: red;
+        color: #da484a;
         margin-right: 100px;
         font-size: 20px;
     }
     .fa-comment {
         margin-left: 100px;
-        color: red;
+        color: #da484a;
         font-size: 20px;
     }
     .fa-heart {
-        color: red;
+        color: #da484a;
         font-size: 20px;
     }
     #one {
@@ -369,17 +369,17 @@ ul.navbar-nav li.nav-item {
 
 @media (max-width: 411px) {
     .fa-utensils {
-        color: red;
+        color: #da484a;
         margin-right: 50px;
         font-size: 25px;
     }
     .fa-comment {
         margin-left: 50px;
-        color: red;
+        color: #da484a;
         font-size: 25px;
     }
     .fa-heart {
-        color: red;
+        color: #da484a;
         font-size: 25px;
     }
 }
@@ -653,7 +653,7 @@ h1 {
 }
 
 .fa-chevron-circle-down:hover {
-    color: red;
+    color: #da484a;
     cursor: pointer;
 }
 
@@ -713,8 +713,8 @@ h1 {
 }
 
 .login {
-    padding-top: 100px;
-    margin-left: 420px;
+    padding-top: 50px;
+    margin-left: 350px;
 }
 
 .login-food {
@@ -738,39 +738,7 @@ h1 {
     border: solid 1px;
     margin-top: -4%;
     margin-left: 10px;
-    max-width: 55%;
     padding: 0 !important;
-}
-@media (min-width: 576px){
-    .container.login {
-        max-width: 70% !important;
-    }
-}
-@media (min-width: 576px){
-    .container {
-        max-width: 84% !important;
-    }
-}
-@media (max-width: 768px) {
-    .login-sign {
-        margin-left: 0px;
-        max-width: 100%;
-    }
-    .list-friends{
-        display: none;
-    }
-    #left-menu{
-        margin-top: 0!important;
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 25%;
-        flex: 0 0 25%;
-        max-width: 25%;
-        padding-right: 2px; 
-        padding-left: 2px;
-    }
-    #one{
-        display: flex;
-    }
 }
 
 .login-sign h1 {
@@ -784,39 +752,85 @@ h1 {
 }
 #login .login-container{
     width: 100%;
-    height: 93%;
     padding: 108px 0px 0px 0px;
     position: absolute;
     z-index: 80;
     top: 42px;
     right: 0px;
     background: rgba(0, 0, 0, 0.6);
-    margin-bottom: 20px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    text-align: -webkit-center;  
 }
-#login .login-form .form-group{
-    margin-left: 15px;
+#login .login-form {
+    display: flex; 
+    flex-flow: column; 
+    width: 65%;
 }
-@media (max-width: 992px){
-    #login .login-container{
-        height: 90%;
-        padding: 50px 0px 0px 0px;
+
+@media (min-width: 768px){
+    #login .login-container .form-group{
+        height: 92% ;
+        padding-top: 50px  !important;
     }
-    #login .login-form .form-group input.form-control{
-        margin-left: 100px !important;
+    #register .login-container{
+        height: 92% ;
+        padding: 20px !important;
+    }
+
+}
+@media (min-width:992px){
+    #login .login-container{
+        height: 94% ;
+    }
+    #register .login-container{
+        height: 94%;
+        padding: 0 ;
+    }
+    #register .btn-location{
+        margin-top: 5px;
+    }
+    #register .login-form .form-group input.form-control {
+        margin-top: 5px !important;
+    }
+    #register .login-container .login-form label {
+        font-size: 15px !important;
+        margin-left: 20px !important;
+    }   
+    #register .login-container .login-form .input-name {
+        width: 90% !important;
+        margin-left: 20px !important;
+    }
+
+    #register .login-container .login-form .input-phone {
+        width: 90% !important;
+        margin-left: 20px !important;
+    }
+
+}
+@media (min-width:1200px){
+    #login .login-container{
+        height: 95% ;
+    }
+    #login .login-form .form-group{
+        padding-top: 100px;
+    }
+    #register .login-container{
+        height: 95%;
+        padding: 0 ;
+    }
+    #register .login-form .form-group  {
+        padding-top: 40px;
     }
 }
 #register .login-container {
     width: 100%;
-    height: 93%;
     padding: 50px 0px 0px 0px;
     position: absolute;
     z-index: 80;
     top: 42px;
     right: 0px;
     background: rgba(0, 0, 0, 0.6);
-    margin-bottom: 20px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -824,24 +838,11 @@ h1 {
 .login-sign ul li{
     width: 50%;
 }
-
-@media (max-width: 768px) {
-    .login-sign .login-container {
-        height: 90%;
-    }
-}
-#login .login-form .form-group input.form-control {
-    margin-top: 50px;
-    width: 50%;
-    margin-left: 150px;
-}
-
 #login .btn-login {
     width: 150px;
     margin-top: 60px;
 
 }
-
 
 .login-container .login-form label {
     font-size: 20px;
@@ -850,10 +851,7 @@ h1 {
     margin-left: 35px;
 }   
 
-#register .login-form .form-group  {
-    margin-top: 20px;
-    padding-top: 20px;
-}
+
 
 #register .login-container .login-form .input-name {
     width: 90% !important;
@@ -883,40 +881,19 @@ h1 {
 }
 #register .btn-location{
     background: white;
-    color: red;
+    color: #da484a;
     transition: .5s ease;
 
 }
 #register .btn-location:hover{
-    background: red;
+    background: #da484a;
     color: white;  
 }
 #register .btn-location:focus{
     outline: none;
 
 }
-@media (max-width: 992px){
-    #register .login-container{
-        height: 90%;
-        padding: 0px 0px 0px 0px ;
-    }
-    #register .login-form .form-group input.form-control {
-        margin-top: 5px !important;
-    }
-    #register .login-container .login-form label {
-        font-size: 15px !important;
-        margin-left: 20px !important;
-    }   
-    #register .login-container .login-form .input-name {
-        width: 90% !important;
-        margin-left: 20px !important;
-    }
 
-    #register .login-container .login-form .input-phone {
-        width: 90% !important;
-        margin-left: 20px !important;
-    }
-}
 .login-foods {
     padding:80px 5px;
     background-color: #da484a;
@@ -925,10 +902,9 @@ h1 {
     margin-left: 10px;
 }
 
-@media (max-width: 768px) {
-    .login-foods {
-        margin-top: 50px;
-        margin-left: 0px;
+@media (max-width: 892px) {
+    #register .btn-location{
+        margin-top: 5px !important;
     }
 }
 
@@ -998,11 +974,10 @@ h1 {
 .profile .profile-name{
     display: table-header-group;
     float: left;
-    margin-left: 40px;
     margin-top: 15px;
 }
 .profile-name .text-name {
-    color: red;
+    color: #da484a;
     font-size: 27px;
     font-style: italic;
     font-family: "Great Vibes", cursive;
@@ -1122,7 +1097,7 @@ label.star:before {
 }
 
 .profile-menu .col-md-1 {
-    background-color: red;
+    background-color: #da484a;
     color: white;
     font-size: 28px;
     text-align: center;
@@ -1135,7 +1110,7 @@ label.star:before {
     margin-top: 25px;
     margin-bottom: 10px;
     font-size: 28px;
-    background-color: red;
+    background-color: #da484a;
     width: 20%;
     text-align: center;
     border-radius: 10px;
@@ -1279,7 +1254,7 @@ label.star:before {
 }
 
 .send-btn .fa-location-arrow:hover {
-    color: red;
+    color: #da484a;
     opacity: 0.6;
 }
 
@@ -1293,7 +1268,7 @@ label.star:before {
 }
 
 .card-header .search-btn:hover {
-    background-color: red !important;
+    background-color: #da484a !important;
     color: white !important;
 }
 
@@ -1495,7 +1470,7 @@ label.star:before {
 /* 6) PROFILE-USER */
 
 .carousel-indicators li {
-    background-color: red !important;
+    background-color: #da484a !important;
     opacity: 0.2;
 }
 
@@ -1513,7 +1488,6 @@ label.star:before {
 .user-profile .profile-name{
     display: table-header-group;
     float: left;
-    margin-left: 40px;
     margin-top: 15px;
 }
 .user-profile .profile-intro{
@@ -1528,7 +1502,7 @@ label.star:before {
     font-weight: bold;
     opacity: 0.7;
 }
-.profile-container-buttons{
+.user-profile .profile-container-buttons{
     margin-left: 5px;
 }
 .user-profile .profile-container-buttons .btn-success,
@@ -1572,7 +1546,7 @@ label.star:before {
 }
 .post-store button.btn-success, .post-store button.btn-primary {
     width: 100%;
-    font-size:12px; 
+    font-size:10px; 
 }
 
 .profile-list{
@@ -1638,7 +1612,6 @@ label.star:before {
 }
 
 #order {
-    margin-left: -20px;
     margin-top: 20px;
     max-width: 100% !important;
 }
@@ -1988,7 +1961,7 @@ input[type="radio"]:checked {
     }
 }
 /* Load post */
-.loading { color: red; }
+.loading { color: #da484a; }
 .scrollpane { height: 100px; overflow: auto; width: 200px; }
 
 #upload-photo {
@@ -2073,17 +2046,17 @@ input[type="radio"]:checked {
 }
 .registerstore .gallery{
     position: absolute;
-    right: 170px;
+    right: 280px;
     text-align: center;
     width: 15%;
 }
 .registerstore .btn-location{
     background-color: #fff;
-    color: red;
+    color: #da484a;
     transition: .5s ease;
 }
 .registerstore .btn-location:hover{
-    background-color: red;
+    background-color: #da484a;
     color: white;
 }
 .registerstore .btn-location:focus{
@@ -2134,9 +2107,8 @@ input[type="radio"]:checked {
     margin-top: 100px;
 }
 /*10) STORE*/
-.store-menu{
+.store .store-menu{
     width: 100%;
-    margin-left: 20px;
 }
 .store .img-order-header{
     width: 100%;
@@ -2153,8 +2125,7 @@ input[type="radio"]:checked {
 }
 .store .profile-name{
     display: table-header-group;
-    float: left;
-    margin-left: 40px;
+    float: left;    
     margin-top: 15px;
 }
 .store .photo-header{
@@ -2177,33 +2148,28 @@ input[type="radio"]:checked {
     font-size: 20px;
     opacity: 0.9;
 }
-
+.store .profile-container-buttons{
+    padding-left: 0;
+}
 .store .profile-container-buttons button{
-    margin-left: -15px;
-    height: 27.8%;
+    height: 30%;
     opacity: 0.8;
 }
-.store .profile-container-buttons a i{
-    margin-right:  10px;
-}
+
 .store .profile-container-buttons button i{
     margin-right:  10px;
 }
-.store .profile-container-buttons a{
-    margin-left: -15px;
-    height: 27.8%;
-    opacity: 0.8;
-    font-size: 18px;
-}
+
 .store .profile-container-buttons .btn-success,.store .profile-container-buttons .btn-danger {
-    margin-top: 14px
+    margin-top: 8px;
 }
 .store .containers-sendmess button {
-    margin-left: -20px ;
+    margin-left:-5px ;
     height: 100%;
-    width: 185%;
+    width: 192%;
     opacity: 0.8;
 }
+
 .store .voucher{
     width: 100%;
     margin-top: 10px;
@@ -2211,7 +2177,7 @@ input[type="radio"]:checked {
 .store .vouchers{
     background: url(../image/Background/pizza.jpg);
     background-repeat: no-repeat;
-    height: 20%;
+    height: 150px;
     width: 100%;
     margin-top: 10px;
     background-size: 100% 100%;
@@ -2236,10 +2202,10 @@ input[type="radio"]:checked {
     color: #da484a;
 }
 
-/*MYPROFILE-USER */
+/*11)MYPROFILE-USER */
 .myprofile-user .profile-intro{
     background-color: white;
-    color:red;
+    color:#da484a;
     width: 115%;
     height: 100%
 
@@ -2258,15 +2224,19 @@ input[type="radio"]:checked {
     background-color: black;
     font-family: "Quicksand";
 }
+.myprofile-user  .profile-container-buttons .btn-success,
+.myprofile-user  .profile-container-buttons .btn-danger{
+    margin-top:  8px;
+}
 .myprofile-user .img-order-header{
     width: 100%;
     height: 170px;
 }
 .myprofile-user .profile-container-buttons{
-    margin-left: 32px;
+    margin-left: 18px;
 }
 .myprofile-user .profile-container-buttons button{
-    width: 160%;
+    width: 188%;
 }
 .myprofile-user .containers-sendmess{
     padding-right: 0 !important;
@@ -2328,12 +2298,12 @@ input[type="radio"]:checked {
     margin-top: 5px
 }
 /*END */
-/*11) EXPLORE STORE*/
+/*12) EXPLORE STORE*/
 .explorestore .profile-text-hot {
     margin-top: 25px;
     margin-bottom: 10px;
     font-size: 28px;
-    background-color: red;
+    background-color: #da484a;
     width: 20%;
     text-align: center;
     border-radius: 10px;
@@ -2388,14 +2358,14 @@ explorestore .profile-menu-hot .col-md-4 {
 }
 .explorestore .btn-search-hot:hover{
     color: #fff;
-    background-color: red;
+    background-color: #da484a;
 }
 /*NEAR*/
 .explorestore .profile-text-near {
     margin-top: 25px;
     margin-bottom: 10px;
     font-size: 28px;
-    background-color: red;
+    background-color: #da484a;
     width: 20%;
     text-align: center;
     border-radius: 10px;
@@ -2438,23 +2408,23 @@ explorestore .profile-menu-hot .col-md-4 {
 
 /*END EXPLORE STORE*/
 
-/*12) STORE-INFO*/
+/* STORE-INFO*/
 .store-info label{
-    font-size: 16px;
+    font-size: 14px;
 }
 .store-info .btn-location{
     background-color: white;
     transition: .5s ease;
-    color: red;
+    color: #da484a;
 }
 .store-info .btn-location:focus{
     outline: none;
 }
 .store-info .btn-location:hover{
-    background-color: red;
+    background-color: #da484a;
     color: white;
-
 }
+
 .store-info .add-paper p{
     font-size: 24px;
 }
@@ -2519,7 +2489,7 @@ explorestore .profile-menu-hot .col-md-4 {
 }
 .sametaste .btn-search-hot:hover{
     color: #fff;
-    background-color: red;
+    background-color: #da484a;
 }
 /*NEAR*/
 .sametaste .profile-text-near {
@@ -2639,10 +2609,77 @@ explorestore .profile-menu-hot .col-md-4 {
     background-color: white;
 }
 
-
-
-
 /* END SAME TASTE */
+/*14) STORE-PROFILE*/
+.store-profile .store-menu{
+    width: 100%;
+}
+.store-profile .img-order-header{
+    width: 100%;
+    height: 173px;
+}
+.store-profile .name img{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.store-profile .profile-header .profile-container-img .img-avartar {
+    width: 170px;
 
+}
+.store-profile .profile-name{
+    display: table-header-group;
+    float: left;    
+    margin-top: 15px;
+}
+.store-profile .photo-header{
+    width: 100%;
+    color: white;
+    height: 173px;
+    margin-top: -173px;
+    padding-top: 50px;
+    transition: 0.5s ease;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-align: center;
+    opacity: 0.6;
+    background-color: black;
+    font-family: "Quicksand";
+}
+.store-profile .photo-header:hover {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    opacity: 0.9;
+}
+.store-profile .profile-container-buttons{
+    padding-left: 0;
+}
+.store-profile .profile-container-buttons button{
+    height: 30%;
+    opacity: 0.8;
+    width: 192%;
+}
+
+.store-profile .profile-container-buttons button i{
+    margin-right:  10px;
+}
+.store-profile .profile-container-buttons .btn-success,
+.store-profile .profile-container-buttons .btn-danger {
+    margin-top: 8px;
+}
+.store-profile .containers-sendmess button {
+    margin-left:60px ;
+    height: 100%;
+    width: 130%;
+    opacity: 0.8;
+}
+.store-profile .profile-intro{
+    background-color: white;
+    color:#da484a;
+    width: 100%;
+    height: 100%
+
+}
 
 
