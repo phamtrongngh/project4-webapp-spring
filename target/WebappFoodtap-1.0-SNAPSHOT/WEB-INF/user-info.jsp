@@ -1,7 +1,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
-
+<style>
+    #map {
+        height: 500px;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@goongmaps/goong-js@1.0.2/dist/goong-js.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@goongmaps/goong-js@1.0.2/dist/goong-js.css" rel="stylesheet" />
+<script src='https://cdn.jsdelivr.net/npm/@goongmaps/goong-geocoder@1.0.2/dist/goong-geocoder.min.js'></script>
+<link href="https://cdn.jsdelivr.net/npm/@goongmaps/goong-geocoder@1.0.2/dist/goong-geocoder.css" rel="stylesheet"
+      type="text/css" />
 <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
 <!-- The Modal vị trí-->
 <div class="modal" id="mapModeluserupdate">
@@ -14,6 +23,7 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body">
+                <div id="map"></div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
@@ -31,18 +41,18 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/changePassword" method="POST">
                     <div class="form-group">
                         <label>Mật khẩu cũ</label>
-                        <input type="email" class="form-control" placeholder="Nhập mật khẩu cũ">
+                        <input type="password" class="form-control" >
                     </div>
                     <div class="form-group">
                         <label>Mật khẩu mới</label>
-                        <input type="password" class="form-control"  placeholder="Nhập mật khẩu mới">
+                        <input type="password" class="form-control" >
                     </div>
                     <div class="form-group">
                         <label>Nhập lại mật khẩu mới</label>
-                        <input type="password" class="form-control"  placeholder="Nhập lại mật khẩu mới">
+                        <input type="password" class="form-control"  >
                     </div>
                     <button type="submit" class="btn btn-primary">Chấp nhận</button>
                 </form>
@@ -60,12 +70,10 @@
         <hr/>
         <div class="row justify-content-center h-100">
             <div class="col col-sm-6 col-md-7 col-lg-4 col-xl-6 h-100">
-                <form action="">   
+                <form action="/updateUser" method="POST" enctype="multipart/form-data">   
                     <div class="form-group form-control mx-auto text-center">
                         <a id="chossefile">
-
                             <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
-
                                 <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
                             </div>
                         </a>
@@ -75,20 +83,19 @@
                         <label class="col-md-3">Họ và tên</label>
 
                         <div class="col-md-9 input-group-prepend">
-                            <input  type="text" class="form-control input-address"/>
+                            <input  type="text" value="${user.fullname}" name="fullname" class="form-control"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3">SĐT</label>
                         <div class="col-md-9 input-group-prepend">
-                            <input  type="text" class="form-control input-address" readonly="true"/>
+                            <input  type="text" value="${user.phone}" name="phone" disabled class="form-control" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3">Địa chỉ</label>
-
                         <div class="col-md-9 input-group-prepend">
-                            <input  type="text" class="form-control input-address" readonly="true"/>
+                            <input  type="text" value="${user.address}" name="address" class="form-control input-address" />
                             <button style="color: #da484a" type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModeluserupdate" ><i class="fas fa-map-marker-alt"></i></button>
                         </div>
                     </div>
@@ -96,7 +103,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col"><button class="col-7 btn btn-secondary btn-sm float-left" data-toggle="modal" data-target="#Modelmatkhau" type="button">Đổi mật khẩu</button></div>
-                                <div class="col"><button class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button></div>
+                                <div class="col"><button type="submit" class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button></div>
                             </div>
                         </div>
                     </div>
@@ -115,6 +122,102 @@
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/jquery-ui.js"></script>
 <script src="/public/js/script.js "></script>
+<script>
+    $(document).ready(function() {
+        var imageFrame = $("input[type=file]").parent().siblings(0).children(0);
+        imageFrame.css('background-image', 'url("http://localhost:9032/public/image/${user.avatar}');
+        goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
+        var map = new goongjs.Map({
+            container: 'map', // container id
+            style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
+            center: [105, 21], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
 
+        var geocoder = new GoongGeocoder({
+            accessToken: "rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm",
+            goongjs: goongjs
+        })
+
+        var geolocateControl = new goongjs.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: true
+        })
+
+        map.addControl(new goongjs.FullscreenControl());
+
+        map.on('load', function() {
+            map.addSource('single-point', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: []
+                }
+            });
+            map.addControl(
+                    geocoder
+                    )
+            map.addControl(
+                    geolocateControl
+                    );
+            map.addLayer({
+                id: 'point',
+                source: 'single-point',
+                type: 'circle',
+                paint: {
+                    'circle-radius': 10,
+                    'circle-color': '#448ee4'
+                }
+            });
+        });
+
+        var marker = new goongjs.Marker({
+            draggable: true
+        })
+                .setLngLat([105, 21])
+                .addTo(map);
+
+        marker.on('dragend', function() {
+
+            var lngLat = marker.getLngLat();
+            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=qKvO3Yc2cMFMVB4NKEGsMkm0FgMrQO1pqXmPUaup&limit=1')
+                    .then(function(response) {
+                        return response.json()
+                    })
+                    .then(function(data) {
+                        $(".input-address").val(data.results[0].formatted_address);
+                    });
+        });
+        geolocateControl.on("geolocate", function(e) {
+            var lng = e.coords.longitude;
+            var lat = e.coords.latitude;
+            marker._lngLat = {lat: lat, lng: lng}
+            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm', {mode: "cors"})
+                    .then(function(response) {
+                        return response.json()
+                    })
+                    .then(function(data) {
+                        $(".input-address").val(data.results[0].formatted_address);
+                    });
+        })
+        geocoder.on("result", function(e) {
+            geocoder.mapMarker.remove();
+            marker._lngLat = geocoder.mapMarker._lngLat;
+            $(".input-address").val(e.result.description);
+        })
+        $(".btn-location").click(function() {
+            $(".goongjs-ctrl-fullscreen").trigger("click");
+        })
+        $("#mapModeluserupdate .modal-footer button").click(function() {
+            $("#mapModeluserupdate").modal("hide");
+        })
+        $(".close").click(function() {
+            $(".input-address").val("");
+            $("#mapModeluserupdate").modal("hide");
+        })
+    })
+</script>
 </body>
 </html>

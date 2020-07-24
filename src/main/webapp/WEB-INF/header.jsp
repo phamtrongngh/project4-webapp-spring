@@ -138,7 +138,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <form action="/logout" method="POST">
+                        <form action="/login" method="GET">
                             <a onclick="this.parentNode.submit()" style="color: white;text-decoration: none;"><i class="fas fa-sign-out-alt"></i></a>
                         </form>
                     </li>

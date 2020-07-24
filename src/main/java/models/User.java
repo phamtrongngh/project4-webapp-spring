@@ -33,9 +33,6 @@ public class User {
         return password;
     }
 
-    public User(String address) {
-        this.address = address;
-    }
 
     public void setPassword(String password) {
         this.password = password;
@@ -131,6 +128,14 @@ public class User {
 
     public String getFullname() {
         return fullname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void setFullname(String fullname) {
