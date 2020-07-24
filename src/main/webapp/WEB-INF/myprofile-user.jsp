@@ -188,7 +188,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
@@ -295,7 +294,7 @@
                                                             <button class="btn btn-danger form-control" data-toggle="modal" data-target="#history" style="margin-top: 8px"><i class="fas fa-history"></i>Lịch sử</button>
                                                         </div>
                                                         <div class="col-md-1 containers-sendmess" style="">
-                                                            <button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button>
+                                                            <a href="/user-info"><button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button></a>
                                                         </div>
                                                     </div>
                                                     <div class="row">
