@@ -25,10 +25,6 @@
     </div>
 </div>
 <div class="container registerstore border rounded shadow-sm" style="margin-top:100px;padding-left: 0;padding-right: 0;">
-    <div class="d-flex justify-content-between" style="margin-bottom: 10px">  
-        <h3 class="font">Đăng ký cửa hàng</h3>
-        <a href="/mystore" class="btn btn-danger">Bỏ đăng ký</a>
-    </div>
     <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
         <li role="presentation" class="nav-item" style="width:50%">
             <a href="#step1" class="nav-link active" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">Bước 1 </a>

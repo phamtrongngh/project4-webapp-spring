@@ -46,8 +46,16 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/manageMyRestaurant/{id}", method = RequestMethod.GET)
     public ModelAndView statistical(@PathVariable("id") String id) throws IOException {
-        Object restaurant = restHelper.manageMyRestaurant(id);
+        Map<String,?> restaurant = restHelper.manageMyRestaurant(id);
         return new ModelAndView("statistical").addObject("restaurant", restaurant);
+    }
+  @RequestMapping(value = "/sametaste", method = RequestMethod.GET)
+    public ModelAndView sametaste() throws IOException {
+        return new ModelAndView("sametaste");
+    }
+    @RequestMapping(value = "/store-info", method = RequestMethod.GET)
+    public ModelAndView storeinfo() throws IOException {
+        return new ModelAndView("store-info");
     }
 
     @RequestMapping(value = "/explorestore", method = RequestMethod.GET)
@@ -57,7 +65,7 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/statistical", method = RequestMethod.GET)
     public ModelAndView statistical() throws IOException {
-
+        
         return new ModelAndView("statistical");
     }
 

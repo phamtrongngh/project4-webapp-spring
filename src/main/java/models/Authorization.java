@@ -17,15 +17,17 @@ public class Authorization {
     private String password;
     private String fullname;
     private boolean gender;
-    private Map<String, String> address;
+    private String address;
 
-    public Authorization(String phone, String password) {
-        this.phone = phone;
-        this.password = password;
+    public String getAddress() {
+        return address;
     }
 
-    public Authorization() {
+    public void setAddress(String address) {
+        this.address = address;
     }
+    
+    
 
     public String getPhone() {
         return phone;
@@ -59,12 +61,6 @@ public class Authorization {
         this.fullname = fullname;
     }
 
-    public Map<String, String> getAddress() {
-        return address;
-    }
-
-    public void setAddress(Map<String, String> address) {
-        this.address = address;
-    }
+    
 
 }

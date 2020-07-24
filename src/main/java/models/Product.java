@@ -69,9 +69,10 @@ public class Product {
         return restaurant;
     }
 
-    public void setRestaurant(String idRes) {
-        this.restaurant = idRes;
+    public void setRestaurant(String restaurant) {
+        this.restaurant = restaurant;
     }
+
 
     public List<String> getRating() {
         return rating;
