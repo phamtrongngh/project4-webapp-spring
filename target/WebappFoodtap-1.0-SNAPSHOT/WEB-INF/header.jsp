@@ -43,7 +43,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control inputsearch" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary btn-Search rounded" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button class="btn btn-Search "  type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </form>
