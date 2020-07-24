@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <!-- The Modal comment -->
-<div class="modal" id="myModal-comment">
+<div class="modal" id="orderModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -262,7 +262,7 @@
                     </a>
                 </div>
                 <div id="left-menu" style="margin-top: 20px">
-                    <a href="#"><img class="rounded img-order" src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" alt="" />
+                    <a href="/sametaste"><img class="rounded img-order" src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" alt="" />
                         <div class="rounded photo ">
                             <div>
                                 Bạn cùng<br/> khẩu vị
@@ -301,7 +301,14 @@
                             <div href="#" class="name"><a href="#">Sweet Lane</a>  <img src="/public/image/icons/check.svg" class="check" alt="" />
                             </div>
                         </div>
-                        <a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                        <div class="dropleft">
+                            <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
+                            <div class="dropdown-menu" >
+                                <a class="dropdown-item" href="#">Ẩn</a>
+                                <a class="dropdown-item" href="#">Sửa</a>
+                                <a class="dropdown-item" href="#">Xóa</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="font1">
                         Hè không sợ nóng, vì có CoolCream, với 7 loại kem trái cây cho bạn thêm ngọt ngào
@@ -323,7 +330,7 @@
                 <hr class="hr-newsfeed"/>
                 <div class="icon2">
                     <div class="subicon1">
-                        <a><i class="fas fa-utensils" data-toggle="modal" data-target="#myModal-comment"></i>
+                        <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal"></i>
                         </a>
 
                         <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
