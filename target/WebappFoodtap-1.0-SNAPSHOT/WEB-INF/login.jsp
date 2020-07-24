@@ -21,7 +21,6 @@
         <link href="https://cdn.jsdelivr.net/npm/@goongmaps/goong-geocoder@1.0.2/dist/goong-geocoder.css" rel="stylesheet"
               type="text/css" />
         <style>
-
             #map {
                 height: 500px;
             }
@@ -117,9 +116,7 @@
                                                 <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
                                             </div>
                                         </div>
-
                                         <!-- The Modal -->
-
 
                                     </div>
                                     <br/>
@@ -149,7 +146,6 @@
         <script src="/public/js/swiper.min.js "></script>
         <script src="/public/js/script.js "></script>
         <script async defered>
-            var address;
             goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
             var map = new goongjs.Map({
                 container: 'map', // container id
@@ -233,7 +229,6 @@
             })
             $(".btn-location").click(function() {
                 $(".goongjs-ctrl-fullscreen").trigger("click");
-//                $(".goongjs-ctrl-shrink").trigger("click");
             })
             $("#mapModel .modal-footer button").click(function() {
                 $("#mapModel").modal("hide");
