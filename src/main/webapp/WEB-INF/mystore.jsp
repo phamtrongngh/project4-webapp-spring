@@ -5,7 +5,7 @@
 <div class="container" style="margin-top: 150px">
     <div class="d-flex justify-content-between">
         <h2>Quản lý cửa hàng</h2>
-        <a href="/registerstore" class="btn btn-danger" ><i class="fas fa-plus"></i>Thêm cửa hàng</a>
+        <a href="/registerstore" class="btn btn-danger" ><i class="fas fa-plus" style="margin-right: 10px;"></i>Thêm cửa hàng</a>
     </div>
     <table class="table">
         <thead>
@@ -23,7 +23,8 @@
                         <td>${item.name}</td>
                         <td>${item.verified?"Hoạt động":"Chưa có giấy phép"}</td>
                         <td><a href="/user-profile/${item.managers[0].user._id}">${item.managers[0].user.fullname}</a></td>
-                        <td><a href="/manageMyRestaurant/${item._id}" class="btn btn-outline-danger form-control">Quản lý</a></td>
+                        <td><div style="width: 120px"><a href="/manageMyRestaurant/${item._id}" class="btn btn-outline-danger form-control">Quản lý</a></div></td>
+                        <td><div style="width: 120px"><a href="/store-profile" class="btn btn-outline-primary form-control">Trang</a></div></td>
                     </tr>
             </c:forEach>
 

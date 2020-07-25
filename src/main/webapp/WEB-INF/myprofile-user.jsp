@@ -171,7 +171,7 @@
 </div>
 <!-- The Modal bản đồ -->
 
-<div class="modal" id="mapModel-users">
+<div class="modal" id="mapModal-users">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -192,7 +192,7 @@
     </div>
 </div>
 <!-- The Modal post -->
-<div class="modal" id="postModel-users">
+<div class="modal" id="postModal-users">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -558,14 +558,14 @@
                                                                                 <input type="file"  id="upload-photo"/>
                                                                             </div>
                                                                             <div class="col-md-6">
-                                                                                <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel-users"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+                                                                                <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModal-users"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
 
                                                                             </div>
                                                  
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-6">
-                                                                                <button type="button" class="btn btn-success" data-target="#postModel-users" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
+                                                                                <button type="button" class="btn btn-success" data-target="#postModal-users" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
                                                                             </div>
                                                                         </div>
                                                                         <hr/>
