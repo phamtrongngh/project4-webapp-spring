@@ -18,16 +18,16 @@
     </div>
     <ul class="nav nav-tabs">
         <li class="nav-item text-center" style="width:33%">
-            <a class="nav-link active" data-toggle="tab" href="#order">Đơn hàng</a>
+            <a class="nav-link active" data-toggle="tab" href="#order">ĐƠN HÀNG</a>
         </li>
         <!--        <li class="nav-item text-center" style="width:25%">
                     <a class="nav-link" data-toggle="tab" href="#DMmenu"> Danh mục menu</a>
                 </li>-->
         <li class="nav-item text-center" style="width:34%">
-            <a class="nav-link" data-toggle="tab" href="#menu">Danh mục</a>
+            <a class="nav-link" data-toggle="tab" href="#menu">MENU MÓN</a>
         </li>
         <li class="nav-item text-center" style="width:33%">
-            <a class="nav-link " data-toggle="tab" href="#chart">Sơ đồ thống kê</a>
+            <a class="nav-link " data-toggle="tab" href="#chart">THỐNG KÊ</a>
         </li>
 
 
@@ -337,7 +337,10 @@
                                         <td>${item.price} VND</td>
                                         <td>
                                             <center
-                                                <button style="margin:5px;" type="button" class="btn btn-success">UPDATE</button>
+                                                <button style="margin:5px;" type="button" class="btn btn-success update-button">CẬP NHẬT</button>
+                                            </center>
+                                            <center
+                                                <button style="margin:5px;" type="button" class="btn btn-info post-button">ĐĂNG TIN</button>
                                             </center>
                                         </td>
                                     </tr>
