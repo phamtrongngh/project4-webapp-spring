@@ -1,5 +1,7 @@
 /* NAVBAR SCRIPTS */
 //jQuery to collapse the navbar on scroll
+var idUser = $("#idTag").html();
+var avatarChatter;
 $(document).ready(function() {
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
@@ -77,6 +79,7 @@ function getSenderBox(message) {
 $(document).ready(function() {
     //Click to show conservation
     $(".contacts-body .contacts li").click(function() {
+        console.log("${idUser}")
         var id = $(this).attr("idValue");
         var chatBoxvalue = "";
         $(".send-btn").attr("idValue", id)
@@ -89,6 +92,7 @@ $(document).ready(function() {
                     chatBoxvalue += getReceiveBox(item);
                 }
             });
+            avatarChatter = data.user.avatar;
             $("#chatbox .user-info span").html(data.user.fullname);
             $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
             $(".card-body.msg-card-body").html(chatBoxvalue);
@@ -507,14 +511,14 @@ $(document).ready(function() {
     var socket = io('http://localhost:9032');
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
-        if (item.sender == id) {
+        if (item.sender != idUser) {
             chatBoxvalue += getSenderBox(item);
         }
         else {
             chatBoxvalue += getReceiveBox(item);
         }
-        $("#chatbox .user-info span").html(data.user.fullname);
-        $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
         $(".card-body.msg-card-body").append(chatBoxvalue);
+        $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+        $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
     })
 })
