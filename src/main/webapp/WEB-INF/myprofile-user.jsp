@@ -354,7 +354,7 @@
                                                     <p>Ok, cool. <br/>
 
                                                         <a href="#">Thích</a>
-
+                                                    </p>
 
                                                     <div id="reply3" class="collapse">
                                                         <div class="input-group" style="margin-left: -60px;">
@@ -688,32 +688,5 @@
                 </div>
             </div>
         </div>
-        <div class="history-đonhang">
-            <span class="history-MDH">
-                HX313123
-            </span>
-            <span class="receivedday">
-                15/06/2020
-            </span>
-            <div class="history-contain">
-                <img src="/public/image/Background/pizza.jpg" class="history-avatar" alt=""/>
-                <div>
-                    <span class="history-namestore">
-                        PizzaHut
-                    </span>
-                    <div class="history-address">
-                        226 Hậu giang
-                    </div>
-                    <div style="display: flex;">
-                        <div class="history-price">
-                            <span>
-                                25.000
-                            </span>VNĐ
-                        </div>
 
-                    </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-            <%@include  file="footer.jsp" %>
+        <%@include  file="footer.jsp" %>
