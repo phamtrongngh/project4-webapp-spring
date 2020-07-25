@@ -76,14 +76,14 @@
                                 <img src="/public/image/Background/33367357.jpg" width="100%"/>
                             </div>
                             <div class="login-container">
-                                <form class="login-form " id="commentForm" action="/login" method="POST">
+                                <form class="login-form d-flex justify-content-md-center align-items-md-center h-100  " id="commentForm" action="/login" method="POST">
                                     <div class="form-group ">
                                         <input type="text" name="phone" class="form-control " placeholder="SĐT "  />
                                     </div>
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
                                     </div>
-                                    <div>
+                                    <div style="width: 50%">
                                         <button class="btn btn-danger form-control btn-login ">Đăng nhập</button>
                                     </div>
                                 </form>
@@ -94,7 +94,7 @@
                                 <img src="/public/image/Background/33367357.jpg" width="100%">/
                             </div>
                             <div class="login-container">
-                                <form class="login-form"  action="/register" method = "POST">
+                                <form class="login-form d-flex justify-content-md-center align-items-md-center h-100"  action="/register" method = "POST">
                                     <div class="form-group ">
                                         <input type="text" name="fullname" class="form-control input-name" placeholder="Họ tên" />
                                     </div>
@@ -120,7 +120,7 @@
 
                                     </div>
                                     <br/>
-                                    <div class="text-center">
+                                    <div  style="width: 50%">
                                         <button class="btn btn-danger form-control btn-register">Đăng Ký</button>
                                     </div>
                                 </form>
