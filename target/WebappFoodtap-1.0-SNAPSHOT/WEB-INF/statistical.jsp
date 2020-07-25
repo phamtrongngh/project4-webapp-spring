@@ -22,10 +22,10 @@
                             <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                             <div class="d-flex" style="width: 100%">
                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="100%" height="100%" />
-                            
+
                             </div>
                         </div>
-                    
+
                     </form>
                 </div>
             </div>
@@ -36,6 +36,7 @@
         </div>
     </div>
 </div>
+
 <!--modal create menu-->
 <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
     <div class="modal-dialog" role="document">
@@ -89,6 +90,7 @@
         </div>
     </div>
 </div>
+
 <div class="container" style="margin-top: 100px">
     <!-- Nav tabs -->
     <div class="form-inline" style="margin-bottom: 10px;text-align: end;flex-direction: row-reverse">
@@ -104,6 +106,7 @@
         </form>
     </div>
     <ul class="nav nav-tabs">
+
         <li class="nav-item text-center" style="width:25%">
             <a class="nav-link active" data-toggle="tab" href="#order">Đơn hàng</a>
         </li>
@@ -189,7 +192,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="tab-pane container" id="chart">
             <canvas id="myChart">
@@ -336,9 +338,6 @@
                                     <input  type="text" class="form-control"  >
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -389,7 +388,6 @@
                                     <th></th>
                                 </tr>
                             </thead>
-
                             <tbody class="text-center">
                                 <c:forEach var="item" items="${restaurant.menus}">
                                     <tr role="row" class="even">
@@ -398,15 +396,15 @@
                                         <td>Danh mục</td>
                                         <td>${item.price} VND</td>
                                         <td>
-                                            <center
+                                            <center>
                                                 <button  type="button" class="btn btn-success">CẬP NHẬT</button>
 
                                             </center>
                                             <center
                                                 <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
+
                                             </center>
                                         </td>
-
                                     </tr>
                                 </c:forEach>
                             </tbody>
