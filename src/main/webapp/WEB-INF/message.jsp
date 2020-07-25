@@ -1,8 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@include  file="header.jsp" %>
+<c:set var="idUser" value="${cookie['_id'].getValue()}" />
+<jsp:useBean id="idUser" type="java.lang.String" />
+
 
 <div class="container-fluid h-100 " style="margin-top: 30px">
+    
+
     <div class="row justify-content-center h-100">
         <div class="col-md-4 col-xl-3 chat">
             <div class="card mb-sm-3 mb-md-0 contacts-card">
@@ -33,6 +38,7 @@
                 <div class="card-footer"></div>
             </div>
         </div>
+        
         <div class="col-md-8 col-xl-6 chat" id="chatbox">
             <div class="card">
                 <div class="card-header msg-head">
@@ -93,12 +99,14 @@
         </div>
     </div>
 </div>
+<p style="display:none" id="idTag"><%= idUser %></p>
 <!--Bootstrap-->
 <script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
 <script src="/public/js/jquery/jquery.min.js "></script>
 <script src="/public/js/bootstrap/popper.min.js "></script>
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/swiper.min.js "></script>
+<script src="http://localhost:9032/socket.io/socket.io.js"></script>
 <script src="/public/js/script.js "></script>
 </body>
 </html>
