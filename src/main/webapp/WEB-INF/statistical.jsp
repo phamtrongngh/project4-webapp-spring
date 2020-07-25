@@ -2,10 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
-<<<<<<< HEAD
-
-
-
 <!--modal create menu-->
 
 <!--modal post food-->
@@ -403,14 +399,10 @@
                                         <td>Danh mục</td>
                                         <td>${item.price} VND</td>
                                         <td>
-                                            <center>
+                                            <div class="d-flex justify-content-md-center"> 
                                                 <button  type="button" class="btn btn-success">CẬP NHẬT</button>
-
-                                            </center>
-                                            <center
                                                 <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
-
-                                            </center>
+                                            </div>
                                         </td>
                                     </tr>
                                 </c:forEach>
