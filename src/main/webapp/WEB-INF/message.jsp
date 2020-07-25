@@ -99,6 +99,7 @@
 <script src="/public/js/bootstrap/popper.min.js "></script>
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/swiper.min.js "></script>
+<script src="http://localhost:9032/socket.io/socket.io.js"></script>
 <script src="/public/js/script.js "></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 /* NAVBAR SCRIPTS */
 //jQuery to collapse the navbar on scroll
-
 $(document).ready(function() {
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
@@ -42,7 +41,6 @@ window.onscroll = function() {
 };
 
 //Ajax call function
-
 function callAjax(url, type, data, cb) {
     $.ajax({
         url: url,
@@ -92,9 +90,9 @@ $(document).ready(function() {
                 }
             });
             $("#chatbox .user-info span").html(data.user.fullname);
-            $("#chatbox .img-cont img").attr("src","http://localhost:9032/public/image/"+data.user.avatar);
+            $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
             $(".card-body.msg-card-body").html(chatBoxvalue);
-            $("#chatbox img").attr("src","http://localhost:9032/public/image/"+data.user.avatar);
+            $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
         });
     })
 
@@ -144,21 +142,20 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-
     $(window).scroll(function(event) {
         var pos_body = $('html,body').scrollTop();
         var h = $(window).width();
 
         if (pos_body > 20 && h > 768) {
-        $('#one').addClass("order-fix");
-                $('#three').addClass("list-friend-fix");
-                $('#four').addClass("mission-fix");
+            $('#one').addClass("order-fix");
+            $('#three').addClass("list-friend-fix");
+            $('#four').addClass("mission-fix");
         } else {
-        $('#three').removeClass("list-friend-fix");
-                $('#one').removeClass("order-fix");
-                $('#four').removeClass("mission-fix");
+            $('#three').removeClass("list-friend-fix");
+            $('#one').removeClass("order-fix");
+            $('#four').removeClass("mission-fix");
 
-    }
+        }
 
     });
 });
@@ -302,9 +299,7 @@ $(document).ready(function() {
     var messs = document.getElementsByClassName('dropdown-messenger')[0];
     var string_mess = messs.getElementsByClassName('messenger-content');
     for (var i = 0; i < string_mess.length; i++) {
-
         if (string_mess[i].innerText.length > 36) {
-
             string_mess[i].innerHTML = string_mess[i].innerText.substr(0, 36) + " ...";
         }
     }
@@ -376,7 +371,6 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '#sidebar-user-box', function() {
-
         var userID = $(this).attr("class");
         var username = $(this).children().text();
 
@@ -488,8 +482,9 @@ $(document).ready(function() {
     $('.dataTables_length').addClass('bs-select');
 });
 
-//call ajax upload image
+
 $(document).ready(function() {
+    //call ajax upload image
     $("input[type=file]").change(function() {
 
         var imageFrame = $(this).parent().siblings(0).children(0);
@@ -503,9 +498,23 @@ $(document).ready(function() {
         }
     })
 
-
-
+    //auto switch tab bar with # in url
     if (location.hash) {
         $('a[href="' + location.hash + '"]').tab('show');
     }
+
+    //SOCKETIO receive message chat
+    var socket = io('http://localhost:9032');
+    socket.on("sendMessage", function(item) {
+        var chatBoxvalue = "";
+        if (item.sender == id) {
+            chatBoxvalue += getSenderBox(item);
+        }
+        else {
+            chatBoxvalue += getReceiveBox(item);
+        }
+        $("#chatbox .user-info span").html(data.user.fullname);
+        $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
+        $(".card-body.msg-card-body").append(chatBoxvalue);
+    })
 })
