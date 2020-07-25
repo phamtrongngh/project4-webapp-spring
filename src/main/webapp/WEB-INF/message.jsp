@@ -17,7 +17,7 @@
                 <div class="card-body contacts-body">
                     <ui class="contacts">
                         <c:forEach var="item" items="${listFriends}">
-                            <li class="active rounded ${item._id}" >
+                            <li class="active rounded" idValue="${item._id}">
                                 <div class="d-flex bd-highlight">
                                     <div class="img-cont">
                                         <img src="http://localhost:9032/public/image/${item.avatar}" class="rounded-circle user-img" />
@@ -33,7 +33,7 @@
                 <div class="card-footer"></div>
             </div>
         </div>
-        <div class="col-md-8 col-xl-6 chat">
+        <div class="col-md-8 col-xl-6 chat" id="chatbox">
             <div class="card">
                 <div class="card-header msg-head">
                     <div class="d-flex bd-highlight">
@@ -66,69 +66,7 @@
                     </div>
                 </div>
                 <div class="card-body msg-card-body">
-                    <div class="d-flex justify-content-start mb-4">
-                        <div class="img-cont-msg">
-                            <img src="/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img-msg" />
-                        </div>
-                        <div class="msg-cotainer">
-                            Có đi làm nhóm không ?<br/>
-                            <span class="msg-time">8:40 AM, Today</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end mb-4">
-                        <div class="msg-cotainer-send">
-                            Ok, làm chứ khi nào đi ?<br/>
-                            <span class="msg-time-send">8:55 AM, Today</span>
-                        </div>
-                        <div class="img-cont-msg">
-                            <img src="/image/avatar/chinese-food-logo-design_139869-105.jpg" class="rounded-circle user-img-msg" />
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-start mb-4">
-                        <div class="img-cont-msg">
-                            <img src="/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img-msg" />
-                        </div>
-                        <div class="msg-cotainer">
-                            Mai đi, mình đi qua cà phê ngồi
-                            <br/> <span class="msg-time">9:00 AM, Today</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end mb-4">
-                        <div class="msg-cotainer-send">
-                            Ok, nhớ tới sớm đó lúc nào cũng đi trễ<br/>
-                            <span class="msg-time-send">9:05 AM, Today</span>
-                        </div>
-                        <div class="img-cont-msg">
-                            <img src="/image/avatar/chinese-food-logo-design_139869-105.jpg" class="rounded-circle user-img-msg" />
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-start mb-4">
-                        <div class="img-cont-msg">
-                            <img src="/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img-msg" />
-                        </div>
-                        <div class="msg-cotainer">
-                            A bận việc thôi<br/>
-                            <span class="msg-time">9:07 AM, Today</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end mb-4">
-                        <div class="msg-cotainer-send">
-                            Xạo xạo<br/>
-                            <span class="msg-time-send">9:10 AM, Today</span>
-                        </div>
-                        <div class="img-cont-msg">
-                            <img src="/image/avatar/chinese-food-logo-design_139869-105.jpg" class="rounded-circle user-img-msg" />
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-start mb-4">
-                        <div class="img-cont-msg">
-                            <img src="/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img-msg" />
-                        </div>
-                        <div class="msg-cotainer">
-                            Thật bận việc mà cha <br/>
-                            <span class="msg-time">9:12 AM, Today</span>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="d-flex justify-content-end mb-4">
                     <div class="">

@@ -415,7 +415,6 @@
 <!--Content-->
 <div class="container" style="margin-top: 100px">
     <div class="row">
-        <h1>${test}</h1>
         <!-- ORDER -->
         <div class="col-sm-12 col-md-2 ">
             <div id="one" >
@@ -703,9 +702,11 @@
                             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                             <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
+
                         </div>
                         <div style="text-align: end;">3/4</div>
                     </div>
+
                 </div>
             </div>
         </div>
