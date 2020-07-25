@@ -31,7 +31,7 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Chấp nhận</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đăng tin</button>
             </div>
         </div>
     </div>
