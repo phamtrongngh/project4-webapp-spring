@@ -38,10 +38,11 @@ mybutton = document.getElementById("myBtn");
 
 // // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {
-    scrollFunction()
+    scrollFunction();
 };
 
 //Ajax call function
+
 function callAjax(url, type, data, cb) {
     $.ajax({
         url: url,
@@ -50,24 +51,58 @@ function callAjax(url, type, data, cb) {
         success: cb
     })
 }
-function getIdOfAnElement(className) {
-    return $(className)[0].className.split(" ")[$(className)[0].className.split(" ").length - 1];
+function getReceiveBox(message) {
+    var senderBox = '<div class="d-flex justify-content-end mb-4">';
+    senderBox += '<div class="msg-cotainer-send">';
+    senderBox += message.content;
+    senderBox += '<br/>';
+    senderBox += '<span class="msg-time-send">' + message.createdAt + '</span>';
+    senderBox += '</div>';
+    senderBox += '</div>';
+    return senderBox;
 }
-$(document).ready(function() {
 
+function getSenderBox(message) {
+    var receiveBox = '<div class="d-flex justify-content-start mb-4">';
+    receiveBox += '<div class="img-cont-msg">';
+    receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
+    receiveBox += '</div>';
+    receiveBox += '<div class="msg-cotainer">';
+    receiveBox += message.content;
+    receiveBox += '<br/>';
+    receiveBox += '<span class="msg-time">' + message.createdAt + '</span>';
+    receiveBox += '</div>';
+    receiveBox += '</div>';
+    return receiveBox;
+}
+
+$(document).ready(function() {
     //Click to show conservation
     $(".contacts-body .contacts li").click(function() {
-        var array = this.className.split(" ");
-        var id = array[array.length - 1];
-        $(".send-btn")[0].className = "input-group-text send-btn " + id;
-        callAjax("/message/" + id, "GET");
+        var id = $(this).attr("idValue");
+        var chatBoxvalue = "";
+        $(".send-btn").attr("idValue", id)
+        callAjax("/message/" + id, "GET", null, function(data) {
+            data.messages.forEach(function(item) {
+                if (item.sender == id) {
+                    chatBoxvalue += getSenderBox(item);
+                }
+                else {
+                    chatBoxvalue += getReceiveBox(item);
+                }
+            });
+            $("#chatbox .user-info span").html(data.user.fullname);
+            $("#chatbox .img-cont img").attr("src","http://localhost:9032/public/image/"+data.user.avatar);
+            $(".card-body.msg-card-body").html(chatBoxvalue);
+            $("#chatbox img").attr("src","http://localhost:9032/public/image/"+data.user.avatar);
+        });
     })
 
     //Send message
     $(".send-btn").click(function() {
         if ($(".type-msg").val()) {
             var message = {
-                receiver: getIdOfAnElement(".send-btn"),
+                receiver: $(this).attr("idValue"),
                 content: $(".type-msg").val(),
                 messageType: "text"
             }
@@ -115,19 +150,17 @@ $(document).ready(function() {
         var h = $(window).width();
 
         if (pos_body > 20 && h > 768) {
-            $('#one').addClass("order-fix");
-            $('#three').addClass("list-friend-fix");
-            $('#four').addClass("mission-fix");
-
-
+        $('#one').addClass("order-fix");
+                $('#three').addClass("list-friend-fix");
+                $('#four').addClass("mission-fix");
         } else {
-            $('#three').removeClass("list-friend-fix");
-            $('#one').removeClass("order-fix");
-            $('#four').removeClass("mission-fix");
-        }
+        $('#three').removeClass("list-friend-fix");
+                $('#one').removeClass("order-fix");
+                $('#four').removeClass("mission-fix");
+
+    }
 
     });
-
 });
 // SWIPER
 var swiper = new Swiper('.swiper-container', {

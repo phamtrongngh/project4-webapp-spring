@@ -2,10 +2,48 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<<<<<<< HEAD
 
 
 
 <!--modal create menu-->
+
+<!--modal post food-->
+<div class="modal" id="postModal-food">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Đăng món</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <div class="post-store rounded">
+                    <form class="row" action="/newfeed/postNewfeed" method="POST">
+                        <div class="col-md-12 post-content">
+                            <h4>Nhập nội dung</h4>
+                            <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                            <div class="d-flex" style="width: 100%">
+                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="100%" height="100%" />
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chấp nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!--modal create menu-->
 <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
     <div class="modal-dialog" role="document">
@@ -59,6 +97,7 @@
         </div>
     </div>
 </div>
+
 <div class="container" style="margin-top: 100px">
     <!-- Nav tabs -->
     <div class="form-inline" style="margin-bottom: 10px;text-align: end;flex-direction: row-reverse">
@@ -70,10 +109,11 @@
                 <option value="2 ">Option 2</option>
                 <option value="3 ">Option 3</option>
             </select>
-            <button class="btn btn-primary">Search</button>
+            <button class="btn btn-primary">Tìm cửa hàng</button>
         </form>
     </div>
     <ul class="nav nav-tabs">
+
         <li class="nav-item text-center" style="width:25%">
             <a class="nav-link active" data-toggle="tab" href="#order">Đơn hàng</a>
         </li>
@@ -159,7 +199,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="tab-pane container" id="chart">
             <canvas id="myChart">
@@ -306,9 +345,6 @@
                                     <input  type="text" class="form-control"  >
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -359,7 +395,6 @@
                                     <th></th>
                                 </tr>
                             </thead>
-
                             <tbody class="text-center">
                                 <c:forEach var="item" items="${restaurant.menus}">
                                     <tr role="row" class="even">
@@ -368,8 +403,13 @@
                                         <td>Danh mục</td>
                                         <td>${item.price} VND</td>
                                         <td>
+                                            <center>
+                                                <button  type="button" class="btn btn-success">CẬP NHẬT</button>
+
+                                            </center>
                                             <center
-                                                <button style="margin:5px;" type="button" class="btn btn-success">UPDATE</button>
+                                                <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
+
                                             </center>
                                         </td>
                                     </tr>
