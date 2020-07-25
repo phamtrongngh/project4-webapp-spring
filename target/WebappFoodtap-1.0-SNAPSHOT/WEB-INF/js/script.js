@@ -83,7 +83,7 @@ $(document).ready(function() {
         var chatBoxvalue = "";
         $(".send-btn").attr("idValue", id)
         callAjax("/message/" + id, "GET", null, function(data) {
-            data.forEach(function(item) {
+            data.messages.forEach(function(item) {
                 if (item.sender == id) {
                     chatBoxvalue += getSenderBox(item);
                 }
@@ -91,8 +91,10 @@ $(document).ready(function() {
                     chatBoxvalue += getReceiveBox(item);
                 }
             });
-//            $(".user-info span").html(data.);
+            $("#chatbox .user-info span").html(data.user.fullname);
+            $("#chatbox .img-cont img").attr("src","http://localhost:9032/public/image/"+data.user.avatar);
             $(".card-body.msg-card-body").html(chatBoxvalue);
+            $("#chatbox img").attr("src","http://localhost:9032/public/image/"+data.user.avatar);
         });
     })
 
