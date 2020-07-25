@@ -4,32 +4,13 @@
 <%@include  file="header.jsp" %>
 
 
-<!-- The Modal location-->
-<div class="modal" id="mapModeluserupdate">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title"> Bản đồ</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div>
 
-                </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Chấp nhận</button>
-            </div>
-        </div>
-    </div>
-</div>
+<!--modal create menu-->
 <!--modal create menu-->
 <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+
             <div class="modal-header" style="color: white; background-color: #da484a">
                 <h5 class="modal-title">Thêm món mới</h5>
                 <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
@@ -37,38 +18,38 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form >
+                <form action="/product/postProduct" method="POST" enctype="multipart/form-data">
+                    <input name="restaurant" value="${restaurant._id}" type="text" hidden/>
                     <div class="form-group">
                         <label >Tên món ăn:</label>
-                        <input type="text" class="form-control"  />
+                        <input name="name" type="text" class="form-control"   />
                     </div>
                     <div class="form-group form-inline">
                         <label>Hình:</label>
                     </div>
-                    <div class="upload-img-status" >
+                    <div class="upload-img-status">
                         <div class="gallery text-center">
                             <a id="chossefile">
-                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px">
+                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px; background-repeat: no-repeat;background-size: cover">
                                     <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
                                 </div>
                             </a>
                             <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label>Giá:</label>
-                        <input type="number" class="form-control" />
-
+                        <input name="price" type="number" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Danh mục</label>
-                        <select name="" class="form-control select-address-district ">
-                            <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                            <option value="1 ">Option 1</option>
-                            <option value="2 ">Option 2</option>
-                            <option value="3 ">Option 3</option>
-                        </select>
+                        <!--<select name="" class="form-control select-address-district ">
+                                                                <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                                                                <option value="1 ">Option 1</option>
+                                                                <option value="2 ">Option 2</option>
+                                                                <option value="3 ">Option 3</option>
+                                                            </select>-->
+                        <input name="category" placeholder="Chưa có dữ liệu, khoan nhập mục này" type="text" class="form-control" />
                     </div>
                     <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
                 </form>
@@ -84,7 +65,7 @@
         <form>
             <select name="" class="form-control select-address-district ">
                 <option value=" " disabled selected>Chọn cửa hàng</option>
-                
+
                 <option value="1 ">Option 1</option>
                 <option value="2 ">Option 2</option>
                 <option value="3 ">Option 3</option>
@@ -364,59 +345,7 @@
                     <option value="3 ">Option 3</option>
                 </select>
             </div>
-            <!--modal create menu-->
-            <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
 
-                        <div class="modal-header" style="color: white; background-color: #da484a">
-                            <h5 class="modal-title">Thêm món mới</h5>
-                            <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="/product/postProduct" method="POST" enctype="multipart/form-data">
-                                <input name="restaurant" value="${restaurant._id}" type="text" hidden/>
-                                <div class="form-group">
-                                    <label >Tên món ăn:</label>
-                                    <input name="name" type="text" class="form-control"   />
-                                </div>
-                                <div class="form-group form-inline">
-                                    <label>Hình:</label>
-                                </div>
-                                <div class="upload-img-status">
-                                    <div class="gallery text-center">
-                                        <a id="chossefile">
-                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px; background-repeat: no-repeat;background-size: cover">
-                                                <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
-                                            </div>
-                                        </a>
-                                        <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Giá:</label>
-                                    <input name="price" type="number" class="form-control" />
-                                </div>
-                                <div class="form-group">
-                                    <label>Danh mục</label>
-                                    <!--<select name="" class="form-control select-address-district ">
-                                                                            <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                                                                            <option value="1 ">Option 1</option>
-                                                                            <option value="2 ">Option 2</option>
-                                                                            <option value="3 ">Option 3</option>
-                                                                        </select>-->
-                                    <input name="category" placeholder="Chưa có dữ liệu, khoan nhập mục này" type="text" class="form-control" />
-                                </div>
-                                <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
-                            </form>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
             <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-body">
                     <div class="">
