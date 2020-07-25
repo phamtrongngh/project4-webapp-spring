@@ -124,6 +124,7 @@
         </form>
     </div>
     <ul class="nav nav-tabs">
+
         <li class="nav-item text-center" style="width:25%">
             <a class="nav-link active" data-toggle="tab" href="#order">Đơn hàng</a>
         </li>
@@ -209,7 +210,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="tab-pane container" id="chart">
             <canvas id="myChart">
@@ -409,7 +409,6 @@
                                     <th></th>
                                 </tr>
                             </thead>
-
                             <tbody class="text-center">
                                 <c:forEach var="item" items="${restaurant.menus}">
                                     <tr role="row" class="even">
@@ -419,7 +418,7 @@
                                         <td>${item.price} VND</td>
                                         <td>
                                             <center
-                                                <button style="margin:5px;" type="button" class="btn btn-success">UPDATE</button>
+                                                <button style="margin:5px;" type="button" class="btn btn-success update-button">CẬP NHẬT</button>
                                             </center>
                                         </td>
                                     </tr>
