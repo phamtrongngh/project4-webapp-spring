@@ -1,13 +1,9 @@
 package controllers;
 
-import Nghia.Util.CookieHelper;
 import Nghia.Util.RESTAuthorizeHelper;
-import Nghia.Util.RESTHelper;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Base64;
-import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import models.Authorization;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
-import org.springframework.security.jwt.Jwt;
 import org.springframework.security.jwt.JwtHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,6 +80,8 @@ public class AuthController implements IController<Authorization> {
             });
             String originalInput = convertTo.get("fullname");
             String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
+            Cookie cookie3 = new Cookie("_id", convertTo.get("_id"));
+
             Cookie cookie2 = new Cookie("avatar", convertTo.get("avatar"));
             Cookie cookie1 = new Cookie("fullname", URLEncoder.encode(convertTo.get("fullname"), "UTF-8"));
             cookie1.setHttpOnly(true);
@@ -93,28 +90,19 @@ public class AuthController implements IController<Authorization> {
             cookie2.setHttpOnly(true);
             cookie2.setMaxAge(999999);
             cookie2.setPath("/");
-
+            cookie3.setHttpOnly(true);
+            cookie3.setMaxAge(999999);
+            cookie3.setPath("/");
             response.addCookie(cookie);
             response.addCookie(cookie1);
             response.addCookie(cookie2);
+            response.addCookie(cookie3);
             response.sendRedirect("/");
         } else {
             response.sendRedirect("/login");
         }
     }
 
-//    @RequestMapping(value = "/logout", method = RequestMethod.POST)
-//    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        Cookie[] cookies = request.getCookies();
-//        for (Cookie cookie : cookies) {
-//            cookie.setValue("");
-//            cookie.setMaxAge(0);
-//            cookie.setHttpOnly(true);
-//            cookie.setPath("/");
-//            response.addCookie(cookie);
-//        }
-//        return new ModelAndView("login");
-//    }
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView register() {
         return new ModelAndView("register");
@@ -140,6 +128,8 @@ public class AuthController implements IController<Authorization> {
             });
             String originalInput = convertTo.get("fullname");
             String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
+            Cookie cookie3 = new Cookie("_id", convertTo.get("_id"));
+
             Cookie cookie2 = new Cookie("avatar", convertTo.get("avatar"));
             Cookie cookie1 = new Cookie("fullname", URLEncoder.encode(convertTo.get("fullname"), "UTF-8"));
             cookie1.setHttpOnly(true);
@@ -148,10 +138,14 @@ public class AuthController implements IController<Authorization> {
             cookie2.setHttpOnly(true);
             cookie2.setMaxAge(999999);
             cookie2.setPath("/");
+            cookie3.setHttpOnly(true);
+            cookie3.setMaxAge(999999);
+            cookie3.setPath("/");
 
             response.addCookie(cookie);
             response.addCookie(cookie1);
             response.addCookie(cookie2);
+            response.addCookie(cookie3);
             response.sendRedirect("/");
         } else {
             response.sendRedirect("/login");
