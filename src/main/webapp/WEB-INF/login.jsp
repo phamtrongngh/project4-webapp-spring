@@ -50,7 +50,7 @@
         </div>
         <div class="container login">
             <div class="row login-row">
-                <div class="col-md-1 col-sm-1 login-food d-flex align-items-md-center">
+                <div class="col-lg-1 col-md-1 col-sm-1 login-food d-flex align-items-md-center">
                     <div>
                         <img src="/public/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png" class="img-login-logo" alt="" />
                         <h1>Food<br/>tap</h1>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-10 col-sm-10 login-sign">
+                <div class="col-lg-8 col-md-8  login-sign">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs justify-content-center text-center" >
                         <li class="nav-item">
@@ -129,7 +129,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-1 col-sm-1 login-foods d-flex align-items-md-center ">
+                <div class="col-lg-1 col-md-1  login-foods d-flex align-items-md-center ">
                     <div class="text ">
                         <img src="/public/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png " class="img-login-logo " alt=" " />
                         <h1>one<br/>tap<br/>for<br/>all<br/>foods</h1>

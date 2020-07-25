@@ -2,9 +2,85 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+
+
+<!-- The Modal location-->
+<div class="modal" id="mapModeluserupdate">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bản đồ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div>
+
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chấp nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal create menu-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="color: white; background-color: #da484a">
+                <h5 class="modal-title">Thêm món mới</h5>
+                <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <div class="form-group">
+                        <label >Tên món ăn:</label>
+                        <input type="text" class="form-control"  />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Hình:</label>
+                    </div>
+                    <div class="upload-img-status" >
+                        <div class="gallery text-center">
+                            <a id="chossefile">
+                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px">
+                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
+                                </div>
+                            </a>
+                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giá:</label>
+                        <input type="number" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label>Danh mục</label>
+                        <select name="" class="form-control select-address-district ">
+                            <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                            <option value="1 ">Option 1</option>
+                            <option value="2 ">Option 2</option>
+                            <option value="3 ">Option 3</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="container" style="margin-top: 100px">
     <!-- Nav tabs -->
-    <div class="form-inline" style="margin-bottom: 10px;text-align: end;flex-direction: row-reverse;padding-right: 30px;">
+    <div class="form-inline" style="margin-bottom: 10px;text-align: end;flex-direction: row-reverse">
         <form>
             <select name="" class="form-control select-address-district ">
                 <option value=" " disabled selected>Chọn cửa hàng</option>
@@ -17,16 +93,16 @@
         </form>
     </div>
     <ul class="nav nav-tabs">
-        <li class="nav-item text-center" style="width:33%">
+        <li class="nav-item text-center" style="width:25%">
             <a class="nav-link active" data-toggle="tab" href="#order">Đơn hàng</a>
         </li>
-        <!--        <li class="nav-item text-center" style="width:25%">
-                    <a class="nav-link" data-toggle="tab" href="#DMmenu"> Danh mục menu</a>
-                </li>-->
-        <li class="nav-item text-center" style="width:34%">
+        <li class="nav-item text-center" style="width:25%">
             <a class="nav-link" data-toggle="tab" href="#menu">Danh mục</a>
         </li>
-        <li class="nav-item text-center" style="width:33%">
+        <li class="nav-item text-center" style="width:25%">
+            <a class="nav-link" data-toggle="tab" href="#store-info"> Thông tin</a>
+        </li>
+        <li class="nav-item text-center" style="width:25%">
             <a class="nav-link " data-toggle="tab" href="#chart">Sơ đồ thống kê</a>
         </li>
 
@@ -187,70 +263,97 @@
                 </div>
             </div>
         </div>
-        <!--        <div class="tab-pane  container text-center" id="DMmenu" style="max-width: 100% !important;">
-        
-                    <div class="mb-4" style="margin-top: 10px;text-align: start;">
-                        <form class="form-inline">
-                            <select name="" class="form-control select-address-district ">
-                                <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                                <option value="1 ">Option 1</option>
-                                <option value="2 ">Option 2</option>
-                                <option value="3 ">Option 3</option>
-                            </select>
-                            <button class="btn btn-info btn-icon-split" style="margin-left: 10px;"><i class="fas fa-file-medical" ></i> Thêm</button>
-                        </form>
-        
-                    </div>
-        
-                    <div class="card shadow mb-4" style="height: 100%;">
-        
-                        <div class="card-body">
-                            <div class="">
-        
-                                <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th>Tên menu</th>
-                                            <th>Ảnh minh họa</th>
-        
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-        
-                                    <tbody id="myTable">
-        
-                                        <tr>
-                                            <td>1</td>
-                                            <td><a href="">Trà sữa</a></td>
-                                            <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
-        
-                                            <td>
-                                                <center
-                                                    <button style="margin:5px;" type="button" class="btn btn-success">XÓA</button>
-        
-                                                </center>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><a href="">Ăn vặt</a></td>
-                                            <td><a href=""><image src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" style="width: 200px;"/></a></td>
-        
-                                            <td>
-                                                <center
-                                                    <button style="margin:5px;" type="button" class="btn btn-success">XÓA</button>
-        
-                                                </center>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+        <div class="tab-pane  container" id="store-info" style="max-width: 100% !important;">
+            <!--Content-->
+            <div class="container store-info" style="margin-top: 20px;">
+                <div class="text-center ">
+                    <h1>Thông tin cửa hàng</h1>    
+                </div>
+                <hr/>
+                <div class="row h-100">
+                    <div class="col-md-6">
+                        <div class="fix-store">   
+                            <div class="form-group form-control text-center" style="width: 50% !important; margin-left: 190px">
+                                <a id="chossefile">
+
+                                    <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
+
+                                        <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
+                                    </div>
+                                </a>
+                                <div class="desc ">Chọn ảnh cửa hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Tên cửa hàng</label>
+
+                                <div class="col-md-9 input-group-prepend">
+                                    <input  type="text" class="form-control "  >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">SĐT</label>
+                                <div class="col-md-9 input-group-prepend">
+                                    <input  type="text" class="form-control " readonly="true" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Địa chỉ</label>
+
+                                <div class="col-md-9 input-group-prepend">
+                                    <input  type="text" class="form-control " readonly="true" >
+                                    <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModeluserupdate" ><i class="fas fa-map-marker-alt"></i></button>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Thông tin mô tả</label>
+
+                                <div class="col-md-9 input-group-prepend">
+                                    <input  type="text" class="form-control"  >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3"> Mở cửa</label>
+
+                                <div class="col-md-9 input-group-prepend">
+                                    <input  type="text" class="form-control"  >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3"> Đóng cửa</label>
+
+                                <div class="col-md-9 input-group-prepend">
+                                    <input  type="text" class="form-control"  >
+                                </div>
+                            </div>
+
+
+
                         </div>
                     </div>
-        
-                </div>-->
+                    <div class="col-md-6">
+                        <div class="add-paper">   
+                            <div class="form-group form-control text-center" style="width: 50% !important;margin-left: 178px">
+                                <a id="chossefile">
+
+                                    <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
+
+                                        <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
+                                    </div>
+                                </a>
+                                <div class="desc ">Thêm giấy phép bán hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                            </div>
+                            <h2>Chú ý:</h2>   
+                            <p>- Bạn chưa có giấy phép kinh doanh<br/>- Nếu chưa có giấy phép bạn có thể hoàn tất đăng ký nhưng sẽ ít khách hàng tin tưởng hơn. Chúng tôi khuyên bạn nên đăng ký giấy phép kinh doanh</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="width: 100%;padding-left: 50%">
+                    <button class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button>
+                </div>
+
+            </div>
+        </div>
         <div class="tab-pane container" id="menu" style="max-width: 100% !important;">
             <div class="mb-4 form-inline" style="margin-top: 10px;text-align: start;">
                 <button class="btn btn-info btn-icon-split" style="margin-left: 10px;" data-toggle="modal" data-target="#mdMenu"><i class="fas fa-file-medical" ></i> Thêm</button>

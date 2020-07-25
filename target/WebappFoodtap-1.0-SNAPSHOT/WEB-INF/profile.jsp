@@ -82,7 +82,7 @@
                         <a href="/store"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                             <div class="rounded photo-header">
                                 <div>
-                                    Menu chọn món
+                                    Các bài<br/> viết của cửa hàng
                                 </div>
 
                             </div>
@@ -98,34 +98,7 @@
                     <button class="btn btn-primary "><i class="far fa-comment"></i><br/>Gửi tin</button>
                 </div>
             </div>
-            <div class="post-store">
-                <form class="row" action="/newfeed/postNewfeed">
-                    <div class="col-md-8 post-content">
-                        <textarea name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-success" style="margin-bottom: 10px;" data-toggle="modal" data-target="#mapModel-profile"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
-
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#postModal-profile"><i class="fas fa-hamburger"></i> Đăng món</button>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div>
-                            <button  class="btn btn-primary">Đăng</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+         
             <div class="profile-menu">
                 <div class="col-md-1">Danh mục sản phẩm</div>
                 <div class="col-md-11" style="padding-right: 0 !important;">

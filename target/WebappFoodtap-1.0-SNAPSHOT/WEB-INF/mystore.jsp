@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="header.jsp" %>
-<div class="container" style="margin: 150px">
+<div class="container" style="margin-top: 150px">
     <div class="d-flex justify-content-between">
         <h2>Quản lý cửa hàng</h2>
         <a href="/registerstore" class="btn btn-danger" ><i class="fas fa-plus"></i>Thêm cửa hàng</a>

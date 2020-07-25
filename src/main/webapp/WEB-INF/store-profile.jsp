@@ -1,5 +1,47 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal map -->
+<div class="modal" id="mapModel-store">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bản đồ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div></div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chấp nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- The Modal post -->
+<div class="modal" id="postModel-store">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Đăng món</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div></div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chấp nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- The Modal -->
 <div class="modal" id="orderModal">
     <div class="modal-dialog">
@@ -9,7 +51,6 @@
                 <h4 class="modal-title">Món ăn bạn muốn chọn</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="container contain">
@@ -170,180 +211,12 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
             </div>
-        </div>
-    </div>
-</div>
-<!--Modal like and share-->
 
-<div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
-
-        <div class="modal-content">
-           
-            <div class="modal-body">
-                <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
-                    <li role="presentation" class="nav-item" style="width:50%">
-                        <a href="#steplike" class="nav-link active" data-toggle="tab" aria-controls="steplike" role="tab" title="Like"><i class="fas fa-heart"></i> Lượt thích: <span>500</span></a>
-                    </li>
-                    <li role="presentation" class="nav-item" style="width:50%">
-                        <a href="#stepshare" class="nav-link" data-toggle="tab" aria-controls="stepshare" role="tab" title="Share"><i class="fas fa-share-alt"></i> Lượt chia sẻ: <span>600</span></a>
-                    </li>
-                </ul>
-                <div class="tab-content py-2 "  style="height: 400px;overflow-y: auto;overflow-x: hidden;padding-right: 10px;">
-                    <div class="tab-pane active" role="tabpanel" id="steplike">
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fab fa-facebook-messenger"></i> Nhắn tin</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" role="tabpanel" id="stepshare">
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fab fa-facebook-messenger"></i> Nhắn tin</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 <!--Content-->
-<div class="container store" style="margin-top: 100px">
+<div class="container store-profile" style="margin-top: 100px">
     <div class="row ">
         <!-- Menu of food -->
         <div class="col-10 col-sm-10 col-md-11">
@@ -373,7 +246,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 store-menu">
+                <div class="col-md-2 store-menu">
                     <div>
                         <a href="/profile"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                             <div class="rounded photo-header">
@@ -385,14 +258,19 @@
                         </a>
                     </div>    
                 </div>
-               
-                <div class="col-md-2 profile-container-buttons">
+                <div class="col-md-3 rounded  " style="padding-left: 0 !important">
+                    <div class="profile-intro">
+                        <h4 class="text-center">Giới thiệu</h4>
+                    </div>
+                </div>
+
+                <div class="col-md-1 profile-container-buttons">
                     <button href="/store-info" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
                     <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
-                    <button class="btn btn-primary form-control "><i class="far fa-comment"></i><br/>Gửi tin</button>
+                    <button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button>
                 </div>
             </div>
             <div class="row">
@@ -426,13 +304,55 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-7" style="margin-top: 10px">
+                <div class="col-md-10" >
+                    <div class="post-store rounded">
+                        <form class="row" action="/newfeed/postNewfeed" method="POST">
+                            <div class="col-md-8 post-content">
+                                <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                <div class="d-flex" style="width: 30%">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />
+                                    <div class="upload-img-status" >
+                                        <div class="gallery text-center">
+                                            <a id="chossefile">
+                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 17%;height: 85px;position: absolute">
+                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
+                                                </div>
+                                            </a>
+                                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label  style="font-size: 10px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+                                        <input type="file"  id="upload-photo"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel-store"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-success" data-target="#postModel-store" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div>
+                                    <button class="btn btn-primary">Đăng</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="rounded status">
                         <div class="alignment">
                             <div class="media">
                                 <img src="/public/image/avatar/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
                                 <div class="media-body">
-                                    <div class="name"> <a href="#">Sweetlane</a>  <img src="/public/image/icons/check.svg" class="check" alt="" />
+                                    <div href="#" class="name"><a href="#">Sweet Lane</a><img src="/public/image/icons/check.svg" class="check" alt="" />
                                     </div>
                                 </div>
                                 <div class="dropleft">
@@ -458,19 +378,14 @@
                             <img src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" class="rounded background" alt="" />
                         </div>
                         <div style="margin-top: 2px;display: flex;">
-                            <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;">
-                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>4,5k</span>
-                            </a>
-                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a>
-                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>
-                            </div>
+                            <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>4,5k</span>
+                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a><span>200 chia sẻ</span></div>
                         </div>
                         <hr class="hr-newsfeed"/>
                         <div class="icon2">
                             <div class="subicon1">
                                 <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal"></i>
                                 </a>
-
                                 <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
                                 <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
                             </div>
@@ -601,21 +516,7 @@
                         </div>
                     </div>
                 </div>
-                <!--Voucher-->
-                <div class="col-md-3" style="    position: relative;right: 20px;">
-                    <div class="rounded voucher">
-                        <div class="header-voucher"><h4><i class="fa fa-list-alt" aria-hidden="true"></i> Khuyến mãi</h4></div>
-                    </div>
-                    <div class="rounded vouchers">
-                        <div class="header-mission"><h4><i class="fas fa-percent"></i> Nhập<br/>"CONOWGIAO"</h4></div>
-                    </div>
-                    <div class="rounded vouchers">
-                        <div class="header-mission"><h4><i class="fas fa-percent"></i> Nhập <br/> "FREESHIP"</h4></div>
-                    </div>
-                    <div class="rounded vouchers">
-                        <div class="header-mission"><h4><i class="fas fa-percent"></i> Giảm <br/> 15% trên giá món</h4></div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
