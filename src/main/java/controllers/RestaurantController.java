@@ -93,7 +93,6 @@ public class RestaurantController implements IController<Restaurant> {
     }
 
     @RequestMapping(value = "/restaurant/delete/{id}", method = RequestMethod.GET)
-
     @Override
     public ModelAndView delete(@PathVariable("id") String id) throws IOException {
         Object obj = restHelper.delete(id);
@@ -106,7 +105,6 @@ public class RestaurantController implements IController<Restaurant> {
     }
 
     @RequestMapping(value = "/restaurant/postRestaurant", method = RequestMethod.POST)
-
     @Override
     public ModelAndView post(Restaurant restaurant, HttpServletResponse response) throws IOException {
         restHelper.post(restaurant);
