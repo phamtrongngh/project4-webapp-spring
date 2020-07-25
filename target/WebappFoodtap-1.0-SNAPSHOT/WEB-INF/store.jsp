@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <!-- The Modal -->
-<div class="modal" id="myModal">
+<div class="modal" id="orderModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -355,7 +355,7 @@
                         </div>
                         <div class="profile-name">
                             <div class="text-name">SWEETLANE</div>
-                            <div class="text-like">14k theo dõi</div>
+                            <div class="text-like">14k thích</div>
                             <div class="stars">
                                 <form action="">
                                     <input class="star star-5" id="star-5" type="radio" name="star" />
@@ -385,8 +385,9 @@
                         </a>
                     </div>    
                 </div>
+               
                 <div class="col-md-2 profile-container-buttons">
-                    <a href="/store-info" class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Thông tin</a>
+                    <button href="/store-info" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
                     <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>
                 </div>
@@ -467,7 +468,7 @@
                         <hr class="hr-newsfeed"/>
                         <div class="icon2">
                             <div class="subicon1">
-                                <a><i class="fas fa-utensils" data-toggle="modal" data-target="#myModal"></i>
+                                <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal"></i>
                                 </a>
 
                                 <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
