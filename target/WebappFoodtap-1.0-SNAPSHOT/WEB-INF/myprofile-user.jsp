@@ -470,9 +470,9 @@
                                                         </div>
                                                         <div class="col-md-2" >
                                                             <div>
-                                                                <a href="/mystore"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg"  alt="" />
+                                                                <a href="/mystore" class=" h-100"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg"  alt="" />
                                                                     <div class="rounded photo-header" >
-                                                                        <div>
+                                                                        <div d-flex justify-content-md-center align-items-md-center h-100>
                                                                             Quản lý<br/> cửa hàng
                                                                         </div>
 
@@ -554,36 +554,14 @@
                                                                     <div class="col-md-4">
                                                                         <div class="row">
                                                                             <div class="col-md-6">
-                                                                                <label  style="font-size: 12px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+                                                                                <label  style="font-size: 10px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
                                                                                 <input type="file"  id="upload-photo"/>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel-users"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
 
                                                                             </div>
-                                                                            <!-- The Modal -->
-                                                                            <div class="modal" id="mapModel-users">
-                                                                                <div class="modal-dialog">
-                                                                                    <div class="modal-content">
-                                                                                        <!-- Modal Header -->
-                                                                                        <div class="modal-header">
-                                                                                            <h4 class="modal-title"> Bản đồ</h4>
-                                                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                                        </div>
-
-                                                                                        <!-- Modal body -->
-                                                                                        <div class="modal-body">
-
-                                                                                        </div>
-
-                                                                                        <!-- Modal footer -->
-                                                                                        <div class="modal-footer">
-                                                                                            <button type="button" class="btn btn-danger" >Chấp nhận</button>
-                                                                                        </div>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                 
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-6">
