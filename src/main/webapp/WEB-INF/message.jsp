@@ -38,7 +38,6 @@
                 <div class="card-footer"></div>
             </div>
         </div>
-        
         <div class="col-md-8 col-xl-6 chat" id="chatbox">
             <div class="card">
                 <div class="card-header msg-head">

@@ -202,6 +202,7 @@ ul.navbar-nav li.nav-item {
 
 .btn-Search:hover {
     background-color: #da484a !important;
+    color: white;
 }
 
 .media.avatar {
@@ -2103,7 +2104,8 @@ input[type="radio"]:checked {
 }
 .store .img-order-header{
     width: 100%;
-    height: 140px;
+
+    height: 155px;
 }
 .store .name img{
     margin-bottom: 5px;
@@ -2111,7 +2113,14 @@ input[type="radio"]:checked {
     margin-left: 10px;
 }
 .store .profile-header .profile-container-img .img-avartar {
-    width: 170px;
+    width: 150px;
+
+}
+.store .profile-intro{
+    background-color: white;
+    color:#da484a;
+    width: 100%;
+    height: 100%
 
 }
 .store .profile-name{
@@ -2122,8 +2131,9 @@ input[type="radio"]:checked {
 .store .photo-header{
     width: 100%;
     color: white;
-    height: 140px;
-    margin-top: -140px;
+
+    height: 155px;
+    margin-top: -155px;
     padding-top: 50px;
     transition: 0.5s ease;
     font-size: 1.4rem;
@@ -2145,6 +2155,8 @@ input[type="radio"]:checked {
 .store .profile-container-buttons button{
     height: 30%;
     opacity: 0.8;
+    width: 160%;
+    margin-left: -5px;
 }
 
 .store .profile-container-buttons button i{
@@ -2155,9 +2167,9 @@ input[type="radio"]:checked {
     margin-top: 8px;
 }
 .store .containers-sendmess button {
-    margin-left:-5px ;
-    height: 100%;
-    width: 192%;
+    margin-left:26px ;
+    height: 100.5%;
+    width: 150%;
     opacity: 0.8;
 }
 
@@ -2214,6 +2226,12 @@ input[type="radio"]:checked {
     opacity: 0.6;
     background-color: black;
     font-family: "Quicksand";
+}
+.myprofile-user .photo-header:hover {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    opacity: 0.9;
 }
 .myprofile-user  .profile-container-buttons .btn-success,
 .myprofile-user  .profile-container-buttons .btn-danger{
@@ -2607,7 +2625,8 @@ explorestore .profile-menu-hot .col-md-4 {
 }
 .store-profile .img-order-header{
     width: 100%;
-    height: 140px;
+
+    height: 155px;
 }
 .store-profile .name img{
     margin-bottom: 5px;
@@ -2615,7 +2634,7 @@ explorestore .profile-menu-hot .col-md-4 {
     margin-left: 10px;
 }
 .store-profile .profile-header .profile-container-img .img-avartar {
-    width: 170px;
+    width: 150px;
 
 }
 .store-profile .profile-name{
@@ -2626,8 +2645,9 @@ explorestore .profile-menu-hot .col-md-4 {
 .store-profile .photo-header{
     width: 100%;
     color: white;
-    height: 140px;
-    margin-top: -140px;
+
+    height: 155px;
+    margin-top: -155px;
     padding-top: 50px;
     transition: 0.5s ease;
     font-size: 1.4rem;

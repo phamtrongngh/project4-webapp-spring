@@ -41,7 +41,12 @@
                 <div class="nav-item search order-0 mx-auto">
                     <form class="form-inline ">
                         <div class="input-group">
-                            <input type="text" class="form-control inputsearch" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
+                            <input type="text" class="form-control inputsearch" data-toggle="dropdown"  id="dropdownMenuButton" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
                             <div class="input-group-prepend">
                                 <button class="btn btn-Search "  type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
