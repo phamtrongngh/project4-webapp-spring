@@ -2052,6 +2052,9 @@ input[type="radio"]:checked {
     text-align: center;
     width: 15%;
 }
+.gallery:hover{
+    opacity: 0.6;
+}
 .registerstore .btn-location{
     background-color: #fff;
     color: #da484a;
@@ -2271,6 +2274,9 @@ input[type="radio"]:checked {
 }
 .myprofile-user .upload-img-status .gallery{
     width: 100%;
+}
+.upload-img-status:hover{
+    opacity: 0.6;
 }
 
 .myprofile-user .profile-container-img img{
