@@ -30,15 +30,38 @@ function updateCartTotal() {
         var cartRow = cartRows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        var price = parseFloat(priceElement.innerText.replace('VNĐ', ''))
+        var price=priceElement.innerText.toString().replace(",", "");
+        
+        price = parseFloat(price.replace('VNĐ', ''));
+        price = format2(price,"").replace(".000", "");
+        price = price.replace(",","")
         var quantity = quantityElement.value
         total = total + (price * quantity)
+        
     }
-    total = Math.round(total * 1000);
-    var totalformat = format2(total, '').replace(".0", "");
+    totalformat = Math.round(total*1000);
+    var totalformatdisplay = format2(total, '').replace(".000", "");
 
 
-    document.getElementsByClassName('cart-total-price')[0].innerText = totalformat;
+    document.getElementsByClassName('cart-total-price')[0].innerText = totalformatdisplay;
+     $('.cart-total-price-data').val(total);
+}
+function formatpricecart(){
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        
+        
+        var price = parseFloat(priceElement.innerText.replace('VNĐ', ''));
+        price = format2(price,"").replace(".000", "");
+        document.getElementsByClassName('cart-page-price')[i].innerText = price +"VNĐ";
+        
+        
+    }
 }
 
 function addItemToCart(title, price, imageSrc) {
@@ -77,7 +100,7 @@ function quantityChanged(event) {
 }
 
 function format2(n, currency) {
-    return currency + n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    return currency + n.toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 }
 //    cart index
 function update() {
@@ -86,10 +109,11 @@ function update() {
     var tien = $(".price-foodnumber").html().toString();
 
     tien = tien.replace(",", "");
+    
     var total1 = q * tien;
 
 
-    var t = format2(total1, '').replace(".0", "");
+    var t = format2(total1, '').replace(".000", "");
 
     $(".total-foodnumber").html(t);
 
@@ -444,7 +468,9 @@ var swiper = new Swiper('.swiper-container', {
 });
 //CART
 $(document).ready(function() {
-
+    
+    formatpricecart();
+    updateCartTotal();
     var removeCartItemButtons = document.getElementsByClassName('btn-remove');
 
     for (var i = 0; i < removeCartItemButtons.length; i++) {
@@ -455,6 +481,7 @@ $(document).ready(function() {
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged);
+        
     }
 
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
@@ -684,7 +711,7 @@ $(document).ready(function() {
             $("#orderModal .img-status").attr("src", image.attr("src"));
             $("#orderModal .title-food").html(data.name);
             $("#orderModal .content-food").html(content.html())
-            data.price = (format2(data.price, '')).replace(".0", "");
+            data.price = (format2(data.price, '')).replace(".000", "");
             $("#orderModal .price-foodnumber").html(data.price);
             $("#orderModal .total-foodnumber").html(data.price);
             $("#orderModal .shop-item-button").attr("idValue", idProduct);

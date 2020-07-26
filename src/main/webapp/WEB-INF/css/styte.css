@@ -1640,7 +1640,9 @@ label.star:before {
 
 
 /* 8) CART PAGE */
-
+.info-product{
+    width: 100%;
+}
 .info-user .input-name {
     margin-left: 60px;
     width: 60% !important;
