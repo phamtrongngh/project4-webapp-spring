@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container contain" style="margin-top: 100px">
     <div class="row">
         <div class="col-md-7 col-sm-12 info-product">
@@ -16,35 +16,25 @@
                         <!-- PRODUCT -->
                         <section class="container content-section">
                             <div class="cart-row">
-                                <span class="cart-item cart-header cart-column">ITEM</span>
-                                <span class="cart-price cart-header cart-column">PRICE</span>
-                                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                                <span class="cart-item cart-header cart-column">Món</span>
+                                <span class="cart-price cart-header cart-column">Giá</span>
+                                <span class="cart-quantity cart-header cart-column">Số lượng</span>
                             </div>
                             <div class="cart-items">
-                                <div class="cart-row">
+                                <c:forEach var="item" items="${user.cart}">
+                                    <div class="cart-row">
+                                        <div class="cart-item cart-column">
+                                            <img class="cart-item-image" src="http://localhost:9032/public/image/${item.product.image}" width="100" height="100">
+                                            <span class="cart-item-title">${item.product.name}</span>
+                                        </div>
+                                        <span class="cart-price cart-column">${item.product.price} <span>VNĐ</span></span>
 
-                                    <div class="cart-item cart-column">
-                                        <img class="cart-item-image" src="/public/image/images new feed/buffalo-wings.jpg" width="100" height="100">
-                                        <span class="cart-item-title">Buffalo</span>
+                                        <div class="cart-quantity cart-column">
+                                            <input class="cart-quantity-input" type="number" value="${item.quantity}" max="100">
+                                            <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
+                                        </div>
                                     </div>
-                                    <span class="cart-price cart-column">19.000 VNĐ</span>
-
-                                    <div class="cart-quantity cart-column">
-                                        <input class="cart-quantity-input" type="number" value="1" max="999">
-                                        <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
-                                    </div>
-                                </div>
-                                <div class="cart-row">
-                                    <div class="cart-item cart-column">
-                                        <img class="cart-item-image" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="100" height="100">
-                                        <span class="cart-item-title">Kem</span>
-                                    </div>
-                                    <span class="cart-price cart-column">20.000 VNĐ</span>
-                                    <div class="cart-quantity cart-column">
-                                        <input class="cart-quantity-input" type="number" value="1" min="1" max="999">
-                                        <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
-                                    </div>
-                                </div>
+                                </c:forEach>
 
                             </div>
                             <div class="cart-total">
@@ -60,55 +50,30 @@
             </div>
         </div>
 
-
-
         <div class="col-md-5 info-user">
             <h1 style="margin-top: 10px;text-align: left;">Thông tin đơn hàng</h1>
             <div>
-                <form class="form-group form-order">
+                <form class="form-group form-order" action="/order/" method="POST">
                     <div class="info-more">
                         <label>Họ tên: </label>
-                        <input type="text" class="form-control input-name" placeholder="Họ tên" />
+                        <input type="text" name="name" value="${user.fullname}" class="form-control input-name"  />
                     </div>
                     <div class=" info-more">
                         <label>Số điện thoại: </label>
-                        <input type="text" class="form-control input-sđt" placeholder="Số điện thoại" />
+                        <input type="text" name="phone" value="${user.phone}" class="form-control input-sđt"  />
                     </div>
                     <div class=" info-more">
                         <label>Địa chỉ:</label>
-                        <select class="form-control select-city">
-                            <option value="" disabled selected>Tỉnh/Thành phố</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
+                        <input type="text" name="address" value="${user.address}" class="form-control input-sđt"  />
                     </div>
-                    <div class="info-more">
-                        <select class="form-control select-district">
-                            <option value="" disabled selected>Quận/Huyện</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                    </div>
-                    <div class="info-more">
-                        <select class="form-control select-ward">
-                            <option value="" disabled selected>Xã/Phường</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                    </div>
-                    <div class="info-more">
-                        <input type="text" class="form-control input-address" placeholder="Địa chỉ..." />
-                    </div>
+
                     <div class="info-more">
                         <label>Thời Gian:</label><br/>
                         <input type="radio" name="time" class="input-radio" checked/>Giao ngay
                         <input type="radio" name="time" class="input-radio2" />Chọn thời gian nhận hàng
                     </div>
                     <div class="info-more">
-                        <input type="date" class="form-control input-date" placeholder="Địa chỉ..." />
+                        <input type="date" class="form-control input-date"  />
                     </div>
                     <div class="info-more">
                         <label>Thanh Toán:</label><br/>
@@ -117,14 +82,14 @@
                     </div>
                     <div class="info-more">
                         <label>Ghi chú</label><br/>
-                        <textarea class="form-control textarea-note"></textarea>
+                        <textarea name="note" class="form-control textarea-note"></textarea>
                     </div>
                     <div class="info-pay">
-                        <a href="#"><img src="./image/avatar/momo.png" class="img-momo" alt="" /></a>
-                        <a href="#"><img src="./image/avatar/viettelpay.png" class="img-viettel" alt="" /></a>
+                        <a href="#"><img src="/public/image/avatar/momo.png" class="img-momo" alt="" /></a>
+                        <a href="#"><img src="/public/image/avatar/viettelpay.png" class="img-viettel" alt="" /></a>
                     </div>
                     <div class="info-more">
-                        <button type="button" class="btn btn-danger btn-order checkout">Đặt món ngay </button>
+                        <button type="submit" class="btn btn-danger btn-order checkout">Đặt món ngay </button>
                     </div>
                 </form>
             </div>
