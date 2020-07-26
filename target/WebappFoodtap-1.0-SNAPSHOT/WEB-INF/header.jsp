@@ -15,11 +15,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
         <link href="/public/fontawesome-free-5.13.1-web/css/all.css" rel="stylesheet" />
-        
+
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.css">
         <link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css" />
-        
+
         <link rel="stylesheet" type="text/css" href="/public/css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="/public/css/styte.css" />
     </head>
@@ -66,8 +66,40 @@
                             <a href="/myprofile-user"><%=fullname%></a>
                         </div>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fas fa-users fa-menu"></i><span class="badge count-cart">3</span><span class="caret"></span></a></a>
+                        <div class="dropdown-menu dropdown-messenger">
+                            <div class="messenger">
+                                <h5>Lời mời kết bạn</h5>
+                            </div>
+                            <div class="messenger h-100">
+                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
+                                <div style="width: 350px;">
+                                    <div class="messenger-name">Truong</div>
 
+                                </div>
+                                <div  style="display: flex;">
+                                    <button class="btn" style="margin-right: 10px;height: 35px;">Xác nhận</button>
+                                    <button class="btn" style="margin-right: 10px;height: 35px;">Xóa</button>
+                                </div>
+                            </div>
+                            <div class="messenger h-100">
+                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
+                                <div style="width: 350px;">
+                                    <div class="messenger-name">Truong</div>
 
+                                </div>
+                                <div  style="display: flex;">
+                                    <button class="btn" style="margin-right: 10px;height: 35px;">Xác nhận</button>
+                                    <button class="btn" style="margin-right: 10px;height: 35px;">Xóa</button>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <span><a  href="/message/">Xem tất cả</a></span>
+                                
+                            </div>
+                        </div>
+                    </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fa fa-bell fa-menu" aria-hidden="true" ></i>
                             <span class="badge count-cart">3</span><span class="caret"></span></a>
