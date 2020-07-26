@@ -488,6 +488,13 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
+    $(".postFoodNewFeed").click(function(){
+        var image = $(this).parent().parent().parent().find("img");
+        var id = $(this).attr("idValue");
+        console.log(image.attr("src"));
+        $("#postModal-food img").attr("src",image.attr("src"));
+        $("#postModal-food form").attr("action","/newfeed/postFoodNewFeed/"+id);
+    })
     //call ajax upload image
     $("input[type=file]").change(function() {
 
@@ -522,6 +529,7 @@ $(document).ready(function() {
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
     })
+
 })
 //Search
 $(document).ready(function() {

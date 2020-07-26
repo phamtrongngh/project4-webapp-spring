@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class Newfeed {
     private String _id;
-    private List<User> idUser;
-    private List<Restaurant> idRes;
+    private String product;
+    private String restaurant;
     private String content; 
     private String images; 
     private List<User> likes;
@@ -34,21 +34,25 @@ public class Newfeed {
         this._id = _id;
     }
 
-    public List<User> getIdUser() {
-        return idUser;
+    public String getProduct() {
+        return product;
     }
 
-    public void setIdUser(List<User> idUser) {
-        this.idUser = idUser;
+    public void setProduct(String product) {
+        this.product = product;
     }
 
-    public List<Restaurant> getIdRes() {
-        return idRes;
+    
+
+    public String getRestaurant() {
+        return restaurant;
     }
 
-    public void setIdRes(List<Restaurant> idRes) {
-        this.idRes = idRes;
+    public void setRestaurant(String restaurant) {
+        this.restaurant = restaurant;
     }
+
+    
 
     public String getContent() {
         return content;
