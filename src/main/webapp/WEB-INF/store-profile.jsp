@@ -56,12 +56,12 @@
             <div class="modal-body">
                 <div class="container contain">
                     <div class="row">
-                        <div class=" info-product">
-                            <img class="rounded img-status" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" alt="" />
+                        <div class="info-product">
+                            <img class="rounded img-status"  alt="" />
                             <div>
-                                <h1 class="title-food">Kem trái cây rừng </h1>
+                                <h1 class="title-food"></h1>
                                 <div class="rate text-center">
-                                    <div class="stars">
+<!--                                    <div class="stars">
                                         <form action="">
                                             <input class="star star-5" id="star-5" type="radio" name="star" />
                                             <label class="star star-5" for="star-5"></label>
@@ -76,19 +76,19 @@
                                         </form>
 
                                     </div>
-                                    <div class="text-like">14k lượt thích</div>
+                                    <div class="text-like">14k lượt thích</div>-->
                                 </div>
-                                <p>Với 7 loại trái cây rung ngon thơm ngọt lịm: dâu, táo, cherry, hạnh nhân... Giúp bạn giải tỏa căng thẳng trong những ngày hè đầy áp lực...</p>
+                                <p class="content-food"></p>
                             </div>
                             <div class="rounded box-quantity mx-auto">
                                 <p class="form-inline quantity">
                                     Số lượng :
 
-                                    <input aria-label="quantity" class="input-qty" min="1" max="999" name="" type="number" value="1" />
+                                    <input aria-label="quantity" class="input-qty" min="1" max="999" name="quantity" type="number" value="1" />
 
                                 </p>
-                                <p class="price-food">Giá : <span class="price-foodnumber">22.000</span></p>
-                                <p class="total-food">Thành tiền : <span class="total-foodnumber">22.000</span></p>
+                                <p class="price-food">Giá : <span class="price-foodnumber"></span><span>VNĐ</span></p>
+                                <p class="total-food">Thành tiền : <span class="total-foodnumber"></span><span>VNĐ</span></p>
                             </div>
 
                             <div class="rate-content">

@@ -44,10 +44,7 @@ public class ProductController implements IController<Product> {
         rESTProductHelper = new RESTProductHelper(Product.class);
     }
 
-    @RequestMapping(value = "/cart", method = RequestMethod.GET)
-    public ModelAndView cart() throws IOException {
-        return new ModelAndView("cart");
-    }
+    
 
     @Override
     public ModelAndView post(Product t, HttpServletResponse response) throws IOException {
@@ -114,7 +111,6 @@ public class ProductController implements IController<Product> {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
-
         Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
         FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
         String fileName = multipartFile[0].getOriginalFilename();
