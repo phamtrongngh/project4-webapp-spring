@@ -672,7 +672,9 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var idProduct = $(this).attr("idValue");
         callAjax("/getProduct/"+idProduct,"GET",null,function(data){
-            console.log(data);
+            $("#orderModal .img-status").attr("src",image.attr("src"));
+            $("#orderModal .title-food").html(data.name);
+            $("#orderModal .price-foodnumber").html(data.price);
         })
     })
     //binding data to post food newfeed

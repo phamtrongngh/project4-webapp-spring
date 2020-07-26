@@ -56,8 +56,8 @@
             <div class="modal-body">
                 <div class="container contain">
                     <div class="row">
-                        <div class=" info-product">
-                            <img class="rounded img-status" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" alt="" />
+                        <div class="info-product">
+                            <img class="rounded img-status"  alt="" />
                             <div>
                                 <h1 class="title-food">Kem trái cây rừng </h1>
                                 <div class="rate text-center">
