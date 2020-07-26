@@ -79,7 +79,7 @@
                                 <form class="login-form d-flex justify-content-md-center align-items-md-center h-100  " id="commentForm" action="/login" method="POST">
                                     <div class="form-group ">
                                         <input id="phone-login" type="text" name="phone" class="form-control " placeholder="SĐT"/>
-                                        <span class="error error-phone" color="red">Số điện thoại không hợp lệ</span>
+                                        <span class="error error-phone" color="red">Số điện thoại không hợp lệ</span> 
                                     </div>
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
@@ -112,6 +112,10 @@
                                         <span class="error error-password" color="red">Mật khẩu phải hơn 8 ký tự(bao gồm cả chữ thường, chữ hoa và ít nhất 1 số)</span>
                                     </div>
                                     <div class="form-group ">
+                                        <input type="password" id="repassword-register" name="password" class="form-control input-phone" placeholder="Nhập lại mật khẩu"/>
+                                        <span class="error error-repassword" color="red">Mật khẩu không khớp</span>
+                                    </div>
+                                    <div class="form-group ">
                                         <label >Giới tính: </label><br/>
                                         <input type="radio" name="gender" value="false" class="input-male" checked/><label style="margin-left: 10px; ">Nam</label>
                                         <input type="radio" name="gender" value="true" class="input-female" /><label style="margin-left: 10px; ">Nữ</label>
@@ -121,12 +125,14 @@
                                             <input id="address-register" type="text" name="address" class="form-control input-address" >
                                             <div class="input-group-prepend">
                                                 <button  type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
-                                            </div>
-
+                                            </div>      
+                                            
                                         </div>
+                                        <span class="error error-address" style="text-align: start;">Địa chỉ không được để trống</span>
                                         <!-- The Modal -->
 
                                     </div>
+                                    
                                     <br/>
 
                                     <div class="text-center">

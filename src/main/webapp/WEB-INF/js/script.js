@@ -8,12 +8,14 @@ var phone;
 var gender;
 var address;
 var password;
+var repassword;
 function updateinfo() {
     fullname = $("#fullname-register").val();
     phone = $("#phone-register").val();
     gender = $("input[name='gender']:checked").val();
     address = $("#address-register").val();
     password = $("#password-register").val();
+    repassword = $("#repassword-register").val();
 
 }
 $(document).ready(function() {
@@ -36,9 +38,6 @@ $(document).ready(function() {
 
             $("#fullname-register").addClass("error-user");
             $("#fullname-register").removeClass("success-user");
-            $("#fullname-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
             $(".error-user-mess").css("display", "block");
             $("#fullname-register").focus();
             return false;
@@ -46,41 +45,35 @@ $(document).ready(function() {
         else {
             $("#fullname-register").removeClass("error-user");
             $("#fullname-register").addClass("success-user");
-            $("#fullname-register").css("box-shadow", "none");
-            $("#fullname-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-user-mess").css("display", "none");
         }
     });
     $("#phone-register").on("keyup", function() {
         updateinfo();
         if (!(/^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/).test(phone)) {
+            
             $("#phone-register").addClass("error-user");
-            $("#phone-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
+            $("#phone-register").removeClass("success-user");
             $(".error-phone").css("display", "block");
             return false;
         }
         else {
-            $("#phone-register").addClass("success-user");
+            $("#phone-register").removeClass("error-user");
+            $("#phone-register").addClass("success-user");            
             $("#phone-register").css("box-shadow", "none");
-            $("#phone-register").focus(function() {
-                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-            });
             $(".error-phone").css("display", "none");
         }
     });
     $("#password-register").on("keyup", function() {
         updateinfo();
         if (!(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/).test(password)) {
+            $("#password-register").removeClass("success-user");
             $("#password-register").addClass("error-user");
-            $("#password-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
             $(".error-password").css("display", "block");
             return false;
         }
         else {
+            $("#password-register").removeClass("error-user");
             $("#password-register").addClass("success-user");
             $("#password-register").css("box-shadow", "none");
             $("#password-register").focus(function() {
@@ -89,22 +82,33 @@ $(document).ready(function() {
             $(".error-password").css("display", "none");
         }
     });
+    $("#repassword-register").on("keyup", function() {
+        updateinfo();
+        if (repassword!=password&&repassword!="") {
+            $("#repassword-register").removeClass("success-user");
+            $("#repassword-register").addClass("error-user");
+            $(".error-repassword").css("display", "block");
+            return false;
+        }
+        else {
+            $("#repassword-register").removeClass("error-user");
+            $("#repassword-register").addClass("success-user");
+            $("#repassword-register").css("box-shadow", "none");
+            $(".error-repassword").css("display", "none");
+        }
+    });
     $("#address-register").on("keyup", function() {
         updateinfo();
-        if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
+        if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))&&address=="") {
+            $("#address-register").removeClass("success-user");
             $("#address-register").addClass("error-user");
-            $("#address-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
             $(".error-address").css("display", "block");
             return false;
         }
         else {
+            $("#address-register").removeClass("error-user");
             $("#address-register").addClass("success-user");
             $("#address-register").css("box-shadow", "none");
-            $("#address-register").focus(function() {
-                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-            });
             $(".error-address").css("display", "none");
         }
     });
@@ -163,7 +167,23 @@ $(document).ready(function() {
             });
             $(".error-password").css("display", "none");
         }
-        if (!!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
+        if (repassword!=password&&repassword!="") {
+            $("#repassword-register").addClass("error-user");
+            $("#repassword-register").focus(function() {
+                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            });
+            $(".error-repassword").css("display", "block");
+            return false;
+        }
+        else {
+            $("#repassword-register").addClass("success-user");
+            $("#repassword-register").css("box-shadow", "none");
+            $("#repassword-register").focus(function() {
+                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            });
+            $(".error-repassword").css("display", "none");
+        }
+        if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))&&address=="") {
             $("#address-register").addClass("error-user");
             $("#address-register").focus(function() {
                 $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
@@ -179,6 +199,7 @@ $(document).ready(function() {
             });
             $(".error-address").css("display", "none");
         }
+        
     });
 //     for (i = 0; i < sothichs.length; i++) {
 //        sothichs[i].onclick = function (){
