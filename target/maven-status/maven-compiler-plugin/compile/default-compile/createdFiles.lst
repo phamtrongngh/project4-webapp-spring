@@ -24,6 +24,7 @@ Nghia\Util\RESTHelper.class
 controllers\RestaurantController.class
 models\Authorization.class
 models\Message.class
+Nghia\Util\RESTNewfeedHelper.class
 Nghia\Util\MultipartContainer.class
 Nghia\Util\RESTRestaurantHelper$1.class
 interceptor\AuthorizeHandleInterceptor.class
