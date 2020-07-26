@@ -667,7 +667,6 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-
     //binding data to open newfeed
     $(".fa-utensils").click(function(){
         var image = $(this).closest(".status").find(".background");

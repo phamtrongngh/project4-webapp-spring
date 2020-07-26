@@ -399,8 +399,8 @@
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div style="margin-top: 30px">
-                        <div class="profile-container-img float-left">
+                    <div style="margin-top: 30px" class="d-flex">
+                        <div class="profile-container-img">
                             <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
                         </div>
                         <div class="profile-name">

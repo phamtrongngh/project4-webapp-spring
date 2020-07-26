@@ -222,9 +222,10 @@
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div>
-                        <div class="profile-container-img float-left">
+                    <div class="d-flex">
+                        <div class="profile-container-img">
                             <img src="http://localhost:9032/public/image/${restaurant.avatar}" class="rounded-circle img-avartar" alt="" />
+
                         </div>
                         <div class="profile-name">
                             <div class="text-name">${restaurant.name}</div>
@@ -354,6 +355,7 @@
                                     <div class="media-body">
                                         <div href="#" class="name"><a href="#">${restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
                                         </div>
+
                                     </div>
                                     <div class="dropleft">
                                         <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
@@ -373,6 +375,8 @@
                                     <a href="#">fruit#</a>
                                     <a href="#">sweetlane#</a>
                                 </div>
+
+
                             </div>
                             <div class="image1">
                                 <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />

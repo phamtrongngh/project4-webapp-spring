@@ -129,7 +129,8 @@
                                     </div>
                                     <br/>
 
-                                    <div class="text-center">
+
+                                    <div class="text-center" style="width: 50%">
                                         <button type="submit" id="btn-register" class="btn btn-danger form-control btn-register">Đăng Ký</button>
                                     </div>
                                 </form>
