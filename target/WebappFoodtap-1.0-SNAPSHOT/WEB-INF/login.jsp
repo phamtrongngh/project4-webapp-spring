@@ -78,7 +78,8 @@
                             <div class="login-container">
                                 <form class="login-form d-flex justify-content-md-center align-items-md-center h-100  " id="commentForm" action="/login" method="POST">
                                     <div class="form-group ">
-                                        <input type="text" name="phone" class="form-control " placeholder="SĐT "  />
+                                        <input id="phone-login" type="text" name="phone" class="form-control " placeholder="SĐT"/>
+                                        <span class="error error-phone" color="red">Số điện thoại không hợp lệ</span>
                                     </div>
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
@@ -95,14 +96,20 @@
                             </div>
                             <div class="login-container">
                                 <form class="login-form d-flex justify-content-md-center align-items-md-center h-100"  action="/register" method = "POST">
+
                                     <div class="form-group ">
-                                        <input type="text" name="fullname" class="form-control input-name" placeholder="Họ tên" />
+                                        <input id="fullname-register" type="text" name="fullname" class="form-control input-name" placeholder="Họ và tên " />
+                                        <span class="error error-user-mess" color="red">Họ và tên phải từ 2 ký tự đến 20 ký tự(không có ký tự đặc biệt)</span>
+
                                     </div>
                                     <div class="form-group ">
-                                        <input type="text" name="phone" class="form-control input-phone" placeholder="SĐT " />
+                                        <input type="text" id="phone-register" name="phone" class="form-control input-phone" placeholder="SĐT " />
+                                        <span class="error error-phone" color="red">Số điện thoại không hợp lệ</span>
+                                        <span class="error error-existUser" color="red">SĐT đã tồn tại, vui lòng nhập SĐT khác</span>
                                     </div>
                                     <div class="form-group ">
-                                        <input type="password" name="password" class="form-control input-phone" placeholder="Mật khẩu" />
+                                        <input type="password" id="password-register" name="password" class="form-control input-phone" placeholder="Mật khẩu"/>
+                                        <span class="error error-password" color="red">Mật khẩu phải hơn 8 ký tự(bao gồm cả chữ thường, chữ hoa và ít nhất 1 số)</span>
                                     </div>
                                     <div class="form-group ">
                                         <label >Giới tính: </label><br/>
@@ -111,17 +118,19 @@
                                     </div>
                                     <div class="form-group form-inline">
                                         <div class="input-group flex-nowrap" style="width: 94.5%">
-                                            <input type="text" name="address" class="form-control input-address" >
+                                            <input id="address-register" type="text" name="address" class="form-control input-address" >
                                             <div class="input-group-prepend">
-                                                <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
+                                                <button  type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
                                             </div>
+
                                         </div>
                                         <!-- The Modal -->
 
                                     </div>
                                     <br/>
-                                    <div  style="width: 50%">
-                                        <button class="btn btn-danger form-control btn-register">Đăng Ký</button>
+
+                                    <div class="text-center">
+                                        <button type="submit" id="btn-register" class="btn btn-danger form-control btn-register">Đăng Ký</button>
                                     </div>
                                 </form>
                             </div>
@@ -137,7 +146,7 @@
                     </div>
                 </div>
             </div>
-        </div
+        </div>
         <!--Bootstrap-->
         <script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
         <script src="/public/js/jquery/jquery.min.js"></script>
