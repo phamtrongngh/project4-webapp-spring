@@ -31,7 +31,9 @@
 
                                         <div class="cart-quantity cart-column">
                                             <input class="cart-quantity-input" type="number" value="${item.quantity}" max="100">
-                                            <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
+                                            <form action="/removeFromCart/${item.product._id}" method="POST">
+                                                <button class="btn btn-danger" >Xóa</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </c:forEach>

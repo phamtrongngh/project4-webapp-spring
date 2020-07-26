@@ -670,6 +670,11 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
+    //Remove product from Cart
+   
+    
+    
+    
     //binding data to open newfeed
     $(".fa-utensils").click(function() {
         var image = $(this).closest(".status").find(".background");
