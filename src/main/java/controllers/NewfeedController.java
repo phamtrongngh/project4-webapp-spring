@@ -6,6 +6,7 @@
 package controllers;
 
 import Nghia.Util.RESTHelper;
+import Nghia.Util.RESTNewfeedHelper;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +24,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class NewfeedController implements IController<Newfeed> {
 
     private final RESTHelper restHelper;
-
+    private final RESTNewfeedHelper rESTNewfeedHelper;
     public NewfeedController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTHelper(Newfeed.class);
+        rESTNewfeedHelper = new RESTNewfeedHelper(Newfeed.class);
     }
 
     @RequestMapping(value = "/newfeed", method = RequestMethod.GET)
@@ -63,11 +65,17 @@ public class NewfeedController implements IController<Newfeed> {
 
     @RequestMapping(value = "/newfeed/postUpdate", method = RequestMethod.POST)
     @Override
-    public ModelAndView put(HttpServletRequest request ,Newfeed newfeed) throws IOException {
+    public ModelAndView put(HttpServletRequest request, Newfeed newfeed) throws IOException {
         newfeed.set_id(request.getParameter("id").toString());
         restHelper.put(newfeed);
         return getAll();
     }
 
 
+    @RequestMapping(value = "/newfeed/postFoodNewFeed/{id}", method = RequestMethod.POST)
+    public ModelAndView foodNewFeed(@PathVariable("id") String id, Newfeed newfeed) {
+        newfeed.setProduct(id);
+        rESTNewfeedHelper.postFoodNewfeed(newfeed);
+        return new ModelAndView("index");
+    }
 }

@@ -4,37 +4,34 @@
 <%@include  file="header.jsp" %>
 <!--modal post food-->
 <div class="modal" id="postModal-food">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Đăng món</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-
-                <div class="post-store rounded">
-                    <form class="row" action="/newfeed/postNewfeed" method="POST">
-                        <div class="col-md-12 post-content">
-                            <h4>Nhập nội dung</h4>
-                            <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
-                            <div class="d-flex" style="width: 100%">
-                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="100%" height="100%" />
-
+    <form action=""  method="POST">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Đăng món</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="post-store rounded">
+                            <div class="col-md-12 post-content">
+                                <h4>Nhập nội dung</h4>
+                                <input type="text" name="restaurant" value="${restaurant._id}" hidden />
+                                <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                <div class="d-flex" style="width: 100%">
+                                    <image class="rounded" src ="http://localhost:9032/public/image/" width="100%" height="100%" />
+                                </div>
                             </div>
-                        </div>
-
-                    </form>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger" >Đăng tin</button>
                 </div>
             </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Đăng tin</button>
-            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <!--modal create menu-->
@@ -391,18 +388,16 @@
                             <tbody class="text-center">
                                 <c:forEach var="item" items="${restaurant.menus}">
                                     <tr role="row" class="even">
-                                        <td><a href=""><image src="http://localhost:9032/public/image/${item.image}" style="width: 100px; height: 100px"/></a></td>
+                                        <td><a href=""><image src="http://localhost:9032/public/image/${item.image}"  style="width: 100px; height: 100px"/></a></td>
                                         <td><a href="">${item.name} </a></td>
                                         <td>Danh mục</td>
                                         <td>${item.price} VND</td>
                                         <td>
                                             <center>
                                                 <button  type="button" class="btn btn-success">CẬP NHẬT</button>
-
                                             </center>
-                                            <center
-                                                <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
-
+                                            <center>
+                                                <button  type="button" idValue="${item._id}" class="btn btn-danger postFoodNewFeed" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
                                             </center>
                                         </td>
                                     </tr>
@@ -413,9 +408,6 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 </div>
 
