@@ -207,7 +207,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
@@ -298,9 +297,7 @@
                     <div style="margin-top: 20px">
                         <a href="/mystore"><img class="rounded img-order" src="/public/image/Background/street-food-trailer-food-truck-cartoon-vector-19682966.jpg" alt="" />
                             <div class="rounded photo ">
-
                                 Gian hàng <br/> của tôi
-
                             </div>
                         </a>
                     </div>
@@ -381,13 +378,13 @@
                                 <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                             </div>
                             <div style="margin-top: 2px;display: flex;">
-                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>4,5k</span>
+                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${item.likes.size()}</span>
                                 <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a><span>200 chia sẻ</span></div>
                             </div>
                             <hr class="hr-newsfeed"/>
                             <div class="icon2">
                                 <div class="subicon1">
-                                    <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal"></i>
+                                    <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal" idValue="${item.product}"></i>
                                     </a>
                                     <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
                                     <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>

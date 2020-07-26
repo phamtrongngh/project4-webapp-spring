@@ -667,10 +667,19 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
+
+    //binding data to open newfeed
+    $(".fa-utensils").click(function(){
+        var image = $(this).closest(".status").find(".background");
+        var idProduct = $(this).attr("idValue");
+        callAjax("/getProduct/"+idProduct,"GET",null,function(data){
+            console.log(data);
+        })
+    })
+    //binding data to post food newfeed
     $(".postFoodNewFeed").click(function() {
         var image = $(this).parent().parent().parent().find("img");
         var id = $(this).attr("idValue");
-        console.log(image.attr("src"));
         $("#postModal-food img").attr("src", image.attr("src"));
         $("#postModal-food form").attr("action", "/newfeed/postFoodNewFeed/" + id);
     })
