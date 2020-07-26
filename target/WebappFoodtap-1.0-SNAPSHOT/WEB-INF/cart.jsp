@@ -66,7 +66,6 @@
                         <label>Địa chỉ:</label>
                         <input type="text" name="address" value="${user.address}" class="form-control input-sđt"  />
                     </div>
-
                     <div class="info-more">
                         <label>Thời Gian:</label><br/>
                         <input type="radio" name="time" class="input-radio" checked/>Giao ngay
