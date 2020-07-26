@@ -8,6 +8,7 @@ package controllers;
 import Nghia.Util.CookieHelper;
 import Nghia.Util.MultipartContainer;
 import Nghia.Util.RESTHelper;
+import Nghia.Util.RESTProductHelper;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -29,6 +30,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,9 +38,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProductController implements IController<Product> {
 
     private final RESTHelper restHelper;
-
+    private final RESTProductHelper rESTProductHelper;
     public ProductController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTHelper(Product.class);
+        rESTProductHelper = new RESTProductHelper(Product.class);
     }
 
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
@@ -99,7 +102,13 @@ public class ProductController implements IController<Product> {
         restHelper.put(product);
         return getAll();
     }
-
+    
+    @RequestMapping(value = "/getProduct/{id}", method = RequestMethod.GET,produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getProduct(@PathVariable("id") String id) throws IOException {
+        return rESTProductHelper.getProduct(id);
+    }
+    
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
     public void post(MultipartContainer multipartContainer, Product product, HttpServletResponse responseServlet) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();

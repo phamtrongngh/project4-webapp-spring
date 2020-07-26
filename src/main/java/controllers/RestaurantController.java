@@ -46,16 +46,19 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/manageMyRestaurant/{id}", method = RequestMethod.GET)
     public ModelAndView statistical(@PathVariable("id") String id) throws IOException {
-        Map<String,?> restaurant = restHelper.manageMyRestaurant(id);
+        Map<String, ?> restaurant = restHelper.manageMyRestaurant(id);
         return new ModelAndView("statistical").addObject("restaurant", restaurant);
     }
-  @RequestMapping(value = "/sametaste", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/sametaste", method = RequestMethod.GET)
     public ModelAndView sametaste() throws IOException {
         return new ModelAndView("sametaste");
     }
-    @RequestMapping(value = "/store-profile", method = RequestMethod.GET)
-    public ModelAndView storeprofile() throws IOException {
-        return new ModelAndView("store-profile");
+
+    @RequestMapping(value = "/store-profile/{id}", method = RequestMethod.GET)
+    public ModelAndView storeprofile(@PathVariable("id") String id) throws IOException {
+        Map<String, ?> restaurant = restHelper.manageMyRestaurant(id);
+        return new ModelAndView("store-profile").addObject("restaurant", restaurant);
     }
 
     @RequestMapping(value = "/explorestore", method = RequestMethod.GET)
@@ -65,7 +68,7 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/statistical", method = RequestMethod.GET)
     public ModelAndView statistical() throws IOException {
-        
+
         return new ModelAndView("statistical");
     }
 
@@ -110,6 +113,10 @@ public class RestaurantController implements IController<Restaurant> {
         restHelper.post(restaurant);
         return getAll();
     }
+    //    @RequestMapping(value = "/store-profile/", method = RequestMethod.GET)
+//    public ModelAndView storeprofile() throws IOException {
+//        return new ModelAndView("store-profile");
+//    }
 
     @RequestMapping(value = "/restaurant/{id}")
     @Override

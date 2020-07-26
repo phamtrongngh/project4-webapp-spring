@@ -2,6 +2,20 @@
 //jQuery to collapse the navbar on scroll
 var idUser = $("#idTag").html();
 var avatarChatter;
+
+var fullname;
+var phone;
+var gender;
+var address;
+var password;
+function updateinfo() {
+    fullname = $("#fullname-register").val();
+    phone = $("#phone-register").val();
+    gender = $("input[name='gender']:checked").val();
+    address = $("#address-register").val();
+    password = $("#password-register").val();
+
+}
 $(document).ready(function() {
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
@@ -14,7 +28,158 @@ $(document).ready(function() {
         }
 
     });
+    /* validate register*/
 
+    $("#fullname-register").on("keyup", function() {
+        updateinfo();
+        if (!/^([^\s])[a-zA-Z0-9_\s]{1,19}$/.test(change_alias(fullname))) {
+
+            $("#fullname-register").addClass("error-user");
+            $("#fullname-register").removeClass("success-user");
+            $("#fullname-register").focus(function() {
+                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            });
+            $(".error-user-mess").css("display", "block");
+            $("#fullname-register").focus();
+            return false;
+        }
+        else {
+            $("#fullname-register").removeClass("error-user");
+            $("#fullname-register").addClass("success-user");
+            $("#fullname-register").css("box-shadow", "none");
+            $("#fullname-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-user-mess").css("display", "none");
+        }
+    });
+    $("#phone-register").on("keyup", function() {
+        updateinfo();
+        if (!(/^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/).test(phone)) {
+            $("#phone-register").addClass("error-user");
+            $("#phone-register").focus(function() {
+                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            });
+            $(".error-phone").css("display", "block");
+            return false;
+        }
+        else {
+            $("#phone-register").addClass("success-user");
+            $("#phone-register").css("box-shadow", "none");
+            $("#phone-register").focus(function() {
+                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            });
+            $(".error-phone").css("display", "none");
+        }
+    });
+    $("#password-register").on("keyup", function() {
+        updateinfo();
+        if (!(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/).test(password)) {
+            $("#password-register").addClass("error-user");
+            $("#password-register").focus(function() {
+                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            });
+            $(".error-password").css("display", "block");
+            return false;
+        }
+        else {
+            $("#password-register").addClass("success-user");
+            $("#password-register").css("box-shadow", "none");
+            $("#password-register").focus(function() {
+                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            });
+            $(".error-password").css("display", "none");
+        }
+    });
+    $("#address-register").on("keyup", function() {
+        updateinfo();
+        if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
+            $("#address-register").addClass("error-user");
+            $("#address-register").focus(function() {
+                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            });
+            $(".error-address").css("display", "block");
+            return false;
+        }
+        else {
+            $("#address-register").addClass("success-user");
+            $("#address-register").css("box-shadow", "none");
+            $("#address-register").focus(function() {
+                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            });
+            $(".error-address").css("display", "none");
+        }
+    });
+    $("#btn-register").on("click", function() {
+        updateinfo();
+        if (!/^([^\s])[a-zA-Z0-9_\s]{1,19}$/.test(change_alias(fullname))) {
+
+            $("#fullname-register").addClass("error-user");
+            $("#fullname-register").removeClass("success-user");
+            $("#fullname-register").focus(function() {
+                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            });
+            $(".error-user-mess").css("display", "block");
+            $("#fullname-register").focus();
+            return false;
+        }
+        else {
+            $("#fullname-register").removeClass("error-user");
+            $("#fullname-register").addClass("success-user");
+            $("#fullname-register").css("box-shadow", "none");
+            $("#fullname-register").focus(function() {
+                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            });
+            $(".error-user-mess").css("display", "none");
+        }
+
+        if (!(/^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/).test(phone)) {
+            $("#phone-register").addClass("error-user");
+            $("#phone-register").focus(function() {
+                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            });
+            $(".error-phone").css("display", "block");
+            return false;
+        }
+        else {
+            $("#phone-register").addClass("success-user");
+            $("#phone-register").css("box-shadow", "none");
+            $("#phone-register").focus(function() {
+                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            });
+            $(".error-phone").css("display", "none");
+        }
+        if (!(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/).test(password)) {
+            $("#password-register").addClass("error-user");
+            $("#password-register").focus(function() {
+                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            });
+            $(".error-password").css("display", "block");
+            return false;
+        }
+        else {
+            $("#password-register").addClass("success-user");
+            $("#password-register").css("box-shadow", "none");
+            $("#password-register").focus(function() {
+                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            });
+            $(".error-password").css("display", "none");
+        }
+        if (!!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
+            $("#address-register").addClass("error-user");
+            $("#address-register").focus(function() {
+                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            });
+            $(".error-address").css("display", "block");
+            return false;
+        }
+        else {
+            $("#address-register").addClass("success-user");
+            $("#address-register").css("box-shadow", "none");
+            $("#address-register").focus(function() {
+                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            });
+            $(".error-address").css("display", "none");
+        }
+    });
 //     for (i = 0; i < sothichs.length; i++) {
 //        sothichs[i].onclick = function (){
 //        console.log("hi");
@@ -22,6 +187,20 @@ $(document).ready(function() {
 //    };
 //     }
 });
+
+function change_alias(alias) {
+    var str = alias;
+    str = str.toLowerCase();
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+
+    return str;
+}
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
@@ -488,6 +667,21 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
+    //binding data to open newfeed
+    $(".fa-utensils").click(function(){
+        var image = $(this).closest(".status").find(".background");
+        var idProduct = $(this).attr("idValue");
+        callAjax("/getProduct/"+idProduct,"GET",null,function(data){
+            console.log(data);
+        })
+    })
+    //binding data to post food newfeed
+    $(".postFoodNewFeed").click(function() {
+        var image = $(this).parent().parent().parent().find("img");
+        var id = $(this).attr("idValue");
+        $("#postModal-food img").attr("src", image.attr("src"));
+        $("#postModal-food form").attr("action", "/newfeed/postFoodNewFeed/" + id);
+    })
     //call ajax upload image
     $("input[type=file]").change(function() {
 
@@ -522,6 +716,7 @@ $(document).ready(function() {
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
     })
+
 })
 //Search
 $(document).ready(function() {
