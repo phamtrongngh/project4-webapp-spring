@@ -275,7 +275,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2" style="position: relative;left: 15px;top:10px">
+                <div class="col-md-2" style="position: relative;top:10px">
                     <div>
                         <a href="/explorestore"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                             <div class="rounded photo">
