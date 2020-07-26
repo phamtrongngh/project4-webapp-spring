@@ -44,8 +44,6 @@ public class ProductController implements IController<Product> {
         rESTProductHelper = new RESTProductHelper(Product.class);
     }
 
-    
-
     @Override
     public ModelAndView post(Product t, HttpServletResponse response) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -61,11 +59,7 @@ public class ProductController implements IController<Product> {
         return new ModelAndView("create-menu");
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView index() throws IOException {
-        return new ModelAndView("index");
-    }
-
+    
     @RequestMapping(value = "/product", method = RequestMethod.GET)
     @Override
     public ModelAndView getAll() throws IOException {

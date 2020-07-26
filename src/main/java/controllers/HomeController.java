@@ -6,24 +6,32 @@
 
 package controllers;
 
+import Nghia.Util.RESTNewfeedHelper;
 import java.io.IOException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Newfeed;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- *
- * @author BEN ALPHA
- */
+
+@Controller
 public class HomeController implements IController{
    
-    @Override
-    public ModelAndView getAll() throws IOException {
+    private RESTNewfeedHelper restNewfeedHelper;
 
-        return new ModelAndView("index");
+    public HomeController() throws InstantiationException, IllegalAccessException {
+        restNewfeedHelper = new RESTNewfeedHelper(Newfeed.class);
+    }
+    
+    
+    @Override
+    @RequestMapping(value = "/",method =RequestMethod.GET)
+    public ModelAndView getAll() throws IOException {
+        return new ModelAndView("index").addObject("newfeeds", restNewfeedHelper.getAll());
     }
 
     @Override
