@@ -42,10 +42,10 @@
                     <form class="form-inline ">
                         <div class="input-group">
                             <input type="text" class="form-control inputsearch" data-toggle="dropdown"  id="dropdownMenuButton" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="width: 100%">
+                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="rounded-circle search-avatar" alt=""/>Phan Anh</a>
+                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="rounded-circle search-avatar" alt=""/>Thi Tran</a>
+                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="rounded-circle search-avatar" alt=""/>Trang Tran</a>
                             </div>
                             <div class="input-group-prepend">
                                 <button class="btn btn-Search "  type="button"><i class="fa fa-search" aria-hidden="true"></i></button>

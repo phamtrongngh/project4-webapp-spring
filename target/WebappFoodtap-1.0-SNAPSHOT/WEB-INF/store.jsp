@@ -179,7 +179,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
 
         <div class="modal-content">
-           
+
             <div class="modal-body">
                 <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
                     <li role="presentation" class="nav-item" style="width:50%">
@@ -349,29 +349,32 @@
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div>
-                        <div class="profile-container-img float-left">
-                            <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
+                    <div class="d-flex">
+                    <div class="profile-container-img" >
+                        <div>
+                             <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" class="rounded-circle img-avartar" alt="" />
                         </div>
-                        <div class="profile-name">
-                            <div class="text-name">SWEETLANE</div>
-                            <div class="text-like">14k thích</div>
-                            <div class="stars">
-                                <form action="">
-                                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                                    <label class="star star-5" for="star-5"></label>
-                                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                                    <label class="star star-4" for="star-4"></label>
-                                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                                    <label class="star star-3" for="star-3"></label>
-                                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                                    <label class="star star-2" for="star-2"></label>
-                                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                                    <label class="star star-1" for="star-1"></label>
-                                </form>
-                            </div>
+                       
+                    </div>
+                    <div class="profile-name">
+                        <div class="text-name">SWEETLANE</div>
+                        <div class="text-like">14k thích</div>
+                        <div class="stars">
+                            <form action="">
+                                <input class="star star-5" id="star-5" type="radio" name="star" />
+                                <label class="star star-5" for="star-5"></label>
+                                <input class="star star-4" id="star-4" type="radio" name="star" />
+                                <label class="star star-4" for="star-4"></label>
+                                <input class="star star-3" id="star-3" type="radio" name="star" />
+                                <label class="star star-3" for="star-3"></label>
+                                <input class="star star-2" id="star-2" type="radio" name="star" />
+                                <label class="star star-2" for="star-2"></label>
+                                <input class="star star-1" id="star-1" type="radio" name="star" />
+                                <label class="star star-1" for="star-1"></label>
+                            </form>
                         </div>
                     </div>
+                </div>
                 </div>
                 <div class="col-md-2 store-menu">
                     <div>
@@ -385,12 +388,12 @@
                         </a>
                     </div>    
                 </div>
-                  <div class="col-md-3 rounded  " style="padding-left: 0 !important">
+                <div class="col-md-3 rounded  " style="padding-left: 0 !important">
                     <div class="profile-intro">
                         <h4 class="text-center">Giới thiệu</h4>
                     </div>
                 </div>
-               
+
                 <div class="col-md-1 profile-container-buttons">
                     <button href="/store-info" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>

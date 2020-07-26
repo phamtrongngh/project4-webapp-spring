@@ -55,7 +55,8 @@
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div class="profile-container-img float-left">
+                    <div class="d-flex">
+                    <div class="profile-container-img">
                         <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt=""  />
                     </div>
                     <div class="profile-name">
@@ -75,6 +76,7 @@
                                 <label class="star star-1" for="star-1"></label>
                             </form>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <div class="col-md-4">

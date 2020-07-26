@@ -13,7 +13,11 @@ body {
 label {
     font-size: 20px;
 }
-
+.search-avatar{
+    width: 30px;
+    margin-right: 5px;
+    height: 30px;
+}
 #myBtn {
     position: fixed;
     z-index: 999;
@@ -183,10 +187,12 @@ ul.navbar-nav li.nav-item {
 
 .img-avatar {
     width: 40px;
+    height: 40px;
 }
 
 .img-logo {
     width: 52px;
+    height: 52px;
 }
 
 .inputsearch {
@@ -318,6 +324,7 @@ ul.navbar-nav li.nav-item {
 
 .rounded.background {
     width: 100%;
+    height: 100%;
 }
 
 .subicon1 {
@@ -398,6 +405,7 @@ ul.navbar-nav li.nav-item {
 
 .rounded-circle.avatar {
     width: 50px;
+    height: 50px;
     background-size: 100%;
     margin-top: 10px;
 }
@@ -630,6 +638,7 @@ h1 {
 .list-friends .img-avatar1 {
     margin-top: 40px;
     width: 100%;
+    height: 100%;
 }
 
 .fa-chevron-circle-up {
@@ -767,8 +776,8 @@ h1 {
     flex-flow: column; 
 }
 #login .login-form .form-group {
-   width: 60%;
-   margin: 10px 20px 30px 10px;
+    width: 60%;
+    margin: 10px 20px 30px 10px;
 }
 @media (min-width: 768px){
     #login .login-container{
@@ -779,8 +788,8 @@ h1 {
         height: 92% ;
         padding: 20px !important;
     }
- 
-    
+
+
 }
 @media (min-width:992px){
     #login .login-container{
@@ -790,8 +799,8 @@ h1 {
         height: 94%;
         padding: 0 ;
     }
-  
-   
+
+
     #register .login-container .login-form label {
         font-size: 15px !important;
         margin-left: 20px !important;
@@ -834,8 +843,8 @@ h1 {
     flex-flow: column; 
 }
 #register .login-form .form-group {
-   width: 80%;
-   margin: 10px 20px 30px 10px;
+    width: 80%;
+    margin: 10px 20px 30px 10px;
 }
 .login-sign ul li{
     width: 50%;
@@ -960,8 +969,8 @@ h1 {
 }
 
 .profile .profile-header .profile-container-img .img-avartar {
-    width: 165px;
-
+    width: 155px;
+    height: 155px;
 }
 .profile .profile-name{
     display: table-header-group;
@@ -970,7 +979,7 @@ h1 {
 }
 .profile-name .text-name {
     color: #da484a;
-    font-size: 27px;
+    font-size: 20px;
     font-style: italic;
     font-family: "Great Vibes", cursive;
     margin-top: 9px;
@@ -999,8 +1008,8 @@ input.star {
 
 label.star {
     float: right;
-    padding: 2px;
-    font-size: 30px;
+    padding: 4px;
+    font-size: 25px;
     color: #444;
     transition: all 0.2s;
 }
@@ -1476,6 +1485,7 @@ label.star:before {
 
 .user-profile .profile-container-img img{
     width: 165px;
+    height: 165px
 }
 .user-profile .profile-name{
     display: table-header-group;
@@ -1565,7 +1575,7 @@ label.star:before {
 }
 .img-list .img-contain .img-contains img{
     width: 90%;
-
+    height: 90%;
 }
 .friend-list h3{
     font-size: 15px;
@@ -2113,8 +2123,8 @@ input[type="radio"]:checked {
     margin-left: 10px;
 }
 .store .profile-header .profile-container-img .img-avartar {
-    width: 150px;
-
+    width: 155px;
+    height: 155px;
 }
 .store .profile-intro{
     background-color: white;
@@ -2264,8 +2274,9 @@ input[type="radio"]:checked {
 }
 
 .myprofile-user .profile-container-img img{
-    width: 165px;
+    width: 150px;
     margin-top: 10px;
+    height: 130px;
 }
 .history-MDH{
     text-align: start;
@@ -2634,8 +2645,8 @@ explorestore .profile-menu-hot .col-md-4 {
     margin-left: 10px;
 }
 .store-profile .profile-header .profile-container-img .img-avartar {
-    width: 150px;
-
+    width: 155px;
+    height: 155px;
 }
 .store-profile .profile-name{
     display: table-header-group;
