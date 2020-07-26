@@ -826,7 +826,7 @@ h1 {
     z-index: 80;
     top: 42px;
     right: 0px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -2709,3 +2709,22 @@ explorestore .profile-menu-hot .col-md-4 {
     border-bottom: 1px solid rgba(100, 100, 100, .4);
     margin-bottom: 5px;
 }
+.error {
+    display: none;
+    color: red;   
+}
+.error-user{
+    background-size: contain;
+    background-image: url(../image/Background/not.png);
+    border-color: #dc3545;
+    background-repeat: no-repeat;
+    background-position: center right calc(0.375em + 0.1875rem);
+}
+.success-user{
+    background-size: contain;
+    background-image: url(../image/Background/accept.png);
+    border-color: #28a745;
+    background-repeat: no-repeat;
+    background-position: center right calc(0.375em + 0.1875rem);
+}
+
