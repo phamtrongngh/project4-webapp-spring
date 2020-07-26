@@ -499,12 +499,11 @@ $(document).ready(function() {
     }
 
 
-    var quantityInputs1 = $(".input-qty");
 
-    quantityInputs1.on('change', quantityChanged1);
+   
 });
 //count cart
-
+ $(".input-qty").on('change', quantityChanged1);
 
 
 //messenger
