@@ -373,7 +373,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 store-menu">
+                <div class="col-md-2 store-menu">
                     <div>
                         <a href="/profile"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                             <div class="rounded photo-header">
@@ -385,8 +385,13 @@
                         </a>
                     </div>    
                 </div>
+                  <div class="col-md-3 rounded  " style="padding-left: 0 !important">
+                    <div class="profile-intro">
+                        <h4 class="text-center">Giới thiệu</h4>
+                    </div>
+                </div>
                
-                <div class="col-md-2 profile-container-buttons">
+                <div class="col-md-1 profile-container-buttons">
                     <button href="/store-info" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
                     <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>

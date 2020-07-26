@@ -542,7 +542,7 @@
                                                                             <div class="upload-img-status" >
                                                                                 <div class="gallery text-center">
                                                                                     <a id="chossefile">
-                                                                                        <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px;position: absolute">
+                                                                                        <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute">
                                                                                             <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
                                                                                         </div>
                                                                                     </a>
@@ -554,7 +554,9 @@
                                                                     <div class="col-md-4">
                                                                         <div class="row">
                                                                             <div class="col-md-6">
-                                                                                <label  style="font-size: 10px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+
+                                                                                <label  style="font-size: 10px;width: 100%;margin-top: 2px" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+
                                                                                 <input type="file"  id="upload-photo"/>
                                                                             </div>
                                                                             <div class="col-md-6">
