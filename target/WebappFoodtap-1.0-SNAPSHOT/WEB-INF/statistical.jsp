@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+
 <!--modal post food-->
 <div class="modal" id="postModal-food">
     <form action=""  method="POST">
@@ -33,6 +34,7 @@
         </div>
     </form>
 </div>
+
 
 <!--modal create menu-->
 <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="mdMenu">
@@ -393,12 +395,10 @@
                                         <td>Danh mục</td>
                                         <td>${item.price} VND</td>
                                         <td>
-                                            <center>
+                                            <div class="d-flex justify-content-md-center"> 
                                                 <button  type="button" class="btn btn-success">CẬP NHẬT</button>
-                                            </center>
-                                            <center>
                                                 <button  type="button" idValue="${item._id}" class="btn btn-danger postFoodNewFeed" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
-                                            </center>
+                                            </div>
                                         </td>
                                     </tr>
                                 </c:forEach>

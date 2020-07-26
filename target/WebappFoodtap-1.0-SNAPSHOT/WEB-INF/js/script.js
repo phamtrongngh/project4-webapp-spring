@@ -43,6 +43,7 @@ window.onscroll = function() {
 };
 
 //Ajax call function
+
 function callAjax(url, type, data, cb) {
     $.ajax({
         url: url,
@@ -79,7 +80,6 @@ function getSenderBox(message) {
 $(document).ready(function() {
     //Click to show conservation
     $(".contacts-body .contacts li").click(function() {
-        console.log("${idUser}")
         var id = $(this).attr("idValue");
         var chatBoxvalue = "";
         $(".send-btn").attr("idValue", id)
@@ -509,6 +509,7 @@ $(document).ready(function() {
         }
     })
 
+
     //auto switch tab bar with # in url
     if (location.hash) {
         $('a[href="' + location.hash + '"]').tab('show');
@@ -528,6 +529,14 @@ $(document).ready(function() {
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
     })
-    
-    
+
 })
+//Search
+$(document).ready(function() {
+    $("#dropdownMenuButton").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#List a").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
