@@ -73,10 +73,16 @@ public class UserController {
         return restUser.addToCart(cart);
     }
 
+    @RequestMapping(value = "/removeFromCart/{id}", method = RequestMethod.POST)
+    public ModelAndView removeFromCart(@PathVariable("id") String id) throws IOException {
+        restUser.removeFromCart(id);
+        return cart();
+    }
+
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
     public ModelAndView cart() throws IOException {
-        Map<String,?> user = restUser.getCart();
-        return new ModelAndView("cart").addObject("user",user);
+        Map<String, ?> user = restUser.getCart();
+        return new ModelAndView("cart").addObject("user", user);
     }
 
     @RequestMapping(value = "/updateUser")
