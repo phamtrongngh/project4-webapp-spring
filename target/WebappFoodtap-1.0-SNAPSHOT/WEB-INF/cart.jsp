@@ -25,9 +25,9 @@
                                     <div class="cart-row">
                                         <div class="cart-item cart-column">
                                             <img class="cart-item-image" src="http://localhost:9032/public/image/${item.product.image}" width="100" height="100">
-                                            <span class="cart-item-title">${item.product.name}</span>
+                                            <span class="cart-item-title cart-item-title ">${item.product.name}</span>
                                         </div>
-                                        <span class="cart-price cart-column">${item.product.price} <span>VNĐ</span></span>
+                                        <span class="cart-price cart-column cart-page-price">${item.product.price} VNĐ</span>
 
                                         <div class="cart-quantity cart-column">
                                             <input class="cart-quantity-input" type="number" value="${item.quantity}" max="100">
@@ -40,8 +40,8 @@
                             <div class="cart-total">
                                 <strong class="cart-total-title">Total</strong>
 
-                                <span class="cart-total-price">0 VNĐ</span>
-
+                                <span class="cart-total-price">0</span>VNĐ
+                                <input type="text" class="cart-total-price-data" style="display: none;"/>
                             </div>
 
                         </section>
