@@ -207,7 +207,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
@@ -223,13 +222,14 @@
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div>
-                        <div class="profile-container-img float-left">
-                            <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
+                    <div class="d-flex">
+                        <div class="profile-container-img">
+                            <img src="http://localhost:9032/public/image/${restaurant.avatar}" class="rounded-circle img-avartar" alt="" />
+
                         </div>
                         <div class="profile-name">
-                            <div class="text-name">SWEETLANE</div>
-                            <div class="text-like">14k thích</div>
+                            <div class="text-name">${restaurant.name}</div>
+                            <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
                             <div class="stars">
                                 <form action="">
                                     <input class="star star-5" id="star-5" type="radio" name="star" />
@@ -298,64 +298,64 @@
                     <div style="margin-top: 20px">
                         <a href="/mystore"><img class="rounded img-order" src="/public/image/Background/street-food-trailer-food-truck-cartoon-vector-19682966.jpg" alt="" />
                             <div class="rounded photo ">
-
                                 Gian hàng <br/> của tôi
-
                             </div>
                         </a>
                     </div>
                 </div>
-                <c:forEach var="item" items="${restaurant.newfeeds}">
-                    <div class="col-md-10" >
-                        <div class="post-store rounded">
-                            <form class="row" action="/newfeed/postNewfeed" method="POST">
-                                <div class="col-md-8 post-content">
-                                    <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
-                                    <div class="d-flex" style="width: 30%">
-                                        <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />
-                                        <div class="upload-img-status" >
-                                            <div class="gallery text-center">
-                                                <a id="chossefile">
-                                                    <div class="image-frame-upload" style="border: 1px solid blue;width: 17%;height: 85px;position: absolute">
-                                                        <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
-                                                    </div>
-                                                </a>
-                                                <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
-                                            </div>
+
+                <div class="col-md-10" >
+                    <div class="post-store rounded">
+                        <form class="row" action="/newfeed/postNewfeed" method="POST">
+                            <div class="col-md-8 post-content">
+                                <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                <div class="d-flex" style="width: 30%">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />
+                                    <div class="upload-img-status" >
+                                        <div class="gallery text-center">
+                                            <a id="chossefile">
+                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 17%;height: 85px;position: absolute">
+                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
+                                                </div>
+                                            </a>
+                                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label  style="font-size: 10px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
-                                            <input type="file"  id="upload-photo"/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel-store"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
-
-                                        </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label  style="font-size: 10px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+                                        <input type="file"  id="upload-photo"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel-store"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
 
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <button type="button" class="btn btn-success" data-target="#postModel-store" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                    <div>
-                                        <button class="btn btn-primary">Đăng</button>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-success" data-target="#postModel-store" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                                <hr/>
+                                <div>
+                                    <button class="btn btn-primary">Đăng</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <c:forEach var="item" items="${restaurant.newfeeds}">
                         <div class="rounded status">
                             <div class="alignment">
                                 <div class="media">
-                                    <img src="/public/image/avatar/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
+                                    <img src="http://localhost:9032/public/image/${restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                     <div class="media-body">
-                                        <div href="#" class="name"><a href="#">Sweet Lane</a><img src="/public/image/icons/check.svg" class="check" alt="" />
+                                        <div href="#" class="name"><a href="#">${restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
                                         </div>
+
                                     </div>
                                     <div class="dropleft">
                                         <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
@@ -367,7 +367,7 @@
                                     </div>
                                 </div>
                                 <div class="font1">
-                                    Hè không sợ nóng, vì có CoolCream, với 7 loại kem trái cây cho bạn thêm ngọt ngào
+                                    ${item.content}
                                 </div>
                                 <div>
                                     <a href="#">CoolCream#</a>
@@ -375,18 +375,20 @@
                                     <a href="#">fruit#</a>
                                     <a href="#">sweetlane#</a>
                                 </div>
+
+
                             </div>
                             <div class="image1">
-                                <img src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" class="rounded background" alt="" />
+                                <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                             </div>
                             <div style="margin-top: 2px;display: flex;">
-                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>4,5k</span>
+                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${item.likes.size()}</span>
                                 <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a><span>200 chia sẻ</span></div>
                             </div>
                             <hr class="hr-newsfeed"/>
                             <div class="icon2">
                                 <div class="subicon1">
-                                    <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal"></i>
+                                    <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal" idValue="${item.product}"></i>
                                     </a>
                                     <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
                                     <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
@@ -517,8 +519,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </c:forEach>
+                    </c:forEach>
+                </div>
             </div>
         </div>
 
