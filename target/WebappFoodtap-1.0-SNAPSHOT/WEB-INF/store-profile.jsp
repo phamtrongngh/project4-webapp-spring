@@ -223,8 +223,8 @@
         <div class="col-10 col-sm-10 col-md-11">
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
-                    <div>
-                        <div class="profile-container-img float-left">
+                    <div class="d-flex">
+                        <div class="profile-container-img">
                             <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt="" />
                         </div>
                         <div class="profile-name">
@@ -356,6 +356,7 @@
                                     <div class="media-body">
                                         <div href="#" class="name"><a href="#">Sweet Lane</a><img src="/public/image/icons/check.svg" class="check" alt="" />
                                         </div>
+
                                     </div>
                                     <div class="dropleft">
                                         <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
@@ -365,6 +366,15 @@
                                             <a class="dropdown-item" href="#">Xóa</a>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="font1">
+                                    Hè không sợ nóng, vì có CoolCream, với 7 loại kem trái cây cho bạn thêm ngọt ngào
+                                </div>
+                                <div>
+                                    <a href="#">CoolCream#</a>
+                                    <a href="#">sweet#</a>
+                                    <a href="#">fruit#</a>
+                                    <a href="#">sweetlane#</a>
                                 </div>
                                 <div class="font1">
                                     Hè không sợ nóng, vì có CoolCream, với 7 loại kem trái cây cho bạn thêm ngọt ngào
