@@ -84,9 +84,9 @@ public class RestaurantController implements IController<Restaurant> {
         return new ModelAndView("registerstore");
     }
 
-    @RequestMapping(value = "/store", method = RequestMethod.GET)
-    public ModelAndView store() throws IOException {
-        return new ModelAndView("store");
+    @RequestMapping(value = "/restaurant/{id}", method = RequestMethod.GET)
+    public ModelAndView store(@PathVariable("id") String id) throws IOException {
+        return new ModelAndView("store").addObject("restaurant", restHelper.getOne(id));
     }
 
     @RequestMapping(value = "/restaurant", method = RequestMethod.GET)
@@ -107,16 +107,18 @@ public class RestaurantController implements IController<Restaurant> {
         return new ModelAndView("postRestaurant");
     }
 
+    @RequestMapping(value = "/menu/{id}")
+    public ModelAndView menu(@PathVariable("id") String id) throws IOException {
+        Object restaurant = restHelper.getMenu(id);
+        return new ModelAndView("profile").addObject("restaurant",restaurant);
+    }
+
     @RequestMapping(value = "/restaurant/postRestaurant", method = RequestMethod.POST)
     @Override
     public ModelAndView post(Restaurant restaurant, HttpServletResponse response) throws IOException {
         restHelper.post(restaurant);
         return getAll();
     }
-    //    @RequestMapping(value = "/store-profile/", method = RequestMethod.GET)
-//    public ModelAndView storeprofile() throws IOException {
-//        return new ModelAndView("store-profile");
-//    }
 
     @RequestMapping(value = "/restaurant/{id}")
     @Override

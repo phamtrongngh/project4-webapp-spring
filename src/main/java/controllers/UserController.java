@@ -46,10 +46,7 @@ public class UserController {
         return new ModelAndView("user-info").addObject("user", user);
     }
 
-    @RequestMapping(value = "/profile")
-    public ModelAndView index() {
-        return new ModelAndView("profile");
-    }
+    
 
     @RequestMapping(value = "/user-profile", method = RequestMethod.GET)
     public ModelAndView profile() throws IOException {
