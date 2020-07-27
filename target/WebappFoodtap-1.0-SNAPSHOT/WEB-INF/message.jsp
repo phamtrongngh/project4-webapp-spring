@@ -13,7 +13,7 @@
             <div class="card mb-sm-3 mb-md-0 contacts-card">
                 <div class="card-header">
                     <div class="input-group">
-                        <input type="text" placeholder="Search..." name="" class="form-control search" />
+                        <input type="text" placeholder="Tìm bạn ..." name="" class="form-control search" />
                         <div class="input-group-prepend">
                             <button type="button" class="input-group-text search-btn"><i class="fas fa-search"></i></button>
                         </div>
@@ -43,11 +43,11 @@
                 <div class="card-header msg-head">
                     <div class="d-flex bd-highlight">
                         <div class="img-cont">
-                            <img src="/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img" />
+                            <img src="/public/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img" />
                             <span class="online-icon"></span>
                         </div>
                         <div class="user-info">
-                            <span>Chat with Lisa</span>
+                            <span> Lisa</span>
                         </div>
                     </div>
                     <div class="dropleft action-menu-btn">
@@ -55,23 +55,20 @@
                         <div class="action-menu dropdown-menu">
                             <ul>
                                 <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-user-circle"></i> View profile</li>
+                                    <li class="dropdown-item"><i class="fas fa-user-circle"></i>Trang cá nhân</li>
                                 </a>
                                 <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-users"></i> Add to friends</li>
+                                    <li class="dropdown-item"><i class="fas fa-users"></i> Kết bạn</li>
                                 </a>
                                 <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-plus"></i> Add to group</li>
-                                </a>
-                                <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-ban"></i> Block</li>
+                                    <li class="dropdown-item"><i class="fas fa-ban"></i> Chặn</li>
                                 </a>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="card-body msg-card-body">
-                    
+                   
                 </div>
                 <div class="d-flex justify-content-end mb-4">
                     <div class="">
@@ -83,7 +80,7 @@
                         </div>
                     </div>
                     <div class="img-cont-msg">
-                        <img src="/image/avatar/chinese-food-logo-design_139869-105.jpg" class="rounded-circle user-img-msg" />
+                        <img src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" class="rounded-circle user-img-msg" />
                     </div>
                 </div>
                 <div class="card-footer">
@@ -98,7 +95,7 @@
         </div>
     </div>
 </div>
-<p style="display:none" id="idTag"><%= idUser %></p>
+<p style="display: none" id="idTag"><%= idUser %></p>
 <!--Bootstrap-->
 <script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
 <script src="/public/js/jquery/jquery.min.js "></script>
