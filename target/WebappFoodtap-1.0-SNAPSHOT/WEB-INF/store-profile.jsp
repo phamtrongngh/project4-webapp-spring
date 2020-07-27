@@ -249,7 +249,7 @@
                 </div>
                 <div class="col-md-2 store-menu">
                     <div>
-                        <a href="/profile"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
+                        <a href="/menu/${restaurant._id}"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                             <div class="rounded photo-header">
                                 <div>
                                     Thực đơn
