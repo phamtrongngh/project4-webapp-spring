@@ -22,6 +22,16 @@
 
         <link rel="stylesheet" type="text/css" href="/public/css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="/public/css/styte.css" />
+        <script src="https://cdn.jsdelivr.net/npm/@goongmaps/goong-js@1.0.2/dist/goong-js.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/@goongmaps/goong-js@1.0.2/dist/goong-js.css" rel="stylesheet" />
+        <script src='https://cdn.jsdelivr.net/npm/@goongmaps/goong-geocoder@1.0.2/dist/goong-geocoder.min.js'></script>
+        <link href="https://cdn.jsdelivr.net/npm/@goongmaps/goong-geocoder@1.0.2/dist/goong-geocoder.css" rel="stylesheet"
+              type="text/css" />
+        <style>
+            #map {
+                height: 500px;
+            }
+        </style>
     </head>
 
     <body>

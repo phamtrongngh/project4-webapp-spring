@@ -82,6 +82,17 @@ public class UserController {
         return new ModelAndView("cart").addObject("user", user);
     }
 
+    @RequestMapping(value = "/detail-order", method = RequestMethod.GET)
+    public ModelAndView detailorder() throws IOException {
+
+        return new ModelAndView("detail-order");
+    }
+    @RequestMapping(value = "/status-order", method = RequestMethod.GET)
+    public ModelAndView statusorder() throws IOException {
+
+        return new ModelAndView("status-order");
+    }
+
     @RequestMapping(value = "/updateUser")
     public void update(MultipartContainer multipartContainer, User user, HttpServletResponse response) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();

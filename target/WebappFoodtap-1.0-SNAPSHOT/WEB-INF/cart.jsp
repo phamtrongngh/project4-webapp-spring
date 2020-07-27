@@ -3,6 +3,49 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container contain" style="margin-top: 100px">
     <div class="row">
+
+        <div class="col-md-5 info-user">
+            <h1 style="margin-top: 10px;text-align: left;">Thông tin đơn hàng</h1>
+            <div>
+                <form class="form-group form-order" action="/order/" method="POST">
+                    <div class="info-more">
+                        <label>Họ tên: </label>
+                        <input type="text" name="name" value="${user.fullname}" class="form-control input-name"  />
+                    </div>
+                    <div class=" info-more">
+                        <label>Số điện thoại: </label>
+                        <input type="text" name="phone" value="${user.phone}" class="form-control input-sđt"  />
+                    </div>
+                    <div class=" info-more">
+                        <label>Địa chỉ:</label>
+                        <input type="text" name="address" value="${user.address}" class="form-control input-sđt"  />
+                    </div>
+                    <div class="info-more">
+                        <label>Thời Gian:</label><br/>
+                        <input type="radio" name="time" class="input-radio" checked/>Giao ngay
+                        <input type="radio" name="time" class="input-radio2" />Chọn thời gian nhận hàng
+                    </div>
+                    <div class="info-more">
+                        <input type="date" class="form-control input-date"  />
+                    </div>
+                    <div class="info-more">
+                        <label>Thanh Toán:</label><br/>
+                        <input type="radio" name="pay" class="input-pay" checked value="1"/>Khi nhận hàng
+                        <input type="radio" name="pay" class="input-pay2" value="2"/>Ví điện tử
+                    </div>
+                    <div class="info-pay">
+                        <a href="#"><img src="/public/image/avatar/momo.png" class="img-momo" alt="" /></a>
+                        <a href="#"><img src="/public/image/avatar/viettelpay.png" class="img-viettel" alt="" /></a>
+                    </div>
+                    <div class="info-more">
+                        <label>Ghi chú</label><br/>
+                        <textarea name="note" class="form-control textarea-note"></textarea>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
         <div class="col-md-7 col-sm-12 info-product">
 
             <div class="container">
@@ -39,9 +82,37 @@
                                     </div>
                                 </c:forEach>
                             </div>
-                            <div class="cart-total">
-                                <strong class="cart-total-title">Tổng:</strong>
-                                <span class="cart-total-price">0</span>VNĐ
+                            <div class="cart-total row" style="font-weight: 100;">
+                                <div class="cart-total-title">Tạm tính:</div>
+
+                                <div class="col"><span class="cart-total-price">0</span>VNĐ</div>
+                                <input type="text" class="cart-total-price-data" style="display: none;"/>
+                            </div>
+                            <div class="cart-total row" style="font-weight: 100;">
+                                <div class="cart-total-title">Phí vận chuyển: <span>2</span>km</div>
+
+                                <div class="col"><span class="cart-total-price">0</span>VNĐ</div>
+
+                            </div>
+                            <div class="cart-total row" >
+                                <div class="cart-total-title">Mã giảm giá:</div>
+                                <div class="col">
+                                    <input type="text" style="width: 100%"  />
+                                </div>
+
+
+                            </div>
+                            <div class="cart-total row" style="color: #ff0000;">
+                                <div class="cart-total-title">Phiếu giảm giá:</div>
+
+                                <div class="col">-<span class="cart-total-price">0</span>VNĐ</div>
+
+                            </div>
+                            <div class="cart-total row" style="font-size: 20px;font-weight: 600;">
+                                <div class="cart-total-title">Tổng:</div>
+
+                                <div class="col"><span class="cart-total-price">0</span>VNĐ</div>
+
                             </div>
 
                         </section>
@@ -49,51 +120,10 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-5 info-user">
-            <h1 style="margin-top: 10px;text-align: left;">Thông tin đơn hàng</h1>
-            <div>
-                <form class="form-group form-order" action="/order/" method="POST">
-                    <input type="text" class="cart-total-price-data" name="amount" style="display: none;"/>
-                    <input hidden value="${user._id}" name="user" />
-                    <div class="info-more">
-                        <label>Họ tên: </label>
-                        <input type="text" name="fullname" disabled value="${user.fullname}" class="form-control input-name"  />
-                    </div>
-                    <div class=" info-more">
-                        <label>Số điện thoại: </label>
-                        <input type="text" name="phone" disabled value="${user.phone}" class="form-control input-sđt"  />
-                    </div>
-                    <div class=" info-more">
-                        <label>Địa chỉ:</label>
-                        <input type="text" name="address" value="${user.address}" class="form-control input-sđt"  />
-                    </div>
-                    <div class="info-more">
-                        <label>Thời Gian:</label><br/>
-                        <input type="radio" name="time" class="input-radio" checked/>Giao ngay
-                        <input type="radio" name="time" class="input-radio2" />Chọn thời gian nhận hàng
-                    </div>
-                    <div class="info-more">
-                        <input type="date" class="form-control input-date"  />
-                    </div>
-                    <div class="info-more">
-                        <label>Thanh Toán:</label><br/>
-                        <input type="radio" name="pay" class="input-pay" checked/>Khi nhận hàng
-                        <input type="radio" name="pay" class="input-pay2" />Ví điện tử
-                    </div>
-                    <div class="info-more">
-                        <label>Ghi chú</label><br/>
-                        <textarea name="note" class="form-control textarea-note"></textarea>
-                    </div>
-                    <div class="info-pay">
-                        <a href="#"><img src="/public/image/avatar/momo.png" class="img-momo" alt="" /></a>
-                    </div>
-                    <div class="info-more">
-                        <button type="button" class="btn btn-danger btn-order checkout">Đặt món ngay </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    </div>
+    
+    <div class="info-more" style="text-align: center;padding-bottom: 50px;">
+        <button type="submit" class="btn btn-danger btn-order checkout">Đặt món ngay </button>
     </div>
 </div>
 <!--Bootstrap-->
