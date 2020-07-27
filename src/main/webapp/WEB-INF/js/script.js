@@ -30,23 +30,23 @@ function updateCartTotal() {
         var cartRow = cartRows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        var price=priceElement.innerText.toString().replace(",", "");
-        
+        var price = priceElement.innerText.toString().replace(",", "");
+
         price = parseFloat(price.replace('VNĐ', ''));
-        price = format2(price,"").replace(".000", "");
-        price = price.replace(",","")
+        price = format2(price, "").replace(".000", "");
+        price = price.replace(",", "")
         var quantity = quantityElement.value
         total = total + (price * quantity)
-        
+
     }
-    totalformat = Math.round(total*1000);
+    totalformat = Math.round(total * 1000);
     var totalformatdisplay = format2(total, '').replace(".000", "");
 
 
     document.getElementsByClassName('cart-total-price')[0].innerText = totalformatdisplay;
-     $('.cart-total-price-data').val(total);
+    $('.cart-total-price-data').val(total);
 }
-function formatpricecart(){
+function formatpricecart() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
     var total = 0
@@ -54,13 +54,13 @@ function formatpricecart(){
         var cartRow = cartRows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        
-        
+
+
         var price = parseFloat(priceElement.innerText.replace('VNĐ', ''));
-        price = format2(price,"").replace(".000", "");
-        document.getElementsByClassName('cart-page-price')[i].innerText = price +"VNĐ";
-        
-        
+        price = format2(price, "").replace(".000", "");
+        document.getElementsByClassName('cart-page-price')[i].innerText = price + "VNĐ";
+
+
     }
 }
 
@@ -109,7 +109,7 @@ function update() {
     var tien = $(".price-foodnumber").html().toString();
 
     tien = tien.replace(",", "");
-    
+
     var total1 = q * tien;
 
 
@@ -332,6 +332,8 @@ window.onscroll = function() {
     scrollFunction();
 };
 
+
+
 //Ajax call function
 
 function callAjax(url, type, data, cb) {
@@ -343,32 +345,31 @@ function callAjax(url, type, data, cb) {
     })
 }
 function getReceiveBox(message) {
-    var senderBox = '<div class="d-flex justify-content-end mb-4">';
+    var senderBox = '<div class="msg-time-send">' + message.createdAt + '</div>';
+    senderBox += '<div class="d-flex justify-content-end mb-4">';
     senderBox += '<div class="msg-cotainer-send">';
     senderBox += message.content;
     senderBox += '<br/>';
-    senderBox += '<span class="msg-time-send">' + message.createdAt + '</span>';
     senderBox += '</div>';
     senderBox += '</div>';
     return senderBox;
 }
 
 function getSenderBox(message) {
-    var receiveBox = '<div class="d-flex justify-content-start mb-4">';
+    var receiveBox = '<div   class=" msg-time">' + message.createdAt + '</div>';
+    receiveBox += '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
     receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
     receiveBox += '</div>';
-    receiveBox += '<div class="msg-cotainer">';
+    receiveBox += '<div class="msg-cotainer" >';
     receiveBox += message.content;
     receiveBox += '<br/>';
-    receiveBox += '<span class="msg-time">' + message.createdAt + '</span>';
+
     receiveBox += '</div>';
     receiveBox += '</div>';
     return receiveBox;
 }
-
-$(document).ready(function() {
-    //Click to show conservation
+function showmess() {
     $(".contacts-body .contacts li").click(function() {
         var id = $(this).attr("idValue");
         var chatBoxvalue = "";
@@ -388,8 +389,15 @@ $(document).ready(function() {
             $(".card-body.msg-card-body").html(chatBoxvalue);
             $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
         });
-    })
-
+    });
+}
+$(document).ready(function() {
+    /*chat scroll to bottom*/
+    $('.msg-card-body').stop().animate({scrollTop: 99999999});
+    var messitem = document.getElementsByClassName("li-item-chat")[0];
+    $(messitem).trigger("click", showmess());
+    //Click to show conservation
+    $(".contacts-body .contacts li").click(showmess());
     //Send message
     $(".send-btn").click(function() {
         if ($(".type-msg").val()) {
@@ -468,7 +476,7 @@ var swiper = new Swiper('.swiper-container', {
 });
 //CART
 $(document).ready(function() {
-    
+
     formatpricecart();
     updateCartTotal();
     var removeCartItemButtons = document.getElementsByClassName('btn-remove');
@@ -481,7 +489,7 @@ $(document).ready(function() {
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged);
-        
+
     }
 
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
@@ -500,10 +508,10 @@ $(document).ready(function() {
 
 
 
-   
+
 });
 //count cart
- $(".input-qty").on('change', quantityChanged1);
+$(".input-qty").on('change', quantityChanged1);
 
 
 //messenger
@@ -697,10 +705,10 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     //Remove product from Cart
-   
-    
-    
-    
+
+
+
+
     //binding data to open newfeed
     $(".fa-utensils").click(function() {
         var image = $(this).closest(".status").find(".background");

@@ -61,7 +61,7 @@
                         <div class="gallery text-center">
                             <a id="chossefile">
                                 <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px; background-repeat: no-repeat;background-size: cover">
-                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
+                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 36px;top: 105px;">+</span>
                                 </div>
                             </a>
                             <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
@@ -462,7 +462,7 @@
         options: {
             title: {
                 display: 'true',
-                text: 'Your turnover for a year',
+                    text: 'Doanh thu của bạn trong một năm',
                 fontSize: 30,
                 fontStyle: 'bold',
             },

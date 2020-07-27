@@ -22,7 +22,7 @@
                 <div class="card-body contacts-body">
                     <ui class="contacts">
                         <c:forEach var="item" items="${listFriends}">
-                            <li class="active rounded" idValue="${item._id}">
+                            <li class="active rounded li-item-chat" idValue="${item._id}">
                                 <div class="d-flex bd-highlight">
                                     <div class="img-cont">
                                         <img src="http://localhost:9032/public/image/${item.avatar}" class="rounded-circle user-img" />
@@ -43,11 +43,11 @@
                 <div class="card-header msg-head">
                     <div class="d-flex bd-highlight">
                         <div class="img-cont">
-                            <img src="/public/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img" />
+                            <img class="rounded-circle user-img" />
                             <span class="online-icon"></span>
                         </div>
                         <div class="user-info">
-                            <span> Lisa</span>
+                            <span> </span>
                         </div>
                     </div>
                     <div class="dropleft action-menu-btn">

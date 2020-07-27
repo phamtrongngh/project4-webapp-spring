@@ -186,8 +186,8 @@ ul.navbar-nav li.nav-item {
 }
 .search .dropdown-item{
     border-bottom: solid  ;
-     border-bottom-width: thin;
-     border-bottom-color: rgb(216,216,216);
+    border-bottom-width: thin;
+    border-bottom-color: rgb(216,216,216);
 }
 .img-avatar {
     width: 40px;
@@ -769,7 +769,7 @@ h1 {
     padding: 108px 0px 0px 0px;
     position: absolute;
     z-index: 80;
-    
+
     top: 42px;
     right: 0px;
     background: rgba(0, 0, 0, 0.6);
@@ -1212,7 +1212,8 @@ label.star:before {
 }
 
 .msg-card-body {
-    overflow-y: auto;
+    max-height: 100%;
+    overflow-y: scroll;
 }
 
 .card-header {
@@ -1355,17 +1356,15 @@ label.star:before {
 }
 
 .msg-time {
-    position: absolute;
-    left: 0;
-    bottom: -15px;
-    font-size: 10px;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .msg-time-send {
-    position: absolute;
-    right: 0;
-    bottom: -15px;
-    font-size: 10px;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .msg-head {
