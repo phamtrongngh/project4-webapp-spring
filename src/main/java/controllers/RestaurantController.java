@@ -19,6 +19,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import Nghia.Util.MultipartContainer;
 import Nghia.Util.RESTRestaurantHelper;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import models.Restaurant;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
@@ -84,9 +86,18 @@ public class RestaurantController implements IController<Restaurant> {
         return new ModelAndView("registerstore");
     }
 
-    @RequestMapping(value = "/store", method = RequestMethod.GET)
-    public ModelAndView store() throws IOException {
-        return new ModelAndView("store");
+    @RequestMapping(value = "/restaurant/{id}")
+    @Override
+    public ModelAndView getOne(@PathVariable("id") String id) throws IOException {
+        Object restaurant = restHelper.getOne(id);
+        Map<String,?> map =(Map) restaurant;
+        ArrayList<Map<String,String>> managers = (ArrayList<Map<String,String>>) map.get("managers");
+        for (Map item : managers){
+            if (item.get("user").equals(CookieHelper.getCookie("_id"))){
+                return storeprofile(id);
+            }
+        }
+        return new ModelAndView("store").addObject("restaurant", restaurant);
     }
 
     @RequestMapping(value = "/restaurant", method = RequestMethod.GET)
@@ -107,23 +118,20 @@ public class RestaurantController implements IController<Restaurant> {
         return new ModelAndView("postRestaurant");
     }
 
+    @RequestMapping(value = "/menu/{id}")
+    public ModelAndView menu(@PathVariable("id") String id) throws IOException {
+        Object restaurant = restHelper.getMenu(id);
+        return new ModelAndView("profile").addObject("restaurant",restaurant);
+    }
+
     @RequestMapping(value = "/restaurant/postRestaurant", method = RequestMethod.POST)
     @Override
     public ModelAndView post(Restaurant restaurant, HttpServletResponse response) throws IOException {
         restHelper.post(restaurant);
         return getAll();
     }
-    //    @RequestMapping(value = "/store-profile/", method = RequestMethod.GET)
-//    public ModelAndView storeprofile() throws IOException {
-//        return new ModelAndView("store-profile");
-//    }
 
-    @RequestMapping(value = "/restaurant/{id}")
-    @Override
-    public ModelAndView getOne(@PathVariable("id") String id) throws IOException {
-        Object restaurant = restHelper.getOne(id);
-        return new ModelAndView("updateRestaurant").addObject("restaurant", restaurant);
-    }
+    
 
     @RequestMapping(value = "/restaurant/updateRestaurant", method = RequestMethod.POST)
     @Override

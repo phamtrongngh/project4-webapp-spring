@@ -26,6 +26,7 @@ Nghia\Util\RESTAuthorizeHelper$1.class
 Nghia\Util\RESTOrderHelper.class
 controllers\AuthController$1.class
 Nghia\Util\RESTProductHelper.class
+Nghia\Util\RESTRestaurantHelper$3.class
 Nghia\Util\RESTHelper.class
 controllers\RestaurantController.class
 models\Authorization.class

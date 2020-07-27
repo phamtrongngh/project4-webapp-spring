@@ -57,11 +57,11 @@
                 <div class="col-md-4 profile-avartar">
                     <div class="d-flex">
                     <div class="profile-container-img">
-                        <img src="/public/image/avatar/unnamed.png" class="rounded-circle img-avartar" alt=""  />
+                        <img src="http://localhost:9032/public/image/${restaurant.avatar}" class="rounded-circle img-avartar" alt=""  />
                     </div>
                     <div class="profile-name">
-                        <div class="text-name">SWEETLANE</div>
-                        <div class="text-like">14k lượt thích</div>
+                        <div class="text-name">${restaurant.name}</div>
+                        <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
                         <div class="stars">
                             <form action="">
                                 <input class="star star-5" id="star-5" type="radio" name="star" />
@@ -81,10 +81,10 @@
                 </div>
                 <div class="col-md-4">
                     <div>
-                        <a href="/store"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
+                        <a href="/restaurant/${restaurant._id}"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
                             <div class="rounded photo-header">
                                 <div>
-                                    Các bài<br/> viết của cửa hàng
+                                    Quay lại <br/>bài viết
                                 </div>
 
                             </div>
