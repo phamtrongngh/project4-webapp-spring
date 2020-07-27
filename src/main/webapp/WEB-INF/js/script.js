@@ -709,7 +709,46 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    //Remove product from Cart
+    //Online Momo Payment
+    $(".btn-order.checkout").click(function() {
+        var quantityArray = $(".cart-quantity-input");
+        var productArray = $("input[name='product']");
+        var products = [];
+        for (var i = 0; i < quantityArray.length; i++) {
+            products[i] = {
+                product: productArray[i].value,
+                quantity: Number.parseFloat(quantityArray[i].value)
+            }
+        }
+//        callAjax("/order/", "POST", {
+//            fullname: $("input[name='fullname']").val(),
+//            phone: $("input[name='phone']").val(),
+//            address: $("input[name='address']").val(),
+//            note: $("textarea[name='note']").val(),
+//            amount: Number.parseFloat($(".cart-total-price-data").val()),
+//            user: $("input[name='user']").val(),
+//            products: products
+//        }, function(data) {
+
+//        })
+        var data = {
+            address: $("input[name='address']").val(),
+            note: $("textarea[name='note']").val(),
+            amount: Number.parseFloat($(".cart-total-price-data").val()),
+            user: $("input[name='user']").val(),
+            products: products
+        }
+        $.ajax({
+            url: "/order/",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data) {
+                window.location.href = data;
+            }
+        })
+    })
 
 
 
@@ -728,6 +767,7 @@ $(document).ready(function() {
             $("#orderModal .total-foodnumber").html(data.price);
             $("#orderModal .shop-item-button").attr("idValue", idProduct);
         })
+
     })
     $(".shop-item-button").click(function() {
         var quantity = $("#orderModal .input-qty").val();

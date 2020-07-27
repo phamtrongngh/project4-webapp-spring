@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <!--Modal like and share-->
@@ -410,16 +412,16 @@
                 </div>
 
 
-                
+                <c:forEach  var="item" items="${user.orders}">
                     <div class="history-đonhang">
-                        <a href="/detail-order" style="color: black;"><span class="history-MDH">
-                            HX313123
-                            </span></a>
+                        <span class="history-MDH">
+                            ${item._id}
+                        </span>
                         <span class="receivedday">
-                            15/06/2020
+                            ${item.createdAt}
                         </span>
                         <div class="history-contain">
-                            <a href="/detail-order"><img src="/public/image/Background/pizza.jpg" class="history-avatar" alt=""/></a>
+                            <img src="/public/image/Background/pizza.jpg" class="history-avatar" alt=""/>
                             <div>
                                 <span class="history-namestore">
                                     PizzaHut
@@ -430,24 +432,31 @@
                                 <div style="display: flex;">
                                     <div class="history-price">
                                         <span>
-                                            25.000
+                                            ${item.amount}
                                         </span>VNĐ
+
                                     </div>
-                                    <span class="history-item">(2 phần)<span>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            <div class="history-footer">
-                                                <span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>
-                                                <div style="float: right;">
-                                                    <button class="btn btn-history">Đặt lại</button>
+                                    <div style="display: flex;">
+                                        <div class="history-price">
+                                            <span>
+                                                25.000
+                                            </span>VNĐ
+                                        </div>
+                                        <span class="history-item">(2 phần)<span>
                                                 </div>
+                                                </div>
+                                                </div>
+                                                <div class="history-footer">
+                                                    <span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>
+                                                    <div style="float: right;">
+                                                        <button class="btn btn-history">Đặt lại</button>
+                                                    </div>
 
+                                                </div>
+                                                </div>
+                                            </c:forEach>
+                                            </div>
 
-                                            </div>
-                                            </div>
-                                            
-                                            </div>
 
                                             </div>
                                             </div>

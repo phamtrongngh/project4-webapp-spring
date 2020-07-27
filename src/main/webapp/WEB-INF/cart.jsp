@@ -66,6 +66,7 @@
                             <div class="cart-items">
                                 <c:forEach var="item" items="${user.cart}">
                                     <div class="cart-row">
+                                        <input value="${item.product._id}" hidden name="product"/>
                                         <div class="cart-item cart-column">
                                             <img class="cart-item-image" src="http://localhost:9032/public/image/${item.product.image}" width="100" height="100">
                                             <span class="cart-item-title cart-item-title ">${item.product.name}</span>
@@ -80,7 +81,6 @@
                                         </div>
                                     </div>
                                 </c:forEach>
-
                             </div>
                             <div class="cart-total row" style="font-weight: 100;">
                                 <div class="cart-total-title">Tạm tính:</div>
@@ -92,27 +92,27 @@
                                 <div class="cart-total-title">Phí vận chuyển: <span>2</span>km</div>
 
                                 <div class="col"><span class="cart-total-price">0</span>VNĐ</div>
-                                
+
                             </div>
                             <div class="cart-total row" >
                                 <div class="cart-total-title">Mã giảm giá:</div>
                                 <div class="col">
                                     <input type="text" style="width: 100%"  />
                                 </div>
-                                
-                                
+
+
                             </div>
                             <div class="cart-total row" style="color: #ff0000;">
                                 <div class="cart-total-title">Phiếu giảm giá:</div>
 
                                 <div class="col">-<span class="cart-total-price">0</span>VNĐ</div>
-                                
+
                             </div>
                             <div class="cart-total row" style="font-size: 20px;font-weight: 600;">
                                 <div class="cart-total-title">Tổng:</div>
 
                                 <div class="col"><span class="cart-total-price">0</span>VNĐ</div>
-                                
+
                             </div>
 
                         </section>
@@ -121,7 +121,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="info-more" style="text-align: center;padding-bottom: 50px;">
         <button type="submit" class="btn btn-danger btn-order checkout">Đặt món ngay </button>
     </div>
