@@ -127,7 +127,20 @@ function quantityChanged1(event) {
     }
     update()
 }
+$('input[name=pay]').on('change', function(e) {
+    
+    if ($('input[name=pay]:checked').val()==2) {
+        $(".info-pay").css("display","block");
+        
+    } else {
+        $(".info-pay").css("display","none");
+    }
+});
+   
 $(document).ready(function() {
+    /*display momo*/
+    
+    /*display momo*/
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
 
@@ -736,6 +749,7 @@ $(document).ready(function() {
             }
         })
     })
+
 
 
 
