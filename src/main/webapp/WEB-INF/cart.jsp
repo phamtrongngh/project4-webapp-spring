@@ -23,6 +23,7 @@
                             <div class="cart-items">
                                 <c:forEach var="item" items="${user.cart}">
                                     <div class="cart-row">
+                                        <input value="${item.product._id}" hidden name="product"/>
                                         <div class="cart-item cart-column">
                                             <img class="cart-item-image" src="http://localhost:9032/public/image/${item.product.image}" width="100" height="100">
                                             <span class="cart-item-title cart-item-title ">${item.product.name}</span>
@@ -37,13 +38,10 @@
                                         </div>
                                     </div>
                                 </c:forEach>
-
                             </div>
                             <div class="cart-total">
                                 <strong class="cart-total-title">Tổng:</strong>
-
                                 <span class="cart-total-price">0</span>VNĐ
-                                <input type="text" class="cart-total-price-data" style="display: none;"/>
                             </div>
 
                         </section>
@@ -56,13 +54,15 @@
             <h1 style="margin-top: 10px;text-align: left;">Thông tin đơn hàng</h1>
             <div>
                 <form class="form-group form-order" action="/order/" method="POST">
+                    <input type="text" class="cart-total-price-data" name="amount" style="display: none;"/>
+                    <input hidden value="${user._id}" name="user" />
                     <div class="info-more">
                         <label>Họ tên: </label>
-                        <input type="text" name="name" value="${user.fullname}" class="form-control input-name"  />
+                        <input type="text" name="fullname" disabled value="${user.fullname}" class="form-control input-name"  />
                     </div>
                     <div class=" info-more">
                         <label>Số điện thoại: </label>
-                        <input type="text" name="phone" value="${user.phone}" class="form-control input-sđt"  />
+                        <input type="text" name="phone" disabled value="${user.phone}" class="form-control input-sđt"  />
                     </div>
                     <div class=" info-more">
                         <label>Địa chỉ:</label>
@@ -87,10 +87,9 @@
                     </div>
                     <div class="info-pay">
                         <a href="#"><img src="/public/image/avatar/momo.png" class="img-momo" alt="" /></a>
-                        <a href="#"><img src="/public/image/avatar/viettelpay.png" class="img-viettel" alt="" /></a>
                     </div>
                     <div class="info-more">
-                        <button type="submit" class="btn btn-danger btn-order checkout">Đặt món ngay </button>
+                        <button type="button" class="btn btn-danger btn-order checkout">Đặt món ngay </button>
                     </div>
                 </form>
             </div>

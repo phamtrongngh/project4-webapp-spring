@@ -78,4 +78,6 @@ public class NewfeedController implements IController<Newfeed> {
         rESTNewfeedHelper.postFoodNewfeed(newfeed);
         return new ModelAndView("index");
     }
+    
+    
 }
