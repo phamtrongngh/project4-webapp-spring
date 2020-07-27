@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <!--Modal like and share-->
@@ -409,13 +411,13 @@
                     </div>
                 </div>
 
-
+                <c:forEach  var="item" items="${user.orders}">
                 <div class="history-đonhang">
                     <span class="history-MDH">
-                        HX313123
+                        ${item._id}
                     </span>
                     <span class="receivedday">
-                        15/06/2020
+                        ${item.createdAt}
                     </span>
                     <div class="history-contain">
                         <img src="/public/image/Background/pizza.jpg" class="history-avatar" alt=""/>
@@ -429,7 +431,7 @@
                             <div style="display: flex;">
                                 <div class="history-price">
                                     <span>
-                                        25.000
+                                        ${item.amount}
                                     </span>VNĐ
                                 </div>
                                 <span class="history-item">(2 phần)<span>
@@ -445,6 +447,7 @@
 
                                         </div>
                                         </div>
+                </c:forEach>
                                         </div>
 
                                         </div>
