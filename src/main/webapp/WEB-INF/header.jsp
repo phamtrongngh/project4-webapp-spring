@@ -26,7 +26,7 @@
 
     <body>
 
-        <a href="#" id="myCart"><img src="/public/image/icons/shopping-circle-blue-512.png" width="80" height="80" alt=""><span class="badge count-cart-fix">3</span></a>
+        <a href="/cart" id="myCart"><img src="/public/image/icons/shopping-circle-blue-512.png" width="80" height="80" alt=""><span class="badge count-cart-fix">3</span></a>
         <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">

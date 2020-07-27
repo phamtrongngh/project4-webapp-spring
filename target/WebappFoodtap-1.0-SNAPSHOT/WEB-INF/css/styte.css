@@ -184,7 +184,11 @@ ul.navbar-nav li.nav-item {
     justify-content: center;
     width: 500px;
 }
-
+.search .dropdown-item{
+    border-bottom: solid  ;
+     border-bottom-width: thin;
+     border-bottom-color: rgb(216,216,216);
+}
 .img-avatar {
     width: 40px;
     height: 40px;
@@ -765,6 +769,7 @@ h1 {
     padding: 108px 0px 0px 0px;
     position: absolute;
     z-index: 80;
+    
     top: 42px;
     right: 0px;
     background: rgba(0, 0, 0, 0.6);
@@ -1635,7 +1640,9 @@ label.star:before {
 
 
 /* 8) CART PAGE */
-
+.info-product{
+    width: 100%;
+}
 .info-user .input-name {
     margin-left: 60px;
     width: 60% !important;
@@ -2116,6 +2123,8 @@ input[type="radio"]:checked {
     width: 100%;
 
     height: 155px;
+}.store .img-order{
+    width: 160px;
 }
 .store .name img{
     margin-bottom: 5px;
@@ -2137,6 +2146,9 @@ input[type="radio"]:checked {
     display: table-header-group;
     float: left;    
     margin-top: 15px;
+}
+.store .photo{
+    width: 160px;
 }
 .store .photo-header{
     width: 100%;
@@ -2636,8 +2648,10 @@ explorestore .profile-menu-hot .col-md-4 {
 }
 .store-profile .img-order-header{
     width: 100%;
-
     height: 155px;
+}
+.store-profile .img-order{
+    width: 160px;
 }
 .store-profile .name img{
     margin-bottom: 5px;
@@ -2653,10 +2667,12 @@ explorestore .profile-menu-hot .col-md-4 {
     float: left;    
     margin-top: 15px;
 }
+.store-profile .photo{
+    width: 160px;
+}
 .store-profile .photo-header{
     width: 100%;
     color: white;
-
     height: 155px;
     margin-top: -155px;
     padding-top: 50px;

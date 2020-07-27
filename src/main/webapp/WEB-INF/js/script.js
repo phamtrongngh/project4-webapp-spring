@@ -16,6 +16,117 @@ function updateinfo() {
     password = $("#password-register").val();
 
 }
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+}
+
+function updateCartTotal() {
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price=priceElement.innerText.toString().replace(",", "");
+        
+        price = parseFloat(price.replace('VNĐ', ''));
+        price = format2(price,"").replace(".000", "");
+        price = price.replace(",","")
+        var quantity = quantityElement.value
+        total = total + (price * quantity)
+        
+    }
+    totalformat = Math.round(total*1000);
+    var totalformatdisplay = format2(total, '').replace(".000", "");
+
+
+    document.getElementsByClassName('cart-total-price')[0].innerText = totalformatdisplay;
+     $('.cart-total-price-data').val(total);
+}
+function formatpricecart(){
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        
+        
+        var price = parseFloat(priceElement.innerText.replace('VNĐ', ''));
+        price = format2(price,"").replace(".000", "");
+        document.getElementsByClassName('cart-page-price')[i].innerText = price +"VNĐ";
+        
+        
+    }
+}
+
+function addItemToCart(title, price, imageSrc) {
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == title) {
+            alert('This item is already added to the cart')
+            return
+        }
+    }
+//        var cartRowContents = '<div class="cart-item cart-column">
+//              <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+//              <span class="cart-item-title">${title}</span>
+//          </div>
+//          <span class="cart-price cart-column">${price}</span>
+//          <div class="cart-quantity cart-column">
+//              <input class="cart-quantity-input" type="number" value="1">
+//              <button class="btn btn-danger" type="button">REMOVE</button>
+//          </div>'
+
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
+}
+
+function quantityChanged(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal()
+}
+
+function format2(n, currency) {
+    return currency + n.toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+//    cart index
+function update() {
+
+    var q = ($(".input-qty").val());
+    var tien = $(".price-foodnumber").html().toString();
+
+    tien = tien.replace(",", "");
+    
+    var total1 = q * tien;
+
+
+    var t = format2(total1, '').replace(".000", "");
+
+    $(".total-foodnumber").html(t);
+
+
+}
+
+function quantityChanged1(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    update()
+}
 $(document).ready(function() {
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
@@ -357,7 +468,9 @@ var swiper = new Swiper('.swiper-container', {
 });
 //CART
 $(document).ready(function() {
-
+    
+    formatpricecart();
+    updateCartTotal();
     var removeCartItemButtons = document.getElementsByClassName('btn-remove');
 
     for (var i = 0; i < removeCartItemButtons.length; i++) {
@@ -368,6 +481,7 @@ $(document).ready(function() {
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged);
+        
     }
 
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
@@ -384,97 +498,12 @@ $(document).ready(function() {
         });
     }
 
-    function removeCartItem(event) {
-        var buttonClicked = event.target
-        buttonClicked.parentElement.parentElement.remove()
-        updateCartTotal()
-    }
-
-    function updateCartTotal() {
-        var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-        var cartRows = cartItemContainer.getElementsByClassName('cart-row')
-        var total = 0
-        for (var i = 0; i < cartRows.length; i++) {
-            var cartRow = cartRows[i]
-            var priceElement = cartRow.getElementsByClassName('cart-price')[0]
-            var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-            var price = parseFloat(priceElement.innerText.replace('VNĐ', ''))
-            var quantity = quantityElement.value
-            total = total + (price * quantity)
-        }
-        total = Math.round(total * 1000);
-        var totalformat = format2(total, '').replace(".0", "");
 
 
-        document.getElementsByClassName('cart-total-price')[0].innerText = totalformat + 'VNĐ';
-    }
-
-    function addItemToCart(title, price, imageSrc) {
-        var cartRow = document.createElement('div')
-        cartRow.classList.add('cart-row')
-        var cartItems = document.getElementsByClassName('cart-items')[0]
-        var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
-        for (var i = 0; i < cartItemNames.length; i++) {
-            if (cartItemNames[i].innerText == title) {
-                alert('This item is already added to the cart')
-                return
-            }
-        }
-//        var cartRowContents = '<div class="cart-item cart-column">
-//              <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
-//              <span class="cart-item-title">${title}</span>
-//          </div>
-//          <span class="cart-price cart-column">${price}</span>
-//          <div class="cart-quantity cart-column">
-//              <input class="cart-quantity-input" type="number" value="1">
-//              <button class="btn btn-danger" type="button">REMOVE</button>
-//          </div>'
-
-        cartRow.innerHTML = cartRowContents
-        cartItems.append(cartRow)
-        cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
-        cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
-    }
-
-    function quantityChanged(event) {
-        var input = event.target
-        if (isNaN(input.value) || input.value <= 0) {
-            input.value = 1
-        }
-        updateCartTotal()
-    }
-
-    function format2(n, currency) {
-        return currency + n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-    }
-//    cart index
-    function update() {
-
-        var q = ($(".input-qty").val());
-        var tien = $(".price-foodnumber").html();
-        var total1 = q * tien;
-        total1 = Math.round(total1 * 1000);
-
-        var t = format2(total1, '').replace(".0", "");
-
-        $(".total-foodnumber").html(t + 'VNĐ');
-
-
-    }
-
-    function quantityChanged1(event) {
-        var input = event.target
-        if (isNaN(input.value) || input.value <= 0) {
-            input.value = 1
-        }
-        update()
-    }
-    var quantityInputs1 = $(".input-qty");
-
-    quantityInputs1.on('change', quantityChanged1);
+   
 });
 //count cart
-
+ $(".input-qty").on('change', quantityChanged1);
 
 
 //messenger
@@ -667,12 +696,34 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
+    //Remove product from Cart
+   
+    
+    
+    
     //binding data to open newfeed
-    $(".fa-utensils").click(function(){
+    $(".fa-utensils").click(function() {
         var image = $(this).closest(".status").find(".background");
+        var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
-        callAjax("/getProduct/"+idProduct,"GET",null,function(data){
-            console.log(data);
+        callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
+            $("#orderModal .img-status").attr("src", image.attr("src"));
+            $("#orderModal .title-food").html(data.name);
+            $("#orderModal .content-food").html(content.html())
+            data.price = (format2(data.price, '')).replace(".000", "");
+            $("#orderModal .price-foodnumber").html(data.price);
+            $("#orderModal .total-foodnumber").html(data.price);
+            $("#orderModal .shop-item-button").attr("idValue", idProduct);
+        })
+    })
+    $(".shop-item-button").click(function() {
+        var quantity = $("#orderModal .input-qty").val();
+        var idProduct = $(this).attr("idValue");
+        callAjax("/addToCart", "POST", {
+            product: idProduct,
+            quantity: quantity
+        }, function(data) {
+            $("#orderModal").modal("hide");
         })
     })
     //binding data to post food newfeed

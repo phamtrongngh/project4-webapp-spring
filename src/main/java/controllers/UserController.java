@@ -6,6 +6,8 @@ import Nghia.Util.RESTHelper;
 import Nghia.Util.RESTUserHelper;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import models.Cart;
 import models.User;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
@@ -24,6 +27,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -61,6 +65,24 @@ public class UserController {
     @RequestMapping(value = "/User/statistical")
     public ModelAndView statistical() {
         return new ModelAndView("statistical");
+    }
+
+    @RequestMapping(value = "/addToCart", method = RequestMethod.POST)
+    @ResponseBody
+    public String addToCart(Cart cart) {
+        return restUser.addToCart(cart);
+    }
+
+    @RequestMapping(value = "/removeFromCart/{id}", method = RequestMethod.POST)
+    public ModelAndView removeFromCart(@PathVariable("id") String id) throws IOException {
+        restUser.removeFromCart(id);
+        return cart();
+    }
+
+    @RequestMapping(value = "/cart", method = RequestMethod.GET)
+    public ModelAndView cart() throws IOException {
+        Map<String, ?> user = restUser.getCart();
+        return new ModelAndView("cart").addObject("user", user);
     }
 
     @RequestMapping(value = "/updateUser")
