@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.net.URLDecoder"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
@@ -35,8 +36,14 @@
     </head>
 
     <body>
-
-        <a href="/cart" id="myCart"><img src="/public/image/icons/shopping-circle-blue-512.png" width="80" height="80" alt=""><span class="badge count-cart-fix">3</span></a>
+        <c:choose>
+            <c:when test="${cookie['cart'].getValue()>0}">
+                <a href='/cart' id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
+                </c:when>
+                <c:otherwise>
+                <a href='/cart' style="display:none" id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
+            </c:otherwise>
+        </c:choose>
         <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">
@@ -53,9 +60,19 @@
                         <div class="input-group">
                             <input type="text" class="form-control inputsearch" data-toggle="dropdown"  id="dropdownMenuButton" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="width: 100%">
+                                <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
+                                    <span>Mọi người</span>
+                                </div>
                                 <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="rounded-circle search-avatar" alt=""/>Phan Anh</a>
                                 <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="rounded-circle search-avatar" alt=""/>Thi Tran</a>
                                 <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="rounded-circle search-avatar" alt=""/>Trang Tran</a>
+                                <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
+                                    <span>Cửa hàng</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="search-avatar" alt=""/>Phan Anh</a>
+                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="search-avatar" alt=""/>Thi Tran</a>
+                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="search-avatar" alt=""/>Trang Tran</a>
+
                             </div>
                             <div class="input-group-prepend">
                                 <button class="btn btn-Search "  type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -111,7 +128,7 @@
                             </div>
                             <div class="text-center">
                                 <span><a  href="/message/">Xem tất cả</a></span>
-                                
+
                             </div>
                         </div>
                     </li>

@@ -388,8 +388,6 @@
         </div>
     </div>
 </div>
-
-<!--modal history-->
 <div class="modal fade" id="history" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -410,15 +408,11 @@
                         <input id="datepicker-history" style="width: 245px;"/><button type="button" class="datepicker-history1"><i class="far fa-calendar-alt"></i></button>
                     </div>
                 </div>
-
-
                 <c:forEach  var="item" items="${user.orders}">
                     <div class="history-đonhang">
                         <span class="history-MDH">
-                            ${item._id}
                         </span>
                         <span class="receivedday">
-                            ${item.createdAt}
                         </span>
                         <div class="history-contain">
                             <img src="/public/image/Background/pizza.jpg" class="history-avatar" alt=""/>
@@ -432,9 +426,7 @@
                                 <div style="display: flex;">
                                     <div class="history-price">
                                         <span>
-                                            ${item.amount}
                                         </span>VNĐ
-
                                     </div>
                                     <div style="display: flex;">
                                         <div class="history-price">
@@ -447,20 +439,20 @@
                                                 </div>
                                                 </div>
                                                 <div class="history-footer">
-                                                    <span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>
+                                                    <!--<span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>-->
                                                     <div style="float: right;">
                                                         <button class="btn btn-history">Đặt lại</button>
                                                     </div>
-
+                                                </div>
                                                 </div>
                                                 </div>
                                             </c:forEach>
                                             </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <!--modal history-->
 
-
-                                            </div>
-                                            </div>
-                                            </div>
                                             <!--end modal-->
                                             <!--Content-->
                                             <div class="container myprofile-user" style="margin-top: 100px">
