@@ -184,7 +184,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <div></div>
+                <div id="map"></div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
