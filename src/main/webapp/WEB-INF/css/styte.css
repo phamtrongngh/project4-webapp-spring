@@ -1057,8 +1057,8 @@ label.star:before {
 .profile .profile-container-button button i {
     margin-right: 10px;
 }
-.profile-header .fa-comment {
-    font-size: 60px;
+.profile-header .fa-edit {
+    font-size: 38px;
 }
 
 .profile-header .container-sendmess button {
@@ -2277,7 +2277,7 @@ input[type="radio"]:checked {
     }
 
     .myprofile-user .profile-container-img img{
-        width: 150px;
+        width: 130px;
         margin-top: 10px;
         height: 130px;
     }
@@ -2748,3 +2748,4 @@ input[type="radio"]:checked {
     .btn-location:hover i{
         color: white !important;
     }
+   
