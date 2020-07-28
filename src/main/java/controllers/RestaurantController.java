@@ -117,7 +117,21 @@ public class RestaurantController implements IController<Restaurant> {
     public ModelAndView getCreate() throws IOException {
         return new ModelAndView("postRestaurant");
     }
-
+    @RequestMapping(value = "/mystore-display", method = RequestMethod.GET)
+    public ModelAndView mystoredisplay()throws IOException {
+        return new ModelAndView("mystore-display");
+        
+    }
+    @RequestMapping(value = "/mystore-profile", method = RequestMethod.GET)
+    public ModelAndView mystoreprofile()throws IOException {
+        return new ModelAndView("mystore-profile");
+        
+    }
+    @RequestMapping(value = "/store-profile", method = RequestMethod.GET)
+    public ModelAndView storeprofile()throws IOException {
+        return new ModelAndView("store-profile");
+        
+    }
     @RequestMapping(value = "/menu/{id}")
     public ModelAndView menu(@PathVariable("id") String id) throws IOException {
         Object restaurant = restHelper.getMenu(id);
