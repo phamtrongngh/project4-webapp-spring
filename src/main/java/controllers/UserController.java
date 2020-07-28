@@ -100,8 +100,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
-    public ModelAndView cart() throws IOException {
+    public ModelAndView cart(HttpServletResponse response) throws IOException {
         Map<String, ?> user = restUser.getCart();
+        if (((List)user.get("cart")).size() ==0){
+            response.sendRedirect("/");
+            return null;
+        }
         return new ModelAndView("cart").addObject("user", user);
     }
 

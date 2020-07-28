@@ -41,13 +41,10 @@
                         <label>Ghi chú</label><br/>
                         <textarea name="note" class="form-control textarea-note"></textarea>
                     </div>
-
-
                 </form>
             </div>
         </div>
         <div class="col-md-7 col-sm-12 info-product">
-
             <div class="container">
                 <div class="card shopping-cart">
                     <div class="card-header text-light" style="background-color: #fc7a7b;">
