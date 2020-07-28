@@ -714,6 +714,7 @@ $(document).ready(function() {
     $(".btn-order.checkout").click(function() {
         var quantityArray = $(".cart-quantity-input");
         var productArray = $("input[name='product']");
+        var payment = $("input[name='payment']:checked").val();
         var products = [];
         for (var i = 0; i < quantityArray.length; i++) {
             products[i] = {
@@ -725,6 +726,7 @@ $(document).ready(function() {
         var data = {
             address: $("input[name='address']").val(),
             note: $("textarea[name='note']").val(),
+            payment : payment,
             amount: Number.parseFloat($(".cart-total-price-data").val()),
             user: $("input[name='user']").val(),
             products: products

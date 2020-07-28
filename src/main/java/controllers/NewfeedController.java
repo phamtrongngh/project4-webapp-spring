@@ -73,10 +73,11 @@ public class NewfeedController implements IController<Newfeed> {
 
 
     @RequestMapping(value = "/newfeed/postFoodNewFeed/{id}", method = RequestMethod.POST)
-    public ModelAndView foodNewFeed(@PathVariable("id") String id, Newfeed newfeed) {
+    public ModelAndView foodNewFeed(@PathVariable("id") String id, Newfeed newfeed, HttpServletResponse response) throws IOException {
         newfeed.setProduct(id);
         rESTNewfeedHelper.postFoodNewfeed(newfeed);
-        return new ModelAndView("index");
+        response.sendRedirect("/");
+        return null;
     }
     
     
