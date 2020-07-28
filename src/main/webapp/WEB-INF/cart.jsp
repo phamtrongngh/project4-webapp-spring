@@ -75,9 +75,9 @@
 
                                         <div class="cart-quantity cart-column">
                                             <input class="cart-quantity-input" type="number" value="${item.quantity}" max="100">
-                                            <form action="/removeFromCart/${item.product._id}" method="POST">
-                                                <button class="btn btn-danger" >Xóa</button>
-                                            </form>
+
+                                            <button idValue="${item.product._id}" class="btn btn-danger removeCart" >Xóa</button>
+
                                         </div>
                                     </div>
                                 </c:forEach>
@@ -121,7 +121,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="info-more" style="text-align: center;padding-bottom: 50px;">
         <button type="submit" class="btn btn-danger btn-order checkout">Đặt món ngay </button>
     </div>
