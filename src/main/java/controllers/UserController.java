@@ -46,10 +46,7 @@ public class UserController {
         return new ModelAndView("user-info").addObject("user", user);
     }
 
-    @RequestMapping(value = "/profile")
-    public ModelAndView index() {
-        return new ModelAndView("profile");
-    }
+    
 
     @RequestMapping(value = "/user-profile", method = RequestMethod.GET)
     public ModelAndView profile() throws IOException {
@@ -83,6 +80,17 @@ public class UserController {
     public ModelAndView cart() throws IOException {
         Map<String, ?> user = restUser.getCart();
         return new ModelAndView("cart").addObject("user", user);
+    }
+
+    @RequestMapping(value = "/detail-order", method = RequestMethod.GET)
+    public ModelAndView detailorder() throws IOException {
+
+        return new ModelAndView("detail-order");
+    }
+    @RequestMapping(value = "/status-order", method = RequestMethod.GET)
+    public ModelAndView statusorder() throws IOException {
+
+        return new ModelAndView("status-order");
     }
 
     @RequestMapping(value = "/updateUser")

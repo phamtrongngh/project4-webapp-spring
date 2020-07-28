@@ -30,23 +30,23 @@ function updateCartTotal() {
         var cartRow = cartRows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        var price=priceElement.innerText.toString().replace(",", "");
-        
+        var price = priceElement.innerText.toString().replace(",", "");
+
         price = parseFloat(price.replace('VNĐ', ''));
-        price = format2(price,"").replace(".000", "");
-        price = price.replace(",","")
+        price = format2(price, "").replace(".000", "");
+        price = price.replace(",", "")
         var quantity = quantityElement.value
         total = total + (price * quantity)
-        
+
     }
-    totalformat = Math.round(total*1000);
+    totalformat = Math.round(total * 1000);
     var totalformatdisplay = format2(total, '').replace(".000", "");
 
 
     document.getElementsByClassName('cart-total-price')[0].innerText = totalformatdisplay;
-     $('.cart-total-price-data').val(total);
+    $('.cart-total-price-data').val(total);
 }
-function formatpricecart(){
+function formatpricecart() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
     var total = 0
@@ -54,13 +54,13 @@ function formatpricecart(){
         var cartRow = cartRows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        
-        
+
+
         var price = parseFloat(priceElement.innerText.replace('VNĐ', ''));
-        price = format2(price,"").replace(".000", "");
-        document.getElementsByClassName('cart-page-price')[i].innerText = price +"VNĐ";
-        
-        
+        price = format2(price, "").replace(".000", "");
+        document.getElementsByClassName('cart-page-price')[i].innerText = price + "VNĐ";
+
+
     }
 }
 
@@ -109,7 +109,7 @@ function update() {
     var tien = $(".price-foodnumber").html().toString();
 
     tien = tien.replace(",", "");
-    
+
     var total1 = q * tien;
 
 
@@ -127,7 +127,20 @@ function quantityChanged1(event) {
     }
     update()
 }
+$('input[name=pay]').on('change', function(e) {
+    
+    if ($('input[name=pay]:checked').val()==2) {
+        $(".info-pay").css("display","block");
+        
+    } else {
+        $(".info-pay").css("display","none");
+    }
+});
+   
 $(document).ready(function() {
+    /*display momo*/
+    
+    /*display momo*/
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
 
@@ -468,7 +481,7 @@ var swiper = new Swiper('.swiper-container', {
 });
 //CART
 $(document).ready(function() {
-    
+
     formatpricecart();
     updateCartTotal();
     var removeCartItemButtons = document.getElementsByClassName('btn-remove');
@@ -481,7 +494,7 @@ $(document).ready(function() {
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged);
-        
+
     }
 
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
@@ -500,10 +513,10 @@ $(document).ready(function() {
 
 
 
-   
+
 });
 //count cart
- $(".input-qty").on('change', quantityChanged1);
+$(".input-qty").on('change', quantityChanged1);
 
 
 //messenger
@@ -696,11 +709,50 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    //Remove product from Cart
-   
-    
-    
-    
+    //Online Momo Payment
+    $(".btn-order.checkout").click(function() {
+        var quantityArray = $(".cart-quantity-input");
+        var productArray = $("input[name='product']");
+        var products = [];
+        for (var i = 0; i < quantityArray.length; i++) {
+            products[i] = {
+                product: productArray[i].value,
+                quantity: Number.parseFloat(quantityArray[i].value)
+            }
+        }
+//        callAjax("/order/", "POST", {
+//            fullname: $("input[name='fullname']").val(),
+//            phone: $("input[name='phone']").val(),
+//            address: $("input[name='address']").val(),
+//            note: $("textarea[name='note']").val(),
+//            amount: Number.parseFloat($(".cart-total-price-data").val()),
+//            user: $("input[name='user']").val(),
+//            products: products
+//        }, function(data) {
+
+//        })
+        var data = {
+            address: $("input[name='address']").val(),
+            note: $("textarea[name='note']").val(),
+            amount: Number.parseFloat($(".cart-total-price-data").val()),
+            user: $("input[name='user']").val(),
+            products: products
+        }
+        $.ajax({
+            url: "/order/",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data) {
+                window.location.href = data;
+            }
+        })
+    })
+
+
+
+
     //binding data to open newfeed
     $(".fa-utensils").click(function() {
         var image = $(this).closest(".status").find(".background");
@@ -715,6 +767,7 @@ $(document).ready(function() {
             $("#orderModal .total-foodnumber").html(data.price);
             $("#orderModal .shop-item-button").attr("idValue", idProduct);
         })
+
     })
     $(".shop-item-button").click(function() {
         var quantity = $("#orderModal .input-qty").val();
