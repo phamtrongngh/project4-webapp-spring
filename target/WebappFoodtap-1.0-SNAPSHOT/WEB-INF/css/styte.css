@@ -2050,16 +2050,16 @@ input[type="radio"]:checked {
         text-align: center;
         width: 15%;
     }
-    .registerstore .btn-location{
+    .btn-location{
         background-color: #fff;
         color: #da484a;
         transition: .5s ease;
     }
-    .registerstore .btn-location:hover{
+    .btn-location:hover{
         background-color: #da484a;
         color: white;
     }
-    .registerstore .btn-location:focus{
+    .btn-location:focus{
         outline: none;
     }
 
@@ -2745,4 +2745,6 @@ input[type="radio"]:checked {
         background-repeat: no-repeat;
         background-position: center right calc(0.375em + 0.1875rem);
     }
-
+    .btn-location:hover i{
+        color: white !important;
+    }
