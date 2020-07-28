@@ -353,7 +353,7 @@
                                 <div class="media">
                                     <img src="http://localhost:9032/public/image/${restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                     <div class="media-body">
-                                        <div href="#" class="name"><a href="#">${restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
+                                        <div  class="name"><a href="/store-profile/${restaurant._id}">${restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
                                         </div>
 
                                     </div>

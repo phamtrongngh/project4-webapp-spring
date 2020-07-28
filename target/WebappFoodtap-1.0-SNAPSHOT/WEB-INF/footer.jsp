@@ -6,10 +6,13 @@
             <a class="btn-up "><i class="fa fa-chevron-circle-up " aria-hidden="true "></i></a>
         </div>
         <div class="box" id="chat-sidebar">
-            <div id="sidebar-user-box" class="100">
-                <img src="/public/image/avatar/talin.JPG " class="rounded-circle img-avatar1 " />
-                <span id="slider-username">Sumit Kumar Pradhan </span>
+            <c:forEach var="item" items="${listFriends}">
+                 <div id="sidebar-user-box" class="100">
+                <img src="/public/image/avatar/${item.avatar} " class="rounded-circle img-avatar1 " />
+                <span id="slider-username">${item.fullname}</span>
             </div>
+            </c:forEach>
+           
             <div id="sidebar-user-box" class="101">
                 <img src="/public/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png " class="rounded-circle img-avatar1 " alt=" " />
                 <span id="slider-username">Amit Singh </span>

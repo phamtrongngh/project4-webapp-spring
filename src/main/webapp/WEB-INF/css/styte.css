@@ -1834,12 +1834,12 @@ input[type="radio"]:checked {
 }
 
 .cart-total-title {
-   
+
     margin-left: 250px;
 }
 
 .cart-total-price {
-    
+
     font-size: 1.1em;
 }
 
@@ -1864,6 +1864,7 @@ input[type="radio"]:checked {
 
 .messenger-avatar {
     width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 4px;
 }
@@ -1875,6 +1876,9 @@ input[type="radio"]:checked {
 .messenger-content {
     font-size: 15px;
     font-weight: 200;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 0;
 }
 
 .messenger-footer {
@@ -1926,825 +1930,825 @@ input[type="radio"]:checked {
     transform-origin: 50% 50%;
 }
 
-    @-webkit-keyframes phonering-alo-circle-fill-anim {
+@-webkit-keyframes phonering-alo-circle-fill-anim {
 
-        0%{-webkit-transform:rotate(0) scale(1) skew(1deg)}
-        10%{-webkit-transform:rotate(-25deg) scale(1) skew(1deg)}
-        20%{-webkit-transform:rotate(25deg) scale(1) skew(1deg)}
-        30%{-webkit-transform:rotate(-25deg) scale(1) skew(1deg)}
-        40%{-webkit-transform:rotate(25deg) scale(1) skew(1deg)}
-        50%{-webkit-transform:rotate(0) scale(1) skew(1deg)}
-        100%{-webkit-transform:rotate(0) scale(1) skew(1deg)}
-    }
+    0%{-webkit-transform:rotate(0) scale(1) skew(1deg)}
+    10%{-webkit-transform:rotate(-25deg) scale(1) skew(1deg)}
+    20%{-webkit-transform:rotate(25deg) scale(1) skew(1deg)}
+    30%{-webkit-transform:rotate(-25deg) scale(1) skew(1deg)}
+    40%{-webkit-transform:rotate(25deg) scale(1) skew(1deg)}
+    50%{-webkit-transform:rotate(0) scale(1) skew(1deg)}
+    100%{-webkit-transform:rotate(0) scale(1) skew(1deg)}
+}
 
-    @-webkit-keyframes phonering-alo-circle-img-anim {
-        0% {
-            -webkit-transform: rotate(0) scale(1) skew(1deg);
-        }
-        10% {
-            -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
-        }
-        20% {
-            -webkit-transform: rotate(25deg) scale(1) skew(1deg);
-        }
-        30% {
-            -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
-        }
-        40% {
-            -webkit-transform: rotate(25deg) scale(1) skew(1deg);
-        }
-        50% {
-            -webkit-transform: rotate(0) scale(1) skew(1deg);
-        }
-        100% {
-            -webkit-transform: rotate(0) scale(1) skew(1deg);
-        }
+@-webkit-keyframes phonering-alo-circle-img-anim {
+    0% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
     }
-    /* Load post */
-    .loading { color: #da484a; }
-    .scrollpane { height: 100px; overflow: auto; width: 200px; }
+    10% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    20% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    30% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    40% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    50% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+    100% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+}
+/* Load post */
+.loading { color: #da484a; }
+.scrollpane { height: 100px; overflow: auto; width: 200px; }
 
-    #upload-photo {
-        opacity: 0;
-        position: absolute;
-        z-index: -1;
-    }
-    .mission{
-        background-color: white;
-        border-radius: 0.5rem;
-        padding: 5px 15px;
-        margin-bottom: 20px;
-    }
-    .detail-mission{
-        border-bottom: 0.5px solid #c4ccd3;
-    }
-    .header-mission{
-        background-color: white;
-        padding: 0px 5px;
-        border-radius: 0.2rem;
-        color: #da484a;
-    }
-    .mission-fix{
-        position: fixed;
-        max-width: 18.7%;
-    }
+#upload-photo {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+.mission{
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 5px 15px;
+    margin-bottom: 20px;
+}
+.detail-mission{
+    border-bottom: 0.5px solid #c4ccd3;
+}
+.header-mission{
+    background-color: white;
+    padding: 0px 5px;
+    border-radius: 0.2rem;
+    color: #da484a;
+}
+.mission-fix{
+    position: fixed;
+    max-width: 18.7%;
+}
 
-    /*9) Register Store */
-    .registerstore .tab-pane
-    {
-        width: 70% !important;
-    }
-    .registerstore .tab-content{
-        height: 100%;
-    }
-    .registerstore .font-margin{
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    .registerstore .form-group {
-        margin-bottom: 30px;
-        margin-left:  160px;
-    }
-    .registerstore .form-group.input-phone{
-        margin-left:  0px !important;
-    }
-    .registerstore .form-group .input-address{
-        margin-left: 54px;
-    }
-    .registerstore .form-group.container-address{
-        margin-left:  0px !important;}
-    .registerstore .form-group.container-city{
-        margin-left: 58px !important;
-    }.registerstore .form-group.container-address{
-        margin-left:  15px !important;
-    }.registerstore .form-inline select.select-address ,
-    .registerstore .form-inline select.select-address-district ,
-    .registerstore .form-inline select.select-address-ward {
-        width: 100% !important
-    }
-    .registerstore .form-group .input-namestore{
-        width: 40% !important;
-        margin-left: 80px;
-    }
-    .registerstore .form-group .input-info{
-        width: 40% !important;
-        margin-left:24px;
-    }
-    .registerstore .form-group .input-name-user{
-        width:  40% !important;
-        margin-left:16px;
-    }
+/*9) Register Store */
+.registerstore .tab-pane
+{
+    width: 70% !important;
+}
+.registerstore .tab-content{
+    height: 100%;
+}
+.registerstore .font-margin{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.registerstore .form-group {
+    margin-bottom: 30px;
+    margin-left:  160px;
+}
+.registerstore .form-group.input-phone{
+    margin-left:  0px !important;
+}
+.registerstore .form-group .input-address{
+    margin-left: 54px;
+}
+.registerstore .form-group.container-address{
+    margin-left:  0px !important;}
+.registerstore .form-group.container-city{
+    margin-left: 58px !important;
+}.registerstore .form-group.container-address{
+    margin-left:  15px !important;
+}.registerstore .form-inline select.select-address ,
+.registerstore .form-inline select.select-address-district ,
+.registerstore .form-inline select.select-address-ward {
+    width: 100% !important
+}
+.registerstore .form-group .input-namestore{
+    width: 40% !important;
+    margin-left: 80px;
+}
+.registerstore .form-group .input-info{
+    width: 40% !important;
+    margin-left:24px;
+}
+.registerstore .form-group .input-name-user{
+    width:  40% !important;
+    margin-left:16px;
+}
 
-    .registerstore .form-group .input-phones{
-        width:  40% !important;
-        margin-left:80px;
-    }
+.registerstore .form-group .input-phones{
+    width:  40% !important;
+    margin-left:80px;
+}
 
-    .registerstore .form-group .select-species{
-        width:  40% !important;
-        margin-left: 58px;
-    }
-    .registerstore .gallery{
-        position: absolute;
-        right: 280px;
-        text-align: center;
-        width: 15%;
-    }
-    .btn-location{
-        background-color: #fff;
-        color: #da484a;
-        transition: .5s ease;
-    }
-    .btn-location:hover{
-        background-color: #da484a;
-        color: white;
-    }
-    .btn-location:focus{
-        outline: none;
-    }
-
-
-    /*End Register Store*/
-    .hr-newsfeed{
-        margin-bottom: 0;
-        margin-top: 0.5em;
-    }
-    .count-comment{
-        margin-right: 10px;
-        color: black;
-    }
-    .modal-sothich{
-        max-width: 100%;
-        height: 100%;
-    }
-
-    .img-store{
-        max-width: 80%;
-        height: 200px;
-    }
-    #sothich{
-        padding: 0 30px !important;
-    }
-    .store-sothich:focus{
-        border: 1px solid black;
-    }
-    .store-sothich-fix{
-        border: 1px solid;
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-        outline-color: rgba(255, 255, 255, 0);
-        outline-offset: 15px;
-        text-shadow: 1px 1px 2px #427388; 
-        border-radius:0.5rem; 
-        font-size: 18px;
-        font-weight: 500;
-    }
-
-    .create-DMmenu{
-        margin-top: 100px;
-        padding: 0 160px;
-    }
-    .form-create-dmmenu{
-        margin-top: 100px;
-    }
-    /*10) STORE*/
-    .store .store-menu{
-        width: 100%;
-    }
-    .store .img-order-header{
-        width: 100%;
-
-        height: 155px;
-    }.store .img-order{
-        width: 160px;
-    }
-    .store .name img{
-        margin-bottom: 5px;
-        margin-top: 5px;
-        margin-left: 10px;
-    }
-    .store .profile-header .profile-container-img .img-avartar {
-        width: 155px;
-        height: 155px;
-    }
-    .store .profile-intro{
-        background-color: white;
-        color:#da484a;
-        width: 100%;
-        height: 100%
-
-    }
-    .store .profile-name{
-        display: table-header-group;
-        float: left;    
-        margin-top: 15px;
-    }
-    .store .photo{
-        width: 160px;
-    }
-    .store .photo-header{
-        width: 100%;
-        color: white;
-
-        height: 155px;
-        margin-top: -155px;
-        padding-top: 50px;
-        transition: 0.5s ease;
-        font-size: 1.4rem;
-        font-weight: 900;
-        text-align: center;
-        opacity: 0.6;
-        background-color: black;
-        font-family: "Quicksand";
-    }
-    .store .photo-header:hover {
-        background-color: black;
-        color: white;
-        font-size: 20px;
-        opacity: 0.9;
-    }
-    .store .profile-container-buttons{
-        padding-left: 0;
-    }
-    .store .profile-container-buttons button{
-        height: 30%;
-        opacity: 0.8;
-        width: 160%;
-        margin-left: -5px;
-    }
-
-    .store .profile-container-buttons button i{
-        margin-right:  10px;
-    }
-
-    .store .profile-container-buttons .btn-success,.store .profile-container-buttons .btn-danger {
-        margin-top: 8px;
-    }
-    .store .containers-sendmess button {
-        margin-left:26px ;
-        height: 100.5%;
-        width: 150%;
-        opacity: 0.8;
-    }
-
-    .store .voucher{
-        width: 100%;
-        margin-top: 10px;
-    }
-    .store .vouchers{
-        background: url(../image/Background/pizza.jpg);
-        background-repeat: no-repeat;
-        height: 150px;
-        width: 100%;
-        margin-top: 10px;
-        background-size: 100% 100%;
-    }
-    .store .header-mission{
-        color: white;
-        position: absolute;
-        background: none;
-    }
-    .store .header-voucher{
-        background-color: white;
-        padding: 0px 5px;
-        border-radius: 0.2rem;
-        color: #da484a;
-    }
-    .store .header-mission h4 {
-        font-size: 18px;
-
-    }
-    .store .header-mission h4 i{
-        font-size: 20px;
-        color: #da484a;
-    }
-
-    /*11)MYPROFILE-USER */
-    .myprofile-user .profile-intro{
-        background-color: white;
-        color:#da484a;
-        width: 115%;
-        height: 100%
-
-    }
-    .myprofile-user .photo-header{
-        width: 100%;
-        color: white;
-        height: 140px;
-        margin-top: -140px;
-        padding-top: 40px;
-        transition: 0.5s ease;
-        font-size: 1.4rem;
-        font-weight: 900;
-        text-align: center;
-        opacity: 0.6;
-        background-color: black;
-        font-family: "Quicksand";
-    }
-    .myprofile-user .photo-header:hover {
-        background-color: black;
-        color: white;
-        font-size: 20px;
-        opacity: 0.9;
-    }
-    .myprofile-user  .profile-container-buttons .btn-success,
-    .myprofile-user  .profile-container-buttons .btn-danger{
-        margin-top:  8px;
-    }
-    .myprofile-user .img-order-header{
-        width: 100%;
-        height: 140px;
-    }
-    .myprofile-user .profile-container-buttons{
-        margin-left: 18px;
-    }
-    .myprofile-user .profile-container-buttons button{
-        width: 188%;
-    }
-    .myprofile-user .containers-sendmess{
-        padding-right: 0 !important;
-        margin-left: 32px;
-
-    }
-    .myprofile-user .containers-sendmess button{
-        width: 130%;
-
-    }
-    .myprofile-user .upload-img-status{
-        margin-left: 10px;
-    }
-    .myprofile-user .upload-img-status .gallery{
-        width: 100%;
-    }
-
-    .myprofile-user .profile-container-img img{
-        width: 150px;
-        margin-top: 10px;
-        height: 130px;
-    }
-    .history-MDH{
-        text-align: start;
-    }
-    .receivedday{
-        float: right;
-    }
-    .history-avatar{
-        width: 200px;
-        height: 125px;
-        margin-right: 10px;
-
-    }
-    .history-đonhang{
-        padding: 10px;
-        background-color: antiquewhite;
-        border-radius: 7px;
-        margin-top: 10px;
-    }
-    .history-contain{
-        display: flex;
-        border-bottom: 1px solid rgb(138,138,150,0.18);
-        padding-bottom: 10px;
-
-    }
-    .history-namestore{
-        font-weight: bold;
-        font-size: 18px;
-    }
-    .history-address{
-        font-weight: 100;
-    }
-    .history-price {
-        font-weight: bold;
-        font-size: 18px;
-    }
-    .history-footer{
-        display: flow-root;
-        margin-top: 5px
-    }
-    /*END */
-    /*12) EXPLORE STORE*/
-    .explorestore .profile-text-hot {
-        margin-top: 25px;
-        margin-bottom: 10px;
-        font-size: 28px;
-        background-color: #da484a;
-        width: 20%;
-        text-align: center;
-        border-radius: 10px;
-        color: white;
-    }
-
-    explorestore .profile-menu-hot {
-        display: flex;
-    }
-
-    explorestore .profile-menu-hot .col-md-4 {
-        padding-left: 0;
-        padding-right: 0;
-        margin-right: 10px;
-        text-align: center;
-        background-color: white;
-        background-clip: content-box;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
-
-    .explorestore .profile-menu-hot img {
-        width: 100%;
-        height: 260px;
-        border-radius: 10px;
-    }
-
-    .explorestore .profile-menu-hot .text-price {
-        opacity: 0.5;
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-
-    .explorestore .profile-menu-hot a {
-        text-decoration: none;
-        color: black;
-        font-size: 22.4px;
-        font-weight: 800;
-    }
-
-    .explorestore .search-food{
-        margin-top: 25px;
-        margin-bottom: 10px;
-        border: 1px solid #ced4da;
-        width: 85%;
-    }
-    .explorestore .btn-search-hot{
-        margin-top: 24px;
-        margin-bottom: 10px;
-        background: white;
-        transition: .5s ease;
-    }
-    .explorestore .btn-search-hot:hover{
-        color: #fff;
-        background-color: #da484a;
-    }
-    /*NEAR*/
-    .explorestore .profile-text-near {
-        margin-top: 25px;
-        margin-bottom: 10px;
-        font-size: 28px;
-        background-color: #da484a;
-        width: 20%;
-        text-align: center;
-        border-radius: 10px;
-        color: white;
-    }
-
-    .explorestore .profile-menu-near {
-        display: flex;
-    }
-
-    .explorestore .profile-menu-near .col-md-4 {
-        padding-left: 0;
-        padding-right: 0;
-        margin-right: 10px;
-        text-align: center;
-        background-color: white;
-        background-clip: content-box;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
-
-    .explorestore .profile-menu-near img {
-        width: 100%;
-        height: 260px;
-        border-radius: 10px;
-    }
-
-    .explorestore .profile-menu-near .text-price {
-        opacity: 0.5;
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-
-    .explorestore .profile-menu-near a {
-        text-decoration: none;
-        color: black;
-        font-size: 22.4px;
-        font-weight: 800;
-    }
-
-    /*END EXPLORE STORE*/
-
-    /* STORE-INFO*/
-    .store-info label{
-        font-size: 14px;
-    }
-    .store-info .btn-location{
-        background-color: white;
-        transition: .5s ease;
-        color: #da484a;
-    }
-    .store-info .btn-location:focus{
-        outline: none;
-    }
-    .store-info .btn-location:hover{
-        background-color: #da484a;
-        color: white;
-    }
-
-    .store-info .add-paper p{
-        font-size: 24px;
-    }
-    /* END STORE-INFO*/
-    /*13) SAME TASTE */
-    .sametaste .profile-text-hot {
-        margin-top: 25px;
-        margin-bottom: 10px;
-        font-size: 28px;
-        background-color: #da484a;
-        width: 20%;
-        text-align: center;
-        border-radius: 10px;
-        color: white;
-    }
-
-    .sametaste .profile-menu-hot {
-        display: flex;
-    }
-
-    .sametaste .profile-menu-hot .col-md-4 {
-        padding-left: 0;
-        padding-right: 0;
-        margin-right: 10px;
-        text-align: center;
-        background-color: white;
-        background-clip: content-box;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
-
-    .sametaste .profile-menu-hot img {
-        width: 100%;
-        height: 260px;
-        border-radius: 10px;
-    }
-
-    .sametaste .profile-menu-hot .text-price {
-        opacity: 0.5;
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-
-    .sametaste .profile-menu-hot a {
-        text-decoration: none;
-        color: black;
-        font-size: 22.4px;
-        font-weight: 800;
-    }
-
-    .sametaste .search-food{
-        margin-top: 25px;
-        margin-bottom: 10px;
-        width: 85% ;
-        border: 1px solid #ced4da;
-    }
-    .sametaste .btn-search-hot{
-        margin-top: 24px;
-        margin-bottom: 10px;
-        background: white;
-        transition: .5s ease;
-    }
-    .sametaste .btn-search-hot:hover{
-        color: #fff;
-        background-color: #da484a;
-    }
-    /*NEAR*/
-    .sametaste .profile-text-near {
-        margin-top: 25px;
-        margin-bottom: 10px;
-        font-size: 28px;
-        background-color: #da484a;
-        width: 20%;
-        text-align: center;
-        border-radius: 10px;
-        color: white;
-    }
-
-    .sametaste .profile-menu-near {
-        display: flex;
-    }
-
-    .sametaste .profile-menu-near .col-md-4 {
-        padding-left: 0;
-        padding-right: 0;
-        margin-right: 10px;
-        text-align: center;
-        background-color: white;
-        background-clip: content-box;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
-
-    .sametaste .profile-menu-near img {
-        width: 100%;
-        height: 260px;
-        border-radius: 10px;
-    }
-
-    .sametaste .profile-menu-near .text-price {
-        opacity: 0.5;
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-
-    .sametaste .profile-menu-near a {
-        text-decoration: none;
-        color: black;
-        font-size: 22.4px;
-        font-weight: 800;
-    }
-    .sametaste .hovereffect {
-        width: 100%;
-        height: 100%;
-        float: left;
-        overflow: hidden;
-        position: relative;
-        text-align: center;
-        cursor: default;
-        padding-left: 0px;
-
-    }
-    .sametaste .hovereffect .overlay {
-        width: 100%;
-        position: absolute;
-        overflow: hidden;
-        left: 0;
-        top: auto;
-        bottom: 0;
-        padding: 1em;
-        height: 4.75em;
-        -webkit-transition: -webkit-transform 0.35s;
-        transition: transform 0.35s;
-        -webkit-transform: translate3d(0,100%,0);
-        transform: translate3d(0,100%,0);
-        visibility: hidden;
-
-    }
-
-    .sametaste .hovereffect img {
-        display: block;
-        position: relative;
-
-    }
-
-    .sametaste .hovereffect h2 {
-        text-transform: uppercase;
-        color: #fff;
-        text-align: center;
-        position: relative;
-        font-size: 17px;
-        padding: 10px;
-        background: #da484a;
-        bottom: 40px;
-        float: left;
-        margin: 0px;
-        display: inline-block;
-        width: 80%;
-        transition: .5s ease
-    }
-    .sametaste .hovereffect h2:hover
-    {
-        background: white;
-        color:#da484a; 
-    }
-    .sametaste .hovereffect p.icon-links 
-    {
-        background-color: white}
-    .sametaste .hovereffect p.icon-links a:hover{
-        color: white;
-        background-color:#da484a; 
-    }
-    .sametaste .hovereffect p.icon-links a {
-        float: right;
-        color: #da484a;
-        font-size: 1.4em;
-        width: 20%;
-        height: 40px;
-        position: relative;
-        bottom: 40px;
-        transition: .5s ease;
-        background-color: white;
-    }
-
-    /* END SAME TASTE */
-    /*14) STORE-PROFILE*/
-    .store-profile .store-menu{
-        width: 100%;
-    }
-    .store-profile .img-order-header{
-        width: 100%;
-        height: 155px;
-    }
-    .store-profile .img-order{
-        width: 160px;
-    }
-    .store-profile .name img{
-        margin-bottom: 5px;
-        margin-top: 5px;
-        margin-left: 10px;
-    }
-    .store-profile .profile-header .profile-container-img .img-avartar {
-        width: 155px;
-        height: 155px;
-    }
-    .store-profile .profile-name{
-        display: table-header-group;
-        float: left;    
-        margin-top: 15px;
-    }
-    .store-profile .photo{
-        width: 160px;
-    }
-    .store-profile .photo-header{
-        width: 100%;
-        color: white;
-        height: 155px;
-        margin-top: -155px;
-        padding-top: 50px;
-        transition: 0.5s ease;
-        font-size: 1.4rem;
-        font-weight: 900;
-        text-align: center;
-        opacity: 0.6;
-        background-color: black;
-        font-family: "Quicksand";
-    }
-    .store-profile .photo-header:hover {
-        background-color: black;
-        color: white;
-        font-size: 20px;
-        opacity: 0.9;
-    }
-    .store-profile .profile-container-buttons{
-        padding-left: 0;
-    }
-    .store-profile .profile-container-buttons button{
-        height: 30%;
-        opacity: 0.8;
-        width: 192%;
-    }
-
-    .store-profile .profile-container-buttons button i{
-        margin-right:  10px;
-    }
-    .store-profile .profile-container-buttons .btn-success,
-    .store-profile .profile-container-buttons .btn-danger {
-        margin-top: 8px;
-    }
-    .store-profile .containers-sendmess button {
-        margin-left:60px ;
-        height: 100%;
-        width: 130%;
-        opacity: 0.8;
-    }
-    .store-profile .profile-intro{
-        background-color: white;
-        color:#da484a;
-        width: 100%;
-        height: 100%
-
-    }
+.registerstore .form-group .select-species{
+    width:  40% !important;
+    margin-left: 58px;
+}
+.registerstore .gallery{
+    position: absolute;
+    right: 280px;
+    text-align: center;
+    width: 15%;
+}
+.btn-location{
+    background-color: #fff;
+    color: #da484a;
+    transition: .5s ease;
+}
+.btn-location:hover{
+    background-color: #da484a;
+    color: white;
+}
+.btn-location:focus{
+    outline: none;
+}
 
 
-    /* user-info */
-    .input-group-text:hover{
-        background-color: #da484a;
-    }
-    .input-group-text:hover i{
-        color: white;
-    }
-    /* like and share */
-    .img-like{
-        width: 50px;
-    }
-    .row-like{
-        border-bottom: 1px solid rgba(100, 100, 100, .4);
-        margin-bottom: 5px;
-    }
-    .error {
-        display: none;
-        color: red;   
-    }
-    .error-user{
-        background-size: contain;
-        background-image: url(../image/Background/not.png);
-        border-color: #dc3545;
-        background-repeat: no-repeat;
-        background-position: center right calc(0.375em + 0.1875rem);
-    }
-    .success-user{
-        background-size: contain;
-        background-image: url(../image/Background/accept.png);
-        border-color: #28a745;
-        background-repeat: no-repeat;
-        background-position: center right calc(0.375em + 0.1875rem);
-    }
-    .btn-location:hover i{
-        color: white !important;
-    }
+/*End Register Store*/
+.hr-newsfeed{
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+.count-comment{
+    margin-right: 10px;
+    color: black;
+}
+.modal-sothich{
+    max-width: 100%;
+    height: 100%;
+}
+
+.img-store{
+    max-width: 80%;
+    height: 200px;
+}
+#sothich{
+    padding: 0 30px !important;
+}
+.store-sothich:focus{
+    border: 1px solid black;
+}
+.store-sothich-fix{
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388; 
+    border-radius:0.5rem; 
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.create-DMmenu{
+    margin-top: 100px;
+    padding: 0 160px;
+}
+.form-create-dmmenu{
+    margin-top: 100px;
+}
+/*10) STORE*/
+.store .store-menu{
+    width: 100%;
+}
+.store .img-order-header{
+    width: 100%;
+
+    height: 155px;
+}.store .img-order{
+    width: 160px;
+}
+.store .name img{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.store .profile-header .profile-container-img .img-avartar {
+    width: 155px;
+    height: 155px;
+}
+.store .profile-intro{
+    background-color: white;
+    color:#da484a;
+    width: 100%;
+    height: 100%
+
+}
+.store .profile-name{
+    display: table-header-group;
+    float: left;    
+    margin-top: 15px;
+}
+.store .photo{
+    width: 160px;
+}
+.store .photo-header{
+    width: 100%;
+    color: white;
+
+    height: 155px;
+    margin-top: -155px;
+    padding-top: 50px;
+    transition: 0.5s ease;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-align: center;
+    opacity: 0.6;
+    background-color: black;
+    font-family: "Quicksand";
+}
+.store .photo-header:hover {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    opacity: 0.9;
+}
+.store .profile-container-buttons{
+    padding-left: 0;
+}
+.store .profile-container-buttons button{
+    height: 30%;
+    opacity: 0.8;
+    width: 160%;
+    margin-left: -5px;
+}
+
+.store .profile-container-buttons button i{
+    margin-right:  10px;
+}
+
+.store .profile-container-buttons .btn-success,.store .profile-container-buttons .btn-danger {
+    margin-top: 8px;
+}
+.store .containers-sendmess button {
+    margin-left:26px ;
+    height: 100.5%;
+    width: 150%;
+    opacity: 0.8;
+}
+
+.store .voucher{
+    width: 100%;
+    margin-top: 10px;
+}
+.store .vouchers{
+    background: url(../image/Background/pizza.jpg);
+    background-repeat: no-repeat;
+    height: 150px;
+    width: 100%;
+    margin-top: 10px;
+    background-size: 100% 100%;
+}
+.store .header-mission{
+    color: white;
+    position: absolute;
+    background: none;
+}
+.store .header-voucher{
+    background-color: white;
+    padding: 0px 5px;
+    border-radius: 0.2rem;
+    color: #da484a;
+}
+.store .header-mission h4 {
+    font-size: 18px;
+
+}
+.store .header-mission h4 i{
+    font-size: 20px;
+    color: #da484a;
+}
+
+/*11)MYPROFILE-USER */
+.myprofile-user .profile-intro{
+    background-color: white;
+    color:#da484a;
+    width: 115%;
+    height: 100%
+
+}
+.myprofile-user .photo-header{
+    width: 100%;
+    color: white;
+    height: 140px;
+    margin-top: -140px;
+    padding-top: 40px;
+    transition: 0.5s ease;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-align: center;
+    opacity: 0.6;
+    background-color: black;
+    font-family: "Quicksand";
+}
+.myprofile-user .photo-header:hover {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    opacity: 0.9;
+}
+.myprofile-user  .profile-container-buttons .btn-success,
+.myprofile-user  .profile-container-buttons .btn-danger{
+    margin-top:  8px;
+}
+.myprofile-user .img-order-header{
+    width: 100%;
+    height: 140px;
+}
+.myprofile-user .profile-container-buttons{
+    margin-left: 18px;
+}
+.myprofile-user .profile-container-buttons button{
+    width: 188%;
+}
+.myprofile-user .containers-sendmess{
+    padding-right: 0 !important;
+    margin-left: 32px;
+
+}
+.myprofile-user .containers-sendmess button{
+    width: 130%;
+
+}
+.myprofile-user .upload-img-status{
+    margin-left: 10px;
+}
+.myprofile-user .upload-img-status .gallery{
+    width: 100%;
+}
+
+.myprofile-user .profile-container-img img{
+    width: 150px;
+    margin-top: 10px;
+    height: 130px;
+}
+.history-MDH{
+    text-align: start;
+}
+.receivedday{
+    float: right;
+}
+.history-avatar{
+    width: 200px;
+    height: 125px;
+    margin-right: 10px;
+
+}
+.history-đonhang{
+    padding: 10px;
+    background-color: antiquewhite;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+.history-contain{
+    display: flex;
+    border-bottom: 1px solid rgb(138,138,150,0.18);
+    padding-bottom: 10px;
+
+}
+.history-namestore{
+    font-weight: bold;
+    font-size: 18px;
+}
+.history-address{
+    font-weight: 100;
+}
+.history-price {
+    font-weight: bold;
+    font-size: 18px;
+}
+.history-footer{
+    display: flow-root;
+    margin-top: 5px
+}
+/*END */
+/*12) EXPLORE STORE*/
+.explorestore .profile-text-hot {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    background-color: #da484a;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+explorestore .profile-menu-hot {
+    display: flex;
+}
+
+explorestore .profile-menu-hot .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 10px;
+    text-align: center;
+    background-color: white;
+    background-clip: content-box;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.explorestore .profile-menu-hot img {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
+}
+
+.explorestore .profile-menu-hot .text-price {
+    opacity: 0.5;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.explorestore .profile-menu-hot a {
+    text-decoration: none;
+    color: black;
+    font-size: 22.4px;
+    font-weight: 800;
+}
+
+.explorestore .search-food{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    width: 85%;
+}
+.explorestore .btn-search-hot{
+    margin-top: 24px;
+    margin-bottom: 10px;
+    background: white;
+    transition: .5s ease;
+}
+.explorestore .btn-search-hot:hover{
+    color: #fff;
+    background-color: #da484a;
+}
+/*NEAR*/
+.explorestore .profile-text-near {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    background-color: #da484a;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+.explorestore .profile-menu-near {
+    display: flex;
+}
+
+.explorestore .profile-menu-near .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 10px;
+    text-align: center;
+    background-color: white;
+    background-clip: content-box;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.explorestore .profile-menu-near img {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
+}
+
+.explorestore .profile-menu-near .text-price {
+    opacity: 0.5;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.explorestore .profile-menu-near a {
+    text-decoration: none;
+    color: black;
+    font-size: 22.4px;
+    font-weight: 800;
+}
+
+/*END EXPLORE STORE*/
+
+/* STORE-INFO*/
+.store-info label{
+    font-size: 14px;
+}
+.store-info .btn-location{
+    background-color: white;
+    transition: .5s ease;
+    color: #da484a;
+}
+.store-info .btn-location:focus{
+    outline: none;
+}
+.store-info .btn-location:hover{
+    background-color: #da484a;
+    color: white;
+}
+
+.store-info .add-paper p{
+    font-size: 24px;
+}
+/* END STORE-INFO*/
+/*13) SAME TASTE */
+.sametaste .profile-text-hot {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    background-color: #da484a;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+.sametaste .profile-menu-hot {
+    display: flex;
+}
+
+.sametaste .profile-menu-hot .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 10px;
+    text-align: center;
+    background-color: white;
+    background-clip: content-box;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.sametaste .profile-menu-hot img {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
+}
+
+.sametaste .profile-menu-hot .text-price {
+    opacity: 0.5;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.sametaste .profile-menu-hot a {
+    text-decoration: none;
+    color: black;
+    font-size: 22.4px;
+    font-weight: 800;
+}
+
+.sametaste .search-food{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    width: 85% ;
+    border: 1px solid #ced4da;
+}
+.sametaste .btn-search-hot{
+    margin-top: 24px;
+    margin-bottom: 10px;
+    background: white;
+    transition: .5s ease;
+}
+.sametaste .btn-search-hot:hover{
+    color: #fff;
+    background-color: #da484a;
+}
+/*NEAR*/
+.sametaste .profile-text-near {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    background-color: #da484a;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+.sametaste .profile-menu-near {
+    display: flex;
+}
+
+.sametaste .profile-menu-near .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 10px;
+    text-align: center;
+    background-color: white;
+    background-clip: content-box;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.sametaste .profile-menu-near img {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
+}
+
+.sametaste .profile-menu-near .text-price {
+    opacity: 0.5;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.sametaste .profile-menu-near a {
+    text-decoration: none;
+    color: black;
+    font-size: 22.4px;
+    font-weight: 800;
+}
+.sametaste .hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    padding-left: 0px;
+
+}
+.sametaste .hovereffect .overlay {
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    padding: 1em;
+    height: 4.75em;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);
+    visibility: hidden;
+
+}
+
+.sametaste .hovereffect img {
+    display: block;
+    position: relative;
+
+}
+
+.sametaste .hovereffect h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: #da484a;
+    bottom: 40px;
+    float: left;
+    margin: 0px;
+    display: inline-block;
+    width: 80%;
+    transition: .5s ease
+}
+.sametaste .hovereffect h2:hover
+{
+    background: white;
+    color:#da484a; 
+}
+.sametaste .hovereffect p.icon-links 
+{
+    background-color: white}
+.sametaste .hovereffect p.icon-links a:hover{
+    color: white;
+    background-color:#da484a; 
+}
+.sametaste .hovereffect p.icon-links a {
+    float: right;
+    color: #da484a;
+    font-size: 1.4em;
+    width: 20%;
+    height: 40px;
+    position: relative;
+    bottom: 40px;
+    transition: .5s ease;
+    background-color: white;
+}
+
+/* END SAME TASTE */
+/*14) STORE-PROFILE*/
+.store-profile .store-menu{
+    width: 100%;
+}
+.store-profile .img-order-header{
+    width: 100%;
+    height: 155px;
+}
+.store-profile .img-order{
+    width: 160px;
+}
+.store-profile .name img{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.store-profile .profile-header .profile-container-img .img-avartar {
+    width: 155px;
+    height: 155px;
+}
+.store-profile .profile-name{
+    display: table-header-group;
+    float: left;    
+    margin-top: 15px;
+}
+.store-profile .photo{
+    width: 160px;
+}
+.store-profile .photo-header{
+    width: 100%;
+    color: white;
+    height: 155px;
+    margin-top: -155px;
+    padding-top: 50px;
+    transition: 0.5s ease;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-align: center;
+    opacity: 0.6;
+    background-color: black;
+    font-family: "Quicksand";
+}
+.store-profile .photo-header:hover {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    opacity: 0.9;
+}
+.store-profile .profile-container-buttons{
+    padding-left: 0;
+}
+.store-profile .profile-container-buttons button{
+    height: 30%;
+    opacity: 0.8;
+    width: 192%;
+}
+
+.store-profile .profile-container-buttons button i{
+    margin-right:  10px;
+}
+.store-profile .profile-container-buttons .btn-success,
+.store-profile .profile-container-buttons .btn-danger {
+    margin-top: 8px;
+}
+.store-profile .containers-sendmess button {
+    margin-left:60px ;
+    height: 100%;
+    width: 130%;
+    opacity: 0.8;
+}
+.store-profile .profile-intro{
+    background-color: white;
+    color:#da484a;
+    width: 100%;
+    height: 100%
+
+}
+
+
+/* user-info */
+.input-group-text:hover{
+    background-color: #da484a;
+}
+.input-group-text:hover i{
+    color: white;
+}
+/* like and share */
+.img-like{
+    width: 50px;
+}
+.row-like{
+    border-bottom: 1px solid rgba(100, 100, 100, .4);
+    margin-bottom: 5px;
+}
+.error {
+    display: none;
+    color: red;   
+}
+.error-user{
+    background-size: contain;
+    background-image: url(../image/Background/not.png);
+    border-color: #dc3545;
+    background-repeat: no-repeat;
+    background-position: center right calc(0.375em + 0.1875rem);
+}
+.success-user{
+    background-size: contain;
+    background-image: url(../image/Background/accept.png);
+    border-color: #28a745;
+    background-repeat: no-repeat;
+    background-position: center right calc(0.375em + 0.1875rem);
+}
+.btn-location:hover i{
+    color: white !important;
+}

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.net.URLDecoder"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html lang="en">
 
@@ -183,7 +184,7 @@
                                 <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
                                 <div style="width: 245px;">
                                     <div class="messenger-name">Truong</div>
-                                    <div class="messenger-content">đâsdsadasdasd</div>
+                                    <p class="messenger-content">đâsdsadasdasd</p>
                                 </div>
                                 <div>12:00</div>
                             </div>
@@ -191,7 +192,7 @@
                                 <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
                                 <div style="width: 245px;">
                                     <div class="messenger-name">Truong</div>
-                                    <div class="messenger-content">đâsdsadasdasdsssssssssssssssssssssssssssssssssssssssssssssss</div>
+                                    <p class="messenger-content">đâsdsadasdasdsssssssssssssssssssssssssssssssssssssssssssssss</p>
                                 </div>
                                 <div>12:00</div>
                             </div>
