@@ -1057,8 +1057,8 @@ label.star:before {
 .profile .profile-container-button button i {
     margin-right: 10px;
 }
-.profile-header .fa-comment {
-    font-size: 60px;
+.profile-header .fa-edit {
+    font-size: 38px;
 }
 
 .profile-header .container-sendmess button {
@@ -2216,11 +2216,29 @@ input[type="radio"]:checked {
 .store .header-mission h4 {
     font-size: 18px;
 
+<<<<<<< HEAD
 }
 .store .header-mission h4 i{
     font-size: 20px;
     color: #da484a;
 }
+=======
+    .myprofile-user .profile-container-img img{
+        width: 130px;
+        margin-top: 10px;
+        height: 130px;
+    }
+    .history-MDH{
+        text-align: start;
+    }
+    .receivedday{
+        float: right;
+    }
+    .history-avatar{
+        width: 200px;
+        height: 125px;
+        margin-right: 10px;
+>>>>>>> e045837a215c492faefe333961addd992fb0c315
 
 /*11)MYPROFILE-USER */
 .myprofile-user .profile-intro{
@@ -2597,6 +2615,7 @@ explorestore .profile-menu-hot .col-md-4 {
 
 }
 
+<<<<<<< HEAD
 .sametaste .hovereffect h2 {
     text-transform: uppercase;
     color: #fff;
@@ -2752,3 +2771,42 @@ explorestore .profile-menu-hot .col-md-4 {
 .btn-location:hover i{
     color: white !important;
 }
+=======
+    /* user-info */
+    .input-group-text:hover{
+        background-color: #da484a;
+    }
+    .input-group-text:hover i{
+        color: white;
+    }
+    /* like and share */
+    .img-like{
+        width: 50px;
+    }
+    .row-like{
+        border-bottom: 1px solid rgba(100, 100, 100, .4);
+        margin-bottom: 5px;
+    }
+    .error {
+        display: none;
+        color: red;   
+    }
+    .error-user{
+        background-size: contain;
+        background-image: url(../image/Background/not.png);
+        border-color: #dc3545;
+        background-repeat: no-repeat;
+        background-position: center right calc(0.375em + 0.1875rem);
+    }
+    .success-user{
+        background-size: contain;
+        background-image: url(../image/Background/accept.png);
+        border-color: #28a745;
+        background-repeat: no-repeat;
+        background-position: center right calc(0.375em + 0.1875rem);
+    }
+    .btn-location:hover i{
+        color: white !important;
+    }
+   
+>>>>>>> e045837a215c492faefe333961addd992fb0c315

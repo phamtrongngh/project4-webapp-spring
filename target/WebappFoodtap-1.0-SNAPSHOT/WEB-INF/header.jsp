@@ -31,7 +31,8 @@
               type="text/css" />
         <style>
             #map {
-                height: 500px;
+                height: 300px;
+                width: 400px;
             }
         </style>
     </head>
