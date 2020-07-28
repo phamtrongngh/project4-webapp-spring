@@ -741,9 +741,6 @@ $(document).ready(function() {
         })
     })
 
-
-
-
     //binding data to open newfeed
     $(".fa-utensils").click(function() {
         var image = $(this).closest(".status").find(".background");
@@ -752,7 +749,7 @@ $(document).ready(function() {
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $("#orderModal .img-status").attr("src", image.attr("src"));
             $("#orderModal .title-food").html(data.name);
-            $("#orderModal .content-food").html(content.html())
+            $("#orderModal .content-food").html(content.html());
             data.price = (format2(data.price, '')).replace(".000", "");
             $("#orderModal .price-foodnumber").html(data.price);
             $("#orderModal .total-foodnumber").html(data.price);

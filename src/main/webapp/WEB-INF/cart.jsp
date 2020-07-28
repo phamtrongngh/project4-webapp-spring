@@ -1,6 +1,26 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <!-- The Modal -->
+        <div class="modal" id="mapModel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Bản đồ</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div id="map"></div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger submit" >Chấp nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 <div class="container contain" style="margin-top: 100px">
     <div class="row">
 
@@ -18,7 +38,13 @@
                     </div>
                     <div class=" info-more">
                         <label>Địa chỉ:</label>
-                        <input type="text" name="address" value="${user.address}" class="form-control input-sđt"  />
+                        <div class="form-inline">
+                            <input id="address-register" type="text" name="address" value="${user.address}" class="form-control input-address" >
+                            
+                            <div class="input-group-prepend">
+                                <button  type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" style="display: block;" ><i class="fas fa-map-marker-alt" style="color: red;"></i></button>
+                            </div>
+                        </div>
                     </div>
                     <div class="info-more">
                         <label>Thời Gian:</label><br/>
@@ -41,17 +67,15 @@
                         <label>Ghi chú</label><br/>
                         <textarea name="note" class="form-control textarea-note"></textarea>
                     </div>
-
-
                 </form>
             </div>
         </div>
         <div class="col-md-7 col-sm-12 info-product">
-
             <div class="container">
+
                 <div class="card shopping-cart">
                     <div class="card-header text-light" style="background-color: #fc7a7b;">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> ${user.cart[0].product.restaurant.name}
                         <a href="" class="btn btn-outline-light btn-sm pull-right">Tiếp tục mua hàng</a>
                         <div class="clearfix"></div>
                     </div>
@@ -127,6 +151,105 @@
     </div>
 </div>
 <!--Bootstrap-->
+<script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
+<script src="/public/js/jquery/jquery.min.js"></script>
+<script src="/public/js/bootstrap/popper.min.js "></script>
+<script src="/public/js/bootstrap/bootstrap.min.js "></script>
+<script src="/public/js/swiper.min.js "></script>
+<script src="/public/js/script.js "></script>
+<script async defered>
+    goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
+    var map = new goongjs.Map({
+        container: 'map', // container id
+        style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
+        center: [105, 21], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
 
+    var geocoder = new GoongGeocoder({
+        accessToken: "rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm",
+        goongjs: goongjs
+    })
 
-<%@include  file="footer.jsp" %>
+    var geolocateControl = new goongjs.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    })
+
+    map.addControl(new goongjs.FullscreenControl());
+
+    map.on('load', function() {
+        map.addSource('single-point', {
+            type: 'geojson',
+            data: {
+                type: 'FeatureCollection',
+                features: []
+            }
+        });
+        map.addControl(
+                geocoder
+                )
+        map.addControl(
+                geolocateControl
+                );
+        map.addLayer({
+            id: 'point',
+            source: 'single-point',
+            type: 'circle',
+            paint: {
+                'circle-radius': 10,
+                'circle-color': '#448ee4'
+            }
+        });
+    });
+
+    var marker = new goongjs.Marker({
+        draggable: true
+    })
+            .setLngLat([105, 21])
+            .addTo(map);
+
+    marker.on('dragend', function() {
+
+        var lngLat = marker.getLngLat();
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=qKvO3Yc2cMFMVB4NKEGsMkm0FgMrQO1pqXmPUaup&limit=1')
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    $(".input-address").val(data.results[0].formatted_address);
+                });
+    });
+    geolocateControl.on("geolocate", function(e) {
+        var lng = e.coords.longitude;
+        var lat = e.coords.latitude;
+        marker._lngLat = {lat: lat, lng: lng}
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm', {mode: "cors"})
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    $(".input-address").val(data.results[0].formatted_address);
+                });
+    })
+    geocoder.on("result", function(e) {
+        geocoder.mapMarker.remove();
+        marker._lngLat = geocoder.mapMarker._lngLat;
+        $(".input-address").val(e.result.description);
+    })
+    $(".btn-location").click(function() {
+        $(".goongjs-ctrl-fullscreen").trigger("click");
+    })
+    $("#mapModel .modal-footer button").click(function() {
+        $("#mapModel").modal("hide");
+    })
+    $(".close").click(function() {
+        $(".input-address").val("");
+        $("#mapModel").modal("hide");
+    })
+</script>
+</body>
+
+</html>
