@@ -16,6 +16,7 @@ function updateinfo() {
     password = $("#password-register").val();
 
 }
+
 function removeCartItem(event) {
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
@@ -128,18 +129,18 @@ function quantityChanged1(event) {
     update()
 }
 $('input[name=pay]').on('change', function(e) {
-    
-    if ($('input[name=pay]:checked').val()==2) {
-        $(".info-pay").css("display","block");
-        
+
+    if ($('input[name=pay]:checked').val() == 2) {
+        $(".info-pay").css("display", "block");
+
     } else {
-        $(".info-pay").css("display","none");
+        $(".info-pay").css("display", "none");
     }
 });
-   
+
 $(document).ready(function() {
     /*display momo*/
-    
+
     /*display momo*/
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
@@ -720,17 +721,7 @@ $(document).ready(function() {
                 quantity: Number.parseFloat(quantityArray[i].value)
             }
         }
-//        callAjax("/order/", "POST", {
-//            fullname: $("input[name='fullname']").val(),
-//            phone: $("input[name='phone']").val(),
-//            address: $("input[name='address']").val(),
-//            note: $("textarea[name='note']").val(),
-//            amount: Number.parseFloat($(".cart-total-price-data").val()),
-//            user: $("input[name='user']").val(),
-//            products: products
-//        }, function(data) {
 
-//        })
         var data = {
             address: $("input[name='address']").val(),
             note: $("textarea[name='note']").val(),
@@ -769,6 +760,7 @@ $(document).ready(function() {
         })
 
     })
+    //add to cart and remove from cart
     $(".shop-item-button").click(function() {
         var quantity = $("#orderModal .input-qty").val();
         var idProduct = $(this).attr("idValue");
@@ -777,6 +769,20 @@ $(document).ready(function() {
             quantity: quantity
         }, function(data) {
             $("#orderModal").modal("hide");
+            $("#myCart span").html(data);
+            $("#myCart").css("display", "block");
+        })
+    })
+    $(".removeCart").click(function() {
+        var idProduct = $(this).attr("idValue");
+        callAjax("/removeFromCart/" + idProduct, "POST", {
+        }, function(data) {
+            if (data == "0") {
+                $("#myCart").css("display", "none");
+            } else {
+                $("#myCart span").html(data);
+            }
+            window.location.href="/cart"
         })
     })
     //binding data to post food newfeed

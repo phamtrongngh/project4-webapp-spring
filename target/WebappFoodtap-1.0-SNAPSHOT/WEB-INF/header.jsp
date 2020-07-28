@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.net.URLDecoder"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
@@ -35,8 +36,14 @@
     </head>
 
     <body>
-
-        <a href="/cart" id="myCart"><img src="/public/image/icons/shopping-circle-blue-512.png" width="80" height="80" alt=""><span class="badge count-cart-fix">3</span></a>
+        <c:choose>
+            <c:when test="${cookie['cart'].getValue()>0}">
+                <a href='/cart' id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
+                </c:when>
+                <c:otherwise>
+                <a href='/cart' style="display:none" id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
+            </c:otherwise>
+        </c:choose>
         <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">
@@ -111,7 +118,7 @@
                             </div>
                             <div class="text-center">
                                 <span><a  href="/message/">Xem tất cả</a></span>
-                                
+
                             </div>
                         </div>
                     </li>
