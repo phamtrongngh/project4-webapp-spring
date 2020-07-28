@@ -111,7 +111,7 @@ public class UserController {
 
     @RequestMapping(value = "/detail-order", method = RequestMethod.GET)
     public ModelAndView detailorder() throws IOException {
-
+        
         return new ModelAndView("detail-order");
     }
 
