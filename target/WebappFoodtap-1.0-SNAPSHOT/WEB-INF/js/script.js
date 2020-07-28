@@ -532,50 +532,22 @@ $(document).ready(function() {
 });
 
 //load post
-// function loadResults() {
-//     var result = "";
-//     for (var i = 0; i < 10; i++) {
-//         result += "<li>Result " + i + "</li>";
-//     }
-//     $.ajax({
-//         url: "/echo/html/",
-//         type: "POST",
-//         data: {
-//             html: result,
-//             delay: 1
-//         },
-//         beforeSend: function(xhr) {
-//             $("#results").after($("<li class='loading'>Loading...</li>").fadeIn('slow')).data("loading", true);
-//         },
-//         success: function(data) {
-//             var $results = $("#results");
-//             $(".loading").fadeOut('fast', function() {
-//                 $(this).remove();
-//             });
-//             var $data = $(data);
-//             $data.hide();
-//             $results.append($data);
-//             $data.fadeIn();
-//             $results.removeData("loading");
-//         }
-//     });
-// };
 
-// $(function() {
-//     loadResults();
+$(window).scroll(function() {
+  
+    
+    if($(this).scrollTop() + $(this).height()-110 > $(".scrollpost").height()) {
+        $(window).stop();
+        $("#loading").css("display","block");
+    }
+    else{
+        $("#loading").css("display","none");
+    }
 
-//     $(".scrollpane").scroll(function() {
-//         var $this = $(this);
-//         var $results = $("#results");
-
-//         if (!$results.data("loading")) {
-
-//             if ($this.scrollTop() + $this.height() == $results.height()) {
-//                 loadResults();
-//             }
-//         }
-//     });
-// });
+});
+function loadResults() {
+    
+}
 //Popup chat
 $(document).ready(function() {
 
@@ -680,7 +652,7 @@ $(document).ready(function() {
     $("#chossefile-giayphep").click(function(e) {
         e.preventDefault();
         $(".img-giayphep").trigger('click');
-    });
+    })
     //datepicker
     $(function() {
         $("#datepicker-history").datepicker();
@@ -714,6 +686,7 @@ $(document).ready(function() {
     $(".btn-order.checkout").click(function() {
         var quantityArray = $(".cart-quantity-input");
         var productArray = $("input[name='product']");
+        var payment = $("input[name='payment']:checked").val();
         var products = [];
         for (var i = 0; i < quantityArray.length; i++) {
             products[i] = {
@@ -725,6 +698,7 @@ $(document).ready(function() {
         var data = {
             address: $("input[name='address']").val(),
             note: $("textarea[name='note']").val(),
+            payment : payment,
             amount: Number.parseFloat($(".cart-total-price-data").val()),
             user: $("input[name='user']").val(),
             products: products
