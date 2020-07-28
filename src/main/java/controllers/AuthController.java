@@ -81,8 +81,8 @@ public class AuthController implements IController<Authorization> {
             String originalInput = convertTo.get("fullname");
             String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
             Cookie cookie3 = new Cookie("_id", convertTo.get("_id"));
-
             Cookie cookie2 = new Cookie("avatar", convertTo.get("avatar"));
+            Cookie cookie4 = new Cookie("cart", convertTo.get("cart"));
             Cookie cookie1 = new Cookie("fullname", URLEncoder.encode(convertTo.get("fullname"), "UTF-8"));
             cookie1.setHttpOnly(true);
             cookie1.setMaxAge(999999);
@@ -93,10 +93,15 @@ public class AuthController implements IController<Authorization> {
             cookie3.setHttpOnly(true);
             cookie3.setMaxAge(999999);
             cookie3.setPath("/");
+            cookie4.setHttpOnly(true);
+            cookie4.setMaxAge(999999);
+            cookie4.setPath("/");
+
             response.addCookie(cookie);
             response.addCookie(cookie1);
             response.addCookie(cookie2);
             response.addCookie(cookie3);
+            response.addCookie(cookie4);
             response.sendRedirect("/");
         } else {
             response.sendRedirect("/login");
@@ -129,7 +134,7 @@ public class AuthController implements IController<Authorization> {
             String originalInput = convertTo.get("fullname");
             String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
             Cookie cookie3 = new Cookie("_id", convertTo.get("_id"));
-
+            Cookie cookie4 = new Cookie("cart", convertTo.get("cart"));
             Cookie cookie2 = new Cookie("avatar", convertTo.get("avatar"));
             Cookie cookie1 = new Cookie("fullname", URLEncoder.encode(convertTo.get("fullname"), "UTF-8"));
             cookie1.setHttpOnly(true);
@@ -141,11 +146,14 @@ public class AuthController implements IController<Authorization> {
             cookie3.setHttpOnly(true);
             cookie3.setMaxAge(999999);
             cookie3.setPath("/");
-
+            cookie4.setHttpOnly(true);
+            cookie4.setMaxAge(999999);
+            cookie4.setPath("/");
             response.addCookie(cookie);
             response.addCookie(cookie1);
             response.addCookie(cookie2);
             response.addCookie(cookie3);
+            response.addCookie(cookie4);
             response.sendRedirect("/");
         } else {
             response.sendRedirect("/login");
