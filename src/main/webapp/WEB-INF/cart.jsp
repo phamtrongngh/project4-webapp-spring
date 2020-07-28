@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!-- The Modal -->
         <div class="modal" id="mapModel">
-            <div class="modal-dialog">
+            <div class="modal-dialog" style="width: 450px;">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
@@ -56,13 +56,12 @@
                     </div>
                     <div class="info-more">
                         <label>Thanh Toán:</label><br/>
-                        <input type="radio" name="pay" class="input-pay" checked value="1"/>Khi nhận hàng
-                        <input type="radio" name="pay" class="input-pay2" value="2"/>Ví điện tử
+                        <input type="radio" name="payment" class="input-pay" checked value="1"/>Khi nhận hàng
+                        <input type="radio" name="payment" class="input-pay2" value="2"/>Ví điện tử
                     </div>
                     <div class="info-pay">
                         <a href="#"><img src="/public/image/avatar/momo.png" class="img-momo" alt="" /></a>
-                        <a href="#"><img src="/public/image/avatar/viettelpay.png" class="img-viettel" alt="" /></a>
-                    </div>
+                        </div>
                     <div class="info-more">
                         <label>Ghi chú</label><br/>
                         <textarea name="note" class="form-control textarea-note"></textarea>
