@@ -2,11 +2,9 @@ package controllers;
 
 import Nghia.Util.CookieHelper;
 import Nghia.Util.MultipartContainer;
-import Nghia.Util.RESTHelper;
 import Nghia.Util.RESTUserHelper;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -18,7 +16,6 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import models.Cart;
 import models.User;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
@@ -111,7 +108,7 @@ public class UserController {
 
     @RequestMapping(value = "/detail-order", method = RequestMethod.GET)
     public ModelAndView detailorder() throws IOException {
-
+        
         return new ModelAndView("detail-order");
     }
 

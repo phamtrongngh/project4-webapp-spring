@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.net.URLDecoder"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html lang="en">
 
@@ -30,12 +31,14 @@
               type="text/css" />
         <style>
             #map {
-                height: 500px;
+                height: 300px;
+                width: 400px;
             }
         </style>
     </head>
 
     <body>
+        
         <c:choose>
             <c:when test="${cookie['cart'].getValue()>0}">
                 <a href='/cart' id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
@@ -44,6 +47,7 @@
                 <a href='/cart' style="display:none" id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
             </c:otherwise>
         </c:choose>
+                
         <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">
@@ -183,7 +187,7 @@
                                 <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
                                 <div style="width: 245px;">
                                     <div class="messenger-name">Truong</div>
-                                    <div class="messenger-content">đâsdsadasdasd</div>
+                                    <p class="messenger-content">đâsdsadasdasd</p>
                                 </div>
                                 <div>12:00</div>
                             </div>
@@ -191,7 +195,7 @@
                                 <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
                                 <div style="width: 245px;">
                                     <div class="messenger-name">Truong</div>
-                                    <div class="messenger-content">đâsdsadasdasdsssssssssssssssssssssssssssssssssssssssssssssss</div>
+                                    <p class="messenger-content">đâsdsadasdasdsssssssssssssssssssssssssssssssssssssssssssssss</p>
                                 </div>
                                 <div>12:00</div>
                             </div>
