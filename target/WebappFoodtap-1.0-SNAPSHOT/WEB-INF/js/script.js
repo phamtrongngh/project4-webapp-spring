@@ -16,6 +16,7 @@ function updateinfo() {
     password = $("#password-register").val();
 
 }
+
 function removeCartItem(event) {
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
@@ -127,19 +128,19 @@ function quantityChanged1(event) {
     }
     update()
 }
-$('input[name=pay]').on('change', function(e) {
-    
-    if ($('input[name=pay]:checked').val()==2) {
-        $(".info-pay").css("display","block");
-        
-    } else {
-        $(".info-pay").css("display","none");
-    }
-});
-   
+
+
 $(document).ready(function() {
     /*display momo*/
-    
+    $('input[name=pay]').on('change', function(e) {
+        console.log('input[name=pay]:checked');
+        if ($('input[name=pay]:checked').val() == 2) {
+            $(".info-pay").css("display", "block");
+
+        } else {
+            $(".info-pay").css("display", "none");
+        }
+    });
     /*display momo*/
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
@@ -379,8 +380,7 @@ function getSenderBox(message) {
     receiveBox += '</div>';
     return receiveBox;
 }
-
-$(document).ready(function() {
+function showmess() {
     //Click to show conservation
     $(".contacts-body .contacts li").click(function() {
         var id = $(this).attr("idValue");
@@ -402,6 +402,13 @@ $(document).ready(function() {
             $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
         });
     })
+}
+$(document).ready(function() {
+    /*chat scroll to bottom*/
+    $('.msg-card-body').stop().animate({scrollTop: 99999999});
+    var messitem = document.getElementsByClassName("li-item-chat")[0];
+    $(messitem).trigger("click", showmess());
+
 
     //Send message
     $(".send-btn").click(function() {
@@ -531,50 +538,22 @@ $(document).ready(function() {
 });
 
 //load post
-// function loadResults() {
-//     var result = "";
-//     for (var i = 0; i < 10; i++) {
-//         result += "<li>Result " + i + "</li>";
-//     }
-//     $.ajax({
-//         url: "/echo/html/",
-//         type: "POST",
-//         data: {
-//             html: result,
-//             delay: 1
-//         },
-//         beforeSend: function(xhr) {
-//             $("#results").after($("<li class='loading'>Loading...</li>").fadeIn('slow')).data("loading", true);
-//         },
-//         success: function(data) {
-//             var $results = $("#results");
-//             $(".loading").fadeOut('fast', function() {
-//                 $(this).remove();
-//             });
-//             var $data = $(data);
-//             $data.hide();
-//             $results.append($data);
-//             $data.fadeIn();
-//             $results.removeData("loading");
-//         }
-//     });
-// };
 
-// $(function() {
-//     loadResults();
+$(window).scroll(function() {
 
-//     $(".scrollpane").scroll(function() {
-//         var $this = $(this);
-//         var $results = $("#results");
 
-//         if (!$results.data("loading")) {
+    if ($(this).scrollTop() + $(this).height() - 110 > $(".scrollpost").height()) {
+        $(window).stop();
+        $("#loading").css("display", "block");
+    }
+    else {
+        $("#loading").css("display", "none");
+    }
 
-//             if ($this.scrollTop() + $this.height() == $results.height()) {
-//                 loadResults();
-//             }
-//         }
-//     });
-// });
+});
+function loadResults() {
+
+}
 //Popup chat
 $(document).ready(function() {
 
@@ -679,7 +658,7 @@ $(document).ready(function() {
     $("#chossefile-giayphep").click(function(e) {
         e.preventDefault();
         $(".img-giayphep").trigger('click');
-    });
+    })
     //datepicker
     $(function() {
         $("#datepicker-history").datepicker();
@@ -713,6 +692,7 @@ $(document).ready(function() {
     $(".btn-order.checkout").click(function() {
         var quantityArray = $(".cart-quantity-input");
         var productArray = $("input[name='product']");
+        var payment = $("input[name='payment']:checked").val();
         var products = [];
         for (var i = 0; i < quantityArray.length; i++) {
             products[i] = {
@@ -720,20 +700,11 @@ $(document).ready(function() {
                 quantity: Number.parseFloat(quantityArray[i].value)
             }
         }
-//        callAjax("/order/", "POST", {
-//            fullname: $("input[name='fullname']").val(),
-//            phone: $("input[name='phone']").val(),
-//            address: $("input[name='address']").val(),
-//            note: $("textarea[name='note']").val(),
-//            amount: Number.parseFloat($(".cart-total-price-data").val()),
-//            user: $("input[name='user']").val(),
-//            products: products
-//        }, function(data) {
 
-//        })
         var data = {
             address: $("input[name='address']").val(),
             note: $("textarea[name='note']").val(),
+            payment: payment,
             amount: Number.parseFloat($(".cart-total-price-data").val()),
             user: $("input[name='user']").val(),
             products: products
@@ -750,9 +721,6 @@ $(document).ready(function() {
         })
     })
 
-
-
-
     //binding data to open newfeed
     $(".fa-utensils").click(function() {
         var image = $(this).closest(".status").find(".background");
@@ -761,7 +729,7 @@ $(document).ready(function() {
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $("#orderModal .img-status").attr("src", image.attr("src"));
             $("#orderModal .title-food").html(data.name);
-            $("#orderModal .content-food").html(content.html())
+            $("#orderModal .content-food").html(content.html());
             data.price = (format2(data.price, '')).replace(".000", "");
             $("#orderModal .price-foodnumber").html(data.price);
             $("#orderModal .total-foodnumber").html(data.price);
@@ -769,6 +737,7 @@ $(document).ready(function() {
         })
 
     })
+    //add to cart and remove from cart
     $(".shop-item-button").click(function() {
         var quantity = $("#orderModal .input-qty").val();
         var idProduct = $(this).attr("idValue");
@@ -777,6 +746,20 @@ $(document).ready(function() {
             quantity: quantity
         }, function(data) {
             $("#orderModal").modal("hide");
+            $("#myCart span").html(data);
+            $("#myCart").css("display", "block");
+        })
+    })
+    $(".removeCart").click(function() {
+        var idProduct = $(this).attr("idValue");
+        callAjax("/removeFromCart/" + idProduct, "POST", {
+        }, function(data) {
+            if (data == "0") {
+                $("#myCart").css("display", "none");
+            } else {
+                $("#myCart span").html(data);
+            }
+            window.location.href = "/cart"
         })
     })
     //binding data to post food newfeed
@@ -808,6 +791,7 @@ $(document).ready(function() {
 
     //SOCKETIO receive message chat
     var socket = io('http://localhost:9032');
+
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
         if (item.sender != idUser) {

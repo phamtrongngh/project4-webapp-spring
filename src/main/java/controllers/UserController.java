@@ -2,14 +2,13 @@ package controllers;
 
 import Nghia.Util.CookieHelper;
 import Nghia.Util.MultipartContainer;
-import Nghia.Util.RESTHelper;
 import Nghia.Util.RESTUserHelper;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.client.Client;
@@ -17,7 +16,6 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import models.Cart;
 import models.User;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
@@ -46,8 +44,6 @@ public class UserController {
         return new ModelAndView("user-info").addObject("user", user);
     }
 
-    
-
     @RequestMapping(value = "/user-profile", method = RequestMethod.GET)
     public ModelAndView profile() throws IOException {
         return new ModelAndView("profile-user");
@@ -66,27 +62,56 @@ public class UserController {
 
     @RequestMapping(value = "/addToCart", method = RequestMethod.POST)
     @ResponseBody
-    public String addToCart(Cart cart) {
-        return restUser.addToCart(cart);
+    public String addToCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
+        String current;
+        if (CookieHelper.getCookie("cart").equals("") || CookieHelper.getCookie("cart").equals("0")) {
+            current = restUser.addToCart(cart);
+            Cookie cookie = new Cookie("cart", "1");
+            cookie.setHttpOnly(true);
+            cookie.setMaxAge(9999999);
+            cookie.setPath("/");
+            response.addCookie(cookie);
+        } else {
+            current = restUser.addToCart(cart);
+            Cookie cookie = new Cookie("cart", String.valueOf(current));
+            cookie.setHttpOnly(true);
+            cookie.setMaxAge(9999999);
+            cookie.setPath("/");
+            response.addCookie(cookie);
+        }
+        return current;
     }
 
     @RequestMapping(value = "/removeFromCart/{id}", method = RequestMethod.POST)
-    public ModelAndView removeFromCart(@PathVariable("id") String id) throws IOException {
+    @ResponseBody
+    public String removeFromCart(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
         restUser.removeFromCart(id);
-        return cart();
+        int current = (Integer.parseInt(CookieHelper.getCookie("cart")));
+        current -= 1;
+        Cookie cookie = new Cookie("cart", String.valueOf(current));
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(9999999);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        return String.valueOf(current);
     }
 
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
-    public ModelAndView cart() throws IOException {
+    public ModelAndView cart(HttpServletResponse response) throws IOException {
         Map<String, ?> user = restUser.getCart();
+        if (((List)user.get("cart")).size() == 0){
+            response.sendRedirect("/");
+            return null;
+        }
         return new ModelAndView("cart").addObject("user", user);
     }
 
     @RequestMapping(value = "/detail-order", method = RequestMethod.GET)
     public ModelAndView detailorder() throws IOException {
-
+        
         return new ModelAndView("detail-order");
     }
+
     @RequestMapping(value = "/status-order", method = RequestMethod.GET)
     public ModelAndView statusorder() throws IOException {
 

@@ -24,7 +24,6 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public class AuthorizeHandleInterceptor implements HandlerInterceptor {
 
-    private List<String> list;
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object o, Exception excptn) throws Exception {

@@ -48,4 +48,13 @@ public class OrderController {
     public String responseMomo(@RequestBody String json) throws IOException {
         return json;
     }
+    
+    @RequestMapping(value = "/order/paying", method = RequestMethod.GET )
+    public ModelAndView payingMomo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (request.getParameter("message").equals("Success")){
+            restOrderHelper.paying(request.getParameter("orderId"));
+        }
+        response.sendRedirect("/detail-order");
+        return null;
+    }
 }
