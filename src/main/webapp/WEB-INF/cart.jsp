@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- The Modal -->
 <div class="modal" id="mapModel">
     <div class="modal-dialog" style="width: 450px;">
@@ -62,6 +63,7 @@
                     <div class="info-pay">
                         <a href="#"><img src="/public/image/avatar/momo.png" class="img-momo" alt="" /></a>
                     </div>
+
                     <div class="info-more">
                         <label>Ghi chú</label><br/>
                         <textarea name="note" class="form-control textarea-note"></textarea>

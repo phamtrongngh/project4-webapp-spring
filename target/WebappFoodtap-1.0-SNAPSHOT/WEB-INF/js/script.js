@@ -128,19 +128,19 @@ function quantityChanged1(event) {
     }
     update()
 }
-$('input[name=pay]').on('change', function(e) {
 
-    if ($('input[name=pay]:checked').val() == 2) {
-        $(".info-pay").css("display", "block");
-
-    } else {
-        $(".info-pay").css("display", "none");
-    }
-});
 
 $(document).ready(function() {
     /*display momo*/
+    $('input[name=pay]').on('change', function(e) {
+        console.log('input[name=pay]:checked');
+        if ($('input[name=pay]:checked').val() == 2) {
+            $(".info-pay").css("display", "block");
 
+        } else {
+            $(".info-pay").css("display", "none");
+        }
+    });
     /*display momo*/
     $('#sothich').modal('show');
     $('.store-sothich').click(function() {
@@ -532,50 +532,22 @@ $(document).ready(function() {
 });
 
 //load post
-// function loadResults() {
-//     var result = "";
-//     for (var i = 0; i < 10; i++) {
-//         result += "<li>Result " + i + "</li>";
-//     }
-//     $.ajax({
-//         url: "/echo/html/",
-//         type: "POST",
-//         data: {
-//             html: result,
-//             delay: 1
-//         },
-//         beforeSend: function(xhr) {
-//             $("#results").after($("<li class='loading'>Loading...</li>").fadeIn('slow')).data("loading", true);
-//         },
-//         success: function(data) {
-//             var $results = $("#results");
-//             $(".loading").fadeOut('fast', function() {
-//                 $(this).remove();
-//             });
-//             var $data = $(data);
-//             $data.hide();
-//             $results.append($data);
-//             $data.fadeIn();
-//             $results.removeData("loading");
-//         }
-//     });
-// };
 
-// $(function() {
-//     loadResults();
+$(window).scroll(function() {
 
-//     $(".scrollpane").scroll(function() {
-//         var $this = $(this);
-//         var $results = $("#results");
 
-//         if (!$results.data("loading")) {
+    if ($(this).scrollTop() + $(this).height() - 110 > $(".scrollpost").height()) {
+        $(window).stop();
+        $("#loading").css("display", "block");
+    }
+    else {
+        $("#loading").css("display", "none");
+    }
 
-//             if ($this.scrollTop() + $this.height() == $results.height()) {
-//                 loadResults();
-//             }
-//         }
-//     });
-// });
+});
+function loadResults() {
+
+}
 //Popup chat
 $(document).ready(function() {
 
@@ -680,7 +652,7 @@ $(document).ready(function() {
     $("#chossefile-giayphep").click(function(e) {
         e.preventDefault();
         $(".img-giayphep").trigger('click');
-    });
+    })
     //datepicker
     $(function() {
         $("#datepicker-history").datepicker();
@@ -726,7 +698,7 @@ $(document).ready(function() {
         var data = {
             address: $("input[name='address']").val(),
             note: $("textarea[name='note']").val(),
-            payment : payment,
+            payment: payment,
             amount: Number.parseFloat($(".cart-total-price-data").val()),
             user: $("input[name='user']").val(),
             products: products
@@ -781,7 +753,7 @@ $(document).ready(function() {
             } else {
                 $("#myCart span").html(data);
             }
-            window.location.href="/cart"
+            window.location.href = "/cart"
         })
     })
     //binding data to post food newfeed
@@ -813,7 +785,7 @@ $(document).ready(function() {
 
     //SOCKETIO receive message chat
     var socket = io('http://localhost:9032');
-    
+
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
         if (item.sender != idUser) {
