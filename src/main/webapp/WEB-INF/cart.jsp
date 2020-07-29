@@ -1,26 +1,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <!-- The Modal -->
-        <div class="modal" id="mapModel">
-            <div class="modal-dialog" style="width: 450px;">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title"> Bản đồ</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div id="map"></div>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger submit" >Chấp nhận</button>
-                    </div>
-                </div>
+
+<!-- The Modal -->
+<div class="modal" id="mapModel">
+    <div class="modal-dialog" style="width: 450px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bản đồ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div id="map"></div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger submit" >Chấp nhận</button>
             </div>
         </div>
+    </div>
+</div>
 <div class="container contain" style="margin-top: 100px">
     <div class="row">
 
@@ -40,7 +41,7 @@
                         <label>Địa chỉ:</label>
                         <div class="form-inline">
                             <input id="address-register" type="text" name="address" value="${user.address}" class="form-control input-address" >
-                            
+
                             <div class="input-group-prepend">
                                 <button  type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" style="display: block;" ><i class="fas fa-map-marker-alt" style="color: red;"></i></button>
                             </div>
@@ -61,7 +62,8 @@
                     </div>
                     <div class="info-pay">
                         <a href="#"><img src="/public/image/avatar/momo.png" class="img-momo" alt="" /></a>
-                        </div>
+                    </div>
+
                     <div class="info-more">
                         <label>Ghi chú</label><br/>
                         <textarea name="note" class="form-control textarea-note"></textarea>
@@ -157,6 +159,17 @@
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
 <script async defered>
+
+    function getDistance() {
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=qKvO3Yc2cMFMVB4NKEGsMkm0FgMrQO1pqXmPUaup&limit=1')
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    $(".input-address").val(data.results[0].formatted_address);
+                });
+    }
+
     goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
     var map = new goongjs.Map({
         container: 'map', // container id

@@ -6,7 +6,6 @@
 package Nghia.Util;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;

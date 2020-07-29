@@ -411,6 +411,7 @@
 </div>
 <!--Content-->
 <div class="container" style="margin-top: 100px">
+    <div class="body-hide"></div>
     <div class="row">
         <!-- ORDER -->
         <div class="col-sm-12 col-md-2 ">
@@ -457,7 +458,7 @@
             </div>
         </div>
         <!-- STATUS -->
-        <div class="col-12 col-sm-12 col-md-6">
+        <div class="col-12 col-sm-12 col-md-6 scrollpost">
             <c:forEach var="item" items="${newfeeds}">
                 <div class="rounded status">
                             <div class="alignment">
@@ -631,6 +632,7 @@
                             </div>
                         </div>
             </c:forEach>
+            <div id="loading" ><image src="/public/image/avatar/hambuger.gif" style="width: 50px;"/></div>
         </div>
         <!-- Khuyen mai -->
         <div class="col-md-3">
