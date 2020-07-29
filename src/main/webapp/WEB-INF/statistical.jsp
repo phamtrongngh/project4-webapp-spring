@@ -420,7 +420,7 @@
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/sb-admin-2.min.js"></script>
 <script src="/public/js/jquery.dataTables.min.js"></script>
-<script src="/public/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 <script src="/public/js/datatables-demo.js  "></script>
 <script src="/public/js/Chart.min.js"></script>
 <script src="/public/js/swiper.min.js"></script>
