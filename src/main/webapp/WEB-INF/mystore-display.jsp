@@ -1,175 +1,49 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
-<!--Modal like and share-->
-
-<div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
+<!-- The Modal map -->
+<div class="modal" id="mapModel-store" >
+    <div class="modal-dialog" style="width: 450px;">
         <div class="modal-content">
-            <div class="modal-body">
-                <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
-                    <li role="presentation" class="nav-item" style="width:50%">
-                        <a href="#steplike" class="nav-link active" data-toggle="tab" aria-controls="steplike" role="tab" title="Like"><i class="fas fa-heart"></i> Lượt thích: <span>500</span></a>
-                    </li>
-                    <li role="presentation" class="nav-item" style="width:50%">
-                        <a href="#stepshare" class="nav-link" data-toggle="tab" aria-controls="stepshare" role="tab" title="Share"><i class="fas fa-share-alt"></i> Lượt chia sẻ: <span>600</span></a>
-                    </li>
-                </ul>
-                <div class="tab-content py-2 "  style="height: 400px;overflow-y: auto;overflow-x: hidden;padding-right: 10px;">
-                    <div class="tab-pane active" role="tabpanel" id="steplike">
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fab fa-facebook-messenger"></i> Nhắn tin</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" role="tabpanel" id="stepshare">
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fab fa-facebook-messenger"></i> Nhắn tin</button>
-                            </div>
-                        </div>
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bản đồ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body justify-content-center">
+                <div id="map"></div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chấp nhận</button>
             </div>
         </div>
     </div>
 </div>
-<!-- The Modal comment -->
+<!-- The Modal post -->
+<div class="modal" id="postModel-store">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Đăng món</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div></div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chấp nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- The Modal -->
 <div class="modal" id="orderModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -178,32 +52,31 @@
                 <h4 class="modal-title">Món ăn bạn muốn chọn</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="container contain">
                     <div class="row">
-                        <div class=" info-product">
+                        <div class="info-product">
                             <img class="rounded img-status"  alt="" />
                             <div>
                                 <h1 class="title-food"></h1>
                                 <div class="rate text-center">
-<!--                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                        </form>
-
-                                    </div>
-                                    <div class="text-like">14k lượt thích</div>-->
+                                    <!--                                    <div class="stars">
+                                                                            <form action="">
+                                                                                <input class="star star-5" id="star-5" type="radio" name="star" />
+                                                                                <label class="star star-5" for="star-5"></label>
+                                                                                <input class="star star-4" id="star-4" type="radio" name="star" />
+                                                                                <label class="star star-4" for="star-4"></label>
+                                                                                <input class="star star-3" id="star-3" type="radio" name="star" />
+                                                                                <label class="star star-3" for="star-3"></label>
+                                                                                <input class="star star-2" id="star-2" type="radio" name="star" />
+                                                                                <label class="star star-2" for="star-2"></label>
+                                                                                <input class="star star-1" id="star-1" type="radio" name="star" />
+                                                                                <label class="star star-1" for="star-1"></label>
+                                                                            </form>
+                                    
+                                                                        </div>
+                                                                        <div class="text-like">14k lượt thích</div>-->
                                 </div>
                                 <p class="content-food"></p>
                             </div>
@@ -211,11 +84,11 @@
                                 <p class="form-inline quantity">
                                     Số lượng :
 
-                                    <input aria-label="quantity" class="input-qty" min="1" max="999" name="" type="number" value="1" />
+                                    <input aria-label="quantity" class="input-qty" min="1" max="999" name="quantity" type="number" value="1" />
 
                                 </p>
-                                <p class="price-food">Giá : <span class="price-foodnumber"></span></p>
-                                <p class="total-food">Thành tiền : <span class="total-foodnumber"></span></p>
+                                <p class="price-food">Giá : <span class="price-foodnumber"></span><span>VNĐ</span></p>
+                                <p class="total-food">Thành tiền : <span class="total-foodnumber"></span><span>VNĐ</span></p>
                             </div>
 
                             <div class="rate-content">
@@ -338,134 +211,144 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
             </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="sothich" role="dialog" data-keyboard="false" data-backdrop="static">
-    <div class="modal-dialog modal-sothich">
-        <div class="modal-content modal-content-sothich">
-            <div class="modal-header" style="background-color: #da484a;color: white;">
-                <h4 class="modal-title">Hãy chọn 3 mục bạn yêu thích nhất</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-3 text-center" >
-                        <div class="store-sothich">
-                            <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>
-                            <div>Gà gán</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center" >
-                        <div class="store-sothich">
-                            <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>
-                            <div>Gà gán</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center" >
-                        <div class="store-sothich">
-                            <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>
-                            <div>Gà gán</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center" >
-                        <div class="store-sothich">
-                            <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>
-                            <div>Gà gán</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 10px;">
-                    <div class="col-md-3 text-center" >
-                        <div class="store-sothich">
-                            <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>
-                            <div>Gà gán</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center" >
-                        <div class="store-sothich">
-                            <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>
-                            <div>Gà gán</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center" >
-                        <div class="store-sothich">
-                            <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>
-                            <div>Gà gán</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center" >
-                        <div class="store-sothich">
-                            <image src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" class="img-store" alt=""/>
-                            <div>Gà gán</div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn" style="background-color: #da484a;color: white;">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
         </div>
     </div>
 </div>
 <!--Content-->
-<div class="container" style="margin-top: 100px">
-    <div class="body-hide"></div>
-    <div class="row">
-        <!-- ORDER -->
-        <div class="col-sm-12 col-md-2 ">
-            <div id="one" >
-                <div id="left-menu">
-                    <a href="explorestore"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
-                        <div class="rounded photo">
-                            <div>
-                                Khám phá<br/> món ngon
-
-                            </div>
+<div class="container store-profile" style="margin-top: 100px">
+    <div class="row ">
+        <!-- Menu of food -->
+        <div class="col-10 col-sm-10 col-md-11">
+            <div class="row profile-header">
+                <div class="col-md-4 profile-avartar">
+                    <div class="d-flex">
+                        <div class="profile-container-img">
+                            <img src="http://localhost:9032/public/image/${restaurant.avatar}" class="rounded-circle img-avartar" alt="" />
 
                         </div>
-                    </a>
-                </div>
-                <div id="left-menu" style="margin-top: 20px">
-                    <a href="/sametaste"><img class="rounded img-order" src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" alt="" />
-                        <div class="rounded photo ">
-                            <div>
-                                Bạn cùng<br/> khẩu vị
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div id="left-menu" style="margin-top: 20px">
-                    <a href="/mystore"><img class="rounded img-order" src="/public/image/Background/street-food-trailer-food-truck-cartoon-vector-19682966.jpg" alt="" />
-                        <div class="rounded photo ">
-
-                            Cửa hàng<br/> của tôi
-
-                        </div>
-                    </a>
-                </div>
-                <div id="left-menu" style="margin-top: 20px">
-                    <a href="#"><img class="rounded img-order" src="/public/image/Background/sale-tag-icon-flat-cartoon-discount-label-vector-23608810.jpg" alt="" />
-
-                        <div class="rounded photo ">
-                            <div>
-                                Phiếu ăn<br/>giảm giá
+                        <div class="profile-name">
+                            <div class="text-name">${restaurant.name}</div>
+                            <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
+                            <div class="stars">
+                                <form action="">
+                                    <input class="star star-5" id="star-5" type="radio" name="star" />
+                                    <label class="star star-5" for="star-5"></label>
+                                    <input class="star star-4" id="star-4" type="radio" name="star" />
+                                    <label class="star star-4" for="star-4"></label>
+                                    <input class="star star-3" id="star-3" type="radio" name="star" />
+                                    <label class="star star-3" for="star-3"></label>
+                                    <input class="star star-2" id="star-2" type="radio" name="star" />
+                                    <label class="star star-2" for="star-2"></label>
+                                    <input class="star star-1" id="star-1" type="radio" name="star" />
+                                    <label class="star star-1" for="star-1"></label>
+                                </form>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                </div>
+                <div class="col-md-5 store-menu">
+                    <div>
+                        <a href="/mystore-profile"><img class="rounded img-order-header" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
+                            <div class="rounded photo-header">
+                                <div>
+                                    Thực đơn
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>    
+                </div>
+               
+                <div class="col-md-1 profile-container-buttons">
+                    <button href="/store-info" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Lượt thích</button>
+                    <button class="btn btn-success form-control"><i class="fas fa-star"></i>Lượt đánh giá</button>
+                    <a href="/statistical?#chart"><button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Thống kê</button></a>
+                </div>
+                <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
+                    <button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button>
                 </div>
             </div>
-        </div>
-        <!-- STATUS -->
-        <div class="col-12 col-sm-12 col-md-6 scrollpost">
-            <c:forEach var="item" items="${newfeeds}">
-                <div class="rounded status">
+            <div class="row">
+                <div class="col-md-2" style="position: relative;top:10px">
+                    <div>
+                        <a href="/explorestore"><img class="rounded img-order" src="/public/image/Background/87801571-cartoon-fast-food-unhealthy-burger-sandwich-hamburger-pizza-meal-restaurant-menu-snack-vector-illust.jpg" alt="" />
+                            <div class="rounded photo">
+                                <div>
+                                    Khám phá<br/> món ngon
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                    <div style="margin-top: 20px">
+                        <a href="/sametaste"><img class="rounded img-order" src="/public/image/Background/set-of-children-eating-together-vector-22784582.jpg" alt="" />
+                            <div class="rounded photo ">
+                                <div>
+                                    Bạn cùng<br/> khẩu vị
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div style="margin-top: 20px">
+                        <a href="/mystore"><img class="rounded img-order" src="/public/image/Background/street-food-trailer-food-truck-cartoon-vector-19682966.jpg" alt="" />
+                            <div class="rounded photo ">
+                                Gian hàng <br/> của tôi
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-10" >
+                    <div class="post-store rounded">
+                        <form class="row" action="/newfeed/postNewfeed" method="POST">
+                            <div class="col-md-8 post-content">
+                                <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                <div class="d-flex" style="width: 30%">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />
+                                    <div class="upload-img-status" >
+                                        <div class="gallery text-center">
+                                            <a id="chossefile">
+                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 17%;height: 85px;position: absolute">
+                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
+                                                </div>
+                                            </a>
+                                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label  style="font-size: 10px;width: 100%" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+                                        <input type="file"  id="upload-photo"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel-store"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-success" data-target="#postModel-store" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div>
+                                    <button class="btn btn-primary">Đăng</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <c:forEach var="item" items="${restaurant.newfeeds}">
+                        <div class="rounded status">
                             <div class="alignment">
                                 <div class="media">
-                                    <img src="http://localhost:9032/public/image/${item.restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
+                                    <img src="http://localhost:9032/public/image/${restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                     <div class="media-body">
-                                        <div href="" class="name"><a href="/restaurant/${item.restaurant._id}">${item.restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
+                                        <div href="#" class="name"><a href="#">${restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
                                         </div>
 
                                     </div>
@@ -631,83 +514,101 @@
                                 </div>
                             </div>
                         </div>
-            </c:forEach>
-            <div id="loading" ><image src="/public/image/avatar/hambuger.gif" style="width: 50px;"/></div>
-        </div>
-        <!-- Khuyen mai -->
-        <div class="col-md-3">
-            <div id="four">
-                <div class="header-mission"><h4><i class="fa fa-list-alt" aria-hidden="true"></i> Nhiệm vụ tháng</h4></div>
-                <div class="mission">
-
-                    <div class="detail-mission">
-                        Đặt 3 món trong hôm nay sẽ được tặng voucher 20.000đ
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar" role="progressbar" style="width: 25%"  aria-valuemin="0" aria-valuemax="100"></div>
-
-                        </div>
-                        <div style="text-align: end;">3/4</div>
-                    </div>
-                    <div class="detail-mission">
-                        Đặt 2 món tặng bạn bè sẽ được tặng voucher 200.000đ
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-
-
-
-                        </div>
-                        <div style="text-align: end;">1/2</div>
-                    </div>
-                    <div class="detail-mission">
-                        Đặt 3 món trong hôm nay sẽ được tặng voucher 20.000đ
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-
-                        </div>
-                        <div style="text-align: end;">3/4</div>
-                    </div>
-                </div>
-                <div class="header-mission"><h4><i class="fa fa-list-alt" aria-hidden="true"></i> Nhiệm vụ ngày</h4></div>
-                <div class="mission">
-
-                    <div class="detail-mission">
-                        Đặt 3 món trong hôm nay sẽ được tặng voucher 20.000đ
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar" role="progressbar" style="width: 25%"  aria-valuemin="0" aria-valuemax="100"></div>
-
-                        </div>
-                        <div style="text-align: end;">3/4</div>
-                    </div>
-                    <div class="detail-mission">
-                        Đặt 2 món tặng bạn bè sẽ được tặng voucher 200.000đ
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-
-
-
-                        </div>
-                        <div style="text-align: end;">1/2</div>
-                    </div>
-                    <div class="detail-mission">
-                        Đặt 3 món trong hôm nay sẽ được tặng voucher 20.000đ
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-
-
-                        </div>
-                        <div style="text-align: end;">3/4</div>
-                    </div>
-
+                    </c:forEach>
                 </div>
             </div>
         </div>
+        <script async defered>
+            goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
+            var map = new goongjs.Map({
+                container: 'map', // container id
+                style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
+                center: [105, 21], // starting position [lng, lat]
+                zoom: 9 // starting zoom
+            });
 
-        <%@include file="footer.jsp" %>
+            var geocoder = new GoongGeocoder({
+                accessToken: "rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm",
+                goongjs: goongjs
+            })
+
+            var geolocateControl = new goongjs.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            })
+
+            map.addControl(new goongjs.FullscreenControl());
+
+            map.on('load', function() {
+                map.addSource('single-point', {
+                    type: 'geojson',
+                    data: {
+                        type: 'FeatureCollection',
+                        features: []
+                    }
+                });
+                map.addControl(
+                        geocoder
+                        )
+                map.addControl(
+                        geolocateControl
+                        );
+                map.addLayer({
+                    id: 'point',
+                    source: 'single-point',
+                    type: 'circle',
+                    paint: {
+                        'circle-radius': 10,
+                        'circle-color': '#448ee4'
+                    }
+                });
+            });
+
+            var marker = new goongjs.Marker({
+                draggable: true
+            })
+                    .setLngLat([105, 21])
+                    .addTo(map);
+
+            marker.on('dragend', function() {
+
+                var lngLat = marker.getLngLat();
+                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=qKvO3Yc2cMFMVB4NKEGsMkm0FgMrQO1pqXmPUaup&limit=1')
+                        .then(function(response) {
+                            return response.json()
+                        })
+                        .then(function(data) {
+                            $(".input-address").val(data.results[0].formatted_address);
+                        });
+            });
+            geolocateControl.on("geolocate", function(e) {
+                var lng = e.coords.longitude;
+                var lat = e.coords.latitude;
+                marker._lngLat = {lat: lat, lng: lng}
+                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm', {mode: "cors"})
+                        .then(function(response) {
+                            return response.json()
+                        })
+                        .then(function(data) {
+                            $(".input-address").val(data.results[0].formatted_address);
+                        });
+            })
+            geocoder.on("result", function(e) {
+                geocoder.mapMarker.remove();
+                marker._lngLat = geocoder.mapMarker._lngLat;
+                $(".input-address").val(e.result.description);
+            })
+            $(".btn-location").click(function() {
+                $(".goongjs-ctrl-fullscreen").trigger("click");
+            })
+            $("#mapModel .modal-footer button").click(function() {
+                $("#mapModel").modal("hide");
+            })
+            $(".close").click(function() {
+                $(".input-address").val("");
+                $("#mapModel").modal("hide");
+            })
+        </script>
+        <%@include  file="footer.jsp" %>

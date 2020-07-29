@@ -30,7 +30,7 @@
     <body>
         <!-- The Modal -->
         <div class="modal" id="mapModel">
-            <div class="modal-dialog">
+            <div class="modal-dialog" style="width: 450px;">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">

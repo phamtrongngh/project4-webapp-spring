@@ -5,13 +5,12 @@
  */
 package Nghia.Util;
 
+import java.io.IOException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import models.Newfeed;
-import models.Order;
 import org.codehaus.jackson.map.ObjectMapper;
 
 /**
@@ -39,6 +38,15 @@ public class RESTOrderHelper extends RESTHelper {
         String string = webTarget.request(MediaType.APPLICATION_JSON)
                 .header("authorization", CookieHelper.getCookie("accessToken"))
                 .post(Entity.json(json), String.class);
+        return string;
+    }
+
+    public String paying(String id) throws IOException {
+        String url = BASE_URI + "paying";
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
         return string;
     }
 }

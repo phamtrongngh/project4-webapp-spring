@@ -110,7 +110,7 @@
             <a class="nav-link active" data-toggle="tab" href="#order">Đơn hàng</a>
         </li>
         <li class="nav-item text-center" style="width:25%">
-            <a class="nav-link" data-toggle="tab" href="#menu">Danh mục</a>
+            <a class="nav-link" data-toggle="tab" href="#menu">Menu</a>
         </li>
         <li class="nav-item text-center" style="width:25%">
             <a class="nav-link" data-toggle="tab" href="#store-info"> Thông tin</a>
