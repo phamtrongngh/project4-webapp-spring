@@ -341,7 +341,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="sothich" role="dialog" data-keyboard="false" data-backdrop="static">
+<!--<div class="modal fade" id="sothich" role="dialog" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-sothich">
         <div class="modal-content modal-content-sothich">
             <div class="modal-header" style="background-color: #da484a;color: white;">
@@ -408,7 +408,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--Content-->
 <div class="container" style="margin-top: 100px">
     <div class="body-hide"></div>

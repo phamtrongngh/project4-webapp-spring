@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="card shopping-cart">
                     <div class="card-header text-light" style="background-color: #fc7a7b;">
-                        <i class="fas fa-file-alt"></i> HXKKJDL
+                        <i class="fas fa-file-alt"></i> ${order._id}
                         
                         <div class="clearfix"></div>
                     </div>
@@ -22,7 +22,7 @@
                                 <span class="cart-quantity cart-header cart-column">Số lượng</span>
                             </div>
                             <div class="cart-items">
-                                <c:forEach var="item" items="${user.cart}">
+                                <c:forEach var="item" items="${order.products}">
                                     <div class="cart-row">
                                         <div class="cart-item cart-column">
                                             <img class="cart-item-image" src="http://localhost:9032/public/image/${item.product.image}" width="100" height="100">
@@ -31,10 +31,8 @@
                                         <span class="cart-price cart-column cart-page-price">${item.product.price} VNĐ</span>
 
                                         <div class="cart-quantity cart-column">
-                                            <input class="cart-quantity-input" type="number" value="${item.quantity}" max="100">
-                                            <form action="/removeFromCart/${item.product._id}" method="POST">
-                                                <button class="btn btn-danger" >Xóa</button>
-                                            </form>
+                                            <input class="cart-quantity-input" disabled type="number" value="${item.quantity}" max="100">
+  
                                         </div>
                                     </div>
                                 </c:forEach>
@@ -59,7 +57,7 @@
                 <form class="form-group form-order" action="/order/" method="POST">
                     <div class=" info-more row">
                         <label class="col">Tên cửa hàng </label>
-                        <span class="col"> đasa</span>
+                        <span class="col">${order.products[0].product.restaurant.name}</span>
                        
                     </div>
                     <div class=" info-more row">
@@ -69,29 +67,29 @@
                     </div>
                     <div class=" info-more row">
                         <label class="col">Tên người giao </label>
-                        <span class="col"> ádasd</span>
+                        <span class="col"> ${order.shipper.fullname}</span>
                     </div>
                     <div class=" info-more row">
                         <label class="col">SĐT người giao </label>
-                        <span class="col"> 0344057234</span>
+                        <span class="col"> ${order.shipper.phone}</span>
                        
                     </div>
                     
                     <div class=" info-more row">
                         <label class="col">Địa chỉ giao hàng:</label>
-                        <span class="col" style="word-break: break-all;">ddasdsad sadsadasd sadasdasdsad ádasdsadasdsad</span>
+                        <span class="col" style="word-break: break-all;">${order.address}</span>
                     </div>
                     <div class="info-more row">
                         <label class="col">Thời Gian:</label><br/>
                         <span class="col">Giao ngay </span>
                     </div>
-                    <div class="info-more row">
+<!--                    <div class="info-more row">
                         <label class="col">Thanh Toán:</label><br/>
                         <span class="col">Tieenf mat </span>
-                    </div>
+                    </div>-->
                     <div class="info-more row">
                         <label class="col">Ghi chú</label><br/>
-                        <span class="col" style="word-break: break-all;">ddasdsad sadsadasd sadasdasdsad ádasdsadasdsad</span>
+                        <span class="col" style="word-break: break-all;">${order.note}</span>
                     </div>
                     
                 </form>
