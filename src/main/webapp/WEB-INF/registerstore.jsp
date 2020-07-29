@@ -81,10 +81,10 @@
                 <h3 class="font-margin text-center">Chọn ảnh giấy phép bán hàng</h3>
 
                 <div class="form-group row">
-                    <div class="form-control col-md-7" style="width: 60%" >
+                    <div class="form-control col-md-7 " style="width: 60%" >
                         <a id="chossefile-giayphep">
-                            <div class="image-frame-upload" style="border: 1px solid blue; background-size: cover;width: 100%;height: 300px;">
-                                <span style="position: absolute;margin-top: 45px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: 190px;">+</span>
+                            <div class="image-frame-upload d-flex justify-content-center align-items-md-center" style="border: 1px solid blue; background-size: cover;width: 100%;height: 300px;">
+                                <span style=";margin-top: -4px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: 15px;">+</span>
                             </div>
                         </a>
 
@@ -179,7 +179,7 @@
             marker.on('dragend', function() {
 
                 var lngLat = marker.getLngLat();
-                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=qKvO3Yc2cMFMVB4NKEGsMkm0FgMrQO1pqXmPUaup&limit=1')
+                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm&limit=1')
                         .then(function(response) {
                             return response.json()
                         })

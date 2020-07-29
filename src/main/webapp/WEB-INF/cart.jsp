@@ -215,12 +215,13 @@
 
     marker.on('dragend', function() {
         var lngLat = marker.getLngLat();
-        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=qKvO3Yc2cMFMVB4NKEGsMkm0FgMrQO1pqXmPUaup&limit=1')
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm&limit=1')
                 .then(function(response) {
                     return response.json()
                 })
                 .then(function(data) {
                     $(".input-address").val(data.results[0].formatted_address);
+                    getLocation($(".input-address").val(), "user");
                 });
     });
     geolocateControl.on("geolocate", function(e) {
@@ -233,12 +234,14 @@
                 })
                 .then(function(data) {
                     $(".input-address").val(data.results[0].formatted_address);
+                    getLocation($(".input-address").val(), "user");
                 });
     })
     geocoder.on("result", function(e) {
         geocoder.mapMarker.remove();
         marker._lngLat = geocoder.mapMarker._lngLat;
         $(".input-address").val(e.result.description);
+        getLocation($(".input-address").val(),"user");
     })
     $(".btn-location").click(function() {
         $(".goongjs-ctrl-fullscreen").trigger("click");
