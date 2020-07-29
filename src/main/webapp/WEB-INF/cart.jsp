@@ -31,6 +31,7 @@
                 <form class="form-group form-order" action="/order/" method="POST">
                     <div class="info-more">
                         <label>Họ tên: </label>
+
                         <input type="text" name="name" value="${user.fullname}" class="form-control input-name"  />
                     </div>
                     <div class=" info-more">
@@ -159,17 +160,6 @@
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
 <script async defered>
-
-    function getDistance() {
-        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=qKvO3Yc2cMFMVB4NKEGsMkm0FgMrQO1pqXmPUaup&limit=1')
-                .then(function(response) {
-                    return response.json()
-                })
-                .then(function(data) {
-                    $(".input-address").val(data.results[0].formatted_address);
-                });
-    }
-
     goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
     var map = new goongjs.Map({
         container: 'map', // container id
@@ -224,7 +214,6 @@
             .addTo(map);
 
     marker.on('dragend', function() {
-
         var lngLat = marker.getLngLat();
         fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=qKvO3Yc2cMFMVB4NKEGsMkm0FgMrQO1pqXmPUaup&limit=1')
                 .then(function(response) {
@@ -261,6 +250,54 @@
         $(".input-address").val("");
         $("#mapModel").modal("hide");
     })
+    //Fee distance functions
+    var userLocation;
+    var restaurantLocation;
+    var distance;
+    function getLocation(address, target) {
+        var placeId;
+        fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm&limit=1')
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    placeId = data.predictions[0].place_id;
+                    fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm")
+                            .then(function(response) {
+                                return response.json()
+                            })
+                            .then(function(data) {
+                                if (target == "user") {
+                                    userLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
+                                }
+                                else {
+                                    restaurantLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
+                                }
+
+                                if (userLocation && restaurantLocation) {
+                                    getDistance(userLocation, restaurantLocation).then(function(data) {
+                                        distance = data.routes[0].legs[0].distance.text;
+                                        $(".cart-total-title span").html(distance.split(" ")[0]);
+                                    });
+                                }
+                            })
+                });
+
+    }
+    function getDistance(origin, dest) {
+        return new Promise(function(resolve, reject) {
+            fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm&alternatives=true&vehicle=bike')
+                    .then(function(response) {
+                        return response.json()
+                    })
+                    .then(function(data) {
+                        resolve(data);
+                    });
+        })
+    }
+    getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
+    getLocation('${user.address}', "user");
+
 </script>
 </body>
 
