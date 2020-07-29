@@ -2,6 +2,7 @@ package controllers;
 
 import Nghia.Util.CookieHelper;
 import Nghia.Util.MultipartContainer;
+import Nghia.Util.RESTOrderHelper;
 import Nghia.Util.RESTUserHelper;
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import models.Cart;
+import models.Order;
 import models.User;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
@@ -33,9 +35,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 
     private final RESTUserHelper restUser;
-
+    private final RESTOrderHelper restOrder;
     public UserController() throws InstantiationException, IllegalAccessException {
         restUser = new RESTUserHelper(User.class);
+        restOrder = new RESTOrderHelper(Order.class);
     }
 
     @RequestMapping(value = "/user-info")
@@ -59,7 +62,7 @@ public class UserController {
     public ModelAndView statistical() {
         return new ModelAndView("statistical");
     }
-
+    
     @RequestMapping(value = "/addToCart", method = RequestMethod.POST)
     @ResponseBody
     public String addToCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
@@ -106,15 +109,17 @@ public class UserController {
         return new ModelAndView("cart").addObject("user", user);
     }
 
-    @RequestMapping(value = "/detail-order", method = RequestMethod.GET)
-    public ModelAndView detailorder() throws IOException {
-        
-        return new ModelAndView("detail-order");
+    
+    
+    @RequestMapping(value = "/detail-order/{id}", method = RequestMethod.GET)
+    public ModelAndView detailorder(@PathVariable("id") String id) throws IOException {
+        Object order = restOrder.getOne(id);
+        return new ModelAndView("detail-order").addObject("order",order);
     }
-
+    
     @RequestMapping(value = "/status-order", method = RequestMethod.GET)
     public ModelAndView statusorder() throws IOException {
-
+        
         return new ModelAndView("status-order");
     }
 

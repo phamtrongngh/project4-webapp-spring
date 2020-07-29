@@ -54,7 +54,7 @@ public class OrderController {
         if (request.getParameter("message").equals("Success")){
             restOrderHelper.paying(request.getParameter("orderId"));
         }
-        response.sendRedirect("/detail-order");
+        response.sendRedirect("/detail-order/"+request.getParameter("orderId"));
         return null;
     }
 }

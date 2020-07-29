@@ -415,26 +415,23 @@
                         <span class="receivedday">
                         </span>
                         <div class="history-contain">
-                            <img src="/public/image/Background/pizza.jpg" class="history-avatar" alt=""/>
+                            <img src="http://localhost:9032/public/image/${item.products[0].product.restaurant.avatar}" class="history-avatar" alt=""/>
                             <div>
                                 <span class="history-namestore">
-                                    PizzaHut
+                                    ${item.products[0].product.restaurant.name}
                                 </span>
                                 <div class="history-address">
-                                    226 Hậu giang
+                                    ${item.products[0].product.restaurant.address}
                                 </div>
                                 <div style="display: flex;">
-                                    <div class="history-price">
-                                        <span>
-                                        </span>VNĐ
-                                    </div>
+                                    
                                     <div style="display: flex;">
                                         <div class="history-price">
                                             <span>
-                                                25.000
+                                                ${item.amount}
                                             </span>VNĐ
                                         </div>
-                                        <span class="history-item">(2 phần)<span>
+                                        <span class="history-item">(${(item.products).size()} món)<span>
                                                 </div>
                                                 </div>
                                                 </div>
