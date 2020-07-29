@@ -38,6 +38,7 @@
     </head>
 
     <body>
+        
         <c:choose>
             <c:when test="${cookie['cart'].getValue()>0}">
                 <a href='/cart' id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
@@ -46,6 +47,7 @@
                 <a href='/cart' style="display:none" id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
             </c:otherwise>
         </c:choose>
+                
         <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">

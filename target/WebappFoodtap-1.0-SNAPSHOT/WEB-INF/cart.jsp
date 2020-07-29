@@ -1,26 +1,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <!-- The Modal -->
-        <div class="modal" id="mapModel">
-            <div class="modal-dialog" style="width: 450px;">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title"> Bản đồ</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div id="map"></div>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger submit" >Chấp nhận</button>
-                    </div>
-                </div>
+
+<!-- The Modal -->
+<div class="modal" id="mapModel">
+    <div class="modal-dialog" style="width: 450px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bản đồ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div id="map"></div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger submit" >Chấp nhận</button>
             </div>
         </div>
+    </div>
+</div>
 <div class="container contain" style="margin-top: 100px">
     <div class="row">
 
@@ -30,6 +31,7 @@
                 <form class="form-group form-order" action="/order/" method="POST">
                     <div class="info-more">
                         <label>Họ tên: </label>
+
                         <input type="text" name="name" value="${user.fullname}" class="form-control input-name"  />
                     </div>
                     <div class=" info-more">
@@ -40,7 +42,7 @@
                         <label>Địa chỉ:</label>
                         <div class="form-inline">
                             <input id="address-register" type="text" name="address" value="${user.address}" class="form-control input-address" >
-                            
+
                             <div class="input-group-prepend">
                                 <button  type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" style="display: block;" ><i class="fas fa-map-marker-alt" style="color: red;"></i></button>
                             </div>
@@ -61,7 +63,8 @@
                     </div>
                     <div class="info-pay">
                         <a href="#"><img src="/public/image/avatar/momo.png" class="img-momo" alt="" /></a>
-                        </div>
+                    </div>
+
                     <div class="info-more">
                         <label>Ghi chú</label><br/>
                         <textarea name="note" class="form-control textarea-note"></textarea>
@@ -112,7 +115,7 @@
                                 <input type="text" class="cart-total-price-data" style="display: none;"/>
                             </div>
                             <div class="cart-total row" style="font-weight: 100;">
-                                <div class="cart-total-title">Phí vận chuyển: <span>2</span>km</div>
+                                <div class="cart-total-title">Phí vận chuyển: <span></span>km</div>
 
                                 <div class="col"><span class="cart-total-price">0</span>VNĐ</div>
 
@@ -211,14 +214,14 @@
             .addTo(map);
 
     marker.on('dragend', function() {
-
         var lngLat = marker.getLngLat();
-        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=qKvO3Yc2cMFMVB4NKEGsMkm0FgMrQO1pqXmPUaup&limit=1')
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm&limit=1')
                 .then(function(response) {
                     return response.json()
                 })
                 .then(function(data) {
                     $(".input-address").val(data.results[0].formatted_address);
+                    getLocation($(".input-address").val(), "user");
                 });
     });
     geolocateControl.on("geolocate", function(e) {
@@ -231,12 +234,14 @@
                 })
                 .then(function(data) {
                     $(".input-address").val(data.results[0].formatted_address);
+                    getLocation($(".input-address").val(), "user");
                 });
     })
     geocoder.on("result", function(e) {
         geocoder.mapMarker.remove();
         marker._lngLat = geocoder.mapMarker._lngLat;
         $(".input-address").val(e.result.description);
+        getLocation($(".input-address").val(),"user");
     })
     $(".btn-location").click(function() {
         $(".goongjs-ctrl-fullscreen").trigger("click");
@@ -248,6 +253,54 @@
         $(".input-address").val("");
         $("#mapModel").modal("hide");
     })
+    //Fee distance functions
+    var userLocation;
+    var restaurantLocation;
+    var distance;
+    function getLocation(address, target) {
+        var placeId;
+        fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm&limit=1')
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    placeId = data.predictions[0].place_id;
+                    fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm")
+                            .then(function(response) {
+                                return response.json()
+                            })
+                            .then(function(data) {
+                                if (target == "user") {
+                                    userLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
+                                }
+                                else {
+                                    restaurantLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
+                                }
+
+                                if (userLocation && restaurantLocation) {
+                                    getDistance(userLocation, restaurantLocation).then(function(data) {
+                                        distance = data.routes[0].legs[0].distance.text;
+                                        $(".cart-total-title span").html(distance.split(" ")[0]);
+                                    });
+                                }
+                            })
+                });
+
+    }
+    function getDistance(origin, dest) {
+        return new Promise(function(resolve, reject) {
+            fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm&alternatives=true&vehicle=bike')
+                    .then(function(response) {
+                        return response.json()
+                    })
+                    .then(function(data) {
+                        resolve(data);
+                    });
+        })
+    }
+    getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
+    getLocation('${user.address}', "user");
+
 </script>
 </body>
 
