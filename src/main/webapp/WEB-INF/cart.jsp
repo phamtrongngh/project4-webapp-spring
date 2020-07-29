@@ -115,7 +115,7 @@
                                 <input type="text" class="cart-total-price-data" style="display: none;"/>
                             </div>
                             <div class="cart-total row" style="font-weight: 100;">
-                                <div class="cart-total-title">Phí vận chuyển: <span>2</span>km</div>
+                                <div class="cart-total-title">Phí vận chuyển: <span></span>km</div>
 
                                 <div class="col"><span class="cart-total-price">0</span>VNĐ</div>
 
