@@ -380,8 +380,7 @@ function getSenderBox(message) {
     receiveBox += '</div>';
     return receiveBox;
 }
-
-$(document).ready(function() {
+function showmess() {
     //Click to show conservation
     $(".contacts-body .contacts li").click(function() {
         var id = $(this).attr("idValue");
@@ -403,6 +402,13 @@ $(document).ready(function() {
             $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
         });
     })
+}
+$(document).ready(function() {
+    /*chat scroll to bottom*/
+    $('.msg-card-body').stop().animate({scrollTop: 99999999});
+    var messitem = document.getElementsByClassName("li-item-chat")[0];
+    $(messitem).trigger("click", showmess());
+
 
     //Send message
     $(".send-btn").click(function() {
