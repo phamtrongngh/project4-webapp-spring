@@ -357,25 +357,25 @@ function callAjax(url, type, data, cb) {
     })
 }
 function getReceiveBox(message) {
-    var senderBox = '<div class="d-flex justify-content-end mb-4">';
+   var senderBox = '<div class="msg-time-send">' + message.createdAt + '</div>';
+    senderBox += '<div class="d-flex justify-content-end mb-4">';
     senderBox += '<div class="msg-cotainer-send">';
     senderBox += message.content;
     senderBox += '<br/>';
-    senderBox += '<span class="msg-time-send">' + message.createdAt + '</span>';
     senderBox += '</div>';
     senderBox += '</div>';
     return senderBox;
 }
 
 function getSenderBox(message) {
-    var receiveBox = '<div class="d-flex justify-content-start mb-4">';
+  var  receiveBox = '<div class="msg-time">' + message.createdAt + '</div>';
+   receiveBox += '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
     receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
     receiveBox += '</div>';
     receiveBox += '<div class="msg-cotainer">';
     receiveBox += message.content;
     receiveBox += '<br/>';
-    receiveBox += '<span class="msg-time">' + message.createdAt + '</span>';
     receiveBox += '</div>';
     receiveBox += '</div>';
     return receiveBox;
