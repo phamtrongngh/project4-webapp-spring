@@ -2,6 +2,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--Modal coupon-->
+<div class="modal" id="couponModal-users" >
+    <div class="modal-dialog" style="max-width:40%!important;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Ví Coupon</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-md-center justify-content-between">
+                    <div class="coupon-container d-flex">
+                         <img src="/public/image/avatar/momo.png" class="img-coupon" />
+                         <p><span id="coupon">FREESHIP</span><br/>Miễn phí vận chuyển</p>
+                    </div>
+                    <button id="btn_copy" class="btn btn-danger float-right ">Copy</button>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Modal like and don nhap-->
 <div class="modal fade" id="Modalheartdraft" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
@@ -30,7 +57,7 @@
                                 <span>ádasdsa</span>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="tab-pane" role="tabpanel" id="stepdraft">
                         <div class="row row-like">
@@ -38,19 +65,19 @@
                                 <img src="/public/image/avatar/momo.png" class="img-like" />
                             </div>
                             <div class="col-md-4 item-hover">
-                                
-                                    <div>Bánh mì bảo Quyên</div>
-                                    <span>2 món</span> (<span>20.000</span>VNĐ)
-                                    <div class="tip ">
-                                        <div class="row">
-                                            <div class="col">
+
+                                <div>Bánh mì bảo Quyên</div>
+                                <span>2 món</span> (<span>20.000</span>VNĐ)
+                                <div class="tip ">
+                                    <div class="row">
+                                        <div class="col">
                                             <span>2</span>x<span>Gà gán</span>
                                         </div>
                                         <div class="col">
                                             <span>10,000</span>VNĐ
                                         </div>
-                                        </div>
                                     </div>
+                                </div>
                             </div>
                             <div class="ml-auto p-2 bd-highlight">
                                 <button class="btn">Đặt lại</button>
@@ -563,7 +590,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-1 profile-container-buttons">
-                                                                <button class="btn btn-primary form-control" ><i class="fas fa-percent"></i>Coupon</button>
+                                                                <button class="btn btn-primary form-control" data-toggle="modal" data-target="#couponModal-users"  ><i class="fas fa-percent"></i>Coupon</button>
                                                                 <button class="btn btn-success form-control" data-toggle="modal" data-target="#Modalheartdraft" style="margin-top: 8px"><i class="fas fa-heart"></i>Yêu thích</button>
                                                                 <button class="btn btn-danger form-control" data-toggle="modal" data-target="#history" style="margin-top: 8px"><i class="fas fa-history"></i>Lịch sử</button>
                                                             </div>
@@ -573,7 +600,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-4 list">
-                                                                <div class="profile-list rounded" >
+                                                                <div class="profile-list-img rounded" >
                                                                     <div class="img-list">
                                                                         <h3><i class="fas fa-image"></i>Ảnh</h3>
                                                                         <div class="img-contain d-flex ">
@@ -587,8 +614,8 @@
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                                                             </div>
                                                                         </div>
-                                                                        
-                                                                         <div class="img-contain d-flex ">
+
+                                                                        <div class="img-contain d-flex ">
                                                                             <div class="img-contains">
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                                                             </div>
@@ -602,7 +629,7 @@
                                                                         <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
                                                                     </div>
                                                                 </div>
-                                                                <div class="profile-list rounded" >
+                                                                <div class="profile-list-friend rounded" >
                                                                     <div class="friend-list">
                                                                         <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
                                                                         <div class="img-contain d-flex ">
@@ -619,7 +646,7 @@
                                                                                 <a href="#">Nguyễn Hạ</a>
                                                                             </div>
                                                                         </div>
-                                                                            <div class="img-contain d-flex ">
+                                                                        <div class="img-contain d-flex ">
                                                                             <div class="img-contains">
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
                                                                                 <a href="#">Nguyễn Hạ</a>

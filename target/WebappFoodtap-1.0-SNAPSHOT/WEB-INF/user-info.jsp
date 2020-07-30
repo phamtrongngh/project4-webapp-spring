@@ -71,9 +71,9 @@
         <div class="row justify-content-center h-100">
             <div class="col col-sm-6 col-md-7 col-lg-4 col-xl-6 h-100">
                 <form action="/updateUser" method="POST" enctype="multipart/form-data">   
-                    <div class="form-group form-control mx-auto text-center">
+                    <div class="form-group form-control mx-auto text-center" style="width: 48%">
                         <a id="chossefile">
-                            <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
+                            <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: 100% 100%; background-position: center; background-repeat: no-repeat">
                                 <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
                             </div>
                         </a>

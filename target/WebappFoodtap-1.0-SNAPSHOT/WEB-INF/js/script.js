@@ -444,12 +444,12 @@ function topFunction() {
 //Buttom slideToggle
 $(document).ready(function() {
     //tooltip
-    $('[data-toggle="tooltip"]').tooltip();   
-    
-    
-    $(".btn-up").click(function() {
-        $('.box').slideToggle();
-    });
+    $('[data-toggle="tooltip"]').tooltip();
+
+
+//    $(".btn-up").click(function() {
+//        $('.box').slideToggle();
+//    });
     $('.box').find('div#sidebar-user-box:gt(3)').hide();
     $('.viewMore, .viewLess').click(function(e) {
         e.preventDefault();
@@ -822,7 +822,6 @@ $(document).ready(function() {
     });
     // Get the input field
     var input = document.getElementById("type_msg");
-
 // Execute a function when the user releases a key on the keyboard
     input.addEventListener("keyup", function(event) {
         // Number 13 is the "Enter" key on the keyboard
@@ -833,4 +832,17 @@ $(document).ready(function() {
             document.getElementById("send_btn").click();
         }
     });
+ 
 });
+$(document).ready(function(){
+    document.getElementById("btn_copy").addEventListener("click", copy_password);
+});
+function copy_password() {
+    var copyText = document.getElementById("coupon");
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+}
