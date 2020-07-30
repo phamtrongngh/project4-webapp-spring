@@ -588,8 +588,8 @@
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                                                             </div>
                                                                         </div>
-                                                                        
-                                                                         <div class="img-contain d-flex ">
+
+                                                                        <div class="img-contain d-flex ">
                                                                             <div class="img-contains">
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                                                             </div>
@@ -685,176 +685,6 @@
                                                                         </div>
                                                                     </form>
                                                                 </div>
-                                                                <div class="rounded status">
-                                                                    <div class="alignment">
-                                                                        <div class="media">
-                                                                            <img src="/public/image/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
-                                                                            <div class="media-body">
-                                                                                <div href="" class="name"><a href="#">Thinh</a><img src="/public/image/unnamed.png" class="check" alt="" />
-                                                                                </div>
-
-                                                                            </div>
-                                                                            <div class="dropleft">
-                                                                                <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
-                                                                                <div class="dropdown-menu" >
-                                                                                    <a class="dropdown-item" href="#">Ẩn</a>
-                                                                                    <a class="dropdown-item" href="#">Sửa</a>
-                                                                                    <a class="dropdown-item" href="#">Xóa</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="font1">
-                                                                            Mon an that tuyet
-                                                                        </div>
-                                                                        <div>
-                                                                            <a href="#">CoolCream#</a>
-                                                                            <a href="#">sweet#</a>
-                                                                            <a href="#">fruit#</a>
-                                                                            <a href="#">sweetlane#</a>
-                                                                        </div>
-
-
-                                                                    </div>
-                                                                    <div class="image1">
-                                                                        <img src="/public/image/unnamed.png" class="rounded background" alt="" />
-                                                                    </div>
-                                                                    <div style="margin-top: 2px;display: flex;">
-                                                                        <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>20</span>
-                                                                        <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a><span>200 chia sẻ</span></div>
-                                                                    </div>
-                                                                    <hr class="hr-newsfeed"/>
-                                                                    <div class="icon2">
-                                                                        <div class="subicon1">
-
-                                                                            <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
-                                                                            <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="collapse" id="collapseExample1">
-                                                                        <div class="card card-body">
-                                                                            <div class="post-footer">
-                                                                                <div class="input-group">
-                                                                                    <input class="form-control input-comments" placeholder="Add a comment" type="text" />
-                                                                                    <button class="input-group-addon">
-                                                                                        <i class="fa fa-edit"></i>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <ul class="comments-list navbar-nav">
-                                                                                    <li class="comment nav-item">
-                                                                                        <a class="pull-left" href="#">
-                                                                                            <img class="avatar " src="/public/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar " />
-                                                                                        </a>
-                                                                                        <div class="comment-body ">
-                                                                                            <div class="comment-heading ">
-                                                                                                <h4 class="user ">Gavino Free</h4>
-                                                                                                <h5 class="time ">5 minutes ago</h5>
-                                                                                                <div class="report dropright">
-                                                                                                    <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                    </a>
-                                                                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                                                                        <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                        <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                        <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <p>Mem mem<br/>
-                                                                                                <a href="#">Thích</a>
-                                                                                                <a href="#" data-toggle="collapse" data-target="#reply1" >Trả lời</a>
-                                                                                            <div id="reply1" class="collapse">
-                                                                                                <div class="input-group" style="margin-left: -60px;">
-                                                                                                    <a class="pull-left " href="# ">
-                                                                                                        <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
-                                                                                                    </a>
-                                                                                                    <input class="form-control input-comments" placeholder="Add a comment" type="text" />
-                                                                                                    <button class="input-group-addon">
-                                                                                                        <i class="fa fa-edit"></i>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <ul class="comments-list navbar-nav ">
-                                                                                            <li class="comment ">
-                                                                                                <a class="pull-left " href="# ">
-                                                                                                    <img class="avatar " src="/public/image/avatar/Hot-Food-Logo-991x991.jpg " alt="avatar " />
-                                                                                                </a>
-                                                                                                <div class="comment-body ">
-                                                                                                    <div class="comment-heading ">
-                                                                                                        <h4 class="user ">Ryan Haywood</h4>
-                                                                                                        <h5 class="time ">3 minutes ago</h5>
-                                                                                                        <div class="report dropright">
-                                                                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                            </a>
-                                                                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                                <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <p>Relax my friend
-                                                                                                        <br/>
-                                                                                                        <a href="#">Thích</a>
-                                                                                                        <a href="#" data-toggle="collapse" data-target="#reply2" 5>Trả lời</a>
-                                                                                                    <div id="reply2" class="collapse">
-                                                                                                        <div class="input-group" style="margin-left: -60px;">
-                                                                                                            <a class="pull-left " href="# ">
-                                                                                                                <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
-                                                                                                            </a>
-                                                                                                            <input class="form-control input-comments" placeholder="Add a comment" type="text" />
-                                                                                                            <button class="input-group-addon">
-                                                                                                                <i class="fa fa-edit"></i>
-                                                                                                            </button>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    </p>
-                                                                                                </div>
-                                                                                            </li>
-                                                                                            <li class="comment ">
-                                                                                                <a class="pull-left " href="# ">
-                                                                                                    <img class="avatar " src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
-                                                                                                </a>
-                                                                                                <div class="comment-body ">
-                                                                                                    <div class="comment-heading ">
-                                                                                                        <h4 class="user ">Gavino Free</h4>
-                                                                                                        <h5 class="time ">3 minutes ago</h5>
-                                                                                                        <div class="report dropright">
-                                                                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                            </a>
-                                                                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                                <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <p>Ok, cool. <br/>
-
-                                                                                                        <a href="#">Thích</a>
-                                                                                                        <a href="#" data-toggle="collapse" data-target="#reply3" 5>Trả lời</a>
-                                                                                                    <div id="reply3" class="collapse">
-                                                                                                        <div class="input-group" style="margin-left: -60px;">
-                                                                                                            <a class="pull-left " href="# ">
-                                                                                                                <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
-                                                                                                            </a>
-                                                                                                            <input class="form-control input-comments" placeholder="Add a comment" type="text" />
-                                                                                                            <button class="input-group-addon">
-                                                                                                                <i class="fa fa-edit"></i>
-                                                                                                            </button>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    </p>
-                                                                                                </div>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
                                                                 <c:forEach var="item" items="${user.newfeeds}">
                                                                     <div class="rounded status">
                                                                         <div class="alignment">
@@ -876,13 +706,13 @@
                                                                             <div class="font1">
                                                                                 ${item.content}
                                                                             </div>
-<!--                                                                            <div>
-                                                                                <a href="#">CoolCream#</a>
-                                                                                <a href="#">sweet#</a>
-                                                                                <a href="#">fruit#</a>
-                                                                                <a href="#">s
-                                                                                    weetlane#</a>
-                                                                            </div>-->
+                                                                            <!--                                                                            <div>
+                                                                                                                                                            <a href="#">CoolCream#</a>
+                                                                                                                                                            <a href="#">sweet#</a>
+                                                                                                                                                            <a href="#">fruit#</a>
+                                                                                                                                                            <a href="#">s
+                                                                                                                                                                weetlane#</a>
+                                                                                                                                                        </div>-->
                                                                         </div>
                                                                         <div class="image1">
                                                                             <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
@@ -892,16 +722,14 @@
                                                                                 <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${(item.likes).size()}</span>
                                                                             </a>
                                                                             <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a>
-<!--                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
+                                                                                <!--                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
                                                                             </div>
                                                                         </div>
                                                                         <hr class="hr-newsfeed"/>
                                                                         <div class="icon2">
                                                                             <div class="subicon1">
-                                                                                <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal"></i>
-                                                                                </a>
 
-                                                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                                                <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
                                                                                 <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                                                             </div>
                                                                         </div>
@@ -1034,97 +862,97 @@
                                                         </div>
                                                     </div>
 
-                                                    <script async defered>
-                                                        goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
-                                                        var map = new goongjs.Map({
-                                                            container: 'map', // container id
-                                                            style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
-                                                            center: [105, 21], // starting position [lng, lat]
-                                                            zoom: 9 // starting zoom
-                                                        });
-
-                                                        var geocoder = new GoongGeocoder({
-                                                            accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
-                                                            goongjs: goongjs
-                                                        })
-
-                                                        var geolocateControl = new goongjs.GeolocateControl({
-                                                            positionOptions: {
-                                                                enableHighAccuracy: true
-                                                            },
-                                                            trackUserLocation: true
-                                                        })
-
-                                                        map.addControl(new goongjs.FullscreenControl());
-
-                                                        map.on('load', function() {
-                                                            map.addSource('single-point', {
-                                                                type: 'geojson',
-                                                                data: {
-                                                                    type: 'FeatureCollection',
-                                                                    features: []
-                                                                }
-                                                            });
-                                                            map.addControl(
-                                                                    geocoder
-                                                                    )
-                                                            map.addControl(
-                                                                    geolocateControl
-                                                                    );
-                                                            map.addLayer({
-                                                                id: 'point',
-                                                                source: 'single-point',
-                                                                type: 'circle',
-                                                                paint: {
-                                                                    'circle-radius': 10,
-                                                                    'circle-color': '#448ee4'
-                                                                }
-                                                            });
-                                                        });
-
-                                                        var marker = new goongjs.Marker({
-                                                            draggable: true
-                                                        })
-                                                                .setLngLat([105, 21])
-                                                                .addTo(map);
-
-                                                        marker.on('dragend', function() {
-
-                                                            var lngLat = marker.getLngLat();
-                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
-                                                                    .then(function(response) {
-                                                                        return response.json()
-                                                                    })
-                                                                    .then(function(data) {
-                                                                        $("input[name='place']").val(data.results[0].formatted_address);
-                                                                    });
-                                                        });
-                                                        geolocateControl.on("geolocate", function(e) {
-                                                            var lng = e.coords.longitude;
-                                                            var lat = e.coords.latitude;
-                                                            marker._lngLat = {lat: lat, lng: lng}
-                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
-                                                                    .then(function(response) {
-                                                                        return response.json()
-                                                                    })
-                                                                    .then(function(data) {
-                                                                        $("input[name='place']").val(data.results[0].formatted_address);
-                                                                    });
-                                                        })
-                                                        geocoder.on("result", function(e) {
-                                                            geocoder.mapMarker.remove();
-                                                            marker._lngLat = geocoder.mapMarker._lngLat;
-                                                            $("input[name='place']").val(e.result.description);
-                                                        })
-                                                        $(".btn-location").click(function() {
-                                                            $(".goongjs-ctrl-fullscreen").trigger("click");
-                                                        })
-                                                        $("#mapModel .modal-footer button").click(function() {
-                                                            $("#mapModel").modal("hide");
-                                                        })
-                                                        $(".close").click(function() {
-                                                            $("input[name='place']").val("");
-                                                            $("#mapModel").modal("hide");
-                                                        })
-                                                    </script>
+                                                    <!--                                                    <script async defered>
+                                                                                                            goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
+                                                                                                            var map = new goongjs.Map({
+                                                                                                                container: 'map', // container id
+                                                                                                                style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
+                                                                                                                center: [105, 21], // starting position [lng, lat]
+                                                                                                                zoom: 9 // starting zoom
+                                                                                                            });
+                                                    
+                                                                                                            var geocoder = new GoongGeocoder({
+                                                                                                                accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
+                                                                                                                goongjs: goongjs
+                                                                                                            })
+                                                    
+                                                                                                            var geolocateControl = new goongjs.GeolocateControl({
+                                                                                                                positionOptions: {
+                                                                                                                    enableHighAccuracy: true
+                                                                                                                },
+                                                                                                                trackUserLocation: true
+                                                                                                            })
+                                                    
+                                                                                                            map.addControl(new goongjs.FullscreenControl());
+                                                    
+                                                                                                            map.on('load', function() {
+                                                                                                                map.addSource('single-point', {
+                                                                                                                    type: 'geojson',
+                                                                                                                    data: {
+                                                                                                                        type: 'FeatureCollection',
+                                                                                                                        features: []
+                                                                                                                    }
+                                                                                                                });
+                                                                                                                map.addControl(
+                                                                                                                        geocoder
+                                                                                                                        )
+                                                                                                                map.addControl(
+                                                                                                                        geolocateControl
+                                                                                                                        );
+                                                                                                                map.addLayer({
+                                                                                                                    id: 'point',
+                                                                                                                    source: 'single-point',
+                                                                                                                    type: 'circle',
+                                                                                                                    paint: {
+                                                                                                                        'circle-radius': 10,
+                                                                                                                        'circle-color': '#448ee4'
+                                                                                                                    }
+                                                                                                                });
+                                                                                                            });
+                                                    
+                                                                                                            var marker = new goongjs.Marker({
+                                                                                                                draggable: true
+                                                                                                            })
+                                                                                                                    .setLngLat([105, 21])
+                                                                                                                    .addTo(map);
+                                                    
+                                                                                                            marker.on('dragend', function() {
+                                                    
+                                                                                                                var lngLat = marker.getLngLat();
+                                                                                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+                                                                                                                        .then(function(response) {
+                                                                                                                            return response.json()
+                                                                                                                        })
+                                                                                                                        .then(function(data) {
+                                                                                                                            $("input[name='place']").val(data.results[0].formatted_address);
+                                                                                                                        });
+                                                                                                            });
+                                                                                                            geolocateControl.on("geolocate", function(e) {
+                                                                                                                var lng = e.coords.longitude;
+                                                                                                                var lat = e.coords.latitude;
+                                                                                                                marker._lngLat = {lat: lat, lng: lng}
+                                                                                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
+                                                                                                                        .then(function(response) {
+                                                                                                                            return response.json()
+                                                                                                                        })
+                                                                                                                        .then(function(data) {
+                                                                                                                            $("input[name='place']").val(data.results[0].formatted_address);
+                                                                                                                        });
+                                                                                                            })
+                                                                                                            geocoder.on("result", function(e) {
+                                                                                                                geocoder.mapMarker.remove();
+                                                                                                                marker._lngLat = geocoder.mapMarker._lngLat;
+                                                                                                                $("input[name='place']").val(e.result.description);
+                                                                                                            })
+                                                                                                            $(".btn-location").click(function() {
+                                                                                                                $(".goongjs-ctrl-fullscreen").trigger("click");
+                                                                                                            })
+                                                                                                            $("#mapModel .modal-footer button").click(function() {
+                                                                                                                $("#mapModel").modal("hide");
+                                                                                                            })
+                                                                                                            $(".close").click(function() {
+                                                                                                                $("input[name='place']").val("");
+                                                                                                                $("#mapModel").modal("hide");
+                                                                                                            })
+                                                                                                        </script>-->
                                                     <%@include  file="footer.jsp" %>
