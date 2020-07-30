@@ -402,6 +402,7 @@ function showmess() {
             $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
             $(".card-body.msg-card-body").html(chatBoxvalue);
             $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
+
         });
     })
 }
@@ -421,6 +422,8 @@ $(document).ready(function() {
                 messageType: "text"
             }
             callAjax("/message/", "POST", message);
+            $('.type-msg').val('');
+            $('.msg-card-body').stop().animate({scrollTop: 99999999});
         }
 
     })
@@ -440,7 +443,10 @@ function topFunction() {
 }
 //Buttom slideToggle
 $(document).ready(function() {
-
+    //tooltip
+    $('[data-toggle="tooltip"]').tooltip();   
+    
+    
     $(".btn-up").click(function() {
         $('.box').slideToggle();
     });
@@ -589,7 +595,7 @@ $(document).ready(function() {
                 '<div class="msg_head">' + username +
                 '<div class="close">x</div> </div>' +
                 '<div class="msg_wrap"> <div class="msg_body"> <div class="msg_push"></div> </div>' +
-                '<div class="msg_footer"><textarea class="msg_input" rows="10"></textarea><div class="btn-footer">\n\
+                '<div class="msg_footer"><textarea name="msg-input" class="msg_input" rows="10"></textarea><div class="btn-footer">\n\
 <button class="bg_none"><i class="fas fa-image"></i></button>\n\
 <button class="bg_none"><i class="fas fa-plus"></i></button>\n\
 <button class="bg_none pull-right"><i class="fas fa-thumbs-up"></i> </button> \n\
@@ -600,8 +606,8 @@ $(document).ready(function() {
     });
 
 
-    $(document).on('keypress', 'textarea', function(e) {
-        if (e.keyCode == 13) {
+    $(document).on('keypress', 'textarea[name=msg-input]', function(e) {
+        if (e.keyCode == 13 && !e.shiftKey) {
             var msg = $(this).val();
             $(this).val('');
             if (msg.trim().length != 0) {
@@ -813,5 +819,18 @@ $(document).ready(function() {
         $("#List a").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
+    });
+    // Get the input field
+    var input = document.getElementById("type_msg");
+
+// Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode == 13 && !event.shiftKey) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("send_btn").click();
+        }
     });
 });
