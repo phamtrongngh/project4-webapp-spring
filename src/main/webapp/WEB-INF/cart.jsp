@@ -50,11 +50,11 @@
                     </div>
                     <div class="info-more">
                         <label>Thời Gian:</label><br/>
-                        <input type="radio" name="time" class="input-radio" checked/>Giao ngay
-                        <input type="radio" name="time" class="input-radio2" />Chọn thời gian nhận hàng
+                        <input type="radio" name="time" class="input-radio" value="1" checked/>Giao ngay
+                        <input type="radio" name="time" class="input-radio2" value="2" />Chọn thời gian nhận hàng
                     </div>
                     <div class="info-more">
-                        <input type="date" class="form-control input-date"  />
+                        <input type="date" class="form-control input-date date-cart"  />
                     </div>
                     <div class="info-more">
                         <label>Thanh Toán:</label><br/>
