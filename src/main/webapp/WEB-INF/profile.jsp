@@ -1,6 +1,176 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- Modal order -->
+<div class="modal" id="orderModal">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Món ăn bạn muốn chọn</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container contain">
+                    <div class="row">
+                        <div class=" info-product">
+                            <img class="rounded img-status"  alt="" />
+                            <div>
+                                <h1 class="title-food"></h1>
+                                <div class="rate text-center">
+                                    <!--                                    <div class="stars">
+                                                                            <form action="">
+                                                                                <input class="star star-5" id="star-5" type="radio" name="star" />
+                                                                                <label class="star star-5" for="star-5"></label>
+                                                                                <input class="star star-4" id="star-4" type="radio" name="star" />
+                                                                                <label class="star star-4" for="star-4"></label>
+                                                                                <input class="star star-3" id="star-3" type="radio" name="star" />
+                                                                                <label class="star star-3" for="star-3"></label>
+                                                                                <input class="star star-2" id="star-2" type="radio" name="star" />
+                                                                                <label class="star star-2" for="star-2"></label>
+                                                                                <input class="star star-1" id="star-1" type="radio" name="star" />
+                                                                                <label class="star star-1" for="star-1"></label>
+                                                                            </form>
+                                    
+                                                                        </div>
+                                                                        <div class="text-like">14k lượt thích</div>-->
+                                </div>
+                                <p class="content-food"></p>
+                            </div>
+                            <div class="rounded box-quantity mx-auto">
+                                <p class="form-inline quantity">
+                                    Số lượng :
+
+                                    <input aria-label="quantity" class="input-qty" min="1" max="999" name="" type="number" value="1" />
+
+                                </p>
+                                <p class="price-food">Giá : <span class="price-foodnumber"></span></p>
+                                <p class="total-food">Thành tiền : <span class="total-foodnumber"></span></p>
+                            </div>
+
+                            <div class="rate-content">
+                                <ul class="comments-list first navbar-nav">
+                                    <li class="comment nav-item">
+                                        <a class="pull-left" href="#">
+                                            <img class="avatar" src="/public/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar" />
+                                        </a>
+                                        <div class="comment-body">
+                                            <div class="comment-heading">
+                                                <h4 class="user">Gavino Free</h4>
+                                                <h5 class="time">5 minutes ago</h5>
+                                                <div class="report dropright">
+                                                    <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="#">Ẩn bình luận</a>
+                                                        <a class="dropdown-item" href="#">Báo cáo</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>Mem mem<br/>
+                                                <a href="#">Thích</a>
+
+                                            <div id="reply1" class="collapse">
+                                                <div class="input-group" style="margin-left: -60px;">
+                                                    <a class="pull-left" href="#">
+                                                        <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
+                                                    </a>
+                                                    <input class="form-control input-comments" placeholder="Add a comment" type="text" />
+                                                    <button class="input-group-addon">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </div>
+                                        <ul class="comments-list navbar-nav">
+                                            <li class="comment">
+                                                <a class="pull-left" href="#">
+                                                    <img class="avatar" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="avatar" />
+                                                </a>
+                                                <div class="comment-body">
+                                                    <div class="comment-heading">
+                                                        <h4 class="user">Ryan Haywood</h4>
+                                                        <h5 class="time">3 minutes ago</h5>
+                                                        <div class="report dropright">
+                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
+
+                                                                <a class="dropdown-item" href="#">Báo cáo</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p>Relax my friend
+                                                        <br/>
+                                                        <a href="#">Thích</a>
+
+                                                    <div id="reply2" class="collapse">
+                                                        <div class="input-group" style="margin-left: -60px;">
+                                                            <a class="pull-left" href="#">
+                                                                <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
+                                                            </a>
+                                                            <input class="form-control input-comments" placeholder="Add a comment" type="text" />
+                                                            <button class="input-group-addon">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="comment">
+                                                <a class="pull-left" href="#">
+                                                    <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
+                                                </a>
+                                                <div class="comment-body">
+                                                    <div class="comment-heading">
+                                                        <h4 class="user">Gavino Free</h4>
+                                                        <h5 class="time">3 minutes ago</h5>
+                                                        <div class="report dropright">
+                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
+
+                                                                <a class="dropdown-item" href="#">Báo cáo</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p>Ok, cool. <br/>
+
+                                                        <a href="#">Thích</a>
+
+                                                    <div id="reply3" class="collapse">
+                                                        <div class="input-group" style="margin-left: -60px;">
+                                                            <a class="pull-left" href="#">
+                                                                <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar" />
+                                                            </a>
+                                                            <input class="form-control input-comments" placeholder="Add a comment" type="text" />
+                                                            <button class="input-group-addon">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- The Modal -->
 <div class="modal" id="mapModel-profile">
     <div class="modal-dialog">
@@ -56,27 +226,27 @@
             <div class="row profile-header">
                 <div class="col-md-4 profile-avartar">
                     <div class="d-flex">
-                    <div class="profile-container-img">
-                        <img src="http://localhost:9032/public/image/${restaurant.avatar}" class="rounded-circle img-avartar" alt=""  />
-                    </div>
-                    <div class="profile-name">
-                        <div class="text-name">${restaurant.name}</div>
-                        <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
-                        <div class="stars">
-                            <form action="">
-                                <input class="star star-5" id="star-5" type="radio" name="star" />
-                                <label class="star star-5" for="star-5"></label>
-                                <input class="star star-4" id="star-4" type="radio" name="star" />
-                                <label class="star star-4" for="star-4"></label>
-                                <input class="star star-3" id="star-3" type="radio" name="star" />
-                                <label class="star star-3" for="star-3"></label>
-                                <input class="star star-2" id="star-2" type="radio" name="star" />
-                                <label class="star star-2" for="star-2"></label>
-                                <input class="star star-1" id="star-1" type="radio" name="star" />
-                                <label class="star star-1" for="star-1"></label>
-                            </form>
+                        <div class="profile-container-img">
+                            <img src="http://localhost:9032/public/image/${restaurant.avatar}" class="rounded-circle img-avartar" alt=""  />
                         </div>
-                    </div>
+                        <div class="profile-name">
+                            <div class="text-name">${restaurant.name}</div>
+                            <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
+                            <div class="stars">
+                                <form action="">
+                                    <input class="star star-5" id="star-5" type="radio" name="star" />
+                                    <label class="star star-5" for="star-5"></label>
+                                    <input class="star star-4" id="star-4" type="radio" name="star" />
+                                    <label class="star star-4" for="star-4"></label>
+                                    <input class="star star-3" id="star-3" type="radio" name="star" />
+                                    <label class="star star-3" for="star-3"></label>
+                                    <input class="star star-2" id="star-2" type="radio" name="star" />
+                                    <label class="star star-2" for="star-2"></label>
+                                    <input class="star star-1" id="star-1" type="radio" name="star" />
+                                    <label class="star star-1" for="star-1"></label>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -100,7 +270,7 @@
                     <button class="btn btn-primary "><i class="far fa-comment"></i><br/>Gửi tin</button>
                 </div>
             </div>
-         
+
             <div class="profile-menu">
                 <div class="col-md-1">Danh mục sản phẩm</div>
                 <div class="col-md-11" style="padding-right: 0 !important;">
@@ -286,7 +456,7 @@
                 Hot nhất
             </div>
             <div class="profile-menu-hot">
-                <div class="col-md-4">
+                <div class="col-md-4"  data-toggle="modal" data-target="#orderModal">
                     <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
                     <a href="">Nui xào bơ tỏi</a>
                     <div class="text-price">77.000</div>
@@ -323,7 +493,7 @@
                 Mới nhất
             </div>
             <div class="profile-menu-hot">
-                <div class="col-md-4">
+                <div class="col-md-4" data-toggle="modal" data-target="#orderModal">
                     <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
                     <a href="">Nui xào bơ tỏi</a>
                     <div class="text-price">77.000</div>
@@ -371,7 +541,7 @@
                         <div class="carousel-item active">
 
                             <div class="profile-menu-hot ">
-                                <div class="col-md-4">
+                                <div class="col-md-4" data-toggle="modal" data-target="#orderModal">
                                     <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" /><br/>
                                     <a href="">Nui xào bơ tỏi</a>
                                     <div class="text-price">77.000VNĐ</div>
