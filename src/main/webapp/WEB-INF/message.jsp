@@ -88,9 +88,9 @@
                 </div>
                 <div class="card-footer">
                     <div class="input-group">
-                        <textarea name="" class="form-control type-msg" placeholder="Type your message..."></textarea>
+                        <textarea id="type_msg" class="form-control type-msg" placeholder="Type your message..."></textarea>
                         <div class="input-group-append">
-                            <span class="input-group-text send-btn"><i class="fas fa-location-arrow"></i></span>
+                            <span id="send_btn" class="input-group-text send-btn"><i class="fas fa-location-arrow"></i></span>
                         </div>
                     </div>
                 </div>

@@ -131,38 +131,14 @@ function quantityChanged1(event) {
 
 
 $(document).ready(function() {
-    $(".like-newpost").click(function(){
-        if ($(this).hasClass("fa-heart")) {
-            $(this).addClass("fa-heartbeat");
-            $(this).removeClass("fa-heart");
-        }
-        else{
-            $(this).removeClass("fa-heartbeat");
-            $(this).addClass("fa-heart");
-        }
-        
-    })
-    
-    
-
-    /*display date*/
-    $('input[name=payment]').on('change', function(e) {
-        console.log('input[name=payment]:checked');
-        if ($('input[name=payment]:checked').val() == 2) {
+    /*display momo*/
+    $('input[name=pay]').on('change', function(e) {
+        console.log('input[name=pay]:checked');
+        if ($('input[name=pay]:checked').val() == 2) {
             $(".info-pay").css("display", "block");
 
         } else {
             $(".info-pay").css("display", "none");
-        }
-    });
-    /*display momo*/
-    $('input[name=time]').on('change', function(e) {
-        console.log('input[name=time]:checked');
-        if ($('input[name=time]:checked').val() == 2) {
-            $(".date-cart").css("display", "block");
-
-        } else {
-            $(".date-cart").css("display", "none");
         }
     });
     /*display momo*/
@@ -381,7 +357,8 @@ function callAjax(url, type, data, cb) {
     })
 }
 function getReceiveBox(message) {
-   var senderBox = '<div class="msg-time-send">' + message.createdAt + '</div>';
+    var date = new Date(message.createdAt);
+    var senderBox = '<div class="msg-time-send">' + date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + '</div>';
     senderBox += '<div class="d-flex justify-content-end mb-4">';
     senderBox += '<div class="msg-cotainer-send">';
     senderBox += message.content;
@@ -392,8 +369,9 @@ function getReceiveBox(message) {
 }
 
 function getSenderBox(message) {
-  var  receiveBox = '<div class="msg-time">' + message.createdAt + '</div>';
-   receiveBox += '<div class="d-flex justify-content-start mb-4">';
+    var date = new Date(message.createdAt);
+    var receiveBox = '<div class="msg-time">' + date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + '</div>';
+    receiveBox += '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
     receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
     receiveBox += '</div>';
@@ -424,6 +402,7 @@ function showmess() {
             $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
             $(".card-body.msg-card-body").html(chatBoxvalue);
             $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
+
         });
     })
 }
@@ -443,6 +422,8 @@ $(document).ready(function() {
                 messageType: "text"
             }
             callAjax("/message/", "POST", message);
+            $('.type-msg').val('');
+            $('.msg-card-body').stop().animate({scrollTop: 99999999});
         }
 
     })
@@ -462,7 +443,10 @@ function topFunction() {
 }
 //Buttom slideToggle
 $(document).ready(function() {
-
+    //tooltip
+    $('[data-toggle="tooltip"]').tooltip();   
+    
+    
     $(".btn-up").click(function() {
         $('.box').slideToggle();
     });
@@ -566,8 +550,8 @@ $(document).ready(function() {
 $(window).scroll(function() {
 
 
-    if ($(this).scrollTop() + $(this).height()> $(".scrollpost").height()) {
-        
+    if ($(this).scrollTop() + $(this).height() - 110 > $(".scrollpost").height()) {
+        $(window).stop();
         $("#loading").css("display", "block");
     }
     else {
@@ -575,7 +559,9 @@ $(window).scroll(function() {
     }
 
 });
+function loadResults() {
 
+}
 //Popup chat
 $(document).ready(function() {
 
@@ -609,7 +595,7 @@ $(document).ready(function() {
                 '<div class="msg_head">' + username +
                 '<div class="close">x</div> </div>' +
                 '<div class="msg_wrap"> <div class="msg_body"> <div class="msg_push"></div> </div>' +
-                '<div class="msg_footer"><textarea class="msg_input" rows="10"></textarea><div class="btn-footer">\n\
+                '<div class="msg_footer"><textarea name="msg-input" class="msg_input" rows="10"></textarea><div class="btn-footer">\n\
 <button class="bg_none"><i class="fas fa-image"></i></button>\n\
 <button class="bg_none"><i class="fas fa-plus"></i></button>\n\
 <button class="bg_none pull-right"><i class="fas fa-thumbs-up"></i> </button> \n\
@@ -620,8 +606,8 @@ $(document).ready(function() {
     });
 
 
-    $(document).on('keypress', 'textarea', function(e) {
-        if (e.keyCode == 13) {
+    $(document).on('keypress', 'textarea[name=msg-input]', function(e) {
+        if (e.keyCode == 13 && !e.shiftKey) {
             var msg = $(this).val();
             $(this).val('');
             if (msg.trim().length != 0) {
@@ -813,7 +799,6 @@ $(document).ready(function() {
 
     //SOCKETIO receive message chat
     var socket = io('http://localhost:9032');
-
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
         if (item.sender != idUser) {
@@ -826,7 +811,6 @@ $(document).ready(function() {
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
     })
-
 })
 //Search
 $(document).ready(function() {
@@ -835,5 +819,18 @@ $(document).ready(function() {
         $("#List a").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
+    });
+    // Get the input field
+    var input = document.getElementById("type_msg");
+
+// Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode == 13 && !event.shiftKey) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("send_btn").click();
+        }
     });
 });
