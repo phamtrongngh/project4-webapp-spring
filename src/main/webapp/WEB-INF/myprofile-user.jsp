@@ -380,14 +380,16 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal footer -->
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
             </div>
-
         </div>
     </div>
 </div>
+<!-- Modal footer -->
+
+<!-- Modal history -->
 <div class="modal fade" id="history" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -415,38 +417,38 @@
                         <span class="receivedday">
                         </span>
                         <div class="history-contain">
-                            <img src="/public/image/Background/pizza.jpg" class="history-avatar" alt=""/>
+                            <img src="http://localhost:9032/public/image/${item.products[0].product.restaurant.avatar}" class="history-avatar" alt=""/>
                             <div>
                                 <span class="history-namestore">
-                                    PizzaHut
+                                    ${item.products[0].product.restaurant.name}
                                 </span>
                                 <div class="history-address">
-                                    226 Hậu giang
+                                    ${item.products[0].product.restaurant.address}
                                 </div>
                                 <div style="display: flex;">
-                                    <div class="history-price">
-                                        <span>
-                                        </span>VNĐ
-                                    </div>
+
                                     <div style="display: flex;">
                                         <div class="history-price">
                                             <span>
-                                                25.000
+                                                ${item.amount}
                                             </span>VNĐ
                                         </div>
-                                        <span class="history-item">(2 phần)<span>
+                                        <span class="history-item">(${(item.products).size()} món)<span>
                                                 </div>
                                                 </div>
+                                                </div>
+
                                                 </div>
                                                 <div class="history-footer">
-                                                    <!--<span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>-->
+                                                    <span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>
                                                     <div style="float: right;">
+                                                        <button class="btn btn-history">Chi tiết</button>
                                                         <button class="btn btn-history">Đặt lại</button>
                                                     </div>
                                                 </div>
                                                 </div>
-                                                </div>
                                             </c:forEach>
+
                                             </div>
                                             </div>
                                             </div>

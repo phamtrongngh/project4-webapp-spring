@@ -32,11 +32,11 @@
                     <div class="info-more">
                         <label>Họ tên: </label>
 
-                        <input type="text" name="name" value="${user.fullname}" class="form-control input-name"  />
+                        <input type="text" name="name" disabled value="${user.fullname}" class="form-control input-name"  />
                     </div>
                     <div class=" info-more">
                         <label>Số điện thoại: </label>
-                        <input type="text" name="phone" value="${user.phone}" class="form-control input-sđt"  />
+                        <input type="text" name="phone" disabled value="${user.phone}" class="form-control input-sđt"  />
                     </div>
                     <div class=" info-more">
                         <label>Địa chỉ:</label>
@@ -50,11 +50,11 @@
                     </div>
                     <div class="info-more">
                         <label>Thời Gian:</label><br/>
-                        <input type="radio" name="time" class="input-radio" checked/>Giao ngay
-                        <input type="radio" name="time" class="input-radio2" />Chọn thời gian nhận hàng
+                        <input type="radio" name="time" class="input-radio" value="1" checked/>Giao ngay
+                        <input type="radio" name="time" class="input-radio2" value="2" />Chọn thời gian nhận hàng
                     </div>
                     <div class="info-more">
-                        <input type="date" class="form-control input-date"  />
+                        <input type="date" class="form-control input-date date-cart"  />
                     </div>
                     <div class="info-more">
                         <label>Thanh Toán:</label><br/>
@@ -159,7 +159,7 @@
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
-<script async defered>
+<!--<script async defered>
     goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
     var map = new goongjs.Map({
         container: 'map', // container id
@@ -281,6 +281,7 @@
                                     getDistance(userLocation, restaurantLocation).then(function(data) {
                                         distance = data.routes[0].legs[0].distance.text;
                                         $(".cart-total-title span").html(distance.split(" ")[0]);
+                                        
                                     });
                                 }
                             })
@@ -301,7 +302,7 @@
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
 
-</script>
+</script>-->
 </body>
 
 </html>

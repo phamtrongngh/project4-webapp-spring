@@ -131,14 +131,38 @@ function quantityChanged1(event) {
 
 
 $(document).ready(function() {
-    /*display momo*/
-    $('input[name=pay]').on('change', function(e) {
-        console.log('input[name=pay]:checked');
-        if ($('input[name=pay]:checked').val() == 2) {
+    $(".like-newpost").click(function(){
+        if ($(this).hasClass("fa-heart")) {
+            $(this).addClass("fa-heartbeat");
+            $(this).removeClass("fa-heart");
+        }
+        else{
+            $(this).removeClass("fa-heartbeat");
+            $(this).addClass("fa-heart");
+        }
+        
+    })
+    
+    
+
+    /*display date*/
+    $('input[name=payment]').on('change', function(e) {
+        console.log('input[name=payment]:checked');
+        if ($('input[name=payment]:checked').val() == 2) {
             $(".info-pay").css("display", "block");
 
         } else {
             $(".info-pay").css("display", "none");
+        }
+    });
+    /*display momo*/
+    $('input[name=time]').on('change', function(e) {
+        console.log('input[name=time]:checked');
+        if ($('input[name=time]:checked').val() == 2) {
+            $(".date-cart").css("display", "block");
+
+        } else {
+            $(".date-cart").css("display", "none");
         }
     });
     /*display momo*/
@@ -357,25 +381,25 @@ function callAjax(url, type, data, cb) {
     })
 }
 function getReceiveBox(message) {
-    var senderBox = '<div class="d-flex justify-content-end mb-4">';
+   var senderBox = '<div class="msg-time-send">' + message.createdAt + '</div>';
+    senderBox += '<div class="d-flex justify-content-end mb-4">';
     senderBox += '<div class="msg-cotainer-send">';
     senderBox += message.content;
     senderBox += '<br/>';
-    senderBox += '<span class="msg-time-send">' + message.createdAt + '</span>';
     senderBox += '</div>';
     senderBox += '</div>';
     return senderBox;
 }
 
 function getSenderBox(message) {
-    var receiveBox = '<div class="d-flex justify-content-start mb-4">';
+  var  receiveBox = '<div class="msg-time">' + message.createdAt + '</div>';
+   receiveBox += '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
     receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
     receiveBox += '</div>';
     receiveBox += '<div class="msg-cotainer">';
     receiveBox += message.content;
     receiveBox += '<br/>';
-    receiveBox += '<span class="msg-time">' + message.createdAt + '</span>';
     receiveBox += '</div>';
     receiveBox += '</div>';
     return receiveBox;
@@ -542,8 +566,8 @@ $(document).ready(function() {
 $(window).scroll(function() {
 
 
-    if ($(this).scrollTop() + $(this).height() - 110 > $(".scrollpost").height()) {
-        $(window).stop();
+    if ($(this).scrollTop() + $(this).height()> $(".scrollpost").height()) {
+        
         $("#loading").css("display", "block");
     }
     else {
@@ -551,9 +575,7 @@ $(window).scroll(function() {
     }
 
 });
-function loadResults() {
 
-}
 //Popup chat
 $(document).ready(function() {
 
