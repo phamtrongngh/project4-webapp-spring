@@ -440,7 +440,19 @@
 
                                                 </div>
                                                 <div class="history-footer">
-                                                    <span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>
+                                                    <span style="font-size: 17px;font-weight: bold;margin-left: 50px">
+                                                        <c:choose>
+                                                            <c:when test="${item.status=='completed'}">
+                                                                Hoàn thành
+                                                            </c:when>
+                                                            <c:when test="${item.status=='canceled'}">
+                                                                Đã hủy
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                Đang tiến hành
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </span>
                                                     <div style="float: right;">
                                                         <button class="btn btn-history">Chi tiết</button>
                                                         <button class="btn btn-history">Đặt lại</button>
@@ -469,7 +481,7 @@
                                                                     </div>
                                                                     <div class="profile-name">
                                                                         <div class="text-name">${user.fullname}</div>
-                                                                        <div class="text-like">14k lượt theo dõi</div>
+                                                                        <div class="text-like">${(user.followers).size()} lượt theo dõi</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -539,15 +551,16 @@
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <div class="post-store rounded">
-                                                                    <form class="row" action="/newfeed/postNewfeed" method="POST">
+                                                                    <form class="row" action="/newfeed/postUserNewfeed" method="POST" enctype="multipart/form-data">
+                                                                        <input type="text" name="place"  value="" hidden />
                                                                         <div class="col-md-8 post-content">
-                                                                            <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                                                            <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                                                                             <div class="d-flex" style="width: 30%">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />
+                                                                                <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
                                                                                 <div class="upload-img-status" >
                                                                                     <div class="gallery text-center">
                                                                                         <a id="chossefile">
-                                                                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute">
+                                                                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
                                                                                                 <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
                                                                                             </div>
                                                                                         </a>
@@ -558,22 +571,22 @@
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <div class="row">
-                                                                                <div class="col-md-6">
-
-                                                                                    <label  style="font-size: 10px;width: 100%;margin-top: 2px" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
-
-                                                                                    <input type="file"  id="upload-photo"/>
-                                                                                </div>
+                                                                                <!--                                                                                <div class="col-md-6">
+                                                                                
+                                                                                                                                                                    <label  style="font-size: 10px;width: 100%;margin-top: 2px" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+                                                                                
+                                                                                                                                                                    <input type="file"  id="upload-photo"/>
+                                                                                                                                                                </div>-->
                                                                                 <div class="col-md-6">
                                                                                     <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModal-users"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
 
                                                                                 </div>
-
-                                                                            </div>
-                                                                            <div class="row">
                                                                                 <div class="col-md-6">
                                                                                     <button type="button" class="btn btn-success" data-target="#postModal-users" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
                                                                                 </div>
+                                                                            </div>
+                                                                            <div class="row">
+
                                                                             </div>
                                                                             <hr/>
                                                                             <div>
@@ -582,182 +595,184 @@
                                                                         </div>
                                                                     </form>
                                                                 </div>
-                                                                <div class="rounded status">
-                                                                    <div class="alignment">
-                                                                        <div class="media">
-                                                                            <img src="/public/image/avatar/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
-                                                                            <div class="media-body">
-                                                                                <div class="name"> <a href="#">Sweetlane</a>  <img src="/public/image/icons/check.svg" class="check" alt="" />
+                                                                <c:forEach var="item" items="${user.newfeeds}">
+                                                                    <div class="rounded status">
+                                                                        <div class="alignment">
+                                                                            <div class="media">
+                                                                                <img src="/public/image/avatar/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
+                                                                                <div class="media-body">
+                                                                                    <div class="name"> <a href="#">Sweetlane</a>  <img src="/public/image/icons/check.svg" class="check" alt="" />
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="dropleft">
+                                                                                    <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
+                                                                                    <div class="dropdown-menu" >
+                                                                                        <a class="dropdown-item" href="#">Ẩn</a>
+                                                                                        <a class="dropdown-item" href="#">Sửa</a>
+                                                                                        <a class="dropdown-item" href="#">Xóa</a>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="dropleft">
-                                                                                <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
-                                                                                <div class="dropdown-menu" >
-                                                                                    <a class="dropdown-item" href="#">Ẩn</a>
-                                                                                    <a class="dropdown-item" href="#">Sửa</a>
-                                                                                    <a class="dropdown-item" href="#">Xóa</a>
-                                                                                </div>
+                                                                            <div class="font1">
+                                                                                ${item.content}
+                                                                            </div>
+                                                                            <div>
+                                                                                <a href="#">CoolCream#</a>
+                                                                                <a href="#">sweet#</a>
+                                                                                <a href="#">fruit#</a>
+                                                                                <a href="#">sweetlane#</a>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="font1">
-                                                                            Hè không sợ nóng, vì có CoolCream, với 7 loại kem trái cây cho bạn thêm ngọt ngào
+                                                                        <div class="image1">
+                                                                            <img src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" class="rounded background" alt="" />
                                                                         </div>
-                                                                        <div>
-                                                                            <a href="#">CoolCream#</a>
-                                                                            <a href="#">sweet#</a>
-                                                                            <a href="#">fruit#</a>
-                                                                            <a href="#">sweetlane#</a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="image1">
-                                                                        <img src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" class="rounded background" alt="" />
-                                                                    </div>
-                                                                    <div style="margin-top: 2px;display: flex;">
-                                                                        <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;">
-                                                                            <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>4,5k</span>
-                                                                        </a>
-                                                                        <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a>
-                                                                            <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <hr class="hr-newsfeed"/>
-                                                                    <div class="icon2">
-                                                                        <div class="subicon1">
-                                                                            <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal"></i>
+                                                                        <div style="margin-top: 2px;display: flex;">
+                                                                            <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;">
+                                                                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>4,5k</span>
                                                                             </a>
-
-                                                                            <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                            <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
+                                                                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a>
+                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
+                                                                        <hr class="hr-newsfeed"/>
+                                                                        <div class="icon2">
+                                                                            <div class="subicon1">
+                                                                                <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal"></i>
+                                                                                </a>
 
-                                                                    <div class="collapse" id="collapseExample1">
-                                                                        <div class="card card-body">
-                                                                            <div class="post-footer">
-                                                                                <div class="input-group">
-                                                                                    <input class="form-control input-comments" placeholder="Add a comment" type="text" />
-                                                                                    <button class="input-group-addon">
-                                                                                        <i class="fa fa-edit"></i>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <ul class="comments-list navbar-nav">
-                                                                                    <li class="comment nav-item">
-                                                                                        <a class="pull-left" href="#">
-                                                                                            <img class="avatar " src="/public/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar " />
-                                                                                        </a>
-                                                                                        <div class="comment-body ">
-                                                                                            <div class="comment-heading ">
-                                                                                                <h4 class="user ">Gavino Free</h4>
-                                                                                                <h5 class="time ">5 minutes ago</h5>
-                                                                                                <div class="report dropright">
-                                                                                                    <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                    </a>
-                                                                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                                                                        <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                        <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                        <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                                                <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="collapse" id="collapseExample1">
+                                                                            <div class="card card-body">
+                                                                                <div class="post-footer">
+                                                                                    <div class="input-group">
+                                                                                        <input class="form-control input-comments" placeholder="Add a comment" type="text" />
+                                                                                        <button class="input-group-addon">
+                                                                                            <i class="fa fa-edit"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <ul class="comments-list navbar-nav">
+                                                                                        <li class="comment nav-item">
+                                                                                            <a class="pull-left" href="#">
+                                                                                                <img class="avatar " src="/public/image/avatar/c29a7d29348b1a3f502803ab9d8355cc.png" alt="avatar " />
+                                                                                            </a>
+                                                                                            <div class="comment-body ">
+                                                                                                <div class="comment-heading ">
+                                                                                                    <h4 class="user ">Gavino Free</h4>
+                                                                                                    <h5 class="time ">5 minutes ago</h5>
+                                                                                                    <div class="report dropright">
+                                                                                                        <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+                                                                                                        </a>
+                                                                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                                                                            <a class="dropdown-item" href="#">Ẩn bình luận</a>
+                                                                                                            <a class="dropdown-item" href="#">Sửa </a>
+                                                                                                            <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                                        </div>
                                                                                                     </div>
                                                                                                 </div>
+                                                                                                <p>Mem mem<br/>
+                                                                                                    <a href="#">Thích</a>
+                                                                                                    <a href="#" data-toggle="collapse" data-target="#reply1" >Trả lời</a>
+                                                                                                <div id="reply1" class="collapse">
+                                                                                                    <div class="input-group" style="margin-left: -60px;">
+                                                                                                        <a class="pull-left " href="# ">
+                                                                                                            <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
+                                                                                                        </a>
+                                                                                                        <input class="form-control input-comments" placeholder="Add a comment" type="text" />
+                                                                                                        <button class="input-group-addon">
+                                                                                                            <i class="fa fa-edit"></i>
+                                                                                                        </button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                </p>
                                                                                             </div>
-                                                                                            <p>Mem mem<br/>
-                                                                                                <a href="#">Thích</a>
-                                                                                                <a href="#" data-toggle="collapse" data-target="#reply1" >Trả lời</a>
-                                                                                            <div id="reply1" class="collapse">
-                                                                                                <div class="input-group" style="margin-left: -60px;">
+                                                                                            <ul class="comments-list navbar-nav ">
+                                                                                                <li class="comment ">
                                                                                                     <a class="pull-left " href="# ">
-                                                                                                        <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
+                                                                                                        <img class="avatar " src="/public/image/avatar/Hot-Food-Logo-991x991.jpg " alt="avatar " />
                                                                                                     </a>
-                                                                                                    <input class="form-control input-comments" placeholder="Add a comment" type="text" />
-                                                                                                    <button class="input-group-addon">
-                                                                                                        <i class="fa fa-edit"></i>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <ul class="comments-list navbar-nav ">
-                                                                                            <li class="comment ">
-                                                                                                <a class="pull-left " href="# ">
-                                                                                                    <img class="avatar " src="/public/image/avatar/Hot-Food-Logo-991x991.jpg " alt="avatar " />
-                                                                                                </a>
-                                                                                                <div class="comment-body ">
-                                                                                                    <div class="comment-heading ">
-                                                                                                        <h4 class="user ">Ryan Haywood</h4>
-                                                                                                        <h5 class="time ">3 minutes ago</h5>
-                                                                                                        <div class="report dropright">
-                                                                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                            </a>
-                                                                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                                <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                                    <div class="comment-body ">
+                                                                                                        <div class="comment-heading ">
+                                                                                                            <h4 class="user ">Ryan Haywood</h4>
+                                                                                                            <h5 class="time ">3 minutes ago</h5>
+                                                                                                            <div class="report dropright">
+                                                                                                                <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+                                                                                                                </a>
+                                                                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                                                                    <a class="dropdown-item" href="#">Ẩn bình luận</a>
+                                                                                                                    <a class="dropdown-item" href="#">Sửa </a>
+                                                                                                                    <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                                                </div>
                                                                                                             </div>
                                                                                                         </div>
-                                                                                                    </div>
-                                                                                                    <p>Relax my friend
-                                                                                                        <br/>
-                                                                                                        <a href="#">Thích</a>
-                                                                                                        <a href="#" data-toggle="collapse" data-target="#reply2" 5>Trả lời</a>
-                                                                                                    <div id="reply2" class="collapse">
-                                                                                                        <div class="input-group" style="margin-left: -60px;">
-                                                                                                            <a class="pull-left " href="# ">
-                                                                                                                <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
-                                                                                                            </a>
-                                                                                                            <input class="form-control input-comments" placeholder="Add a comment" type="text" />
-                                                                                                            <button class="input-group-addon">
-                                                                                                                <i class="fa fa-edit"></i>
-                                                                                                            </button>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    </p>
-                                                                                                </div>
-                                                                                            </li>
-                                                                                            <li class="comment ">
-                                                                                                <a class="pull-left " href="# ">
-                                                                                                    <img class="avatar " src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
-                                                                                                </a>
-                                                                                                <div class="comment-body ">
-                                                                                                    <div class="comment-heading ">
-                                                                                                        <h4 class="user ">Gavino Free</h4>
-                                                                                                        <h5 class="time ">3 minutes ago</h5>
-                                                                                                        <div class="report dropright">
-                                                                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                            </a>
-                                                                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                                <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                                        <p>Relax my friend
+                                                                                                            <br/>
+                                                                                                            <a href="#">Thích</a>
+                                                                                                            <a href="#" data-toggle="collapse" data-target="#reply2" 5>Trả lời</a>
+                                                                                                        <div id="reply2" class="collapse">
+                                                                                                            <div class="input-group" style="margin-left: -60px;">
+                                                                                                                <a class="pull-left " href="# ">
+                                                                                                                    <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
+                                                                                                                </a>
+                                                                                                                <input class="form-control input-comments" placeholder="Add a comment" type="text" />
+                                                                                                                <button class="input-group-addon">
+                                                                                                                    <i class="fa fa-edit"></i>
+                                                                                                                </button>
                                                                                                             </div>
                                                                                                         </div>
+                                                                                                        </p>
                                                                                                     </div>
-                                                                                                    <p>Ok, cool. <br/>
+                                                                                                </li>
+                                                                                                <li class="comment ">
+                                                                                                    <a class="pull-left " href="# ">
+                                                                                                        <img class="avatar " src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
+                                                                                                    </a>
+                                                                                                    <div class="comment-body ">
+                                                                                                        <div class="comment-heading ">
+                                                                                                            <h4 class="user ">Gavino Free</h4>
+                                                                                                            <h5 class="time ">3 minutes ago</h5>
+                                                                                                            <div class="report dropright">
+                                                                                                                <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+                                                                                                                </a>
+                                                                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                                                                    <a class="dropdown-item" href="#">Ẩn bình luận</a>
+                                                                                                                    <a class="dropdown-item" href="#">Sửa </a>
+                                                                                                                    <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <p>Ok, cool. <br/>
 
-                                                                                                        <a href="#">Thích</a>
-                                                                                                        <a href="#" data-toggle="collapse" data-target="#reply3" 5>Trả lời</a>
-                                                                                                    <div id="reply3" class="collapse">
-                                                                                                        <div class="input-group" style="margin-left: -60px;">
-                                                                                                            <a class="pull-left " href="# ">
-                                                                                                                <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
-                                                                                                            </a>
-                                                                                                            <input class="form-control input-comments" placeholder="Add a comment" type="text" />
-                                                                                                            <button class="input-group-addon">
-                                                                                                                <i class="fa fa-edit"></i>
-                                                                                                            </button>
+                                                                                                            <a href="#">Thích</a>
+                                                                                                            <a href="#" data-toggle="collapse" data-target="#reply3" 5>Trả lời</a>
+                                                                                                        <div id="reply3" class="collapse">
+                                                                                                            <div class="input-group" style="margin-left: -60px;">
+                                                                                                                <a class="pull-left " href="# ">
+                                                                                                                    <img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />
+                                                                                                                </a>
+                                                                                                                <input class="form-control input-comments" placeholder="Add a comment" type="text" />
+                                                                                                                <button class="input-group-addon">
+                                                                                                                    <i class="fa fa-edit"></i>
+                                                                                                                </button>
+                                                                                                            </div>
                                                                                                         </div>
+                                                                                                        </p>
                                                                                                     </div>
-                                                                                                    </p>
-                                                                                                </div>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </li>
-                                                                                </ul>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </c:forEach>
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <script async defered>
                                                         goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
                                                         var map = new goongjs.Map({
@@ -820,7 +835,7 @@
                                                                         return response.json()
                                                                     })
                                                                     .then(function(data) {
-                                                                        $(".input-address").val(data.results[0].formatted_address);
+                                                                        $("input[name='place']").val(data.results[0].formatted_address);
                                                                     });
                                                         });
                                                         geolocateControl.on("geolocate", function(e) {
@@ -832,13 +847,13 @@
                                                                         return response.json()
                                                                     })
                                                                     .then(function(data) {
-                                                                        $(".input-address").val(data.results[0].formatted_address);
+                                                                        $("input[name='place']").val(data.results[0].formatted_address);
                                                                     });
                                                         })
                                                         geocoder.on("result", function(e) {
                                                             geocoder.mapMarker.remove();
                                                             marker._lngLat = geocoder.mapMarker._lngLat;
-                                                            $(".input-address").val(e.result.description);
+                                                            $("input[name='place']").val(e.result.description);
                                                         })
                                                         $(".btn-location").click(function() {
                                                             $(".goongjs-ctrl-fullscreen").trigger("click");
@@ -847,7 +862,7 @@
                                                             $("#mapModel").modal("hide");
                                                         })
                                                         $(".close").click(function() {
-                                                            $(".input-address").val("");
+                                                            $("input[name='place']").val("");
                                                             $("#mapModel").modal("hide");
                                                         })
                                                     </script>

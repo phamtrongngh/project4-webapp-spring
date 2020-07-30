@@ -131,38 +131,14 @@ function quantityChanged1(event) {
 
 
 $(document).ready(function() {
-    $(".like-newpost").click(function(){
-        if ($(this).hasClass("fa-heart")) {
-            $(this).addClass("fa-heartbeat");
-            $(this).removeClass("fa-heart");
-        }
-        else{
-            $(this).removeClass("fa-heartbeat");
-            $(this).addClass("fa-heart");
-        }
-        
-    })
-    
-    
-
-    /*display date*/
-    $('input[name=payment]').on('change', function(e) {
-        console.log('input[name=payment]:checked');
-        if ($('input[name=payment]:checked').val() == 2) {
+    /*display momo*/
+    $('input[name=pay]').on('change', function(e) {
+        console.log('input[name=pay]:checked');
+        if ($('input[name=pay]:checked').val() == 2) {
             $(".info-pay").css("display", "block");
 
         } else {
             $(".info-pay").css("display", "none");
-        }
-    });
-    /*display momo*/
-    $('input[name=time]').on('change', function(e) {
-        console.log('input[name=time]:checked');
-        if ($('input[name=time]:checked').val() == 2) {
-            $(".date-cart").css("display", "block");
-
-        } else {
-            $(".date-cart").css("display", "none");
         }
     });
     /*display momo*/
@@ -381,7 +357,8 @@ function callAjax(url, type, data, cb) {
     })
 }
 function getReceiveBox(message) {
-   var senderBox = '<div class="msg-time-send">' + message.createdAt + '</div>';
+    var date = new Date(message.createdAt);
+    var senderBox = '<div class="msg-time-send">' + date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + '</div>';
     senderBox += '<div class="d-flex justify-content-end mb-4">';
     senderBox += '<div class="msg-cotainer-send">';
     senderBox += message.content;
@@ -392,8 +369,9 @@ function getReceiveBox(message) {
 }
 
 function getSenderBox(message) {
-  var  receiveBox = '<div class="msg-time">' + message.createdAt + '</div>';
-   receiveBox += '<div class="d-flex justify-content-start mb-4">';
+    var date = new Date(message.createdAt);
+    var receiveBox = '<div class="msg-time">' + date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + '</div>';
+    receiveBox += '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
     receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
     receiveBox += '</div>';
@@ -566,8 +544,8 @@ $(document).ready(function() {
 $(window).scroll(function() {
 
 
-    if ($(this).scrollTop() + $(this).height()> $(".scrollpost").height()) {
-        
+    if ($(this).scrollTop() + $(this).height() - 110 > $(".scrollpost").height()) {
+        $(window).stop();
         $("#loading").css("display", "block");
     }
     else {
@@ -575,7 +553,9 @@ $(window).scroll(function() {
     }
 
 });
+function loadResults() {
 
+}
 //Popup chat
 $(document).ready(function() {
 
@@ -813,7 +793,6 @@ $(document).ready(function() {
 
     //SOCKETIO receive message chat
     var socket = io('http://localhost:9032');
-
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
         if (item.sender != idUser) {
@@ -826,7 +805,6 @@ $(document).ready(function() {
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
     })
-
 })
 //Search
 $(document).ready(function() {
