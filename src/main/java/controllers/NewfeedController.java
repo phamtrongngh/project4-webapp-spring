@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import Nghia.Util.MultipartContainer;
 import Nghia.Util.RESTHelper;
 import Nghia.Util.RESTNewfeedHelper;
 import java.io.IOException;
@@ -25,6 +26,7 @@ public class NewfeedController implements IController<Newfeed> {
 
     private final RESTHelper restHelper;
     private final RESTNewfeedHelper rESTNewfeedHelper;
+
     public NewfeedController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTHelper(Newfeed.class);
         rESTNewfeedHelper = new RESTNewfeedHelper(Newfeed.class);
@@ -52,8 +54,16 @@ public class NewfeedController implements IController<Newfeed> {
     @RequestMapping(value = "/newfeed/postNewfeed", method = RequestMethod.POST)
     @Override
     public ModelAndView post(Newfeed newfeed, HttpServletResponse response) throws IOException {
+
         restHelper.post(newfeed);
         return getAll();
+    }
+
+    @RequestMapping(value = "/newfeed/postAsyncNewfeed", method = RequestMethod.POST)
+    @ResponseBody
+    public String postAsync(MultipartContainer multipartContainer, Newfeed newfeed, HttpServletResponse response) throws IOException {
+        restHelper.post(newfeed);
+        return "";
     }
 
     @RequestMapping(value = "/newfeed/{id}", method = RequestMethod.GET)
@@ -71,7 +81,6 @@ public class NewfeedController implements IController<Newfeed> {
         return getAll();
     }
 
-
     @RequestMapping(value = "/newfeed/postFoodNewFeed/{id}", method = RequestMethod.POST)
     public ModelAndView foodNewFeed(@PathVariable("id") String id, Newfeed newfeed, HttpServletResponse response) throws IOException {
         newfeed.setProduct(id);
@@ -79,6 +88,5 @@ public class NewfeedController implements IController<Newfeed> {
         response.sendRedirect("/");
         return null;
     }
-    
-    
+
 }
