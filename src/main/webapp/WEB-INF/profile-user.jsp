@@ -6,7 +6,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
 
         <div class="modal-content">
-           
+
             <div class="modal-body">
                 <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
                     <li role="presentation" class="nav-item" style="width:50%">
@@ -425,12 +425,10 @@
                 </div>
                 <div class="col-md-4" style="padding-right: 0 !important;">
                     <div class="profile-intro">
-                        <h2 class="text-center ">Giới thiệu </h2>
+                        <h2 class="text-center ">Giới thiệu: </h2>
                         <p>Họ tên: </p>
-                        <p>Tỉnh/thành phố: </p>
-                        <p>Trường học: </p>
-                        <p>Quê quán: </p>
-                        <p>Tình trạng quan hệ: </p>    
+                        <p>Địa chỉ: </p>
+                        <p>Mô tả bản thân: </p>  
                     </div>
                 </div>
                 <div class="col-md-2 profile-container-buttons">
@@ -444,39 +442,67 @@
             </div>
             <div class="row">
                 <div class="col-md-4 list">
-                    <div class="profile-list rounded" >
+                    <div class="profile-list-img rounded" >
                         <div class="img-list">
-                            <h3><i class="fas fa-image"></i>Ảnh<a href="#">Thêm ảnh</a></h3>
+                            <h3><i class="fas fa-image"></i>Ảnh</h3>
                             <div class="img-contain d-flex ">
                                 <div class="img-contains">
-                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                 </div>
                                 <div class="img-contains">
-                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                 </div>
                                 <div class="img-contains">
-                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                 </div>
                             </div>
+
+                            <div class="img-contain d-flex ">
+                                <div class="img-contains">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                </div>
+                                <div class="img-contains">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                </div>
+                                <div class="img-contains">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                </div>
+                            </div>
+                            <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
                         </div>
                     </div>
-                    <div class="profile-list rounded" >
+                    <div class="profile-list-friend rounded" >
                         <div class="friend-list">
-                            <h3><i class="fas fa-user-friends"></i>Bạn bè <a href="#">Thêm Bạn</a></h3>
+                            <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
                             <div class="img-contain d-flex ">
                                 <div class="img-contains">
-                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
                                     <a href="#">Nguyễn Hạ</a>
                                 </div>
                                 <div class="img-contains">
-                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                     <a href="#">Nguyễn Hạ</a>
                                 </div>
                                 <div class="img-contains">
-                                    <image class="rounded" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                     <a href="#">Nguyễn Hạ</a>
                                 </div>
                             </div>
+                            <div class="img-contain d-flex ">
+                                <div class="img-contains">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
+                                    <a href="#">Nguyễn Hạ</a>
+                                </div>
+                                <div class="img-contains">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <a href="#">Nguyễn Hạ</a>
+                                </div>
+                                <div class="img-contains">
+                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                    <a href="#">Nguyễn Hạ</a>
+                                </div>
+                            </div>
+                            <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
                         </div>
                     </div>
                 </div>
@@ -518,7 +544,7 @@
                                     <div class="name"> <a href="#">Sweetlane</a>  <img src="/public/image/icons/check.svg" class="check" alt="" />
                                     </div>
                                 </div>
-                            <div class="dropleft">
+                                <div class="dropleft">
                                     <a data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                     <div class="dropdown-menu" >
                                         <a class="dropdown-item" href="#">Ẩn</a>

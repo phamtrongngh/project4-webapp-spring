@@ -2,6 +2,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--Modal coupon-->
+<div class="modal" id="couponModal-users" >
+    <div class="modal-dialog" style="max-width:40%!important;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Ví Coupon</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-md-center justify-content-between">
+                    <div class="coupon-container d-flex">
+                         <img src="/public/image/avatar/momo.png" class="img-coupon" />
+                         <p><span id="coupon">FREESHIP</span><br/>Miễn phí vận chuyển</p>
+                    </div>
+                    <button id="btn_copy" class="btn btn-danger float-right ">Copy</button>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Modal like and don nhap-->
 <div class="modal fade" id="Modalheartdraft" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
@@ -18,7 +45,8 @@
                     </li>
                 </ul>
                 <div class="tab-content py-2 "  style="height: 400px;overflow-y: auto;overflow-x: hidden;padding-right: 10px;">
-                    <div class="tab-pane " role="tabpanel" id="stepheart">
+
+                    <div class="tab-pane active" role="tabpanel" id="stepheart">
                         <div class="row row-like">
                             <div class="col-md-2">
                                 <img src="/public/image/avatar/momo.png" class=" img-like" />
@@ -30,7 +58,6 @@
                                 <span>ádasdsa</span>
                             </div>
                         </div>
-                        
                     </div>
                     <div class="tab-pane" role="tabpanel" id="stepdraft">
                         <div class="row row-like">
@@ -38,19 +65,18 @@
                                 <img src="/public/image/avatar/momo.png" class="img-like" />
                             </div>
                             <div class="col-md-4 item-hover">
-                                
-                                    <div>Bánh mì bảo Quyên</div>
-                                    <span>2 món</span> (<span>20.000</span>VNĐ)
-                                    <div class="tip ">
-                                        <div class="row">
-                                            <div class="col">
+                                <div>Bánh mì bảo Quyên</div>
+                                <span>2 món</span> (<span>20.000</span>VNĐ)
+                                <div class="tip ">
+                                    <div class="row">
+                                        <div class="col">
                                             <span>2</span>x<span>Gà gán</span>
                                         </div>
                                         <div class="col">
                                             <span>10,000</span>VNĐ
                                         </div>
-                                        </div>
                                     </div>
+                                </div>
                             </div>
                             <div class="ml-auto p-2 bd-highlight">
                                 <button class="btn">Đặt lại</button>
@@ -563,7 +589,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-1 profile-container-buttons">
-                                                                <button class="btn btn-primary form-control" ><i class="fas fa-percent"></i>Coupon</button>
+                                                                <button class="btn btn-primary form-control" data-toggle="modal" data-target="#couponModal-users"  ><i class="fas fa-percent"></i>Coupon</button>
                                                                 <button class="btn btn-success form-control" data-toggle="modal" data-target="#Modalheartdraft" style="margin-top: 8px"><i class="fas fa-heart"></i>Yêu thích</button>
                                                                 <button class="btn btn-danger form-control" data-toggle="modal" data-target="#history" style="margin-top: 8px"><i class="fas fa-history"></i>Lịch sử</button>
                                                             </div>
@@ -573,7 +599,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-4 list">
-                                                                <div class="profile-list rounded" >
+                                                                <div class="profile-list-img rounded" >
                                                                     <div class="img-list">
                                                                         <h3><i class="fas fa-image"></i>Ảnh</h3>
                                                                         <div class="img-contain d-flex ">
@@ -587,8 +613,8 @@
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                                                             </div>
                                                                         </div>
-                                                                        
-                                                                         <div class="img-contain d-flex ">
+
+                                                                        <div class="img-contain d-flex ">
                                                                             <div class="img-contains">
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                                                             </div>
@@ -602,7 +628,7 @@
                                                                         <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
                                                                     </div>
                                                                 </div>
-                                                                <div class="profile-list rounded" >
+                                                                <div class="profile-list-friend rounded" >
                                                                     <div class="friend-list">
                                                                         <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
                                                                         <div class="img-contain d-flex ">
@@ -619,7 +645,7 @@
                                                                                 <a href="#">Nguyễn Hạ</a>
                                                                             </div>
                                                                         </div>
-                                                                            <div class="img-contain d-flex ">
+                                                                        <div class="img-contain d-flex ">
                                                                             <div class="img-contains">
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
                                                                                 <a href="#">Nguyễn Hạ</a>
@@ -641,6 +667,7 @@
                                                                 <div class="post-store rounded">
                                                                     <form class="row" action="/newfeed/postUserNewfeed" method="POST" enctype="multipart/form-data">
                                                                         <input type="text" name="place"  value="" hidden />
+                                                                        <input type="text" name="user" hidden value="${user._id}" />
                                                                         <div class="col-md-8 post-content">
                                                                             <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                                                                             <div class="d-flex" style="width: 30%">
@@ -687,9 +714,9 @@
                                                                     <div class="rounded status">
                                                                         <div class="alignment">
                                                                             <div class="media">
-                                                                                <img src="/public/image/avatar/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
+                                                                                <img src="http://localhost:9032/public/image/${user.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                                                                 <div class="media-body">
-                                                                                    <div class="name"> <a href="#">Sweetlane</a>  <img src="/public/image/icons/check.svg" class="check" alt="" />
+                                                                                    <div class="name"> <a href="#">${user.fullname}</a>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="dropleft">
@@ -704,31 +731,30 @@
                                                                             <div class="font1">
                                                                                 ${item.content}
                                                                             </div>
-                                                                            <div>
-                                                                                <a href="#">CoolCream#</a>
-                                                                                <a href="#">sweet#</a>
-                                                                                <a href="#">fruit#</a>
-                                                                                <a href="#">sweetlane#</a>
-                                                                            </div>
+                                                                            <!--                                                                            <div>
+                                                                                                                                                            <a href="#">CoolCream#</a>
+                                                                                                                                                            <a href="#">sweet#</a>
+                                                                                                                                                            <a href="#">fruit#</a>
+                                                                                                                                                            <a href="#">s
+                                                                                                                                                                weetlane#</a>
+                                                                                                                                                        </div>-->
                                                                         </div>
                                                                         <div class="image1">
-                                                                            <img src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" class="rounded background" alt="" />
+                                                                            <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                                                                         </div>
                                                                         <div style="margin-top: 2px;display: flex;">
                                                                             <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;">
-                                                                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>4,5k</span>
+                                                                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${(item.likes).size()}</span>
                                                                             </a>
-                                                                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a>
-                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>
+                                                                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a>
+                                                                                <!--                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
                                                                             </div>
                                                                         </div>
                                                                         <hr class="hr-newsfeed"/>
                                                                         <div class="icon2">
                                                                             <div class="subicon1">
-                                                                                <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal"></i>
-                                                                                </a>
 
-                                                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                                                <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
                                                                                 <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                                                             </div>
                                                                         </div>
@@ -861,97 +887,97 @@
                                                         </div>
                                                     </div>
 
-                                                    <script async defered>
-                                                        goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
-                                                        var map = new goongjs.Map({
-                                                            container: 'map', // container id
-                                                            style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
-                                                            center: [105, 21], // starting position [lng, lat]
-                                                            zoom: 9 // starting zoom
-                                                        });
-
-                                                        var geocoder = new GoongGeocoder({
-                                                            accessToken: "rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm",
-                                                            goongjs: goongjs
-                                                        })
-
-                                                        var geolocateControl = new goongjs.GeolocateControl({
-                                                            positionOptions: {
-                                                                enableHighAccuracy: true
-                                                            },
-                                                            trackUserLocation: true
-                                                        })
-
-                                                        map.addControl(new goongjs.FullscreenControl());
-
-                                                        map.on('load', function() {
-                                                            map.addSource('single-point', {
-                                                                type: 'geojson',
-                                                                data: {
-                                                                    type: 'FeatureCollection',
-                                                                    features: []
-                                                                }
-                                                            });
-                                                            map.addControl(
-                                                                    geocoder
-                                                                    )
-                                                            map.addControl(
-                                                                    geolocateControl
-                                                                    );
-                                                            map.addLayer({
-                                                                id: 'point',
-                                                                source: 'single-point',
-                                                                type: 'circle',
-                                                                paint: {
-                                                                    'circle-radius': 10,
-                                                                    'circle-color': '#448ee4'
-                                                                }
-                                                            });
-                                                        });
-
-                                                        var marker = new goongjs.Marker({
-                                                            draggable: true
-                                                        })
-                                                                .setLngLat([105, 21])
-                                                                .addTo(map);
-
-                                                        marker.on('dragend', function() {
-
-                                                            var lngLat = marker.getLngLat();
-                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm&limit=1')
-                                                                    .then(function(response) {
-                                                                        return response.json()
-                                                                    })
-                                                                    .then(function(data) {
-                                                                        $("input[name='place']").val(data.results[0].formatted_address);
-                                                                    });
-                                                        });
-                                                        geolocateControl.on("geolocate", function(e) {
-                                                            var lng = e.coords.longitude;
-                                                            var lat = e.coords.latitude;
-                                                            marker._lngLat = {lat: lat, lng: lng}
-                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=rBiYNcmLhEbdjUw21NQt5mb3Qbm1SrRqdWSru7Pm', {mode: "cors"})
-                                                                    .then(function(response) {
-                                                                        return response.json()
-                                                                    })
-                                                                    .then(function(data) {
-                                                                        $("input[name='place']").val(data.results[0].formatted_address);
-                                                                    });
-                                                        })
-                                                        geocoder.on("result", function(e) {
-                                                            geocoder.mapMarker.remove();
-                                                            marker._lngLat = geocoder.mapMarker._lngLat;
-                                                            $("input[name='place']").val(e.result.description);
-                                                        })
-                                                        $(".btn-location").click(function() {
-                                                            $(".goongjs-ctrl-fullscreen").trigger("click");
-                                                        })
-                                                        $("#mapModel .modal-footer button").click(function() {
-                                                            $("#mapModel").modal("hide");
-                                                        })
-                                                        $(".close").click(function() {
-                                                            $("input[name='place']").val("");
-                                                            $("#mapModel").modal("hide");
-                                                        })
-                                                    </script>
+                                                    <!--                                                    <script async defered>
+                                                                                                            goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
+                                                                                                            var map = new goongjs.Map({
+                                                                                                                container: 'map', // container id
+                                                                                                                style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
+                                                                                                                center: [105, 21], // starting position [lng, lat]
+                                                                                                                zoom: 9 // starting zoom
+                                                                                                            });
+                                                    
+                                                                                                            var geocoder = new GoongGeocoder({
+                                                                                                                accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
+                                                                                                                goongjs: goongjs
+                                                                                                            })
+                                                    
+                                                                                                            var geolocateControl = new goongjs.GeolocateControl({
+                                                                                                                positionOptions: {
+                                                                                                                    enableHighAccuracy: true
+                                                                                                                },
+                                                                                                                trackUserLocation: true
+                                                                                                            })
+                                                    
+                                                                                                            map.addControl(new goongjs.FullscreenControl());
+                                                    
+                                                                                                            map.on('load', function() {
+                                                                                                                map.addSource('single-point', {
+                                                                                                                    type: 'geojson',
+                                                                                                                    data: {
+                                                                                                                        type: 'FeatureCollection',
+                                                                                                                        features: []
+                                                                                                                    }
+                                                                                                                });
+                                                                                                                map.addControl(
+                                                                                                                        geocoder
+                                                                                                                        )
+                                                                                                                map.addControl(
+                                                                                                                        geolocateControl
+                                                                                                                        );
+                                                                                                                map.addLayer({
+                                                                                                                    id: 'point',
+                                                                                                                    source: 'single-point',
+                                                                                                                    type: 'circle',
+                                                                                                                    paint: {
+                                                                                                                        'circle-radius': 10,
+                                                                                                                        'circle-color': '#448ee4'
+                                                                                                                    }
+                                                                                                                });
+                                                                                                            });
+                                                    
+                                                                                                            var marker = new goongjs.Marker({
+                                                                                                                draggable: true
+                                                                                                            })
+                                                                                                                    .setLngLat([105, 21])
+                                                                                                                    .addTo(map);
+                                                    
+                                                                                                            marker.on('dragend', function() {
+                                                    
+                                                                                                                var lngLat = marker.getLngLat();
+                                                                                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+                                                                                                                        .then(function(response) {
+                                                                                                                            return response.json()
+                                                                                                                        })
+                                                                                                                        .then(function(data) {
+                                                                                                                            $("input[name='place']").val(data.results[0].formatted_address);
+                                                                                                                        });
+                                                                                                            });
+                                                                                                            geolocateControl.on("geolocate", function(e) {
+                                                                                                                var lng = e.coords.longitude;
+                                                                                                                var lat = e.coords.latitude;
+                                                                                                                marker._lngLat = {lat: lat, lng: lng}
+                                                                                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
+                                                                                                                        .then(function(response) {
+                                                                                                                            return response.json()
+                                                                                                                        })
+                                                                                                                        .then(function(data) {
+                                                                                                                            $("input[name='place']").val(data.results[0].formatted_address);
+                                                                                                                        });
+                                                                                                            })
+                                                                                                            geocoder.on("result", function(e) {
+                                                                                                                geocoder.mapMarker.remove();
+                                                                                                                marker._lngLat = geocoder.mapMarker._lngLat;
+                                                                                                                $("input[name='place']").val(e.result.description);
+                                                                                                            })
+                                                                                                            $(".btn-location").click(function() {
+                                                                                                                $(".goongjs-ctrl-fullscreen").trigger("click");
+                                                                                                            })
+                                                                                                            $("#mapModel .modal-footer button").click(function() {
+                                                                                                                $("#mapModel").modal("hide");
+                                                                                                            })
+                                                                                                            $(".close").click(function() {
+                                                                                                                $("input[name='place']").val("");
+                                                                                                                $("#mapModel").modal("hide");
+                                                                                                            })
+                                                                                                        </script>-->
                                                     <%@include  file="footer.jsp" %>

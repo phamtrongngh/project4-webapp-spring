@@ -5,6 +5,9 @@
  */
 package Nghia.Util;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -13,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import models.Message;
 import models.Newfeed;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
 
 /**
  *
@@ -40,6 +44,14 @@ public class RESTNewfeedHelper extends RESTHelper {
                 .header("authorization", CookieHelper.getCookie("accessToken"))
                 .post(Entity.entity(newfeed, MediaType.APPLICATION_JSON), String.class);
     }
-
+    public String getMyNewfeeds() throws IOException {
+        String url = BASE_URI + "getMyNewfeeds";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        return string;
+    }
+    
     
 }
