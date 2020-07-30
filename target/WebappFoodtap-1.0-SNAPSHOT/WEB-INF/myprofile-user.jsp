@@ -380,14 +380,16 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal footer -->
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
             </div>
-
         </div>
     </div>
 </div>
+<!-- Modal footer -->
+
+<!-- Modal history -->
 <div class="modal fade" id="history" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -435,15 +437,30 @@
                                                 </div>
                                                 </div>
                                                 </div>
+
+                                                </div>
                                                 <div class="history-footer">
-                                                    <!--<span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>-->
+                                                    <span style="font-size: 17px;font-weight: bold;margin-left: 50px">
+                                                        <c:choose>
+                                                            <c:when test="${item.status=='completed'}">
+                                                                Hoàn thành
+                                                            </c:when>
+                                                            <c:when test="${item.status=='canceled'}">
+                                                                Đã hủy
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                Đang tiến hành
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </span>
                                                     <div style="float: right;">
+                                                        <button class="btn btn-history">Chi tiết</button>
                                                         <button class="btn btn-history">Đặt lại</button>
                                                     </div>
                                                 </div>
                                                 </div>
-                                                </div>
                                             </c:forEach>
+
                                             </div>
                                             </div>
                                             </div>
@@ -464,7 +481,7 @@
                                                                     </div>
                                                                     <div class="profile-name">
                                                                         <div class="text-name">${user.fullname}</div>
-                                                                        <div class="text-like">14k lượt theo dõi</div>
+                                                                        <div class="text-like">${(user.followers).size()} lượt theo dõi</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -534,9 +551,10 @@
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <div class="post-store rounded">
-                                                                    <form class="row" action="/newfeed/postNewfeed" method="POST">
+                                                                    <form class="row" action="/newfeed/postUserNewfeed" method="POST" enctype="multipart/form-data">
+                                                                        <input type="text" name="place"  value="" hidden />
                                                                         <div class="col-md-8 post-content">
-                                                                            <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                                                            <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                                                                             <div class="d-flex" style="width: 30%">
                                                                                 <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
                                                                                 <div class="upload-img-status" >
@@ -553,12 +571,12 @@
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <div class="row">
-<!--                                                                                <div class="col-md-6">
-
-                                                                                    <label  style="font-size: 10px;width: 100%;margin-top: 2px" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
-
-                                                                                    <input type="file"  id="upload-photo"/>
-                                                                                </div>-->
+                                                                                <!--                                                                                <div class="col-md-6">
+                                                                                
+                                                                                                                                                                    <label  style="font-size: 10px;width: 100%;margin-top: 2px" for="upload-photo"  class="btn btn-success"><i class="fas fa-image"></i> Ảnh/Video</label>
+                                                                                
+                                                                                                                                                                    <input type="file"  id="upload-photo"/>
+                                                                                                                                                                </div>-->
                                                                                 <div class="col-md-6">
                                                                                     <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModal-users"><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
 
@@ -626,7 +644,6 @@
                                                                                 <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                                                             </div>
                                                                         </div>
-
                                                                         <div class="collapse" id="collapseExample1">
                                                                             <div class="card card-body">
                                                                                 <div class="post-footer">
@@ -755,6 +772,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <script async defered>
                                                         goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
                                                         var map = new goongjs.Map({
@@ -817,7 +835,7 @@
                                                                         return response.json()
                                                                     })
                                                                     .then(function(data) {
-                                                                        $(".input-address").val(data.results[0].formatted_address);
+                                                                        $("input[name='place']").val(data.results[0].formatted_address);
                                                                     });
                                                         });
                                                         geolocateControl.on("geolocate", function(e) {
@@ -829,13 +847,13 @@
                                                                         return response.json()
                                                                     })
                                                                     .then(function(data) {
-                                                                        $(".input-address").val(data.results[0].formatted_address);
+                                                                        $("input[name='place']").val(data.results[0].formatted_address);
                                                                     });
                                                         })
                                                         geocoder.on("result", function(e) {
                                                             geocoder.mapMarker.remove();
                                                             marker._lngLat = geocoder.mapMarker._lngLat;
-                                                            $(".input-address").val(e.result.description);
+                                                            $("input[name='place']").val(e.result.description);
                                                         })
                                                         $(".btn-location").click(function() {
                                                             $(".goongjs-ctrl-fullscreen").trigger("click");
@@ -844,7 +862,7 @@
                                                             $("#mapModel").modal("hide");
                                                         })
                                                         $(".close").click(function() {
-                                                            $(".input-address").val("");
+                                                            $("input[name='place']").val("");
                                                             $("#mapModel").modal("hide");
                                                         })
                                                     </script>

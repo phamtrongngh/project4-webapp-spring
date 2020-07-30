@@ -5,16 +5,27 @@
  */
 package controllers;
 
+import Nghia.Util.CookieHelper;
 import Nghia.Util.MultipartContainer;
 import Nghia.Util.RESTHelper;
 import Nghia.Util.RESTNewfeedHelper;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import models.Newfeed;
+import org.glassfish.jersey.media.multipart.FormDataMultiPart;
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
+import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -59,11 +70,30 @@ public class NewfeedController implements IController<Newfeed> {
         return getAll();
     }
 
-    @RequestMapping(value = "/newfeed/postAsyncNewfeed", method = RequestMethod.POST)
-    @ResponseBody
-    public String postAsync(MultipartContainer multipartContainer, Newfeed newfeed, HttpServletResponse response) throws IOException {
-        restHelper.post(newfeed);
-        return "";
+    @RequestMapping(value = "/newfeed/postUserNewfeed", method = RequestMethod.POST)
+    public ModelAndView postAsync(MultipartContainer multipartContainer, Newfeed newfeed, HttpServletResponse response) throws IOException {
+        MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
+        String path = "./";
+        FileDataBodyPart filePart;
+        Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
+        FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
+        String fileName = multipartFile[0].getOriginalFilename();
+        File file = new File(path, fileName);
+        if (fileName != "") {
+            multipartFile[0].transferTo(file);
+            filePart = new FileDataBodyPart("image", file);
+            formDataMultiPart.bodyPart(filePart);
+        }
+        final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("newfeed", newfeed, MediaType.APPLICATION_JSON_TYPE);
+        final WebTarget target = client.target("http://localhost:9032/Newfeed/");
+        final String responseJSON = target.request()
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA), String.class);
+        if (fileName != "") {
+            file.delete();
+        }
+        response.sendRedirect("/myprofile-user");
+        return null;
     }
 
     @RequestMapping(value = "/newfeed/{id}", method = RequestMethod.GET)
@@ -83,9 +113,9 @@ public class NewfeedController implements IController<Newfeed> {
 
     @RequestMapping(value = "/newfeed/postFoodNewFeed/{id}", method = RequestMethod.POST)
     public ModelAndView foodNewFeed(@PathVariable("id") String id, Newfeed newfeed, HttpServletResponse response) throws IOException {
-        newfeed.setProduct(id);
-        rESTNewfeedHelper.postFoodNewfeed(newfeed);
-        response.sendRedirect("/");
+//        newfeed.setProduct(id);
+//        rESTNewfeedHelper.postFoodNewfeed(newfeed);
+//        response.sendRedirect("/");
         return null;
     }
 

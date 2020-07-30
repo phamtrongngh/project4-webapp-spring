@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package models;
 
 import java.util.Date;
@@ -14,17 +13,21 @@ import java.util.List;
  * @author Admin
  */
 public class Newfeed {
+
     private String _id;
     private String product;
     private String restaurant;
-    private String content; 
-    private String images; 
+    private String content;
+    private String images;
+    private String place;
+
+    private String user;
     private List<User> likes;
     private List<String> comments;
     private boolean typed;
     private Date createdAt;
     private Date updatedAt;
-    private int __v; 
+    private int __v;
 
     public String get_id() {
         return _id;
@@ -32,6 +35,22 @@ public class Newfeed {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getProduct() {
@@ -42,8 +61,6 @@ public class Newfeed {
         this.product = product;
     }
 
-    
-
     public String getRestaurant() {
         return restaurant;
     }
@@ -51,8 +68,6 @@ public class Newfeed {
     public void setRestaurant(String restaurant) {
         this.restaurant = restaurant;
     }
-
-    
 
     public String getContent() {
         return content;
@@ -85,7 +100,7 @@ public class Newfeed {
     public void setComments(List<String> comments) {
         this.comments = comments;
     }
-    
+
     public boolean isTyped() {
         return typed;
     }
