@@ -357,7 +357,8 @@ function callAjax(url, type, data, cb) {
     })
 }
 function getReceiveBox(message) {
-   var senderBox = '<div class="msg-time-send">' + message.createdAt + '</div>';
+    var date = new Date(message.createdAt);
+    var senderBox = '<div class="msg-time-send">' + date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + '</div>';
     senderBox += '<div class="d-flex justify-content-end mb-4">';
     senderBox += '<div class="msg-cotainer-send">';
     senderBox += message.content;
@@ -368,8 +369,9 @@ function getReceiveBox(message) {
 }
 
 function getSenderBox(message) {
-  var  receiveBox = '<div class="msg-time">' + message.createdAt + '</div>';
-   receiveBox += '<div class="d-flex justify-content-start mb-4">';
+    var date = new Date(message.createdAt);
+    var receiveBox = '<div class="msg-time">' + date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + '</div>';
+    receiveBox += '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
     receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
     receiveBox += '</div>';
@@ -791,7 +793,6 @@ $(document).ready(function() {
 
     //SOCKETIO receive message chat
     var socket = io('http://localhost:9032');
-
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
         if (item.sender != idUser) {
