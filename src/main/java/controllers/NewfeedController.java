@@ -12,6 +12,7 @@ import Nghia.Util.RESTNewfeedHelper;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.client.Client;
@@ -113,10 +114,16 @@ public class NewfeedController implements IController<Newfeed> {
 
     @RequestMapping(value = "/newfeed/postFoodNewFeed/{id}", method = RequestMethod.POST)
     public ModelAndView foodNewFeed(@PathVariable("id") String id, Newfeed newfeed, HttpServletResponse response) throws IOException {
-//        newfeed.setProduct(id);
-//        rESTNewfeedHelper.postFoodNewfeed(newfeed);
-//        response.sendRedirect("/");
+        newfeed.setProduct(id);
+        rESTNewfeedHelper.postFoodNewfeed(newfeed);
+        response.sendRedirect("/");
         return null;
     }
 
+    @RequestMapping(value = "/newfeed/getMyNewfeeds", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getMyNewfeeds() throws IOException {
+        String json = rESTNewfeedHelper.getMyNewfeeds();
+        return json;
+    }
 }

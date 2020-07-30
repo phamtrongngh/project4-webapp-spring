@@ -444,9 +444,9 @@ function topFunction() {
 //Buttom slideToggle
 $(document).ready(function() {
     //tooltip
-    $('[data-toggle="tooltip"]').tooltip();   
-    
-    
+    $('[data-toggle="tooltip"]').tooltip();
+
+
     $(".btn-up").click(function() {
         $('.box').slideToggle();
     });
@@ -814,6 +814,23 @@ $(document).ready(function() {
 })
 //Search
 $(document).ready(function() {
+    //display like
+    $(".like-newpost").on("click", function() {
+        if ($(this).hasClass("fa-heart")) 
+        {
+            $(this).removeClass("fa-heart");
+            $(this).removeClass("fa");
+            $(this).addClass("fab");
+            $(this).addClass("fa-gratipay");
+        }
+        else{
+           
+            $(this).removeClass("fa-gratipay");
+            $(this).removeClass("fab");
+            $(this).addClass("fa");
+            $(this).addClass("fa-heart");
+        }
+    });
     $("#dropdownMenuButton").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $("#List a").filter(function() {
