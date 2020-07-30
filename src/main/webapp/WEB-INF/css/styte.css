@@ -1492,8 +1492,9 @@ label.star:before {
 }
 
 .user-profile .profile-container-img img{
-    width: 165px;
-    height: 165px
+    width: 130px;
+    height: 130px;
+    margin-top: 10px;
 }
 .user-profile .profile-name{
     display: table-header-group;
@@ -1541,7 +1542,7 @@ label.star:before {
     background-color: white;
     margin-top: 10px;
     margin-bottom: 10px;
-    height:250px;
+    height: 250px;
 }
 
 .post-content textarea {
@@ -1563,6 +1564,7 @@ label.star:before {
 .profile-list{
     background-color: white;
     width: 100%;
+    height: 190px;
     margin-top: 10px;
 }
 .img-list h3{
@@ -1574,10 +1576,6 @@ label.star:before {
     margin-left: 10px;
     margin-right: 10px;
     color: greenyellow;
-}
-.img-list h3 a{
-    float: right;
-    margin-right: 10px;
 }
 .img-list .img-contain .img-contains {
     width: 100%;
@@ -2473,22 +2471,7 @@ input[type="radio"]:checked {
     color: #da484a;
 }
 
-.myprofile-user .profile-container-img img{
-    width: 130px;
-    margin-top: 10px;
-    height: 130px;
-}
-.history-MDH{
-    text-align: start;
-}
-.receivedday{
-    float: right;
-}
-.history-avatar{
-    width: 200px;
-    height: 125px;
-    margin-right: 10px;
-}
+
 
 /*11)MYPROFILE-USER */
 .myprofile-user .profile-intro{
@@ -2542,16 +2525,15 @@ input[type="radio"]:checked {
 
 }
 .myprofile-user .upload-img-status{
-    margin-left: 10px;
+    margin-left: 1px;
 }
 .myprofile-user .upload-img-status .gallery{
     width: 100%;
 }
-
-.myprofile-user .profile-container-img img{
-    width: 150px;
-    margin-top: 10px;
+.myprofile-user .profile-container-img img {
+    width: 130px;
     height: 130px;
+    margin-top: 10px;
 }
 .history-MDH{
     text-align: start;
@@ -2903,423 +2885,7 @@ explorestore .profile-menu-hot .col-md-4 {
     background-color: white;
 }
 
-/*11)MYPROFILE-USER */
-.myprofile-user .profile-intro{
-    background-color: white;
-    color:#da484a;
-    width: 115%;
-    height: 100%
 
-}
-.myprofile-user .photo-header{
-    width: 100%;
-    color: white;
-    height: 140px;
-    margin-top: -140px;
-    padding-top: 40px;
-    transition: 0.5s ease;
-    font-size: 1.4rem;
-    font-weight: 900;
-    text-align: center;
-    opacity: 0.6;
-    background-color: black;
-    font-family: "Quicksand";
-}
-.myprofile-user .photo-header:hover {
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    opacity: 0.9;
-}
-.myprofile-user  .profile-container-buttons .btn-success,
-.myprofile-user  .profile-container-buttons .btn-danger{
-    margin-top:  8px;
-}
-.myprofile-user .img-order-header{
-    width: 100%;
-    height: 140px;
-}
-.myprofile-user .profile-container-buttons{
-    margin-left: 18px;
-}
-.myprofile-user .profile-container-buttons button{
-    width: 188%;
-}
-.myprofile-user .containers-sendmess{
-    padding-right: 0 !important;
-    margin-left: 32px;
-
-}
-.myprofile-user .containers-sendmess button{
-    width: 130%;
-
-}
-.myprofile-user .upload-img-status{
-    margin-left: 10px;
-}
-.myprofile-user .upload-img-status .gallery{
-    width: 100%;
-}
-
-.myprofile-user .profile-container-img img{
-    width: 150px;
-    margin-top: 10px;
-    height: 130px;
-}
-.history-MDH{
-    text-align: start;
-}
-.receivedday{
-    float: right;
-}
-.history-avatar{
-    width: 200px;
-    height: 125px;
-    margin-right: 10px;
-
-}
-.history-đonhang{
-    padding: 10px;
-    background-color: antiquewhite;
-    border-radius: 7px;
-    margin-top: 10px;
-}
-.history-contain{
-    display: flex;
-    border-bottom: 1px solid rgb(138,138,150,0.18);
-    padding-bottom: 10px;
-
-}
-.history-namestore{
-    font-weight: bold;
-    font-size: 18px;
-}
-.history-address{
-    font-weight: 100;
-}
-.history-price {
-    font-weight: bold;
-    font-size: 18px;
-}
-.history-footer{
-    display: flow-root;
-    margin-top: 5px
-}
-/*END */
-/*12) EXPLORE STORE*/
-.explorestore .profile-text-hot {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    font-size: 28px;
-    background-color: #da484a;
-    width: 20%;
-    text-align: center;
-    border-radius: 10px;
-    color: white;
-}
-
-explorestore .profile-menu-hot {
-    display: flex;
-}
-
-explorestore .profile-menu-hot .col-md-4 {
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 10px;
-    text-align: center;
-    background-color: white;
-    background-clip: content-box;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.explorestore .profile-menu-hot img {
-    width: 100%;
-    height: 260px;
-    border-radius: 10px;
-}
-
-.explorestore .profile-menu-hot .text-price {
-    opacity: 0.5;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.explorestore .profile-menu-hot a {
-    text-decoration: none;
-    color: black;
-    font-size: 22.4px;
-    font-weight: 800;
-}
-
-.explorestore .search-food{
-    margin-top: 25px;
-    margin-bottom: 10px;
-    border: 1px solid #ced4da;
-    width: 85%;
-}
-.explorestore .btn-search-hot{
-    margin-top: 24px;
-    margin-bottom: 10px;
-    background: white;
-    transition: .5s ease;
-}
-.explorestore .btn-search-hot:hover{
-    color: #fff;
-    background-color: #da484a;
-}
-/*NEAR*/
-.explorestore .profile-text-near {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    font-size: 28px;
-    background-color: #da484a;
-    width: 20%;
-    text-align: center;
-    border-radius: 10px;
-    color: white;
-}
-
-.explorestore .profile-menu-near {
-    display: flex;
-}
-
-.explorestore .profile-menu-near .col-md-4 {
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 10px;
-    text-align: center;
-    background-color: white;
-    background-clip: content-box;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.explorestore .profile-menu-near img {
-    width: 100%;
-    height: 260px;
-    border-radius: 10px;
-}
-
-.explorestore .profile-menu-near .text-price {
-    opacity: 0.5;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.explorestore .profile-menu-near a {
-    text-decoration: none;
-    color: black;
-    font-size: 22.4px;
-    font-weight: 800;
-}
-
-/*END EXPLORE STORE*/
-
-/* STORE-INFO*/
-.store-info label{
-    font-size: 14px;
-}
-.store-info .btn-location{
-    background-color: white;
-    transition: .5s ease;
-    color: #da484a;
-}
-.store-info .btn-location:focus{
-    outline: none;
-}
-.store-info .btn-location:hover{
-    background-color: #da484a;
-    color: white;
-}
-
-.store-info .add-paper p{
-    font-size: 24px;
-}
-/* END STORE-INFO*/
-/*13) SAME TASTE */
-.sametaste .profile-text-hot {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    font-size: 28px;
-    background-color: #da484a;
-    width: 20%;
-    text-align: center;
-    border-radius: 10px;
-    color: white;
-}
-
-.sametaste .profile-menu-hot {
-    display: flex;
-}
-
-.sametaste .profile-menu-hot .col-md-4 {
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 10px;
-    text-align: center;
-    background-color: white;
-    background-clip: content-box;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.sametaste .profile-menu-hot img {
-    width: 100%;
-    height: 260px;
-    border-radius: 10px;
-}
-
-.sametaste .profile-menu-hot .text-price {
-    opacity: 0.5;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.sametaste .profile-menu-hot a {
-    text-decoration: none;
-    color: black;
-    font-size: 22.4px;
-    font-weight: 800;
-}
-
-.sametaste .search-food{
-    margin-top: 25px;
-    margin-bottom: 10px;
-    width: 85% ;
-    border: 1px solid #ced4da;
-}
-.sametaste .btn-search-hot{
-    margin-top: 24px;
-    margin-bottom: 10px;
-    background: white;
-    transition: .5s ease;
-}
-.sametaste .btn-search-hot:hover{
-    color: #fff;
-    background-color: #da484a;
-}
-/*NEAR*/
-.sametaste .profile-text-near {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    font-size: 28px;
-    background-color: #da484a;
-    width: 20%;
-    text-align: center;
-    border-radius: 10px;
-    color: white;
-}
-
-.sametaste .profile-menu-near {
-    display: flex;
-}
-
-.sametaste .profile-menu-near .col-md-4 {
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 10px;
-    text-align: center;
-    background-color: white;
-    background-clip: content-box;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.sametaste .profile-menu-near img {
-    width: 100%;
-    height: 260px;
-    border-radius: 10px;
-}
-
-.sametaste .profile-menu-near .text-price {
-    opacity: 0.5;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.sametaste .profile-menu-near a {
-    text-decoration: none;
-    color: black;
-    font-size: 22.4px;
-    font-weight: 800;
-}
-.sametaste .hovereffect {
-    width: 100%;
-    height: 100%;
-    float: left;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    cursor: default;
-    padding-left: 0px;
-
-}
-.sametaste .hovereffect .overlay {
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
-    left: 0;
-    top: auto;
-    bottom: 0;
-    padding: 1em;
-    height: 4.75em;
-    -webkit-transition: -webkit-transform 0.35s;
-    transition: transform 0.35s;
-    -webkit-transform: translate3d(0,100%,0);
-    transform: translate3d(0,100%,0);
-    visibility: hidden;
-
-}
-
-.sametaste .hovereffect img {
-    display: block;
-    position: relative;
-}
-
-
-.sametaste .hovereffect h2 {
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    font-size: 17px;
-    padding: 10px;
-    background: #da484a;
-    bottom: 40px;
-    float: left;
-    margin: 0px;
-    display: inline-block;
-    width: 80%;
-    transition: .5s ease;
-}
-.sametaste .hovereffect h2:hover
-{
-    background: white;
-    color:#da484a; 
-}
-.sametaste .hovereffect p.icon-links 
-{
-    background-color: white;
-}
-.sametaste .hovereffect p.icon-links a:hover{
-    color: white;
-    background-color:#da484a; 
-}
-.sametaste .hovereffect p.icon-links a {
-    float: right;
-    color: #da484a;
-    font-size: 1.4em;
-    width: 20%;
-    height: 40px;
-    position: relative;
-    bottom: 40px;
-    transition: .5s ease;
-    background-color: white;
-}
-
-
-/* END SAME TASTE */
 /*14) STORE-PROFILE*/
 .store-profile .store-menu{
     width: 100%;
@@ -3327,6 +2893,9 @@ explorestore .profile-menu-hot .col-md-4 {
 .store-profile .img-order-header{
     width: 100%;
     height: 155px;
+}
+.store-profile .upload-img-status {
+    margin-left: 10px;
 }
 .store-profile .img-order{
     width: 160px;
@@ -3444,4 +3013,21 @@ explorestore .profile-menu-hot .col-md-4 {
 }
 .date-cart{
     display: none;
+}
+.tip {
+    display: none;
+}
+.item-hover:hover .tip{
+    border: #c0c0c0 1px dotted;
+    border-radius: 5px;
+    padding: 5px 20px 5px 5px;
+    display: block;
+    z-index: 100;
+    background-color: rgb(170, 170, 170);
+    left: 100px;
+    margin: 10px;
+    width: 250px;
+    position: absolute;
+    top: 10px;
+    text-decoration: none
 }
