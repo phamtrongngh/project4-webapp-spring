@@ -380,14 +380,17 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
-            </div>
-
         </div>
     </div>
 </div>
+<!-- Modal footer -->
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
+</div>
+
+</div>
+</div>
+<!-- Modal history -->
 <div class="modal fade" id="history" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -438,15 +441,18 @@
                                                 </div>
                                                 </div>
                                                 </div>
+
+                                                </div>
                                                 <div class="history-footer">
-                                                    <!--<span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>-->
+                                                    <span style="font-size: 17px;font-weight: bold;margin-left: 50px">Hoàn thành</span>
                                                     <div style="float: right;">
+                                                        <button class="btn btn-history">Chi tiết</button>
                                                         <button class="btn btn-history">Đặt lại</button>
                                                     </div>
                                                 </div>
                                                 </div>
-                                                </div>
                                             </c:forEach>
+
                                             </div>
                                             </div>
                                             </div>

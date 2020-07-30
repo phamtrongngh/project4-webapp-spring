@@ -494,7 +494,7 @@
                                 <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                             </div>
                             <div style="margin-top: 2px;display: flex;">
-                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${item.likes.size()}</span>
+                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${item.likes.size()}</span>
                                 <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a><span>200 chia sẻ</span></div>
                             </div>
                             <hr class="hr-newsfeed"/>
@@ -502,7 +502,7 @@
                                 <div class="subicon1">
                                     <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal" idValue="${item.product}"></i>
                                     </a>
-                                    <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                    <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
                                     <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                 </div>
                             </div>
@@ -632,7 +632,7 @@
                             </div>
                         </div>
             </c:forEach>
-            <div id="loading" ><image src="/public/image/avatar/hambuger.gif" style="width: 50px;"/></div>
+            <div id="loading" ><image src="/public/image/Background/PlushHappygoluckyGoldenmantledgroundsquirrel-max-1mb.gif" style="width: 50px;"/></div>
         </div>
         <!-- Khuyen mai -->
         <div class="col-md-3">
