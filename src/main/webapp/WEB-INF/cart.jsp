@@ -159,7 +159,7 @@
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
-<!--<script async defered>
+<script async defered>
     goongjs.accessToken = '06aQWUB2EF6R8iKTMJbBf9plN5ZpZcAmEzXlRqdP';
     var map = new goongjs.Map({
         container: 'map', // container id
@@ -302,7 +302,7 @@
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
 
-</script>-->
+</script>
 </body>
 
 </html>
