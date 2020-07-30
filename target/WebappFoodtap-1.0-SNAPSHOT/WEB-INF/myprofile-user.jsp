@@ -553,6 +553,7 @@
                                                                 <div class="post-store rounded">
                                                                     <form class="row" action="/newfeed/postUserNewfeed" method="POST" enctype="multipart/form-data">
                                                                         <input type="text" name="place"  value="" hidden />
+                                                                        <input type="text" name="user" hidden value="${user._id}" />
                                                                         <div class="col-md-8 post-content">
                                                                             <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                                                                             <div class="d-flex" style="width: 30%">
@@ -599,9 +600,9 @@
                                                                     <div class="rounded status">
                                                                         <div class="alignment">
                                                                             <div class="media">
-                                                                                <img src="/public/image/avatar/unnamed.png" alt="avatar" width="50px" class="rounded-circle avatar" />
+                                                                                <img src="http://localhost:9032/public/image/${user.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                                                                 <div class="media-body">
-                                                                                    <div class="name"> <a href="#">Sweetlane</a>  <img src="/public/image/icons/check.svg" class="check" alt="" />
+                                                                                    <div class="name"> <a href="#">${user.fullname}</a>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="dropleft">
@@ -616,22 +617,23 @@
                                                                             <div class="font1">
                                                                                 ${item.content}
                                                                             </div>
-                                                                            <div>
+<!--                                                                            <div>
                                                                                 <a href="#">CoolCream#</a>
                                                                                 <a href="#">sweet#</a>
                                                                                 <a href="#">fruit#</a>
-                                                                                <a href="#">sweetlane#</a>
-                                                                            </div>
+                                                                                <a href="#">s
+                                                                                    weetlane#</a>
+                                                                            </div>-->
                                                                         </div>
                                                                         <div class="image1">
-                                                                            <img src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" class="rounded background" alt="" />
+                                                                            <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                                                                         </div>
                                                                         <div style="margin-top: 2px;display: flex;">
                                                                             <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;">
-                                                                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>4,5k</span>
+                                                                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${(item.likes).size()}</span>
                                                                             </a>
-                                                                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">200 bình luận</span></a>
-                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>
+                                                                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a>
+<!--                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
                                                                             </div>
                                                                         </div>
                                                                         <hr class="hr-newsfeed"/>

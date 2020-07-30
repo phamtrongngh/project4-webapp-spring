@@ -1541,6 +1541,7 @@ label.star:before {
     background-color: white;
     margin-top: 10px;
     margin-bottom: 10px;
+    height:250px;
 }
 
 .post-content textarea {

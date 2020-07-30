@@ -463,7 +463,7 @@
                 <div class="rounded status">
                             <div class="alignment">
                                 <div class="media">
-                                    <img src="http://localhost:9032/public/image/${item.restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
+                                    <img src="http://localhost:9032/public/image/${item.restaurant}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                     <div class="media-body">
                                         <div href="" class="name"><a href="/restaurant/${item.restaurant._id}">${item.restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
                                         </div>
