@@ -2,6 +2,66 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--Modal like and don nhap-->
+<div class="modal fade" id="Modalheartdraft" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
+
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
+                    <li role="presentation" class="nav-item" style="width:50%">
+                        <a href="#stepheart" class="nav-link  active" data-toggle="tab" aria-controls="stepheart" role="tab" title="Yêu Thích"><i class="fas fa-heart"></i> Yêu thích</a>
+                    </li>
+                    <li role="presentation" class="nav-item" style="width:50%">
+                        <a href="#stepdraft" class="nav-link" data-toggle="tab" aria-controls="stepdraft" role="tab" title="Đơn nháp"><i class="far fa-bookmark"></i> Đơn nháp: </a>
+                    </li>
+                </ul>
+                <div class="tab-content py-2 "  style="height: 400px;overflow-y: auto;overflow-x: hidden;padding-right: 10px;">
+                    <div class="tab-pane " role="tabpanel" id="stepheart">
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class=" img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <span>ádasdsa</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="stepdraft">
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="img-like" />
+                            </div>
+                            <div class="col-md-4 item-hover">
+                                
+                                    <div>Bánh mì bảo Quyên</div>
+                                    <span>2 món</span> (<span>20.000</span>VNĐ)
+                                    <div class="tip ">
+                                        <div class="row">
+                                            <div class="col">
+                                            <span>2</span>x<span>Gà gán</span>
+                                        </div>
+                                        <div class="col">
+                                            <span>10,000</span>VNĐ
+                                        </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn">Đặt lại</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Modal like and share-->
 
 <div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -504,7 +564,7 @@
                                                             </div>
                                                             <div class="col-md-1 profile-container-buttons">
                                                                 <button class="btn btn-primary form-control" ><i class="fas fa-percent"></i>Coupon</button>
-                                                                <button class="btn btn-success form-control" style="margin-top: 8px"><i class="fas fa-heart"></i>Yêu thích</button>
+                                                                <button class="btn btn-success form-control" data-toggle="modal" data-target="#Modalheartdraft" style="margin-top: 8px"><i class="fas fa-heart"></i>Yêu thích</button>
                                                                 <button class="btn btn-danger form-control" data-toggle="modal" data-target="#history" style="margin-top: 8px"><i class="fas fa-history"></i>Lịch sử</button>
                                                             </div>
                                                             <div class="col-md-1 containers-sendmess" style="">

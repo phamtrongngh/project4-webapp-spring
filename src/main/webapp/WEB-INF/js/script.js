@@ -443,7 +443,10 @@ function topFunction() {
 }
 //Buttom slideToggle
 $(document).ready(function() {
-
+    //tooltip
+    $('[data-toggle="tooltip"]').tooltip();   
+    
+    
     $(".btn-up").click(function() {
         $('.box').slideToggle();
     });
