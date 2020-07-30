@@ -380,16 +380,15 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
+            </div>
         </div>
     </div>
 </div>
 <!-- Modal footer -->
-<div class="modal-footer">
-    <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
-</div>
 
-</div>
-</div>
 <!-- Modal history -->
 <div class="modal fade" id="history" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -427,7 +426,7 @@
                                     ${item.products[0].product.restaurant.address}
                                 </div>
                                 <div style="display: flex;">
-                                    
+
                                     <div style="display: flex;">
                                         <div class="history-price">
                                             <span>
