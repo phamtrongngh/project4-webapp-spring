@@ -515,7 +515,7 @@
                                                             <div class="col-md-4 list">
                                                                 <div class="profile-list rounded" >
                                                                     <div class="img-list">
-                                                                        <h3><i class="fas fa-image"></i>Ảnh<a href="#">Thêm ảnh</a></h3>
+                                                                        <h3><i class="fas fa-image"></i>Ảnh</h3>
                                                                         <div class="img-contain d-flex ">
                                                                             <div class="img-contains">
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
@@ -527,11 +527,24 @@
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                                                             </div>
                                                                         </div>
+                                                                        
+                                                                         <div class="img-contain d-flex ">
+                                                                            <div class="img-contains">
+                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                                                            </div>
+                                                                            <div class="img-contains">
+                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                                                            </div>
+                                                                            <div class="img-contains">
+                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                                                            </div>
+                                                                        </div>
+                                                                        <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="profile-list rounded" >
                                                                     <div class="friend-list">
-                                                                        <h3><i class="fas fa-user-friends"></i>Bạn bè <a href="#">Thêm Bạn</a></h3>
+                                                                        <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
                                                                         <div class="img-contain d-flex ">
                                                                             <div class="img-contains">
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
@@ -546,6 +559,21 @@
                                                                                 <a href="#">Nguyễn Hạ</a>
                                                                             </div>
                                                                         </div>
+                                                                            <div class="img-contain d-flex ">
+                                                                            <div class="img-contains">
+                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
+                                                                                <a href="#">Nguyễn Hạ</a>
+                                                                            </div>
+                                                                            <div class="img-contains">
+                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                                                                <a href="#">Nguyễn Hạ</a>
+                                                                            </div>
+                                                                            <div class="img-contains">
+                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                                                                <a href="#">Nguyễn Hạ</a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
