@@ -115,9 +115,9 @@
                                 <input type="text" class="cart-total-price-data" style="display: none;"/>
                             </div>
                             <div class="cart-total row" style="font-weight: 100;">
-                                <div class="cart-total-title">Phí vận chuyển: <span></span>km</div>
+                                <div class="cart-total-title">Phí vận chuyển: <span class="price-ship"></span>km</div>
 
-                                <div class="col"><span class="cart-total-price">0</span>VNĐ</div>
+                                <div class="col"><span class="cart-ship-price">0</span>VNĐ</div>
 
                             </div>
                             <div class="cart-total row" >
@@ -131,13 +131,13 @@
                             <div class="cart-total row" style="color: #ff0000;">
                                 <div class="cart-total-title">Phiếu giảm giá:</div>
 
-                                <div class="col">-<span class="cart-total-price">0</span>VNĐ</div>
+                                <div class="col">-<span class="cart-discount">0</span>VNĐ</div>
 
                             </div>
                             <div class="cart-total row" style="font-size: 20px;font-weight: 600;">
                                 <div class="cart-total-title">Tổng:</div>
 
-                                <div class="col"><span class="cart-total-price">0</span>VNĐ</div>
+                                <div class="col"><span class="cart-total-all">0</span>VNĐ</div>
 
                             </div>
 
@@ -151,6 +151,9 @@
     <div class="info-more" style="text-align: center;padding-bottom: 50px;">
         <button type="submit" class="btn btn-danger btn-order checkout">Đặt món ngay </button>
     </div>
+</div>
+<div id="loading-cart" style="display: none;">
+    <image src="/public/image/Background/PlushHappygoluckyGoldenmantledgroundsquirrel-max-1mb.gif" id="img-loadcart"/>
 </div>
 <!--Bootstrap-->
 <script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
@@ -259,6 +262,10 @@
     var distance;
     function getLocation(address, target) {
         var placeId;
+        $("#loading-cart").addClass("loading-cart");
+        $("#img-loadcart").addClass("img-loadcart");
+        $("html, body").css("pointer-events","none");
+
         fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
                 .then(function(response) {
                     return response.json()
@@ -270,6 +277,9 @@
                                 return response.json()
                             })
                             .then(function(data) {
+                                $("#loading-cart").removeClass("loading-cart");
+                        $("html, body").css("pointer-events","auto");
+                        
                                 if (target == "user") {
                                     userLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
                                 }
@@ -281,7 +291,24 @@
                                     getDistance(userLocation, restaurantLocation).then(function(data) {
                                         distance = data.routes[0].legs[0].distance.text;
                                         $(".cart-total-title span").html(distance.split(" ")[0]);
+<<<<<<< HEAD
 
+=======
+                                        if (distance.split(" ")[0]<=3) 
+                                        {
+                                            $(".cart-ship-price").html("15,000");
+                                        }
+                                        else if(distance.split(" ")[0]<=5){
+                                            $(".cart-ship-price").html("20,000");
+                                        }
+                                        else{
+                                            var x =  distance.split(" ")[0];
+                                            var priceship = 20000 + 5000 * (x-5);
+                                            priceship=format2(priceship, "").replace(".000", "");
+                                            $(".cart-ship-price").html(priceship);
+                                        }
+                                        updateCartTotal();
+>>>>>>> master
                                     });
                                 }
                             })
@@ -302,6 +329,7 @@
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
 </script>
+    
 </body>
 
 </html>

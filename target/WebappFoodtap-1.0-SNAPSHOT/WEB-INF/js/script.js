@@ -40,12 +40,17 @@ function updateCartTotal() {
         total = total + (price * quantity)
 
     }
+    var priceship=$(".cart-ship-price").html().toString().replace(",", "");
+    var cartdiscount =$(".cart-discount").html().toString().replace(",", "");
+    
+    var carttotalall = parseFloat(total) + parseFloat(priceship) - parseFloat(cartdiscount);
+    
     totalformat = Math.round(total * 1000);
     var totalformatdisplay = format2(total, '').replace(".000", "");
-
-
+    carttotalall = format2(carttotalall, '').replace(".000", "");
     document.getElementsByClassName('cart-total-price')[0].innerText = totalformatdisplay;
     $('.cart-total-price-data').val(total);
+    document.getElementsByClassName('cart-total-all')[0].innerText = carttotalall;
 }
 function formatpricecart() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
