@@ -40,12 +40,17 @@ function updateCartTotal() {
         total = total + (price * quantity)
 
     }
+    var priceship=$(".cart-ship-price").html().toString().replace(",", "");
+    var cartdiscount =$(".cart-discount").html().toString().replace(",", "");
+    
+    var carttotalall = parseFloat(total) + parseFloat(priceship) - parseFloat(cartdiscount);
+    
     totalformat = Math.round(total * 1000);
     var totalformatdisplay = format2(total, '').replace(".000", "");
-
-
+    carttotalall = format2(carttotalall, '').replace(".000", "");
     document.getElementsByClassName('cart-total-price')[0].innerText = totalformatdisplay;
     $('.cart-total-price-data').val(total);
+    document.getElementsByClassName('cart-total-all')[0].innerText = carttotalall;
 }
 function formatpricecart() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
@@ -60,9 +65,12 @@ function formatpricecart() {
         var price = parseFloat(priceElement.innerText.replace('VNĐ', ''));
         price = format2(price, "").replace(".000", "");
         document.getElementsByClassName('cart-page-price')[i].innerText = price + "VNĐ";
-
+        
 
     }
+}
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
 function addItemToCart(title, price, imageSrc) {
@@ -133,18 +141,18 @@ function quantityChanged1(event) {
 $(document).ready(function() {
     /*display time*/
     $('input[name=time]').on('change', function(e) {
-       
+
         if ($('input[name=time]:checked').val() == 2) {
             $(".date-cart").css("display", "block");
 
         } else {
             $(".date-cart").css("display", "none");
         }
-    });    
+    });
     /*display time*/
     /*display momo*/
     $('input[name=payment]').on('change', function(e) {
-       
+
         if ($('input[name=payment]:checked').val() == 2) {
             $(".info-pay").css("display", "block");
 
@@ -796,7 +804,6 @@ $(document).ready(function() {
     })
     //call ajax upload image
     $("input[type=file]").change(function() {
-
         var imageFrame = $(this).parent().siblings(0).children(0);
         if (this.files && this.files[0]) {
             var reader = new FileReader();
@@ -833,15 +840,15 @@ $(document).ready(function() {
 $(document).ready(function() {
     //display like
     $(".like-newpost").on("click", function() {
-        if ($(this).hasClass("fa-heart")) 
+        if ($(this).hasClass("fa-heart"))
         {
             $(this).removeClass("fa-heart");
             $(this).removeClass("fa");
             $(this).addClass("fab");
             $(this).addClass("fa-gratipay");
         }
-        else{
-           
+        else {
+
             $(this).removeClass("fa-gratipay");
             $(this).removeClass("fab");
             $(this).addClass("fa");
@@ -866,9 +873,9 @@ $(document).ready(function() {
             document.getElementById("send_btn").click();
         }
     });
- 
+
 });
-$(document).ready(function(){
+$(document).ready(function() {
     document.getElementById("btn_copy").addEventListener("click", copy_coupon);
 });
 function copy_coupon() {

@@ -121,10 +121,10 @@ public class UserController {
         return new ModelAndView("detail-order").addObject("order",order);
     }
     
-    @RequestMapping(value = "/status-order", method = RequestMethod.GET)
-    public ModelAndView statusorder() throws IOException {
-        
-        return new ModelAndView("status-order");
+    @RequestMapping(value = "/status-order/{id}", method = RequestMethod.GET)
+    public ModelAndView statusorder(@PathVariable("id") String id) throws IOException {
+        Object order = restOrder.getOne(id);
+        return new ModelAndView("status-order").addObject("order",order);
     }
 
     @RequestMapping(value = "/updateUser")

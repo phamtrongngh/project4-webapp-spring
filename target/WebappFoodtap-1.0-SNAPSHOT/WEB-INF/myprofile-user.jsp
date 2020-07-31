@@ -537,9 +537,17 @@
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </span>
+
                                                     <div style="float: right;">
-                                                        <button class="btn btn-history">Chi tiết</button>
-                                                        <button class="btn btn-history">Đặt lại</button>
+                                                        <c:choose>
+                                                            <c:when test="${item.status=='completed' || item.status=='canceled'}">
+                                                                <a href="/detail-order/${item._id}" class="btn btn-history">Chi tiết</a>
+                                                                <a href="" class="btn btn-history">Đặt lại</a>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <a href="/status-order/${item._id}" class="btn btn-history">Chi tiết</a>
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                     </div>
                                                 </div>
                                                 </div>
