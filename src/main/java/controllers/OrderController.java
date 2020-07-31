@@ -42,7 +42,7 @@ public class OrderController {
         String urlScan = restOrderHelper.postOrder(json);
         return urlScan;
     }
-    
+
     @RequestMapping(value = "/order/responseMomo", method = RequestMethod.POST )
     @ResponseBody
     public String responseMomo(@RequestBody String json) throws IOException {

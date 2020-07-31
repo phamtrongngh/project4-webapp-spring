@@ -131,10 +131,21 @@ function quantityChanged1(event) {
 
 
 $(document).ready(function() {
+    /*display time*/
+    $('input[name=time]').on('change', function(e) {
+       
+        if ($('input[name=time]:checked').val() == 2) {
+            $(".date-cart").css("display", "block");
+
+        } else {
+            $(".date-cart").css("display", "none");
+        }
+    });    
+    /*display time*/
     /*display momo*/
-    $('input[name=pay]').on('change', function(e) {
-        console.log('input[name=pay]:checked');
-        if ($('input[name=pay]:checked').val() == 2) {
+    $('input[name=payment]').on('change', function(e) {
+       
+        if ($('input[name=payment]:checked').val() == 2) {
             $(".info-pay").css("display", "block");
 
         } else {
@@ -661,7 +672,12 @@ $(document).ready(function() {
 
     $("#chossefile").click(function(e) {
         e.preventDefault();
-        $(".img-store-register").trigger('click');
+        $(this).closest(".gallery").find(".img-store-register").trigger('click');
+
+    });
+    $(".choosefile").click(function(e) {
+        e.preventDefault();
+        $(this).closest(".gallery").find(".img-store-register").trigger('click');
 
     });
     $("#chossefile-giayphep").click(function(e) {

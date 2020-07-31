@@ -206,23 +206,32 @@
                                         <thead>
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Mã đơn hàng: activate to sort column descending" style="width: 195px;">Mã đơn hàng</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="SĐT khách hàng: activate to sort column ascending" style="width: 294px;">Tên đơn hàng</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="SĐT khách hàng: activate to sort column ascending" style="width: 294px;">Khách hàng</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Ngày gửi</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày nhận: activate to sort column ascending" style="width: 140px;">Ngày nhận</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Đơn giá: activate to sort column ascending" style="width: 131px;">Đơn giá</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Đơn giá: activate to sort column ascending" style="width: 131px;">Tổng tiền</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Tình trạng: activate to sort column ascending" style="width: 121px;">Tình trạng</th>
                                             </tr>
                                         </thead>
-
                                         <tbody>
-                                            <c:forEach var="item" items="${restaurants.orders}">
+                                            <c:forEach var="item" items="${restaurant.orders}">
                                                 <tr role="row" class="odd">
                                                     <td class="sorting_1">${item._id}</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>33</td>
-                                                    <td>2008/11/28</td>
-                                                    <td>$162,700</td>
+                                                    <td><a href="/user-profile/${item.user._id}">${item.user.fullname}</a></td>
+                                                    <td>${item.createdAt}</td>
+                                                    <td>${item.amount} VNĐ</td>
+                                                    <td>
+                                                        <c:choose>
+                                                            <c:when test="${item.status=='completed'}">
+                                                                Đã hoàn thành
+                                                            </c:when>
+                                                            <c:when test="${item.status=='failed'}">
+                                                                Đã bị hủy
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                Đang tiến hành
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>
@@ -345,9 +354,9 @@
                 <hr/>
                 <div class="row h-100">
                     <div class="col-md-6">
-                        <div class="fix-store">   
+                        <div class="gallery fix-store">   
                             <div class="form-group form-control text-center" style="width: 50% !important; margin-left: 190px">
-                                <a id="chossefile">
+                                <a id="chossefile" class="choosefile">
 
                                     <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
 
@@ -401,9 +410,9 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="add-paper">   
+                        <div class="gallery add-paper">   
                             <div class="form-group form-control text-center" style="width: 50% !important;margin-left: 178px">
-                                <a id="chossefile">
+                                <a id="chossefile" class="choosefile">
 
                                     <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
 
