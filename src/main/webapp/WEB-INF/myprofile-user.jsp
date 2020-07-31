@@ -16,8 +16,8 @@
             <div class="modal-body">
                 <div class="d-flex align-items-md-center justify-content-between">
                     <div class="coupon-container d-flex">
-                         <img src="/public/image/avatar/momo.png" class="img-coupon" />
-                         <p><span id="coupon">FREESHIP</span><br/>Miễn phí vận chuyển</p>
+                        <img src="/public/image/avatar/momo.png" class="img-coupon" />
+                        <p><span id="coupon">FREESHIP</span><br/>Miễn phí vận chuyển</p>
                     </div>
                     <button id="btn_copy" class="btn btn-danger float-right ">Copy</button>
                 </div>
@@ -92,9 +92,7 @@
 
 <div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
-
         <div class="modal-content">
-
             <div class="modal-body">
                 <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
                     <li role="presentation" class="nav-item" style="width:50%">
@@ -716,7 +714,12 @@
                                                                             <div class="media">
                                                                                 <img src="http://localhost:9032/public/image/${user.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                                                                 <div class="media-body">
-                                                                                    <div class="name"> <a href="#">${user.fullname}</a>
+                                                                                    <div class="name"> 
+                                                                                        <a href="#">${user.fullname}
+                                                                                            <c:if test="${item.restaurant!=null}">
+                                                                                                <span style="color:black">►</span> <a href="/restaurant/${item.restaurant._id}">${item.restaurant.name}</a>
+                                                                                            </c:if>
+                                                                                        </a>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="dropleft">
@@ -887,97 +890,97 @@
                                                         </div>
                                                     </div>
 
-                                                    <!--                                                    <script async defered>
-                                                                                                            goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
-                                                                                                            var map = new goongjs.Map({
-                                                                                                                container: 'map', // container id
-                                                                                                                style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
-                                                                                                                center: [105, 21], // starting position [lng, lat]
-                                                                                                                zoom: 9 // starting zoom
-                                                                                                            });
-                                                    
-                                                                                                            var geocoder = new GoongGeocoder({
-                                                                                                                accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
-                                                                                                                goongjs: goongjs
-                                                                                                            })
-                                                    
-                                                                                                            var geolocateControl = new goongjs.GeolocateControl({
-                                                                                                                positionOptions: {
-                                                                                                                    enableHighAccuracy: true
-                                                                                                                },
-                                                                                                                trackUserLocation: true
-                                                                                                            })
-                                                    
-                                                                                                            map.addControl(new goongjs.FullscreenControl());
-                                                    
-                                                                                                            map.on('load', function() {
-                                                                                                                map.addSource('single-point', {
-                                                                                                                    type: 'geojson',
-                                                                                                                    data: {
-                                                                                                                        type: 'FeatureCollection',
-                                                                                                                        features: []
-                                                                                                                    }
-                                                                                                                });
-                                                                                                                map.addControl(
-                                                                                                                        geocoder
-                                                                                                                        )
-                                                                                                                map.addControl(
-                                                                                                                        geolocateControl
-                                                                                                                        );
-                                                                                                                map.addLayer({
-                                                                                                                    id: 'point',
-                                                                                                                    source: 'single-point',
-                                                                                                                    type: 'circle',
-                                                                                                                    paint: {
-                                                                                                                        'circle-radius': 10,
-                                                                                                                        'circle-color': '#448ee4'
-                                                                                                                    }
-                                                                                                                });
-                                                                                                            });
-                                                    
-                                                                                                            var marker = new goongjs.Marker({
-                                                                                                                draggable: true
-                                                                                                            })
-                                                                                                                    .setLngLat([105, 21])
-                                                                                                                    .addTo(map);
-                                                    
-                                                                                                            marker.on('dragend', function() {
-                                                    
-                                                                                                                var lngLat = marker.getLngLat();
-                                                                                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
-                                                                                                                        .then(function(response) {
-                                                                                                                            return response.json()
-                                                                                                                        })
-                                                                                                                        .then(function(data) {
-                                                                                                                            $("input[name='place']").val(data.results[0].formatted_address);
-                                                                                                                        });
-                                                                                                            });
-                                                                                                            geolocateControl.on("geolocate", function(e) {
-                                                                                                                var lng = e.coords.longitude;
-                                                                                                                var lat = e.coords.latitude;
-                                                                                                                marker._lngLat = {lat: lat, lng: lng}
-                                                                                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
-                                                                                                                        .then(function(response) {
-                                                                                                                            return response.json()
-                                                                                                                        })
-                                                                                                                        .then(function(data) {
-                                                                                                                            $("input[name='place']").val(data.results[0].formatted_address);
-                                                                                                                        });
-                                                                                                            })
-                                                                                                            geocoder.on("result", function(e) {
-                                                                                                                geocoder.mapMarker.remove();
-                                                                                                                marker._lngLat = geocoder.mapMarker._lngLat;
-                                                                                                                $("input[name='place']").val(e.result.description);
-                                                                                                            })
-                                                                                                            $(".btn-location").click(function() {
-                                                                                                                $(".goongjs-ctrl-fullscreen").trigger("click");
-                                                                                                            })
-                                                                                                            $("#mapModel .modal-footer button").click(function() {
-                                                                                                                $("#mapModel").modal("hide");
-                                                                                                            })
-                                                                                                            $(".close").click(function() {
-                                                                                                                $("input[name='place']").val("");
-                                                                                                                $("#mapModel").modal("hide");
-                                                                                                            })
-                                                                                                        </script>-->
+                                                    <script async defered>
+                                                        goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
+                                                        var map = new goongjs.Map({
+                                                            container: 'map', // container id
+                                                            style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
+                                                            center: [105, 21], // starting position [lng, lat]
+                                                            zoom: 9 // starting zoom
+                                                        });
+
+                                                        var geocoder = new GoongGeocoder({
+                                                            accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
+                                                            goongjs: goongjs
+                                                        })
+
+                                                        var geolocateControl = new goongjs.GeolocateControl({
+                                                            positionOptions: {
+                                                                enableHighAccuracy: true
+                                                            },
+                                                            trackUserLocation: true
+                                                        })
+
+                                                        map.addControl(new goongjs.FullscreenControl());
+
+                                                        map.on('load', function() {
+                                                            map.addSource('single-point', {
+                                                                type: 'geojson',
+                                                                data: {
+                                                                    type: 'FeatureCollection',
+                                                                    features: []
+                                                                }
+                                                            });
+                                                            map.addControl(
+                                                                    geocoder
+                                                                    )
+                                                            map.addControl(
+                                                                    geolocateControl
+                                                                    );
+                                                            map.addLayer({
+                                                                id: 'point',
+                                                                source: 'single-point',
+                                                                type: 'circle',
+                                                                paint: {
+                                                                    'circle-radius': 10,
+                                                                    'circle-color': '#448ee4'
+                                                                }
+                                                            });
+                                                        });
+
+                                                        var marker = new goongjs.Marker({
+                                                            draggable: true
+                                                        })
+                                                                .setLngLat([105, 21])
+                                                                .addTo(map);
+
+                                                        marker.on('dragend', function() {
+
+                                                            var lngLat = marker.getLngLat();
+                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+                                                                    .then(function(response) {
+                                                                        return response.json()
+                                                                    })
+                                                                    .then(function(data) {
+                                                                        $("input[name='place']").val(data.results[0].formatted_address);
+                                                                    });
+                                                        });
+                                                        geolocateControl.on("geolocate", function(e) {
+                                                            var lng = e.coords.longitude;
+                                                            var lat = e.coords.latitude;
+                                                            marker._lngLat = {lat: lat, lng: lng}
+                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
+                                                                    .then(function(response) {
+                                                                        return response.json()
+                                                                    })
+                                                                    .then(function(data) {
+                                                                        $("input[name='place']").val(data.results[0].formatted_address);
+                                                                    });
+                                                        })
+                                                        geocoder.on("result", function(e) {
+                                                            geocoder.mapMarker.remove();
+                                                            marker._lngLat = geocoder.mapMarker._lngLat;
+                                                            $("input[name='place']").val(e.result.description);
+                                                        })
+                                                        $(".btn-location").click(function() {
+                                                            $(".goongjs-ctrl-fullscreen").trigger("click");
+                                                        })
+                                                        $("#mapModel .modal-footer button").click(function() {
+                                                            $("#mapModel").modal("hide");
+                                                        })
+                                                        $(".close").click(function() {
+                                                            $("input[name='place']").val("");
+                                                            $("#mapModel").modal("hide");
+                                                        })
+                                                    </script>
                                                     <%@include  file="footer.jsp" %>
