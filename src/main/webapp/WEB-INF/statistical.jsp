@@ -14,7 +14,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body" style="overflow: auto;">
                     <div class="post-store rounded">
                         <div class="col-md-12 post-content">
                             <h4>Nhập nội dung</h4>
@@ -72,6 +72,10 @@
                         <input name="price" type="number" class="form-control" />
                     </div>
                     <div class="form-group">
+                        <label>Giá khuyến mãi:</label>
+                        <input name="price" type="number" class="form-control" />
+                    </div>
+                    <div class="form-group">
                         <label>Danh mục</label>
                         <!--<select name="" class="form-control select-address-district ">
                                                                 <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
@@ -82,6 +86,63 @@
                         <input name="category" placeholder="Chưa có dữ liệu, khoan nhập mục này" type="text" class="form-control" />
                     </div>
                     <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--modal update menu-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="updateMenu">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header" style="color: white; background-color: #da484a">
+                <h5 class="modal-title">Cập nhật món ăn</h5>
+                <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/product/postProduct" method="POST" enctype="multipart/form-data">
+                    <input name="restaurant" value="${restaurant._id}" type="text" hidden/>
+                    <div class="form-group">
+                        <label >Tên món ăn:</label>
+                        <input name="name" type="text" class="form-control"   />
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>Hình:</label>
+                    </div>
+                    <div class="upload-img-status">
+                        <div class="gallery text-center">
+                            <a id="chossefile">
+                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px; background-repeat: no-repeat;background-size: cover">
+                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;cursor: pointer">+</span>
+                                </div>
+                            </a>
+                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Giá:</label>
+                        <input name="price" type="number" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Giá khuyến mãi:</label>
+                        <input name="price" type="number" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Danh mục</label>
+                        <!--<select name="" class="form-control select-address-district ">
+                                                                <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                                                                <option value="1 ">Option 1</option>
+                                                                <option value="2 ">Option 2</option>
+                                                                <option value="3 ">Option 3</option>
+                                                            </select>-->
+                        <input name="category" placeholder="Chưa có dữ liệu, khoan nhập mục này" type="text" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="float: right;">Cập nhật</button>
                 </form>
 
             </div>
@@ -351,7 +412,7 @@
                     <div class="col-md-6">
                         <div class="gallery add-paper">   
                             <div class="form-group form-control text-center" style="width: 50% !important;margin-left: 178px">
-                                <a id="chossefile">
+                                <a id="chossefile" class="choosefile">
 
                                     <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
 
@@ -393,6 +454,7 @@
                                     <th>Tên món</th>
                                     <th>Danh mục</th>
                                     <th>Giá</th>
+                                    <th>Giá khuyến mãi</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -403,9 +465,10 @@
                                         <td><a href="">${item.name} </a></td>
                                         <td>Danh mục</td>
                                         <td>${item.price} VND</td>
+                                        <td>${item.price} VND</td>
                                         <td>
                                             <div class="d-flex justify-content-md-center"> 
-                                                <button  type="button" class="btn btn-success">CẬP NHẬT</button>
+                                                <button  type="button" class="btn btn-success" data-toggle="modal" data-target="#updateMenu">CẬP NHẬT</button>
                                                 <button  type="button" idValue="${item._id}" class="btn btn-danger postFoodNewFeed" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
                                             </div>
                                         </td>
