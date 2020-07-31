@@ -47,9 +47,13 @@ public class UserController {
         return new ModelAndView("user-info").addObject("user", user);
     }
 
-    @RequestMapping(value = "/user-profile", method = RequestMethod.GET)
-    public ModelAndView profile() throws IOException {
-        return new ModelAndView("profile-user");
+    @RequestMapping(value = "/user-profile/{id}", method = RequestMethod.GET)
+    public ModelAndView profile(@PathVariable("id") String id) throws IOException {
+        if (id.equals(CookieHelper.getCookie("_id"))){
+            return myprofileuser();
+        }
+        Object user = restUser.getOne(id);
+        return new ModelAndView("profile-user").addObject("user",user);
     }
 
     @RequestMapping(value = "/myprofile-user")

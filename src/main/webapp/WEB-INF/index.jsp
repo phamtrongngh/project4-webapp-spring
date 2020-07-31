@@ -470,7 +470,6 @@
                                     <div class="media-body">
                                         <div href="" class="name"><a href="/restaurant/${item.restaurant._id}">${item.restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
                                         </div>
-
                                     </div>
                                     <div class="dropleft">
                                         <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
@@ -484,12 +483,12 @@
                                 <div class="font1">
                                     ${item.content}
                                 </div>
-<!--                                <div>
-                                    <a href="#">CoolCream#</a>
-                                    <a href="#">sweet#</a>
-                                    <a href="#">fruit#</a>
-                                    <a href="#">sweetlane#</a>
-                                </div>-->
+                                <!--                                <div>
+                                                                    <a href="#">CoolCream#</a>
+                                                                    <a href="#">sweet#</a>
+                                                                    <a href="#">fruit#</a>
+                                                                    <a href="#">sweetlane#</a>
+                                                                </div>-->
                             </div>
                             <div class="image1">
                                 <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
@@ -637,12 +636,27 @@
                         <div class="rounded status">
                             <div class="alignment">
                                 <div class="media">
-                                    <img src="http://localhost:9032/public/image/${item.user.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
-                                    <div class="media-body">
-                                        <div href="" class="name"><a href="/user-profile/${item.user._id}">${item.user.fullname}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
-                                        </div>
+                                    <c:choose>
+                                        <c:when test="${item.restaurant==null}">
+                                            <img src="http://localhost:9032/public/image/${item.user.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
+                                            <div class="media-body">
+                                                <div href="" class="name"><a href="/user-profile/${item.user._id}">${item.user.fullname}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
+                                                </div>
 
-                                    </div>
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img src="http://localhost:9032/public/image/${item.restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
+                                            <div class="media-body">
+                                                <div href="" class="name"><a href="/restaurant/${item.restaurant._id}">${item.restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
+                                                </div>
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
+
+
+
+
                                     <div class="dropleft">
                                         <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                         <div class="dropdown-menu" >
@@ -655,12 +669,12 @@
                                 <div class="font1">
                                     ${item.content}
                                 </div>
-<!--                                <div>
-                                    <a href="#">CoolCream#</a>
-                                    <a href="#">sweet#</a>
-                                    <a href="#">fruit#</a>
-                                    <a href="#">sweetlane#</a>
-                                </div>-->
+                                <!--                                <div>
+                                                                    <a href="#">CoolCream#</a>
+                                                                    <a href="#">sweet#</a>
+                                                                    <a href="#">fruit#</a>
+                                                                    <a href="#">sweetlane#</a>
+                                                                </div>-->
                             </div>
                             <div class="image1">
                                 <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
@@ -677,7 +691,6 @@
                                     <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                 </div>
                             </div>
-
                             <div class="collapse" id="collapseExample1">
                                 <div class="card card-body">
                                     <div class="post-footer">
