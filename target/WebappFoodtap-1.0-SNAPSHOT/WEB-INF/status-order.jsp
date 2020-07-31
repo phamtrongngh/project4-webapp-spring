@@ -37,7 +37,6 @@
                     <div class=" info-more row">
                         <label class="col">SĐT người giao: </label>
                         <span class="col"> 0344057234</span>
-                       
                     </div>
                     <div class=" info-more" style="margin-left: -15px;">
                         <label >Chi tiết đơn hàng:</label>
