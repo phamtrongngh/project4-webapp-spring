@@ -291,6 +291,9 @@
                                     getDistance(userLocation, restaurantLocation).then(function(data) {
                                         distance = data.routes[0].legs[0].distance.text;
                                         $(".cart-total-title span").html(distance.split(" ")[0]);
+<<<<<<< HEAD
+
+=======
                                         if (distance.split(" ")[0]<=3) 
                                         {
                                             $(".cart-ship-price").html("15,000");
@@ -305,6 +308,7 @@
                                             $(".cart-ship-price").html(priceship);
                                         }
                                         updateCartTotal();
+>>>>>>> master
                                     });
                                 }
                             })
@@ -324,7 +328,6 @@
     }
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
-
 </script>
     
 </body>
