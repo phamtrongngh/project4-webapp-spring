@@ -16,14 +16,14 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="post-store rounded">
-                            <div class="col-md-12 post-content">
-                                <h4>Nhập nội dung</h4>
-                                <input type="text" name="restaurant" value="${restaurant._id}" hidden />
-                                <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
-                                <div class="d-flex" style="width: 100%">
-                                    <image class="rounded" src ="http://localhost:9032/public/image/" width="100%" height="100%" />
-                                </div>
+                        <div class="col-md-12 post-content">
+                            <h4>Nhập nội dung</h4>
+                            <input type="text" name="restaurant" value="${restaurant._id}" hidden />
+                            <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                            <div class="d-flex" style="width: 100%">
+                                <image class="rounded" src ="http://localhost:9032/public/image/" width="100%" height="100%" />
                             </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Modal footer -->
@@ -61,7 +61,7 @@
                         <div class="gallery text-center">
                             <a id="chossefile">
                                 <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px; background-repeat: no-repeat;background-size: cover">
-                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;">+</span>
+                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;cursor: pointer">+</span>
                                 </div>
                             </a>
                             <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
@@ -290,7 +290,7 @@
 
                                     <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
 
-                                        <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
+                                        <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
                                     </div>
                                 </a>
                                 <div class="desc ">Chọn ảnh cửa hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
@@ -346,7 +346,7 @@
 
                                     <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
 
-                                        <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
+                                        <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
                                     </div>
                                 </a>
                                 <div class="desc ">Thêm giấy phép bán hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
@@ -462,7 +462,7 @@
         options: {
             title: {
                 display: 'true',
-                text: 'Your turnover for a year',
+                text: 'Doanh thu của bạn trong một năm',
                 fontSize: 30,
                 fontStyle: 'bold',
             },
