@@ -74,7 +74,7 @@
                     <div class="form-group form-control mx-auto text-center" style="width: 48%">
                         <a id="chossefile">
                             <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: 100% 100%; background-position: center; background-repeat: no-repeat">
-                                <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
+                                <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
                             </div>
                         </a>
                         <div class="desc ">Chọn ảnh đại diện <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>

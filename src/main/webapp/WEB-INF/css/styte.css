@@ -720,11 +720,35 @@ h1 {
     text-align: center;
 }
 
+#upload-photo {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+.mission{
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 5px 15px;
+    margin-bottom: 20px;
+}
+.detail-mission{
+    border-bottom: 0.5px solid #c4ccd3;
+}
+.header-mission{
+    background-color: white;
+    padding: 0px 5px;
+    border-radius: 0.2rem;
+    color: #da484a;
+}
+.mission-fix{
+    position: fixed;
+    max-width: 16.7777777%;
+}
 
 /* END INDEX */
 
 
-/* 3) LOGIN */
+/* 2) LOGIN */
 
 .login-hello {
     margin-top: 10px;
@@ -933,7 +957,7 @@ h1 {
 /* END LOGIN */
 
 
-/* 4) PROFILE PAGR */
+/* 3) PROFILE PAGR */
 
 .profile .profile-container-button button.btn-success,
 .profile .profile-container-button button.btn-danger {
@@ -1191,7 +1215,7 @@ label.star:before {
 /* END PROFILE */
 
 
-/* 5) MESSAGE PAGE */
+/* 4) MESSAGE PAGE */
 
 .chat {
     margin-top: 120px;
@@ -1476,7 +1500,7 @@ label.star:before {
 /* END MESSAGE */
 
 
-/* 6) PROFILE-USER */
+/* 5) PROFILE-USER */
 
 .carousel-indicators li {
     background-color: #da484a !important;
@@ -1632,7 +1656,7 @@ label.star:before {
 
 
 
-/* 7) STATISTICAL */
+/* 6) STATISTICAL */
 
 .table-responsive {
     overflow-x: hidden !important;
@@ -1659,7 +1683,7 @@ label.star:before {
 /* END STATISTICAL */
 
 
-/* 8) CART PAGE */
+/* 7) CART PAGE */
 .info-user{
     max-height: 100%;
 }
@@ -1988,32 +2012,9 @@ input[type="radio"]:checked {
 .scrollpane { height: 100px; overflow: auto; width: 200px; }
 
 
-#upload-photo {
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
-}
-.mission{
-    background-color: white;
-    border-radius: 0.5rem;
-    padding: 5px 15px;
-    margin-bottom: 20px;
-}
-.detail-mission{
-    border-bottom: 0.5px solid #c4ccd3;
-}
-.header-mission{
-    background-color: white;
-    padding: 0px 5px;
-    border-radius: 0.2rem;
-    color: #da484a;
-}
-.mission-fix{
-    position: fixed;
-    max-width: 18.7%;
-}
 
-/*9) Register Store */
+
+/*8) Register Store */
 .registerstore .tab-pane
 {
     width: 70% !important;
@@ -2130,7 +2131,7 @@ input[type="radio"]:checked {
 .form-create-dmmenu{
     margin-top: 100px;
 }
-/*10) STORE*/
+/*9) STORE*/
 .store .store-menu{
     width: 100%;
 }
@@ -2236,254 +2237,6 @@ input[type="radio"]:checked {
 .store .header-mission h4 {
     font-size: 18px;
 }
-#upload-photo {
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
-}
-.mission{
-    background-color: white;
-    border-radius: 0.5rem;
-    padding: 5px 15px;
-    margin-bottom: 20px;
-}
-.detail-mission{
-    border-bottom: 0.5px solid #c4ccd3;
-}
-.header-mission{
-    background-color: white;
-    padding: 0px 5px;
-    border-radius: 0.2rem;
-    color: #da484a;
-}
-.mission-fix{
-    position: fixed;
-    max-width: 16.7777777%;
-}
-
-/*9) Register Store */
-.registerstore .tab-pane
-{
-    width: 70% !important;
-}
-.registerstore .tab-content{
-    height: 100%;
-}
-.registerstore .font-margin{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.registerstore .form-group {
-    margin-bottom: 30px;
-    margin-left:  160px;
-}
-.registerstore .form-group.input-phone{
-    margin-left:  0px !important;
-}
-.registerstore .form-group .input-address{
-    margin-left: 54px;
-}
-.registerstore .form-group.container-address{
-    margin-left:  0px !important;}
-.registerstore .form-group.container-city{
-    margin-left: 58px !important;
-}.registerstore .form-group.container-address{
-    margin-left:  15px !important;
-}.registerstore .form-inline select.select-address ,
-.registerstore .form-inline select.select-address-district ,
-.registerstore .form-inline select.select-address-ward {
-    width: 100% !important
-}
-.registerstore .form-group .input-namestore{
-    width: 40% !important;
-    margin-left: 80px;
-}
-.registerstore .form-group .input-info{
-    width: 40% !important;
-    margin-left:24px;
-}
-.registerstore .form-group .input-name-user{
-    width:  40% !important;
-    margin-left:16px;
-}
-
-.registerstore .form-group .input-phones{
-    width:  40% !important;
-    margin-left:80px;
-}
-
-.registerstore .form-group .select-species{
-    width:  40% !important;
-    margin-left: 58px;
-}
-.registerstore .gallery{
-    position: absolute;
-    right: 280px;
-    text-align: center;
-    width: 15%;
-}
-.btn-location{
-    background-color: #fff;
-    color: #da484a;
-    transition: .5s ease;
-}
-.btn-location:hover{
-    background-color: #da484a;
-    color: white;
-}
-.btn-location:focus{
-    outline: none;
-}
-
-
-/*End Register Store*/
-.hr-newsfeed{
-    margin-bottom: 0;
-    margin-top: 0.5em;
-}
-.count-comment{
-    margin-right: 10px;
-    color: black;
-}
-.modal-sothich{
-    max-width: 100%;
-    height: 100%;
-}
-
-.img-store{
-    max-width: 80%;
-    height: 200px;
-}
-#sothich{
-    padding: 0 30px !important;
-}
-.store-sothich:focus{
-    border: 1px solid black;
-}
-.store-sothich-fix{
-    border: 1px solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388; 
-    border-radius:0.5rem; 
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.create-DMmenu{
-    margin-top: 100px;
-    padding: 0 160px;
-}
-.form-create-dmmenu{
-    margin-top: 100px;
-}
-/*10) STORE*/
-.store .store-menu{
-    width: 100%;
-}
-.store .img-order-header{
-    width: 100%;
-
-    height: 155px;
-}.store .img-order{
-    width: 160px;
-}
-.store .name img{
-    margin-bottom: 5px;
-    margin-top: 5px;
-    margin-left: 10px;
-}
-.store .profile-header .profile-container-img .img-avartar {
-    width: 155px;
-    height: 155px;
-}
-.store .profile-intro{
-    background-color: white;
-    color:#da484a;
-    width: 100%;
-    height: 100%
-
-}
-.store .profile-name{
-    display: table-header-group;
-    float: left;    
-    margin-top: 15px;
-}
-.store .photo{
-    width: 160px;
-}
-.store .photo-header{
-    width: 100%;
-    color: white;
-
-    height: 155px;
-    margin-top: -155px;
-    padding-top: 50px;
-    transition: 0.5s ease;
-    font-size: 1.4rem;
-    font-weight: 900;
-    text-align: center;
-    opacity: 0.6;
-    background-color: black;
-    font-family: "Quicksand";
-}
-.store .photo-header:hover {
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    opacity: 0.9;
-}
-.store .profile-container-buttons{
-    padding-left: 0;
-}
-.store .profile-container-buttons button{
-    height: 30%;
-    opacity: 0.8;
-    width: 160%;
-    margin-left: -5px;
-}
-
-.store .profile-container-buttons button i{
-    margin-right:  10px;
-}
-
-.store .profile-container-buttons .btn-success,.store .profile-container-buttons .btn-danger {
-    margin-top: 8px;
-}
-.store .containers-sendmess button {
-    margin-left:26px ;
-    height: 100.5%;
-    width: 150%;
-    opacity: 0.8;
-}
-
-.store .voucher{
-    width: 100%;
-    margin-top: 10px;
-}
-.store .vouchers{
-    background: url(../image/Background/pizza.jpg);
-    background-repeat: no-repeat;
-    height: 150px;
-    width: 100%;
-    margin-top: 10px;
-    background-size: 100% 100%;
-}
-.store .header-mission{
-    color: white;
-    position: absolute;
-    background: none;
-}
-.store .header-voucher{
-    background-color: white;
-    padding: 0px 5px;
-    border-radius: 0.2rem;
-    color: #da484a;
-}
-
-
-
 .store .header-mission h4 i{
     font-size: 20px;
     color: #da484a;
@@ -2491,7 +2244,9 @@ input[type="radio"]:checked {
 
 
 
-/*11)MYPROFILE-USER */
+/*END STORE */
+
+/*10)MYPROFILE-USER */
 .myprofile-user .profile-intro{
     background-color: white;
     color:#da484a;
@@ -2604,7 +2359,7 @@ input[type="radio"]:checked {
     height: 12%;
 }
 /*END */
-/*12) EXPLORE STORE*/
+/*11) EXPLORE STORE*/
 .explorestore .profile-text-hot {
     margin-top: 25px;
     margin-bottom: 10px;
@@ -2735,7 +2490,7 @@ explorestore .profile-menu-hot .col-md-4 {
     font-size: 24px;
 }
 /* END STORE-INFO*/
-/*13) SAME TASTE */
+/*12) SAME TASTE */
 .sametaste .profile-text-hot {
     margin-top: 25px;
     margin-bottom: 10px;
@@ -2915,7 +2670,7 @@ explorestore .profile-menu-hot .col-md-4 {
 }
 
 
-/*14) STORE-PROFILE*/
+/*13) STORE-PROFILE*/
 .store-profile .store-menu{
     width: 100%;
 }
@@ -2998,7 +2753,7 @@ explorestore .profile-menu-hot .col-md-4 {
 
 
 
-/* user-info */
+/*14) user-info */
 .input-group-text:hover{
     background-color: #da484a;
 }

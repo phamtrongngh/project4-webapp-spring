@@ -853,9 +853,9 @@ $(document).ready(function() {
  
 });
 $(document).ready(function(){
-    document.getElementById("btn_copy").addEventListener("click", copy_password);
+    document.getElementById("btn_copy").addEventListener("click", copy_coupon);
 });
-function copy_password() {
+function copy_coupon() {
     var copyText = document.getElementById("coupon");
     var textArea = document.createElement("textarea");
     textArea.value = copyText.textContent;
@@ -863,4 +863,37 @@ function copy_password() {
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
+}
+$(document).ready(function() {
+    document.getElementById("btn-follow").addEventListener("click", ChangButtonFollow);
+});
+function ChangButtonFollow() {
+    var x = document.getElementById("btn-follow");
+    if (x.innerHTML === '<i class="fas fa-user-circle"></i>Theo dõi') {
+        x.innerHTML = "Đang theo dõi";
+    } else {
+        x.innerHTML = '<i class="fas fa-user-circle"></i>Theo dõi';
+    }
+}
+$(document).ready(function() {
+    document.getElementById("btn-friends").addEventListener("click", ChangButtonFriends);
+});
+function ChangButtonFriends() {
+    var x = document.getElementById("btn-friends");
+    if (x.innerHTML === '<i class="fas fa-user-plus"></i>Kết bạn') {
+        x.innerHTML = '<i class="fas fa-user-friends"></i>Bạn bè';
+    } else {
+        x.innerHTML = '<i class="fas fa-user-plus"></i>Kết bạn';
+    }
+}
+$(document).ready(function() {
+    document.getElementById("btn-like").addEventListener("click", ChangButtonLike);
+});
+function ChangButtonLike() {
+    var x = document.getElementById("btn-like");
+    if (x.innerHTML === '<i class="far fa-thumbs-up"></i>Thích') {
+        x.innerHTML = '<i class="far fa-thumbs-up"></i>Đã thích';
+    } else {
+        x.innerHTML = '<i class="far fa-thumbs-up"></i>Thích';
+    }
 }
