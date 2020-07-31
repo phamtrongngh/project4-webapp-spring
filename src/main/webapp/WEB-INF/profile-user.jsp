@@ -410,8 +410,8 @@
                     </div>
                 </div>
                 <div class="col-md-2 profile-container-buttons">
-                    <button class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Theo dõi</button>
-                    <button class="btn btn-success form-control"><i class="fas fa-user-plus"></i>Kết bạn</button>
+                    <button id="btn-follow" class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Theo dõi</button>
+                    <button id="btn-friends" class="btn btn-success form-control"><i class="fas fa-user-plus"></i>Kết bạn</button>
                     <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">

@@ -45,7 +45,7 @@
 
                             <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
 
-                                <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;">+</span>
+                                <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
                             </div>
                         </a>
                         <div class="desc ">Chọn ảnh đại diện <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
@@ -84,7 +84,7 @@
                     <div class="form-control col-md-7 " style="width: 60%" >
                         <a id="chossefile-giayphep">
                             <div class="image-frame-upload d-flex justify-content-center align-items-md-center" style="border: 1px solid blue; background-size: cover;width: 100%;height: 300px;">
-                                <span style=";margin-top: -4px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: 15px;">+</span>
+                                <span style=";margin-top: -4px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: 15px;cursor: pointer">+</span>
                             </div>
                         </a>
 
