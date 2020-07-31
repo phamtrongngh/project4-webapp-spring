@@ -293,9 +293,9 @@
                 <hr/>
                 <div class="row h-100">
                     <div class="col-md-6">
-                        <div class="fix-store">   
+                        <div class="gallery fix-store">   
                             <div class="form-group form-control text-center" style="width: 50% !important; margin-left: 190px">
-                                <a id="chossefile">
+                                <a id="chossefile" class="choosefile">
 
                                     <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
 
@@ -349,7 +349,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="add-paper">   
+                        <div class="gallery add-paper">   
                             <div class="form-group form-control text-center" style="width: 50% !important;margin-left: 178px">
                                 <a id="chossefile">
 

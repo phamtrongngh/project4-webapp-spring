@@ -661,7 +661,12 @@ $(document).ready(function() {
 
     $("#chossefile").click(function(e) {
         e.preventDefault();
-        $(".img-store-register").trigger('click');
+        $(this).closest(".gallery").find(".img-store-register").trigger('click');
+
+    });
+    $(".choosefile").click(function(e) {
+        e.preventDefault();
+        $(this).closest(".gallery").find(".img-store-register").trigger('click');
 
     });
     $("#chossefile-giayphep").click(function(e) {
