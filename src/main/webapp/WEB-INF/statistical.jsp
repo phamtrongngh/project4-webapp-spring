@@ -16,14 +16,14 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="post-store rounded">
-                            <div class="col-md-12 post-content">
-                                <h4>Nhập nội dung</h4>
-                                <input type="text" name="restaurant" value="${restaurant._id}" hidden />
-                                <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
-                                <div class="d-flex" style="width: 100%">
-                                    <image class="rounded" src ="http://localhost:9032/public/image/" width="100%" height="100%" />
-                                </div>
+                        <div class="col-md-12 post-content">
+                            <h4>Nhập nội dung</h4>
+                            <input type="text" name="restaurant" value="${restaurant._id}" hidden />
+                            <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                            <div class="d-flex" style="width: 100%">
+                                <image class="rounded" src ="http://localhost:9032/public/image/" width="100%" height="100%" />
                             </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Modal footer -->

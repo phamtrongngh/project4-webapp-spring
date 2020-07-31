@@ -709,6 +709,7 @@
                                                                     </form>
                                                                 </div>
                                                                 <c:forEach var="item" items="${user.newfeeds}">
+                                                                    
                                                                     <div class="rounded status">
                                                                         <div class="alignment">
                                                                             <div class="media">
