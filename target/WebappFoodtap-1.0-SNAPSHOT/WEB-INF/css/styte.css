@@ -2211,7 +2211,7 @@ input[type="radio"]:checked {
     opacity: 0.8;
 }
 
-.store .voucher{
+.voucher{
     width: 100%;
     margin-top: 10px;
 }
@@ -2228,7 +2228,7 @@ input[type="radio"]:checked {
     position: absolute;
     background: none;
 }
-.store .header-voucher{
+.header-voucher{
     background-color: white;
     padding: 0px 5px;
     border-radius: 0.2rem;
@@ -2814,4 +2814,11 @@ explorestore .profile-menu-hot .col-md-4 {
     position: absolute;
     top: 10px;
     text-decoration: none
+}
+.checked-rating{
+      color: orange;
+}
+.rating-right{
+    padding: 7px;
+    background-color: white;
 }

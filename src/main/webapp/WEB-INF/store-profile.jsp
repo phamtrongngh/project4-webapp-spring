@@ -304,7 +304,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-10" >
+                <div class="col-md-7" >
                     <div class="post-store rounded">
                         <form class="row" action="/newfeed/postUserNewfeed" method="POST" enctype="multipart/form-data">
                             <input type="text" name="place"  value="" hidden />
@@ -704,6 +704,52 @@
                         </c:choose>
 
                     </c:forEach>
+                </div>
+                <div class="col-md-3" style="    position: relative;right: 20px;">
+                    <div class="rounded voucher">
+                        <div class="header-voucher"><h4><i class="fas fa-star"></i> Đánh giá</h4></div>
+                    </div>
+                    <div class="rounded rating-right">
+                        <div>
+                            <div style="display: flex;">
+                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
+                                <div>
+                                    <strong>Truong</strong> 
+                                    <div style="font-weight: 100;">1 giờ</div>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="fa fa-star checked-rating"></span>
+                                <span class="fa fa-star checked-rating"></span>
+                                <span class="fa fa-star checked-rating"></span>
+                                <span class="fa fa-star checked-rating"></span>
+                                <span class="fa fa-star checked-rating"></span>
+                            </div>
+                            <span style="font-style: italic;">San pham rat tuyet</span>
+                        </div>
+                        <hr/>
+                        <div>
+                            <div style="display: flex;">
+                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
+                                <div>
+                                    <strong>Truong</strong> 
+                                    <div style="font-weight: 100;">1 giờ</div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <span class="fa fa-star checked-rating"></span>
+                                <span class="fa fa-star checked-rating"></span>
+                                <span class="fa fa-star checked-rating"></span>
+                                <span class="fa fa-star checked-rating"></span>
+                                
+                            </div>
+                            <span style="font-style: italic;">San pham rat tuyet</span>
+                        </div>
+                        <hr/>
+                        <a href="#"><div style="text-align: end;">Xem tất cả</div></a>
+                    </div>
+
                 </div>
             </div>
         </div>
