@@ -65,9 +65,12 @@ function formatpricecart() {
         var price = parseFloat(priceElement.innerText.replace('VNĐ', ''));
         price = format2(price, "").replace(".000", "");
         document.getElementsByClassName('cart-page-price')[i].innerText = price + "VNĐ";
-
+        
 
     }
+}
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
 function addItemToCart(title, price, imageSrc) {

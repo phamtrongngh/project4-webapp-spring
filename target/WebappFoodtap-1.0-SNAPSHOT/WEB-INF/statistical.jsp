@@ -2,6 +2,167 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal -->
+<div class="modal fade" id="mapModel">
+    <div class="modal-dialog" style="width: 450px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bản đồ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div id="map"></div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger submit" >Chấp nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal detail order-->
+<c:forEach var="item" items="${restaurant.orders}">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="detailorder${item._id}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header" style="color: white; background-color: #da484a">
+                    <h5 class="modal-title">Chi tiết đơn hàng: ${item._id}</h5>
+                    <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-12 info-product">
+
+                            <div class="container">
+                                <div class="card shopping-cart">
+                                    <div class="card-header text-light" style="background-color: #fc7a7b;">
+                                        <i class="fas fa-file-alt"></i> Giỏ hàng
+
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <!-- PRODUCT -->
+                                        <section class="container content-section">
+                                            <div class="cart-row">
+                                                <span class="cart-item cart-header cart-column">Món</span>
+                                                <span class="cart-price cart-header cart-column">Giá</span>
+                                                <span class="cart-quantity cart-header cart-column">Số lượng</span>
+                                            </div>
+                                            <div class="cart-items">
+                                                <c:forEach var="c" items="${item.products}">
+                                                    <div class="cart-row">
+                                                        <div class="cart-item cart-column">
+                                                            <span class="cart-item-title cart-item-title ">${c.product.name}</span>
+                                                        </div>
+                                                        <span class="cart-price cart-column cart-price-detail">${c.product.price} </span>
+
+                                                        <div class="cart-quantity cart-column">
+                                                            <input class="cart-quantity-input" disabled type="number" value="${c.quantity}" max="100">
+
+                                                        </div>
+                                                    </div>
+
+                                                </c:forEach>
+                                            </div>
+                                            <div class="cart-total row" style="font-weight: 100;">
+                                                <div class="">Tạm tính:</div>
+
+                                                <div class="col"><span class="cart-total-price">${item.amount}</span>VNĐ</div>
+                                                <input type="text" class="cart-total-price-data" style="display: none;"/>
+                                            </div>
+                                            <div class="cart-total row" style="font-weight: 100;">
+                                                <div class="">Phí vận chuyển: <span class="price-ship"></span>km</div>
+
+                                                <div class="col"><span class="cart-ship-price">0</span>VNĐ</div>
+
+                                            </div>
+
+                                            <div class="cart-total row" style="color: #ff0000;">
+                                                <div class="">Phiếu giảm giá:</div>
+
+                                                <div class="col">-<span class="cart-discount">0</span>VNĐ</div>
+
+                                            </div>
+                                            <div class="cart-total row" style="font-size: 20px;font-weight: 600;">
+                                                <div class="">Tổng:</div>
+
+                                                <div class="col"><span class="cart-total-all">0</span>VNĐ</div>
+
+                                            </div>
+
+                                        </section>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-5 info-user" style="height: 100%;background-color: antiquewhite;border-radius: 16px; padding-top: 10px;margin-top: 22px;max-width: 38%;">
+
+                            <div>
+
+                                <div class=" info-more-modal row">
+                                    <label class="col">Tên khách hàng </label>
+                                    <span class="col"> <a href="/user-profile/${item.user._id}">${item.user.fullname}</a></span>
+                                </div>
+                                <div class=" info-more-modal row">
+                                    <label class="col">Tên người giao </label>
+                                    <span class="col"> </span>
+                                </div>
+                                <div class=" info-more-modal row">
+                                    <label class="col">SĐT người giao </label>
+                                    <span class="col"> </span>
+
+                                </div>
+
+                                <div class=" info-more-modal row">
+                                    <label class="col">Địa chỉ giao hàng:</label>
+                                    <span class="col">${item.address}</span>
+                                </div>
+                                <div class="info-more-modal row">
+                                    <label class="col">Thời gian hoàn thành:</label><br/>
+                                    <span class="col"> </span>
+                                </div>
+                                <div class="info-more-modal row">
+                                    <label class="col">Tình trạng:</label><br/>
+                                    <span class="col"> <c:choose>
+                                            <c:when test="${item.status=='completed'}">
+                                                Đã hoàn thành
+                                            </c:when>
+                                            <c:when test="${item.status=='failed'}">
+                                                Đã bị hủy
+                                            </c:when>
+                                            <c:otherwise>
+                                                Đang tiến hành
+                                            </c:otherwise>
+                                        </c:choose></span>
+                                </div>
+                                <!--                    <div class="info-more row">
+                                                        <label class="col">Thanh Toán:</label><br/>
+                                                        <span class="col">Tieenf mat </span>
+                                                    </div>-->
+                                <div class="info-more-modal row">
+                                    <label class="col">Ghi chú</label><br/>
+                                    <span class="col" style="word-break: break-all;">${order.note}</span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</c:forEach>
 
 <!--modal post food-->
 <div class="modal" id="postModal-food">
@@ -215,7 +376,7 @@
                                         <tbody>
                                             <c:forEach var="item" items="${restaurant.orders}">
                                                 <tr role="row" class="odd">
-                                                    <td class="sorting_1">${item._id}</td>
+                                                    <td class="sorting_1"><a href="" data-toggle="modal" data-target="#detailorder${item._id}">${item._id}</a></td>
                                                     <td><a href="/user-profile/${item.user._id}">${item.user.fullname}</a></td>
                                                     <td>${item.createdAt}</td>
                                                     <td>${item.amount} VNĐ</td>
@@ -374,8 +535,8 @@
                                 <div class="form-group row">
                                     <label class="col-md-3">Địa chỉ</label>
                                     <div class="col-md-9 input-group-prepend">
-                                        <input name="address" type="text" value="${restaurant.address}" class="form-control" >
-                                        <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModeluserupdate" ><i class="fas fa-map-marker-alt"></i></button>
+                                        <input name="address" type="text" value="${restaurant.address}" class="form-control input-address" >
+                                        <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -552,6 +713,164 @@
         },
     });
 </script>
+<script async defered>
+    goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
+    var map = new goongjs.Map({
+        container: 'map', // container id
+        style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
+        center: [105, 21], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+
+    var geocoder = new GoongGeocoder({
+        accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
+        goongjs: goongjs
+    })
+
+    var geolocateControl = new goongjs.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    })
+
+    map.addControl(new goongjs.FullscreenControl());
+
+    map.on('load', function() {
+        map.addSource('single-point', {
+            type: 'geojson',
+            data: {
+                type: 'FeatureCollection',
+                features: []
+            }
+        });
+        map.addControl(
+                geocoder
+                )
+        map.addControl(
+                geolocateControl
+                );
+        map.addLayer({
+            id: 'point',
+            source: 'single-point',
+            type: 'circle',
+            paint: {
+                'circle-radius': 10,
+                'circle-color': '#448ee4'
+            }
+        });
+    });
+
+    var marker = new goongjs.Marker({
+        draggable: true
+    })
+            .setLngLat([105, 21])
+            .addTo(map);
+
+    marker.on('dragend', function() {
+        var lngLat = marker.getLngLat();
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    $(".input-address").val(data.results[0].formatted_address);
+                    getLocation($(".input-address").val(), "user");
+                });
+    });
+    geolocateControl.on("geolocate", function(e) {
+        var lng = e.coords.longitude;
+        var lat = e.coords.latitude;
+        marker._lngLat = {lat: lat, lng: lng}
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    $(".input-address").val(data.results[0].formatted_address);
+                    getLocation($(".input-address").val(), "user");
+                });
+    })
+    geocoder.on("result", function(e) {
+        geocoder.mapMarker.remove();
+        marker._lngLat = geocoder.mapMarker._lngLat;
+        $(".input-address").val(e.result.description);
+        getLocation($(".input-address").val(), "user");
+    })
+
+    $("#mapModel .modal-footer button").click(function() {
+        $("#mapModel").modal("hide");
+    })
+    $(".close").click(function() {
+        $(".input-address").val("");
+        $("#mapModel").modal("hide");
+    })
+    //Fee distance functions
+    var userLocation;
+    var restaurantLocation;
+    var distance;
+    function getLocation(address, target) {
+        var placeId;
+
+        fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    placeId = data.predictions[0].place_id;
+                    fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U")
+                            .then(function(response) {
+                                return response.json()
+                            })
+                            .then(function(data) {
+
+                                if (target == "user") {
+                                    userLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
+                                }
+                                else {
+                                    restaurantLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
+                                }
+
+                                if (userLocation && restaurantLocation) {
+                                    getDistance(userLocation, restaurantLocation).then(function(data) {
+                                        distance = data.routes[0].legs[0].distance.text;
+                                        $(".cart-total-title span").html(distance.split(" ")[0]);
+                                        if (distance.split(" ")[0] <= 3)
+                                        {
+                                            $(".cart-ship-price").html("15,000");
+                                        }
+                                        else if (distance.split(" ")[0] <= 5) {
+                                            $(".cart-ship-price").html("20,000");
+                                        }
+                                        else {
+                                            var x = distance.split(" ")[0];
+                                            var priceship = 20000 + 5000 * (x - 5);
+                                            priceship = format2(priceship, "").replace(".000", "");
+                                            $(".cart-ship-price").html(priceship);
+                                        }
+                                        updateCartTotal();
+                                    });
+                                }
+                            })
+                });
+
+    }
+    function getDistance(origin, dest) {
+        return new Promise(function(resolve, reject) {
+            fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&alternatives=true&vehicle=bike')
+                    .then(function(response) {
+                        return response.json()
+                    })
+                    .then(function(data) {
+                        resolve(data);
+                    });
+        })
+    }
+    getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
+    getLocation('${user.address}', "user");
+
+</script>
 </body>
 
 </html>
+
