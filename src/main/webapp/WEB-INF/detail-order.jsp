@@ -71,7 +71,6 @@
                     <div class=" info-more row">
                         <label class="col">SĐT người giao </label>
                         <span class="col"> ${order.shipper.phone}</span>
-                       
                     </div>
                     
                     <div class=" info-more row">

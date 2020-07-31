@@ -160,7 +160,6 @@ public class RestaurantController implements IController<Restaurant> {
         String path = "./";
         FileDataBodyPart filePart;
         FileDataBodyPart filePart2;
-
         Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
         FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
         String fileName = multipartFile[0].getOriginalFilename();

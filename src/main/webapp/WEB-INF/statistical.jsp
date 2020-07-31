@@ -561,22 +561,43 @@
                                 </div>
                             </div>
                         </div>
-                        <c:if test="${restaurant.licenseImage==null}">
-                            <div class="col-md-6">
-                                <div class="gallery add-paper">   
-                                    <div class="form-group form-control text-center" style="width: 50% !important;margin-left: 178px">
-                                        <a id="chossefile" class="choosefile">
-                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
-                                                <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
-                                            </div>
-                                        </a>
-                                        <div class="desc ">Thêm giấy phép bán hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                        <c:choose>
+                            <c:when test="${restaurant.licenseImage==null}">
+                                <div class="col-md-6">
+                                    <div class="gallery add-paper">   
+                                        <div class="form-group form-control text-center" style="width: 50% !important;margin-left: 178px">
+                                            <a id="chossefile" class="choosefile">
+                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
+                                                    <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
+                                                </div>
+                                            </a>
+                                            <div class="desc ">Thêm giấy phép bán hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                                        </div>
+                                        <h2>Chú ý:</h2>   
+                                        <p>- Bạn chưa có giấy phép kinh doanh<br/>- Nếu chưa có giấy phép bạn có thể hoàn tất đăng ký nhưng sẽ ít khách hàng tin tưởng hơn. Chúng tôi khuyên bạn nên đăng ký giấy phép kinh doanh</p>
                                     </div>
-                                    <h2>Chú ý:</h2>   
-                                    <p>- Bạn chưa có giấy phép kinh doanh<br/>- Nếu chưa có giấy phép bạn có thể hoàn tất đăng ký nhưng sẽ ít khách hàng tin tưởng hơn. Chúng tôi khuyên bạn nên đăng ký giấy phép kinh doanh</p>
                                 </div>
-                            </div>
-                        </c:if>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="col-md-6" style="display:none">
+                                    <div class="gallery add-paper">   
+                                        <div class="form-group form-control text-center" style="width: 50% !important;margin-left: 178px">
+                                            <a id="chossefile" class="choosefile">
+                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
+                                                    <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
+                                                </div>
+                                            </a>
+                                            <div class="desc ">Thêm giấy phép bán hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                                        </div>
+                                        <h2>Chú ý:</h2>   
+                                        <p>- Bạn chưa có giấy phép kinh doanh<br/>- Nếu chưa có giấy phép bạn có thể hoàn tất đăng ký nhưng sẽ ít khách hàng tin tưởng hơn. Chúng tôi khuyên bạn nên đăng ký giấy phép kinh doanh</p>
+                                    </div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+
+
+
 
                     </div>
                     <div style="width: 100%;padding-left: 50%">
