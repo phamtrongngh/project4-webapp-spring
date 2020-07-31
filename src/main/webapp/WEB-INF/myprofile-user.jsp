@@ -538,8 +538,8 @@
                                                         </c:choose>
                                                     </span>
                                                     <div style="float: right;">
-                                                        <button class="btn btn-history">Chi tiết</button>
-                                                        <button class="btn btn-history">Đặt lại</button>
+                                                        <a href="/detail-order/${item._id}" class="btn btn-history">Chi tiết</a>
+                                                        <a href="" class="btn btn-history">Đặt lại</a>
                                                     </div>
                                                 </div>
                                                 </div>
