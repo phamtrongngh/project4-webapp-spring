@@ -432,8 +432,8 @@
                     </div>
                 </div>
                 <div class="col-md-2 profile-container-buttons">
-                    <button class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Theo dõi</button>
-                    <button class="btn btn-success form-control"><i class="fas fa-user-plus"></i>Kết bạn</button>
+                    <button id="btn-follow" class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Theo dõi</button>
+                    <button id="btn-friends" class="btn btn-success form-control" ><i class="fas fa-user-plus"></i>Kết bạn</button>
                     <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
@@ -511,6 +511,21 @@
                         <form class="row" action="/newfeed/postNewfeed" method="POST">
                             <div class="col-md-8 post-content">
                                 <textarea class="rounded" name="content" id="" cols="30" rows="5" placeholder="Viết gì đó cho ..."></textarea>
+                                <div class="d-flex" style="width: 30%">
+                                    <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
+                                    <div class="upload-img-status" >
+                                        <div class="gallery text-center">
+                                            <a id="chossefile">
+                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute;background-size: 100% 100%;
+                                                     background-position: center;background-repeat: no-repeat">
+                                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;cursor: pointer;">+</span>
+                                                </div>
+                                            </a>
+                                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-md-4">
                                 <div class="row">
@@ -549,7 +564,6 @@
                                     <div class="dropdown-menu" >
                                         <a class="dropdown-item" href="#">Ẩn</a>
                                         <a class="dropdown-item" href="#">Sửa</a>
-                                        <a class="dropdown-item" href="#">Xóa</a>
                                     </div>
                                 </div>
                             </div>

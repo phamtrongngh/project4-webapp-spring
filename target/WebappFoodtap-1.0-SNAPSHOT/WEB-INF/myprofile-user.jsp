@@ -14,10 +14,10 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <div class="d-flex align-items-md-center justify-content-between">
-                    <div class="coupon-container d-flex">
-                         <img src="/public/image/avatar/momo.png" class="img-coupon" />
-                         <p><span id="coupon">FREESHIP</span><br/>Miễn phí vận chuyển</p>
+                <div class="d-flex align-items-md-center justify-content-between coupon-container" >
+                    <div class="coupon-containers d-flex">
+                        <img src="/public/image/avatar/momo.png" class="img-coupon" />
+                        <p><span id="coupon">FREESHIP</span><br/>Miễn phí vận chuyển</p>
                     </div>
                     <button id="btn_copy" class="btn btn-danger float-right ">Copy</button>
                 </div>
@@ -675,8 +675,9 @@
                                                                                 <div class="upload-img-status" >
                                                                                     <div class="gallery text-center">
                                                                                         <a id="chossefile">
-                                                                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
-                                                                                                <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
+                                                                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute;background-size: 100% 100%;
+                                                                                                 background-position: center;background-repeat: no-repeat">
+                                                                                                <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;cursor: pointer">+</span>
                                                                                             </div>
                                                                                         </a>
                                                                                         <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>

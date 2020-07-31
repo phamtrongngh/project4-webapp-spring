@@ -549,8 +549,6 @@ $(document).ready(function() {
 //load post
 
 $(window).scroll(function() {
-
-
     if ($(this).scrollTop() + $(this).height() - 110 > $(".scrollpost").height()) {
         $(window).stop();
         $("#loading").css("display", "block");
@@ -620,8 +618,8 @@ $(document).ready(function() {
     });
 
     function displayChatBox() {
-        i = 270; // start position
-        j = 350; //next position
+        i = 290; // start position
+        j = 320; //next position
 
         $.each(arr, function(index, value) {
             if (index < 3) {
@@ -817,15 +815,15 @@ $(document).ready(function() {
 $(document).ready(function() {
     //display like
     $(".like-newpost").on("click", function() {
-        if ($(this).hasClass("fa-heart")) 
+        if ($(this).hasClass("fa-heart"))
         {
             $(this).removeClass("fa-heart");
             $(this).removeClass("fa");
             $(this).addClass("fab");
             $(this).addClass("fa-gratipay");
         }
-        else{
-           
+        else {
+
             $(this).removeClass("fa-gratipay");
             $(this).removeClass("fab");
             $(this).addClass("fa");
@@ -850,10 +848,11 @@ $(document).ready(function() {
             document.getElementById("send_btn").click();
         }
     });
- 
+
 });
-$(document).ready(function(){
+$(document).ready(function() {
     document.getElementById("btn_copy").addEventListener("click", copy_password);
+    document.getElementById("btn-follow").addEventListener("click", ChangButtonFollow);
 });
 function copy_password() {
     var copyText = document.getElementById("coupon");
@@ -863,4 +862,37 @@ function copy_password() {
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
+}
+$(document).ready(function() {
+    document.getElementById("btn-follow").addEventListener("click", ChangButtonFollow);
+});
+function ChangButtonFollow() {
+    var x = document.getElementById("btn-follow");
+    if (x.innerHTML === '<i class="fas fa-user-circle"></i>Theo dõi') {
+        x.innerHTML = "Đang theo dõi";
+    } else {
+        x.innerHTML = '<i class="fas fa-user-circle"></i>Theo dõi';
+    }
+}
+$(document).ready(function() {
+    document.getElementById("btn-friends").addEventListener("click", ChangButtonFriends);
+});
+function ChangButtonFriends() {
+    var x = document.getElementById("btn-friends");
+    if (x.innerHTML === '<i class="fas fa-user-plus"></i>Kết bạn') {
+        x.innerHTML = '<i class="fas fa-user-friends"></i>Bạn bè';
+    } else {
+        x.innerHTML = '<i class="fas fa-user-plus"></i>Kết bạn';
+    }
+}
+$(document).ready(function() {
+    document.getElementById("btn-like").addEventListener("click", ChangButtonLike);
+});
+function ChangButtonLike() {
+    var x = document.getElementById("btn-like");
+    if (x.innerHTML === '<i class="far fa-thumbs-up"></i>Thích') {
+        x.innerHTML = '<i class="far fa-thumbs-up"></i>Đã thích';
+    } else {
+        x.innerHTML = '<i class="far fa-thumbs-up"></i>Thích';
+    }
 }

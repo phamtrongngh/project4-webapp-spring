@@ -477,7 +477,6 @@
                                         <div class="dropdown-menu" >
                                             <a class="dropdown-item" href="#">Ẩn</a>
                                             <a class="dropdown-item" href="#">Sửa</a>
-                                            <a class="dropdown-item" href="#">Xóa</a>
                                         </div>
                                     </div>
                                 </div>
