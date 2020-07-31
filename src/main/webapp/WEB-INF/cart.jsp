@@ -246,9 +246,7 @@
         $(".input-address").val(e.result.description);
         getLocation($(".input-address").val(), "user");
     })
-    $(".btn-location").click(function() {
-        $(".goongjs-ctrl-fullscreen").trigger("click");
-    })
+    
     $("#mapModel .modal-footer button").click(function() {
         $("#mapModel").modal("hide");
     })
@@ -291,9 +289,6 @@
                                     getDistance(userLocation, restaurantLocation).then(function(data) {
                                         distance = data.routes[0].legs[0].distance.text;
                                         $(".cart-total-title span").html(distance.split(" ")[0]);
-<<<<<<< HEAD
-
-=======
                                         if (distance.split(" ")[0]<=3) 
                                         {
                                             $(".cart-ship-price").html("15,000");
@@ -308,7 +303,6 @@
                                             $(".cart-ship-price").html(priceship);
                                         }
                                         updateCartTotal();
->>>>>>> master
                                     });
                                 }
                             })
