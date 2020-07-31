@@ -41,7 +41,7 @@
                             <div class="cart-total">
                                 <strong class="cart-total-title">Tổng:</strong>
 
-                                <span class="cart-total-price">0</span>VNĐ
+                                <span class="cart-total-price">${order.amount}</span>VNĐ
                                 <input type="text" class="cart-total-price-data" style="display: none;"/>
                             </div>
 
@@ -57,8 +57,7 @@
                 <form class="form-group form-order" action="/order/" method="POST">
                     <div class=" info-more row">
                         <label class="col">Tên cửa hàng </label>
-                        <span class="col">${order.products[0].product.restaurant.name}</span>
-                       
+                        <span class="col">${order.restaurant.name}</span>                       
                     </div>
                     <div class=" info-more row">
                         <label class="col">SĐT cửa hàng </label>
