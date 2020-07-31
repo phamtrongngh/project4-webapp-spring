@@ -266,7 +266,6 @@
             <canvas id="myChart">
             </canvas>
             <div class="row">
-
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
@@ -347,91 +346,84 @@
         </div>
         <div class="tab-pane  container" id="store-info" style="max-width: 100% !important;">
             <!--Content-->
-            <div class="container store-info" style="margin-top: 20px;">
-                <div class="text-center ">
-                    <h1>Thông tin cửa hàng</h1>    
-                </div>
-                <hr/>
-                <div class="row h-100">
-                    <div class="col-md-6">
-                        <div class="gallery fix-store">   
-                            <div class="form-group form-control text-center" style="width: 50% !important; margin-left: 190px">
-                                <a id="chossefile" class="choosefile">
+            <form action="/restaurant/update" method="POST" enctype="multipart/form-data">
+                <div class="container store-info" style="margin-top: 20px;">
+                    <div class="text-center ">
+                        <h1>Thông tin cửa hàng</h1>    
+                    </div>
+                    <hr/>
+                    <div class="row h-100">
+                        <div class="col-md-6">
+                            <div class="gallery fix-store">   
+                                <div class="form-group form-control text-center" style="width: 50% !important; margin-left: 190px">
+                                    <a id="chossefile" class="choosefile">
+                                        <div class="image-frame-upload" style="background:url('http://localhost:9032/public/image/${restaurant.avatar}');border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
+                                            <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
+                                        </div>
+                                    </a>
+                                    <div class="desc ">Chọn đại diện cửa hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                                </div>
+                                <input name="id" value="${restaurant._id}" hidden />
+                                <div class="form-group row">
+                                    <label class="col-md-3">Tên cửa hàng</label>
 
-                                    <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
-
-                                        <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
+                                    <div class="col-md-9 input-group-prepend">
+                                        <input name="name" type="text" value="${restaurant.name}" class="form-control"  >
                                     </div>
-                                </a>
-                                <div class="desc ">Chọn ảnh cửa hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3">Tên cửa hàng</label>
-
-                                <div class="col-md-9 input-group-prepend">
-                                    <input  type="text" class="form-control "  >
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3">SĐT</label>
-                                <div class="col-md-9 input-group-prepend">
-                                    <input  type="text" class="form-control " readonly="true" >
+                                <div class="form-group row">
+                                    <label class="col-md-3">Địa chỉ</label>
+                                    <div class="col-md-9 input-group-prepend">
+                                        <input name="address" type="text" value="${restaurant.address}" class="form-control" >
+                                        <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModeluserupdate" ><i class="fas fa-map-marker-alt"></i></button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3">Địa chỉ</label>
+                                <div class="form-group row">
+                                    <label class="col-md-3">Thông tin mô tả</label>
 
-                                <div class="col-md-9 input-group-prepend">
-                                    <input  type="text" class="form-control " readonly="true" >
-                                    <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModeluserupdate" ><i class="fas fa-map-marker-alt"></i></button>
+                                    <div class="col-md-9 input-group-prepend">
+                                        <textarea  type="text" name="description" class="form-control">${restaurant.description}</textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3">Thông tin mô tả</label>
-
-                                <div class="col-md-9 input-group-prepend">
-                                    <input  type="text" class="form-control"  >
+                                <div class="form-group row">
+                                    <label class="col-md-3"> Mở cửa</label>
+                                    <div class="col-md-9 input-group-prepend">
+                                        <input  type="text" name="openAt" class="form-control"  >
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3"> Mở cửa</label>
+                                <div class="form-group row">
+                                    <label class="col-md-3"> Đóng cửa</label>
 
-                                <div class="col-md-9 input-group-prepend">
-                                    <input  type="text" class="form-control"  >
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3"> Đóng cửa</label>
-
-                                <div class="col-md-9 input-group-prepend">
-                                    <input  type="text" class="form-control"  >
+                                    <div class="col-md-9 input-group-prepend">
+                                        <input  type="text" name="closeAt" class="form-control"  >
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="gallery add-paper">   
-                            <div class="form-group form-control text-center" style="width: 50% !important;margin-left: 178px">
-                                <a id="chossefile" class="choosefile">
-
-                                    <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
-
-                                        <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
+                        <c:if test="${restaurant.licenseImage==null}">
+                            <div class="col-md-6">
+                                <div class="gallery add-paper">   
+                                    <div class="form-group form-control text-center" style="width: 50% !important;margin-left: 178px">
+                                        <a id="chossefile" class="choosefile">
+                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
+                                                <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
+                                            </div>
+                                        </a>
+                                        <div class="desc ">Thêm giấy phép bán hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                                     </div>
-                                </a>
-                                <div class="desc ">Thêm giấy phép bán hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                                    <h2>Chú ý:</h2>   
+                                    <p>- Bạn chưa có giấy phép kinh doanh<br/>- Nếu chưa có giấy phép bạn có thể hoàn tất đăng ký nhưng sẽ ít khách hàng tin tưởng hơn. Chúng tôi khuyên bạn nên đăng ký giấy phép kinh doanh</p>
+                                </div>
                             </div>
-                            <h2>Chú ý:</h2>   
-                            <p>- Bạn chưa có giấy phép kinh doanh<br/>- Nếu chưa có giấy phép bạn có thể hoàn tất đăng ký nhưng sẽ ít khách hàng tin tưởng hơn. Chúng tôi khuyên bạn nên đăng ký giấy phép kinh doanh</p>
-                        </div>
+                        </c:if>
+
+                    </div>
+                    <div style="width: 100%;padding-left: 50%">
+                        <button class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button>
                     </div>
 
                 </div>
-                <div style="width: 100%;padding-left: 50%">
-                    <button class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button>
-                </div>
-
-            </div>
+            </form>
         </div>
         <div class="tab-pane container" id="menu" style="max-width: 100% !important;">
             <div class="mb-4 form-inline" style="margin-top: 10px;text-align: start;">

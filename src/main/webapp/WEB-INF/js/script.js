@@ -133,18 +133,18 @@ function quantityChanged1(event) {
 $(document).ready(function() {
     /*display time*/
     $('input[name=time]').on('change', function(e) {
-       
+
         if ($('input[name=time]:checked').val() == 2) {
             $(".date-cart").css("display", "block");
 
         } else {
             $(".date-cart").css("display", "none");
         }
-    });    
+    });
     /*display time*/
     /*display momo*/
     $('input[name=payment]').on('change', function(e) {
-       
+
         if ($('input[name=payment]:checked').val() == 2) {
             $(".info-pay").css("display", "block");
 
@@ -796,7 +796,6 @@ $(document).ready(function() {
     })
     //call ajax upload image
     $("input[type=file]").change(function() {
-
         var imageFrame = $(this).parent().siblings(0).children(0);
         if (this.files && this.files[0]) {
             var reader = new FileReader();
@@ -833,15 +832,15 @@ $(document).ready(function() {
 $(document).ready(function() {
     //display like
     $(".like-newpost").on("click", function() {
-        if ($(this).hasClass("fa-heart")) 
+        if ($(this).hasClass("fa-heart"))
         {
             $(this).removeClass("fa-heart");
             $(this).removeClass("fa");
             $(this).addClass("fab");
             $(this).addClass("fa-gratipay");
         }
-        else{
-           
+        else {
+
             $(this).removeClass("fa-gratipay");
             $(this).removeClass("fab");
             $(this).addClass("fa");
@@ -866,9 +865,9 @@ $(document).ready(function() {
             document.getElementById("send_btn").click();
         }
     });
- 
+
 });
-$(document).ready(function(){
+$(document).ready(function() {
     document.getElementById("btn_copy").addEventListener("click", copy_coupon);
 });
 function copy_coupon() {

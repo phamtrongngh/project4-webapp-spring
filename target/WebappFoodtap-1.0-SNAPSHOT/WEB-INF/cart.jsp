@@ -241,7 +241,7 @@
         geocoder.mapMarker.remove();
         marker._lngLat = geocoder.mapMarker._lngLat;
         $(".input-address").val(e.result.description);
-        getLocation($(".input-address").val(),"user");
+        getLocation($(".input-address").val(), "user");
     })
     $(".btn-location").click(function() {
         $(".goongjs-ctrl-fullscreen").trigger("click");
@@ -281,7 +281,7 @@
                                     getDistance(userLocation, restaurantLocation).then(function(data) {
                                         distance = data.routes[0].legs[0].distance.text;
                                         $(".cart-total-title span").html(distance.split(" ")[0]);
-                                        
+
                                     });
                                 }
                             })
@@ -301,7 +301,6 @@
     }
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
-
 </script>
 </body>
 

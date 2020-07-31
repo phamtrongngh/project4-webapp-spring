@@ -20,7 +20,6 @@ import javax.ws.rs.core.Response;
 import Nghia.Util.MultipartContainer;
 import Nghia.Util.RESTRestaurantHelper;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import models.Restaurant;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
@@ -155,6 +154,46 @@ public class RestaurantController implements IController<Restaurant> {
         return getAll();
     }
 
+    @RequestMapping(value = "/restaurant/update", method = RequestMethod.POST)
+    public ModelAndView updateRestaurant(MultipartContainer multipartContainer,HttpServletRequest request, Restaurant restaurant) throws IOException {
+        MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
+        String path = "./";
+        FileDataBodyPart filePart;
+        FileDataBodyPart filePart2;
+
+        Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
+        FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
+        String fileName = multipartFile[0].getOriginalFilename();
+        File file = new File(path, fileName);
+        if (fileName != "") {
+            multipartFile[0].transferTo(file);
+            filePart = new FileDataBodyPart("avatar", file);
+            formDataMultiPart.bodyPart(filePart);
+
+        }
+        String fileName2 = multipartFile[1].getOriginalFilename();
+        File file2 = new File(path, fileName2);
+        if (fileName2 != "") {
+            multipartFile[1].transferTo(file2);
+            filePart2 = new FileDataBodyPart("licenseImage", file2);
+            formDataMultiPart.bodyPart(filePart2);
+        }
+        restaurant.set_id(request.getParameter("id"));
+        final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("restaurant", restaurant, MediaType.APPLICATION_JSON_TYPE);
+        final WebTarget target = client.target("http://localhost:9032/Restaurant/");
+        final Response response = target.request()
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
+        if (fileName != "") {
+            file.delete();
+        }
+        if (fileName2 != "") {
+            file2.delete();
+        }
+        return mystore();
+    }
+    
+    
     @RequestMapping(value = "/createRestaurant", method = RequestMethod.POST)
     public ModelAndView createRestaurant(MultipartContainer multipartContainer, Restaurant restaurant) throws IOException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
@@ -194,3 +233,4 @@ public class RestaurantController implements IController<Restaurant> {
     }
 
 }
+
