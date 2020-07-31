@@ -99,7 +99,7 @@
         <div class="modal-content">
 
             <div class="modal-header" style="color: white; background-color: #da484a">
-                <h5 class="modal-title">Thêm món mới</h5>
+                <h5 class="modal-title">Cập nhật món ăn</h5>
                 <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -142,7 +142,7 @@
                                                             </select>-->
                         <input name="category" placeholder="Chưa có dữ liệu, khoan nhập mục này" type="text" class="form-control" />
                     </div>
-                    <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
+                    <button type="submit" class="btn btn-primary" style="float: right;">Cập nhật</button>
                 </form>
 
             </div>
