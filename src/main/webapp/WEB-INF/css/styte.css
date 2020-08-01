@@ -2843,3 +2843,6 @@ explorestore .profile-menu-hot .col-md-4 {
     top: 0;
     background-color: rgb(0,0,0,0.7)
 }
+.price-foodnumber-through{
+    text-decoration: line-through;
+}

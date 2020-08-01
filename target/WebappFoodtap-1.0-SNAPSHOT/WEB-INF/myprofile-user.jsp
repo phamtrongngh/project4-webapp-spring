@@ -343,8 +343,10 @@
                                     <input aria-label="quantity" class="input-qty" min="1" max="999" name="" type="number" value="1" />
 
                                 </p>
-                                <p class="price-food">Giá : <span class="price-foodnumber">22.000</span></p>
-                                <p class="total-food">Thành tiền : <span class="total-foodnumber">22.000</span></p>
+                                
+                                <p class="price-food">Giá : <span class="price-foodnumber-through"></span> VNĐ</p>
+                                <p class="price-food">Giá khuyến mãi : <span class="price-foodnumber"></span> VNĐ</p>
+                                <p class="total-food">Thành tiền : <span class="total-foodnumber"></span> VNĐ</p>
                             </div>
 
                             <div class="rate-content">
