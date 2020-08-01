@@ -387,6 +387,7 @@
         </div>
         <!-- STATUS -->
         <div class="col-12 col-sm-12 col-md-6 scrollpost" style="background-color: white;">
+<<<<<<< HEAD
             <c:forEach var="item" items="${coupons}">
                 <div class="d-flex bd-highlight mb-3">
                     <div class="p-2 bd-highlight">
@@ -399,6 +400,39 @@
                 </div>
             </c:forEach>
 
+=======
+
+            <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <img src="/public/image/Background/pizza.jpg" width="200px" height="100%"/>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <div><a href="" data-toggle="modal" data-target="#storeModal">HX500</a></div>
+                    <div>Mã ưu đãi giúp bạn được giảm thêm 50%, giảm tối đa 35k, áp dụng cho hóa đơn trên 50k, số lượng sử dụng có giới hạn. Hiệu lực 09/08/2020 </div>
+                </div>
+
+            </div>
+            <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <img src="/public/image/Background/pizza.jpg" width="200px" height="100%"/>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <div><a href="">HX500</a></div>
+                    <div>Mã ưu đãi giúp bạn được giảm thêm 50%, giảm tối đa 35k, áp dụng cho hóa đơn trên 50k, số lượng sử dụng có giới hạn. Hiệu lực 09/08/2020 </div>
+                </div>
+
+            </div>
+            <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <img src="/public/image/Background/pizza.jpg" width="200px" height="100%"/>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <div><a href="">HX500</a></div>
+                    <div>Mã ưu đãi giúp bạn được giảm thêm 50%, giảm tối đa 35k, áp dụng cho hóa đơn trên 50k, số lượng sử dụng có giới hạn. Hiệu lực 09/08/2020 </div>
+                </div>
+
+            </div>
+>>>>>>> master
         </div>
         <!-- Khuyen mai -->
         <div class="col-md-3">
