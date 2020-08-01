@@ -36,6 +36,7 @@ public class UserController {
 
     private final RESTUserHelper restUser;
     private final RESTOrderHelper restOrder;
+
     public UserController() throws InstantiationException, IllegalAccessException {
         restUser = new RESTUserHelper(User.class);
         restOrder = new RESTOrderHelper(Order.class);
@@ -49,11 +50,11 @@ public class UserController {
 
     @RequestMapping(value = "/user-profile/{id}", method = RequestMethod.GET)
     public ModelAndView profile(@PathVariable("id") String id) throws IOException {
-        if (id.equals(CookieHelper.getCookie("_id"))){
+        if (id.equals(CookieHelper.getCookie("_id"))) {
             return myprofileuser();
         }
         Object user = restUser.getOne(id);
-        return new ModelAndView("profile-user").addObject("user",user);
+        return new ModelAndView("profile-user").addObject("user", user);
     }
 
     @RequestMapping(value = "/myprofile-user")
@@ -66,7 +67,7 @@ public class UserController {
     public ModelAndView statistical() {
         return new ModelAndView("statistical");
     }
-    
+
     @RequestMapping(value = "/addToCart", method = RequestMethod.POST)
     @ResponseBody
     public String addToCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
@@ -80,13 +81,30 @@ public class UserController {
             response.addCookie(cookie);
         } else {
             current = restUser.addToCart(cart);
-            Cookie cookie = new Cookie("cart", String.valueOf(current));
-            cookie.setHttpOnly(true);
-            cookie.setMaxAge(9999999);
-            cookie.setPath("/");
-            response.addCookie(cookie);
+            if (Double.parseDouble(current) < 0) {
+                return "-1";
+            } else {
+                Cookie cookie = new Cookie("cart", String.valueOf(current));
+                cookie.setHttpOnly(true);
+                cookie.setMaxAge(9999999);
+                cookie.setPath("/");
+                response.addCookie(cookie);
+            }
+
         }
         return current;
+    }
+
+    @RequestMapping(value = "/switchCart", method = RequestMethod.POST)
+    @ResponseBody
+    public String switchCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
+        restUser.switchCart(cart);
+        Cookie cookie = new Cookie("cart", "1");
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(9999999);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        return null;
     }
 
     @RequestMapping(value = "/removeFromCart/{id}", method = RequestMethod.POST)
@@ -106,25 +124,23 @@ public class UserController {
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
     public ModelAndView cart(HttpServletResponse response) throws IOException {
         Map<String, ?> user = restUser.getCart();
-        if (((List)user.get("cart")).size() == 0){
+        if (((List) user.get("cart")).size() == 0) {
             response.sendRedirect("/");
             return null;
         }
         return new ModelAndView("cart").addObject("user", user);
     }
 
-    
-    
     @RequestMapping(value = "/detail-order/{id}", method = RequestMethod.GET)
     public ModelAndView detailorder(@PathVariable("id") String id) throws IOException {
         Object order = restOrder.getOne(id);
-        return new ModelAndView("detail-order").addObject("order",order);
+        return new ModelAndView("detail-order").addObject("order", order);
     }
-    
+
     @RequestMapping(value = "/status-order/{id}", method = RequestMethod.GET)
     public ModelAndView statusorder(@PathVariable("id") String id) throws IOException {
         Object order = restOrder.getOne(id);
-        return new ModelAndView("status-order").addObject("order",order);
+        return new ModelAndView("status-order").addObject("order", order);
     }
 
     @RequestMapping(value = "/updateUser")

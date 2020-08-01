@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,25 +27,7 @@
     </head>
 
     <body>
-        <!-- Modal error -->
-        <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
-                <div class="modal-content">
-                    <div class="modal-header" style="padding: 0 15px;">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Thông báo</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" style="text-align: center;">
-                        <div>SĐT hoặc mật khẩu không đúng</div>
-                        <div style="margin-top: 25px;">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color: white;background-color: #da484a;">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- The Modal -->
         <div class="modal" id="mapModel">
             <div class="modal-dialog" style="width: 450px;">
@@ -176,7 +157,7 @@
         <script src="/public/js/swiper.min.js "></script>
         <script src="/public/js/script.js "></script>
         <script async defered>
-            goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
+            goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
             var map = new goongjs.Map({
                 container: 'map', // container id
                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -185,7 +166,7 @@
             });
 
             var geocoder = new GoongGeocoder({
-                accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
+                accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
                 goongjs: goongjs
             })
 
@@ -232,7 +213,7 @@
             marker.on('dragend', function() {
 
                 var lngLat = marker.getLngLat();
-                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
                         .then(function(response) {
                             return response.json()
                         })
@@ -244,7 +225,7 @@
                 var lng = e.coords.longitude;
                 var lat = e.coords.latitude;
                 marker._lngLat = {lat: lat, lng: lng}
-                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
+                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
                         .then(function(response) {
                             return response.json()
                         })

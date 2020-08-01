@@ -2675,7 +2675,10 @@ explorestore .profile-menu-hot .col-md-4 {
     background-color: white;
 }
 
-
+.image-frame-upload{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 /*13) STORE-PROFILE*/
 .store-profile .store-menu{
     width: 100%;

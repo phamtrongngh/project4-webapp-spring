@@ -98,6 +98,34 @@ public class ProductController implements IController<Product> {
         return rESTProductHelper.getProduct(id);
     }
     
+    @RequestMapping(value = "/product/update", method = RequestMethod.POST)
+    public void update(MultipartContainer multipartContainer, Product product,HttpServletRequest request, HttpServletResponse responseServlet) throws IOException, ServletException {
+        MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
+        String path = "./";
+        FileDataBodyPart filePart;
+        Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
+        FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
+        String fileName = multipartFile[0].getOriginalFilename();
+        File file = new File(path, fileName);
+        if (fileName != "") {
+            multipartFile[0].transferTo(file);
+            filePart = new FileDataBodyPart("image", file);
+            formDataMultiPart.bodyPart(filePart);
+
+        }
+        product.set_id(request.getParameter("id"));
+        final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("product", product, MediaType.APPLICATION_JSON_TYPE);
+        final WebTarget target = client.target("http://localhost:9032/Product/");
+        String responseJSON = target.request()
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA),String.class);
+        if (fileName != "") {
+            file.delete();
+        }
+        responseServlet.sendRedirect("/manageMyRestaurant/"+product.getRestaurant()+"#menu");
+    }
+    
+    
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
     public void post(MultipartContainer multipartContainer, Product product, HttpServletResponse responseServlet) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();

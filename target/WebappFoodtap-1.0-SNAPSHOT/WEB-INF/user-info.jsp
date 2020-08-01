@@ -72,12 +72,16 @@
             <div class="col col-sm-6 col-md-7 col-lg-4 col-xl-6 h-100">
                 <form action="/updateUser" method="POST" enctype="multipart/form-data">   
                     <div class="form-group form-control mx-auto text-center" style="width: 48%">
-                        <a id="chossefile">
-                            <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: 100% 100%; background-position: center; background-repeat: no-repeat">
-                                <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
+                        <div class="upload-img-status">
+                            <div class="gallery text-center">
+                                <a id="chossefile">
+                                    <div class="image-frame-upload" style="border: 1px solid blue;width: 100%;height: 240px; background-size: 100% 100%; background-position: center; background-repeat: no-repeat">
+                                        <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
+                                    </div>
+                                </a>
+                                <div class="desc ">Chọn ảnh đại diện <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                             </div>
-                        </a>
-                        <div class="desc ">Chọn ảnh đại diện <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3">Họ và tên</label>
@@ -126,7 +130,7 @@
     $(document).ready(function() {
         var imageFrame = $("input[type=file]").parent().siblings(0).children(0);
         imageFrame.css('background-image', 'url("http://localhost:9032/public/image/${user.avatar}');
-        goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
+        goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
         var map = new goongjs.Map({
             container: 'map', // container id
             style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -135,7 +139,7 @@
         });
 
         var geocoder = new GoongGeocoder({
-            accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
+            accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
             goongjs: goongjs
         })
 
@@ -182,7 +186,7 @@
         marker.on('dragend', function() {
 
             var lngLat = marker.getLngLat();
-            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
                     .then(function(response) {
                         return response.json()
                     })
@@ -194,7 +198,7 @@
             var lng = e.coords.longitude;
             var lat = e.coords.latitude;
             marker._lngLat = {lat: lat, lng: lng}
-            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
+            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
                     .then(function(response) {
                         return response.json()
                     })

@@ -65,7 +65,16 @@ public class RESTUserHelper extends RESTHelper {
                 .post(Entity.entity(cart, MediaType.APPLICATION_JSON), String.class);
         return string;
     }
-    
+
+    public String switchCart(Cart cart) {
+        String url = BASE_URI + "switchCart";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.entity(cart, MediaType.APPLICATION_JSON), String.class);
+        return string;
+    }
+
     public String removeFromCart(String id) {
         String url = BASE_URI + "removeFromCart";
         webTarget = client.target(url);

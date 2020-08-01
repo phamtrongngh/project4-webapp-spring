@@ -13,7 +13,16 @@ package models;
 public class Cart {
     private String product;
     private int quantity;
+    private String type;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
     public String getProduct() {
         return product;
     }
