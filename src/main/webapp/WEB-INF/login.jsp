@@ -28,6 +28,25 @@
     </head>
 
     <body>
+        <!-- Modal error -->
+        <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 0 15px;">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Thông báo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="text-align: center;">
+                        <div>SĐT hoặc mật khẩu không đúng</div>
+                        <div style="margin-top: 25px;">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color: white;background-color: #da484a;">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- The Modal -->
         <div class="modal" id="mapModel">
             <div class="modal-dialog" style="width: 450px;">
@@ -79,11 +98,12 @@
                                 <form class="login-form d-flex justify-content-md-center align-items-md-center h-100  " id="commentForm" action="/login" method="POST">
                                     <div class="form-group ">
                                         <input id="phone-login" type="text" name="phone" class="form-control " placeholder="SĐT"/>
-                                        <span class="error error-phone" color="red">Số điện thoại không hợp lệ</span>
+
                                     </div>
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
                                     </div>
+                                    
                                     <div style="width: 50%">
                                         <button class="btn btn-danger form-control btn-login ">Đăng nhập</button>
                                     </div>
