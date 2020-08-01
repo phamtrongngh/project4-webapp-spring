@@ -401,6 +401,7 @@ function getSenderBox(message) {
     receiveBox += '</div>';
     return receiveBox;
 }
+
 function showmess() {
     //Click to show conservation
     $(".contacts-body .contacts li").click(function() {
@@ -759,6 +760,7 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
+
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $("#orderModal .img-status").attr("src", image.attr("src"));
             $("#orderModal .title-food").html(data.name);
@@ -770,18 +772,18 @@ $(document).ready(function() {
         })
 
     })
-    $(".fa-utensils").click(function() {
-        var image = $(this).closest(".status").find(".background");
+    //get product to biding to update product modal box
+    $(".updateProduct").click(function() {
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
-            $("#orderModal .img-status").attr("src", image.attr("src"));
-            $("#orderModal .title-food").html(data.name);
-            $("#orderModal .content-food").html(content.html());
-            data.price = (format2(data.price, '')).replace(".000", "");
-            $("#orderModal .price-foodnumber").html(data.price);
-            $("#orderModal .total-foodnumber").html(data.price);
-            $("#orderModal .shop-item-button").attr("idValue", idProduct);
+            $("#updateMenu input[name='name']").val(data.name);
+            $("#updateMenu input[name='price']").val(data.price);
+            $("#updateMenu input[name='saleoff']").val(data.saleoff);
+            $("#updateMenu input[name='id']").val(idProduct);
+            $("#updateMenu .image-frame-upload").css("background", "url(http://localhost:9032/public/image/" + data.image + ")");
+            $("#updateMenu .image-frame-upload").css("background-size", "cover");
+            $("#updateMenu .image-frame-upload").css("background-repeat", "no-repeat");
         })
 
     })
@@ -790,27 +792,52 @@ $(document).ready(function() {
     $(".shop-item-button").click(function() {
         var quantity = $("#orderModal .input-qty").val();
         var idProduct = $(this).attr("idValue");
+        $("#tempIdProduct").val(idProduct);
+        $("#tempQuantityProduct").val(quantity);
         callAjax("/addToCart", "POST", {
             product: idProduct,
             quantity: quantity
         }, function(data) {
             $("#orderModal").modal("hide");
-            $("#myCart span").html(data);
-            $("#myCart").css("display", "block");
-        })
-    })
-    $(".removeCart").click(function() {
-        var idProduct = $(this).attr("idValue");
-        callAjax("/removeFromCart/" + idProduct, "POST", {
-        }, function(data) {
-            if (data == "0") {
-                $("#myCart").css("display", "none");
+            if (data == "-1") {
+                $("#alertModal").modal("show");
             } else {
                 $("#myCart span").html(data);
             }
-            window.location.href = "/cart"
+            $("#myCart").css("display", "block");
         })
     })
+    //switch cart
+    $(".switch-cart").click(function() {
+        var quantity = $("#tempQuantityProduct").val();
+        var idProduct = $("#tempIdProduct").val()
+        callAjax("/switchCart", "POST", {
+            product: idProduct,
+            quantity: quantity
+        }, function(data) {
+            $("#orderModal").modal("hide");
+            $("#myCart span").html("1");
+            $("#myCart").css("display", "block");
+        })
+    })
+    //switch cart
+    $(".switch-cart").click(function() {
+        var quantity = $("#tempQuantityProduct").val();
+        var idProduct = $("#tempIdProduct").val();
+        var type = $(this).attr("idValue");
+        callAjax("/switchCart", "POST", {
+            product: idProduct,
+            quantity: quantity,
+            type:type
+        }, function(data) {
+            $("#orderModal").modal("hide");
+            $("#myCart span").html("1");
+            $("#myCart").css("display", "block");
+        })
+
+
+    })
+
     //binding data to post food newfeed
     $(".postFoodNewFeed").click(function() {
         var image = $(this).parent().parent().parent().find("img");

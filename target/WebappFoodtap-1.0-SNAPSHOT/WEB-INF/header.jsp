@@ -38,16 +38,36 @@
     </head>
 
     <body>
-        
+        <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
+                <div class="modal-content">
+                    <input id="tempIdProduct" hidden/>
+                    <input id="tempQuantityProduct" hidden/>
+                    <div class="modal-header" style="padding: 0 15px;">
+                        <h5 class="modal-title" id="exampleModalLongTitle">CHUYỂN CỬA HÀNG KHÁC</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="text-align: center;">
+                        <div class="content">Các món trong mỗi đơn hàng chỉ có thể đến từ một cửa hàng, bạn có muốn lưu đơn hiện tại và chuyển cửa hàng?</div>
+                        <div style="margin-top: 25px;">
+                            <button type="button" class="btn btn-info switch-cart" idValue="save" data-dismiss="modal" style="color: white;background-color: #007bff;">Lưu lại</button>
+                            <button type="button" class="btn btn-secondary switch-cart" idValue="switch" data-dismiss="modal" style="color: white;background-color: #da484a;">Chuyển</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <c:choose>
             <c:when test="${cookie['cart'].getValue()>0}">
                 <a href='/cart' id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
                 </c:when>
                 <c:otherwise>
                 <a href='/cart' style="display:none" id='myCart' ><img src='/public/image/icons/shopping-circle-blue-512.png' width='80' height='80' ><span class='badge count-cart-fix'>${cookie["cart"].getValue()}</span></a>
-            </c:otherwise>
-        </c:choose>
-                
+                </c:otherwise>
+            </c:choose>
+
         <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">
