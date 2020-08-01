@@ -234,7 +234,7 @@
                     </div>
                     <div class="form-group">
                         <label>Giá khuyến mãi:</label>
-                        <input name="price" type="number" class="form-control" />
+                        <input name="saleoff" type="number" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Danh mục</label>
@@ -266,7 +266,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/product/postProduct" method="POST" enctype="multipart/form-data">
+                <form action="/product/update" method="POST" enctype="multipart/form-data">
                     <input name="restaurant" value="${restaurant._id}" type="text" hidden/>
                     <div class="form-group">
                         <label >Tên món ăn:</label>
@@ -291,7 +291,7 @@
                     </div>
                     <div class="form-group">
                         <label>Giá khuyến mãi:</label>
-                        <input name="price" type="number" class="form-control" />
+                        <input name="saleoff" type="number" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Danh mục</label>
@@ -639,10 +639,10 @@
                                         <td><a href="">${item.name} </a></td>
                                         <td>Danh mục</td>
                                         <td>${item.price} VND</td>
-                                        <td>${item.price} VND</td>
+                                        <td>${item.saleoff} VND</td>
                                         <td>
                                             <div class="d-flex justify-content-md-center"> 
-                                                <button  type="button" class="btn btn-success" data-toggle="modal" data-target="#updateMenu">CẬP NHẬT</button>
+                                                <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#updateMenu">CẬP NHẬT</button>
                                                 <button  type="button" idValue="${item._id}" class="btn btn-danger postFoodNewFeed" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
                                             </div>
                                         </td>
@@ -734,8 +734,8 @@
         },
     });
 </script>
-<script async defered>
-    goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
+<!--<script async defered>
+    goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
     var map = new goongjs.Map({
         container: 'map', // container id
         style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -744,7 +744,7 @@
     });
 
     var geocoder = new GoongGeocoder({
-        accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
+        accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
         goongjs: goongjs
     })
 
@@ -790,7 +790,7 @@
 
     marker.on('dragend', function() {
         var lngLat = marker.getLngLat();
-        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
                 .then(function(response) {
                     return response.json()
                 })
@@ -803,7 +803,7 @@
         var lng = e.coords.longitude;
         var lat = e.coords.latitude;
         marker._lngLat = {lat: lat, lng: lng}
-        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
                 .then(function(response) {
                     return response.json()
                 })
@@ -833,13 +833,13 @@
     function getLocation(address, target) {
         var placeId;
 
-        fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+        fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
                 .then(function(response) {
                     return response.json()
                 })
                 .then(function(data) {
                     placeId = data.predictions[0].place_id;
-                    fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U")
+                    fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc")
                             .then(function(response) {
                                 return response.json()
                             })
@@ -878,7 +878,7 @@
     }
     function getDistance(origin, dest) {
         return new Promise(function(resolve, reject) {
-            fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&alternatives=true&vehicle=bike')
+            fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&alternatives=true&vehicle=bike')
                     .then(function(response) {
                         return response.json()
                     })
@@ -890,7 +890,7 @@
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
 
-</script>
+</script>-->
 </body>
 
 </html>

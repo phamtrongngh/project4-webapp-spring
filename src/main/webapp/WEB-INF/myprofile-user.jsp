@@ -1081,7 +1081,7 @@
                                                     </div>
 
                                                     <script async defered>
-                                                        goongjs.accessToken = 'euoRPJxMMVNHI30YkR2W5Ysh6zzkLul70rxTptlF';
+                                                        goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
                                                         var map = new goongjs.Map({
                                                             container: 'map', // container id
                                                             style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -1090,7 +1090,7 @@
                                                         });
 
                                                         var geocoder = new GoongGeocoder({
-                                                            accessToken: "I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U",
+                                                            accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
                                                             goongjs: goongjs
                                                         })
 
@@ -1137,7 +1137,7 @@
                                                         marker.on('dragend', function() {
 
                                                             var lngLat = marker.getLngLat();
-                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U&limit=1')
+                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
                                                                     .then(function(response) {
                                                                         return response.json()
                                                                     })
@@ -1149,7 +1149,7 @@
                                                             var lng = e.coords.longitude;
                                                             var lat = e.coords.latitude;
                                                             marker._lngLat = {lat: lat, lng: lng}
-                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=I5XNVFf02SmWyMubBbmoHapYN5YvBC3zarzZTx7U', {mode: "cors"})
+                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
                                                                     .then(function(response) {
                                                                         return response.json()
                                                                     })
