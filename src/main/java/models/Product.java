@@ -18,7 +18,7 @@ public class Product {
     private String name; 
     private Double price; 
     private List<String> category;
-    private Double saleOff;
+    private Double saleoff;
     private String restaurant; 
     private List<String> rating;
     private Date createdAt;
@@ -57,13 +57,15 @@ public class Product {
         this.category = category;
     }
 
-    public Double getSaleOff() {
-        return saleOff;
+    public Double getSaleoff() {
+        return saleoff;
     }
 
-    public void setSaleOff(Double saleOff) {
-        this.saleOff = saleOff;
+    public void setSaleoff(Double saleoff) {
+        this.saleoff = saleoff;
     }
+
+    
 
     public String getRestaurant() {
         return restaurant;
