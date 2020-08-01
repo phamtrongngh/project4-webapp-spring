@@ -116,16 +116,23 @@ function update() {
 
     var q = ($(".input-qty").val());
     var tien = $(".price-foodnumber").html().toString();
-
+    var tien_saleoff = $(".saleoff-foodnumber").html().toString();
     tien = tien.replace(",", "");
+    
+    if ($(".saleoff-food").css("display") != "none") {
+        
+        tien_saleoff = tien_saleoff.replace(",", "");
+        var total_sale = q* tien_saleoff;
+        var h = format2(total_sale, '').replace(".000", "");
+        $(".total-foodnumber").html(h);
+    }
+    else if ($(".saleoff-food").css("display") == "none") {
 
     var total1 = q * tien;
-
-
     var t = format2(total1, '').replace(".000", "");
-
-    $(".total-foodnumber").html(t);
-
+        console.log(t);
+        $(".total-foodnumber").html(t);
+    };
 
 }
 
@@ -760,7 +767,7 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
-
+        
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $(".price-food").css("text-decoration-line", "none");
             $(".saleoff-food").css("display", "none");
@@ -768,15 +775,19 @@ $(document).ready(function() {
             $("#orderModal .title-food").html(data.name);
             $("#orderModal .content-food").html(content.html());
             data.price = (format2(data.price, '')).replace(".000", "");
+            
             $("#orderModal .price-foodnumber").html(data.price);
-            $("#orderModal .saleoff-foodnumber").html(data.saleoff);
+            
             if (data.saleoff != null) {
+                data.saleoff = (format2(data.saleoff, '')).replace(".000", "");
+                $("#orderModal .saleoff-foodnumber").html(data.saleoff);
                 $(".price-food").css("text-decoration-line", "line-through");
                 $(".saleoff-food").css("display", "block");
                 $("#orderModal .total-foodnumber").html(data.saleoff);
             } else {
                 $("#orderModal .total-foodnumber").html(data.price);
             }
+            
             $("#orderModal .shop-item-button").attr("idValue", idProduct);
         })
 
