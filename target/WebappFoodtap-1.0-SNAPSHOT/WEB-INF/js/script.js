@@ -770,7 +770,23 @@ $(document).ready(function() {
         })
 
     })
-    //add to cart and remove from cart
+    $(".fa-utensils").click(function() {
+        var image = $(this).closest(".status").find(".background");
+        var content = $(this).closest(".status").find(".font1");
+        var idProduct = $(this).attr("idValue");
+        callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
+            $("#orderModal .img-status").attr("src", image.attr("src"));
+            $("#orderModal .title-food").html(data.name);
+            $("#orderModal .content-food").html(content.html());
+            data.price = (format2(data.price, '')).replace(".000", "");
+            $("#orderModal .price-foodnumber").html(data.price);
+            $("#orderModal .total-foodnumber").html(data.price);
+            $("#orderModal .shop-item-button").attr("idValue", idProduct);
+        })
+
+    })
+    
+    //Get product to modalbox to update
     $(".shop-item-button").click(function() {
         var quantity = $("#orderModal .input-qty").val();
         var idProduct = $(this).attr("idValue");
