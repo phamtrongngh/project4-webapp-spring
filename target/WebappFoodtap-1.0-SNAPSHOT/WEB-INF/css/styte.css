@@ -2525,7 +2525,7 @@ explorestore .profile-menu-hot .col-md-4 {
 
 .sametaste .profile-menu-hot img {
     width: 100%;
-    height: 260px;
+    height: 225px;
     border-radius: 10px;
 }
 
@@ -2537,7 +2537,7 @@ explorestore .profile-menu-hot .col-md-4 {
 
 .sametaste .profile-menu-hot a {
     text-decoration: none;
-    color: black;
+    
     font-size: 22.4px;
     font-weight: 800;
 }
@@ -2603,77 +2603,34 @@ explorestore .profile-menu-hot .col-md-4 {
     font-size: 22.4px;
     font-weight: 800;
 }
+.absohovereffect{
+    display: none;
+    position: absolute;
+    bottom: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    background-color: #da484a;
+    text-align: center;
+    color: white;
+}
+.sametaste .hovereffect:hover .absohovereffect{
+    display: block;
+}
 .sametaste .hovereffect {
     width: 100%;
     height: 100%;
     float: left;
     overflow: hidden;
+    margin-bottom: 15px;
     position: relative;
     text-align: center;
     cursor: default;
     padding-left: 0px;
 
 }
-.sametaste .hovereffect .overlay {
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
-    left: 0;
-    top: auto;
-    bottom: 0;
-    padding: 1em;
-    height: 4.75em;
-    -webkit-transition: -webkit-transform 0.35s;
-    transition: transform 0.35s;
-    -webkit-transform: translate3d(0,100%,0);
-    transform: translate3d(0,100%,0);
-    visibility: hidden;
 
-}
 
-.sametaste .hovereffect img {
-    display: block;
-    position: relative;
-
-}
-.sametaste .hovereffect h2 {
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    font-size: 17px;
-    padding: 10px;
-    background: #da484a;
-    bottom: 40px;
-    float: left;
-    margin: 0px;
-    display: inline-block;
-    width: 80%;
-    transition: .5s ease
-}
-.sametaste .hovereffect h2:hover
-{
-    background: white;
-    color:#da484a; 
-}
-.sametaste .hovereffect p.icon-links 
-{
-    background-color: white}
-.sametaste .hovereffect p.icon-links a:hover{
-    color: white;
-    background-color:#da484a; 
-}
-.sametaste .hovereffect p.icon-links a {
-    float: right;
-    color: #da484a;
-    font-size: 1.4em;
-    width: 20%;
-    height: 40px;
-    position: relative;
-    bottom: 40px;
-    transition: .5s ease;
-    background-color: white;
-}
 
 .image-frame-upload{
     background-size: cover;
@@ -2845,4 +2802,22 @@ explorestore .profile-menu-hot .col-md-4 {
     z-index: 999;
     top: 0;
     background-color: rgb(0,0,0,0.7)
+}
+.name-store-modal-discount{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background-color: #da484a;
+    bottom: 0px;
+    font-size: 17px;
+    color: white;
+    padding: 10px;
+    display: none;
+    text-transform: uppercase;
+}
+.store-modal-discount:hover .name-store-modal-discount{
+    display: block !important;
+}
+.store-modal-discount{
+    margin-bottom: 20px;
 }

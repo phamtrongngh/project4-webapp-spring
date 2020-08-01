@@ -17,65 +17,117 @@
             </div>
 
 
-            <div class="profile-menu-hot">
-                <div class="col-md-3 hovereffect ">
-                    <a href="/user-profile" >
-                        <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-                         <h2>Anh Khoa</h2>
-                    </a>
-                      <p class="icon-links">
-                           <a href="#">
-                                <span ><i class="fas fa-user-plus"></i></span>
-                            </a>
-                        </p>
-                   
-               
+            <div class="profile-menu-hot row">
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
+
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
+
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
+
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+
 
                 </div>
-                <div class="col-md-3">
-                    <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" alt="">
-                 
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
+
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+
 
                 </div>
-                  <div class="col-md-3">
-                    <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" alt="">
-                 
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
+
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
+
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
+
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
+
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>
-             <div class="profile-menu-hot">
-                <div class="col-md-3 hovereffect ">
-                    <a href="/user-profile" >
-                        <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-                         <h2>Anh Khoa</h2>
-                    </a>
-                      <p class="icon-links">
-                           <a href="#">
-                                <span ><i class="fas fa-user-plus"></i></span>
-                            </a>
-                        </p>
-                   
-               
-                </div>
-                <div class="col-md-3">
-                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                
-
-                </div>
-                <div class="col-md-3">
-                    <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" alt="">
-                 
-
-                </div>
-                  <div class="col-md-3">
-                    <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" alt="">
-                 
-
-                </div>
+            
             </div>
             <div class="d-flex justify-content-between" style="width: 98.5%">
                 <div class="profile-text-near">
@@ -88,64 +140,54 @@
                     </div>
                 </div>
             </div>
-           <div class="profile-menu-near">
-                <div class="col-md-3 hovereffect ">
-                    <a href="/user-profile" >
-                        <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-                         <h2>Anh Khoa</h2>
-                    </a>
-                      <p class="icon-links">
-                           <a href="#">
-                                <span ><i class="fas fa-user-plus"></i></span>
-                            </a>
-                        </p>
-                   
-               
-                </div>
-                <div class="col-md-3">
-                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                
+            <div class="profile-menu-near row">
+            <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
 
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" alt="">
-                 
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
 
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                  <div class="col-md-3">
-                    <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" alt="">
-                 
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
 
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-             <div class="profile-menu-near">
-                <div class="col-md-3 hovereffect ">
-                    <a href="/user-profile" >
-                        <img class="img-responsive" src="/public/image/avatar/unnamed.png " alt="" />
-                         <h2>Anh Khoa</h2>
-                    </a>
-                      <p class="icon-links">
-                           <a href="#">
-                                <span ><i class="fas fa-user-plus"></i></span>
-                            </a>
-                        </p>
-                   
-               
-                </div>
-                <div class="col-md-3">
-                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile" >
+                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
 
-                </div>
-                <div class="col-md-3">
-                    <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" alt="">
-                 
-
-                </div>
-                  <div class="col-md-3">
-                    <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" alt="">
-                 
-
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
