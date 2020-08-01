@@ -807,17 +807,17 @@ $(document).ready(function() {
             $("#myCart").css("display", "block");
         })
     })
-    //switch cart
-    $(".switch-cart").click(function() {
-        var quantity = $("#tempQuantityProduct").val();
-        var idProduct = $("#tempIdProduct").val()
-        callAjax("/switchCart", "POST", {
-            product: idProduct,
-            quantity: quantity
+    //remove cart
+    $(".removeCart").click(function() {
+        var idProduct = $(this).attr("idValue");
+        callAjax("/removeFromCart/" + idProduct, "POST", {
         }, function(data) {
-            $("#orderModal").modal("hide");
-            $("#myCart span").html("1");
-            $("#myCart").css("display", "block");
+            if (data == "0") {
+                $("#myCart").css("display", "none");
+            } else {
+                $("#myCart span").html(data);
+            }
+            window.location.href = "/cart"
         })
     })
     //switch cart
