@@ -40,11 +40,11 @@ function updateCartTotal() {
         total = total + (price * quantity)
 
     }
-    var priceship=$(".cart-ship-price").html().toString().replace(",", "");
-    var cartdiscount =$(".cart-discount").html().toString().replace(",", "");
-    
+    var priceship = $(".cart-ship-price").html().toString().replace(",", "");
+    var cartdiscount = $(".cart-discount").html().toString().replace(",", "");
+
     var carttotalall = parseFloat(total) + parseFloat(priceship) - parseFloat(cartdiscount);
-    
+
     totalformat = Math.round(total * 1000);
     var totalformatdisplay = format2(total, '').replace(".000", "");
     carttotalall = format2(carttotalall, '').replace(".000", "");
@@ -65,12 +65,12 @@ function formatpricecart() {
         var price = parseFloat(priceElement.innerText.replace('VNĐ', ''));
         price = format2(price, "").replace(".000", "");
         document.getElementsByClassName('cart-page-price')[i].innerText = price + "VNĐ";
-        
+
 
     }
 }
 function formatNumber(num) {
-  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
 function addItemToCart(title, price, imageSrc) {
@@ -785,7 +785,7 @@ $(document).ready(function() {
         })
 
     })
-    
+
     //Get product to modalbox to update
     $(".shop-item-button").click(function() {
         var quantity = $("#orderModal .input-qty").val();
