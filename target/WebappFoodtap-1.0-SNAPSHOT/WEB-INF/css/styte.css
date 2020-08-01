@@ -2537,7 +2537,7 @@ explorestore .profile-menu-hot .col-md-4 {
 
 .sametaste .profile-menu-hot a {
     text-decoration: none;
-    
+
     font-size: 22.4px;
     font-weight: 800;
 }
@@ -2782,7 +2782,7 @@ explorestore .profile-menu-hot .col-md-4 {
     text-decoration: none
 }
 .checked-rating{
-      color: orange;
+    color: orange;
 }
 .rating-right{
     padding: 7px;
@@ -2820,4 +2820,5 @@ explorestore .profile-menu-hot .col-md-4 {
 }
 .store-modal-discount{
     margin-bottom: 20px;
+
 }

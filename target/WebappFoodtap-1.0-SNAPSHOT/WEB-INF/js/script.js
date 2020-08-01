@@ -762,12 +762,21 @@ $(document).ready(function() {
         var idProduct = $(this).attr("idValue");
 
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
+            $(".price-food").css("text-decoration-line", "none");
+            $(".saleoff-food").css("display", "none");
             $("#orderModal .img-status").attr("src", image.attr("src"));
             $("#orderModal .title-food").html(data.name);
             $("#orderModal .content-food").html(content.html());
             data.price = (format2(data.price, '')).replace(".000", "");
             $("#orderModal .price-foodnumber").html(data.price);
-            $("#orderModal .total-foodnumber").html(data.price);
+            $("#orderModal .saleoff-foodnumber").html(data.saleoff);
+            if (data.saleoff != null) {
+                $(".price-food").css("text-decoration-line", "line-through");
+                $(".saleoff-food").css("display", "block");
+                $("#orderModal .total-foodnumber").html(data.saleoff);
+            } else {
+                $("#orderModal .total-foodnumber").html(data.price);
+            }
             $("#orderModal .shop-item-button").attr("idValue", idProduct);
         })
 
@@ -828,7 +837,7 @@ $(document).ready(function() {
         callAjax("/switchCart", "POST", {
             product: idProduct,
             quantity: quantity,
-            type:type
+            type: type
         }, function(data) {
             $("#orderModal").modal("hide");
             $("#myCart span").html("1");
