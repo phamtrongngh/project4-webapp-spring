@@ -19,7 +19,6 @@ Nghia\Util\RESTHelper$5.class
 Nghia\Util\RESTUserHelper.class
 Nghia\Util\RESTMessageHelper$1.class
 controllers\ProductController.class
-controllers\UtilController.class
 models\Order.class
 models\Newfeed.class
 Nghia\Util\RESTAuthorizeHelper$1.class
