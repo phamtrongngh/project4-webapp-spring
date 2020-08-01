@@ -267,7 +267,8 @@
             </div>
             <div class="modal-body">
                 <form action="/product/update" method="POST" enctype="multipart/form-data">
-                    <input name="restaurant" value="${restaurant._id}" type="text" hidden/>
+                    <input name="restaurant" value="${restaurant._id}"  hidden />
+                    <input name="id" hidden />
                     <div class="form-group">
                         <label >Tên món ăn:</label>
                         <input name="name" type="text" class="form-control"   />
@@ -277,8 +278,8 @@
                     </div>
                     <div class="upload-img-status">
                         <div class="gallery text-center">
-                            <a id="chossefile">
-                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px; background-repeat: no-repeat;background-size: cover">
+                            <a id="chossefile" class="choosefile">
+                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px">
                                     <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;cursor: pointer">+</span>
                                 </div>
                             </a>
@@ -595,10 +596,6 @@
                                 </div>
                             </c:otherwise>
                         </c:choose>
-
-
-
-
                     </div>
                     <div style="width: 100%;padding-left: 50%">
                         <button class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button>
@@ -617,7 +614,6 @@
                     <option value="3 ">Option 3</option>
                 </select>
             </div>
-
             <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-body">
                     <div class="">
@@ -642,7 +638,7 @@
                                         <td>${item.saleoff} VND</td>
                                         <td>
                                             <div class="d-flex justify-content-md-center"> 
-                                                <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#updateMenu">CẬP NHẬT</button>
+                                                <button  type="button" idValue="${item._id}" class="btn btn-info updateProduct" data-toggle="modal" data-target="#updateMenu">CẬP NHẬT</button>
                                                 <button  type="button" idValue="${item._id}" class="btn btn-danger postFoodNewFeed" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
                                             </div>
                                         </td>

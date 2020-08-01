@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,6 +27,7 @@
     </head>
 
     <body>
+        
         <!-- The Modal -->
         <div class="modal" id="mapModel">
             <div class="modal-dialog" style="width: 450px;">
@@ -79,11 +79,12 @@
                                 <form class="login-form d-flex justify-content-md-center align-items-md-center h-100  " id="commentForm" action="/login" method="POST">
                                     <div class="form-group ">
                                         <input id="phone-login" type="text" name="phone" class="form-control " placeholder="SĐT"/>
-                                        <span class="error error-phone" color="red">Số điện thoại không hợp lệ</span>
+
                                     </div>
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
                                     </div>
+                                    
                                     <div style="width: 50%">
                                         <button class="btn btn-danger form-control btn-login ">Đăng nhập</button>
                                     </div>

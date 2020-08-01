@@ -3,7 +3,25 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <!--Modal like and share-->
-
+<!-- Modal error -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
+        <div class="modal-content">
+            <div class="modal-header" style="padding: 0 15px;">
+                <h5 class="modal-title" id="exampleModalLongTitle">Thông báo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <div>SĐT hoặc mật khẩu không đúng</div>
+                <div style="margin-top: 25px;">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color: white;background-color: #da484a;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
         <div class="modal-content">
