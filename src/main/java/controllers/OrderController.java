@@ -57,4 +57,9 @@ public class OrderController {
         response.sendRedirect("/detail-order/"+request.getParameter("orderId"));
         return null;
     }
+    @RequestMapping(value = "/discount", method = RequestMethod.GET)
+    public ModelAndView discount() throws IOException {
+        return new ModelAndView("discount");
+    }
+    
 }
