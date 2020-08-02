@@ -1,6 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<div id="me" 
+     style="height: 50px; 
+            width: 50px; 
+            background: url('http://localhost:9032/public/image/${order.user.avatar}');
+            background-size: cover;
+            border:1px none;
+            border-radius: 50%">
+</div>
 <div class="container contain" style="margin-top: 100px">
     <h1 style="margin-top: 10px;text-align: center;">Trạng thái đơn hàng</h1>
     <div class="row" style="margin-right: 0;">
@@ -37,6 +45,10 @@
                         <span class="col"> ${order.restaurant.name}</span>
                     </div>
                     <div class=" info-more row">
+                        <label class="col">Giao tới: </label>
+                        <span class="col"> ${order.address}</span>
+                    </div>
+                    <div class=" info-more row">
                         <label class="col">Tên người giao: </label>
                         <span class="col"> ${order.shipper.fullname}</span>
                     </div>
@@ -57,34 +69,30 @@
                                             <div class="col"><span>${item.product.price}</span>VNĐ</div>
                                             </div>
                                         </c:forEach>
-
-
-
                                         <hr/>
-
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
                                                 Tạm tính: 
                                             </div>
-                                            <div class="col"><span>${order.amount}</span>VNĐ</div>
+                                            <div class="col"><span></span>VNĐ</div>
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
-                                                Phí vận chuyển: <span>2</span>km 
+                                                Phí vận chuyển: <span id="distance"></span>km 
                                             </div>
-                                            <div class="col"><span>10,000</span>VNĐ</div>
+                                            <div class="col"><span>${order.fee}</span>VNĐ</div>
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;color: #ff0000;">
                                             <div class="col">
                                                 Phiếu giảm giá: 
                                             </div>
-                                            <div class="col"><span>-50,000</span>VNĐ</div>
+                                            <div class="col"><span>-${order.discount!=null?order.discount:0}</span>VNĐ</div>
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;font-size: 20px;font-weight: 600;">
                                             <div class="col">
                                                 Tổng cộng 
                                             </div>
-                                            <div class="col"><span>100,000</span>VNĐ</div>
+                                            <div class="col"><span>${order.amount}</span>VNĐ</div>
                                         </div>
 
                                         <div class="row" style="margin: 0 0 0 35px;font-size: 20px;font-weight: 600;">
@@ -110,99 +118,163 @@
                                         <script src="/public/js/jquery-ui.js"></script>
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
-                                        <!--<script async defered>
-                                                    goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
-                                                    var map = new goongjs.Map({
-                                                        container: 'map', // container id
-                                                        style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
-                                                        center: [105, 21], // starting position [lng, lat]
-                                                        zoom: 9 // starting zoom
-                                                    });
-                                        
-                                                    var geocoder = new GoongGeocoder({
-                                                        accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
-                                                        goongjs: goongjs
-                                                    })
-                                        
-                                                    var geolocateControl = new goongjs.GeolocateControl({
-                                                        positionOptions: {
-                                                            enableHighAccuracy: true
-                                                        },
-                                                        trackUserLocation: true
-                                                    })
-                                        
-                                                    map.addControl(new goongjs.FullscreenControl());
-                                        
-                                                    map.on('load', function() {
-                                                        map.addSource('single-point', {
-                                                            type: 'geojson',
-                                                            data: {
-                                                                type: 'FeatureCollection',
-                                                                features: []
-                                                            }
+                                        <script async defered>
+                                            var i = 0;
+                                            goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
+                                            var map = new goongjs.Map({
+                                                container: 'map', // container id
+                                                style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
+                                                center: [106.695833, 10.776111], // starting position [lng, lat]
+                                                zoom: 14 // starting zoom
+                                            });
+
+                                            var geocoder = new GoongGeocoder({
+                                                accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
+                                                goongjs: goongjs
+                                            })
+
+                                            var geolocateControl = new goongjs.GeolocateControl({
+                                                positionOptions: {
+                                                    enableHighAccuracy: true
+                                                },
+                                                trackUserLocation: true
+                                            })
+
+                                            map.addControl(new goongjs.FullscreenControl());
+
+                                            map.on('load', function() {
+                                                map.addSource('single-point', {
+                                                    type: 'geojson',
+                                                    data: {
+                                                        type: 'FeatureCollection',
+                                                        features: []
+                                                    }
+                                                });
+                                                map.addControl(
+                                                        geocoder
+                                                        )
+                                                map.addControl(
+                                                        geolocateControl
+                                                        );
+                                                map.addLayer({
+                                                    id: 'point',
+                                                    source: 'single-point',
+                                                    type: 'circle',
+                                                    paint: {
+                                                        'circle-radius': 10,
+                                                        'circle-color': '#448ee4'
+                                                    }
+                                                });
+                                            });
+                                            
+                                            var marker = new goongjs.Marker(me)
+                                                    .setLngLat([105, 21])
+                                                    .addTo(map);
+
+                                            marker.on('dragend', function() {
+                                                var lngLat = marker.getLngLat();
+                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
+                                                        .then(function(response) {
+                                                            return response.json()
+                                                        })
+                                                        .then(function(data) {
+                                                            $(".input-address").val(data.results[0].formatted_address);
+                                                            getLocation($(".input-address").val(), "user");
                                                         });
-                                                        map.addControl(
-                                                                geocoder
-                                                                )
-                                                        map.addControl(
-                                                                geolocateControl
-                                                                );
-                                                        map.addLayer({
-                                                            id: 'point',
-                                                            source: 'single-point',
-                                                            type: 'circle',
-                                                            paint: {
-                                                                'circle-radius': 10,
-                                                                'circle-color': '#448ee4'
-                                                            }
+                                            });
+                                            geolocateControl.on("geolocate", function(e) {
+                                                var lng = e.coords.longitude;
+                                                var lat = e.coords.latitude;
+                                                marker._lngLat = {lat: lat, lng: lng}
+                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
+                                                        .then(function(response) {
+                                                            return response.json()
+                                                        })
+                                                        .then(function(data) {
+                                                            $(".input-address").val(data.results[0].formatted_address);
+                                                            getLocation($(".input-address").val(), "user");
                                                         });
-                                                    });
-                                        
-                                                    var marker = new goongjs.Marker({
-                                                        draggable: true
-                                                    })
-                                                            .setLngLat([105, 21])
-                                                            .addTo(map);
-                                        
-                                                    marker.on('dragend', function() {
-                                        
-                                                        var lngLat = marker.getLngLat();
-                                                        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
-                                                                .then(function(response) {
-                                                                    return response.json()
-                                                                })
-                                                                .then(function(data) {
-                                                                    $(".input-address").val(data.results[0].formatted_address);
-                                                                });
-                                                    });
-                                                    geolocateControl.on("geolocate", function(e) {
-                                                        var lng = e.coords.longitude;
-                                                        var lat = e.coords.latitude;
-                                                        marker._lngLat = {lat: lat, lng: lng}
-                                                        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
-                                                                .then(function(response) {
-                                                                    return response.json()
-                                                                })
-                                                                .then(function(data) {
-                                                                    $(".input-address").val(data.results[0].formatted_address);
-                                                                });
-                                                    })
-                                                    geocoder.on("result", function(e) {
-                                                        geocoder.mapMarker.remove();
-                                                        marker._lngLat = geocoder.mapMarker._lngLat;
-                                                        $(".input-address").val(e.result.description);
-                                                    })
-                                                    $(".btn-location").click(function() {
-                                                        $(".goongjs-ctrl-fullscreen").trigger("click");
-                                                    })
-                                                    $("#mapModel .modal-footer button").click(function() {
-                                                        $("#mapModel").modal("hide");
-                                                    })
-                                                    $(".close").click(function() {
-                                                        $(".input-address").val("");
-                                                        $("#mapModel").modal("hide");
-                                                    })
-                                                </script>-->
+                                            })
+                                            geocoder.on("result", function(e) {
+                                                geocoder.mapMarker.remove();
+                                                marker._lngLat = geocoder.mapMarker._lngLat;
+                                                $(".input-address").val(e.result.description);
+                                                getLocation($(".input-address").val(), "user");
+                                            })
+
+                                            $("#mapModel .modal-footer button").click(function() {
+                                                $("#mapModel").modal("hide");
+                                            })
+                                            $(".close").click(function() {
+                                                $(".input-address").val("");
+                                                $("#mapModel").modal("hide");
+                                            })
+                                            //Fee distance functions
+                                            var userLocation;
+                                            var restaurantLocation;
+                                            var distance;
+                                            function getLocation(address, target) {
+                                                var placeId;
+                                                $("#loading-cart").addClass("loading-cart");
+                                                $("#img-loadcart").addClass("img-loadcart");
+                                                $("html, body").css("pointer-events", "none");
+
+                                                fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
+                                                        .then(function(response) {
+                                                            return response.json()
+                                                        })
+                                                        .then(function(data) {
+                                                            placeId = data.predictions[0].place_id;
+                                                            fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc")
+                                                                    .then(function(response) {
+                                                                        return response.json()
+                                                                    })
+                                                                    .then(function(data) {
+                                                                        $("#loading-cart").removeClass("loading-cart");
+                                                                        $("html, body").css("pointer-events", "auto");
+
+                                                                        if (target == "user") {
+                                                                            userLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
+                                                                        }
+                                                                        else {
+                                                                            restaurantLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
+                                                                        }
+
+                                                                        if (userLocation && restaurantLocation && i == 0) {
+                                                                            getDistance(userLocation, restaurantLocation).then(function(data) {
+                                                                                distance = data.routes[0].legs[0].distance.text;
+                                                                                $("#distance").html(distance.split(" ")[0]);
+                                                                                i++;
+                                                                                map.flyTo({
+                                                                                    center: [
+                                                                                        userLocation.split("%2C")[1],
+                                                                                        userLocation.split("%2C")[0]
+                                                                                    ],
+                                                                                    zoom: 15
+                                                                                });
+                                                                                marker._lngLat = {lng: userLocation.split("%2C")[1], lat: userLocation.split("%2C")[0]}
+
+                                                                            });
+                                                                        }
+                                                                    })
+                                                        });
+
+                                            }
+                                            function getDistance(origin, dest) {
+                                                return new Promise(function(resolve, reject) {
+                                                    fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&alternatives=true&vehicle=bike')
+                                                            .then(function(response) {
+                                                                return response.json()
+                                                            })
+                                                            .then(function(data) {
+                                                                resolve(data);
+                                                            });
+                                                })
+                                            }
+                                            getLocation('${order.restaurant.address}', "restaurant");
+                                            getLocation('${order.address}', "user");
+
+                                        </script>
                                         </body>
                                         </html>
 

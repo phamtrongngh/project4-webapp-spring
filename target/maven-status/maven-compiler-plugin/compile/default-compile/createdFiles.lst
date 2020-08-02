@@ -14,11 +14,14 @@ Nghia\Util\RESTHelper$3.class
 Nghia\Util\RESTAuthorizeHelper.class
 Nghia\Util\RESTUserHelper$2.class
 controllers\NewfeedController.class
+models\Coupon.class
 Nghia\Util\RESTHelper$2.class
 Nghia\Util\RESTHelper$5.class
 Nghia\Util\RESTUserHelper.class
 Nghia\Util\RESTMessageHelper$1.class
+controllers\CouponController.class
 controllers\ProductController.class
+.netbeans_automatic_build
 models\Order.class
 models\Newfeed.class
 Nghia\Util\RESTAuthorizeHelper$1.class
@@ -36,6 +39,7 @@ Nghia\Util\RESTRestaurantHelper$1.class
 interceptor\AuthorizeHandleInterceptor.class
 models\Product.class
 Nghia\Util\RESTHelper$4.class
+Nghia\Util\RESTCouponHelper.class
 controllers\MessageController.class
 Nghia\Util\RESTUserHelper$1.class
 Nghia\Util\RESTMessageHelper.class

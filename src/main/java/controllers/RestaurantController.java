@@ -51,10 +51,7 @@ public class RestaurantController implements IController<Restaurant> {
         return new ModelAndView("statistical").addObject("restaurant", restaurant);
     }
 
-    @RequestMapping(value = "/sametaste", method = RequestMethod.GET)
-    public ModelAndView sametaste() throws IOException {
-        return new ModelAndView("sametaste");
-    }
+    
 
     @RequestMapping(value = "/store-profile/{id}", method = RequestMethod.GET)
     public ModelAndView storeprofile(@PathVariable("id") String id) throws IOException {
