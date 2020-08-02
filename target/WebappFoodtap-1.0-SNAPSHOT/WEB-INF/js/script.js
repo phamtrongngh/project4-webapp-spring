@@ -751,7 +751,9 @@ $(document).ready(function() {
             amount: Number.parseFloat($(".cart-total-all").html()),
             user: $("input[name='user']").val(),
             products: products,
-            fee: Number.parseFloat($(".cart-ship-price").html())
+            fee: Number.parseFloat($(".cart-ship-price").html()),
+            discount: Number.parseFloat($(".cart-discount").html()),
+            coupon: $("input[name='coupon']").val()
         }
         $.ajax({
             url: "/order/",
@@ -907,10 +909,12 @@ function check_discount(data) {
     if (data.min) {
         if (data.min <= $(".cart-total-price").html().replace(",", "")) {
             $(".cart-discount").html(format2(data.discount, '').replace(".000", ""));
+            $("input[name='coupon']").val(data._id);
         } else {
             $("#alertModalCart").modal("show");
             $("#alertModalCart .modal-title").html("Thông báo");
             $("#alertModalCart .content").html("Đơn hàng không đủ điều kiện...");
+            $("input[name='coupon']").val(null);
             $(".cart-discount").html(0);
         }
     }
@@ -933,34 +937,39 @@ $(".use-coupon").click(function() {
                 $("#alertModalCart").modal("show");
                 $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
                 $("#alertModalCart .content").html("Mã giảm giá không tồn tại.");
+                $("input[name='coupon']").val(null);
+                $(".cart-discount").html(0);
+                updateCartTotal()
             } else if (data == "not found coupon restaurant") {
                 $("#alertModalCart").modal("show");
                 $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
                 $("#alertModalCart .content").html("Nhà hàng này không áp dụng mã giảm giá bạn nhập.");
+                $("input[name='coupon']").val(null);
+                $(".cart-discount").html(0);
+                updateCartTotal()
             } else if (data == "not found coupon user") {
                 $("#alertModalCart").modal("show");
                 $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
                 $("#alertModalCart .content").html("Ví của bạn không có mã giảm giá này.");
+                $("input[name='coupon']").val(null);
+                $(".cart-discount").html(0);
+                updateCartTotal()
             } else {
-                if (data.discount) {
-                    if (data.min) {
-                        check_discount(data);
-                        $(".cart-quantity-input").change(function(){
-                            check_discount(data);
-                        })
-                    }
-                }
-                if (data.percent) {
+                check_discount(data);
+                updateCartTotal()
+                $(".cart-quantity-input").change(function() {
+                    check_discount(data);
+                    updateCartTotal();
+                })
+            }
 
-                }
+            if (data.percent) {
+
             }
         }
     })
 })
-//show all restaurant which apply coupon
-$("#coupon-details").click(function() {
 
-})
 //Search
 $(document).ready(function() {
     //display like
@@ -1088,7 +1097,7 @@ $(document).ready(function() {
             $("#closeAt").css("box-shadow", "none");
             $("#closeAt").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-closeAt").css("display", "none");
-            
+
         }
         else {
 
@@ -1098,15 +1107,15 @@ $(document).ready(function() {
             return false;
         }
         if (parseInt(closeAt) <= parseInt(openAt)) {
-                $("#closeAt").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-                $(".error-closeAt").css("display", "block");
-                $("#closeAt").focus();
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            $("#closeAt").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-closeAt").css("display", "block");
+            $("#closeAt").focus();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
 
     });
 
