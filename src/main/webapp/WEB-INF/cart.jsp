@@ -308,21 +308,30 @@
                                 if (userLocation && restaurantLocation) {
                                     getDistance(userLocation, restaurantLocation).then(function(data) {
                                         distance = data.routes[0].legs[0].distance.text;
-                                        $(".cart-total-title span").html(distance.split(" ")[0]);
-                                        if (distance.split(" ")[0] <= 3)
-                                        {
+
+
+                                        if (distance.split(" ")[1] == "km") {
+
+                                            $(".cart-total-title span").html(distance.split(" ")[0]);
+                                            if (distance.split(" ")[0] <= 3)
+                                            {
+                                                $(".cart-ship-price").html("15,000");
+                                            }
+                                            else if (distance.split(" ")[0] <= 5) {
+                                                $(".cart-ship-price").html("20,000");
+                                            }
+                                            else {
+                                                var x = distance.split(" ")[0];
+                                                var priceship = 20000 + 5000 * (x - 5);
+                                                priceship = format2(priceship, "").replace(".000", "");
+                                                $(".cart-ship-price").html(priceship);
+                                            }
+                                            updateCartTotal();
+                                        } else {
                                             $(".cart-ship-price").html("15,000");
+                                            $(".cart-total-title span").html("<1");
+                                            updateCartTotal();
                                         }
-                                        else if (distance.split(" ")[0] <= 5) {
-                                            $(".cart-ship-price").html("20,000");
-                                        }
-                                        else {
-                                            var x = distance.split(" ")[0];
-                                            var priceship = 20000 + 5000 * (x - 5);
-                                            priceship = format2(priceship, "").replace(".000", "");
-                                            $(".cart-ship-price").html(priceship);
-                                        }
-                                        updateCartTotal();
                                     });
                                 }
                             })
