@@ -153,6 +153,7 @@
                                 <div class="col">-<span class="cart-discount">0</span>VNĐ</div>
 
                             </div>
+                            <input name="coupon" hidden />
                             <div class="cart-total row" style="font-size: 20px;font-weight: 600;">
                                 <div class="cart-total-title">Tổng:</div>
 
@@ -181,7 +182,7 @@
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
-<!--<script async defered>
+<script async defered>
     goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
     var map = new goongjs.Map({
         container: 'map', // container id
@@ -341,7 +342,7 @@
     }
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
-</script>-->
+</script>
 
 </body>
 
