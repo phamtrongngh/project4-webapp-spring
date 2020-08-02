@@ -901,7 +901,18 @@ $(document).ready(function() {
     })
 
 })
-
+function check_discount(data) {
+    if (data.min) {
+        if (data.min <= $(".cart-total-price").html().replace(",", "")) {
+            $(".cart-discount").html(format2(data.discount, '').replace(".000", ""));
+        } else {
+            $("#alertModalCart").modal("show");
+            $("#alertModalCart .modal-title").html("Thông báo");
+            $("#alertModalCart .content").html("Đơn hàng không đủ điều kiện...");
+            $(".cart-discount").html(0);
+        }
+    }
+}
 //Check Coupon 
 $(".use-coupon").click(function() {
     var data = {
@@ -924,17 +935,30 @@ $(".use-coupon").click(function() {
                 $("#alertModalCart").modal("show");
                 $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
                 $("#alertModalCart .content").html("Nhà hàng này không áp dụng mã giảm giá bạn nhập.");
-            }else if (data=="not found coupon user"){
+            } else if (data == "not found coupon user") {
                 $("#alertModalCart").modal("show");
                 $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
                 $("#alertModalCart .content").html("Ví của bạn không có mã giảm giá này.");
-            }else{
-                console.log(data);
+            } else {
+                if (data.discount) {
+                    if (data.min) {
+                        check_discount(data);
+                        $(".cart-quantity-input").change(function(){
+                            check_discount(data);
+                        })
+                    }
+                }
+                if (data.percent) {
+
+                }
             }
         }
     })
 })
+//show all restaurant which apply coupon
+$("#coupon-details").click(function() {
 
+})
 //Search
 $(document).ready(function() {
     //display like
