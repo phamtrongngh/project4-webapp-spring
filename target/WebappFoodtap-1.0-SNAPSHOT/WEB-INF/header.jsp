@@ -123,36 +123,25 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fas fa-users fa-menu"></i><span class="badge count-cart">3</span><span class="caret"></span></a></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fas fa-users fa-menu"></i><span class="badge count-cart">${friendRequests.size()}</span><span class="caret"></span></a></a>
                         <div class="dropdown-menu dropdown-messenger">
                             <div class="messenger">
                                 <h5>Lời mời kết bạn</h5>
                             </div>
-                            <div class="messenger h-100">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div style="width: 350px;">
-                                    <div class="messenger-name">Truong</div>
-
+                            <c:forEach var="item" items="${friendRequests}">
+                                <div class="messenger h-100">
+                                    <img src="http://localhost:9032/public/image/${item.avatar}" class="messenger-avatar" alt=""/>
+                                    <div style="width: 350px;">
+                                        <div class="messenger-name">${item.fullname}</div>
+                                    </div>
+                                    <div  style="display: flex;">
+                                        <button class="btn accept-friend" idValue="${item._id}" style="margin-right: 10px;height: 35px;">Chấp nhận</button>
+                                        <button class="btn cancel-friend" idValue="${item._id}" style="margin-right: 10px;height: 35px;">Từ chối</button>
+                                    </div>
                                 </div>
-                                <div  style="display: flex;">
-                                    <button class="btn" style="margin-right: 10px;height: 35px;">Xác nhận</button>
-                                    <button class="btn" style="margin-right: 10px;height: 35px;">Xóa</button>
-                                </div>
-                            </div>
-                            <div class="messenger h-100">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div style="width: 350px;">
-                                    <div class="messenger-name">Truong</div>
-
-                                </div>
-                                <div  style="display: flex;">
-                                    <button class="btn" style="margin-right: 10px;height: 35px;">Xác nhận</button>
-                                    <button class="btn" style="margin-right: 10px;height: 35px;">Xóa</button>
-                                </div>
-                            </div>
+                            </c:forEach>
                             <div class="text-center">
-                                <span><a  href="/message/">Xem tất cả</a></span>
-
+                                <span><a  href="/sametaste">Xem tất cả</a></span>
                             </div>
                         </div>
                     </li>

@@ -812,6 +812,26 @@ $(document).ready(function() {
         })
 
     })
+    //Send request friend
+    $(".send-request-friend").click(function() {
+        var idUser = $(this).attr("idValue");
+        callAjax("/requestFriend/" + idUser, "POST", null, function() {
+
+        })
+    })
+
+    $(".accept-friend").click(function() {
+        var idUser = $(this).attr("idValue");
+        callAjax("/acceptFriend/" + idUser, "POST", null, function() {
+
+        })
+    })
+    $(".cancel-friend").click(function() {
+        var idUser = $(this).attr("idValue");
+        callAjax("/cancelFriend/" + idUser, "POST", null, function() {
+
+        })
+    })
 
     //Get product to modalbox to update
     $(".shop-item-button").click(function() {

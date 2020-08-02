@@ -161,7 +161,7 @@
             var map = new goongjs.Map({
                 container: 'map', // container id
                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
-                center: [105, 21], // starting position [lng, lat]
+                center: [106.695833, 10.776111], // starting position [lng, lat]
                 zoom: 9 // starting zoom
             });
 

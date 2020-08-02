@@ -15,181 +15,49 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="profile-menu-hot row">
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
+                <c:forEach var="item" items="${users}">
+                    <div class="col-md-3  ">
+                        <div class="hovereffect">
+                            <a href="/user-profile/${item._id}" >
+                                <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
 
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                            </a>
+                            <div class="absohovereffect">
+                                <a href=""><span ><h2 style="display: inherit; color: white;">${item.fullname}</h2> </span></a>
+                                <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            
-            </div>
-            <div class="d-flex justify-content-between" style="width: 98.5%">
-                <div class="profile-text-near">
-                    Gần tôi
-                </div>
-                <div class="d-flex " style="width: 20%">
-                    <input type="text" class="search-food rounded " placeholder="Tìm người gần bạn" >
-                    <div class="input-group-prepend">
-                        <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="profile-menu-near row">
-            <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3  ">
-                    <div class="hovereffect">
-                        <a href="/user-profile" >
-                            <img class="img-responsive" src="/public/image/avatar/Hot-Food-Logo-991x991.jpg" alt="" />
-
-                        </a>
-                        <div class="absohovereffect">
-                            <a href=""><span ><h2 style="display: inherit; color: white;">Anh Khoa</h2> </span></a>
-                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
 
         </div>
-        <%@include file="footer.jsp" %>
+        <div class="d-flex justify-content-between" style="width: 98.5%">
+            <div class="profile-text-near">
+                Gần tôi
+            </div>
+            <div class="d-flex " style="width: 20%">
+                <input type="text" class="search-food rounded " placeholder="Tìm người gần bạn" >
+                <div class="input-group-prepend">
+                    <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="profile-menu-near row">
+            <c:forEach var="item" items="${users}">
+                <div class="col-md-3  ">
+                    <div class="hovereffect">
+                        <a href="/user-profile/${item._id}" >
+                            <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
+                        </a>
+                        <div class="absohovereffect">
+                            <a href=""><span ><h2 style="display: inherit; color: white;">${item.fullname}</h2> </span></a>
+                            <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+    <%@include file="footer.jsp" %>

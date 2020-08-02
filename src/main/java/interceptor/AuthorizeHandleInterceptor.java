@@ -6,12 +6,15 @@
 package interceptor;
 
 import Nghia.Util.CookieHelper;
+import Nghia.Util.RESTHelper;
+import Nghia.Util.RESTUserHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -24,14 +27,15 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public class AuthorizeHandleInterceptor implements HandlerInterceptor {
 
-
+    private RESTUserHelper restHelper;
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object o, Exception excptn) throws Exception {
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView mav) throws Exception {
-        
+        restHelper = new RESTUserHelper(User.class);
+        mav.addObject("friendRequests",restHelper.getFriendRequests());
     }
 
     @Override
