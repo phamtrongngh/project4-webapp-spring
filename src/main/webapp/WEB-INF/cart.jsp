@@ -22,6 +22,26 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
+        <div class="modal-content">
+            <input id="tempIdProduct" hidden/>
+            <input id="tempQuantityProduct" hidden/>
+            <div class="modal-header" style="padding: 0 15px;">
+                <h5 class="modal-title" id="exampleModalLongTitle">CHUYỂN CỬA HÀNG KHÁC</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <div class="content">Các món trong mỗi đơn hàng chỉ có thể đến từ một cửa hàng, bạn có muốn lưu đơn hiện tại và chuyển cửa hàng?</div>
+                <div style="margin-top: 25px;">
+                    <button type="button" class="btn" data-dismiss="modal" style="color: white;background-color: #da484a;">Chấp nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container contain" style="margin-top: 100px">
     <div class="row">
 
@@ -78,7 +98,7 @@
                 <div class="card shopping-cart">
                     <div class="card-header text-light" style="background-color: #fc7a7b;">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i> ${user.cart[0].product.restaurant.name}
-                        <a href="" class="btn btn-outline-light btn-sm pull-right">Tiếp tục mua hàng</a>
+                        <a href="/restaurant/${user.cart[0].product.restaurant._id}" class="btn btn-outline-light btn-sm pull-right">Tiếp tục mua hàng</a>
                         <div class="clearfix"></div>
                     </div>
                     <div class="card-body">
@@ -90,6 +110,7 @@
                                 <span class="cart-quantity cart-header cart-column">Số lượng</span>
                             </div>
                             <div class="cart-items">
+                                <input id="restaurantId" hidden value="${user.cart[0].product.restaurant._id}" />
                                 <c:forEach var="item" items="${user.cart}">
                                     <div class="cart-row">
                                         <input value="${item.product._id}" hidden name="product"/>
@@ -116,17 +137,15 @@
                             </div>
                             <div class="cart-total row" style="font-weight: 100;">
                                 <div class="cart-total-title">Phí vận chuyển: <span class="price-ship"></span>km</div>
-
                                 <div class="col"><span class="cart-ship-price">0</span>VNĐ</div>
-
                             </div>
                             <div class="cart-total row" >
                                 <div class="cart-total-title">Mã giảm giá:</div>
                                 <div class="col">
-                                    <input type="text" style="width: 100%"  />
+                                    <input type="text" name="discount" style="width: 100%"  />
                                 </div>
-
-
+                                <button class="btn use-coupon">Dùng</button>
+                                <i style="color:#2ca02c;display:none" class="fas fa-check"></i>
                             </div>
                             <div class="cart-total row" style="color: #ff0000;">
                                 <div class="cart-total-title">Phiếu giảm giá:</div>
@@ -246,7 +265,7 @@
         $(".input-address").val(e.result.description);
         getLocation($(".input-address").val(), "user");
     })
-    
+
     $("#mapModel .modal-footer button").click(function() {
         $("#mapModel").modal("hide");
     })
@@ -262,7 +281,7 @@
         var placeId;
         $("#loading-cart").addClass("loading-cart");
         $("#img-loadcart").addClass("img-loadcart");
-        $("html, body").css("pointer-events","none");
+        $("html, body").css("pointer-events", "none");
 
         fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
                 .then(function(response) {
@@ -276,8 +295,8 @@
                             })
                             .then(function(data) {
                                 $("#loading-cart").removeClass("loading-cart");
-                        $("html, body").css("pointer-events","auto");
-                        
+                                $("html, body").css("pointer-events", "auto");
+
                                 if (target == "user") {
                                     userLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
                                 }
@@ -289,17 +308,17 @@
                                     getDistance(userLocation, restaurantLocation).then(function(data) {
                                         distance = data.routes[0].legs[0].distance.text;
                                         $(".cart-total-title span").html(distance.split(" ")[0]);
-                                        if (distance.split(" ")[0]<=3) 
+                                        if (distance.split(" ")[0] <= 3)
                                         {
                                             $(".cart-ship-price").html("15,000");
                                         }
-                                        else if(distance.split(" ")[0]<=5){
+                                        else if (distance.split(" ")[0] <= 5) {
                                             $(".cart-ship-price").html("20,000");
                                         }
-                                        else{
-                                            var x =  distance.split(" ")[0];
-                                            var priceship = 20000 + 5000 * (x-5);
-                                            priceship=format2(priceship, "").replace(".000", "");
+                                        else {
+                                            var x = distance.split(" ")[0];
+                                            var priceship = 20000 + 5000 * (x - 5);
+                                            priceship = format2(priceship, "").replace(".000", "");
                                             $(".cart-ship-price").html(priceship);
                                         }
                                         updateCartTotal();
@@ -323,7 +342,7 @@
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
 </script>-->
-    
+
 </body>
 
 </html>

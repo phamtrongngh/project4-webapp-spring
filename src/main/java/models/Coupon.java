@@ -17,6 +17,7 @@ public class Coupon {
     private String name;
     private String description;
     private Double percent;
+    private Double max;
     private String type;
     private Date exp;
 

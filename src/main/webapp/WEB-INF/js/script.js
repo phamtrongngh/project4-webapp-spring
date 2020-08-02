@@ -118,21 +118,22 @@ function update() {
     var tien = $(".price-foodnumber").html().toString();
     var tien_saleoff = $(".saleoff-foodnumber").html().toString();
     tien = tien.replace(",", "");
-    
+
     if ($(".saleoff-food").css("display") != "none") {
-        
+
         tien_saleoff = tien_saleoff.replace(",", "");
-        var total_sale = q* tien_saleoff;
+        var total_sale = q * tien_saleoff;
         var h = format2(total_sale, '').replace(".000", "");
         $(".total-foodnumber").html(h);
     }
     else if ($(".saleoff-food").css("display") == "none") {
 
-    var total1 = q * tien;
-    var t = format2(total1, '').replace(".000", "");
+        var total1 = q * tien;
+        var t = format2(total1, '').replace(".000", "");
         console.log(t);
         $(".total-foodnumber").html(t);
-    };
+    }
+    ;
 
 }
 
@@ -741,14 +742,14 @@ $(document).ready(function() {
                 quantity: Number.parseFloat(quantityArray[i].value)
             }
         }
-
         var data = {
             address: $("input[name='address']").val(),
             note: $("textarea[name='note']").val(),
             payment: payment,
-            amount: Number.parseFloat($(".cart-total-price-data").val()),
+            amount: Number.parseFloat($(".cart-total-all").html()),
             user: $("input[name='user']").val(),
-            products: products
+            products: products,
+            fee: Number.parseFloat($(".cart-ship-price").html())
         }
         $.ajax({
             url: "/order/",
@@ -767,7 +768,7 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
-        
+
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $(".price-food").css("text-decoration-line", "none");
             $(".saleoff-food").css("display", "none");
@@ -775,9 +776,9 @@ $(document).ready(function() {
             $("#orderModal .title-food").html(data.name);
             $("#orderModal .content-food").html(content.html());
             data.price = (format2(data.price, '')).replace(".000", "");
-            
+
             $("#orderModal .price-foodnumber").html(data.price);
-            
+
             if (data.saleoff != null) {
                 data.saleoff = (format2(data.saleoff, '')).replace(".000", "");
                 $("#orderModal .saleoff-foodnumber").html(data.saleoff);
@@ -787,7 +788,7 @@ $(document).ready(function() {
             } else {
                 $("#orderModal .total-foodnumber").html(data.price);
             }
-            
+
             $("#orderModal .shop-item-button").attr("idValue", idProduct);
         })
 
@@ -898,7 +899,42 @@ $(document).ready(function() {
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
     })
+
 })
+
+//Check Coupon 
+$(".use-coupon").click(function() {
+    var data = {
+        code: $("input[name='discount']").val(),
+        amount: Number.parseFloat($(".cart-total-all").html()),
+        restaurant: $("#restaurantId").val()
+    }
+    $.ajax({
+        url: "/coupon/check",
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+        dataType: 'json',
+        data: JSON.stringify(data),
+        success: function(data) {
+            if (data == "not found coupon") {
+                $("#alertModalCart").modal("show");
+                $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
+                $("#alertModalCart .content").html("Mã giảm giá không tồn tại.");
+            } else if (data == "not found coupon restaurant") {
+                $("#alertModalCart").modal("show");
+                $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
+                $("#alertModalCart .content").html("Nhà hàng này không áp dụng mã giảm giá bạn nhập.");
+            }else if (data=="not found coupon user"){
+                $("#alertModalCart").modal("show");
+                $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
+                $("#alertModalCart .content").html("Ví của bạn không có mã giảm giá này.");
+            }else{
+                console.log(data);
+            }
+        }
+    })
+})
+
 //Search
 $(document).ready(function() {
     //display like
