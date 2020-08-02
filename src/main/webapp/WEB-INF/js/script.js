@@ -945,8 +945,10 @@ $(".use-coupon").click(function() {
                 if (data.discount) {
                     if (data.min) {
                         check_discount(data);
-                        $(".cart-quantity-input").change(function(){
+                        updateCartTotal()
+                        $(".cart-quantity-input").change(function() {
                             check_discount(data);
+                            updateCartTotal();
                         })
                     }
                 }
@@ -1088,7 +1090,7 @@ $(document).ready(function() {
             $("#closeAt").css("box-shadow", "none");
             $("#closeAt").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-closeAt").css("display", "none");
-            
+
         }
         else {
 
@@ -1098,15 +1100,15 @@ $(document).ready(function() {
             return false;
         }
         if (parseInt(closeAt) <= parseInt(openAt)) {
-                $("#closeAt").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-                $(".error-closeAt").css("display", "block");
-                $("#closeAt").focus();
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            $("#closeAt").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-closeAt").css("display", "block");
+            $("#closeAt").focus();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
 
     });
 
