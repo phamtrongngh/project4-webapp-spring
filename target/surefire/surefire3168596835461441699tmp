@@ -1,0 +1,7 @@
+#surefire
+#Sun Aug 02 04:22:50 ICT 2020
+maven.ext.class.path=C\:\\Program Files\\NetBeans 7.4\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=C\:\\Users\\ASUS\\Desktop\\WebappFoodtapSpring\\WebappFoodtap
+localRepository=C\:\\Users\\ASUS\\.m2\\repository
+netbeans.deploy=true
+basedir=C\:\\Users\\ASUS\\Desktop\\WebappFoodtapSpring\\WebappFoodtap

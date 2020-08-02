@@ -451,7 +451,7 @@
                     </a>
                 </div>
                 <div id="left-menu" style="margin-top: 20px">
-                    <a href="#"><img class="rounded img-order" src="/public/image/Background/sale-tag-icon-flat-cartoon-discount-label-vector-23608810.jpg" alt="" />
+                    <a href="/coupon"><img class="rounded img-order" src="/public/image/Background/sale-tag-icon-flat-cartoon-discount-label-vector-23608810.jpg" alt="" />
 
                         <div class="rounded photo ">
                             <div>
