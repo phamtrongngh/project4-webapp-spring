@@ -530,13 +530,14 @@
                                     <label class="col-md-3">Tên cửa hàng</label>
 
                                     <div class="col-md-9 input-group-prepend">
-                                        <input name="name" type="text" value="${restaurant.name}" class="form-control"  >
+                                        <input name="name" type="text" readonly="true" value="${restaurant.name}" class="form-control"  >
+
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3">Địa chỉ</label>
                                     <div class="col-md-9 input-group-prepend">
-                                        <input name="address" type="text" value="${restaurant.address}" class="form-control input-address" >
+                                        <input name="address" type="text" readonly="true" value="${restaurant.address}" class="form-control input-address" >
                                         <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
                                     </div>
                                 </div>
@@ -544,21 +545,62 @@
                                     <label class="col-md-3">Thông tin mô tả</label>
 
                                     <div class="col-md-9 input-group-prepend">
-                                        <textarea  type="text" name="description" class="form-control">${restaurant.description}</textarea>
+                                        <textarea  type="text" name="description" id="textupdateinfo" class="form-control">${restaurant.description}</textarea>
+
                                     </div>
+                                    <span class="col-md-3"></span>
+                                    <span class="col-md-9 error error-textupdateinfo" color="red">Thông tin mô tả phải ít nhất 20 ký tự</span>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3"> Mở cửa</label>
                                     <div class="col-md-9 input-group-prepend">
-                                        <input  type="text" name="openAt" class="form-control"  >
+                                        <select  type="text" id="openAt" name="openAt" class="form-control"  >
+                                            <option value="">----Chọn thời gian mở cửa----</option>
+                                            <option value="7">7:00</option>
+                                            <option value="8">8:00</option>
+                                            <option value="9">9:00</option>
+                                            <option value="10">10:00</option>
+                                            <option value="11">11:00</option>
+                                            <option value="12">12:00</option>
+                                            <option value="13">13:00</option>
+                                            <option value="14">14:00</option>
+                                            <option value="15">15:00</option>
+                                            <option value="16">16:00</option>
+                                            <option value="17">17:00</option>
+                                            <option value="18">18:00</option>
+                                            <option value="19">19:00</option>
+                                            <option value="20">20:00</option>
+                                        </select>
+
                                     </div>
+                                    <span class="col-md-3"></span>
+                                    <span class=" col-md-9 error error-openAt" color="red">Giờ mở cửa chưa được chọn</span>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3"> Đóng cửa</label>
 
                                     <div class="col-md-9 input-group-prepend">
-                                        <input  type="text" name="closeAt" class="form-control"  >
+                                        <select id="closeAt" type="text" name="closeAt" class="form-control">
+                                            <option value="" >----Chọn thời gian đóng cửa----</option>
+                                         
+                                            <option value="8">8:00</option>
+                                            <option value="9">9:00</option>
+                                            <option value="10">10:00</option>
+                                            <option value="11">11:00</option>
+                                            <option value="12">12:00</option>
+                                            <option value="13">13:00</option>
+                                            <option value="14">14:00</option>
+                                            <option value="15">15:00</option>
+                                            <option value="16">16:00</option>
+                                            <option value="17">17:00</option>
+                                            <option value="18">18:00</option>
+                                            <option value="19">19:00</option>
+                                            <option value="20">20:00</option>
+                                        </select>
+                                       
                                     </div>
+                                    <span class="col-md-3"></span>
+                                    <span class=" col-md-9 error error-closeAt" color="red">Giờ đóng phải sau giờ mở cửa</span>
                                 </div>
                             </div>
                         </div>
@@ -598,7 +640,7 @@
                         </c:choose>
                     </div>
                     <div style="width: 100%;padding-left: 50%">
-                        <button class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button>
+                        <button class="col-6 btn btn-primary btn-sm float-right" id="btn-updateinfostore">Thay đổi</button>
                     </div>
 
                 </div>
