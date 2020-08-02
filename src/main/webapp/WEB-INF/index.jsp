@@ -3,6 +3,172 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <!--Modal like and share-->
+
+<div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
+        <div class="modal-content">
+            <div class="modal-body">
+                <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
+                    <li role="presentation" class="nav-item" style="width:50%">
+                        <a href="#steplike" class="nav-link active" data-toggle="tab" aria-controls="steplike" role="tab" title="Like"><i class="fas fa-heart"></i> Lượt thích: <span>500</span></a>
+                    </li>
+                    <li role="presentation" class="nav-item" style="width:50%">
+                        <a href="#stepshare" class="nav-link" data-toggle="tab" aria-controls="stepshare" role="tab" title="Share"><i class="fas fa-share-alt"></i> Lượt chia sẻ: <span>600</span></a>
+                    </li>
+                </ul>
+                <div class="tab-content py-2 "  style="height: 400px;overflow-y: auto;overflow-x: hidden;padding-right: 10px;">
+                    <div class="tab-pane active" role="tabpanel" id="steplike">
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fab fa-facebook-messenger"></i> Nhắn tin</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="stepshare">
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fab fa-facebook-messenger"></i> Nhắn tin</button>
+                            </div>
+                        </div>
+                        <div class="row row-like">
+                            <div class="col-md-2">
+                                <img src="/public/image/avatar/momo.png" class="rounded-circle img-like" />
+                            </div>
+                            <div class="col-md-4">
+                                <span>Trường</span>
+                            </div>
+                            <div class="ml-auto p-2 bd-highlight">
+                                <button class="btn"><i class="fas fa-user-plus"></i> Thêm bạn bè</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Modal error -->
 
 <div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
