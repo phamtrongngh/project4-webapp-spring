@@ -113,21 +113,18 @@ function format2(n, currency) {
 }
 //    cart index
 function update() {
-
     var q = ($(".input-qty").val());
     var tien = $(".price-foodnumber").html().toString();
     var tien_saleoff = $(".saleoff-foodnumber").html().toString();
     tien = tien.replace(",", "");
 
     if ($(".saleoff-food").css("display") != "none") {
-
         tien_saleoff = tien_saleoff.replace(",", "");
         var total_sale = q * tien_saleoff;
         var h = format2(total_sale, '').replace(".000", "");
         $(".total-foodnumber").html(h);
     }
     else if ($(".saleoff-food").css("display") == "none") {
-
         var total1 = q * tien;
         var t = format2(total1, '').replace(".000", "");
         console.log(t);
@@ -188,9 +185,8 @@ $(document).ready(function() {
 
             $("#fullname-register").addClass("error-user");
             $("#fullname-register").removeClass("success-user");
-            $("#fullname-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
+
+            $("#fullname-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
             $(".error-user-mess").css("display", "block");
             $("#fullname-register").focus();
             return false;
@@ -207,18 +203,19 @@ $(document).ready(function() {
         updateinfo();
         if (!(/^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/).test(phone)) {
             $("#phone-register").addClass("error-user");
-            $("#phone-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
+            $("#phone-register").removeClass("success-user");
+
+            $("#phone-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+
             $(".error-phone").css("display", "block");
+            $("#phone-register").focus();
             return false;
         }
         else {
+            $("#phone-register").removeClass("error-user");
             $("#phone-register").addClass("success-user");
             $("#phone-register").css("box-shadow", "none");
-            $("#phone-register").focus(function() {
-                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-            });
+            $("#phone-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-phone").css("display", "none");
         }
     });
@@ -226,18 +223,19 @@ $(document).ready(function() {
         updateinfo();
         if (!(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/).test(password)) {
             $("#password-register").addClass("error-user");
-            $("#password-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
+            $("#password-register").removeClass("success-user");
+            $("#password-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
             $(".error-password").css("display", "block");
+            $("#password-register").focus();
             return false;
         }
         else {
+            $("#password-register").removeClass("error-user");
             $("#password-register").addClass("success-user");
             $("#password-register").css("box-shadow", "none");
-            $("#password-register").focus(function() {
-                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-            });
+
+            $("#password-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+
             $(".error-password").css("display", "none");
         }
     });
@@ -245,18 +243,20 @@ $(document).ready(function() {
         updateinfo();
         if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
             $("#address-register").addClass("error-user");
-            $("#address-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
+            $("#address-register").removeClass("success-user");
+            $("#address-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+
             $(".error-address").css("display", "block");
+            $("#address-register").focus();
             return false;
         }
         else {
+            $("#address-register").removeClass("error-user");
             $("#address-register").addClass("success-user");
             $("#address-register").css("box-shadow", "none");
-            $("#address-register").focus(function() {
-                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-            });
+
+            $("#address-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+
             $(".error-address").css("display", "none");
         }
     });
@@ -277,58 +277,60 @@ $(document).ready(function() {
             $("#fullname-register").removeClass("error-user");
             $("#fullname-register").addClass("success-user");
             $("#fullname-register").css("box-shadow", "none");
-            $("#fullname-register").focus(function() {
-                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-            });
+            $("#fullname-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-user-mess").css("display", "none");
         }
 
         if (!(/^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/).test(phone)) {
             $("#phone-register").addClass("error-user");
-            $("#phone-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
+            $("#phone-register").removeClass("success-user");
+
+            $("#phone-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+
             $(".error-phone").css("display", "block");
+            $("#phone-register").focus();
             return false;
         }
         else {
+            $("#phone-register").removeClass("error-user");
             $("#phone-register").addClass("success-user");
             $("#phone-register").css("box-shadow", "none");
-            $("#phone-register").focus(function() {
-                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-            });
+            $("#phone-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-phone").css("display", "none");
         }
         if (!(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/).test(password)) {
             $("#password-register").addClass("error-user");
-            $("#password-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
+            $("#password-register").removeClass("success-user");
+            $("#password-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
             $(".error-password").css("display", "block");
+            $("#password-register").focus();
             return false;
         }
         else {
+            $("#password-register").removeClass("error-user");
             $("#password-register").addClass("success-user");
             $("#password-register").css("box-shadow", "none");
-            $("#password-register").focus(function() {
-                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-            });
+
+            $("#password-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+
             $(".error-password").css("display", "none");
         }
-        if (!!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
+        if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
             $("#address-register").addClass("error-user");
-            $("#address-register").focus(function() {
-                $(this).css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-            });
+            $("#address-register").removeClass("success-user");
+            $("#address-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+
             $(".error-address").css("display", "block");
+            $("#address-register").focus();
             return false;
         }
         else {
+            $("#address-register").removeClass("error-user");
             $("#address-register").addClass("success-user");
             $("#address-register").css("box-shadow", "none");
-            $("#address-register").focus(function() {
-                $(this).css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-            });
+
+            $("#address-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+
             $(".error-address").css("display", "none");
         }
     });
@@ -749,7 +751,9 @@ $(document).ready(function() {
             amount: Number.parseFloat($(".cart-total-all").html()),
             user: $("input[name='user']").val(),
             products: products,
-            fee: Number.parseFloat($(".cart-ship-price").html())
+            fee: Number.parseFloat($(".cart-ship-price").html()),
+            discount: Number.parseFloat($(".cart-discount").html()),
+            coupon: $("input[name='coupon']").val()
         }
         $.ajax({
             url: "/order/",
@@ -905,10 +909,12 @@ function check_discount(data) {
     if (data.min) {
         if (data.min <= $(".cart-total-price").html().replace(",", "")) {
             $(".cart-discount").html(format2(data.discount, '').replace(".000", ""));
+            $("input[name='coupon']").val(data._id);
         } else {
             $("#alertModalCart").modal("show");
             $("#alertModalCart .modal-title").html("Thông báo");
             $("#alertModalCart .content").html("Đơn hàng không đủ điều kiện...");
+            $("input[name='coupon']").val(null);
             $(".cart-discount").html(0);
         }
     }
@@ -931,34 +937,39 @@ $(".use-coupon").click(function() {
                 $("#alertModalCart").modal("show");
                 $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
                 $("#alertModalCart .content").html("Mã giảm giá không tồn tại.");
+                $("input[name='coupon']").val(null);
+                $(".cart-discount").html(0);
+                updateCartTotal()
             } else if (data == "not found coupon restaurant") {
                 $("#alertModalCart").modal("show");
                 $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
                 $("#alertModalCart .content").html("Nhà hàng này không áp dụng mã giảm giá bạn nhập.");
+                $("input[name='coupon']").val(null);
+                $(".cart-discount").html(0);
+                updateCartTotal()
             } else if (data == "not found coupon user") {
                 $("#alertModalCart").modal("show");
                 $("#alertModalCart .modal-title").html("MÃ GIẢM GIÁ");
                 $("#alertModalCart .content").html("Ví của bạn không có mã giảm giá này.");
+                $("input[name='coupon']").val(null);
+                $(".cart-discount").html(0);
+                updateCartTotal()
             } else {
-                if (data.discount) {
-                    if (data.min) {
-                        check_discount(data);
-                        $(".cart-quantity-input").change(function(){
-                            check_discount(data);
-                        })
-                    }
-                }
-                if (data.percent) {
+                check_discount(data);
+                updateCartTotal()
+                $(".cart-quantity-input").change(function() {
+                    check_discount(data);
+                    updateCartTotal();
+                })
+            }
 
-                }
+            if (data.percent) {
+
             }
         }
     })
 })
-//show all restaurant which apply coupon
-$("#coupon-details").click(function() {
 
-})
 //Search
 $(document).ready(function() {
     //display like
@@ -1023,6 +1034,7 @@ function ChangButtonFollow() {
 }
 $(document).ready(function() {
     document.getElementById("btn-friends").addEventListener("click", ChangButtonFriends);
+
 });
 function ChangButtonFriends() {
     var x = document.getElementById("btn-friends");
@@ -1032,9 +1044,7 @@ function ChangButtonFriends() {
         x.innerHTML = '<i class="fas fa-user-plus"></i>Kết bạn';
     }
 }
-$(document).ready(function() {
-    document.getElementById("btn-like").addEventListener("click", ChangButtonLike);
-});
+
 function ChangButtonLike() {
     var x = document.getElementById("btn-like");
     if (x.innerHTML === '<i class="far fa-thumbs-up"></i>Thích') {
@@ -1043,3 +1053,70 @@ function ChangButtonLike() {
         x.innerHTML = '<i class="far fa-thumbs-up"></i>Thích';
     }
 }
+$(document).ready(function() {
+    document.getElementById("btn-like").addEventListener("click", ChangButtonLike);
+
+});
+$(document).ready(function() {
+
+
+
+    $("#btn-updateinfostore").on("click", function() {
+        var openAt = $("#openAt :selected").val();
+        var closeAt = $("#closeAt :selected").val();
+        var textupdateinfo = $("#textupdateinfo").val();
+        if (/^([^\s])[a-zA-Z0-9_\s]{20,}$/.test(change_alias(textupdateinfo))) {
+            $("#textupdateinfo").removeClass("error-user");
+            $("#textupdateinfo").addClass("success-user");
+            $("#textupdateinfo").css("box-shadow", "none");
+            $("#textupdateinfo").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-textupdateinfo").css("display", "none");
+        }
+        else {
+
+            $("#textupdateinfo").addClass("error-user");
+            $("#textupdateinfo").removeClass("success-user");
+            $("#textupdateinfo").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-textupdateinfo").css("display", "block");
+            $("#textupdateinfo").focus();
+            return false;
+        }
+        if (openAt != "") {
+            $("#openAt").css("box-shadow", "none");
+            $("#openAt").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-openAt").css("display", "none");
+        }
+        else {
+
+            $("#openAt").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-openAt").css("display", "block");
+            $("#openAt").focus();
+            return false;
+        }
+        if (closeAt != "") {
+            $("#closeAt").css("box-shadow", "none");
+            $("#closeAt").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-closeAt").css("display", "none");
+
+        }
+        else {
+
+            $("#closeAt").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-closeAt").css("display", "block");
+            $("#closeAt").focus();
+            return false;
+        }
+        if (parseInt(closeAt) <= parseInt(openAt)) {
+            $("#closeAt").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-closeAt").css("display", "block");
+            $("#closeAt").focus();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    });
+
+});

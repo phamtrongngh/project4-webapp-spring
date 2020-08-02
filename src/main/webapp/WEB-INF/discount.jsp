@@ -161,7 +161,6 @@
                         </div>
                         <div style="text-align: end;">3/4</div>
                     </div>
-
                 </div>
             </div>
         </div>

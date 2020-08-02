@@ -24,6 +24,8 @@ public class Restaurant {
     private String avatar;
     private String description;
     private List<User> followers;
+    private String openAt;
+    private String closeAt;
     private Date createdAt;
     private Date updatedAt;
     private int __v;
@@ -46,6 +48,22 @@ public class Restaurant {
 
     public String getName() {
         return name;
+    }
+
+    public String getOpenAt() {
+        return openAt;
+    }
+
+    public void setOpenAt(String openAt) {
+        this.openAt = openAt;
+    }
+
+    public String getCloseAt() {
+        return closeAt;
+    }
+
+    public void setCloseAt(String closeAt) {
+        this.closeAt = closeAt;
     }
 
     public void setName(String name) {
