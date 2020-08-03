@@ -1606,8 +1606,9 @@ label.star:before {
 .profile-list-img{
     background-color: white;
     width: 100%;
-    height: 180px;
+    height: 222px;
     margin-top: 10px;
+    padding-left: 20px;
 }
 
 .profile-list-friend{
@@ -2951,3 +2952,6 @@ explorestore .profile-menu-hot .col-md-4 {
     padding-left: 0px;
 }
 
+.btn-createstore{
+    color: white !important;
+}
