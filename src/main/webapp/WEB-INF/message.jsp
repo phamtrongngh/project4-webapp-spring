@@ -5,7 +5,7 @@
 <jsp:useBean id="idUser" type="java.lang.String" />
 
 
-<div class="container-fluid h-100 " style="margin-top: 30px">
+<div class="container-fluid h-100 " style="margin-top: -20px">
     
 
     <div class="row justify-content-center h-100">
@@ -43,11 +43,11 @@
                 <div class="card-header msg-head">
                     <div class="d-flex bd-highlight">
                         <div class="img-cont">
-                            <img src="/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle user-img" />
+                            <img  class="rounded-circle user-img" />
                             <span class="online-icon"></span>
                         </div>
                         <div class="user-info">
-                            <span>Chat with Lisa</span>
+                            <span></span>
                         </div>
                     </div>
                     <div class="dropleft action-menu-btn">

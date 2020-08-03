@@ -4,11 +4,11 @@
 <div class="container explorestore" style="margin-top: 100px">
     <div class="row">
         <div class="col-10 col-sm-10 col-md-11">
-            <div class="d-flex justify-content-between" style="width: 101.5%">
+            <div class="d-flex justify-content-between" style="width: 102%">
                 <div class="profile-text-hot">
                     Hot nhất
                 </div>
-                <div class="d-flex " style="width: 20%">
+                <div class="d-flex " style="width: 26%">
                     <input type="text" class="search-food rounded " placeholder="Tìm món ăn đang hot" >
                     <div class="input-group-prepend">
                         <button class="input-group-text btn-search-hot" ><i class="fas fa-search"></i></button>
@@ -49,11 +49,11 @@
                     <div class="text-price">108.000</div>
                 </div>
             </div>
-            <div class="d-flex justify-content-between" style="width: 101.5%">
+            <div class="d-flex justify-content-between" style="width: 102%">
                 <div class="profile-text-near">
                     Gần tôi
                 </div>
-                <div class="d-flex" style="width: 20%">
+                <div class="d-flex" style="width: 26%">
                     <input type="text" class="search-food rounded " placeholder="Tìm món ăn gần bạn" >
                     <div class="input-group-prepend">
                         <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
@@ -96,4 +96,16 @@
             </div>
 
         </div>
-        <%@include file="footer.jsp" %>
+    </div>
+    <!--Bootstrap-->
+    <script src="/public/js/bootstrap/jquery-3.5.1.slim.min.js "></script>
+    <script src="/public/js/jquery/jquery.min.js "></script>
+    <script src="/public/js/bootstrap/popper.min.js "></script>
+    <script src="/public/js/bootstrap/bootstrap.min.js "></script>
+    <script src="/public/js/swiper.min.js "></script>
+    <script src="/public/js/jquery-ui.js"></script>
+    <script src="http://localhost:9032/socket.io/socket.io.js"></script>
+    <script src="/public/js/script.js "></script>
+
+</body>
+</html>

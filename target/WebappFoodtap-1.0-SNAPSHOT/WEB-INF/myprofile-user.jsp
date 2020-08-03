@@ -2,6 +2,68 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--Modal Friend-->
+<div class="modal" id="see-friends" >
+    <div class="modal-dialog" style="max-width:40%!important;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bạn bè</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-md-center justify-content-between">
+                    <div class="coupon-container d-flex align-items-md-center">
+                        <img src="/public/image/avatar/momo.png" class="img-coupon" />
+                        <p>Huy Trần</p>
+                    </div>
+                    <button  class="btn btn-success float-right ">Hủy kết bạn</button>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal Album-->
+<div class="modal" id="see-img" >
+    <div class="modal-dialog" style="max-width:60%!important;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Ảnh</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class=" align-items-md-center justify-content-between">
+                    <div class="coupon-container d-flex">
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                     <img src="/public/image/avatar/momo.png" class="img-user" />
+                       <img src="/public/image/avatar/momo.png" class="img-user" />
+                         <img src="/public/image/avatar/momo.png" class="img-user" />
+                    </div>
+                     <div class="coupon-container d-flex">
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                     <img src="/public/image/avatar/momo.png" class="img-user" />
+                       <img src="/public/image/avatar/momo.png" class="img-user" />
+                         <img src="/public/image/avatar/momo.png" class="img-user" />
+                    </div>
+                   
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Modal coupon-->
 <div class="modal" id="couponModal-users" >
     <div class="modal-dialog" style="max-width:40%!important;">
@@ -633,7 +695,7 @@
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                                                             </div>
                                                                         </div>
-                                                                        <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
+                                                                        <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-img">Xem tất cả</a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="profile-list-friend rounded" >
@@ -667,7 +729,7 @@
                                                                                 <a href="#">Nguyễn Hạ</a>
                                                                             </div>
                                                                         </div>
-                                                                        <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
+                                                                        <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -683,7 +745,7 @@
                                                                                 <div class="upload-img-status" >
                                                                                     <div class="gallery text-center">
                                                                                         <a id="chossefile">
-                                                                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
+                                                                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute">
                                                                                                 <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;cursor: pointer">+</span>
                                                                                             </div>
                                                                                         </a>
