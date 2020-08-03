@@ -21,7 +21,6 @@ Nghia\Util\RESTUserHelper.class
 Nghia\Util\RESTMessageHelper$1.class
 controllers\CouponController.class
 controllers\ProductController.class
-.netbeans_automatic_build
 models\Order.class
 models\Newfeed.class
 Nghia\Util\RESTAuthorizeHelper$1.class

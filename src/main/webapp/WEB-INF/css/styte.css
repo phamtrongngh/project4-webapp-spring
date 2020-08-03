@@ -1262,6 +1262,9 @@ label.star:before {
 .chat{
     margin-left: 10px !important;
 }
+#chatbox{
+    height: 600px;
+}
 .chat.search {
     border-radius: 15px 0 0 15px !important;
     background-color: rgba(0, 0, 0, 0.3) !important;
@@ -2633,8 +2636,9 @@ explorestore .profile-menu-hot .col-md-4 {
 
 
 .image-frame-upload{
-    background-size: cover;
-    background-repeat: no-repeat;
+   background-position: center; 
+   background-repeat: no-repeat;
+   background-size: 100% 100%
 }
 /*13) STORE-PROFILE*/
 .store-profile .store-menu{
@@ -2644,9 +2648,7 @@ explorestore .profile-menu-hot .col-md-4 {
     width: 100%;
     height: 155px;
 }
-.store-profile .upload-img-status {
-    margin-left: 10px;
-}
+
 .store-profile .img-order{
     width: 160px;
 }

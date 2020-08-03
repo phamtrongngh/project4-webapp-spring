@@ -477,10 +477,6 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
 
 
-    $(".btn-up").click(function() {
-        $('.box').slideToggle();
-    });
-
     $('.box').find('div#sidebar-user-box:gt(3)').hide();
     $('.viewMore, .viewLess').click(function(e) {
         e.preventDefault();
@@ -807,7 +803,8 @@ $(document).ready(function() {
             $("#updateMenu input[name='saleoff']").val(data.saleoff);
             $("#updateMenu input[name='id']").val(idProduct);
             $("#updateMenu .image-frame-upload").css("background", "url(http://localhost:9032/public/image/" + data.image + ")");
-            $("#updateMenu .image-frame-upload").css("background-size", "cover");
+            $("#updateMenu .image-frame-upload").css("background-size", "100% 100%");
+              $("#updateMenu .image-frame-upload").css("background-position", "center");
             $("#updateMenu .image-frame-upload").css("background-repeat", "no-repeat");
         })
 
