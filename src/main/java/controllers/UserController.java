@@ -42,6 +42,11 @@ public class UserController {
         restOrder = new RESTOrderHelper(Order.class);
     }
 
+        @RequestMapping(value = "/search-page")
+    public ModelAndView searchpage() throws IOException {
+
+        return new ModelAndView("search-page");
+    }
     @RequestMapping(value = "/user-info")
     public ModelAndView userinfo() throws IOException {
         Map<String, ?> user = restUser.getMyUser();

@@ -318,8 +318,10 @@
                                     <div class="upload-img-status" >
                                         <div class="gallery text-center">
                                             <a id="chossefile">
+
                                                 <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
                                                     <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
+
                                                 </div>
                                             </a>
                                             <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
@@ -336,12 +338,12 @@
                                                                                                                         <input type="file"  id="upload-photo"/>
                                                                                                                     </div>-->
                                     <div class="col-md-6">
-                                        <button class="btn btn-success" type="button" style="margin-bottom: -5px;" data-toggle="modal" data-target="#mapModel-store
+                                        <button class="btn btn-success" type="button"  data-toggle="modal" data-target="#mapModel-store
                                                 "><i class="fas fa-map-marker-alt"></i> Địa điểm</button>
 
                                     </div>
                                     <div class="col-md-6">
-                                        <button style="padding: .754em 0;" type="button" class="btn btn-success" data-target="#postModel-store" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
+                                        <button style="padding: 6px;" type="button" class="btn btn-success" data-target="#postModel-store" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
                                     </div>
                                 </div>
                                 <div class="row">
