@@ -226,7 +226,6 @@
                     <div class="d-flex">
                         <div class="profile-container-img">
                             <img src="http://localhost:9032/public/image/${restaurant.avatar}" class="rounded-circle img-avartar" alt="" />
-
                         </div>
                         <div class="profile-name">
                             <div class="text-name">${restaurant.name}</div>
@@ -283,7 +282,6 @@
                                 <div>
                                     Khám phá<br/> món ngon
                                 </div>
-
                             </div>
                         </a>
                     </div>

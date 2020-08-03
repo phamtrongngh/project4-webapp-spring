@@ -38,9 +38,9 @@
     </head>
 
     <body>
-        <audio id="myAudio">
+<!--        <audio id="myAudio">
             <source src="/public/fontawesome-free-5.13/ping-bing_E_major.wav" type="audio/mpeg">
-        </audio>    
+        </audio>    -->
         <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
                 <div class="modal-content">

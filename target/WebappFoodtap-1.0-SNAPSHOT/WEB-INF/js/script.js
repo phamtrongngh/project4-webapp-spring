@@ -576,9 +576,7 @@ $(document).ready(function() {
                 '<div class="close">x</div> </div>' +
                 '<div class="msg_wrap"> <div class="msg_body"> <div class="msg_push"></div> </div>' +
                 '<div class="msg_footer"><textarea name="msg-input" class="msg_input" rows="10"></textarea><div class="btn-footer">\n\
-<button class="bg_none"><i class="fas fa-image"></i></button>\n\
-<button class="bg_none"><i class="fas fa-plus"></i></button>\n\
-<button class="bg_none pull-right"><i class="fas fa-thumbs-up"></i> </button> \n\
+<button class="bg_none pull-right"><i class="fa fa-paper-plane"></i> </button> \n\
 </div></div></div></div>';
         $("body").append(chatPopup);
         displayChatBox();
