@@ -95,6 +95,30 @@ public class UserController {
         return current;
     }
 
+    @RequestMapping(value = "/getFriendRequests", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String, ?>> getFriendRequests() throws IOException {
+        return restUser.getFriendRequests();
+    }
+
+    @RequestMapping(value = "/requestFriend/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public String sendFriendRequest(@PathVariable("id") String id) throws IOException {
+        return restUser.sendRequestFriend(id);
+    }
+
+    @RequestMapping(value = "/acceptFriend/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public String acceptFriendRequest(@PathVariable("id") String id) throws IOException {
+        return restUser.acceptRequestFriend(id);
+    }
+
+    @RequestMapping(value = "/cancelFriend/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public String cancelFriendRequest(@PathVariable("id") String id) throws IOException {
+        return restUser.cancelRequestFriend(id);
+    }
+
     @RequestMapping(value = "/switchCart", method = RequestMethod.POST)
     @ResponseBody
     public String switchCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
@@ -126,7 +150,7 @@ public class UserController {
         Map<String, ?> user = restUser.getCart();
         if (((List) user.get("cart")).size() == 0) {
             response.sendRedirect("/");
-            return null;
+            return new ModelAndView("index");
         }
         return new ModelAndView("cart").addObject("user", user);
     }
@@ -137,6 +161,11 @@ public class UserController {
         return new ModelAndView("detail-order").addObject("order", order);
     }
 
+    @RequestMapping(value = "/sametaste", method = RequestMethod.GET)
+    public ModelAndView sametaste() throws IOException {
+        return new ModelAndView("sametaste").addObject("users", restUser.getAll());
+    }
+
     @RequestMapping(value = "/status-order/{id}", method = RequestMethod.GET)
     public ModelAndView statusorder(@PathVariable("id") String id) throws IOException {
         Object order = restOrder.getOne(id);
@@ -144,7 +173,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/updateUser")
-    public void update(MultipartContainer multipartContainer, User user, HttpServletResponse response) throws IOException, ServletException {
+    public ModelAndView update(MultipartContainer multipartContainer, User user, HttpServletResponse response) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
@@ -167,5 +196,6 @@ public class UserController {
             file.delete();
         }
         response.sendRedirect("/login");
+        return new ModelAndView("login");
     }
 }

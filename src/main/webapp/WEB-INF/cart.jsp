@@ -183,16 +183,16 @@
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
 <script async defered>
-    goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
+    goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
     var map = new goongjs.Map({
         container: 'map', // container id
         style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
-        center: [105, 21], // starting position [lng, lat]
+        center: [106.695833, 10.776111], // starting position [lng, lat]
         zoom: 9 // starting zoom
     });
 
     var geocoder = new GoongGeocoder({
-        accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
+        accessToken: "YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE",
         goongjs: goongjs
     })
 
@@ -238,7 +238,7 @@
 
     marker.on('dragend', function() {
         var lngLat = marker.getLngLat();
-        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
                 .then(function(response) {
                     return response.json()
                 })
@@ -251,7 +251,7 @@
         var lng = e.coords.longitude;
         var lat = e.coords.latitude;
         marker._lngLat = {lat: lat, lng: lng}
-        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE', {mode: "cors"})
                 .then(function(response) {
                     return response.json()
                 })
@@ -284,13 +284,13 @@
         $("#img-loadcart").addClass("img-loadcart");
         $("html, body").css("pointer-events", "none");
 
-        fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
+        fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
                 .then(function(response) {
                     return response.json()
                 })
                 .then(function(data) {
                     placeId = data.predictions[0].place_id;
-                    fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc")
+                    fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE")
                             .then(function(response) {
                                 return response.json()
                             })
@@ -340,7 +340,7 @@
     }
     function getDistance(origin, dest) {
         return new Promise(function(resolve, reject) {
-            fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&alternatives=true&vehicle=bike')
+            fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&alternatives=true&vehicle=bike')
                     .then(function(response) {
                         return response.json()
                     })

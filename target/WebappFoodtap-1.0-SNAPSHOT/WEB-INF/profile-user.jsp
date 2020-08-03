@@ -239,7 +239,7 @@
                                     <input aria-label="quantity" class="input-qty" min="1" max="999" name="" type="number" value="1" />
 
                                 </p>
-                                
+
                                 <p class="price-food">Giá : <span class="price-foodnumber-through"></span> VNĐ</p>
                                 <p class="price-food">Giá khuyến mãi : <span class="price-foodnumber"></span> VNĐ</p>
                                 <p class="total-food">Thành tiền : <span class="total-foodnumber"></span> VNĐ</p>
@@ -386,20 +386,7 @@
                         <div class="profile-name">
                             <div class="text-name">${user.fullname}</div>
                             <div class="text-like">${(user.followers).size()} theo dõi</div>
-                            <!--                            <div class="stars">
-                                                            <form action="">
-                                                                <input class="star star-5" id="star-5" type="radio" name="star" />
-                                                                <label class="star star-5" for="star-5"></label>
-                                                                <input class="star star-4" id="star-4" type="radio" name="star" />
-                                                                <label class="star star-4" for="star-4"></label>
-                                                                <input class="star star-3" id="star-3" type="radio" name="star" />
-                                                                <label class="star star-3" for="star-3"></label>
-                                                                <input class="star star-2" id="star-2" type="radio" name="star" />
-                                                                <label class="star star-2" for="star-2"></label>
-                                                                <input class="star star-1" id="star-1" type="radio" name="star" />
-                                                                <label class="star star-1" for="star-1"></label>
-                                                            </form>
-                                                        </div>-->
+
                         </div>
                     </div>
                 </div>
@@ -413,7 +400,27 @@
                 </div>
                 <div class="col-md-2 profile-container-buttons">
                     <button id="btn-follow" class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Theo dõi</button>
-                    <button id="btn-friends" class="btn btn-success form-control"><i class="fas fa-user-plus"></i>Kết bạn</button>
+                    <c:set var="check" value="${true}" />
+                    <c:forEach var="item" items="${user.friends}">
+                        <c:if test="${(cookie['_id'].getValue()) == item.user}">
+                            <c:choose>
+                                <c:when test="${item.status=='accepted'}">
+                                    <button id="btn-friends" class="btn btn-success form-control send-request-friend" idValue="${user._id}"><i class="fas fa-users-slash"></i>Hủy bạn</button>
+                                </c:when>
+                                <c:when test="${item.status=='requested'}">
+                                    <button id="btn-friends" class="btn btn-success form-control send-request-friend" idValue="${user._id}"><i class="fas fa-users-slash"></i>Hủy yêu cầu</button>
+                                </c:when>
+                                <c:when test="${item.status=='pending'}">
+                                    <button id="btn-friends" class="btn btn-success form-control send-request-friend" idValue="${user._id}"><i class="fas fa-user-plus"></i>Chấp nhận</button>
+                                </c:when>
+                            </c:choose>
+                            <c:set var="check" value="${false}" />
+                        </c:if>
+                    </c:forEach>
+                    <c:if test="${check==true}">
+                        <button id="btn-friends" class="btn btn-success form-control send-request-friend" idValue="${user._id}"><i class="fas fa-user-plus"></i>Kết bạn</button>      
+                    </c:if>
+
                     <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
