@@ -222,7 +222,7 @@
                         <div class="gallery text-center">
                             <a id="chossefile">
                                 <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px; background-repeat: no-repeat;background-size: cover">
-                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;cursor: pointer">+</span>
+                                    <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;cursor: pointer">+</span>
                                 </div>
                             </a>
                             <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
@@ -520,7 +520,7 @@
                                 <div class="form-group form-control text-center" style="width: 50% !important; margin-left: 190px">
                                     <a id="chossefile" class="choosefile">
                                         <div class="image-frame-upload" style="background:url('http://localhost:9032/public/image/${restaurant.avatar}');border: 1px solid blue;width: 100%;height: 240px; background-size: cover; background-repeat: no-repeat">
-                                            <span style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
+                                            <span class="img-hidden" style="position: absolute;margin-top: 21px;color: #5b6dc8;font-size: 100px;opacity: 0.7;margin-left: -30px;cursor: pointer">+</span>
                                         </div>
                                     </a>
                                     <div class="desc ">Chọn đại diện cửa hàng <input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
