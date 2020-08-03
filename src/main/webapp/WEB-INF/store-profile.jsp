@@ -755,7 +755,7 @@
             </div>
         </div>
         <script async defered>
-            goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
+            goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
             var map = new goongjs.Map({
                 container: 'map', // container id
                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -764,7 +764,7 @@
             });
 
             var geocoder = new GoongGeocoder({
-                accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
+                accessToken: "YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE",
                 goongjs: goongjs
             })
 
@@ -811,7 +811,7 @@
             marker.on('dragend', function() {
 
                 var lngLat = marker.getLngLat();
-                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
+                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
                         .then(function(response) {
                             return response.json()
                         })
@@ -823,7 +823,7 @@
                 var lng = e.coords.longitude;
                 var lat = e.coords.latitude;
                 marker._lngLat = {lat: lat, lng: lng}
-                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
+                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE', {mode: "cors"})
                         .then(function(response) {
                             return response.json()
                         })
