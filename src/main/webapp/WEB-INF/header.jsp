@@ -38,6 +38,9 @@
     </head>
 
     <body>
+        <audio id="myAudio">
+            <source src="/public/fontawesome-free-5.13/ping-bing_E_major.wav" type="audio/mpeg">
+        </audio>    
         <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
                 <div class="modal-content">
@@ -69,7 +72,7 @@
             </c:choose>
 
         <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
-        <input id="idUser" value="${cookie["_id"].getValue()}"/>
+        <input id="idUser" value="${cookie["_id"].getValue()}" hidden/>
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">
             <!-- Brand -->
@@ -124,23 +127,32 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fas fa-users fa-menu"></i><span class="badge count-cart">${friendRequests.size()}</span><span class="caret"></span></a></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;">
+                            <i class="fas fa-users fa-menu"></i>
+                            <span class="numberFriendRequest">${friendRequests.size()}</span>
+                            <span class="badge count-cart"></span>
+                            <span class="caret"></span>
+                        </a>
                         <div class="dropdown-menu dropdown-messenger">
                             <div class="messenger">
                                 <h5>Lời mời kết bạn</h5>
                             </div>
-                            <c:forEach var="item" items="${friendRequests}">
-                                <div class="messenger h-100">
-                                    <img src="http://localhost:9032/public/image/${item.avatar}" class="messenger-avatar" alt=""/>
-                                    <div style="width: 350px;">
-                                        <div class="messenger-name">${item.fullname}</div>
-                                    </div>
-                                    <div  style="display: flex;">
-                                        <button class="btn accept-friend" idValue="${item._id}" style="margin-right: 10px;height: 35px;">Chấp nhận</button>
-                                        <button class="btn cancel-friend" idValue="${item._id}" style="margin-right: 10px;height: 35px;">Từ chối</button>
-                                    </div>
-                                </div>
-                            </c:forEach>
+                            <div class="listRequest">
+                                <c:forEach var="item" items="${friendRequests}">
+                                    <c:if test="${item.status=='requested'}">
+                                        <div class="messenger h-100">
+                                            <img src="http://localhost:9032/public/image/${item.user.avatar}" class="messenger-avatar" alt=""/>
+                                            <div style="width: 350px;">
+                                                <div class="messenger-name">${item.user.fullname}</div>
+                                            </div>
+                                            <div  style="display: flex;">
+                                                <button class="btn accept-friend" idValue="${item.user._id}" style="margin-right: 10px;height: 35px;">Chấp nhận</button>
+                                                <button class="btn cancel-friend" idValue="${item.user._id}" style="margin-right: 10px;height: 35px;">Từ chối</button>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                </c:forEach>
+                            </div>
                             <div class="text-center">
                                 <span><a  href="/sametaste">Xem tất cả</a></span>
                             </div>
