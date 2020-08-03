@@ -223,9 +223,9 @@ $(document).ready(function() {
             $(".error-password").css("display", "none");
         }
     });
-    $("#address-register").on("keyup", function() {
+    $("#address-register").on("change", function() {
         updateinfo();
-        if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
+        if (/^\s{0,}$/.test(change_alias(address))) {
             $("#address-register").addClass("error-user");
             $("#address-register").removeClass("success-user");
             $("#address-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
@@ -292,7 +292,7 @@ $(document).ready(function() {
             $("#password-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-password").css("display", "none");
         }
-        if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
+        if (/^\s{0,}$/.test(change_alias(address))) {
             $("#address-register").addClass("error-user");
             $("#address-register").removeClass("success-user");
             $("#address-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
@@ -632,10 +632,12 @@ $(document).ready(function() {
     $("#chossefile").click(function(e) {
         e.preventDefault();
         $(this).closest(".gallery").find(".img-store-register").trigger('click');
+
     });
     $(".choosefile").click(function(e) {
         e.preventDefault();
         $(this).closest(".gallery").find(".img-store-register").trigger('click');
+
     });
     $("#chossefile-giayphep").click(function(e) {
         e.preventDefault();
@@ -945,8 +947,8 @@ $(".use-coupon").click(function() {
 
             }
         }
-    })
-})
+    });
+});
 
 //Search
 $(document).ready(function() {
@@ -1029,18 +1031,17 @@ function ChangButtonLike() {
         x.innerHTML = '<i class="far fa-thumbs-up"></i>Thích';
     }
 }
+
 $(document).ready(function() {
     document.getElementById("btn-like").addEventListener("click", ChangButtonLike);
 });
 $(document).ready(function() {
 
-
-
     $("#btn-updateinfostore").on("click", function() {
         var openAt = $("#openAt :selected").val();
         var closeAt = $("#closeAt :selected").val();
         var textupdateinfo = $("#textupdateinfo").val();
-        if (/^([^\s])[a-zA-Z0-9_\s]{20,}$/.test(change_alias(textupdateinfo))) {
+        if (/^\s{0,}$/.test(change_alias(textupdateinfo))) {
             $("#textupdateinfo").removeClass("error-user");
             $("#textupdateinfo").addClass("success-user");
             $("#textupdateinfo").css("box-shadow", "none");
@@ -1092,4 +1093,11 @@ $(document).ready(function() {
         }
 
     });
+
+    $("input[name='multipartFile']").change(function (){
+        if ($("input[name='multipartFile']").val() != "") {
+        $(".img-hidden").css("display","none");
+    }
+    });
+    
 });
