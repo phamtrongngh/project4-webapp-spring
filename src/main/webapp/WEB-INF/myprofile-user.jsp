@@ -2,6 +2,68 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--Modal Friend-->
+<div class="modal" id="see-friends" >
+    <div class="modal-dialog" style="max-width:40%!important;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bạn bè</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-md-center justify-content-between">
+                    <div class="coupon-container d-flex align-items-md-center">
+                        <img src="/public/image/avatar/momo.png" class="img-coupon" />
+                        <p>Huy Trần</p>
+                    </div>
+                    <button  class="btn btn-success float-right ">Hủy kết bạn</button>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal Album-->
+<div class="modal" id="see-img" >
+    <div class="modal-dialog" style="max-width:60%!important;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Ảnh</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class=" align-items-md-center justify-content-between">
+                    <div class="coupon-container d-flex">
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                    </div>
+                    <div class="coupon-container d-flex">
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                    </div>
+
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Modal coupon-->
 <div class="modal" id="couponModal-users" >
     <div class="modal-dialog" style="max-width:40%!important;">
@@ -343,7 +405,7 @@
                                     <input aria-label="quantity" class="input-qty" min="1" max="999" name="" type="number" value="1" />
 
                                 </p>
-                                
+
                                 <p class="price-food">Giá : <span class="price-foodnumber-through"></span> VNĐ</p>
                                 <p class="price-food">Giá khuyến mãi : <span class="price-foodnumber"></span> VNĐ</p>
                                 <p class="total-food">Thành tiền : <span class="total-foodnumber"></span> VNĐ</p>
@@ -610,17 +672,21 @@
                                                                 <div class="profile-list-img rounded" >
                                                                     <div class="img-list">
                                                                         <h3><i class="fas fa-image"></i>Ảnh</h3>
-                                                                        <div class="img-contain d-flex ">
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
+                                                                        <div class="img-contain">
+                                                                            <div class="row">
+                                                                                <c:forEach var="c" begin= "1" end="6" items="${user.newfeeds}">
+
+                                                                                    <c:if test="${item.product==null}">
+                                                                                        <div class="img-contains col-md-4">
+                                                                                            <image class="rounded" src ="http://localhost:9032/public/image/${c.images[0]}" />  
+                                                                                        </div>
+                                                                                    </c:if>
+
+                                                                                </c:forEach>
                                                                             </div>
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                                                            </div>
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                                                            </div>
+
                                                                         </div>
+
 
                                                                         <div class="img-contain d-flex ">
                                                                             <div class="img-contains">
@@ -633,7 +699,8 @@
                                                                                 <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
                                                                             </div>
                                                                         </div>
-                                                                        <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
+                                                                        <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-img">Xem tất cả</a>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="profile-list-friend rounded" >
@@ -667,7 +734,7 @@
                                                                                 <a href="#">Nguyễn Hạ</a>
                                                                             </div>
                                                                         </div>
-                                                                        <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
+                                                                        <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -683,9 +750,14 @@
                                                                                 <div class="upload-img-status" >
                                                                                     <div class="gallery text-center">
                                                                                         <a id="chossefile">
-                                                                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
+                                                                                            <<<<<<< HEAD
+                                                                                            <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute">
                                                                                                 <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;cursor: pointer">+</span>
-                                                                                            </div>
+                                                                                                =======
+                                                                                                <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
+                                                                                                    <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;cursor: pointer">+</span>
+                                                                                                    >>>>>>> master
+                                                                                                </div>
                                                                                         </a>
                                                                                         <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
                                                                                     </div>
@@ -1083,16 +1155,16 @@
                                                     </div>
 
                                                     <script async defered>
-                                                        goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
+                                                        goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
                                                         var map = new goongjs.Map({
                                                             container: 'map', // container id
                                                             style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
-                                                            center: [105, 21], // starting position [lng, lat]
+                                                            center: [106.695833, 10.776111], // starting position [lng, lat]
                                                             zoom: 9 // starting zoom
                                                         });
 
                                                         var geocoder = new GoongGeocoder({
-                                                            accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
+                                                            accessToken: "YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE",
                                                             goongjs: goongjs
                                                         })
 
@@ -1139,7 +1211,7 @@
                                                         marker.on('dragend', function() {
 
                                                             var lngLat = marker.getLngLat();
-                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
+                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
                                                                     .then(function(response) {
                                                                         return response.json()
                                                                     })
@@ -1151,7 +1223,7 @@
                                                             var lng = e.coords.longitude;
                                                             var lat = e.coords.latitude;
                                                             marker._lngLat = {lat: lat, lng: lng}
-                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
+                                                            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE', {mode: "cors"})
                                                                     .then(function(response) {
                                                                         return response.json()
                                                                     })

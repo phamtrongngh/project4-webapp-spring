@@ -2,7 +2,6 @@
 //jQuery to collapse the navbar on scroll
 var idUser = $("#idTag").html();
 var avatarChatter;
-
 var fullname;
 var phone;
 var gender;
@@ -14,7 +13,6 @@ function updateinfo() {
     gender = $("input[name='gender']:checked").val();
     address = $("#address-register").val();
     password = $("#password-register").val();
-
 }
 
 function removeCartItem(event) {
@@ -32,7 +30,6 @@ function updateCartTotal() {
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         var price = priceElement.innerText.toString().replace(",", "");
-
         price = parseFloat(price.replace('VNĐ', ''));
         price = format2(price, "").replace(".000", "");
         price = price.replace(",", "")
@@ -42,9 +39,7 @@ function updateCartTotal() {
     }
     var priceship = $(".cart-ship-price").html().toString().replace(",", "");
     var cartdiscount = $(".cart-discount").html().toString().replace(",", "");
-
     var carttotalall = parseFloat(total) + parseFloat(priceship) - parseFloat(cartdiscount);
-
     totalformat = Math.round(total * 1000);
     var totalformatdisplay = format2(total, '').replace(".000", "");
     carttotalall = format2(carttotalall, '').replace(".000", "");
@@ -65,8 +60,6 @@ function formatpricecart() {
         var price = parseFloat(priceElement.innerText.replace('VNĐ', ''));
         price = format2(price, "").replace(".000", "");
         document.getElementsByClassName('cart-page-price')[i].innerText = price + "VNĐ";
-
-
     }
 }
 function formatNumber(num) {
@@ -117,7 +110,6 @@ function update() {
     var tien = $(".price-foodnumber").html().toString();
     var tien_saleoff = $(".saleoff-foodnumber").html().toString();
     tien = tien.replace(",", "");
-
     if ($(".saleoff-food").css("display") != "none") {
         tien_saleoff = tien_saleoff.replace(",", "");
         var total_sale = q * tien_saleoff;
@@ -131,7 +123,6 @@ function update() {
         $(".total-foodnumber").html(t);
     }
     ;
-
 }
 
 function quantityChanged1(event) {
@@ -149,7 +140,6 @@ $(document).ready(function() {
 
         if ($('input[name=time]:checked').val() == 2) {
             $(".date-cart").css("display", "block");
-
         } else {
             $(".date-cart").css("display", "none");
         }
@@ -160,7 +150,6 @@ $(document).ready(function() {
 
         if ($('input[name=payment]:checked').val() == 2) {
             $(".info-pay").css("display", "block");
-
         } else {
             $(".info-pay").css("display", "none");
         }
@@ -185,7 +174,6 @@ $(document).ready(function() {
 
             $("#fullname-register").addClass("error-user");
             $("#fullname-register").removeClass("success-user");
-
             $("#fullname-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
             $(".error-user-mess").css("display", "block");
             $("#fullname-register").focus();
@@ -204,9 +192,7 @@ $(document).ready(function() {
         if (!(/^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/).test(phone)) {
             $("#phone-register").addClass("error-user");
             $("#phone-register").removeClass("success-user");
-
             $("#phone-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-
             $(".error-phone").css("display", "block");
             $("#phone-register").focus();
             return false;
@@ -233,19 +219,16 @@ $(document).ready(function() {
             $("#password-register").removeClass("error-user");
             $("#password-register").addClass("success-user");
             $("#password-register").css("box-shadow", "none");
-
             $("#password-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-
             $(".error-password").css("display", "none");
         }
     });
-    $("#address-register").on("keyup", function() {
+    $("#address-register").on("change", function() {
         updateinfo();
-        if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
+        if (/^\s{0,}$/.test(change_alias(address))) {
             $("#address-register").addClass("error-user");
             $("#address-register").removeClass("success-user");
             $("#address-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-
             $(".error-address").css("display", "block");
             $("#address-register").focus();
             return false;
@@ -254,9 +237,7 @@ $(document).ready(function() {
             $("#address-register").removeClass("error-user");
             $("#address-register").addClass("success-user");
             $("#address-register").css("box-shadow", "none");
-
             $("#address-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-
             $(".error-address").css("display", "none");
         }
     });
@@ -284,9 +265,7 @@ $(document).ready(function() {
         if (!(/^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/).test(phone)) {
             $("#phone-register").addClass("error-user");
             $("#phone-register").removeClass("success-user");
-
             $("#phone-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-
             $(".error-phone").css("display", "block");
             $("#phone-register").focus();
             return false;
@@ -310,16 +289,13 @@ $(document).ready(function() {
             $("#password-register").removeClass("error-user");
             $("#password-register").addClass("success-user");
             $("#password-register").css("box-shadow", "none");
-
             $("#password-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-
             $(".error-password").css("display", "none");
         }
-        if (!/^([^\s])[\S\,-_/]{10,}$/.test(change_alias(address))) {
+        if (/^\s{0,}$/.test(change_alias(address))) {
             $("#address-register").addClass("error-user");
             $("#address-register").removeClass("success-user");
             $("#address-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
-
             $(".error-address").css("display", "block");
             $("#address-register").focus();
             return false;
@@ -328,9 +304,7 @@ $(document).ready(function() {
             $("#address-register").removeClass("error-user");
             $("#address-register").addClass("success-user");
             $("#address-register").css("box-shadow", "none");
-
             $("#address-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
-
             $(".error-address").css("display", "none");
         }
     });
@@ -341,7 +315,6 @@ $(document).ready(function() {
 //    };
 //     }
 });
-
 function change_alias(alias) {
     var str = alias;
     str = str.toLowerCase();
@@ -352,7 +325,6 @@ function change_alias(alias) {
     str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
     str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
     str = str.replace(/đ/g, "d");
-
     return str;
 }
 $(window).scroll(function() {
@@ -364,17 +336,14 @@ $(window).scroll(function() {
         $(".img-logo").css("opacity", "1");
     }
 });
-
 /* BACK TO TOP BUTTON */
 // create the back to top button
 //Get the button:
 mybutton = document.getElementById("myBtn");
-
 // // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {
     scrollFunction();
 };
-
 //Ajax call function
 
 function callAjax(url, type, data, cb) {
@@ -413,7 +382,7 @@ function getSenderBox(message) {
 }
 
 function showmess() {
-    //Click to show conservation
+//Click to show conservation
     $(".contacts-body .contacts li").click(function() {
         var id = $(this).attr("idValue");
         var chatBoxvalue = "";
@@ -432,7 +401,6 @@ function showmess() {
             $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
             $(".card-body.msg-card-body").html(chatBoxvalue);
             $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
-
         });
     })
 }
@@ -441,8 +409,6 @@ $(document).ready(function() {
     $('.msg-card-body').stop().animate({scrollTop: 99999999});
     var messitem = document.getElementsByClassName("li-item-chat")[0];
     $(messitem).trigger("click", showmess());
-
-
     //Send message
     $(".send-btn").click(function() {
         if ($(".type-msg").val()) {
@@ -473,22 +439,16 @@ function topFunction() {
 }
 //Buttom slideToggle
 $(document).ready(function() {
-    //tooltip
+//tooltip
     $('[data-toggle="tooltip"]').tooltip();
-
-
     $(".btn-up").click(function() {
         $('.box').slideToggle();
     });
-
     $('.box').find('div#sidebar-user-box:gt(3)').hide();
     $('.viewMore, .viewLess').click(function(e) {
         e.preventDefault();
         $('.box').find('div#sidebar-user-box:gt(3)').slideToggle(500);
     });
-
-
-
     $(".btn-down").click(function() {
         $("#three").css("background-color", "white")
         $(".box").slideDown();
@@ -498,7 +458,6 @@ $(document).ready(function() {
     $(window).scroll(function(event) {
         var pos_body = $('html,body').scrollTop();
         var h = $(window).width();
-
         if (pos_body > 20 && h > 768) {
             $('#one').addClass("order-fix");
             $('#three').addClass("list-friend-fix");
@@ -507,7 +466,6 @@ $(document).ready(function() {
             $('#three').removeClass("list-friend-fix");
             $('#one').removeClass("order-fix");
             $('#four').removeClass("mission-fix");
-
         }
 
     });
@@ -531,7 +489,6 @@ $(document).ready(function() {
     formatpricecart();
     updateCartTotal();
     var removeCartItemButtons = document.getElementsByClassName('btn-remove');
-
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]
         button.addEventListener('click', removeCartItem)
@@ -540,7 +497,6 @@ $(document).ready(function() {
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged);
-
     }
 
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
@@ -563,8 +519,6 @@ $(document).ready(function() {
 });
 //count cart
 $(".input-qty").on('change', quantityChanged1);
-
-
 //messenger
 $(document).ready(function() {
     var messs = document.getElementsByClassName('dropdown-messenger')[0];
@@ -575,7 +529,6 @@ $(document).ready(function() {
         }
     }
 });
-
 //load post
 
 $(window).scroll(function() {
@@ -603,8 +556,6 @@ $(document).ready(function() {
         $('[rel="' + chatbox + '"] .msg_wrap').slideToggle('slow');
         return false;
     });
-
-
     $(document).on('click', '.close', function() {
         var chatbox = $(this).parents().parents().attr("rel");
         $('[rel="' + chatbox + '"]').hide();
@@ -612,11 +563,9 @@ $(document).ready(function() {
         displayChatBox();
         return false;
     });
-
     $(document).on('click', '#sidebar-user-box', function() {
         var userID = $(this).attr("class");
         var username = $(this).children().text();
-
         if ($.inArray(userID, arr) != -1) {
             arr.splice($.inArray(userID, arr), 1);
         }
@@ -631,12 +580,9 @@ $(document).ready(function() {
 <button class="bg_none"><i class="fas fa-plus"></i></button>\n\
 <button class="bg_none pull-right"><i class="fas fa-thumbs-up"></i> </button> \n\
 </div></div></div></div>';
-
         $("body").append(chatPopup);
         displayChatBox();
     });
-
-
     $(document).on('keypress', 'textarea[name=msg-input]', function(e) {
         if (e.keyCode == 13 && !e.shiftKey) {
             var msg = $(this).val();
@@ -648,7 +594,6 @@ $(document).ready(function() {
             }
         }
     });
-
     function displayChatBox() {
         i = 270; // start position
         j = 350; //next position
@@ -665,11 +610,9 @@ $(document).ready(function() {
     }
 
 });
-
 $(document).ready(function() {
-    //Initialize tooltips
+//Initialize tooltips
     $('.nav-tabs > li a[title]').tooltip();
-
     //Wizard
     $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
         var target = $(e.target);
@@ -677,18 +620,15 @@ $(document).ready(function() {
             return false;
         }
     });
-
     $(".next-step").click(function() {
         var active = $('.nav-tabs li  a.active');
         active.parent().next().find('.nav-link').removeClass('disabled');
         nextTab(active);
     });
-
     $(".prev-step").click(function() {
         var active = $('.nav-tabs li a.active');
         prevTab(active);
     });
-
     $("#chossefile").click(function(e) {
         e.preventDefault();
         $(this).closest(".gallery").find(".img-store-register").trigger('click');
@@ -706,7 +646,6 @@ $(document).ready(function() {
     //datepicker
     $(function() {
         $("#datepicker-history").datepicker();
-
     });
     $(".datepicker-history1").click(function() {
         $("#datepicker-history").datepicker('show');
@@ -729,10 +668,8 @@ $(document).ready(function() {
     $('#dtmenu').DataTable();
     $('.dataTables_length').addClass('bs-select');
 });
-
-
 $(document).ready(function() {
-    //Online Momo Payment
+//Online Momo Payment
     $(".btn-order.checkout").click(function() {
         var quantityArray = $(".cart-quantity-input");
         var productArray = $("input[name='product']");
@@ -772,7 +709,6 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
-
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $(".price-food").css("text-decoration-line", "none");
             $(".saleoff-food").css("display", "none");
@@ -780,9 +716,7 @@ $(document).ready(function() {
             $("#orderModal .title-food").html(data.name);
             $("#orderModal .content-food").html(content.html());
             data.price = (format2(data.price, '')).replace(".000", "");
-
             $("#orderModal .price-foodnumber").html(data.price);
-
             if (data.saleoff != null) {
                 data.saleoff = (format2(data.saleoff, '')).replace(".000", "");
                 $("#orderModal .saleoff-foodnumber").html(data.saleoff);
@@ -811,6 +745,38 @@ $(document).ready(function() {
             $("#updateMenu .image-frame-upload").css("background-repeat", "no-repeat");
         })
 
+    })
+    //Send request friend
+    $(".send-request-friend").click(function() {
+        var idUser = $(this).attr("idValue");
+        if ($(this).find("i").hasClass("fa-user-plus")) {
+            callAjax("/requestFriend/" + idUser, "POST", null, function() {
+
+            })
+        } else {
+            callAjax("/cancelFriend/" + idUser, "POST", null, function() {
+
+            })
+        }
+
+
+    })
+
+    $(document).on("click",".accept-friend",function() {
+        $(this).closest(".messenger").css("display","none");
+        var idUser = $(this).attr("idValue");
+        $(".numberFriendRequest").html(parseInt($(".numberFriendRequest").html()) - 1);
+        callAjax("/acceptFriend/" + idUser, "POST", null, function() {
+
+        })
+    })
+    $(document).on("click",".cancel-friend",function() {
+        $(this).closest(".messenger").css("display","none");
+        var idUser = $(this).attr("idValue");
+        $(".numberFriendRequest").html(parseInt($(".numberFriendRequest").html()) - 1);
+        callAjax("/cancelFriend/" + idUser, "POST", null, function() {
+
+        })
     })
 
     //Get product to modalbox to update
@@ -889,8 +855,9 @@ $(document).ready(function() {
         $('a[href="' + location.hash + '"]').tab('show');
     }
 
-    //SOCKETIO receive message chat
+//SOCKETIO receive message chat
     var socket = io('http://localhost:9032');
+    socket.emit("join", $("#idUser").val());
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
         if (item.sender != idUser) {
@@ -902,8 +869,21 @@ $(document).ready(function() {
         $(".card-body.msg-card-body").append(chatBoxvalue);
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+    });
+    socket.on("friendRequest", function(data) {
+        $(".numberFriendRequest").html(parseInt($(".numberFriendRequest").html()) + 1);
+        var html = '<div class="messenger h-100">';
+        html += '<img src="http://localhost:9032/public/image/' + data.avatar + '" class="messenger-avatar" alt=""/>';
+        html += '<div style="width: 350px;">'
+        html += '<div class="messenger-name">' + data.fullname + '</div>';
+        html += '</div>';
+        html += '<div  style="display: flex;">';
+        html += '<button class="btn accept-friend" idValue="' + data._id + '" style="margin-right: 10px;height: 35px;">Chấp nhận</button>'
+        html += '<button class="btn cancel-friend" idValue ="' + data._id + '" style ="margin-right: 10px;height: 35px;"> Từ chối </button>'
+        html += '</div>';
+        html += '</div>';
+        $(".listRequest").html($(".listRequest").html()+html)
     })
-
 })
 function check_discount(data) {
     if (data.min) {
@@ -967,12 +947,12 @@ $(".use-coupon").click(function() {
 
             }
         }
-    })
-})
+    });
+});
 
 //Search
 $(document).ready(function() {
-    //display like
+//display like
     $(".like-newpost").on("click", function() {
         if ($(this).hasClass("fa-heart"))
         {
@@ -1007,7 +987,6 @@ $(document).ready(function() {
             document.getElementById("send_btn").click();
         }
     });
-
 });
 $(document).ready(function() {
     document.getElementById("btn_copy").addEventListener("click", copy_coupon);
@@ -1034,12 +1013,11 @@ function ChangButtonFollow() {
 }
 $(document).ready(function() {
     document.getElementById("btn-friends").addEventListener("click", ChangButtonFriends);
-
 });
 function ChangButtonFriends() {
     var x = document.getElementById("btn-friends");
     if (x.innerHTML === '<i class="fas fa-user-plus"></i>Kết bạn') {
-        x.innerHTML = '<i class="fas fa-user-friends"></i>Bạn bè';
+        x.innerHTML = '<i class="fas fa-users-slash"></i> Hủy yêu cầu';
     } else {
         x.innerHTML = '<i class="fas fa-user-plus"></i>Kết bạn';
     }
@@ -1053,19 +1031,17 @@ function ChangButtonLike() {
         x.innerHTML = '<i class="far fa-thumbs-up"></i>Thích';
     }
 }
+
 $(document).ready(function() {
     document.getElementById("btn-like").addEventListener("click", ChangButtonLike);
-
 });
 $(document).ready(function() {
-
-
 
     $("#btn-updateinfostore").on("click", function() {
         var openAt = $("#openAt :selected").val();
         var closeAt = $("#closeAt :selected").val();
         var textupdateinfo = $("#textupdateinfo").val();
-        if (/^([^\s])[a-zA-Z0-9_\s]{20,}$/.test(change_alias(textupdateinfo))) {
+        if (/^\s{0,}$/.test(change_alias(textupdateinfo))) {
             $("#textupdateinfo").removeClass("error-user");
             $("#textupdateinfo").addClass("success-user");
             $("#textupdateinfo").css("box-shadow", "none");
@@ -1097,7 +1073,6 @@ $(document).ready(function() {
             $("#closeAt").css("box-shadow", "none");
             $("#closeAt").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-closeAt").css("display", "none");
-
         }
         else {
 
@@ -1119,4 +1094,10 @@ $(document).ready(function() {
 
     });
 
+    $("input[name='multipartFile']").change(function (){
+        if ($("input[name='multipartFile']").val() != "") {
+        $(".img-hidden").css("display","none");
+    }
+    });
+    
 });

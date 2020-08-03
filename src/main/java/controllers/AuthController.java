@@ -62,8 +62,9 @@ public class AuthController implements IController<Authorization> {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public void login(Authorization authorization, HttpServletResponse response) throws IOException {
+    public ModelAndView login(Authorization authorization, HttpServletResponse response) throws IOException {
         Map<String, ?> responseMap = rest.post(authorization);
+         String message = (String) responseMap.get("message");
         String accessToken = (String) responseMap.get("access_token");
         if (accessToken != null) {
 
@@ -74,7 +75,6 @@ public class AuthController implements IController<Authorization> {
             cookie.setPath("/");
 
             String decodeJWTString = (JwtHelper.decode(accessToken)).getClaims();
-
             ObjectMapper mapper = new ObjectMapper();
             Map<String, String> convertTo = mapper.readValue(decodeJWTString, new TypeReference<Map<String, String>>() {
             });
@@ -103,8 +103,9 @@ public class AuthController implements IController<Authorization> {
             response.addCookie(cookie3);
             response.addCookie(cookie4);
             response.sendRedirect("/");
+            return null;
         } else {
-            response.sendRedirect("/login");
+            return new ModelAndView("/login").addObject("message", message);
         }
     }
 

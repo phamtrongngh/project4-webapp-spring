@@ -1,3 +1,6 @@
+<%@page import="java.util.Map"%>
+<%@page import="org.springframework.web.servlet.ModelAndView"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +30,27 @@
     </head>
 
     <body>
-        
+        <div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
+        <div class="modal-content">
+            <input id="tempIdProduct" hidden/>
+            <input id="tempQuantityProduct" hidden/>
+            <div class="modal-header" style="padding: 0 15px;">
+                <h5 class="modal-title" id="exampleModalLongTitle">CHUYỂN CỬA HÀNG KHÁC</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <div class="content">Các món trong mỗi đơn hàng chỉ có thể đến từ một cửa hàng, bạn có muốn lưu đơn hiện tại và chuyển cửa hàng?</div>
+                <div style="margin-top: 25px;">
+                    <button type="button" class="btn" data-dismiss="modal" style="color: white;background-color: #da484a;">Chấp nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
         <!-- The Modal -->
         <div class="modal" id="mapModel">
             <div class="modal-dialog" style="width: 450px;">
@@ -79,16 +102,18 @@
                                 <form class="login-form d-flex justify-content-md-center align-items-md-center h-100  " id="commentForm" action="/login" method="POST">
                                     <div class="form-group ">
                                         <input id="phone-login" type="text" name="phone" class="form-control " placeholder="SĐT"/>
-
+                                        <span class="error-usersss"></span>
                                     </div>
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
+                                        <span class="error-pass"></span>
                                     </div>
-                                    
+                                    <input type="hidden" name="value-error"  value="${message}"/>
                                     <div style="width: 50%">
                                         <button class="btn btn-danger form-control btn-login ">Đăng nhập</button>
                                     </div>
                                 </form>
+                                
                             </div>
                         </div>
                         <div class="tab-pane container fade" id="register">
@@ -157,16 +182,16 @@
         <script src="/public/js/swiper.min.js "></script>
         <script src="/public/js/script.js "></script>
         <script async defered>
-            goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
+            goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
             var map = new goongjs.Map({
                 container: 'map', // container id
                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
-                center: [105, 21], // starting position [lng, lat]
+                center: [106.695833, 10.776111], // starting position [lng, lat]
                 zoom: 9 // starting zoom
             });
 
             var geocoder = new GoongGeocoder({
-                accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
+                accessToken: "YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE",
                 goongjs: goongjs
             })
 
@@ -213,7 +238,7 @@
             marker.on('dragend', function() {
 
                 var lngLat = marker.getLngLat();
-                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
+                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
                         .then(function(response) {
                             return response.json()
                         })
@@ -225,7 +250,7 @@
                 var lng = e.coords.longitude;
                 var lat = e.coords.latitude;
                 marker._lngLat = {lat: lat, lng: lng}
-                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
+                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE', {mode: "cors"})
                         .then(function(response) {
                             return response.json()
                         })
