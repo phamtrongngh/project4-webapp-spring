@@ -38,9 +38,7 @@
     </head>
 
     <body>
-        <audio id="myAudio">
-            <source src="/public/fontawesome-free-5.13/ping-bing_E_major.wav" type="audio/mpeg">
-        </audio>    
+
         <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
                 <div class="modal-content">
@@ -129,7 +127,7 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;">
                             <i class="fas fa-users fa-menu"></i>
-                            <span class="numberFriendRequest">${friendRequests.size()}</span>
+                            <span class="numberFriendRequest">${friendRequests.size()==0?"":friendRequests.size()}</span>
                             <span class="badge count-cart"></span>
                             <span class="caret"></span>
                         </a>
@@ -160,10 +158,10 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fa fa-bell fa-menu" aria-hidden="true" ></i>
-                            <span class="badge count-cart">3</span><span class="caret"></span></a>
+                            <span class="badge count-cart"></span><span class="caret"></span></a>
                         <div class="dropdown-menu dropdown-notification">
                             <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
-                                <span>Mới</span>
+                                <span>Thông báo</span>
                             </div>
                             <div class="notification">
                                 <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
@@ -173,33 +171,8 @@
                                 </div>
                                 <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="store-avatar" alt=""/>
                             </div>
-                            <div class="notification">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div>
-                                    <div >Truong</div>
-                                    <div>1 giờ</div>
-                                </div>
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="store-avatar" alt=""/>
-                            </div>
-                            <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
-                                <span>Trước đó</span>
-                            </div>
-                            <div class="notification">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div>
-                                    <div >Truong</div>
-                                    <div>1 giờ</div>
-                                </div>
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="store-avatar" alt=""/>
-                            </div>
-                            <div class="notification">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div>
-                                    <div >Truong</div>
-                                    <div>1 giờ</div>
-                                </div>
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="store-avatar" alt=""/>
-                            </div>
+
+
                         </div>
                     </li>
                     <li class="nav-item dropdown">

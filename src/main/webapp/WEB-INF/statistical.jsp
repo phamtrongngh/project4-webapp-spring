@@ -221,13 +221,10 @@
                     <div class="upload-img-status">
                         <div class="gallery text-center">
                             <a id="chossefile">
-<<<<<<< HEAD
-                                <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px;">
-                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 35px;top: 105px;cursor: pointer">+</span>
-=======
+
                                 <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px; background-repeat: no-repeat;background-size: cover">
                                     <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;cursor: pointer">+</span>
->>>>>>> master
+
                                 </div>
                             </a>
                             <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
@@ -374,6 +371,7 @@
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Mã đơn hàng: activate to sort column descending" style="width: 195px;">Mã đơn hàng</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="SĐT khách hàng: activate to sort column ascending" style="width: 294px;">Khách hàng</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Shipper</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Ngày gửi</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Đơn giá: activate to sort column ascending" style="width: 131px;">Tổng tiền</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Tình trạng: activate to sort column ascending" style="width: 121px;">Tình trạng</th>
@@ -384,6 +382,7 @@
                                                 <tr role="row" class="odd">
                                                     <td class="sorting_1"><a href="" data-toggle="modal" data-target="#detailorder${item._id}">${item._id}</a></td>
                                                     <td><a href="/user-profile/${item.user._id}">${item.user.fullname}</a></td>
+                                                    <td><a href="/user-profile/${item.shipper._id}">${item.shipper.fullname}</a></td>
                                                     <td>${item.createdAt}</td>
                                                     <td>${item.amount} VNĐ</td>
                                                     <td>

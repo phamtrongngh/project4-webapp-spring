@@ -576,9 +576,7 @@ $(document).ready(function() {
                 '<div class="close">x</div> </div>' +
                 '<div class="msg_wrap"> <div class="msg_body"> <div class="msg_push"></div> </div>' +
                 '<div class="msg_footer"><textarea name="msg-input" class="msg_input" rows="10"></textarea><div class="btn-footer">\n\
-<button class="bg_none"><i class="fas fa-image"></i></button>\n\
-<button class="bg_none"><i class="fas fa-plus"></i></button>\n\
-<button class="bg_none pull-right"><i class="fas fa-thumbs-up"></i> </button> \n\
+<button class="bg_none pull-right"><i class="fa fa-paper-plane"></i> </button> \n\
 </div></div></div></div>';
         $("body").append(chatPopup);
         displayChatBox();
@@ -762,18 +760,30 @@ $(document).ready(function() {
 
     })
 
-    $(document).on("click",".accept-friend",function() {
-        $(this).closest(".messenger").css("display","none");
+    $(document).on("click", ".accept-friend", function() {
+        $(this).closest(".messenger").css("display", "none");
         var idUser = $(this).attr("idValue");
-        $(".numberFriendRequest").html(parseInt($(".numberFriendRequest").html()) - 1);
+        var number;
+        if (parseInt($(".numberFriendRequest").html()) == 1) {
+            number = "";
+        } else {
+            number = parseInt($(".numberFriendRequest").html()) - 1;
+        }
+        $(".numberFriendRequest").html(number);
         callAjax("/acceptFriend/" + idUser, "POST", null, function() {
 
         })
     })
-    $(document).on("click",".cancel-friend",function() {
-        $(this).closest(".messenger").css("display","none");
+    $(document).on("click", ".cancel-friend", function() {
+        $(this).closest(".messenger").css("display", "none");
         var idUser = $(this).attr("idValue");
-        $(".numberFriendRequest").html(parseInt($(".numberFriendRequest").html()) - 1);
+        var number;
+        if (parseInt($(".numberFriendRequest").html()) == 1) {
+            number = "";
+        } else {
+            number = parseInt($(".numberFriendRequest").html()) - 1;
+        }
+        $(".numberFriendRequest").html(number);
         callAjax("/cancelFriend/" + idUser, "POST", null, function() {
 
         })
@@ -871,7 +881,13 @@ $(document).ready(function() {
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
     });
     socket.on("friendRequest", function(data) {
-        $(".numberFriendRequest").html(parseInt($(".numberFriendRequest").html()) + 1);
+        var number;
+        if ($(".numberFriendRequest").html() == "") {
+            number = 1;
+        } else {
+            number = parseInt($(".numberFriendRequest").html()) + 1;
+        }
+        $(".numberFriendRequest").html(number);
         var html = '<div class="messenger h-100">';
         html += '<img src="http://localhost:9032/public/image/' + data.avatar + '" class="messenger-avatar" alt=""/>';
         html += '<div style="width: 350px;">'
@@ -882,7 +898,7 @@ $(document).ready(function() {
         html += '<button class="btn cancel-friend" idValue ="' + data._id + '" style ="margin-right: 10px;height: 35px;"> Từ chối </button>'
         html += '</div>';
         html += '</div>';
-        $(".listRequest").html($(".listRequest").html()+html)
+        $(".listRequest").html($(".listRequest").html() + html)
     })
 })
 function check_discount(data) {
@@ -1094,10 +1110,10 @@ $(document).ready(function() {
 
     });
 
-    $("input[name='multipartFile']").change(function (){
+    $("input[name='multipartFile']").change(function() {
         if ($("input[name='multipartFile']").val() != "") {
-        $(".img-hidden").css("display","none");
-    }
+            $(".img-hidden").css("display", "none");
+        }
     });
-    
+
 });
