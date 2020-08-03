@@ -69,6 +69,7 @@
             </c:choose>
 
         <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
+        <input id="idUser" value="${cookie["_id"].getValue()}"/>
         <!--Menu-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top  navbar-fixed-top">
             <!-- Brand -->

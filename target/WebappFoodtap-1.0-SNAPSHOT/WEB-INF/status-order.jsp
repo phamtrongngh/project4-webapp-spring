@@ -3,11 +3,18 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="me" 
      style="height: 50px; 
-            width: 50px; 
-            background: url('http://localhost:9032/public/image/${order.user.avatar}');
-            background-size: cover;
-            border:1px none;
-            border-radius: 50%">
+     width: 50px; 
+     background: url('http://localhost:9032/public/image/${order.user.avatar}');
+     background-size: cover;
+     border:1px none;
+     border-radius: 50%">
+</div>
+<div id="shipper" 
+     style="height: 50px; 
+     width: 50px; 
+     background-size: cover;
+     border:1px none;
+     border-radius: 50%">
 </div>
 <div class="container contain" style="margin-top: 100px">
     <h1 style="margin-top: 10px;text-align: center;">Trạng thái đơn hàng</h1>
@@ -50,11 +57,11 @@
                     </div>
                     <div class=" info-more row">
                         <label class="col">Tên người giao: </label>
-                        <span class="col"> ${order.shipper.fullname}</span>
+                        <span class="col shipperName" > ${order.shipper.fullname}</span>
                     </div>
                     <div class=" info-more row">
                         <label class="col">SĐT người giao: </label>
-                        <span class="col"> ${order.shipper.phone}</span>
+                        <span class="col shipperPhone" > ${order.shipper.phone}</span>
                     </div>
                     <div class=" info-more" style="margin-left: -15px;">
                         <label >Chi tiết đơn hàng:</label>
@@ -119,8 +126,31 @@
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
                                         <script async defered>
+                                            var marker2;
+                                            var socket = io('http://localhost:9032');
+                                            socket.emit("join", $("#idUser").val());
+                                            socket.on("sendMessage", function(item) {
+                                                var chatBoxvalue = "";
+                                                if (item.sender != idUser) {
+                                                    chatBoxvalue += getSenderBox(item);
+                                                }
+                                                else {
+                                                    chatBoxvalue += getReceiveBox(item);
+                                                }
+                                                $(".card-body.msg-card-body").append(chatBoxvalue);
+                                                $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+                                                $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+                                            })
+                                            socket.on("acceptOrder", function(data) {
+                                                $(".shipperName").html(data.shipper.fullname);
+                                                $(".shipperPhone").html(data.shipper.phone);
+                                                $("#shipper").css("background", "url('http://localhost:9032/public/image/${shipper.avatar}')")
+                                                marker2 = new goongjs.Marker(shipper)
+                                                        .setLngLat(data.latLng)
+                                                        .addTo(map);
+                                            })
                                             var i = 0;
-                                            goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
+                                            goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
                                             var map = new goongjs.Map({
                                                 container: 'map', // container id
                                                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -129,7 +159,7 @@
                                             });
 
                                             var geocoder = new GoongGeocoder({
-                                                accessToken: "P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc",
+                                                accessToken: "YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE",
                                                 goongjs: goongjs
                                             })
 
@@ -166,41 +196,12 @@
                                                     }
                                                 });
                                             });
-                                            
+
                                             var marker = new goongjs.Marker(me)
                                                     .setLngLat([105, 21])
                                                     .addTo(map);
 
-                                            marker.on('dragend', function() {
-                                                var lngLat = marker.getLngLat();
-                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
-                                                        .then(function(response) {
-                                                            return response.json()
-                                                        })
-                                                        .then(function(data) {
-                                                            $(".input-address").val(data.results[0].formatted_address);
-                                                            getLocation($(".input-address").val(), "user");
-                                                        });
-                                            });
-                                            geolocateControl.on("geolocate", function(e) {
-                                                var lng = e.coords.longitude;
-                                                var lat = e.coords.latitude;
-                                                marker._lngLat = {lat: lat, lng: lng}
-                                                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc', {mode: "cors"})
-                                                        .then(function(response) {
-                                                            return response.json()
-                                                        })
-                                                        .then(function(data) {
-                                                            $(".input-address").val(data.results[0].formatted_address);
-                                                            getLocation($(".input-address").val(), "user");
-                                                        });
-                                            })
-                                            geocoder.on("result", function(e) {
-                                                geocoder.mapMarker.remove();
-                                                marker._lngLat = geocoder.mapMarker._lngLat;
-                                                $(".input-address").val(e.result.description);
-                                                getLocation($(".input-address").val(), "user");
-                                            })
+
 
                                             $("#mapModel .modal-footer button").click(function() {
                                                 $("#mapModel").modal("hide");
@@ -219,13 +220,13 @@
                                                 $("#img-loadcart").addClass("img-loadcart");
                                                 $("html, body").css("pointer-events", "none");
 
-                                                fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&limit=1')
+                                                fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
                                                         .then(function(response) {
                                                             return response.json()
                                                         })
                                                         .then(function(data) {
                                                             placeId = data.predictions[0].place_id;
-                                                            fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc")
+                                                            fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE")
                                                                     .then(function(response) {
                                                                         return response.json()
                                                                     })
@@ -262,7 +263,7 @@
                                             }
                                             function getDistance(origin, dest) {
                                                 return new Promise(function(resolve, reject) {
-                                                    fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=P4uDBSBsNwVM6dAtuqbxU6h7RWKtspKiewBMxVdc&alternatives=true&vehicle=bike')
+                                                    fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&alternatives=true&vehicle=bike')
                                                             .then(function(response) {
                                                                 return response.json()
                                                             })
