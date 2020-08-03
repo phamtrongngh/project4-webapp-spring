@@ -11,8 +11,17 @@
 </div>
 <div id="shipper" 
      style="height: 50px; 
-     width: 50px; 
+     background: url('http://localhost:9032/public/image/${order.user.avatar}');
      background-size: cover;
+     width: 50px; 
+     border:1px none;
+     border-radius: 50%">
+</div>
+<div id="restaurant" 
+     style="height: 50px; 
+     background: url('http://localhost:9032/public/image/${order.restaurant.avatar}');
+     background-size: cover;
+     width: 50px; 
      border:1px none;
      border-radius: 50%">
 </div>
@@ -126,7 +135,7 @@
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
                                         <script async defered>
-                                            var marker2;
+                                            var marker2; //marker of Shipper
                                             var socket = io('http://localhost:9032');
                                             socket.emit("join", $("#idUser").val());
                                             socket.on("sendMessage", function(item) {
@@ -141,14 +150,7 @@
                                                 $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
                                                 $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
                                             })
-                                            socket.on("acceptOrder", function(data) {
-                                                $(".shipperName").html(data.shipper.fullname);
-                                                $(".shipperPhone").html(data.shipper.phone);
-                                                $("#shipper").css("background", "url('http://localhost:9032/public/image/${shipper.avatar}')")
-                                                marker2 = new goongjs.Marker(shipper)
-                                                        .setLngLat(data.latLng)
-                                                        .addTo(map);
-                                            })
+
                                             var i = 0;
                                             goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
                                             var map = new goongjs.Map({
@@ -158,17 +160,7 @@
                                                 zoom: 14 // starting zoom
                                             });
 
-                                            var geocoder = new GoongGeocoder({
-                                                accessToken: "YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE",
-                                                goongjs: goongjs
-                                            })
 
-                                            var geolocateControl = new goongjs.GeolocateControl({
-                                                positionOptions: {
-                                                    enableHighAccuracy: true
-                                                },
-                                                trackUserLocation: true
-                                            })
 
                                             map.addControl(new goongjs.FullscreenControl());
 
@@ -180,12 +172,6 @@
                                                         features: []
                                                     }
                                                 });
-                                                map.addControl(
-                                                        geocoder
-                                                        )
-                                                map.addControl(
-                                                        geolocateControl
-                                                        );
                                                 map.addLayer({
                                                     id: 'point',
                                                     source: 'single-point',
@@ -195,13 +181,30 @@
                                                         'circle-color': '#448ee4'
                                                     }
                                                 });
+                                                socket.on("acceptOrder", function(data) {
+                                                    console.log(data)
+                                                    $(".shipperName").html(data.shipper.fullname);
+                                                    $(".shipperPhone").html(data.shipper.phone);
+                                                    $("#shipper").css("background", "url('http://localhost:9032/public/image/" + data.shipper.avatar + "')");
+                                                    $("#shipper").css("background-size", "cover");
+                                                    marker2 = new goongjs.Marker(shipper)
+                                                            .setLngLat([data.latLng[1], data.latLng[0]])
+                                                            .addTo(map);
+                                                    map.flyTo({
+                                                        center: [data.latLng[1], data.latLng[0]],
+                                                        zoom: 15
+                                                    })
+                                                })
                                             });
 
+                                            //Marker of user
                                             var marker = new goongjs.Marker(me)
                                                     .setLngLat([105, 21])
                                                     .addTo(map);
-
-
+                                            //Marker of restaurant
+                                            var marker3 = new goongjs.Marker(restaurant)
+                                                    .setLngLat([105, 21])
+                                                    .addTo(map);
 
                                             $("#mapModel .modal-footer button").click(function() {
                                                 $("#mapModel").modal("hide");
@@ -254,7 +257,7 @@
                                                                                     zoom: 15
                                                                                 });
                                                                                 marker._lngLat = {lng: userLocation.split("%2C")[1], lat: userLocation.split("%2C")[0]}
-
+                                                                                marker3._lngLat = {lng: restaurantLocation.split("%2C")[1], lat: restaurantLocation.split("%2C")[0]}
                                                                             });
                                                                         }
                                                                     })
@@ -272,6 +275,7 @@
                                                             });
                                                 })
                                             }
+
                                             getLocation('${order.restaurant.address}', "restaurant");
                                             getLocation('${order.address}', "user");
 

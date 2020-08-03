@@ -173,7 +173,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/updateUser")
-    public void update(MultipartContainer multipartContainer, User user, HttpServletResponse response) throws IOException, ServletException {
+    public ModelAndView update(MultipartContainer multipartContainer, User user, HttpServletResponse response) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
@@ -196,5 +196,6 @@ public class UserController {
             file.delete();
         }
         response.sendRedirect("/login");
+        return new ModelAndView("login");
     }
 }
