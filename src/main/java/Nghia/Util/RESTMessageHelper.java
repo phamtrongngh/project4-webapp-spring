@@ -36,8 +36,8 @@ public class RESTMessageHelper extends RESTHelper {
         mapper = new ObjectMapper();
     }
 
-    public List<Map<String, ?>> getListFriends() throws IOException {
-        String url = BASE_URI + "getListFriends";
+    public List<Map<String, ?>> getAllChatter() throws IOException {
+        String url = BASE_URI + "getAllChatter";
         webTarget = client.target(url);
         String string = webTarget.request(MediaType.APPLICATION_JSON)
                 .header("authorization", CookieHelper.getCookie("accessToken"))

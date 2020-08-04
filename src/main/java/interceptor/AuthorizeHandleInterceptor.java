@@ -40,7 +40,7 @@ public class AuthorizeHandleInterceptor implements HandlerInterceptor {
                 requested.add(object);
             }  
         }
-        mav.addObject("friendRequests",requested).addObject("friends",accepted);
+        mav.addObject("friendRequests",requested).addObject("friends",accepted).addObject("notifications",restHelper.getNotification());
     }
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {

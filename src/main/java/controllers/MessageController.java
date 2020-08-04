@@ -30,8 +30,8 @@ public class MessageController implements IController<Message> {
 
     @RequestMapping(value = "/message/", method = RequestMethod.GET)
     public ModelAndView getAll() throws IOException {
-        List listFriends = rest.getListFriends();
-        return new ModelAndView("message").addObject("listFriends", listFriends);
+        List chatters = rest.getAllChatter();
+        return new ModelAndView("message").addObject("chatters", chatters);
     }
 
     public ModelAndView delete(String id) throws IOException {

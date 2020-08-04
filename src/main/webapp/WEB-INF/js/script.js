@@ -77,15 +77,7 @@ function addItemToCart(title, price, imageSrc) {
             return
         }
     }
-//        var cartRowContents = '<div class="cart-item cart-column">
-//              <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
-//              <span class="cart-item-title">${title}</span>
-//          </div>
-//          <span class="cart-price cart-column">${price}</span>
-//          <div class="cart-quantity cart-column">
-//              <input class="cart-quantity-input" type="number" value="1">
-//              <button class="btn btn-danger" type="button">REMOVE</button>
-//          </div>'
+
 
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
@@ -308,12 +300,7 @@ $(document).ready(function() {
             $(".error-address").css("display", "none");
         }
     });
-//     for (i = 0; i < sothichs.length; i++) {
-//        sothichs[i].onclick = function (){
-//        console.log("hi");
-//        
-//    };
-//     }
+
 });
 function change_alias(alias) {
     var str = alias;
@@ -354,9 +341,12 @@ function callAjax(url, type, data, cb) {
         success: cb
     })
 }
+function formatDate(rawDate) {
+    var date = new Date(rawDate);
+    return date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+}
 function getReceiveBox(message) {
-    var date = new Date(message.createdAt);
-    var senderBox = '<div class="msg-time-send">' + date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + '</div>';
+    var senderBox = '<div class="msg-time-send">' + formatDate(message.createdAt) + '</div>';
     senderBox += '<div class="d-flex justify-content-end mb-4">';
     senderBox += '<div class="msg-cotainer-send">';
     senderBox += message.content;
@@ -368,7 +358,7 @@ function getReceiveBox(message) {
 
 function getSenderBox(message) {
     var date = new Date(message.createdAt);
-    var receiveBox = '<div class="msg-time">' + date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + '</div>';
+    var receiveBox = '<div class="msg-time">' + formatDate(message.createdAt) + '</div>';
     receiveBox += '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
     receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
@@ -467,7 +457,6 @@ $(document).ready(function() {
             $('#one').removeClass("order-fix");
             $('#four').removeClass("mission-fix");
         }
-
     });
 });
 // SWIPER
@@ -512,10 +501,6 @@ $(document).ready(function() {
             updateCartTotal()
         });
     }
-
-
-
-
 });
 //count cart
 $(".input-qty").on('change', quantityChanged1);
@@ -880,6 +865,7 @@ $(document).ready(function() {
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
     });
+    //socket request friend
     socket.on("friendRequest", function(data) {
         var number;
         if ($(".numberFriendRequest").html() == "") {
@@ -900,14 +886,28 @@ $(document).ready(function() {
         html += '</div>';
         $(".listRequest").html($(".listRequest").html() + html)
     })
-    socket.on("newOrder", function(data) {
+    //socket on order
+    socket.on("newOrderRestaurant", function(data) {
+        console.log(data);
         var number;
         if ($(".numberFriendRequest").html() == "") {
             number = 1;
         } else {
             number = parseInt($(".numberFriendRequest").html()) + 1;
         }
-        
+        $(".numberNoti").html(number);
+        var html = '<div class="notification ">' +
+                '<img src="http://localhost:9032/public/image/' + data.user.avatar + '" class="messenger-avatar" alt=""/>' +
+                '<div>' +
+                '<div >' + data.user.fullname + '</div>' +
+                '<div>' + data.createdAt + '</div>' +
+                '<a href="/restaurant/' + data.restaurant._id + '">' +
+                '<div class="noti-content">Nhà hàng bạn vừa có đơn hàng mới!</div>' +
+                '</a>' +
+                '</div>' +
+                '<img src="http://localhost:9032/public/image/' + data.restaurant.avatar + '" class="store-avatar" alt=""/>' +
+                '</div>';
+        $(".notification-content").html($(".notification-content").html() + html);
     })
 })
 function check_discount(data) {
