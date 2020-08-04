@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="header.jsp" %>
 <!--Modal hot-->
-<div class="modal" id="order-hot">
+<div class="modal" id="orderModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -372,8 +372,9 @@
             <div class="profile-menu-hot row">
                 <c:forEach items="${explorestores}" begin= "1" end="6"  var="item">
                     <div class="col-md-4" >
-                        <a href="" class="click-img" data-toggle="modal" data-target="#order-hot" idValue="${item._id}" ><img src="http://localhost:9032/public/image/${item.image}" class="order-img"  alt=""  />
-                            <p >${item.name}</p>
+                        <a href="" class="click-img" data-toggle="modal" data-target="#orderModal" idValue="${item._id}" ><img src="http://localhost:9032/public/image/${item.image}" class="order-img"  alt=""  />
+                            <p style="margin-bottom:0;">${item.restaurant.name}</p>
+                            <span style="font-weight: 300;font-size: 18px;">${item.name}</span>
                             <div class="text-price">
                                 <span class="price-foodnumber">${item.price}</span> 
                                 <span>VNĐ</span>
@@ -396,8 +397,9 @@
             <div class="profile-menu-near row">
                 <c:forEach items="${explorestores}" begin= "1" end="6"  var="item">
                     <div class="col-md-4" >
-                        <a href="" class="click-img" data-toggle="modal" data-target="#order-hot" idValue="${item._id}" ><img src="http://localhost:9032/public/image/${item.image}" class="order-img"  alt=""  />
-                            <p>${item.name}</p>
+                        <a href="" class="click-img" data-toggle="modal" data-target="#orderModal" idValue="${item._id}" ><img src="http://localhost:9032/public/image/${item.image}" class="order-img"  alt=""  />
+                            <p style="margin-bottom:0;">${item.restaurant.name}</p>
+                            <span style="font-weight: 300;font-size: 18px;">${item.name}</span>
                             <div class="text-price"><span class="price-foodnumber">${item.price}</span> <span>VNĐ</span> </div>
                     </div>
                 </c:forEach>
