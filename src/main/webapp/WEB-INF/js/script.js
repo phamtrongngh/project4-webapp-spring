@@ -99,7 +99,7 @@ function format2(n, currency) {
 //    cart index
 function update() {
     var q = ($(".input-qty").val());
-    var tien = $(".price-foodnumber").html().toString().trim();
+    var tien = $(".price-foodnumber").html().toString();
     var tien_saleoff = $(".saleoff-foodnumber").html().toString();
     tien = tien.replace(",", "");
     if ($(".saleoff-food").css("display") != "none") {
@@ -482,7 +482,7 @@ var swiper = new Swiper('.swiper-container', {
 });
 //CART
 $(document).ready(function() {
-    update();
+
     formatpricecart();
     updateCartTotal();
     var removeCartItemButtons = document.getElementsByClassName('btn-remove');
@@ -700,6 +700,7 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
+        alert(idProduct);
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $(".price-food").css("text-decoration-line", "none");
             $(".saleoff-food").css("display", "none");
