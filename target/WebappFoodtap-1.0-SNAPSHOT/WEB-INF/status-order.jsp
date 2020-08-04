@@ -38,7 +38,7 @@
         <div class="col-md-4 info-user" style="background-color: antiquewhite;border-radius: 16px; padding-top: 10px;margin-top: 22px;">
 
             <div>
-                <form class="form-group form-order" action="/order/" method="POST">
+                <form class="form-group form-order" action="/order/cancelOrder/${order._id}" method="POST">
                     <div class=" info-more row">
                         <label class="col">Tình trạng: </label>
                         <span class="col">
@@ -76,21 +76,29 @@
                         <label >Chi tiết đơn hàng:</label>
                         <c:forEach var="item" varStatus="status" items="${order.products}">
                             <div class="row" style="margin: 0 0 0 35px;">
-
-
                                 <div class="col">
-                                    <span>${item.quantity} </span>x 
+                                    <input class="input-qty" value="${item.quantity}"  readonly="true"/>x 
                                     <span>${item.product.name}<span>
                                             </div>
-                                            <div class="col"><span>${item.product.price}</span>VNĐ</div>
+                                            <div class="col"><span class="price-foodnumber">
+                                                    <c:choose>
+                                                        <c:when test="${item.product.saleoff!=null}">
+                                                            ${item.product.saleoff}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${item.product.price}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </span>VNĐ</div>
                                             </div>
                                         </c:forEach>
                                         <hr/>
+                                        <span class="saleoff-food"></span>
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
                                                 Tạm tính: 
                                             </div>
-                                            <div class="col"><span></span>VNĐ</div>
+                                            <div class="col"><span class="total-foodnumber"></span>VNĐ</div>
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
@@ -118,7 +126,7 @@
                                         </div>
                                         <button class="btn btn-danger" style="float: right;margin-bottom: 10px;margin-top: 20px;">Hủy đơn hàng</button>
                                         </div>
-                                        
+
 
                                         </form>
                                         </div>
@@ -134,7 +142,7 @@
                                         <script src="/public/js/jquery-ui.js"></script>
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
-<!--                                        <script async defered>
+                                        <script async defered>
                                             var marker2; //marker of Shipper
                                             var socket = io('http://localhost:9032');
                                             socket.emit("join", $("#idUser").val());
@@ -279,7 +287,7 @@
                                             getLocation('${order.restaurant.address}', "restaurant");
                                             getLocation('${order.address}', "user");
 
-                                        </script>-->
+                                        </script>
                                         </body>
                                         </html>
 
