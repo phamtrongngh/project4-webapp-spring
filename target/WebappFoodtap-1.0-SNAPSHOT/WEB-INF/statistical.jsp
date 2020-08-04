@@ -35,128 +35,131 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-7 col-sm-12 info-product">
+                    <div id="GFG">
+                        <div class="row" >
+                            <div class="col-md-7 col-sm-12">
 
-                            <div class="container">
-                                <div class="card shopping-cart">
-                                    <div class="card-header text-light" style="background-color: #fc7a7b;">
-                                        <i class="fas fa-file-alt"></i> Giỏ hàng
+                                <div class="container">
+                                    <div class="card shopping-cart">
+                                        <div class="card-header text-light" style="background-color: #fc7a7b;">
+                                            <i class="fas fa-file-alt"></i> Sản phẩm đã mua
 
-                                        <div class="clearfix"></div>
-                                    </div>
+                                            <div class="clearfix"></div>
+                                        </div>
 
-                                    <div class="card-body">
-                                        <!-- PRODUCT -->
-                                        <section class="container content-section">
-                                            <div class="cart-row">
-                                                <span class="cart-item cart-header cart-column">Món</span>
-                                                <span class="cart-price cart-header cart-column">Giá</span>
-                                                <span class="cart-quantity cart-header cart-column">Số lượng</span>
-                                            </div>
-                                            <div class="cart-items">
-                                                <c:forEach var="c" items="${item.products}">
-                                                    <div class="cart-row">
-                                                        <div class="cart-item cart-column">
-                                                            <span class="cart-item-title cart-item-title ">${c.product.name}</span>
+                                        <div class="card-body">
+                                            <!-- PRODUCT -->
+                                            <section class="container content-section">
+                                                <div class="cart-row">
+                                                    <span class="cart-item cart-header cart-column">Món</span>
+                                                    <span class="cart-price cart-header cart-column">Giá</span>
+                                                    <span class="cart-quantity cart-header cart-column">Số lượng</span>
+                                                </div>
+                                                <div class="cart-items">
+                                                    <c:forEach var="c" items="${item.products}">
+                                                        <div class="cart-row">
+                                                            <div class="cart-item cart-column">
+                                                                <span class="cart-item-title cart-item-title ">${c.product.name}</span>
+                                                            </div>
+                                                            <span class="cart-price cart-column cart-price-detail">${c.product.price} </span>
+
+                                                            <div class="cart-quantity cart-column">
+                                                                <input class="cart-quantity-input" disabled type="number" value="${c.quantity}" max="100">
+
+                                                            </div>
                                                         </div>
-                                                        <span class="cart-price cart-column cart-price-detail">${c.product.price} </span>
 
-                                                        <div class="cart-quantity cart-column">
-                                                            <input class="cart-quantity-input" disabled type="number" value="${c.quantity}" max="100">
+                                                    </c:forEach>
+                                                </div>
+                                                <div class="cart-total row" style="font-weight: 100;">
+                                                    <div class="">Tạm tính:</div>
 
-                                                        </div>
-                                                    </div>
+                                                    <div class="col"><span class="cart-total-price">${item.amount}</span>VNĐ</div>
+                                                    <input type="text" class="cart-total-price-data" style="display: none;"/>
+                                                </div>
+                                                <div class="cart-total row" style="font-weight: 100;">
+                                                    <div class="">Phí vận chuyển: <span class="price-ship"></span>km</div>
 
-                                                </c:forEach>
-                                            </div>
-                                            <div class="cart-total row" style="font-weight: 100;">
-                                                <div class="">Tạm tính:</div>
+                                                    <div class="col"><span class="cart-ship-price">0</span>VNĐ</div>
 
-                                                <div class="col"><span class="cart-total-price">${item.amount}</span>VNĐ</div>
-                                                <input type="text" class="cart-total-price-data" style="display: none;"/>
-                                            </div>
-                                            <div class="cart-total row" style="font-weight: 100;">
-                                                <div class="">Phí vận chuyển: <span class="price-ship"></span>km</div>
+                                                </div>
 
-                                                <div class="col"><span class="cart-ship-price">0</span>VNĐ</div>
+                                                <div class="cart-total row" style="color: #ff0000;">
+                                                    <div class="">Phiếu giảm giá:</div>
 
-                                            </div>
+                                                    <div class="col">-<span class="cart-discount">0</span>VNĐ</div>
 
-                                            <div class="cart-total row" style="color: #ff0000;">
-                                                <div class="">Phiếu giảm giá:</div>
+                                                </div>
+                                                <div class="cart-total row" style="font-size: 20px;font-weight: 600;">
+                                                    <div class="">Tổng:</div>
 
-                                                <div class="col">-<span class="cart-discount">0</span>VNĐ</div>
+                                                    <div class="col"><span class="cart-total-all">0</span>VNĐ</div>
 
-                                            </div>
-                                            <div class="cart-total row" style="font-size: 20px;font-weight: 600;">
-                                                <div class="">Tổng:</div>
+                                                </div>
 
-                                                <div class="col"><span class="cart-total-all">0</span>VNĐ</div>
+                                            </section>
+                                        </div>
 
-                                            </div>
-
-                                        </section>
                                     </div>
-
                                 </div>
+
                             </div>
 
-                        </div>
+                            <div class="col-md-5 info-user" style="height: 100%;background-color: antiquewhite;border-radius: 16px; padding-top: 10px;margin-top: 22px;max-width: 38%;">
 
-                        <div class="col-md-5 info-user" style="height: 100%;background-color: antiquewhite;border-radius: 16px; padding-top: 10px;margin-top: 22px;max-width: 38%;">
+                                <div>
 
-                            <div>
+                                    <div class=" info-more-modal row">
+                                        <label class="col">Tên khách hàng </label>
+                                        <span class="col"> <a href="/user-profile/${item.user._id}">${item.user.fullname}</a></span>
+                                    </div>
+                                    <div class=" info-more-modal row">
+                                        <label class="col">Tên người giao </label>
+                                        <span class="col"> </span>
+                                    </div>
+                                    <div class=" info-more-modal row">
+                                        <label class="col">SĐT người giao </label>
+                                        <span class="col"> </span>
 
-                                <div class=" info-more-modal row">
-                                    <label class="col">Tên khách hàng </label>
-                                    <span class="col"> <a href="/user-profile/${item.user._id}">${item.user.fullname}</a></span>
-                                </div>
-                                <div class=" info-more-modal row">
-                                    <label class="col">Tên người giao </label>
-                                    <span class="col"> </span>
-                                </div>
-                                <div class=" info-more-modal row">
-                                    <label class="col">SĐT người giao </label>
-                                    <span class="col"> </span>
+                                    </div>
 
-                                </div>
-
-                                <div class=" info-more-modal row">
-                                    <label class="col">Địa chỉ giao hàng:</label>
-                                    <span class="col">${item.address}</span>
-                                </div>
-                                <div class="info-more-modal row">
-                                    <label class="col">Thời gian hoàn thành:</label><br/>
-                                    <span class="col"> </span>
-                                </div>
-                                <div class="info-more-modal row">
-                                    <label class="col">Tình trạng:</label><br/>
-                                    <span class="col"> <c:choose>
-                                            <c:when test="${item.status=='completed'}">
-                                                Đã hoàn thành
-                                            </c:when>
-                                            <c:when test="${item.status=='failed'}">
-                                                Đã bị hủy
-                                            </c:when>
-                                            <c:otherwise>
-                                                Đang tiến hành
-                                            </c:otherwise>
-                                        </c:choose></span>
-                                </div>
-                                <!--                    <div class="info-more row">
-                                                        <label class="col">Thanh Toán:</label><br/>
-                                                        <span class="col">Tieenf mat </span>
-                                                    </div>-->
-                                <div class="info-more-modal row">
-                                    <label class="col">Ghi chú</label><br/>
-                                    <span class="col" style="word-break: break-all;">${order.note}</span>
-                                </div>
+                                    <div class=" info-more-modal row">
+                                        <label class="col">Địa chỉ giao hàng:</label>
+                                        <span class="col">${item.address}</span>
+                                    </div>
+                                    <div class="info-more-modal row">
+                                        <label class="col">Thời gian hoàn thành:</label><br/>
+                                        <span class="col"> </span>
+                                    </div>
+                                    <div class="info-more-modal row">
+                                        <label class="col">Tình trạng:</label><br/>
+                                        <span class="col"> <c:choose>
+                                                <c:when test="${item.status=='completed'}">
+                                                    Đã hoàn thành
+                                                </c:when>
+                                                <c:when test="${item.status=='failed'}">
+                                                    Đã bị hủy
+                                                </c:when>
+                                                <c:otherwise>
+                                                    Đang tiến hành
+                                                </c:otherwise>
+                                            </c:choose></span>
+                                    </div>
+                                    <!--                    <div class="info-more row">
+                                                            <label class="col">Thanh Toán:</label><br/>
+                                                            <span class="col">Tieenf mat </span>
+                                                        </div>-->
+                                    <div class="info-more-modal row">
+                                        <label class="col">Ghi chú</label><br/>
+                                        <span class="col" style="word-break: break-all;">${order.note}</span>
+                                    </div>
 
 
+                                </div>
                             </div>
                         </div>
                     </div>
+                                    <button type="button" class="btn btn-danger" onclick="printDiv()" >In hóa đơn</button>
                 </div>
 
             </div>
@@ -282,7 +285,7 @@
                         <div class="gallery text-center">
                             <a id="chossefile" class="choosefile">
                                 <div class="image-frame-upload" style="border: 1px solid blue;width: 15%;height: 85px">
-                                    <span style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;cursor: pointer">+</span>
+                                    <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 42px;top: 105px;cursor: pointer">+</span>
                                 </div>
                             </a>
                             <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
@@ -588,7 +591,7 @@
                                     <div class="col-md-9 input-group-prepend">
                                         <select id="closeAt" type="text" name="closeAt" class="form-control">
                                             <option value="" >----Chọn thời gian đóng cửa----</option>
-                                          <option value="08:00">08:00</option>
+                                            <option value="08:00">08:00</option>
                                             <option value="09:00">09:00</option>
                                             <option value="10:00">10:00</option>
                                             <option value="11:00">11:00</option>
@@ -604,7 +607,7 @@
                                             <option value="21:00">21:00</option>
                                             <option value="22:00">22:00</option>
                                         </select>
-                                       
+
                                     </div>
                                     <span class="col-md-3"></span>
                                     <span class=" col-md-9 error error-closeAt" color="red">Giờ đóng phải sau giờ mở cửa</span>
@@ -717,67 +720,67 @@
 <script src="/public/js/swiper.min.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
-    var progress = document.getElementById('animationProgress');
-    let myChart = document.getElementById('myChart').getContext('2d');
-    // Global options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 20;
-    Chart.defaults.global.defaultFontColor = '#777';
-    var chart = new Chart(myChart, {
-        type: 'line',
-        data: {
-            labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
-            datasets: [{
-                    label: ['Doanh thu'],
-                    data: [
-                        100,
-                        200,
-                        223,
-                        50,
-                        80,
-                        70,
-                        90,
-                        179,
-                        190,
-                        150,
-                        30,
-                        22,
-                    ],
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    borderWidth: 2,
-                    borderColor: '#da484a',
-                    hoverborderWidth: 3,
-                    hoverborderColor: '#000',
-                }],
-        },
-        options: {
-            title: {
-                display: 'true',
-                text: 'Doanh thu của bạn trong một năm',
-                fontSize: 30,
-                fontStyle: 'bold',
-            },
-            legend: {
-                display: 'true',
-                position: 'right',
-                labels: {
-                    fontColor: '#000',
-                }
-            },
-            layout: {
-                padding: {
-                    left: 50,
-                    right: 0,
-                    bottom: 50,
-                    top: 50,
-                },
-            },
-            animation: {
-                duration: 2000,
-                easing: 'linear',
-            },
-        },
-    });
+                         var progress = document.getElementById('animationProgress');
+                         let myChart = document.getElementById('myChart').getContext('2d');
+                         // Global options
+                         Chart.defaults.global.defaultFontFamily = 'Lato';
+                         Chart.defaults.global.defaultFontSize = 20;
+                         Chart.defaults.global.defaultFontColor = '#777';
+                         var chart = new Chart(myChart, {
+                             type: 'line',
+                             data: {
+                                 labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                                 datasets: [{
+                                         label: ['Doanh thu'],
+                                         data: [
+                                             100,
+                                             200,
+                                             223,
+                                             50,
+                                             80,
+                                             70,
+                                             90,
+                                             179,
+                                             190,
+                                             150,
+                                             30,
+                                             22,
+                                         ],
+                                         backgroundColor: 'rgba(0, 0, 0, 0)',
+                                         borderWidth: 2,
+                                         borderColor: '#da484a',
+                                         hoverborderWidth: 3,
+                                         hoverborderColor: '#000',
+                                     }],
+                             },
+                             options: {
+                                 title: {
+                                     display: 'true',
+                                     text: 'Doanh thu của bạn trong một năm',
+                                     fontSize: 30,
+                                     fontStyle: 'bold',
+                                 },
+                                 legend: {
+                                     display: 'true',
+                                     position: 'right',
+                                     labels: {
+                                         fontColor: '#000',
+                                     }
+                                 },
+                                 layout: {
+                                     padding: {
+                                         left: 50,
+                                         right: 0,
+                                         bottom: 50,
+                                         top: 50,
+                                     },
+                                 },
+                                 animation: {
+                                     duration: 2000,
+                                     easing: 'linear',
+                                 },
+                             },
+                         });
 </script>
 <!--<script async defered>
     goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
