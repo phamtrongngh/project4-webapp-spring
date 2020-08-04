@@ -17,15 +17,15 @@
             </div>
             <div class="profile-menu-hot row">
                 <c:forEach items="${explorestores}" begin= "1" end="6"  var="item">
-                <div class="col-md-4">
-                    <img src="http://localhost:9032/public/image/${item.image}" alt="" />
-                    <a href="">${item.name}</a>
-                    <div class="text-price">
-                        <span class="price-foodnumber">${item.price}</span> 
+                    <div class="col-md-4">
+                        <img src="http://localhost:9032/public/image/${item.image}" alt="" />
+                        <a href="">${item.name}</a>
+                        <div class="text-price">
+                            <span class="price-foodnumber">${item.price}</span> 
                             <span>VNĐ</span>
+                        </div>
                     </div>
-                </div>
-               </c:forEach>
+                </c:forEach>
             </div>
             <div class="d-flex justify-content-between" style="width: 102%">
                 <div class="profile-text-near">
@@ -40,12 +40,12 @@
             </div>
             <div class="profile-menu-near row">
                 <c:forEach items="${explorestores}" begin= "1" end="6"  var="item">
-                <div class="col-md-4">
-                    <img src="http://localhost:9032/public/image/${item.image}" alt="" />
-                    <a href="">${item.name}</a>
-                    <div class="text-price"><span class="price-foodnumber">${item.price}</span> <span>VNĐ</span> </div>
-                </div>
-               </c:forEach>
+                    <div class="col-md-4">
+                        <img src="http://localhost:9032/public/image/${item.image}" alt="" />
+                        <a href="">${item.name}</a>
+                        <div class="text-price"><span class="price-foodnumber">${item.price}</span> <span>VNĐ</span> </div>
+                    </div>
+                </c:forEach>
             </div>
 
         </div>

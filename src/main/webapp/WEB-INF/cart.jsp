@@ -118,8 +118,14 @@
                                             <img class="cart-item-image" src="http://localhost:9032/public/image/${item.product.image}" width="100" height="100">
                                             <span class="cart-item-title cart-item-title ">${item.product.name}</span>
                                         </div>
-                                        <span class="cart-price cart-column cart-page-price">${item.product.price} VNĐ</span>
-
+                                        <c:choose>
+                                            <c:when test="${item.product.saleoff != null}">
+                                                <span class="cart-price cart-column cart-page-price">${item.product.saleoff} VNĐ</span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="cart-price cart-column cart-page-price">${item.product.price} VNĐ</span>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <div class="cart-quantity cart-column">
                                             <input class="cart-quantity-input" type="number" value="${item.quantity}" max="100">
 
