@@ -76,47 +76,44 @@
                         <label >Chi tiết đơn hàng:</label>
                         <c:forEach var="item" varStatus="status" items="${order.products}">
                             <div class="row" style="margin: 0 0 0 35px;">
+
+
                                 <div class="col">
-                                    <input class="input-qty" value="${item.quantity}"  readonly="true"/>x 
+
+                                    <span > ${item.quantity}</span>x 
                                     <span>${item.product.name}<span>
                                             </div>
-                                            <div class="col"><span class="price-foodnumber">
-                                                    <c:choose>
-                                                        <c:when test="${item.product.saleoff!=null}">
-                                                            ${item.product.saleoff}
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            ${item.product.price}
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </span>VNĐ</div>
+                                            <div class="col"><span class="price-foodnumber">${item.product.price}</span>VNĐ</div>
                                             </div>
                                         </c:forEach>
                                         <hr/>
-                                        <span class="saleoff-food"></span>
+                                        
+
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
                                                 Tạm tính: 
                                             </div>
-                                            <div class="col"><span class="total-foodnumber"></span>VNĐ</div>
+
+                                            <div class="col"><span class="price-foodnumber total-status"></span>VNĐ</div>
+
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
                                                 Phí vận chuyển: <span id="distance"></span>km 
                                             </div>
-                                            <div class="col"><span>${order.fee}</span>VNĐ</div>
+                                            <div class="col"><span class="price-foodnumber fee-status">${order.fee}</span>VNĐ</div>
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;color: #ff0000;">
                                             <div class="col">
                                                 Phiếu giảm giá: 
                                             </div>
-                                            <div class="col"><span>-${order.discount!=null?order.discount:0}</span>VNĐ</div>
+                                            <div class="col"><span class="price-foodnumber discount-status">-${order.discount!=null?order.discount:0}</span>VNĐ</div>
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;font-size: 20px;font-weight: 600;">
                                             <div class="col">
                                                 Tổng cộng 
                                             </div>
-                                            <div class="col"><span>${order.amount}</span>VNĐ</div>
+                                            <div class="col"><span class="price-foodnumber totals-status">${order.amount}</span>VNĐ</div>
                                         </div>
 
                                         <div class="row" style="margin: 0 0 0 35px;font-size: 20px;font-weight: 600;">
@@ -126,7 +123,7 @@
                                         </div>
                                         <button class="btn btn-danger" style="float: right;margin-bottom: 10px;margin-top: 20px;">Hủy đơn hàng</button>
                                         </div>
-
+                                        
 
                                         </form>
                                         </div>
@@ -142,7 +139,7 @@
                                         <script src="/public/js/jquery-ui.js"></script>
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
-                                        <script async defered>
+<!--                                        <script async defered>
                                             var marker2; //marker of Shipper
                                             var socket = io('http://localhost:9032');
                                             socket.emit("join", $("#idUser").val());
@@ -287,7 +284,7 @@
                                             getLocation('${order.restaurant.address}', "restaurant");
                                             getLocation('${order.address}', "user");
 
-                                        </script>
+                                        </script>-->
                                         </body>
                                         </html>
 
