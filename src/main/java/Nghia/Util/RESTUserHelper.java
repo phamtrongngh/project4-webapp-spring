@@ -58,6 +58,17 @@ public class RESTUserHelper extends RESTHelper {
         return tmpObject;
     }
 
+    public List<Map<String, ?>> getNotification() throws IOException {
+        String url = BASE_URI + "/getNotifications";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        List<Map<String, ?>> tmpObject = mapper.readValue(string, new TypeReference<List<Map<String, ?>>>() {
+        });
+        return tmpObject;
+    }
+
     public Map<String, ?> getCart() throws IOException {
         String url = BASE_URI + "getCart";
         webTarget = client.target(url);

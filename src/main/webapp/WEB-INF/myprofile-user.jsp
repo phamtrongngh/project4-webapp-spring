@@ -11,7 +11,6 @@
                 <h4 class="modal-title"> Bạn bè</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="d-flex align-items-md-center justify-content-between">
@@ -684,10 +683,7 @@
 
                                                                                 </c:forEach>
                                                                             </div>
-
                                                                         </div>
-
-
                                                                     </div>
                                                                     <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-img">Xem tất cả</a>
                                                                 </div>

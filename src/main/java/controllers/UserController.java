@@ -42,11 +42,12 @@ public class UserController {
         restOrder = new RESTOrderHelper(Order.class);
     }
 
-        @RequestMapping(value = "/search-page")
+    @RequestMapping(value = "/search-page")
     public ModelAndView searchpage() throws IOException {
 
         return new ModelAndView("search-page");
     }
+
     @RequestMapping(value = "/user-info")
     public ModelAndView userinfo() throws IOException {
         Map<String, ?> user = restUser.getMyUser();
@@ -104,6 +105,12 @@ public class UserController {
     @ResponseBody
     public List<Map<String, ?>> getFriendRequests() throws IOException {
         return restUser.getFriendRequests();
+    }
+
+    @RequestMapping(value = "/getNotifications", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String, ?>> getNotifications() throws IOException {
+        return restUser.getNotification();
     }
 
     @RequestMapping(value = "/requestFriend/{id}", method = RequestMethod.POST)

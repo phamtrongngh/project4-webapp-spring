@@ -158,21 +158,50 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fa fa-bell fa-menu" aria-hidden="true" ></i>
-                            <span class="badge count-cart"></span><span class="caret"></span></a>
+                            <span class="badge count-cart numberNoti"></span><span class="caret"></span></a>
                         <div class="dropdown-menu dropdown-notification">
                             <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
                                 <span>Thông báo</span>
                             </div>
-                            <div class="notification">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div>
-                                    <div >Truong</div>
-                                    <div>1 giờ</div>
-                                </div>
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="store-avatar" alt=""/>
+                            <div class="notification-content">
+                                <c:forEach var="noti" items="${notifications}">
+
+                                    <div class="notification">
+                                        <c:choose>
+                                            <c:when test="${noti.fromUser ==null}">
+                                                <img src="http://localhost:9032/public/image/${noti.fromRestaurant.avatar}" class="messenger-avatar from-noti-avatar" alt=""/>
+                                                <div>
+                                                    <div class="noti-fullname">${noti.fromRestaurant.name}</div>
+                                                    <div class="noti-date">${noti.date}</div>
+                                                </div>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <img src="http://localhost:9032/public/image/${noti.fromUser.avatar}" class="messenger-avatar from-noti-avatar" alt=""/>
+                                                <div>
+                                                    <div class="noti-fullname">${noti.fromUser.fullname}</div>
+                                                    <div class="noti-date">${noti.date}</div>
+                                                    <a href="${noti.link}">
+                                                        <div class="noti-content">${noti.content}</div>
+                                                    </a>
+                                                </div>
+                                            </c:otherwise>
+                                        </c:choose>
+
+                                        <c:choose>
+                                            <c:when test="${noti.toRestaurant!=null}">
+                                                <img src="http://localhost:9032/public/image/${noti.toRestaurant.avatar}" class="store-avatar to-noti-avatar" alt=""/>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <img src="http://localhost:9032/public/image/${noti.newfeed.avatar}" class="store-avatar to-noti-avatar" alt=""/>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
+                                </c:forEach>
                             </div>
 
-
+                            <div class="text-center">
+                                <span><a  href="/">Đã xem tất cả</a></span>
+                            </div>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
