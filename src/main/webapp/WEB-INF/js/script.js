@@ -405,6 +405,14 @@ function showmess() {
     })
 }
 $(document).ready(function() {
+    /*fomart price number*/
+     
+     var count = $(".price-foodnumber");
+    for (i = 0; i < count.length; i++) {
+        console.log(count.get(i).innerHTML);
+        $(".price-foodnumber")[i].innerHTML = formatNumber(count.get(i).innerHTML);
+    }
+    
     /*chat scroll to bottom*/
     $('.msg-card-body').stop().animate({scrollTop: 99999999});
     var messitem = document.getElementsByClassName("li-item-chat")[0];

@@ -1163,9 +1163,7 @@ label.star:before {
 }
 
 .profile-menu-hot .col-md-4 {
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 10px;
+ 
     text-align: center;
     background-color: white;
     background-clip: content-box;
@@ -2454,9 +2452,7 @@ explorestore .profile-menu-hot .col-md-4 {
 }
 
 .explorestore .profile-menu-near .col-md-4 {
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 10px;
+    
     text-align: center;
     background-color: white;
     background-clip: content-box;

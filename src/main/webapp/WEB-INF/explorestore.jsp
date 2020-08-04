@@ -8,46 +8,24 @@
                 <div class="profile-text-hot">
                     Hot nhất
                 </div>
-                <div class="d-flex " style="width: 26%">
+                <div class="d-flex " style="width: 26%;padding-right: 10px;">
                     <input type="text" class="search-food rounded " placeholder="Tìm món ăn đang hot" >
                     <div class="input-group-prepend">
                         <button class="input-group-text btn-search-hot" ><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
-            <div class="profile-menu-hot">
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
-                    <a href="">Nui xào bơ tỏi</a>
-                    <div class="text-price">77.000</div>
-                </div>
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                    <a href="">Gà phô mai</a>
-                    <div class="text-price">77.000</div>
-                </div>
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/493ss_thinkstock_rf_photo_of_berry_nut_oatmeal.jpg" alt="">
-                    <a href="">Cháo</a>
-                    <div class="text-price">60.000</div>
-                </div>
-            </div>
-            <div class="profile-menu-hot">
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/2b-bg.jpg" alt="" />
-                    <a href="">Bánh mì thịt</a>
-                    <div class="text-price">65.000</div>
-                </div>
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" alt="">
-                    <a href="">Kem</a>
-                    <div class="text-price">77.000</div>
-                </div>
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/d0ad2c2ef5668d99660d4e156b39f260.jpg" alt="">
-                    <a href="">Pizza hải sản</a>
-                    <div class="text-price">108.000</div>
-                </div>
+            <div class="profile-menu-hot row">
+                <c:forEach items="${explorestores}" begin= "1" end="6"  var="item">
+                    <div class="col-md-4">
+                        <img src="http://localhost:9032/public/image/${item.image}" alt="" />
+                        <a href="">${item.name}</a>
+                        <div class="text-price">
+                            <span class="price-foodnumber">${item.price}</span> 
+                            <span>VNĐ</span>
+                        </div>
+                    </div>
+                </c:forEach>
             </div>
             <div class="d-flex justify-content-between" style="width: 102%">
                 <div class="profile-text-near">
@@ -60,39 +38,14 @@
                     </div>
                 </div>
             </div>
-            <div class="profile-menu-near">
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
-                    <a href="">Nui xào bơ tỏi</a>
-                    <div class="text-price">77.000</div>
-                </div>
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                    <a href="">Gà phô mai</a>
-                    <div class="text-price">77.000</div>
-                </div>
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                    <a href="">Gà nướng mật ong</a>
-                    <div class="text-price">77.000</div>
-                </div>
-            </div>
-            <div class="profile-menu-near">
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
-                    <a href="">Nui xào bơ tỏi</a>
-                    <div class="text-price">77.000</div>
-                </div>
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                    <a href="">Gà phô mai</a>
-                    <div class="text-price">77.000</div>
-                </div>
-                <div class="col-md-4">
-                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                    <a href="">Gà nướng mật ong</a>
-                    <div class="text-price">77.000</div>
-                </div>
+            <div class="profile-menu-near row">
+                <c:forEach items="${explorestores}" begin= "1" end="6"  var="item">
+                    <div class="col-md-4">
+                        <img src="http://localhost:9032/public/image/${item.image}" alt="" />
+                        <a href="">${item.name}</a>
+                        <div class="text-price"><span class="price-foodnumber">${item.price}</span> <span>VNĐ</span> </div>
+                    </div>
+                </c:forEach>
             </div>
 
         </div>
