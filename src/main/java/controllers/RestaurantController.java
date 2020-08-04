@@ -51,14 +51,11 @@ public class RestaurantController implements IController<Restaurant> {
         return new ModelAndView("statistical").addObject("restaurant", restaurant);
     }
 
-    
-
     @RequestMapping(value = "/store-profile/{id}", method = RequestMethod.GET)
     public ModelAndView storeprofile(@PathVariable("id") String id) throws IOException {
         Map<String, ?> restaurant = restHelper.manageMyRestaurant(id);
         return new ModelAndView("store-profile").addObject("restaurant", restaurant);
     }
-
 
     @RequestMapping(value = "/statistical", method = RequestMethod.GET)
     public ModelAndView statistical() throws IOException {
@@ -82,10 +79,10 @@ public class RestaurantController implements IController<Restaurant> {
     @Override
     public ModelAndView getOne(@PathVariable("id") String id) throws IOException {
         Object restaurant = restHelper.getOne(id);
-        Map<String,?> map =(Map) restaurant;
-        ArrayList<Map<String,String>> managers = (ArrayList<Map<String,String>>) map.get("managers");
-        for (Map item : managers){
-            if (item.get("user").equals(CookieHelper.getCookie("_id"))){
+        Map<String, ?> map = (Map) restaurant;
+        ArrayList<Map<String, String>> managers = (ArrayList<Map<String, String>>) map.get("managers");
+        for (Map item : managers) {
+            if (item.get("user").equals(CookieHelper.getCookie("_id"))) {
                 return storeprofile(id);
             }
         }
@@ -109,25 +106,29 @@ public class RestaurantController implements IController<Restaurant> {
     public ModelAndView getCreate() throws IOException {
         return new ModelAndView("postRestaurant");
     }
+
     @RequestMapping(value = "/mystore-display", method = RequestMethod.GET)
-    public ModelAndView mystoredisplay()throws IOException {
+    public ModelAndView mystoredisplay() throws IOException {
         return new ModelAndView("mystore-display");
-        
+
     }
+
     @RequestMapping(value = "/mystore-profile", method = RequestMethod.GET)
-    public ModelAndView mystoreprofile()throws IOException {
+    public ModelAndView mystoreprofile() throws IOException {
         return new ModelAndView("mystore-profile");
-        
+
     }
+
     @RequestMapping(value = "/store-profile", method = RequestMethod.GET)
-    public ModelAndView storeprofile()throws IOException {
+    public ModelAndView storeprofile() throws IOException {
         return new ModelAndView("store-profile");
-        
+
     }
+
     @RequestMapping(value = "/menu/{id}")
     public ModelAndView menu(@PathVariable("id") String id) throws IOException {
         Object restaurant = restHelper.getMenu(id);
-        return new ModelAndView("profile").addObject("restaurant",restaurant);
+        return new ModelAndView("profile").addObject("restaurant", restaurant);
     }
 
     @RequestMapping(value = "/restaurant/postRestaurant", method = RequestMethod.POST)
@@ -136,8 +137,6 @@ public class RestaurantController implements IController<Restaurant> {
         restHelper.post(restaurant);
         return getAll();
     }
-
-    
 
     @RequestMapping(value = "/restaurant/updateRestaurant", method = RequestMethod.POST)
     @Override
@@ -148,7 +147,7 @@ public class RestaurantController implements IController<Restaurant> {
     }
 
     @RequestMapping(value = "/restaurant/update", method = RequestMethod.POST)
-    public ModelAndView updateRestaurant(MultipartContainer multipartContainer,HttpServletRequest request, Restaurant restaurant) throws IOException {
+    public ModelAndView updateRestaurant(MultipartContainer multipartContainer, HttpServletRequest request, Restaurant restaurant) throws IOException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
@@ -184,10 +183,9 @@ public class RestaurantController implements IController<Restaurant> {
         }
         return mystore();
     }
-    
-    
+
     @RequestMapping(value = "/createRestaurant", method = RequestMethod.POST)
-    public ModelAndView createRestaurant(MultipartContainer multipartContainer, Restaurant restaurant) throws IOException {
+    public ModelAndView createRestaurant(MultipartContainer multipartContainer, Restaurant restaurant, HttpServletResponse responses) throws IOException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
@@ -221,8 +219,17 @@ public class RestaurantController implements IController<Restaurant> {
         if (fileName2 != "") {
             file2.delete();
         }
+        String url = response.readEntity(String.class);
+        responses.sendRedirect(url);
         return mystore();
     }
 
+    @RequestMapping(value = "/restaurant/paying", method = RequestMethod.GET)
+    public ModelAndView payingMomo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (request.getParameter("message").equals("Success")) {
+            restOrderHelper.paying(request.getParameter("orderId"));
+        }
+        response.sendRedirect("/detail-order/" + request.getParameter("orderId"));
+        return null;
+    }
 }
-
