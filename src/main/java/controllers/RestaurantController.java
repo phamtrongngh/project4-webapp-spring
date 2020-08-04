@@ -224,12 +224,12 @@ public class RestaurantController implements IController<Restaurant> {
         return mystore();
     }
 
-    @RequestMapping(value = "/restaurant/paying", method = RequestMethod.GET)
-    public ModelAndView payingMomo(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        if (request.getParameter("message").equals("Success")) {
-            restOrderHelper.paying(request.getParameter("orderId"));
-        }
-        response.sendRedirect("/detail-order/" + request.getParameter("orderId"));
-        return null;
-    }
+//    @RequestMapping(value = "/restaurant/paying", method = RequestMethod.GET)
+//    public ModelAndView payingMomo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        if (request.getParameter("message").equals("Success")) {
+//            restOrderHelper.paying(request.getParameter("orderId"));
+//        }
+//        response.sendRedirect("/detail-order/" + request.getParameter("orderId"));
+//        return null;
+//    }
 }
