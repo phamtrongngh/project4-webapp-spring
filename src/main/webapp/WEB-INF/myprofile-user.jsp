@@ -406,7 +406,7 @@
                                 </p>
 
                                 <p class="price-food">Giá : <span class="price-foodnumber-through"></span> VNĐ</p>
-                                <p class="price-food">Giá khuyến mãi : <span class="price-foodnumber"></span> VNĐ</p>
+                                <p class="saleoff-food">Giá khuyến mãi : <span class="price-foodnumber"></span> VNĐ</p>
                                 <p class="total-food">Thành tiền : <span class="total-foodnumber"></span> VNĐ</p>
                             </div>
 
