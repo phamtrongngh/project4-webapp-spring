@@ -652,8 +652,8 @@ h1 {
 
 .list-friends .img-avatar1 {
     margin-top: 40px;
-    width: 100%;
-    height: 100%;
+    width: 55px;
+    height: 55px;
 }
 
 .fa-chevron-circle-up {
@@ -1183,7 +1183,7 @@ label.star:before {
     margin-bottom: 5px;
 }
 
-.profile-menu-hot a {
+.profile .profile-menu-hot a {
     text-decoration: none;
     color: black;
     font-size: 22.4px;
@@ -1512,6 +1512,10 @@ label.star:before {
 .carousel-indicators li {
     background-color: #da484a !important;
     opacity: 0.2;
+}
+.carousel-indicators li.active {
+    background-color: #da484a !important;
+    opacity: 0.8;
 }
 
 .carousel-indicators {

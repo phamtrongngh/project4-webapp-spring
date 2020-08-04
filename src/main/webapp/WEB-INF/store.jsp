@@ -1,6 +1,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal repost -->
+<div class="modal fade" id="repostModal">
+    <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Báo cáo quản trị</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div>
+                    <h3>Nội dụng</h3>
+                    <textarea style="width: 100%" rows="5"></textarea>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger submit" >Gửi</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- The Modal -->
 <div class="modal" id="orderModal">
     <div class="modal-dialog">
@@ -175,7 +198,6 @@
     </div>
 </div>
 <!--Modal like and share-->
-
 <div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
 
@@ -398,7 +420,7 @@
                 <div class="col-md-1 profile-container-buttons">
                     <button id="btn-like" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
-                    <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>
+                    <button class="btn btn-danger form-control " data-toggle="modal" data-target="#repostModal"><i class="fas fa-poll-h" ></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
                     <button class="btn btn-primary form-control "><i class="far fa-comment"></i><br/>Gửi tin</button>

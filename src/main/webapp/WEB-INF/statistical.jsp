@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
-<!-- The Modal -->
+<!-- The Modal map -->
 <div class="modal fade" id="mapModel">
     <div class="modal-dialog" style="width: 450px;">
         <div class="modal-content">
