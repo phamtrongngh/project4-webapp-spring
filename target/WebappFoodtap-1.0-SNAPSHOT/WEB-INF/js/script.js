@@ -1200,7 +1200,7 @@ $(document).ready(function() {
         var openAt = $("#openAt :selected").val();
         var closeAt = $("#closeAt :selected").val();
         var textupdateinfo = $("#textupdateinfo").val();
-        if (/^\s{0,}$/.test(change_alias(textupdateinfo))) {
+        if (!/^\s{0,}$/.test(change_alias(textupdateinfo))) {
             $("#textupdateinfo").removeClass("error-user");
             $("#textupdateinfo").addClass("success-user");
             $("#textupdateinfo").css("box-shadow", "none");
@@ -1260,3 +1260,9 @@ $(document).ready(function() {
     });
 
 });
+$(document).ready(function (){
+    var totalsstatus= parseFloat($(".totals-status").html().toString().replace(",",""));
+    var discountstatus= parseFloat($(".discount-status").html().toString().replace(",",""));
+    var feestatus= parseFloat($(".fee-status").html().toString().replace(",",""));
+    $(".total-status").html(format2(totalsstatus-feestatus+discountstatus,"").replace(".000",""));
+})
