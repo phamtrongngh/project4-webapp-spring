@@ -900,6 +900,15 @@ $(document).ready(function() {
         html += '</div>';
         $(".listRequest").html($(".listRequest").html() + html)
     })
+    socket.on("newOrder", function(data) {
+        var number;
+        if ($(".numberFriendRequest").html() == "") {
+            number = 1;
+        } else {
+            number = parseInt($(".numberFriendRequest").html()) + 1;
+        }
+        
+    })
 })
 function check_discount(data) {
     if (data.min) {

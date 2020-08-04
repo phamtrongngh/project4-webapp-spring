@@ -163,16 +163,16 @@
                             <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
                                 <span>Thông báo</span>
                             </div>
-                            <div class="notification">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div>
-                                    <div >Truong</div>
-                                    <div>1 giờ</div>
+                            <div class="notification-content">
+                                <div class="notification ">
+                                    <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
+                                    <div>
+                                        <div >Truong</div>
+                                        <div>1 giờ</div>
+                                    </div>
+                                    <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="store-avatar" alt=""/>
                                 </div>
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="store-avatar" alt=""/>
                             </div>
-
-
                         </div>
                     </li>
                     <li class="nav-item dropdown">
