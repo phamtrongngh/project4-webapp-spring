@@ -700,7 +700,6 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
-        alert(idProduct);
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $(".price-food").css("text-decoration-line", "none");
             $(".saleoff-food").css("display", "none");
@@ -1195,12 +1194,16 @@ $(document).ready(function() {
     document.getElementById("btn-like").addEventListener("click", ChangButtonLike);
 });
 $(document).ready(function() {
-
+    
+    var distance = parseFloat($(".distance-status").html().toString().replace(",",""));
+    var fee = parseFloat($(".fee-status").html().toString().replace(",",""));
+    var totals = parseFloat($(".totals-status").html().toString().replace(",",""));
+    $(".total-status").html(format2(totals-fee-distance,"").replace(".000",""));
     $("#btn-updateinfostore").on("click", function() {
         var openAt = $("#openAt :selected").val();
         var closeAt = $("#closeAt :selected").val();
         var textupdateinfo = $("#textupdateinfo").val();
-        if (/^\s{0,}$/.test(change_alias(textupdateinfo))) {
+        if (!/^\s{0,}$/.test(change_alias(textupdateinfo))) {
             $("#textupdateinfo").removeClass("error-user");
             $("#textupdateinfo").addClass("success-user");
             $("#textupdateinfo").css("box-shadow", "none");
