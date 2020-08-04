@@ -49,4 +49,12 @@ public class RESTOrderHelper extends RESTHelper {
                 .get(String.class);
         return string;
     }
+    public String cancelOrder(String id) {
+        String url = BASE_URI+"cancelOrder";
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(null, String.class);
+        return string;
+    }
 }

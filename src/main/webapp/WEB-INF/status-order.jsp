@@ -38,7 +38,7 @@
         <div class="col-md-4 info-user" style="background-color: antiquewhite;border-radius: 16px; padding-top: 10px;margin-top: 22px;">
 
             <div>
-                <form class="form-group form-order" action="/order/" method="POST">
+                <form class="form-group form-order" action="/order/cancelOrder/${order._id}" method="POST">
                     <div class=" info-more row">
                         <label class="col">Tình trạng: </label>
                         <span class="col">

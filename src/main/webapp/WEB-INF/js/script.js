@@ -700,7 +700,6 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
-        alert(idProduct);
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $(".price-food").css("text-decoration-line", "none");
             $(".saleoff-food").css("display", "none");

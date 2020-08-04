@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controllers;
 
 import Nghia.Util.RESTOrderHelper;
@@ -29,37 +28,44 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class OrderController {
-    
+
     private RESTOrderHelper restOrderHelper;
 
     public OrderController() throws InstantiationException, IllegalAccessException {
         restOrderHelper = new RESTOrderHelper(Order.class);
     }
-    
-    @RequestMapping(value = "/order/", method = RequestMethod.POST )
+
+    @RequestMapping(value = "/order/", method = RequestMethod.POST)
     @ResponseBody
     public String postOrder(@RequestBody String json) throws IOException {
         String urlScan = restOrderHelper.postOrder(json);
         return urlScan;
     }
 
-    @RequestMapping(value = "/order/responseMomo", method = RequestMethod.POST )
+    @RequestMapping(value = "/order/responseMomo", method = RequestMethod.POST)
     @ResponseBody
     public String responseMomo(@RequestBody String json) throws IOException {
         return json;
     }
-    
-    @RequestMapping(value = "/order/paying", method = RequestMethod.GET )
+
+    @RequestMapping(value = "/order/paying", method = RequestMethod.GET)
     public ModelAndView payingMomo(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        if (request.getParameter("message").equals("Success")){
+        if (request.getParameter("message").equals("Success")) {
             restOrderHelper.paying(request.getParameter("orderId"));
         }
-        response.sendRedirect("/detail-order/"+request.getParameter("orderId"));
+        response.sendRedirect("/detail-order/" + request.getParameter("orderId"));
         return null;
     }
+
     @RequestMapping(value = "/discount", method = RequestMethod.GET)
     public ModelAndView discount() throws IOException {
         return new ModelAndView("discount");
     }
-    
+
+    @RequestMapping(value = "/order/cancelOrder/{id}", method = RequestMethod.POST)
+    public ModelAndView cancelOrder(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
+        restOrderHelper.cancelOrder(id);
+        response.sendRedirect("/");
+        return new ModelAndView("index");
+    }
 }
