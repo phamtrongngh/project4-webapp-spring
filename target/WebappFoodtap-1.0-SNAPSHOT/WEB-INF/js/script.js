@@ -700,7 +700,6 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
-        alert(idProduct);
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $(".price-food").css("text-decoration-line", "none");
             $(".saleoff-food").css("display", "none");
@@ -1200,7 +1199,7 @@ $(document).ready(function() {
         var openAt = $("#openAt :selected").val();
         var closeAt = $("#closeAt :selected").val();
         var textupdateinfo = $("#textupdateinfo").val();
-        if (/^\s{0,}$/.test(change_alias(textupdateinfo))) {
+        if (!/^\s{0,}$/.test(change_alias(textupdateinfo))) {
             $("#textupdateinfo").removeClass("error-user");
             $("#textupdateinfo").addClass("success-user");
             $("#textupdateinfo").css("box-shadow", "none");
@@ -1260,3 +1259,9 @@ $(document).ready(function() {
     });
 
 });
+$(document).ready(function (){
+    var totalsstatus= parseFloat($(".totals-status").html().toString().replace(",",""));
+    var discountstatus= parseFloat($(".discount-status").html().toString().replace(",",""));
+    var feestatus= parseFloat($(".fee-status").html().toString().replace(",",""));
+    $(".total-status").html(format2(totalsstatus-feestatus+discountstatus,"").replace(".000",""));
+})

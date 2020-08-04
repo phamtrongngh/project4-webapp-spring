@@ -38,7 +38,7 @@
         <div class="col-md-4 info-user" style="background-color: antiquewhite;border-radius: 16px; padding-top: 10px;margin-top: 22px;">
 
             <div>
-                <form class="form-group form-order" action="/order/" method="POST">
+                <form class="form-group form-order" action="/order/cancelOrder/${order._id}" method="POST">
                     <div class=" info-more row">
                         <label class="col">Tình trạng: </label>
                         <span class="col">
@@ -79,36 +79,41 @@
 
 
                                 <div class="col">
-                                    <span>${item.quantity} </span>x 
+
+                                    <span > ${item.quantity}</span>x 
                                     <span>${item.product.name}<span>
                                             </div>
-                                            <div class="col"><span>${item.product.price}</span>VNĐ</div>
+                                            <div class="col"><span class="price-foodnumber">${item.product.price}</span>VNĐ</div>
                                             </div>
                                         </c:forEach>
                                         <hr/>
+                                        
+
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
                                                 Tạm tính: 
                                             </div>
-                                            <div class="col"><span></span>VNĐ</div>
+
+                                            <div class="col"><span class="price-foodnumber total-status"></span>VNĐ</div>
+
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
                                                 Phí vận chuyển: <span id="distance"></span>km 
                                             </div>
-                                            <div class="col"><span>${order.fee}</span>VNĐ</div>
+                                            <div class="col"><span class="price-foodnumber fee-status">${order.fee}</span>VNĐ</div>
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;color: #ff0000;">
                                             <div class="col">
                                                 Phiếu giảm giá: 
                                             </div>
-                                            <div class="col"><span>-${order.discount!=null?order.discount:0}</span>VNĐ</div>
+                                            <div class="col"><span class="price-foodnumber discount-status">-${order.discount!=null?order.discount:0}</span>VNĐ</div>
                                         </div>
                                         <div class="row" style="margin: 0 0 0 35px;font-size: 20px;font-weight: 600;">
                                             <div class="col">
                                                 Tổng cộng 
                                             </div>
-                                            <div class="col"><span>${order.amount}</span>VNĐ</div>
+                                            <div class="col"><span class="price-foodnumber totals-status">${order.amount}</span>VNĐ</div>
                                         </div>
 
                                         <div class="row" style="margin: 0 0 0 35px;font-size: 20px;font-weight: 600;">
