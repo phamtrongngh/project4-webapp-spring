@@ -406,13 +406,13 @@ function showmess() {
 }
 $(document).ready(function() {
     /*fomart price number*/
-     
-     var count = $(".price-foodnumber");
+
+    var count = $(".price-foodnumber");
     for (i = 0; i < count.length; i++) {
         console.log(count.get(i).innerHTML);
         $(".price-foodnumber")[i].innerHTML = formatNumber(count.get(i).innerHTML);
     }
-    
+
     /*chat scroll to bottom*/
     $('.msg-card-body').stop().animate({scrollTop: 99999999});
     var messitem = document.getElementsByClassName("li-item-chat")[0];
@@ -715,6 +715,7 @@ $(document).ready(function() {
         var image = $(this).closest(".status").find(".background");
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
+        alert(idProduct);
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $(".price-food").css("text-decoration-line", "none");
             $(".saleoff-food").css("display", "none");
@@ -734,6 +735,131 @@ $(document).ready(function() {
             }
 
             $("#orderModal .shop-item-button").attr("idValue", idProduct);
+        })
+
+    })
+    //binding data to open explorestore-hot
+    $(".click-img").click(function() {
+        var image = $(this).closest(".col-md-4").find(".order-img");
+        var idProduct = $(this).attr("idValue");
+        callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
+            $(".price-food").css("text-decoration-line", "none");
+            $(".saleoff-food").css("display", "none");
+            $("#order-hot .img-status").attr("src", image.attr("src"));
+            $("#order-hot .title-food").html(data.name);
+            data.price = (format2(data.price, '')).replace(".000", "");
+            $("#order-hot .price-foodnumber").html(data.price);
+            if (data.saleoff != null) {
+                data.saleoff = (format2(data.saleoff, '')).replace(".000", "");
+                $("#order-hot .saleoff-foodnumber").html(data.saleoff);
+                $(".price-food").css("text-decoration-line", "line-through");
+                $(".saleoff-food").css("display", "block");
+                $("#order-hot .total-foodnumber").html(data.saleoff);
+            } else {
+                $("#order-hot .total-foodnumber").html(data.price);
+            }
+
+            $("#order-hot .shop-item-button").attr("idValue", idProduct);
+        })
+
+    })
+    //binding data to open explorestore-near
+    $(".click-img").click(function() {
+        var image = $(this).closest(".col-md-4").find(".order-img");
+        var idProduct = $(this).attr("idValue");
+        callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
+            $(".price-food").css("text-decoration-line", "none");
+            $(".saleoff-food").css("display", "none");
+            $("#order-near .img-status").attr("src", image.attr("src"));
+            $("#order-near .title-food").html(data.name);
+            data.price = (format2(data.price, '')).replace(".000", "");
+            $("#order-near .price-foodnumber").html(data.price);
+            if (data.saleoff != null) {
+                data.saleoff = (format2(data.saleoff, '')).replace(".000", "");
+                $("#order-near .saleoff-foodnumber").html(data.saleoff);
+                $(".price-food").css("text-decoration-line", "line-through");
+                $(".saleoff-food").css("display", "block");
+                $("#order-near .total-foodnumber").html(data.saleoff);
+            } else {
+                $("#order-near .total-foodnumber").html(data.price);
+            }
+
+            $("#order-near .shop-item-button").attr("idValue", idProduct);
+        })
+
+    })
+    //binding data to open menu-hot
+    $(".click-img").click(function() {
+        var image = $(this).closest(".col-md-4").find(".order-img");
+        var idProduct = $(this).attr("idValue");
+        callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
+            $(".price-food").css("text-decoration-line", "none");
+            $(".saleoff-food").css("display", "none");
+            $("#order-menu-hot .img-status").attr("src", image.attr("src"));
+            $("#order-menu-hot .title-food").html(data.name);
+            data.price = (format2(data.price, '')).replace(".000", "");
+            $("#order-menu-hot .price-foodnumber").html(data.price);
+            if (data.saleoff != null) {
+                data.saleoff = (format2(data.saleoff, '')).replace(".000", "");
+                $("#order-menu-hot .saleoff-foodnumber").html(data.saleoff);
+                $(".price-food").css("text-decoration-line", "line-through");
+                $(".saleoff-food").css("display", "block");
+                $("#order-menu-hot .total-foodnumber").html(data.saleoff);
+            } else {
+                $("#order-menu-hot .total-foodnumber").html(data.price);
+            }
+
+            $("#order-menu-hot .shop-item-button").attr("idValue", idProduct);
+        })
+
+    })
+    //binding data to open menu-near
+    $(".click-img").click(function() {
+        var image = $(this).closest(".col-md-4").find(".order-img");
+        var idProduct = $(this).attr("idValue");
+        callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
+            $(".price-food").css("text-decoration-line", "none");
+            $(".saleoff-food").css("display", "none");
+            $("#order-menu-near .img-status").attr("src", image.attr("src"));
+            $("#order-menu-near .title-food").html(data.name);
+            data.price = (format2(data.price, '')).replace(".000", "");
+            $("#order-menu-near .price-foodnumber").html(data.price);
+            if (data.saleoff != null) {
+                data.saleoff = (format2(data.saleoff, '')).replace(".000", "");
+                $("#order-menu-near .saleoff-foodnumber").html(data.saleoff);
+                $(".price-food").css("text-decoration-line", "line-through");
+                $(".saleoff-food").css("display", "block");
+                $("#order-menu-near.total-foodnumber").html(data.saleoff);
+            } else {
+                $("#order-menu-near .total-foodnumber").html(data.price);
+            }
+
+            $("#order-menu-near .shop-item-button").attr("idValue", idProduct);
+        })
+
+    })
+    //binding data to open menu-all
+    $(".click-img").click(function() {
+        var image = $(this).closest(".col-md-4").find(".order-img");
+        var idProduct = $(this).attr("idValue");
+        callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
+            $(".price-food").css("text-decoration-line", "none");
+            $(".saleoff-food").css("display", "none");
+            $("#order-menu-all .img-status").attr("src", image.attr("src"));
+            $("#order-menu-all .title-food").html(data.name);
+            data.price = (format2(data.price, '')).replace(".000", "");
+            $("#order-menu-all .price-foodnumber").html(data.price);
+            if (data.saleoff != null) {
+                data.saleoff = (format2(data.saleoff, '')).replace(".000", "");
+                $("#order-menu-all .saleoff-foodnumber").html(data.saleoff);
+                $(".price-food").css("text-decoration-line", "line-through");
+                $(".saleoff-food").css("display", "block");
+                $("#order-menu-all.total-foodnumber").html(data.saleoff);
+            } else {
+                $("#order-menu-all .total-foodnumber").html(data.price);
+            }
+
+            $("#order-menu-all .shop-item-button").attr("idValue", idProduct);
         })
 
     })
