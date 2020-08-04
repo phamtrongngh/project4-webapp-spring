@@ -99,7 +99,7 @@ function format2(n, currency) {
 //    cart index
 function update() {
     var q = ($(".input-qty").val());
-    var tien = $(".price-foodnumber").html().toString().trim();
+    var tien = $(".price-foodnumber").html().toString();
     var tien_saleoff = $(".saleoff-foodnumber").html().toString();
     tien = tien.replace(",", "");
     if ($(".saleoff-food").css("display") != "none") {
@@ -482,7 +482,7 @@ var swiper = new Swiper('.swiper-container', {
 });
 //CART
 $(document).ready(function() {
-    update();
+
     formatpricecart();
     updateCartTotal();
     var removeCartItemButtons = document.getElementsByClassName('btn-remove');
@@ -1199,7 +1199,7 @@ $(document).ready(function() {
         var openAt = $("#openAt :selected").val();
         var closeAt = $("#closeAt :selected").val();
         var textupdateinfo = $("#textupdateinfo").val();
-        if (/^\s{0,}$/.test(change_alias(textupdateinfo))) {
+        if (!/^\s{0,}$/.test(change_alias(textupdateinfo))) {
             $("#textupdateinfo").removeClass("error-user");
             $("#textupdateinfo").addClass("success-user");
             $("#textupdateinfo").css("box-shadow", "none");
@@ -1259,3 +1259,9 @@ $(document).ready(function() {
     });
 
 });
+$(document).ready(function (){
+    var totalsstatus= parseFloat($(".totals-status").html().toString().replace(",",""));
+    var discountstatus= parseFloat($(".discount-status").html().toString().replace(",",""));
+    var feestatus= parseFloat($(".fee-status").html().toString().replace(",",""));
+    $(".total-status").html(format2(totalsstatus-feestatus+discountstatus,"").replace(".000",""));
+})

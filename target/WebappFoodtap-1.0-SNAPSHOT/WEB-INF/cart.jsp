@@ -127,7 +127,7 @@
                                             </c:otherwise>
                                         </c:choose>
                                         <div class="cart-quantity cart-column">
-                                            <input class="cart-quantity-input" type="number" value="${item.quantity}" max="100">
+                                            <input class="cart-quantity-input" type="number" value="${item.quantity}" max="100"/>
 
                                             <button idValue="${item.product._id}" class="btn btn-danger removeCart" >Xóa</button>
 
