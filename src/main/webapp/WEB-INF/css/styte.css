@@ -2958,3 +2958,6 @@ explorestore .profile-menu-hot .col-md-4 {
 .btn-createstore{
     color: white !important;
 }
+.info-more .saleoff-food{
+    display: none;
+}
