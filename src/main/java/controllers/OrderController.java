@@ -53,8 +53,8 @@ public class OrderController {
         if (request.getParameter("message").equals("Success")) {
             restOrderHelper.paying(request.getParameter("orderId"));
         }
-        response.sendRedirect("/detail-order/" + request.getParameter("orderId"));
-        return null;
+        response.sendRedirect("/status-order/" + request.getParameter("orderId"));
+        return new ModelAndView("index");
     }
 
     @RequestMapping(value = "/discount", method = RequestMethod.GET)

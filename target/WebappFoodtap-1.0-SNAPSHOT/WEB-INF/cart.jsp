@@ -164,9 +164,7 @@
                                 <div class="cart-total-title">Tổng:</div>
 
                                 <div class="col"><span class="cart-total-all">0</span>VNĐ</div>
-
                             </div>
-
                         </section>
                     </div>
                 </div>
@@ -188,7 +186,7 @@
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
-<script async defered>
+<!--<script async defered>
     goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
     var map = new goongjs.Map({
         container: 'map', // container id
@@ -357,7 +355,7 @@
     }
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
-</script>
+</script>-->
 
 </body>
 

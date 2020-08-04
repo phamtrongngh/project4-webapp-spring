@@ -107,7 +107,7 @@
                         <button type="button" class="btn btn-outline-danger prev-step">Quay lại</button>
                     </li>
                     <li class="list-inline-item">
-                        <button id="submit-create-restaurant" type="submit" class="btn btn-danger btn-info-full next-step">Hoàn thành</button>
+                        <button id="submit-create-restaurant" type="submit" class="btn btn-danger btn-info-full next-step">Thanh toán</button>
                     </li>
                 </ul>
             </div>
