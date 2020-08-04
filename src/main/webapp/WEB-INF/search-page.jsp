@@ -3,7 +3,7 @@
 <%@include file="header.jsp" %>
 <div class="container sametaste" style="margin-top: 100px">
     <div class="row">
-        <div class="col-10 col-sm-10 col-md-11">
+        <div class="col-12 col-sm-12 col-md-12">
             <div class="d-flex justify-content-between" style="width: 100%">
                 <div class="profile-text-hot">
                     Cửa hàng

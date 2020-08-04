@@ -99,7 +99,7 @@ public class ProductController implements IController<Product> {
     }
 
     @RequestMapping(value = "/product/update", method = RequestMethod.POST)
-    public void update(MultipartContainer multipartContainer, Product product, HttpServletRequest request, HttpServletResponse responseServlet) throws IOException, ServletException {
+    public ModelAndView update(MultipartContainer multipartContainer, Product product, HttpServletRequest request, HttpServletResponse responseServlet) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
@@ -122,11 +122,13 @@ public class ProductController implements IController<Product> {
         if (fileName != "") {
             file.delete();
         }
+
         responseServlet.sendRedirect("/manageMyRestaurant/" + product.getRestaurant() + "#menu");
+        return new ModelAndView("statistical");
     }
 
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
-    public void post(MultipartContainer multipartContainer, Product product, HttpServletResponse responseServlet) throws IOException, ServletException {
+    public ModelAndView post(MultipartContainer multipartContainer, Product product, HttpServletResponse responseServlet) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
@@ -149,6 +151,7 @@ public class ProductController implements IController<Product> {
             file.delete();
         }
         responseServlet.sendRedirect("/manageMyRestaurant/" + product.getRestaurant() + "#menu");
+        return new ModelAndView("statistical");
     }
 
     @RequestMapping(value = "/explorestore", method = RequestMethod.GET)
