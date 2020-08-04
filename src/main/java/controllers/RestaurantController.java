@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 /**
  *
@@ -220,16 +221,17 @@ public class RestaurantController implements IController<Restaurant> {
             file2.delete();
         }
         String url = response.readEntity(String.class);
-        responses.sendRedirect(url);
+        
+        responses.sendRedirect(url.replace("\"",""));
         return mystore();
+        
     }
 
-//    @RequestMapping(value = "/restaurant/paying", method = RequestMethod.GET)
-//    public ModelAndView payingMomo(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        if (request.getParameter("message").equals("Success")) {
-//            restOrderHelper.paying(request.getParameter("orderId"));
-//        }
-//        response.sendRedirect("/detail-order/" + request.getParameter("orderId"));
-//        return null;
-//    }
+    @RequestMapping(value = "/restaurant/paying", method = RequestMethod.GET)
+    public ModelAndView payingMomo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (request.getParameter("message").equals("Success")) {
+            restHelper.paying(request.getParameter("orderId"));
+        }
+        return mystore();
+    }
 }
