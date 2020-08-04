@@ -37,6 +37,7 @@ public class ProductController implements IController<Product> {
 
     private final RESTHelper restHelper;
     private final RESTProductHelper rESTProductHelper;
+
     public ProductController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTHelper(Product.class);
         rESTProductHelper = new RESTProductHelper(Product.class);
@@ -57,7 +58,6 @@ public class ProductController implements IController<Product> {
         return new ModelAndView("create-menu");
     }
 
-    
     @RequestMapping(value = "/product", method = RequestMethod.GET)
     @Override
     public ModelAndView getAll() throws IOException {
@@ -91,15 +91,15 @@ public class ProductController implements IController<Product> {
         restHelper.put(product);
         return getAll();
     }
-    
-    @RequestMapping(value = "/getProduct/{id}", method = RequestMethod.GET,produces = "application/json;charset=UTF-8")
+
+    @RequestMapping(value = "/getProduct/{id}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public String getProduct(@PathVariable("id") String id) throws IOException {
         return rESTProductHelper.getProduct(id);
     }
-    
+
     @RequestMapping(value = "/product/update", method = RequestMethod.POST)
-    public void update(MultipartContainer multipartContainer, Product product,HttpServletRequest request, HttpServletResponse responseServlet) throws IOException, ServletException {
+    public ModelAndView update(MultipartContainer multipartContainer, Product product, HttpServletRequest request, HttpServletResponse responseServlet) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
@@ -118,16 +118,17 @@ public class ProductController implements IController<Product> {
         final WebTarget target = client.target("http://localhost:9032/Product/");
         String responseJSON = target.request()
                 .header("authorization", CookieHelper.getCookie("accessToken"))
-                .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA),String.class);
+                .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA), String.class);
         if (fileName != "") {
             file.delete();
         }
-        responseServlet.sendRedirect("/manageMyRestaurant/"+product.getRestaurant()+"#menu");
+
+        responseServlet.sendRedirect("/manageMyRestaurant/" + product.getRestaurant() + "#menu");
+        return new ModelAndView("statistical");
     }
-    
-    
+
     @RequestMapping(value = "/product/postProduct", method = RequestMethod.POST)
-    public void post(MultipartContainer multipartContainer, Product product, HttpServletResponse responseServlet) throws IOException, ServletException {
+    public ModelAndView post(MultipartContainer multipartContainer, Product product, HttpServletResponse responseServlet) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();
         String path = "./";
         FileDataBodyPart filePart;
@@ -145,11 +146,17 @@ public class ProductController implements IController<Product> {
         final WebTarget target = client.target("http://localhost:9032/Product/");
         String responseJSON = target.request()
                 .header("authorization", CookieHelper.getCookie("accessToken"))
-                .post(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA),String.class);
+                .post(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA), String.class);
         if (fileName != "") {
             file.delete();
         }
-        responseServlet.sendRedirect("/manageMyRestaurant/"+product.getRestaurant()+"#menu");
+        responseServlet.sendRedirect("/manageMyRestaurant/" + product.getRestaurant() + "#menu");
+        return new ModelAndView("statistical");
+    }
+
+    @RequestMapping(value = "/explorestore", method = RequestMethod.GET)
+    public ModelAndView explorestore() throws IOException {
+        return new ModelAndView("explorestore").addObject("explorestores", restHelper.getAll());
     }
 
 }
