@@ -268,7 +268,7 @@
                 <div class="col-md-1 profile-container-buttons">
                     <button href="/store-info" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
-                    <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>
+                    <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Thống kê</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
                     <button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button>
@@ -318,7 +318,7 @@
                                             <a id="chossefile">
 
                                                 <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
-                                                    <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;">+</span>
+                                                    <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 5px;bottom:-20px;">+</span>
 
                                                 </div>
                                             </a>

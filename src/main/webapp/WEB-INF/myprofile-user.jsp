@@ -688,20 +688,8 @@
                                                                         </div>
 
 
-                                                                        <div class="img-contain d-flex ">
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                                                            </div>
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                                                            </div>
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-img">Xem tất cả</a>
-
                                                                     </div>
+                                                                    <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-img">Xem tất cả</a>
                                                                 </div>
                                                                 <div class="profile-list-friend rounded" >
                                                                     <div class="friend-list">
@@ -734,8 +722,8 @@
                                                                                 <a href="#">Nguyễn Hạ</a>
                                                                             </div>
                                                                         </div>
-                                                                        <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                     </div>
+                                                                    <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8">
