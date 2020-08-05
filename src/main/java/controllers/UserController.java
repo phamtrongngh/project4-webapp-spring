@@ -134,13 +134,13 @@ public class UserController {
     @RequestMapping(value = "/switchCart", method = RequestMethod.POST)
     @ResponseBody
     public String switchCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
-        restUser.switchCart(cart);
+        
         Cookie cookie = new Cookie("cart", "1");
         cookie.setHttpOnly(true);
         cookie.setMaxAge(9999999);
         cookie.setPath("/");
         response.addCookie(cookie);
-        return null;
+        return restUser.switchCart(cart);
     }
 
     @RequestMapping(value = "/removeFromCart/{id}", method = RequestMethod.POST)
