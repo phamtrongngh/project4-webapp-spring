@@ -748,9 +748,9 @@ $(document).ready(function() {
 
     })
     //binding data to open explorestore-near
-    
-    
-    
+
+
+
     //get product to biding to update product modal box
     $(".updateProduct").click(function() {
         var content = $(this).closest(".status").find(".font1");
@@ -1161,29 +1161,29 @@ $(document).ready(function() {
             $(".img-hidden").css("display", "none");
         }
     });
-    if ($(".image-frame-upload").css("background")!=null) {
+    if ($(".image-frame-upload").css("background") != null) {
         $(".img-hidden").css("display", "none");
     }
 });
-$(document).ready(function (){
-    if ($(".image-frame-upload").css("background")!=null) {
+$(document).ready(function() {
+    if ($(".image-frame-upload").css("background") != null) {
         $(".img-hidden").css("display", "none");
     }
-    var totalsstatus= parseFloat($(".totals-status").html().toString().replace(",",""));
-    var discountstatus= parseFloat($(".discount-status").html().toString().replace(",",""));
-    var feestatus= parseFloat($(".fee-status").html().toString().replace(",",""));
-    $(".total-status").html(format2(totalsstatus-feestatus+discountstatus,"").replace(".000",""));
+    var totalsstatus = parseFloat($(".totals-status").html().toString().replace(",", ""));
+    var discountstatus = parseFloat($(".discount-status").html().toString().replace(",", ""));
+    var feestatus = parseFloat($(".fee-status").html().toString().replace(",", ""));
+    $(".total-status").html(format2(totalsstatus - feestatus + discountstatus, "").replace(".000", ""));
 })
-function printDiv() { 
-            var divContents = document.getElementById("GFG").innerHTML; 
-            var a = window.open('', '', 'height=500px, width=600px'); 
-            a.document.write('<html><head>');
-            a.document.write('<link rel="stylesheet" type="text/css" href="/public/css/styte.css" />');
-            a.document.write('</head><body>'); 
-            a.document.write(divContents); 
-            a.document.write('</body></html>'); 
-            a.document.close(); 
-            a.print();
-            a.close();
-            return  true;
-        }
+function printDiv() {
+    var divContents = document.getElementById("GFG").innerHTML;
+    var a = window.open('', '', 'height=500px, width=600px');
+    a.document.write('<html><head>');
+    a.document.write('<link rel="stylesheet" type="text/css" href="/public/css/styte.css" />');
+    a.document.write('</head><body>');
+    a.document.write(divContents);
+    a.document.write('</body></html>');
+    a.document.close();
+    a.print();
+    a.close();
+    return  true;
+}

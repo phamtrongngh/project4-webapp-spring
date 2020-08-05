@@ -87,7 +87,7 @@
                                             </div>
                                         </c:forEach>
                                         <hr/>
-                                        
+
 
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
@@ -123,7 +123,7 @@
                                         </div>
                                         <button class="btn btn-danger" style="float: right;margin-bottom: 10px;margin-top: 20px;">Hủy đơn hàng</button>
                                         </div>
-                                        
+
 
                                         </form>
                                         </div>
@@ -249,7 +249,7 @@
                                                                             restaurantLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
                                                                         }
 
-                                                                        if (userLocation && restaurantLocation && i == 0) {
+                                                                        if (true) {
                                                                             getDistance(userLocation, restaurantLocation).then(function(data) {
                                                                                 distance = data.routes[0].legs[0].distance.text;
                                                                                 $("#distance").html(distance.split(" ")[0]);
