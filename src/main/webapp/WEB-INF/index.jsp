@@ -642,8 +642,7 @@
                                         <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                         <div class="dropdown-menu" >
                                             <a class="dropdown-item" href="#">Ẩn</a>
-                                            <a class="dropdown-item" href="#">Sửa</a>
-
+                                           
 
                                         </div>
                                     </div>

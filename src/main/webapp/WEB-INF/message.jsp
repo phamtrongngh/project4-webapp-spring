@@ -55,17 +55,12 @@
                         <div class="action-menu dropdown-menu">
                             <ul>
                                 <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-user-circle"></i> View profile</li>
+                                    <li class="dropdown-item"><i class="fas fa-user-circle"></i> Xem hồ sơ</li>
                                 </a>
                                 <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-users"></i> Add to friends</li>
+                                    <li class="dropdown-item"><i class="fas fa-users"></i> Kết bạn</li>
                                 </a>
-                                <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-plus"></i> Add to group</li>
-                                </a>
-                                <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-ban"></i> Block</li>
-                                </a>
+                                
                             </ul>
                         </div>
                     </div>
