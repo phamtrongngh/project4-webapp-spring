@@ -67,5 +67,12 @@ public class RESTRestaurantHelper extends RESTHelper {
         });
         return tmpObject;
     }
-    
+    public String paying(String id) throws IOException {
+        String url = BASE_URI + "paying";
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        return string;
+    }
 }
