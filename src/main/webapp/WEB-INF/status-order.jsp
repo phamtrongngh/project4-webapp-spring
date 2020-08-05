@@ -139,7 +139,7 @@
                                         <script src="/public/js/jquery-ui.js"></script>
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
-<!--                                        <script async defered>
+                                        <script async defered>
                                             var marker2; //marker of Shipper
                                             var socket = io('http://localhost:9032');
                                             socket.emit("join", $("#idUser").val());
@@ -157,7 +157,7 @@
                                             })
 
                                             var i = 0;
-                                            goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
+                                            goongjs.accessToken = 'Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3';
                                             var map = new goongjs.Map({
                                                 container: 'map', // container id
                                                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -284,7 +284,7 @@
                                             getLocation('${order.restaurant.address}', "restaurant");
                                             getLocation('${order.address}', "user");
 
-                                        </script>-->
+                                        </script>
                                         </body>
                                         </html>
 
