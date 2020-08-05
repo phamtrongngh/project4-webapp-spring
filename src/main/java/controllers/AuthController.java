@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Base64;
 import java.util.Map;
+import static javassist.CtMethod.ConstParameter.string;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -66,6 +67,7 @@ public class AuthController implements IController<Authorization> {
         Map<String, ?> responseMap = rest.post(authorization);
          String message = (String) responseMap.get("message");
         String accessToken = (String) responseMap.get("access_token");
+          String myStr = new String();
         if (accessToken != null) {
 
             //set cookie for access token
@@ -103,9 +105,11 @@ public class AuthController implements IController<Authorization> {
             response.addCookie(cookie3);
             response.addCookie(cookie4);
             response.sendRedirect("/");
-            return null;
+            return new ModelAndView("index");
         } else {
-            return new ModelAndView("/login").addObject("message", message);
+            myStr = "Sai SĐT hoặc mật khẩu";
+           
+            return new ModelAndView("/login").addObject("message", myStr);
         }
     }
 
