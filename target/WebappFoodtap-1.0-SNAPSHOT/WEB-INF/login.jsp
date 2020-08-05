@@ -31,25 +31,25 @@
 
     <body>
         <div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
-        <div class="modal-content">
-            <input id="tempIdProduct" hidden/>
-            <input id="tempQuantityProduct" hidden/>
-            <div class="modal-header" style="padding: 0 15px;">
-                <h5 class="modal-title" id="exampleModalLongTitle">CHUYỂN CỬA HÀNG KHÁC</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" style="text-align: center;">
-                <div class="content">Các món trong mỗi đơn hàng chỉ có thể đến từ một cửa hàng, bạn có muốn lưu đơn hiện tại và chuyển cửa hàng?</div>
-                <div style="margin-top: 25px;">
-                    <button type="button" class="btn" data-dismiss="modal" style="color: white;background-color: #da484a;">Chấp nhận</button>
+            <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
+                <div class="modal-content">
+                    <input id="tempIdProduct" hidden/>
+                    <input id="tempQuantityProduct" hidden/>
+                    <div class="modal-header" style="padding: 0 15px;">
+                        <h5 class="modal-title" id="exampleModalLongTitle">CHUYỂN CỬA HÀNG KHÁC</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="text-align: center;">
+                        <div class="content">Các món trong mỗi đơn hàng chỉ có thể đến từ một cửa hàng, bạn có muốn lưu đơn hiện tại và chuyển cửa hàng?</div>
+                        <div style="margin-top: 25px;">
+                            <button type="button" class="btn" data-dismiss="modal" style="color: white;background-color: #da484a;">Chấp nhận</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
         <!-- The Modal -->
         <div class="modal" id="mapModel">
@@ -102,18 +102,19 @@
                                 <form class="login-form d-flex justify-content-md-center align-items-md-center h-100  " id="commentForm" action="/login" method="POST">
                                     <div class="form-group ">
                                         <input id="phone-login" type="text" name="phone" class="form-control " placeholder="SĐT"/>
-                                        <span class="error-usersss"></span>
+                                        
                                     </div>
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
-                                        <span class="error-pass"></span>
+                                        <span class="error-pass">${message}</span>
                                     </div>
-                                    <input type="hidden" name="value-error"  value="${message}"/>
+                                    
+                                    
                                     <div style="width: 50%">
                                         <button class="btn btn-danger form-control btn-login ">Đăng nhập</button>
                                     </div>
                                 </form>
-                                
+
                             </div>
                         </div>
                         <div class="tab-pane container fade" id="register">
@@ -136,6 +137,10 @@
                                     <div class="form-group ">
                                         <input type="password" id="password-register" name="password" class="form-control input-phone" placeholder="Mật khẩu"/>
                                         <span class="error error-password" color="red">Mật khẩu phải hơn 8 ký tự(bao gồm cả chữ thường, chữ hoa và ít nhất 1 số)</span>
+                                    </div>
+                                    <div class="form-group ">
+                                        <input type="password" id="repassword-register" name="password" class="form-control input-phone" placeholder="Nhập lại mật khẩu"/>
+                                        <span class="error error-repassword" color="red">Mật khẩu không khớp</span>
                                     </div>
                                     <div class="form-group ">
                                         <label >Giới tính: </label><br/>
