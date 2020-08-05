@@ -662,8 +662,8 @@
                                 <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                             </div>
                             <div style="margin-top: 2px;display: flex;">
-                                <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${item.likes.size()}</span>
-                                <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a><span>200 chia sẻ</span></div>
+                                <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${item.likes.size()}</span>
+                                <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a><span data-toggle="modal" data-target="#Modallikeshare">200 chia sẻ</span></div>
                             </div>
                             <hr class="hr-newsfeed"/>
                             <div class="icon2">
@@ -671,15 +671,15 @@
                                     <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal" idValue="${item.product}"></i>
                                     </a>
                                     <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
-                                    <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample"></i></a>
+                                    <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                 </div>
                             </div>
 
-                            <div class="collapse" id="collapseExample1">
+                            <div class="collapse" id="collapse${item._id}">
                                 <div class="card card-body">
                                     <div class="post-footer">
                                         <div class="input-group">
-                                            <input class="form-control input-comments" placeholder="Add a comment" type="text" />
+                                            <input class="form-control input-comments" placeholder="Viết bình luận" type="text" />
                                             <button class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </button>

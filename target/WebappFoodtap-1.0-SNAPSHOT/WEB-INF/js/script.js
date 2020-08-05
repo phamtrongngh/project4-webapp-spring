@@ -7,12 +7,14 @@ var phone;
 var gender;
 var address;
 var password;
+var repassword;
 function updateinfo() {
     fullname = $("#fullname-register").val();
     phone = $("#phone-register").val();
     gender = $("input[name='gender']:checked").val();
     address = $("#address-register").val();
     password = $("#password-register").val();
+    repassword = $("#repassword-register").val();
 }
 
 function removeCartItem(event) {
@@ -215,6 +217,23 @@ $(document).ready(function() {
             $(".error-password").css("display", "none");
         }
     });
+    $("#repassword-register").on("keyup", function() {
+        updateinfo();
+        if (repassword != password && repassword != "") {
+            $("#repassword-register").removeClass("success-user");
+            $("#repassword-register").addClass("error-user");
+            $("#repassword-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-repassword").css("display", "block");
+            return false;
+        }
+        else {
+            $("#repassword-register").removeClass("error-user");
+            $("#repassword-register").addClass("success-user");
+            $("#repassword-register").css("box-shadow", "none");
+            $("#repassword-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-repassword").css("display", "none");
+        }
+    });
     $("#address-register").on("change", function() {
         updateinfo();
         if (/^\s{0,}$/.test(change_alias(address))) {
@@ -283,6 +302,18 @@ $(document).ready(function() {
             $("#password-register").css("box-shadow", "none");
             $("#password-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-password").css("display", "none");
+        }
+        if (repassword != password && repassword != "") {
+            $("#repassword-register").addClass("error-user");
+            $("#repassword-register").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-repassword").css("display", "block");
+            return false;
+        }
+        else {
+            $("#repassword-register").addClass("success-user");
+            $("#repassword-register").css("box-shadow", "none");
+            $("#repassword-register").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-repassword").css("display", "none");
         }
         if (/^\s{0,}$/.test(change_alias(address))) {
             $("#address-register").addClass("error-user");
@@ -748,9 +779,9 @@ $(document).ready(function() {
 
     })
     //binding data to open explorestore-near
-    
-    
-    
+
+
+
     //get product to biding to update product modal box
     $(".updateProduct").click(function() {
         var content = $(this).closest(".status").find(".font1");
@@ -1161,29 +1192,29 @@ $(document).ready(function() {
             $(".img-hidden").css("display", "none");
         }
     });
-    if ($(".image-frame-upload").css("background")!=null) {
+    if ($(".image-frame-upload").css("background") != null) {
         $(".img-hidden").css("display", "none");
     }
 });
-$(document).ready(function (){
-    if ($(".image-frame-upload").css("background")!=null) {
+$(document).ready(function() {
+    if ($(".image-frame-upload").css("background") != null) {
         $(".img-hidden").css("display", "none");
     }
-    var totalsstatus= parseFloat($(".totals-status").html().toString().replace(",",""));
-    var discountstatus= parseFloat($(".discount-status").html().toString().replace(",",""));
-    var feestatus= parseFloat($(".fee-status").html().toString().replace(",",""));
-    $(".total-status").html(format2(totalsstatus-feestatus+discountstatus,"").replace(".000",""));
+    var totalsstatus = parseFloat($(".totals-status").html().toString().replace(",", ""));
+    var discountstatus = parseFloat($(".discount-status").html().toString().replace(",", ""));
+    var feestatus = parseFloat($(".fee-status").html().toString().replace(",", ""));
+    $(".total-status").html(format2(totalsstatus - feestatus + discountstatus, "").replace(".000", ""));
 })
-function printDiv() { 
-            var divContents = document.getElementById("GFG").innerHTML; 
-            var a = window.open('', '', 'height=500px, width=600px'); 
-            a.document.write('<html><head>');
-            a.document.write('<link rel="stylesheet" type="text/css" href="/public/css/styte.css" />');
-            a.document.write('</head><body>'); 
-            a.document.write(divContents); 
-            a.document.write('</body></html>'); 
-            a.document.close(); 
-            a.print();
-            a.close();
-            return  true;
-        }
+function printDiv() {
+    var divContents = document.getElementById("GFG").innerHTML;
+    var a = window.open('', '', 'height=500px, width=600px');
+    a.document.write('<html><head>');
+    a.document.write('<link rel="stylesheet" type="text/css" href="/public/css/styte.css" />');
+    a.document.write('</head><body>');
+    a.document.write(divContents);
+    a.document.write('</body></html>');
+    a.document.close();
+    a.print();
+    a.close();
+    return  true;
+}

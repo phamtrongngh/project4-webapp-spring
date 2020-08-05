@@ -249,7 +249,7 @@
                                                                             restaurantLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
                                                                         }
 
-                                                                        if (userLocation && restaurantLocation && i == 0) {
+                                                                        if (true) {
                                                                             getDistance(userLocation, restaurantLocation).then(function(data) {
                                                                                 distance = data.routes[0].legs[0].distance.text;
                                                                                 $("#distance").html(distance.split(" ")[0]);
