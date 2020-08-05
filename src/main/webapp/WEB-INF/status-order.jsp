@@ -87,7 +87,7 @@
                                             </div>
                                         </c:forEach>
                                         <hr/>
-                                        
+
 
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
@@ -123,7 +123,7 @@
                                         </div>
                                         <button class="btn btn-danger" style="float: right;margin-bottom: 10px;margin-top: 20px;">Hủy đơn hàng</button>
                                         </div>
-                                        
+
 
                                         </form>
                                         </div>
@@ -139,7 +139,7 @@
                                         <script src="/public/js/jquery-ui.js"></script>
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
-<!--                                        <script async defered>
+                                        <script async defered>
                                             var marker2; //marker of Shipper
                                             var socket = io('http://localhost:9032');
                                             socket.emit("join", $("#idUser").val());
@@ -284,7 +284,7 @@
                                             getLocation('${order.restaurant.address}', "restaurant");
                                             getLocation('${order.address}', "user");
 
-                                        </script>-->
+                                        </script>
                                         </body>
                                         </html>
 
