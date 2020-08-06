@@ -10,7 +10,7 @@
                 <div class="card shopping-cart">
                     <div class="card-header text-light" style="background-color: #fc7a7b;">
                         <i class="fas fa-file-alt"></i> ${order._id}
-                        
+
                         <div class="clearfix"></div>
                     </div>
                     <div class="card-body">
@@ -32,7 +32,7 @@
 
                                         <div class="cart-quantity cart-column">
                                             <input class="cart-quantity-input" disabled type="number" value="${item.quantity}" max="100">
-  
+
                                         </div>
                                     </div>
                                 </c:forEach>
@@ -52,18 +52,18 @@
         </div>
 
         <div class="col-md-5 info-user" style="background-color: antiquewhite;border-radius: 16px; padding-top: 10px;margin-top: 22px;">
-            
+
             <div>
                 <form class="form-group form-order" action="/order/" method="POST">
                     <div class=" info-more row">
                         <label class="col">Tên cửa hàng </label>
                         <span class="col">${order.restaurant.name}</span>                       
                     </div>
-                    <div class=" info-more row">
-                        <label class="col">SĐT cửa hàng </label>
-                        <span class="col"> 0344057234</span>
-                       
-                    </div>
+                    <!--                    <div class=" info-more row">
+                                            <label class="col">SĐT cửa hàng </label>
+                                            <span class="col"> 0344057234</span>
+                                        </div>-->
+
                     <div class=" info-more row">
                         <label class="col">Tên người giao </label>
                         <span class="col"> ${order.shipper.fullname}</span>
@@ -72,24 +72,46 @@
                         <label class="col">SĐT người giao </label>
                         <span class="col"> ${order.shipper.phone}</span>
                     </div>
-                    
+                    <div class=" info-more row">
+                        <label class="col">Tình trạng đơn</label>
+                        <span class="col">
+                            <c:choose>
+                                <c:when test="${order.status=='finding'}">
+                                    Đang tìm tài xế
+                                </c:when>
+                                <c:when test="${order.status=='receiving'}">
+                                    Đang đi nhận món
+                                </c:when>
+                                <c:when test="${order.status=='delivering'}">
+                                    Đang giao đến bạn
+                                </c:when>
+                                <c:when test="${order.status=='canceled'}">
+                                    Đã bị hủy
+                                </c:when>
+                                <c:otherwise>
+                                    Đã hoàn thành
+                                </c:otherwise>
+                            </c:choose>
+                        </span>
+                    </div>
                     <div class=" info-more row">
                         <label class="col">Địa chỉ giao hàng:</label>
                         <span class="col" style="word-break: break-all;">${order.address}</span>
                     </div>
-                    <div class="info-more row">
-                        <label class="col">Thời Gian:</label><br/>
-                        <span class="col">Giao ngay </span>
-                    </div>
-<!--                    <div class="info-more row">
-                        <label class="col">Thanh Toán:</label><br/>
-                        <span class="col">Tieenf mat </span>
-                    </div>-->
-                    <div class="info-more row">
-                        <label class="col">Ghi chú</label><br/>
-                        <span class="col" style="word-break: break-all;">${order.note}</span>
-                    </div>
-                    
+                    <!--                    <div class="info-more row">
+                                            <label class="col">Thời Gian:</label><br/>
+                                            <span class="col">Giao ngay </span>
+                                        </div>-->
+                    <!--                    <div class="info-more row">
+                                            <label class="col">Thanh Toán:</label><br/>
+                                            <span class="col">Tieenf mat </span>
+                                        </div>-->
+                    <c:if test="${order.note!=''}">
+                        <div class="info-more row">
+                            <label class="col">Ghi chú</label><br/>
+                            <span class="col" style="word-break: break-all;">${order.note}</span>
+                        </div>
+                    </c:if>
                 </form>
             </div>
         </div>
