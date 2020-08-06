@@ -94,7 +94,7 @@ public class NewfeedController implements IController<Newfeed> {
             file.delete();
         }
         response.sendRedirect("/myprofile-user");
-        return null;
+        return new ModelAndView("index");
     }
 
     @RequestMapping(value = "/newfeed/{id}", method = RequestMethod.GET)
