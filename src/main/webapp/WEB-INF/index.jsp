@@ -667,7 +667,7 @@
                             </div>
                             <div style="margin-top: 2px;display: flex;">
                                 <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${item.likes.size()}</span>
-                                <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a><span data-toggle="modal" data-target="#Modallikeshare">200 chia sẻ</span></div>
+                                <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-target="#collapse${item._id}" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} <span>bình luận</span></span></a><span data-toggle="modal" data-target="#Modallikeshare">200 chia sẻ</span></div>
                             </div>
                             <hr class="hr-newsfeed"/>
                             <div class="icon2">
@@ -708,7 +708,7 @@
                                                                 </div>
                                                             </div>
                                                             <p>${comment.content}<br/>
-                                                                <a href="#">Thích</a>                                    
+                                                                <!--<a href="#">Thích</a>-->                                    
                                                                 <a href="#" data-toggle="collapse" data-target="#reply${comment._id}" >Trả lời</a>
                                                             <div id="reply${comment._id}" idValue="${comment._id}" class="collapse">
                                                                 <div class="input-group" style="margin-left: -60px;">
@@ -732,7 +732,7 @@
                                                                         </a>
                                                                         <div class="comment-body ">
                                                                             <div class="comment-heading ">
-                                                                                <h4 class="user ">${subcomment.user.fullname}</h4>
+                                                                                <h4 class="user "><a href="/user-profile/${subcomment.user._id}">${subcomment.user.fullname}</a></h4>
                                                                                 <h5 class="time ">3 minutes ago</h5>
                                                                                 <div class="report dropright">
                                                                                     <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
@@ -746,7 +746,7 @@
                                                                             </div>
                                                                             <p>${subcomment.content}
                                                                                 <br/>
-                                                                                <a href="#">Thích</a>
+                                                                                <!--<a href="#">Thích</a>-->
                                                                             <div id="reply2" class="collapse">
                                                                                 <div class="input-group" style="margin-left: -60px;">
                                                                                     <a class="pull-left " href="# ">
