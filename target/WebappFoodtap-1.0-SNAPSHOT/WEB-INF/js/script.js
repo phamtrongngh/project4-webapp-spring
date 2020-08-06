@@ -918,9 +918,9 @@ $(document).ready(function() {
                     '</div>' +
                     '</div>' +
                     '<p>' + data.content + '<br/>' +
-                    '<a href="#">' + 'Thích ' + '</a>' +
+//                    '<a href="#">' + 'Thích ' + '</a>' +
                     '<a href="#" data-toggle="collapse" data-target="#reply' + data._id + '" >Trả lời</a>' +
-                    '<div id="reply' + data._id + '" class="collapse" idValue='+data._id+'>' +
+                    '<div id="reply' + data._id + '" class="collapse" idValue=' + data._id + '>' +
                     '<div class="input-group" style="margin-left: -60px;">' +
                     '<a class="pull-left " href="# ">' +
                     '<img class="avatar" src="http://localhost:9032/public/image/' + data.user.avatar + '" alt="avatar " />' +
@@ -935,6 +935,7 @@ $(document).ready(function() {
                     '</div>'
             collapse.closest(".collapse").find(".parrent-comments").append(html)
             $(".input-comments").val("");
+            collapse.closest(".status").find(".count-comment")
         });
     });
     //reply comment 
@@ -955,7 +956,7 @@ $(document).ready(function() {
                     '</a>' +
                     '<div class="comment-body ">' +
                     '<div class="comment-heading ">' +
-                    '<h4 class="user ">' + data.user.fullname + '</h4>' +
+                    '<h4 class="user "><a href="/user-profile/'+data.user._id+'">' + data.user.fullname + '</a></h4>' +
                     '<h5 class="time ">' + '3 minutes ago' + '</h5>' +
                     '<div class="report dropright">' +
                     '<a href="#" class="" data-toggle="dropdown">' + '<i class="fas fa-ellipsis-h" aria-hidden="true">' + '</i>' +
@@ -969,7 +970,7 @@ $(document).ready(function() {
                     '</div>' +
                     '<p>' + data.content +
                     '<br/>' +
-                    '<a href="#">Thích</a>' +
+//                    '<a href="#">Thích</a>' +
                     '<div id="reply2" class="collapse">' +
                     '<div class="input-group" style="margin-left: -60px;">' +
                     '<a class="pull-left " href="# ">' +
