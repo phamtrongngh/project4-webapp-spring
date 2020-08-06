@@ -776,7 +776,7 @@
                                                                 </div>
                                                             </div>
                                                             <p>${comment.content}<br/>
-                                                                <a href="#">Thích</a>                                    
+                                                                <!--<a href="#">Thích</a>-->                                    
                                                                 <a href="#" data-toggle="collapse" data-target="#reply${comment._id}" >Trả lời</a>
                                                             <div id="reply${comment._id}" idValue="${comment._id}" class="collapse">
                                                                 <div class="input-group" style="margin-left: -60px;">
@@ -814,7 +814,7 @@
                                                                             </div>
                                                                             <p>${subcomment.content}
                                                                                 <br/>
-                                                                                <a href="#">Thích</a>
+                                                                                <!--<a href="#">Thích</a>-->
                                                                             <div id="reply2" class="collapse">
                                                                                 <div class="input-group" style="margin-left: -60px;">
                                                                                     <a class="pull-left " href="# ">

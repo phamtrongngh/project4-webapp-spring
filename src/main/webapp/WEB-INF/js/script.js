@@ -937,6 +937,7 @@ $(document).ready(function() {
             var number = collapse.closest(".collapse").find(".count-comment").html().split(" ")[0];
             collapse.closest(".collapse").find(".count-comment")
             $(".input-comments").val("");
+            collapse.closest(".status").find(".count-comment")
         });
     });
     //reply comment 
@@ -957,7 +958,7 @@ $(document).ready(function() {
                     '</a>' +
                     '<div class="comment-body ">' +
                     '<div class="comment-heading ">' +
-                    '<h4 class="user "><a href="/user-profile/' + data.user._id + '">' + data.user.fullname + '</a></h4>' +
+                    '<h4 class="user "><a href="/user-profile/' + data.user._id + '">' + data.user.fullname + '</a></h4>' +             
                     '<h5 class="time ">' + '3 minutes ago' + '</h5>' +
                     '<div class="report dropright">' +
                     '<a href="#" class="" data-toggle="dropdown">' + '<i class="fas fa-ellipsis-h" aria-hidden="true">' + '</i>' +
@@ -1012,21 +1013,21 @@ $(document).ready(function() {
     $(".list-like").click(function() {
         var newfeed = $(this).closest(".status").find(".newfeed").attr("idValue");
         callAjax("/newfeed/getListLike/" + newfeed, "GET", null, function(data) {
-            var html="";
+            var html = "";
             data.forEach(function(item) {
                 var content =
                         '<div class="row row-like">' +
                         '<div class="col-md-2">' +
-                        '<img src="http://localhost:9032/public/image/'+item.avatar+'" class="rounded-circle img-like" />' +
+                        '<img src="http://localhost:9032/public/image/' + item.avatar + '" class="rounded-circle img-like" />' +
                         '</div>' +
                         '<div class="col-md-4">' +
-                        '<span>'+item.fullname+'</span>' +
+                        '<span>' + item.fullname + '</span>' +
                         '</div>' +
                         '<div class="ml-auto p-2 bd-highlight">' +
-                        '<button class="btn"><i class="far fa-id-card"></i> <a href="/user-profile/'+item._id+'">Trang cá nhân</a></button>' +
+                        '<button class="btn"><i class="far fa-id-card"></i> <a href="/user-profile/' + item._id + '">Trang cá nhân</a></button>' +
                         '</div>' +
                         '</div>';
-                html+=content;
+                html += content;
             });
             $("#steplike").html(html);
         })
