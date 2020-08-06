@@ -38,12 +38,13 @@ public class RESTNewfeedHelper extends RESTHelper {
     }
 
     public void postFoodNewfeed(Newfeed newfeed) {
-        String url = BASE_URI+"postFoodNewFeed";
+        String url = BASE_URI + "postFoodNewFeed";
         webTarget = client.target(url);
         String string = webTarget.request(MediaType.APPLICATION_JSON)
                 .header("authorization", CookieHelper.getCookie("accessToken"))
                 .post(Entity.entity(newfeed, MediaType.APPLICATION_JSON), String.class);
     }
+
     public String getMyNewfeeds() throws IOException {
         String url = BASE_URI + "getMyNewfeeds";
         webTarget = client.target(url);
@@ -52,6 +53,13 @@ public class RESTNewfeedHelper extends RESTHelper {
                 .get(String.class);
         return string;
     }
-    
-    
+
+    public String getListLike(String id) throws IOException {
+        String url = BASE_URI + "getListLike";
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        return string;
+    }
 }
