@@ -891,7 +891,108 @@ $(document).ready(function() {
 
 
     })
+    //Post comment to a newfeed
+    $(document).on("click", ".single-comment", function() {
+        var content = $(this).closest(".collapse").find(".input-comments").val();
+        var newfeed = $(this).closest(".collapse").attr("idValue");
+        var collapse = $(this);
+        callAjax("/user/comment", "POST", {
+            newfeed: newfeed,
+            content: content
+        }, function(data) {
+            var html =
+                    '<li class="comment nav-item" >' +
+                    '<a class="pull-left" href="#">' +
+                    '<img class="avatar " src="http://localhost:9032/public/image/' + data.user.avatar + '" alt="avatar " />' +
+                    '</a>' +
+                    '<div class="comment-body ">' +
+                    '<div class="comment-heading ">' +
+                    '<h4 class="user ">' + '<a href="/user-profile/' + data.user._id + '">' + data.user.fullname + '</a>' + '</h4>' +
+                    '<h5 class="time ">' + '</h5>' +
+                    '<div class="report dropright">' +
+                    '<a href="#" class="" data-toggle="dropdown">' + '<i class="fas fa-ellipsis-h" aria-hidden="true">' + '</i>' +
+                    '</a>' +
+                    '<div class="dropdown-menu dropdown-menu-right">' +
+                    '<a class="dropdown-item" href="#">' + "" + '</a>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<p>' + data.content + '<br/>' +
+                    '<a href="#">' + 'Thích ' + '</a>' +
+                    '<a href="#" data-toggle="collapse" data-target="#reply' + data._id + '" >Trả lời</a>' +
+                    '<div id="reply' + data._id + '" class="collapse" idValue='+data._id+'>' +
+                    '<div class="input-group" style="margin-left: -60px;">' +
+                    '<a class="pull-left " href="# ">' +
+                    '<img class="avatar" src="http://localhost:9032/public/image/' + data.user.avatar + '" alt="avatar " />' +
+                    '</a>' +
+                    '<input class="form-control input-comments" placeholder="Phản hồi bình luận" type="text" />' +
+                    '<button class="input-group-addon reply-comment">' +
+                    '<i class="fa fa-edit">' + '</i>' +
+                    '</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</p>' +
+                    '</div>'
+            collapse.closest(".collapse").find(".parrent-comments").append(html)
+            $(".input-comments").val("");
+        });
+    });
+    //reply comment 
+    $(document).on("click", ".reply-comment", function() {
+        var content = $(this).closest(".collapse").find(".input-comments").val();
+        var reply = $(this).closest(".collapse").attr("idValue");
+        var newfeed = $(this).closest(".newfeed").attr("idValue");
+        var collapse = $(this);
+        callAjax("/user/comment", "POST", {
+            newfeed: newfeed,
+            content: content,
+            reply: reply
+        }, function(data) {
 
+            var html = '<li class="comment ">' +
+                    '<a class="pull-left " href="# ">' +
+                    '<img class="avatar " src="http://localhost:9032/public/image/' + data.user.avatar + '" alt="avatar " />' +
+                    '</a>' +
+                    '<div class="comment-body ">' +
+                    '<div class="comment-heading ">' +
+                    '<h4 class="user ">' + data.user.fullname + '</h4>' +
+                    '<h5 class="time ">' + '3 minutes ago' + '</h5>' +
+                    '<div class="report dropright">' +
+                    '<a href="#" class="" data-toggle="dropdown">' + '<i class="fas fa-ellipsis-h" aria-hidden="true">' + '</i>' +
+                    '</a>' +
+                    '<div class="dropdown-menu dropdown-menu-right">' +
+                    '<a class="dropdown-item" href="#">Ẩn bình luận</a>' +
+                    '<a class="dropdown-item" href="#">Sửa</a>' +
+                    '<a class="dropdown-item" href="#">Báo cáo</a>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<p>' + data.content +
+                    '<br/>' +
+                    '<a href="#">Thích</a>' +
+                    '<div id="reply2" class="collapse">' +
+                    '<div class="input-group" style="margin-left: -60px;">' +
+                    '<a class="pull-left " href="# ">' +
+                    '<img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />' +
+                    '</a>' +
+                    '<input class="form-control input-comments" placeholder="Add a comment" type="text" />' +
+                    '<button class="input-group-addon reply-comment">' +
+                    '<i class="fa fa-edit">' + '</i>' +
+                    '</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</p>' +
+                    '</div>'
+            if (collapse.closest(".nav-item").find(".subcomment").html()) {
+                html = html + "</li>";
+                collapse.closest(".nav-item").find(".subcomment").append(html);
+            } else {
+                html = '<ul class="comments-list navbar-nav subcomment">' + html + "</ul>"
+                collapse.closest(".nav-item").append(html);
+            }
+            $(".input-comments").val("");
+        });
+    })
     //binding data to post food newfeed
     $(".postFoodNewFeed").click(function() {
         var image = $(this).parent().parent().parent().find("img");
@@ -905,7 +1006,6 @@ $(document).ready(function() {
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-
                 imageFrame.css('background-image', 'url("' + e.target.result + '")')
             }
             reader.readAsDataURL(this.files[0]);

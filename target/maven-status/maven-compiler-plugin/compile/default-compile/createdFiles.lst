@@ -14,6 +14,7 @@ controllers\ProductController.class
 models\Newfeed.class
 Nghia\Util\RESTAuthorizeHelper$1.class
 Nghia\Util\RESTProductHelper.class
+Nghia\Util\RESTUserHelper$4.class
 Nghia\Util\RESTHelper.class
 controllers\RestaurantController.class
 models\Authorization.class
@@ -40,6 +41,7 @@ Nghia\Util\RESTRestaurantHelper$3.class
 models\Message.class
 Nghia\Util\RESTNewfeedHelper.class
 Nghia\Util\MultipartContainer.class
+Nghia\Util\RESTUserHelper$3.class
 models\Product.class
 Nghia\Util\RESTHelper$4.class
 models\Restaurant.class
