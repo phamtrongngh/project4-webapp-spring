@@ -892,7 +892,7 @@ $(document).ready(function() {
 
     })
     //Post comment to a newfeed
-    $(".single-comment").click(function() {
+    $(document).on("click", ".single-comment", function() {
         var content = $(this).closest(".collapse").find(".input-comments").val();
         var newfeed = $(this).closest(".collapse").attr("idValue");
         var collapse = $(this);
@@ -920,13 +920,13 @@ $(document).ready(function() {
                     '<p>' + data.content + '<br/>' +
                     '<a href="#">' + 'Thích ' + '</a>' +
                     '<a href="#" data-toggle="collapse" data-target="#reply' + data._id + '" >Trả lời</a>' +
-                    '<div id="reply' + data._id + '" class="collapse">' +
+                    '<div id="reply' + data._id + '" class="collapse" idValue='+data._id+'>' +
                     '<div class="input-group" style="margin-left: -60px;">' +
                     '<a class="pull-left " href="# ">' +
                     '<img class="avatar" src="http://localhost:9032/public/image/' + data.user.avatar + '" alt="avatar " />' +
                     '</a>' +
                     '<input class="form-control input-comments" placeholder="Phản hồi bình luận" type="text" />' +
-                    '<button class="input-group-addon">' +
+                    '<button class="input-group-addon reply-comment">' +
                     '<i class="fa fa-edit">' + '</i>' +
                     '</button>' +
                     '</div>' +
@@ -938,7 +938,7 @@ $(document).ready(function() {
         });
     });
     //reply comment 
-    $(".reply-comment").click(function() {
+    $(document).on("click", ".reply-comment", function() {
         var content = $(this).closest(".collapse").find(".input-comments").val();
         var reply = $(this).closest(".collapse").attr("idValue");
         var newfeed = $(this).closest(".newfeed").attr("idValue");
@@ -976,7 +976,7 @@ $(document).ready(function() {
                     '<img class="avatar" src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" alt="avatar " />' +
                     '</a>' +
                     '<input class="form-control input-comments" placeholder="Add a comment" type="text" />' +
-                    '<button class="input-group-addon">' +
+                    '<button class="input-group-addon reply-comment">' +
                     '<i class="fa fa-edit">' + '</i>' +
                     '</button>' +
                     '</div>' +
