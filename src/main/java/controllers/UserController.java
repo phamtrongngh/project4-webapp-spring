@@ -190,7 +190,14 @@ public class UserController {
         Object order = restOrder.getOne(id);
         return new ModelAndView("status-order").addObject("order", order);
     }
-
+    
+    @RequestMapping(value = "/like/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public String like(@PathVariable("id") String id) throws IOException {
+        String result = restUser.like(id);
+        return result.replace("\"","");
+    }
+    
     @RequestMapping(value = "/updateUser")
     public ModelAndView update(MultipartContainer multipartContainer, User user, HttpServletResponse response) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();

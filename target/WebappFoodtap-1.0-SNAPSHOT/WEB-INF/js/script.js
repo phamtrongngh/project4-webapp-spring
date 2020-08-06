@@ -933,9 +933,10 @@ $(document).ready(function() {
                     '</div>' +
                     '</p>' +
                     '</div>'
-            collapse.closest(".collapse").find(".parrent-comments").append(html)
+            collapse.closest(".collapse").find(".parrent-comments").append(html);
+            var number = collapse.closest(".collapse").find(".count-comment").html().split(" ")[0];
+            collapse.closest(".collapse").find(".count-comment")
             $(".input-comments").val("");
-            collapse.closest(".status").find(".count-comment")
         });
     });
     //reply comment 
@@ -956,7 +957,7 @@ $(document).ready(function() {
                     '</a>' +
                     '<div class="comment-body ">' +
                     '<div class="comment-heading ">' +
-                    '<h4 class="user "><a href="/user-profile/'+data.user._id+'">' + data.user.fullname + '</a></h4>' +
+                    '<h4 class="user "><a href="/user-profile/' + data.user._id + '">' + data.user.fullname + '</a></h4>' +
                     '<h5 class="time ">' + '3 minutes ago' + '</h5>' +
                     '<div class="report dropright">' +
                     '<a href="#" class="" data-toggle="dropdown">' + '<i class="fas fa-ellipsis-h" aria-hidden="true">' + '</i>' +
@@ -994,6 +995,44 @@ $(document).ready(function() {
             $(".input-comments").val("");
         });
     })
+    //Like newfeew
+    $(".like-newpost").click(function() {
+        var newfeed = $(this).closest(".status").find(".newfeed").attr("idValue");
+        var likeNewpost = $(this);
+        callAjax("/like/" + newfeed, "POST", null, function(data) {
+            var number = parseInt(likeNewpost.closest(".status").find(".like-count").html());
+            if (data == "like") {
+                likeNewpost.closest(".status").find(".like-count").html(number + 1);
+            } else {
+                likeNewpost.closest(".status").find(".like-count").html(number - 1);
+            }
+        })
+    })
+    //Show list like of a newfeed
+    $(".list-like").click(function() {
+        var newfeed = $(this).closest(".status").find(".newfeed").attr("idValue");
+        callAjax("/newfeed/getListLike/" + newfeed, "GET", null, function(data) {
+            var html="";
+            data.forEach(function(item) {
+                var content =
+                        '<div class="row row-like">' +
+                        '<div class="col-md-2">' +
+                        '<img src="http://localhost:9032/public/image/'+item.avatar+'" class="rounded-circle img-like" />' +
+                        '</div>' +
+                        '<div class="col-md-4">' +
+                        '<span>'+item.fullname+'</span>' +
+                        '</div>' +
+                        '<div class="ml-auto p-2 bd-highlight">' +
+                        '<button class="btn"><i class="far fa-id-card"></i> <a href="/user-profile/'+item._id+'">Trang cá nhân</a></button>' +
+                        '</div>' +
+                        '</div>';
+                html+=content;
+            });
+            $("#steplike").html(html);
+        })
+    })
+
+
     //binding data to post food newfeed
     $(".postFoodNewFeed").click(function() {
         var image = $(this).parent().parent().parent().find("img");
