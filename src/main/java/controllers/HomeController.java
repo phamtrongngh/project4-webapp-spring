@@ -8,6 +8,7 @@ package controllers;
 
 import Nghia.Util.RESTNewfeedHelper;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +32,8 @@ public class HomeController implements IController{
     @Override
     @RequestMapping(value = "/",method =RequestMethod.GET)
     public ModelAndView getAll() throws IOException {
-        return new ModelAndView("index").addObject("newfeeds", restNewfeedHelper.getAll());
+        List list = restNewfeedHelper.getAll();
+        return new ModelAndView("index").addObject("newfeeds", list);
     }
 
     @Override

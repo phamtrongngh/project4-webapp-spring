@@ -14,6 +14,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import models.Cart;
+import models.Comment;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
@@ -108,6 +109,15 @@ public class RESTUserHelper extends RESTHelper {
         return string;
     }
 
+    public String comment(Comment comment) {
+        String url = BASE_URI + "comment";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.entity(comment,MediaType.APPLICATION_JSON), String.class);
+        return string;
+    }
+    
     public String cancelRequestFriend(String id) {
         String url = BASE_URI + "cancelRequest";
         webTarget = client.target(url);
