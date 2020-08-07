@@ -141,7 +141,7 @@
                                         <script src="/public/js/script.js "></script>
                                         <script async defered>
                                             var marker2; //marker of Shipper
-                                            var socket = io('http://localhost:9032');
+                                            var socket = io('http://localhost:9032 ');
                                             socket.emit("join", $("#idUser").val());
                                             socket.on("sendMessage", function(item) {
                                                 var chatBoxvalue = "";

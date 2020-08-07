@@ -919,7 +919,7 @@ $(document).ready(function() {
     }
 
 //SOCKETIO receive message chat
-    var socket = io('http://localhost:9032');
+    var socket = io('http://localhost:9032 ');
     socket.emit("join", $("#idUser").val());
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
