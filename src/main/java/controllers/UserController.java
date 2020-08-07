@@ -26,6 +26,7 @@ import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -126,22 +127,29 @@ public class UserController {
         return restUser.acceptRequestFriend(id);
     }
 
+    @RequestMapping(value = "/sendRouteToShipper/", method = RequestMethod.POST)
+    @ResponseBody
+    public String sendRouteToShipper(@RequestBody String json) throws IOException {
+        restUser.sendRouteToShipper(json);
+        return "";
+    }
+
     @RequestMapping(value = "/cancelFriend/{id}", method = RequestMethod.POST)
     @ResponseBody
     public String cancelFriendRequest(@PathVariable("id") String id) throws IOException {
         return restUser.cancelRequestFriend(id);
     }
-    
+
     @RequestMapping(value = "/user/comment", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public String comment(Comment comment) throws IOException {
         return restUser.comment(comment);
     }
-    
+
     @RequestMapping(value = "/switchCart", method = RequestMethod.POST)
     @ResponseBody
     public String switchCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
-        
+
         Cookie cookie = new Cookie("cart", "1");
         cookie.setHttpOnly(true);
         cookie.setMaxAge(9999999);
@@ -190,14 +198,14 @@ public class UserController {
         Object order = restOrder.getOne(id);
         return new ModelAndView("status-order").addObject("order", order);
     }
-    
+
     @RequestMapping(value = "/like/{id}", method = RequestMethod.POST)
     @ResponseBody
     public String like(@PathVariable("id") String id) throws IOException {
         String result = restUser.like(id);
-        return result.replace("\"","");
+        return result.replace("\"", "");
     }
-    
+
     @RequestMapping(value = "/updateUser")
     public ModelAndView update(MultipartContainer multipartContainer, User user, HttpServletResponse response) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();

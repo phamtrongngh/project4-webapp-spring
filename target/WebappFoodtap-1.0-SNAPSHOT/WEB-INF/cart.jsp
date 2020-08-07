@@ -162,7 +162,6 @@
                             <input name="coupon" hidden />
                             <div class="cart-total row" style="font-size: 20px;font-weight: 600;">
                                 <div class="cart-total-title">Tổng:</div>
-
                                 <div class="col"><span class="cart-total-all">0</span>VNĐ</div>
                             </div>
                         </section>
