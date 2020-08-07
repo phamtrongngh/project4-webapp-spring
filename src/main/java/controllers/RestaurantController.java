@@ -18,9 +18,11 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import Nghia.Util.MultipartContainer;
+import Nghia.Util.RESTFoodCategory;
 import Nghia.Util.RESTRestaurantHelper;
 import java.util.ArrayList;
 import java.util.Map;
+import models.FoodCategory;
 import models.Restaurant;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
@@ -43,15 +45,17 @@ import org.springframework.web.servlet.view.RedirectView;
 public class RestaurantController implements IController<Restaurant> {
 
     private final RESTRestaurantHelper restHelper;
+        private final RESTFoodCategory restdFoodcategoryHelper;
 
     public RestaurantController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTRestaurantHelper(Restaurant.class);
+                restdFoodcategoryHelper = new RESTFoodCategory(FoodCategory.class);
     }
 
     @RequestMapping(value = "/manageMyRestaurant/{id}", method = RequestMethod.GET)
     public ModelAndView statistical(@PathVariable("id") String id) throws IOException {
         Map<String, ?> restaurant = restHelper.manageMyRestaurant(id);
-        return new ModelAndView("statistical").addObject("restaurant", restaurant);
+        return new ModelAndView("statistical").addObject("restaurant", restaurant).addObject("foodCaterogys", restdFoodcategoryHelper.getAll());
     }
 
     @RequestMapping(value = "/getMyRestaurantOrders/{id}", method = RequestMethod.GET)

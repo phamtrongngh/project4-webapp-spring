@@ -145,17 +145,26 @@
                                             var pointsToRestaurant;
                                             var shipperLocation;
                                             var marker2; //marker of Shipper
+<<<<<<< HEAD
+                                            var socket = io('http://localhost:9032 ');
+=======
                                             function blink_shipper() {
                                                 $("#shipper").fadeOut(2000);
                                                 $("#shipper").fadeIn(2000);
                                             }
                                             setInterval(blink_shipper, 1000);
                                             var socket = io('http://localhost:9032');
+>>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
                                             socket.emit("join", $("#idUser").val());
 
+<<<<<<< HEAD
+                                            var i = 0;
+                                            goongjs.accessToken = 'Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3';
+=======
 
 
                                             goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
+>>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
                                             var map = new goongjs.Map({
                                                 container: 'map', // container id
                                                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location

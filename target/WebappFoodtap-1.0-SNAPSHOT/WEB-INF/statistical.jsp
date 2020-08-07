@@ -241,15 +241,21 @@
                         <label>Giá khuyến mãi:</label>
                         <input name="saleoff" type="number" class="form-control" />
                     </div>
-                    <div class="form-group">
-                        <label>Danh mục</label>
-                        <!--<select name="" class="form-control select-address-district ">
-                                                                <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                                                                <option value="1 ">Option 1</option>
-                                                                <option value="2 ">Option 2</option>
-                                                                <option value="3 ">Option 3</option>
-                                                            </select>-->
-                        <input name="category" placeholder="Chưa có dữ liệu, khoan nhập mục này" type="text" class="form-control" />
+                    <div class="form-group dropdown row">
+                        <label class="col-sm-4">Cửa hàng áp dụng</label>
+                        <div class="col-sm-2"></div>
+                        <input  type="text" class="col-sm-6  searchstore"  data-toggle="dropdown"  id="dropdownMenuButton" placeholder="Hãy nhập tên cửa hàng" />
+                        <input style="margin-top: 5px;" type="text" readonly="true" class="form-control store-coupon"/>
+                        <input style="margin-top: 5px;" type="hidden"  class="form-control id-store-coupon" name=""/>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="max-width: 100%;height: 200px;top:68px!important;overflow: auto;">
+                            <c:forEach var="item" items="${foodCaterogys}">
+                                <div class="dropdown-item">
+                                    <img src="http://localhost:9032/public/image/${item.image}" width="25px" class="search-avatar" alt=""/>
+                                    <span class="name-store">${item.name}</span>
+                                    <span style="display: none;" class="id-store">${item._id}</span>
+                                </div>
+                            </c:forEach>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
                 </form>
@@ -723,6 +729,7 @@
 <script src="/public/js/swiper.min.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
+
                         var listOrders;
                         callAjax("/getMyRestaurantOrders/${restaurant._id}", "GET", null, function(data) {
                             listOrders = data.orders;
@@ -733,6 +740,7 @@
                         let myChart = document.getElementById('myChart').getContext('2d');
                         let
                         bestSellerChart = document.getElementById("bestSellerChart").getContext('2d');
+
                         // Global options
                         Chart.defaults.global.defaultFontFamily = 'Lato';
                         Chart.defaults.global.defaultFontSize = 20;
@@ -767,7 +775,7 @@
                             options: {
                                 title: {
                                     display: 'true',
-                                    text: 'Doanh thu tháng này',
+                                    text: 'Doanh thu trong tháng này',
                                     fontSize: 30,
                                     fontStyle: 'bold',
                                 },
@@ -812,6 +820,7 @@
                                 title: {
                                     display: 'true',
                                     text: 'Top 3 món bán chạy nhất',
+
                                     fontSize: 30,
                                     fontStyle: 'bold',
                                 },

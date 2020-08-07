@@ -21,6 +21,7 @@ import models.Cart;
 import models.Comment;
 import models.Order;
 import models.User;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
@@ -69,6 +70,14 @@ public class UserController {
     public ModelAndView myprofileuser() throws IOException {
         Map<String, ?> user = restUser.getMyUser();
         return new ModelAndView("myprofile-user").addObject("user", user);
+    }
+
+    @RequestMapping(value = "/getMyFriends", produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getMyFriends() throws IOException {
+        Map<String, ?> user = restUser.getMyUser();
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(user);
     }
 
     @RequestMapping(value = "/User/statistical")

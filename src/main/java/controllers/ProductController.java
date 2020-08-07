@@ -142,6 +142,7 @@ public class ProductController implements IController<Product> {
             formDataMultiPart.bodyPart(filePart);
 
         }
+        
         final FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart.field("product", product, MediaType.APPLICATION_JSON_TYPE);
         final WebTarget target = client.target("http://localhost:9032/Product/");
         String responseJSON = target.request()
