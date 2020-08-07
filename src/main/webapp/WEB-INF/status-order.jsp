@@ -11,7 +11,7 @@
 </div>
 <div id="shipper" 
      style="height: 50px; 
-     background: url('http://localhost:9032/public/image/${order.user.avatar}');
+     background: url('http://localhost:9032/public/image/${order.shipper.avatar}');
      background-size: cover;
      width: 50px; 
      border:1px none;
@@ -41,13 +41,13 @@
                 <form class="form-group form-order" action="/order/cancelOrder/${order._id}" method="POST">
                     <div class=" info-more row">
                         <label class="col">Tình trạng: </label>
-                        <span class="col">
+                        <span class="col" id="status-text">
                             <c:choose>
                                 <c:when test="${order.status=='finding'}">
                                     Đang tìm tài xế
                                 </c:when>
                                 <c:when test="${order.status=='receiving'}">
-                                    Đang nhận món
+                                    Đang đi nhận món
                                 </c:when>
                                 <c:otherwise>
                                     Đang giao đến bạn
@@ -140,31 +140,42 @@
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
                                         <script async defered>
+                                            var i = 0;
                                             var marker2; //marker of Shipper
+                                            function blink_shipper() {
+                                                $("#shipper").fadeOut(2000);
+                                                $("#shipper").fadeIn(2000);
+                                            }
+                                            setInterval(blink_shipper, 1000);
                                             var socket = io('http://localhost:9032');
                                             socket.emit("join", $("#idUser").val());
-                                            socket.on("sendMessage", function(item) {
-                                                var chatBoxvalue = "";
-                                                if (item.sender != idUser) {
-                                                    chatBoxvalue += getSenderBox(item);
-                                                }
-                                                else {
-                                                    chatBoxvalue += getReceiveBox(item);
-                                                }
-                                                $(".card-body.msg-card-body").append(chatBoxvalue);
-                                                $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
-                                                $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
-                                            })
 
+<<<<<<< HEAD
                                             var i = 0;
                                             goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
+=======
+
+                                            
+                                            goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
+>>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
                                             var map = new goongjs.Map({
                                                 container: 'map', // container id
                                                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
                                                 center: [106.695833, 10.776111], // starting position [lng, lat]
                                                 zoom: 14 // starting zoom
                                             });
+                                            marker2 = new goongjs.Marker(shipper)
+                                                    .setLngLat([105, 21])
+                                                    .addTo(map);
 
+                                            //Marker of user
+                                            var marker = new goongjs.Marker(me)
+                                                    .setLngLat([105, 21])
+                                                    .addTo(map);
+                                            //Marker of restaurant
+                                            var marker3 = new goongjs.Marker(restaurant)
+                                                    .setLngLat([105, 21])
+                                                    .addTo(map);
 
 
                                             map.addControl(new goongjs.FullscreenControl());
@@ -186,30 +197,40 @@
                                                         'circle-color': '#448ee4'
                                                     }
                                                 });
+                                                //When Shipper accept order
                                                 socket.on("acceptOrder", function(data) {
-                                                    console.log(data)
+
+                                                    $("#status-text").html("Đang đi nhận món");
                                                     $(".shipperName").html(data.shipper.fullname);
                                                     $(".shipperPhone").html(data.shipper.phone);
                                                     $("#shipper").css("background", "url('http://localhost:9032/public/image/" + data.shipper.avatar + "')");
                                                     $("#shipper").css("background-size", "cover");
-                                                    marker2 = new goongjs.Marker(shipper)
-                                                            .setLngLat([data.latLng[1], data.latLng[0]])
-                                                            .addTo(map);
+
                                                     map.flyTo({
                                                         center: [data.latLng[1], data.latLng[0]],
                                                         zoom: 15
                                                     })
                                                 })
+                                                //When Shipper receive Food
+                                                socket.on("deliveringOrder", function(data) {
+                                                    $("#status-text").html("Đang giao đến bạn");
+                                                });
+                                                //When order complete
+                                                socket.on("completedOrder", function(data) {
+                                                    window.location.href = "/detail-order/" + data._id;
+                                                })
+                                                //When Shipper cancel order
+                                                socket.on("cancelOrder", function(data) {
+                                                    window.location.href = "/detail-order/" + data._id;
+                                                })
+                                                
+                                                //Update shipper's location
+                                                socket.on("shipperLocation", function(data) {
+                                                    marker2._lngLat = {lat: data.latitude, lng: data.longitude}
+                                                })
+                                                
                                             });
 
-                                            //Marker of user
-                                            var marker = new goongjs.Marker(me)
-                                                    .setLngLat([105, 21])
-                                                    .addTo(map);
-                                            //Marker of restaurant
-                                            var marker3 = new goongjs.Marker(restaurant)
-                                                    .setLngLat([105, 21])
-                                                    .addTo(map);
 
                                             $("#mapModel .modal-footer button").click(function() {
                                                 $("#mapModel").modal("hide");
@@ -227,8 +248,12 @@
                                                 $("#loading-cart").addClass("loading-cart");
                                                 $("#img-loadcart").addClass("img-loadcart");
                                                 $("html, body").css("pointer-events", "none");
+<<<<<<< HEAD
 
                                                 fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&limit=1')
+=======
+                                                fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
+>>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
                                                         .then(function(response) {
                                                             return response.json()
                                                         })
@@ -267,7 +292,6 @@
                                                                         }
                                                                     })
                                                         });
-
                                             }
                                             function getDistance(origin, dest) {
                                                 return new Promise(function(resolve, reject) {

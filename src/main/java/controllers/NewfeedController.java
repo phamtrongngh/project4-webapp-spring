@@ -126,4 +126,12 @@ public class NewfeedController implements IController<Newfeed> {
         String json = rESTNewfeedHelper.getMyNewfeeds();
         return json;
     }
+
+    @RequestMapping(value = "/newfeed/getListLike/{id}", method = RequestMethod.GET,produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getListlike(@PathVariable("id") String id) throws IOException {
+        String list = rESTNewfeedHelper.getListLike(id);
+        
+        return list;
+    }
 }
