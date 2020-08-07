@@ -1,5 +1,31 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--Modal Album-->
+<div class="modal" id="see-img" >
+    <div class="modal-dialog" style="max-width:60%!important;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Ảnh</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class=" align-items-md-center justify-content-between">
+                    <div class="coupon-container row img-modal-all-user">
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Modal like and share-->
 
 <div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -402,7 +428,7 @@
                     <button id="btn-follow" class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Theo dõi</button>
                     <c:set var="check" value="${true}" />
                     <c:forEach var="item" items="${user.friends}">
-                        <c:if test="${(cookie['_id'].getValue()) == item.user}">
+                        <c:if test="${(cookie['_id'].getValue()) == item.user._id}">
                             <c:choose>
                                 <c:when test="${item.status=='accepted'}">
                                     <button id="btn-friends" class="btn btn-success form-control send-request-friend" idValue="${user._id}"><i class="fas fa-users-slash"></i>Hủy bạn</button>
@@ -432,64 +458,31 @@
                     <div class="profile-list-img rounded" >
                         <div class="img-list">
                             <h3><i class="fas fa-image"></i>Ảnh</h3>
-                            <div class="img-contain d-flex ">
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                </div>
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                </div>
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                </div>
-                            </div>
+                            <div class="img-contain row">
+                                <c:forEach begin="0" end="5" items="${user.newfeeds}" var="item">
+                                    <div class="img-contains col-sm-4">
+                                        <image class="rounded" src ="http://localhost:9032/public/image/${item.images[0]}" />  
+                                    </div>
+                                </c:forEach>
 
-                            <div class="img-contain d-flex ">
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                </div>
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                </div>
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                </div>
                             </div>
-                            <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
+                            <a href="#" class=""   data-toggle="modal" data-target="#see-img" style=" position: absolute;left: 250px;top: 203px;">Xem tất cả</a>
                         </div>
                     </div>
                     <div class="profile-list-friend rounded" >
                         <div class="friend-list">
                             <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
-                            <div class="img-contain d-flex ">
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
-                                    <a href="#">Nguyễn Hạ</a>
-                                </div>
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                    <a href="#">Nguyễn Hạ</a>
-                                </div>
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                    <a href="#">Nguyễn Hạ</a>
-                                </div>
+                            <div class="img-contain row ">
+                                <c:forEach begin="0" end="5" var="item" items="${user.friends}">
+                                    <c:if test="${item.status =='accepted'}">
+                                        <div class="img-contains col-sm-4">
+                                            <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
+                                            <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
+                                        </div>
+                                    </c:if>
+                                </c:forEach>
                             </div>
-                            <div class="img-contain d-flex ">
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
-                                    <a href="#">Nguyễn Hạ</a>
-                                </div>
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                    <a href="#">Nguyễn Hạ</a>
-                                </div>
-                                <div class="img-contains">
-                                    <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                    <a href="#">Nguyễn Hạ</a>
-                                </div>
-                            </div>
-                            <a href="#" style="margin-right: 10px" class="float-right">Xem tất cả</a>
+                            <a href="#"  style=" position: absolute;left: 250px;top: 478px;">Xem tất cả</a>
                         </div>
                     </div>
                 </div>

@@ -12,8 +12,8 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
-            <div class="modal-body">
-                <div class="d-flex align-items-md-center justify-content-between">
+            <div class="modal-body friends-modal-all">
+                <div class="d-flex align-items-md-center justify-content-between" style="margin-bottom: 10px;">
                     <div class="coupon-container d-flex align-items-md-center">
                         <img src="/public/image/avatar/momo.png" class="img-coupon" />
                         <p>Huy Trần</p>
@@ -41,18 +41,9 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class=" align-items-md-center justify-content-between">
-                    <div class="coupon-container d-flex">
-                        <img src="/public/image/avatar/momo.png" class="img-user" />
-                        <img src="/public/image/avatar/momo.png" class="img-user" />
-                        <img src="/public/image/avatar/momo.png" class="img-user" />
-                        <img src="/public/image/avatar/momo.png" class="img-user" />
+                    <div class="coupon-container row img-modal-all">
                     </div>
-                    <div class="coupon-container d-flex">
-                        <img src="/public/image/avatar/momo.png" class="img-user" />
-                        <img src="/public/image/avatar/momo.png" class="img-user" />
-                        <img src="/public/image/avatar/momo.png" class="img-user" />
-                        <img src="/public/image/avatar/momo.png" class="img-user" />
-                    </div>
+                    
 
                 </div>
             </div>
@@ -673,8 +664,7 @@
                                                                         <h3><i class="fas fa-image"></i>Ảnh</h3>
                                                                         <div class="img-contain">
                                                                             <div class="row">
-                                                                                <c:forEach var="c" begin= "1" end="6" items="${user.newfeeds}">
-
+                                                                                <c:forEach var="c" begin= "0" end="5" items="${user.newfeeds}">
                                                                                     <c:if test="${item.product==null}">
                                                                                         <div class="img-contains col-md-4">
                                                                                             <image class="rounded" src ="http://localhost:9032/public/image/${c.images[0]}" />  
@@ -685,41 +675,25 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-img">Xem tất cả</a>
+                                                                    <a href="#" style="margin-right: 10px" class="float-right img-all-user"  data-toggle="modal" data-target="#see-img">Xem tất cả</a>
                                                                 </div>
                                                                 <div class="profile-list-friend rounded" >
                                                                     <div class="friend-list">
                                                                         <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
-                                                                        <div class="img-contain d-flex ">
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
-                                                                                <a href="#">Nguyễn Hạ</a>
-                                                                            </div>
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                                                                <a href="#">Nguyễn Hạ</a>
-                                                                            </div>
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                                                                <a href="#">Nguyễn Hạ</a>
-                                                                            </div>
+                                                                        <div class="img-contain row " >
+                                                                            <c:forEach begin="0" end="5" var="item" items="${user.friends}">
+                                                                                <c:if test="${item.status =='accepted'}">
+                                                                                <div class="img-contains col-sm-4">
+                                                                                    <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
+                                                                                    <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
+                                                                                </div>
+                                                                                </c:if>
+                                                                            </c:forEach>
+                                                                            
                                                                         </div>
-                                                                        <div class="img-contain d-flex ">
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />
-                                                                                <a href="#">Nguyễn Hạ</a>
-                                                                            </div>
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                                                                <a href="#">Nguyễn Hạ</a>
-                                                                            </div>
-                                                                            <div class="img-contains">
-                                                                                <image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" />  
-                                                                                <a href="#">Nguyễn Hạ</a>
-                                                                            </div>
-                                                                        </div>
+                                                                        
                                                                     </div>
-                                                                    <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
+                                                                    <a href="#" style="margin-right: 10px" class="float-right friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8">
