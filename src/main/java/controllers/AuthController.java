@@ -104,11 +104,12 @@ public class AuthController implements IController<Authorization> {
             response.addCookie(cookie2);
             response.addCookie(cookie3);
             response.addCookie(cookie4);
+            
             response.sendRedirect("/");
-            return new ModelAndView("index");
+            return null;
         } else {
             myStr = "Sai SĐT hoặc mật khẩu";
-           
+            
             return new ModelAndView("/login").addObject("message", myStr);
         }
     }

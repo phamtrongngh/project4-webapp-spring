@@ -18,6 +18,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import models.Cart;
+import models.Comment;
 import models.Order;
 import models.User;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
@@ -130,7 +131,13 @@ public class UserController {
     public String cancelFriendRequest(@PathVariable("id") String id) throws IOException {
         return restUser.cancelRequestFriend(id);
     }
-
+    
+    @RequestMapping(value = "/user/comment", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String comment(Comment comment) throws IOException {
+        return restUser.comment(comment);
+    }
+    
     @RequestMapping(value = "/switchCart", method = RequestMethod.POST)
     @ResponseBody
     public String switchCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
@@ -183,7 +190,14 @@ public class UserController {
         Object order = restOrder.getOne(id);
         return new ModelAndView("status-order").addObject("order", order);
     }
-
+    
+    @RequestMapping(value = "/like/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public String like(@PathVariable("id") String id) throws IOException {
+        String result = restUser.like(id);
+        return result.replace("\"","");
+    }
+    
     @RequestMapping(value = "/updateUser")
     public ModelAndView update(MultipartContainer multipartContainer, User user, HttpServletResponse response) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();

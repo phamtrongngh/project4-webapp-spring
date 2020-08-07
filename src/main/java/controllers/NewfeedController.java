@@ -94,7 +94,7 @@ public class NewfeedController implements IController<Newfeed> {
             file.delete();
         }
         response.sendRedirect("/myprofile-user");
-        return null;
+        return new ModelAndView("index");
     }
 
     @RequestMapping(value = "/newfeed/{id}", method = RequestMethod.GET)
@@ -125,5 +125,13 @@ public class NewfeedController implements IController<Newfeed> {
     public String getMyNewfeeds() throws IOException {
         String json = rESTNewfeedHelper.getMyNewfeeds();
         return json;
+    }
+
+    @RequestMapping(value = "/newfeed/getListLike/{id}", method = RequestMethod.GET,produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getListlike(@PathVariable("id") String id) throws IOException {
+        String list = rESTNewfeedHelper.getListLike(id);
+        
+        return list;
     }
 }

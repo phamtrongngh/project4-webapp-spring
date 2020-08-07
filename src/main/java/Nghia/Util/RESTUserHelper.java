@@ -14,6 +14,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import models.Cart;
+import models.Comment;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
@@ -22,12 +23,12 @@ import org.codehaus.jackson.type.TypeReference;
  * @author BEN ALPHA
  */
 public class RESTUserHelper extends RESTHelper {
-
+    
     private WebTarget webTarget;
     private Client client;
     private String BASE_URI;
     private ObjectMapper mapper;
-
+    
     public RESTUserHelper(Class aClazz) throws InstantiationException, IllegalAccessException {
         super(aClazz);
         client = ClientBuilder.newClient();
@@ -35,7 +36,7 @@ public class RESTUserHelper extends RESTHelper {
         webTarget = client.target(BASE_URI);
         mapper = new ObjectMapper();
     }
-
+    
     public Map<String, ?> getMyUser() throws IOException {
         String url = BASE_URI + "/getMyUser";
         webTarget = client.target(url);
@@ -46,7 +47,7 @@ public class RESTUserHelper extends RESTHelper {
         });
         return tmpObject;
     }
-
+    
     public List<Map<String, ?>> getFriendRequests() throws IOException {
         String url = BASE_URI + "/getFriendRequests";
         webTarget = client.target(url);
@@ -57,7 +58,7 @@ public class RESTUserHelper extends RESTHelper {
         });
         return tmpObject;
     }
-
+    
     public List<Map<String, ?>> getNotification() throws IOException {
         String url = BASE_URI + "/getNotifications";
         webTarget = client.target(url);
@@ -68,7 +69,7 @@ public class RESTUserHelper extends RESTHelper {
         });
         return tmpObject;
     }
-
+    
     public Map<String, ?> getCart() throws IOException {
         String url = BASE_URI + "getCart";
         webTarget = client.target(url);
@@ -79,7 +80,7 @@ public class RESTUserHelper extends RESTHelper {
         });
         return tmpObject;
     }
-
+    
     public String addToCart(Cart cart) {
         String url = BASE_URI + "addToCart";
         webTarget = client.target(url);
@@ -88,17 +89,16 @@ public class RESTUserHelper extends RESTHelper {
                 .post(Entity.entity(cart, MediaType.APPLICATION_JSON), String.class);
         return string;
     }
-
+    
     public String sendRequestFriend(String id) {
         String url = BASE_URI + "requestFriend";
         webTarget = client.target(url);
-
         String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
                 .header("authorization", CookieHelper.getCookie("accessToken"))
                 .post(null, String.class);
         return string;
     }
-
+    
     public String acceptRequestFriend(String id) {
         String url = BASE_URI + "acceptRequest";
         webTarget = client.target(url);
@@ -107,7 +107,25 @@ public class RESTUserHelper extends RESTHelper {
                 .post(null, String.class);
         return string;
     }
-
+    
+    public String comment(Comment comment) {
+        String url = BASE_URI + "comment";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.entity(comment, MediaType.APPLICATION_JSON), String.class);
+        return string;
+    }
+    
+    public String like(String id) {
+        String url = BASE_URI + "like";
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(null, String.class);
+        return string;
+    }
+    
     public String cancelRequestFriend(String id) {
         String url = BASE_URI + "cancelRequest";
         webTarget = client.target(url);
@@ -116,7 +134,7 @@ public class RESTUserHelper extends RESTHelper {
                 .post(null, String.class);
         return string;
     }
-
+    
     public String switchCart(Cart cart) {
         String url = BASE_URI + "switchCart";
         webTarget = client.target(url);
@@ -125,7 +143,7 @@ public class RESTUserHelper extends RESTHelper {
                 .post(Entity.entity(cart, MediaType.APPLICATION_JSON), String.class);
         return string;
     }
-
+    
     public String removeFromCart(String id) {
         String url = BASE_URI + "removeFromCart";
         webTarget = client.target(url);
