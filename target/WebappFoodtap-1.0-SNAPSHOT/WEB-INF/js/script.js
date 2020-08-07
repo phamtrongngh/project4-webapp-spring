@@ -1060,7 +1060,7 @@ $(document).ready(function() {
     }
 
 //SOCKETIO receive message chat
-    var socket = io('http://localhost:9032');
+    var socket = io('http://localhost:9032 ');
     socket.emit("join", $("#idUser").val());
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
@@ -1359,3 +1359,47 @@ function printDiv() {
     a.close();
     return  true;
 }
+$(document).ready(function (){
+    if ($(".error-register").html()=="SĐT đã tồn tại") {
+            $("#alertModalCart").modal("show");
+            $("#alertModalCart .modal-title").html("Thông báo");
+            $("#alertModalCart .content").html($(".error-register").html());
+            
+            $(".register-tab").trigger("click");
+
+    } 
+    if ($(".error-pass").html()=="Sai SĐT hoặc mật khẩu") {
+        $("#alertModalCart").modal("show");
+           $("#alertModalCart .modal-title").html("Thông báo");
+           $("#alertModalCart .content").html($(".error-pass").html()); 
+          
+
+    }
+    
+});
+var arraystore = [];
+var arrayIDstore = [];
+$(".dropdown-item").click(function() {
+    var a = $(this).closest("#mdMenu").find(".id-store-coupon");
+    if (arraystore.length != 0) {
+        for (var i = 0; i < arraystore.length; i++) {
+            if (arraystore[i] == $(this).find(".name-store").text()) {
+                alert("Danh mục này đã được chọn");
+                return false;
+            }
+        }
+
+        
+        arraystore.push($(this).find(".name-store").text().toString());
+        arrayIDstore.push($(this).find(".id-store").text().toString());
+        a.val(a.val() + $(this).find(".id-store").text() + ", ");
+        $(".store-coupon").val($(".store-coupon").val() + $(this).find(".name-store").text() + ", ");
+
+    }
+    else {
+        arrayIDstore.push($(this).find(".id-store").text().toString());
+        a.val(a.val() + $(this).find(".id-store").text() + ", ");
+        arraystore.push($(this).find(".name-store").text().toString());
+        $(".store-coupon").val($(".store-coupon").val() + $(this).find(".name-store").text() + ", ");
+    }
+});

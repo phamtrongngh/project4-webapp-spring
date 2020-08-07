@@ -108,8 +108,7 @@ public class AuthController implements IController<Authorization> {
             response.sendRedirect("/");
             return null;
         } else {
-            myStr = "Sai SĐT hoặc mật khẩu";
-            
+            myStr = "Sai SĐT hoặc mật khẩu";            
             return new ModelAndView("/login").addObject("message", myStr);
         }
     }
@@ -120,10 +119,11 @@ public class AuthController implements IController<Authorization> {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public void register(Authorization authorization, HttpServletResponse response) throws IOException {
+    public ModelAndView register(Authorization authorization, HttpServletResponse response) throws IOException {
 
         rest.postRegister(authorization);
         Map<String, ?> responseMap = rest.post(authorization);
+        String myStrRegister = new String();
         String accessToken = (String) responseMap.get("access_token");
         if (accessToken != null) {
             //set cookie for access token
@@ -161,8 +161,10 @@ public class AuthController implements IController<Authorization> {
             response.addCookie(cookie3);
             response.addCookie(cookie4);
             response.sendRedirect("/");
+            return  null;
         } else {
-            response.sendRedirect("/login");
+            myStrRegister = "SĐT đã tồn tại";
+            return new ModelAndView("/login").addObject("messageRegister", myStrRegister);
         }
     }
 

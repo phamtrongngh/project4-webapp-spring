@@ -142,17 +142,25 @@
                                         <script async defered>
                                             var i = 0;
                                             var marker2; //marker of Shipper
+<<<<<<< HEAD
+                                            var socket = io('http://localhost:9032 ');
+=======
                                             function blink_shipper() {
                                                 $("#shipper").fadeOut(2000);
                                                 $("#shipper").fadeIn(2000);
                                             }
                                             setInterval(blink_shipper, 1000);
                                             var socket = io('http://localhost:9032');
+>>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
                                             socket.emit("join", $("#idUser").val());
 
 <<<<<<< HEAD
                                             var i = 0;
+<<<<<<< HEAD
                                             goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
+=======
+                                            goongjs.accessToken = 'Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3';
+>>>>>>> 1d441757c509f2d74977710ab4421ad01b70f199
 =======
 
                                             
