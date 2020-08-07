@@ -6,9 +6,12 @@
 <html lang="en">
 
     <head>
-        <title>Home</title>
+        <title>Foodtap</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="icon" 
+              type="image/png" 
+              href="/public/image/logo/7bb4b065-907a-40b6-9b64-0440362db8d3_200x200.png">
         <!--CSS-->
         <!--CSS-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />

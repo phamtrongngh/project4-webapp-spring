@@ -159,7 +159,7 @@
                             </div>
                         </div>
                     </div>
-                                    <button type="button" class="btn btn-danger" onclick="printDiv()" >In hóa đơn</button>
+                    <button type="button" class="btn btn-danger" onclick="printDiv()" >In hóa đơn</button>
                 </div>
 
             </div>
@@ -434,6 +434,9 @@
         <div class="tab-pane container" id="chart">
             <canvas id="myChart">
             </canvas>
+            
+            <canvas id="bestSellerChart">
+            </canvas>
             <div class="row">
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-3 col-md-6 mb-4">
@@ -687,7 +690,7 @@
                                         <td><a href="">${item.name} </a></td>
                                         <td>Danh mục</td>
                                         <td>${item.price} VND</td>
-                                        <td>${item.saleoff} VND</td>
+                                        <td><c:if test="${item.saleoff!=null}">${item.saleoff} VND</c:if></td>
                                         <td>
                                             <div class="d-flex justify-content-md-center"> 
                                                 <button  type="button" idValue="${item._id}" class="btn btn-info updateProduct" data-toggle="modal" data-target="#updateMenu">CẬP NHẬT</button>
@@ -720,67 +723,119 @@
 <script src="/public/js/swiper.min.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
-                         var progress = document.getElementById('animationProgress');
-                         let myChart = document.getElementById('myChart').getContext('2d');
-                         // Global options
-                         Chart.defaults.global.defaultFontFamily = 'Lato';
-                         Chart.defaults.global.defaultFontSize = 20;
-                         Chart.defaults.global.defaultFontColor = '#777';
-                         var chart = new Chart(myChart, {
-                             type: 'line',
-                             data: {
-                                 labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
-                                 datasets: [{
-                                         label: ['Doanh thu'],
-                                         data: [
-                                             100,
-                                             200,
-                                             223,
-                                             50,
-                                             80,
-                                             70,
-                                             90,
-                                             179,
-                                             190,
-                                             150,
-                                             30,
-                                             22,
-                                         ],
-                                         backgroundColor: 'rgba(0, 0, 0, 0)',
-                                         borderWidth: 2,
-                                         borderColor: '#da484a',
-                                         hoverborderWidth: 3,
-                                         hoverborderColor: '#000',
-                                     }],
-                             },
+                        var listOrders;
+                        callAjax("/getMyRestaurantOrders/${restaurant._id}", "GET", null, function(data) {
+                            listOrders = data.orders;
+                        })
+
+
+                        var progress = document.getElementById('animationProgress');
+                        let myChart = document.getElementById('myChart').getContext('2d');
+                        let
+                        bestSellerChart = document.getElementById("bestSellerChart").getContext('2d');
+                        // Global options
+                        Chart.defaults.global.defaultFontFamily = 'Lato';
+                        Chart.defaults.global.defaultFontSize = 20;
+                        Chart.defaults.global.defaultFontColor = '#777';
+                        var chart = new Chart(myChart, {
+                            type: 'line',
+                            data: {
+                                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                                datasets: [{
+                                        label: ['Doanh thu'],
+                                        data: [
+                                            100,
+                                            200,
+                                            223,
+                                            50,
+                                            80,
+                                            70,
+                                            90,
+                                            179,
+                                            190,
+                                            150,
+                                            30,
+                                            22,
+                                        ],
+                                        backgroundColor: 'rgba(0, 0, 0, 0)',
+                                        borderWidth: 2,
+                                        borderColor: '#da484a',
+                                        hoverborderWidth: 3,
+                                        hoverborderColor: '#000',
+                                    }],
+                            },
+                            options: {
+                                title: {
+                                    display: 'true',
+                                    text: 'Doanh thu tháng này',
+                                    fontSize: 30,
+                                    fontStyle: 'bold',
+                                },
+                                legend: {
+                                    display: 'true',
+                                    position: 'right',
+                                    labels: {
+                                        fontColor: '#000',
+                                    }
+                                },
+                                layout: {
+                                    padding: {
+                                        left: 50,
+                                        right: 0,
+                                        bottom: 50,
+                                        top: 50,
+                                    },
+                                },
+                                animation: {
+                                    duration: 2000,
+                                    easing: 'linear',
+                                },
+                            },
+                        });
+                        var myPieChart = new Chart(bestSellerChart, {
+                            type: 'doughnut',
+                            data: {
+                                datasets: [
+                                    {
+                                        label: "Top",
+                                        data: [
+                                            100,
+                                            300,
+                                            700,
+                                        ],
+                                        backgroundColor: ['rgba(66, 135, 245)', 'rgba(218, 245, 4)', 'rgba(201, 20, 47)']
+                                    }
+                                ],
+                                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3'],
+                            },
                              options: {
-                                 title: {
-                                     display: 'true',
-                                     text: 'Doanh thu của bạn trong một năm',
-                                     fontSize: 30,
-                                     fontStyle: 'bold',
-                                 },
-                                 legend: {
-                                     display: 'true',
-                                     position: 'right',
-                                     labels: {
-                                         fontColor: '#000',
-                                     }
-                                 },
-                                 layout: {
-                                     padding: {
-                                         left: 50,
-                                         right: 0,
-                                         bottom: 50,
-                                         top: 50,
-                                     },
-                                 },
-                                 animation: {
-                                     duration: 2000,
-                                     easing: 'linear',
-                                 },
-                             },
-                         });
+                                title: {
+                                    display: 'true',
+                                    text: 'Top 3 món bán chạy nhất',
+                                    fontSize: 30,
+                                    fontStyle: 'bold',
+                                },
+                                legend: {
+                                    display: 'true',
+                                    position: 'right',
+                                    labels: {
+                                        fontColor: '#000',
+                                    }
+                                },
+                                layout: {
+                                    padding: {
+                                        left: 50,
+                                        right: 0,
+                                        bottom: 50,
+                                        top: 50,
+                                    },
+                                },
+                                animation: {
+                                    duration: 2000,
+                                    easing: 'linear',
+                                },
+                            },
+                        });
 </script>
 <script async defered>
     goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
