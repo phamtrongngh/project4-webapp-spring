@@ -159,7 +159,7 @@
                             </div>
                         </div>
                     </div>
-                                    <button type="button" class="btn btn-danger" onclick="printDiv()" >In hóa đơn</button>
+                    <button type="button" class="btn btn-danger" onclick="printDiv()" >In hóa đơn</button>
                 </div>
 
             </div>
@@ -241,15 +241,21 @@
                         <label>Giá khuyến mãi:</label>
                         <input name="saleoff" type="number" class="form-control" />
                     </div>
-                    <div class="form-group">
-                        <label>Danh mục</label>
-                        <!--<select name="" class="form-control select-address-district ">
-                                                                <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                                                                <option value="1 ">Option 1</option>
-                                                                <option value="2 ">Option 2</option>
-                                                                <option value="3 ">Option 3</option>
-                                                            </select>-->
-                        <input name="category" placeholder="Chưa có dữ liệu, khoan nhập mục này" type="text" class="form-control" />
+                    <div class="form-group dropdown row">
+                        <label class="col-sm-4">Cửa hàng áp dụng</label>
+                        <div class="col-sm-2"></div>
+                        <input  type="text" class="col-sm-6  searchstore"  data-toggle="dropdown"  id="dropdownMenuButton" placeholder="Hãy nhập tên cửa hàng" />
+                        <input style="margin-top: 5px;" type="text" readonly="true" class="form-control store-coupon"/>
+                        <input style="margin-top: 5px;" type="hidden"  class="form-control id-store-coupon" name=""/>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="max-width: 100%;height: 200px;top:68px!important;overflow: auto;">
+                            <c:forEach var="item" items="${foodCaterogys}">
+                                <div class="dropdown-item">
+                                    <img src="http://localhost:9032/public/image/${item.image}" width="25px" class="search-avatar" alt=""/>
+                                    <span class="name-store">${item.name}</span>
+                                    <span style="display: none;" class="id-store">${item._id}</span>
+                                </div>
+                            </c:forEach>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
                 </form>
@@ -720,67 +726,67 @@
 <script src="/public/js/swiper.min.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
-                         var progress = document.getElementById('animationProgress');
-                         let myChart = document.getElementById('myChart').getContext('2d');
-                         // Global options
-                         Chart.defaults.global.defaultFontFamily = 'Lato';
-                         Chart.defaults.global.defaultFontSize = 20;
-                         Chart.defaults.global.defaultFontColor = '#777';
-                         var chart = new Chart(myChart, {
-                             type: 'line',
-                             data: {
-                                 labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
-                                 datasets: [{
-                                         label: ['Doanh thu'],
-                                         data: [
-                                             100,
-                                             200,
-                                             223,
-                                             50,
-                                             80,
-                                             70,
-                                             90,
-                                             179,
-                                             190,
-                                             150,
-                                             30,
-                                             22,
-                                         ],
-                                         backgroundColor: 'rgba(0, 0, 0, 0)',
-                                         borderWidth: 2,
-                                         borderColor: '#da484a',
-                                         hoverborderWidth: 3,
-                                         hoverborderColor: '#000',
-                                     }],
-                             },
-                             options: {
-                                 title: {
-                                     display: 'true',
-                                     text: 'Doanh thu của bạn trong một năm',
-                                     fontSize: 30,
-                                     fontStyle: 'bold',
-                                 },
-                                 legend: {
-                                     display: 'true',
-                                     position: 'right',
-                                     labels: {
-                                         fontColor: '#000',
-                                     }
-                                 },
-                                 layout: {
-                                     padding: {
-                                         left: 50,
-                                         right: 0,
-                                         bottom: 50,
-                                         top: 50,
-                                     },
-                                 },
-                                 animation: {
-                                     duration: 2000,
-                                     easing: 'linear',
-                                 },
-                             },
-                         });
+                        var progress = document.getElementById('animationProgress');
+                        let myChart = document.getElementById('myChart').getContext('2d');
+                        // Global options
+                        Chart.defaults.global.defaultFontFamily = 'Lato';
+                        Chart.defaults.global.defaultFontSize = 20;
+                        Chart.defaults.global.defaultFontColor = '#777';
+                        var chart = new Chart(myChart, {
+                            type: 'line',
+                            data: {
+                                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                                datasets: [{
+                                        label: ['Doanh thu'],
+                                        data: [
+                                            100,
+                                            200,
+                                            223,
+                                            50,
+                                            80,
+                                            70,
+                                            90,
+                                            179,
+                                            190,
+                                            150,
+                                            30,
+                                            22,
+                                        ],
+                                        backgroundColor: 'rgba(0, 0, 0, 0)',
+                                        borderWidth: 2,
+                                        borderColor: '#da484a',
+                                        hoverborderWidth: 3,
+                                        hoverborderColor: '#000',
+                                    }],
+                            },
+                            options: {
+                                title: {
+                                    display: 'true',
+                                    text: 'Doanh thu của bạn trong một năm',
+                                    fontSize: 30,
+                                    fontStyle: 'bold',
+                                },
+                                legend: {
+                                    display: 'true',
+                                    position: 'right',
+                                    labels: {
+                                        fontColor: '#000',
+                                    }
+                                },
+                                layout: {
+                                    padding: {
+                                        left: 50,
+                                        right: 0,
+                                        bottom: 50,
+                                        top: 50,
+                                    },
+                                },
+                                animation: {
+                                    duration: 2000,
+                                    easing: 'linear',
+                                },
+                            },
+                        });
 </script>
 <script async defered>
     goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';

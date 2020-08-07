@@ -187,7 +187,8 @@
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
 <script async defered>
-    goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
+
+    goongjs.accessToken = 'Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3';
     var map = new goongjs.Map({
         container: 'map', // container id
         style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
