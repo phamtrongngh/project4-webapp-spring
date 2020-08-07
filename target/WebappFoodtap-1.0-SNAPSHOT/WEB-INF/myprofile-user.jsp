@@ -811,9 +811,11 @@
                                                                                     <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                                                                                 </div>
                                                                                 <div style="margin-top: 2px;display: flex;">
-                                                                                    <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
+                                                                                    <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like">
+                                                                                        <div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>
+                                                                                        <span class="like-count">${(item.likes).size()}</span></span>
                                                                                     <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapse${item._id}" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a>
-                                                                                        <!--                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
+                                                                                        <!--<a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
                                                                                     </div>
                                                                                 </div>
                                                                                 <hr class="hr-newsfeed"/>

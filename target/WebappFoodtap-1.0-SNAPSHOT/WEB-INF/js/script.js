@@ -1032,6 +1032,20 @@ $(document).ready(function() {
             $("#steplike").html(html);
         })
     })
+     //Show list imgage of a newfeed
+    $(".btn-more").click(function() {
+        var newfeed = $(this).closest(".img-list").find(".row");
+        callAjax("/newfeed/getMyNewfeeds/" + newfeed, "GET", null, function(data) {
+            var html = "";
+            data.forEach(function(item) {
+                var content =
+                        '<div class="coupon-container d-flex">' +
+                        '<img src="http://localhost:9032/public/image/' + item.newfeeds + '" class="rounded img-user" />' +
+                        '</div>';
+                html += content;
+            });
+        })
+    })
 
 
     //binding data to post food newfeed
