@@ -188,10 +188,15 @@
 <script src="/public/js/script.js "></script>
 <script async defered>
 <<<<<<< HEAD
+<<<<<<< HEAD
     goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
 =======
     goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
 >>>>>>> 01bdac797c5e78a0f8e7433efc5a68f11ec05228
+=======
+
+    goongjs.accessToken = 'Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3';
+>>>>>>> 1d441757c509f2d74977710ab4421ad01b70f199
     var map = new goongjs.Map({
         container: 'map', // container id
         style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location

@@ -30,6 +30,7 @@
     </head>
 
     <body>
+<!--modal thoong bao-->
         <div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
                 <div class="modal-content">
@@ -85,10 +86,10 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs justify-content-center text-center" >
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#login">Đăng Nhập</a>
+                            <a class="nav-link active login-tab" data-toggle="tab" href="#login">Đăng Nhập</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#register">Tạo Tài Khoản</a>
+                            <a class="nav-link register-tab" data-toggle="tab" href="#register">Tạo Tài Khoản</a>
                         </li>
                     </ul>
 
@@ -106,7 +107,7 @@
                                     </div>
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
-                                        <span class="error-pass">${message}</span>
+                                        <span class="error error-pass">${message}</span>
                                     </div>
                                     
                                     
@@ -122,6 +123,7 @@
                                 <img src="/public/image/Background/33367357.jpg" width="100%">/
                             </div>
                             <div class="login-container">
+                                <span class="error error-register">${messageRegister}</span>
                                 <form class="login-form d-flex justify-content-md-center align-items-md-center h-100"  action="/register" method = "POST">
 
                                     <div class="form-group ">
