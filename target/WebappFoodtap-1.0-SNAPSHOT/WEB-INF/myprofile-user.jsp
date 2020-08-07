@@ -359,7 +359,7 @@
         </div>
     </div>
 </div>
-<!-- The Modal comment -->
+<!-- The Modal order -->
 <div class="modal" id="orderModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -374,28 +374,28 @@
                 <div class="container contain">
                     <div class="row">
                         <div class=" info-product">
-                            <img class="rounded img-status" src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" alt="" />
+                            <img class="rounded img-status"  alt="" />
                             <div>
-                                <h1 class="title-food">Kem trái cây rừng </h1>
+                                <h1 class="title-food"></h1>
                                 <div class="rate text-center">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                        </form>
-
-                                    </div>
-                                    <div class="text-like">14k lượt thích</div>
+                                    <!--                                    <div class="stars">
+                                                                            <form action="">
+                                                                                <input class="star star-5" id="star-5" type="radio" name="star" />
+                                                                                <label class="star star-5" for="star-5"></label>
+                                                                                <input class="star star-4" id="star-4" type="radio" name="star" />
+                                                                                <label class="star star-4" for="star-4"></label>
+                                                                                <input class="star star-3" id="star-3" type="radio" name="star" />
+                                                                                <label class="star star-3" for="star-3"></label>
+                                                                                <input class="star star-2" id="star-2" type="radio" name="star" />
+                                                                                <label class="star star-2" for="star-2"></label>
+                                                                                <input class="star star-1" id="star-1" type="radio" name="star" />
+                                                                                <label class="star star-1" for="star-1"></label>
+                                                                            </form>
+                                    
+                                                                        </div>
+                                                                        <div class="text-like">14k lượt thích</div>-->
                                 </div>
-                                <p>Với 7 loại trái cây rung ngon thơm ngọt lịm: dâu, táo, cherry, hạnh nhân... Giúp bạn giải tỏa căng thẳng trong những ngày hè đầy áp lực...</p>
+                                <p class="content-food"></p>
                             </div>
                             <div class="rounded box-quantity mx-auto">
                                 <p class="form-inline quantity">
@@ -405,8 +405,10 @@
 
                                 </p>
 
-                                <p class="price-food">Giá : <span class="price-foodnumber-through"></span> VNĐ</p>
-                                <p class="saleoff-food">Giá khuyến mãi : <span class="price-foodnumber"></span> VNĐ</p>
+                                <p class="price-food">Giá : <span class="price-foodnumber"></span> VNĐ</p>
+
+                                <p class="saleoff-food" style="display:none">Giá khuyến mãi : <span class="saleoff-foodnumber"></span> VNĐ</p>
+
                                 <p class="total-food">Thành tiền : <span class="total-foodnumber"></span> VNĐ</p>
                             </div>
 
@@ -504,7 +506,6 @@
 
                                                         <a href="#">Thích</a>
 
-
                                                     <div id="reply3" class="collapse">
                                                         <div class="input-group" style="margin-left: -60px;">
                                                             <a class="pull-left" href="#">
@@ -527,7 +528,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger shop-item-button">Thêm vào giỏ hàng</button>
             </div>
@@ -546,7 +547,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="overflow-y: scroll;height: 500px">
                 <div style="display: flex;">
                     <form class="form-inline" style="width: 60%;">
                         <i class="fas fa-search" aria-hidden="true"></i>
@@ -677,7 +678,7 @@
 
                                                                                     <c:if test="${item.product==null}">
                                                                                         <div class="img-contains col-md-4">
-                                                                                            <image class="rounded" src ="http://localhost:9032/public/image/${c.images[0]}" />  
+                                                                                            <image class="rounded" src ="http://localhost:9032/public/image/${c.images[0]}"  />  
                                                                                         </div>
                                                                                     </c:if>
 
@@ -685,7 +686,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <a href="#" style="margin-right: 10px" class="float-right" data-toggle="modal" data-target="#see-img">Xem tất cả</a>
+                                                                    <a href="#" style="margin-right: 10px" class="btn-more float-right" data-toggle="modal" data-target="#see-img">Xem tất cả</a>
                                                                 </div>
                                                                 <div class="profile-list-friend rounded" >
                                                                     <div class="friend-list">
@@ -758,7 +759,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-6">
-                                                                                    <button type="button" class="btn btn-success" data-target="#postModal-users" data-toggle="modal"><i class="fas fa-hamburger"></i> Đăng món</button>
+                                                                                    <button type="button" class="btn btn-success" data-target="#postModal-users" data-toggle="modal" style="margin-top: 2px"><i class="fas fa-hamburger"></i> Đăng món</button>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row">
