@@ -1,5 +1,31 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--Modal Friend-->
+<div class="modal" id="see-friends" >
+    <div class="modal-dialog" style="max-width:40%!important;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bạn bè</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body friends-modal-all-user">
+                <div class="d-flex align-items-md-center justify-content-between" style="margin-bottom: 10px;">
+                    <div class="coupon-container d-flex align-items-md-center">
+                        <img src="/public/image/avatar/momo.png" class="img-coupon" />
+                        <p>Huy Trần</p>
+                    </div>
+                    <button  class="btn btn-success float-right ">Hủy kết bạn</button>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Modal Album-->
 <div class="modal" id="see-img" >
     <div class="modal-dialog" style="max-width:60%!important;">
@@ -475,27 +501,28 @@
                                 </c:forEach>
 
                             </div>
-                            <a href="#" class=""   data-toggle="modal" data-target="#see-img" style=" position: absolute;left: 250px;top: 203px;">Xem tất cả</a>
+                            <a href="#" class="img-all-user-id" idValue="${user._id}"   data-toggle="modal" data-target="#see-img" style=" position: absolute;left: 250px;top: 203px;">Xem tất cả</a>
                         </div>
                     </div>
                     <div class="profile-list-friend rounded" >
                         <div class="friend-list">
                             <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
                             <div class="img-contain row ">
-                                <c:forEach begin="0" end="5" var="item" items="${user.friends}">
-                                    <c:if test="${item.status =='accepted'}">
-                                        <div class="img-contains col-sm-4">
-                                            <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
-                                            <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
-                                        </div>
-                                    </c:if>
+                                <c:forEach  var="item" items="${user.friends}">
+
+                                    <div class="img-contains col-sm-4">
+                                        <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
+                                        <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
+                                    </div>
+
                                 </c:forEach>
                             </div>
-                            <a href="#"  style=" position: absolute;left: 250px;top: 478px;">Xem tất cả</a>
+                            
+                            <a href="#"  style=" position: absolute;left: 250px;top: 478px;" idValue="${user._id}" class="friend-userpage"data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8">
+                        <div class="col-md-8" style="padding-top: 10px;">
                     <c:forEach var="item" items="${user.newfeeds}">
                         <c:choose>
                             <c:when test="${item.product!=null}">
@@ -514,9 +541,7 @@
                                             <div class="dropleft">
                                                 <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                 <div class="dropdown-menu" >
-                                                    <a class="dropdown-item" href="#">Ẩn</a>
-                                                    <a class="dropdown-item" href="#">Sửa</a>
-                                                    <a class="dropdown-item" href="#">Xóa</a>
+                                                    <a class="dropdown-item" href="#">Báo cáo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -543,12 +568,20 @@
                                         </div>
                                     </div>
                                     <hr class="hr-newsfeed"/>
-                                    <div class="icon2">
-                                        <div class="subicon1">
-
+                                    <div class="subicon1">
+                                        <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal" idValue="${item.product}"></i>
+                                        </a>
+                                        <c:set var="checkLike" value="${true}" />
+                                        <c:forEach var="like" items="${item.likes}">
+                                            <c:if test="${like==cookie['_id'].getValue()}">
+                                                <i class="fab fa-gratipay like-newpost"  aria-hidden="true"></i>
+                                                <c:set var="checkLike" value="${false}" />
+                                            </c:if>
+                                        </c:forEach>
+                                        <c:if test="${checkLike!=false}">
                                             <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
-                                            <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
-                                        </div>
+                                        </c:if>
+                                        <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                     </div>
                                     <div class="collapse newfeed" idValue="${item._id}" id="collapse${item._id}">
                                         <div class="card card-body">
@@ -609,8 +642,6 @@
                                                                                             <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                                                             </a>
                                                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                <a class="dropdown-item" href="#">Sửa </a>
                                                                                                 <a class="dropdown-item" href="#">Báo cáo</a>
                                                                                             </div>
                                                                                         </div>

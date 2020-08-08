@@ -39,9 +39,7 @@
             }
         </style>
     </head>
-
     <body>
-
         <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
                 <div class="modal-content">
@@ -85,26 +83,34 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <div class="nav-item search order-0 mx-auto">
-                    <form class="form-inline ">
-                        <div class="input-group">
-                            <input type="text" class="form-control inputsearch" data-toggle="dropdown"  id="dropdownMenuButton" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="width: 100%">
+                    <form class="form-inline" id="search-form" method="GET">
+                        <div class="input-group" style="width: 100%;">
+                            <input type="text" class="form-control inputsearch"   id="dropdownMenuButton" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
+                            <div style="display:none;width: 100%;" class="dropdown-menu" id="List" style="width: 100%">
                                 <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
-                                    <span>Mọi người</span>
+                                    <span>Người dùng</span>
                                 </div>
-                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="rounded-circle search-avatar" alt=""/>Phan Anh</a>
-                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="rounded-circle search-avatar" alt=""/>Thi Tran</a>
-                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="rounded-circle search-avatar" alt=""/>Trang Tran</a>
+                                <div class="result-search-user">
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
                                 <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
                                     <span>Cửa hàng</span>
                                 </div>
-                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="search-avatar" alt=""/>Phan Anh</a>
-                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="search-avatar" alt=""/>Thi Tran</a>
-                                <a class="dropdown-item" href="#"><img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="search-avatar" alt=""/>Trang Tran</a>
-
+                                <div class="result-search-restaurant">
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
+                                <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
+                                    <span>Món ăn</span>
+                                </div>
+                                <div class="result-search-product">
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
+                                <div>
+                                    <a id="search-all" href="/">Xem tất cả</a>
+                                </div>
                             </div>
                             <div class="input-group-prepend">
-                                <button class="btn btn-Search "  type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button class="btn btn-Search "  type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </form>
@@ -214,18 +220,11 @@
                                 <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
                                 <div style="width: 245px;">
                                     <div class="messenger-name">Truong</div>
-                                    <p class="messenger-content">đâsdsadasdasd</p>
+                                    <p class="messenger-content">Tôi tới đây</p>
                                 </div>
                                 <div>12:00</div>
                             </div>
-                            <div class="messenger">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div style="width: 245px;">
-                                    <div class="messenger-name">Truong</div>
-                                    <p class="messenger-content">đâsdsadasdasdsssssssssssssssssssssssssssssssssssssssssssssss</p>
-                                </div>
-                                <div>12:00</div>
-                            </div>
+                            
                             <div class="messenger-footer">
                                 <span><a  href="/message/">Xem tất cả</a></span>
                                 <span style="float: right;"><a href="#">Đánh dấu đã đọc tất cả</a></span>

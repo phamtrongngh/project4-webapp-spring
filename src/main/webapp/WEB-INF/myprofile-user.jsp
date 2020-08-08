@@ -693,7 +693,7 @@
                                                                         </div>
 
                                                                     </div>
-                                                                    <a href="#" style="margin-right: 10px" class="float-right friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
+                                                                    <a href="#" style=" position: absolute;left: 250px;top: 478px;" class="friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8">
@@ -763,7 +763,6 @@
                                                                                         <div class="dropleft">
                                                                                             <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                                                             <div class="dropdown-menu" >
-                                                                                                <a class="dropdown-item" href="#">Ẩn</a>
                                                                                                 <a class="dropdown-item" href="#">Sửa</a>
                                                                                                 <a class="dropdown-item" href="#">Xóa</a>
                                                                                             </div>
@@ -790,20 +789,20 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <hr class="hr-newsfeed"/>
-                                                                                <div class="icon2">
-                                                                                    <div class="subicon1">
-                                                                                        <c:set var="checkLike2" value="${true}" />
-                                                                                        <c:forEach var="like" items="${item.likes}">
-                                                                                            <c:if test="${like==cookie['_id'].getValue()}">
-                                                                                                <i class="fab fa-gratipay like-newpost"  aria-hidden="true"></i>
-                                                                                                <c:set var="checkLike2" value="${false}" />
-                                                                                            </c:if>
-                                                                                        </c:forEach>
-                                                                                        <c:if test="${checkLike2!=false}">
-                                                                                            <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
+                                                                                <div class="subicon1">
+                                                                                    <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal" idValue="${item.product}"></i>
+                                                                                    </a>
+                                                                                    <c:set var="checkLike" value="${true}" />
+                                                                                    <c:forEach var="like" items="${item.likes}">
+                                                                                        <c:if test="${like==cookie['_id'].getValue()}">
+                                                                                            <i class="fab fa-gratipay like-newpost"  aria-hidden="true"></i>
+                                                                                            <c:set var="checkLike" value="${false}" />
                                                                                         </c:if>
-                                                                                        <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
-                                                                                    </div>
+                                                                                    </c:forEach>
+                                                                                    <c:if test="${checkLike!=false}">
+                                                                                        <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
+                                                                                    </c:if>
+                                                                                    <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                                                                 </div>
                                                                                 <div class="collapse newfeed" idValue="${item._id}" id="collapse${item._id}">
                                                                                     <div class="card card-body">
@@ -916,9 +915,7 @@
                                                                                         <div class="dropleft">
                                                                                             <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                                                             <div class="dropdown-menu" >
-                                                                                                <a class="dropdown-item" href="#">Ẩn</a>
-                                                                                                <a class="dropdown-item" href="#">Sửa</a>
-                                                                                                <a class="dropdown-item" href="#">Xóa</a>
+                                                                                                <a class="dropdown-item" href="#">Sửa</a>                                                                                              
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
