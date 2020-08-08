@@ -217,7 +217,7 @@
         $("#mapModeluserupdate .modal-footer button").click(function() {
             $("#mapModeluserupdate").modal("hide");
         })
-        $(".close").click(function() {
+        $("#mapModeluserupdate .close").click(function() {
             $(".input-address").val("");
             $("#mapModeluserupdate").modal("hide");
         })

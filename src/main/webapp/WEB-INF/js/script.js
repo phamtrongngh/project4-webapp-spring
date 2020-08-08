@@ -469,23 +469,7 @@ function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-//Buttom slideToggle
-$(document).ready(function() {
-//tooltip
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".btn-up").click(function() {
-        $('.box').slideToggle();
-    });
-    $('.box').find('div#sidebar-user-box:gt(3)').hide();
-    $('.viewMore, .viewLess').click(function(e) {
-        e.preventDefault();
-        $('.box').find('div#sidebar-user-box:gt(3)').slideToggle(500);
-    });
-    $(".btn-down").click(function() {
-        $("#three").css("background-color", "white")
-        $(".box").slideDown();
-    });
-});
+
 $(document).ready(function() {
     $(window).scroll(function(event) {
         var pos_body = $('html,body').scrollTop();
@@ -634,6 +618,7 @@ $(document).ready(function() {
 
 });
 $(document).ready(function() {
+    $('.box').find('div.user-box:gt(3)').hide();
 //Initialize tooltips
     $('.nav-tabs > li a[title]').tooltip();
     //Wizard
@@ -1036,6 +1021,7 @@ $(document).ready(function() {
             $("#steplike").html(html);
         })
     })
+
 
 
     //binding data to post food newfeed
@@ -1552,6 +1538,7 @@ $(".img-all-user-id").click(function() {
         });
         $(".img-modal-all-user").html(html);
     })
+
 });
 $(".friend-userpage").click(function() {
     var friendUser = $(this).attr("idValue");
@@ -1574,3 +1561,30 @@ $(".friend-userpage").click(function() {
         $(".friends-modal-all-user").html(friend);
     });
 });
+
+
+//Buttom slideToggle
+$(".btn-up").click(function() {
+    var m = $('.user-box').toArray();
+    for (i = 0; i < m.length; i++) {
+        if (m.length > 4) {
+            $('.user-box:last').hide();
+            $('.user-box:first').show();
+        }
+    }
+
+});
+
+//Buttom slideToggle
+$(".btn-down").click(function() {
+    var m = $('.user-box').toArray();
+    for (i = 0; i < m.length; i++) {
+        if (m.length > 4) {
+            $('.user-box:first').hide();
+            $('.user-box:last').show();
+        }
+    }
+
+
+});
+

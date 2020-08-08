@@ -30,6 +30,7 @@ Nghia\Util\CookieHelper.class
 controllers\AuthController.class
 models\User.class
 Nghia\Util\RESTAuthorizeHelper$2.class
+models\Comment.class
 Nghia\Util\RESTUserHelper$2.class
 models\Coupon.class
 Nghia\Util\RESTHelper$5.class

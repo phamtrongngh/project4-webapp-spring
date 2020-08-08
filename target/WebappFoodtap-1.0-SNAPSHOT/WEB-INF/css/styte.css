@@ -1622,6 +1622,7 @@ label.star:before {
 .img-list h3{
     font-size: 15px;
     padding-top: 10px ;
+    margin-left: -25px;
 
 }
 .img-list h3 .fa-image{
@@ -1954,12 +1955,12 @@ input[type="radio"]:checked {
     border-bottom: 1px solid rgba(100, 100, 100, .4);
     padding: 0.2rem 0.2rem;
     margin-bottom: 5px;
+    justify-content: space-between;
 }
 
 .store-avatar {
     width: 50px;
-    position: absolute;
-    left: 390px;
+    height: 50px;
 }
 
 .count-cart-fix {
