@@ -2,6 +2,7 @@ package controllers;
 
 import Nghia.Util.CookieHelper;
 import Nghia.Util.MultipartContainer;
+import Nghia.Util.RESTCouponHelper;
 import Nghia.Util.RESTOrderHelper;
 import Nghia.Util.RESTUserHelper;
 import com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type;
@@ -20,6 +21,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import models.Cart;
 import models.Comment;
+import models.Coupon;
 import models.Order;
 import models.User;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -40,10 +42,13 @@ public class UserController {
 
     private final RESTUserHelper restUser;
     private final RESTOrderHelper restOrder;
+    private RESTCouponHelper rESTCouponHelper;
 
     public UserController() throws InstantiationException, IllegalAccessException {
         restUser = new RESTUserHelper(User.class);
         restOrder = new RESTOrderHelper(Order.class);
+        rESTCouponHelper = new RESTCouponHelper(Coupon.class);
+
     }
 
     @RequestMapping(value = "/search-page/{keyword}", method = RequestMethod.GET)
@@ -89,7 +94,8 @@ public class UserController {
     @RequestMapping(value = "/myprofile-user")
     public ModelAndView myprofileuser() throws IOException {
         Map<String, ?> user = restUser.getMyUser();
-        return new ModelAndView("myprofile-user").addObject("user", user);
+        Object coupon = rESTCouponHelper.getAll();
+        return new ModelAndView("myprofile-user").addObject("user", user).addObject("coupons", coupon);
     }
 
     @RequestMapping(value = "/getMyFriends", produces = "application/json;charset=UTF-8")
