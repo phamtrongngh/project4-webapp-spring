@@ -814,7 +814,7 @@
                 Hot nhất
             </div>
             <div class="profile-menu-hot row">
-                <c:forEach items="${restaurant.menus}" begin="1" end="6" var="item">
+                <c:forEach items="${restaurant.menus}" begin="0" end="5" var="item">
                     <div class="col-md-4" >
                         <a href="" class="click-img" data-toggle="modal" data-target="#order-menu-hot" idValue="${item._id}">
                             <img src="http://localhost:9032/public/image/${item.image}" class="order-img" alt="" />
@@ -829,7 +829,7 @@
                 Mới nhất
             </div>
             <div class="profile-menu-hot row">
-                <c:forEach items="${restaurant.menus}" begin="1" end="6" var="item">
+                <c:forEach items="${restaurant.menus}" begin="0" end="5" var="item">
                     <div class="col-md-4" >
                         <a href="" class="click-img" data-toggle="modal" data-target="#order-menu-near" idValue="${item._id}">
                             <img src="http://localhost:9032/public/image/${item.image}" class="order-img" alt="" />
@@ -840,7 +840,7 @@
                 </c:forEach>
             </div>
 
-            <div class="text-center">
+<!--            <div class="text-center">
                 <button type="button" class="btn btn-primary mx-auto dropdown-toggle" id="view-all" data-toggle="collapse" data-target="#see-more"> Xem tất cả</button>
             </div>
             <div id="see-more" class="collapse">
@@ -946,7 +946,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <%@include  file="footer.jsp" %>
