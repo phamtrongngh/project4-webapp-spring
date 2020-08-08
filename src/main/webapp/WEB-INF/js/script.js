@@ -466,23 +466,7 @@ function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-//Buttom slideToggle
-$(document).ready(function() {
-//tooltip
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".btn-up").click(function() {
-        $('.box').slideToggle();
-    });
-    $('.box').find('div#sidebar-user-box:gt(3)').hide();
-    $('.viewMore, .viewLess').click(function(e) {
-        e.preventDefault();
-        $('.box').find('div#sidebar-user-box:gt(3)').slideToggle(500);
-    });
-    $(".btn-down").click(function() {
-        $("#three").css("background-color", "white")
-        $(".box").slideDown();
-    });
-});
+
 $(document).ready(function() {
     $(window).scroll(function(event) {
         var pos_body = $('html,body').scrollTop();
@@ -633,6 +617,7 @@ $(document).ready(function() {
 
 });
 $(document).ready(function() {
+     $('.box').find('div.user-box:gt(3)').hide();
 //Initialize tooltips
     $('.nav-tabs > li a[title]').tooltip();
     //Wizard
@@ -1016,7 +1001,7 @@ $(document).ready(function() {
             var html = "";
             var count = data.length;
             data.forEach(function(item) {
-                
+
                 var content =
                         '<div class="row row-like">' +
                         '<div class="col-md-2">' +
@@ -1035,20 +1020,7 @@ $(document).ready(function() {
             $("#steplike").html(html);
         })
     })
-     //Show list imgage of a newfeed
-    $(".btn-more").click(function() {
-        var newfeed = $(this).closest(".img-list").find(".row");
-        callAjax("/newfeed/getMyNewfeeds/" + newfeed, "GET", null, function(data) {
-            var html = "";
-            data.forEach(function(item) {
-                var content =
-                        '<div class="coupon-container d-flex">' +
-                        '<img src="http://localhost:9032/public/image/' + item.newfeeds + '" class="rounded img-user" />' +
-                        '</div>';
-                html += content;
-            });
-        })
-    })
+
 
 
     //binding data to post food newfeed
@@ -1436,17 +1408,18 @@ $(".friends-all-user").click(function() {
         var friend = "";
         data.friends.forEach(function(item) {
             if (item.status == "accepted") {
-                    var content =
-                '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">'+
-                '<div class="coupon-container d-flex align-items-md-center">'+ 
-                '<img src="http://localhost:9032/public/image/' + item.user.avatar + '" class="img-coupon" />'+
-                '<a href="/user-profile/'+item.user._id+'"><p>' + item.user.fullname + '</p></a>'+
-                '</div>'+
-                '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
-        +'</div>';
+                var content =
+                        '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">' +
+                        '<div class="coupon-container d-flex align-items-md-center">' +
+                        '<img src="http://localhost:9032/public/image/' + item.user.avatar + '" class="img-coupon" />' +
+                        '<a href="/user-profile/' + item.user._id + '"><p>' + item.user.fullname + '</p></a>' +
+                        '</div>' +
+                        '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
+                        + '</div>';
                 friend += content;
-                
-                            };
+
+            }
+            ;
         });
         $(".friends-modal-all").html(friend);
     });
@@ -1462,3 +1435,27 @@ $(".img-all-user").click(function() {
         $(".img-modal-all").html(html);
     })
 }); 
+//Buttom slideToggle
+    $(".btn-up").click(function() {
+        var m = $('.user-box').toArray();
+        for (i = 0; i < m.length; i++) {
+            if (m.length >= 5) {
+                $('.user-box:last').hide();
+                $('.user-box:first').show();
+            }
+        }
+        console.log(m.length);
+    });
+   
+//Buttom slideToggle
+    $(".btn-down").click(function() {
+        var m = $('.user-box').toArray();
+        for (i = 0; i < m.length; i++) {
+            if (m.length >= 5) {
+                $('.user-box:first').hide();
+                $('.user-box:last').show();
+            }
+        }
+
+        console.log(m.length);
+    });

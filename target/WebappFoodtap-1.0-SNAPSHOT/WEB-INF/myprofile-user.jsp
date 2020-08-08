@@ -676,11 +676,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-<<<<<<< HEAD
-                                                                    <a href="#" style="margin-right: 10px" class="btn-more float-right" data-toggle="modal" data-target="#see-img">Xem tất cả</a>
-=======
+
                                                                     <a href="#" style="margin-right: 10px" class="float-right img-all-user"  data-toggle="modal" data-target="#see-img">Xem tất cả</a>
->>>>>>> master
                                                                 </div>
                                                                 <div class="profile-list-friend rounded" >
                                                                     <div class="friend-list">

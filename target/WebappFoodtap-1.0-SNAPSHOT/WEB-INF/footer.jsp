@@ -26,16 +26,47 @@
             <a class="btn-up "><i class="fa fa-chevron-circle-up " aria-hidden="true "></i></a>
         </div>
         <div class="box" id="chat-sidebar">
-            <c:forEach var="item" items="${friends}">
-                <div id="sidebar-user-box" >
-                    <img src="http://localhost:9032/public/image/${item.user.avatar}" class="rounded-circle img-avatar1 " alt=" " />
-                    <span id="slider-username">${item.user.fullname}</span>
+           
+               <div class="user-box">
+                    <div id="sidebar-user-box" >
+                        <img src="/public/image/avatar/52bef5587ab0de4ef522e5dd0c5fd8c0.jpg" class="rounded-circle img-avatar1 " alt=" " />
+                        <span id="slider-username">${item.user.fullname}</span>
+                    </div>
                 </div>
-            </c:forEach>
+                       <div class="user-box">
+                    <div id="sidebar-user-box" >
+                        <img src="/public/image/avatar/viettelpay.png" class="rounded-circle img-avatar1 " alt=" " />
+                        <span id="slider-username">${item.user.fullname}</span>
+                    </div>
+                </div>
+                       <div class="user-box">
+                    <div id="sidebar-user-box" >
+                        <img src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" class="rounded-circle img-avatar1 " alt=" " />
+                        <span id="slider-username">${item.user.fullname}</span>
+                    </div>
+                </div>
+                       <div class="user-box">
+                    <div id="sidebar-user-box" >
+                        <img src="/public/image/avatar/momo.png" class="rounded-circle img-avatar1 " alt=" " />
+                        <span id="slider-username">${item.user.fullname}</span>
+                    </div>
+                </div>
+                        <div class="user-box">
+                    <div id="sidebar-user-box" >
+                        <img src="/public/image/avatar/momo.png" class="rounded-circle img-avatar1 " alt=" " />
+                        <span id="slider-username">${item.user.fullname}</span>
+                    </div>
+                </div>
+                         <div class="user-box">
+                    <div id="sidebar-user-box" >
+                        <img src="/public/image/avatar/chinese-food-logo-design_139869-105.jpg" class="rounded-circle img-avatar1 " alt=" " />
+                        <span id="slider-username">${item.user.fullname}</span>
+                    </div>
+                </div>
         </div>
         <div>
-            <p class="viewMore"><a href="#"><i class="fa fa-chevron-circle-down "aria-hidden="true "></i></a></p> 
-            <p class="viewLess"><a href="#"><i class="fa fa-chevron-circle-down "aria-hidden="true "></i></a></p>
+            <a  class="btn-down"><i class="fa fa-chevron-circle-down "aria-hidden="true "></i></a>
+
         </div>
     </div>
 </div>
