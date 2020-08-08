@@ -4,6 +4,7 @@ import Nghia.Util.CookieHelper;
 import Nghia.Util.MultipartContainer;
 import Nghia.Util.RESTOrderHelper;
 import Nghia.Util.RESTUserHelper;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -45,10 +46,15 @@ public class UserController {
         restOrder = new RESTOrderHelper(Order.class);
     }
 
-    @RequestMapping(value = "/search-page")
-    public ModelAndView searchpage() throws IOException {
+    @RequestMapping(value = "/search-page/{keyword}", method= RequestMethod.GET)
+    public ModelAndView searchpage(@PathVariable("keyword") String keyword) throws IOException {
+        return new ModelAndView("search-page").addObject("searchResult", restUser.searchAll(keyword));
+    }
 
-        return new ModelAndView("search-page");
+    @RequestMapping(value = "/search/{keyword}", produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getSearchResult(@PathVariable("keyword") String keyword) throws IOException {
+        return restUser.search(keyword);
     }
 
     @RequestMapping(value = "/user-info")
@@ -65,7 +71,13 @@ public class UserController {
         Object user = restUser.getOne(id);
         return new ModelAndView("profile-user").addObject("user", user);
     }
-
+    @RequestMapping(value = "/getOneImg/{id}", produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getOneImg(@PathVariable("id") String id) throws IOException {
+        Object user = restUser.getOne(id);
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(user);
+    }
     @RequestMapping(value = "/myprofile-user")
     public ModelAndView myprofileuser() throws IOException {
         Map<String, ?> user = restUser.getMyUser();
@@ -84,7 +96,7 @@ public class UserController {
     public ModelAndView statistical() {
         return new ModelAndView("statistical");
     }
-    
+
     @RequestMapping(value = "/addToCart", method = RequestMethod.POST)
     @ResponseBody
     public String addToCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
@@ -160,7 +172,7 @@ public class UserController {
     public String follow(@RequestBody String json) throws IOException {
         return restUser.follow(json);
     }
-    
+
     @RequestMapping(value = "/switchCart", method = RequestMethod.POST)
     @ResponseBody
     public String switchCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {

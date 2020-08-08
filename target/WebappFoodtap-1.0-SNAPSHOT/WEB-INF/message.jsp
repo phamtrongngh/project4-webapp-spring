@@ -6,8 +6,6 @@
 
 
 <div class="container-fluid h-100 " style="margin-top: -20px">
-    
-
     <div class="row justify-content-center h-100">
         <div class="col-md-4 col-xl-3 chat">
             <div class="card mb-sm-3 mb-md-0 contacts-card">
@@ -55,16 +53,7 @@
                         <div class="action-menu dropdown-menu">
                             <ul>
                                 <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-user-circle"></i> View profile</li>
-                                </a>
-                                <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-users"></i> Add to friends</li>
-                                </a>
-                                <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-plus"></i> Add to group</li>
-                                </a>
-                                <a href="#">
-                                    <li class="dropdown-item"><i class="fas fa-ban"></i> Block</li>
+                                    <li class="dropdown-item"><i class="fas fa-user-circle"></i> Trang cá nhân</li>
                                 </a>
                             </ul>
                         </div>
@@ -73,19 +62,7 @@
                 <div class="card-body msg-card-body">
                     
                 </div>
-                <div class="d-flex justify-content-end mb-4">
-                    <div class="">
-                        <div id="workingAnimation">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </div>
-                    </div>
-                    <div class="img-cont-msg">
-                        <img src="/image/avatar/chinese-food-logo-design_139869-105.jpg" class="rounded-circle user-img-msg" />
-                    </div>
-                </div>
+                
                 <div class="card-footer">
                     <div class="input-group">
                         <textarea id="type_msg" class="form-control type-msg" placeholder="Type your message..."></textarea>

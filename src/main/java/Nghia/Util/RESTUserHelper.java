@@ -70,6 +70,25 @@ public class RESTUserHelper extends RESTHelper {
         return tmpObject;
     }
 
+    public String search(String keyword) throws IOException {
+        String url = BASE_URI + "/search";
+        webTarget = client.target(url);
+        String string = webTarget.path(keyword).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        return string;
+    }
+    public Map<String, ?> searchAll(String keyword) throws IOException {
+        String url = BASE_URI + "/searchAll";
+        webTarget = client.target(url);
+        String string = webTarget.path(keyword).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        Map<String, ?> tmpObject = mapper.readValue(string, new TypeReference<Map<String, ?>>() {
+        });
+        return tmpObject;
+    }
+
     public Map<String, ?> getCart() throws IOException {
         String url = BASE_URI + "getCart";
         webTarget = client.target(url);
