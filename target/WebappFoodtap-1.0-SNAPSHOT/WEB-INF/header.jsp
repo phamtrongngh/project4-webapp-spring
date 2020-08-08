@@ -84,9 +84,9 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <div class="nav-item search order-0 mx-auto">
                     <form class="form-inline" id="search-form" method="GET">
-                        <div class="input-group">
-                            <input type="text" class="form-control inputsearch" data-toggle="dropdown"  id="dropdownMenuButton" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
-                            <div style="display:none" class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="width: 100%">
+                        <div class="input-group" style="width: 100%;">
+                            <input type="text" class="form-control inputsearch"   id="dropdownMenuButton" placeholder="Tìm kiếm món ăn, cửa hàng, bạn mới,..." />
+                            <div style="display:none;width: 100%;" class="dropdown-menu" id="List" style="width: 100%">
                                 <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
                                     <span>Người dùng</span>
                                 </div>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="input-group-prepend">
-                                <button class="btn btn-Search "  type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button class="btn btn-Search "  type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </form>
