@@ -1439,23 +1439,23 @@ $(".img-all-user").click(function() {
     $(".btn-up").click(function() {
         var m = $('.user-box').toArray();
         for (i = 0; i < m.length; i++) {
-            if (m.length >= 5) {
+            if (m.length > 4) {
                 $('.user-box:last').hide();
                 $('.user-box:first').show();
             }
         }
-        console.log(m.length);
+
     });
    
 //Buttom slideToggle
     $(".btn-down").click(function() {
         var m = $('.user-box').toArray();
         for (i = 0; i < m.length; i++) {
-            if (m.length >= 5) {
+            if (m.length > 4) {
                 $('.user-box:first').hide();
                 $('.user-box:last').show();
             }
         }
 
-        console.log(m.length);
+      
     });
