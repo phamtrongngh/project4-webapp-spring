@@ -130,7 +130,7 @@
     $(document).ready(function() {
         var imageFrame = $("input[type=file]").parent().siblings(0).children(0);
         imageFrame.css('background-image', 'url("http://localhost:9032/public/image/${user.avatar}');
-        goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
+        goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
         var map = new goongjs.Map({
             container: 'map', // container id
             style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -139,7 +139,7 @@
         });
 
         var geocoder = new GoongGeocoder({
-            accessToken: "YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE",
+            accessToken: "Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3",
             goongjs: goongjs
         })
 
@@ -186,7 +186,7 @@
         marker.on('dragend', function() {
 
             var lngLat = marker.getLngLat();
-            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
+            fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&limit=1')
                     .then(function(response) {
                         return response.json()
                     })
@@ -198,7 +198,7 @@
             var lng = e.coords.longitude;
             var lat = e.coords.latitude;
             marker._lngLat = {lat: lat, lng: lng}
-            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE', {mode: "cors"})
+            fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3', {mode: "cors"})
                     .then(function(response) {
                         return response.json()
                     })
@@ -217,7 +217,7 @@
         $("#mapModeluserupdate .modal-footer button").click(function() {
             $("#mapModeluserupdate").modal("hide");
         })
-        $(".close").click(function() {
+        $("#mapModeluserupdate .close").click(function() {
             $(".input-address").val("");
             $("#mapModeluserupdate").modal("hide");
         })

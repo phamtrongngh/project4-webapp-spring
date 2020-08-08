@@ -469,23 +469,7 @@ function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-//Buttom slideToggle
-$(document).ready(function() {
-//tooltip
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".btn-up").click(function() {
-        $('.box').slideToggle();
-    });
-    $('.box').find('div#sidebar-user-box:gt(3)').hide();
-    $('.viewMore, .viewLess').click(function(e) {
-        e.preventDefault();
-        $('.box').find('div#sidebar-user-box:gt(3)').slideToggle(500);
-    });
-    $(".btn-down").click(function() {
-        $("#three").css("background-color", "white")
-        $(".box").slideDown();
-    });
-});
+
 $(document).ready(function() {
     $(window).scroll(function(event) {
         var pos_body = $('html,body').scrollTop();
@@ -634,6 +618,7 @@ $(document).ready(function() {
 
 });
 $(document).ready(function() {
+    $('.box').find('div.user-box:gt(3)').hide();
 //Initialize tooltips
     $('.nav-tabs > li a[title]').tooltip();
     //Wizard
@@ -1036,6 +1021,7 @@ $(document).ready(function() {
             $("#steplike").html(html);
         })
     })
+
 
 
     //binding data to post food newfeed
@@ -1489,12 +1475,12 @@ $(".img-all-user").click(function() {
     callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
         var html = "";
         data.forEach(function(item) {
-            if (item.images[0]!=null) {
+            if (item.images[0] != null) {
                 var content =
-                    '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
-            html += content;
+                        '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
+                html += content;
             }
-            
+
         });
         $(".img-modal-all").html(html);
     })
@@ -1513,14 +1499,15 @@ $(".friends-all-user").click(function() {
                         '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
                         + '</div>';
                 friend += content;
-            };
+            }
+            ;
         });
         $(".friends-modal-all").html(friend);
     });
 });
 $(".img-all-user-id").click(function() {
-            var imgalluser = $(this).attr("idValue");
-    callAjax("/getOneImg/"+imgalluser, "GET", null, function(data) {
+    var imgalluser = $(this).attr("idValue");
+    callAjax("/getOneImg/" + imgalluser, "GET", null, function(data) {
         var html = "";
         data.newfeeds.forEach(function(item) {
             var content =
@@ -1529,10 +1516,11 @@ $(".img-all-user-id").click(function() {
         });
         $(".img-modal-all-user").html(html);
     })
+
 });
 $(".friend-userpage").click(function() {
     var friendUser = $(this).attr("idValue");
-    callAjax("/getOneImg/"+friendUser, "GET", null, function(data) {
+    callAjax("/getOneImg/" + friendUser, "GET", null, function(data) {
         var friend = "";
         data.friends.forEach(function(item) {
             if (item.status == "accepted") {
@@ -1545,8 +1533,36 @@ $(".friend-userpage").click(function() {
                         '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
                         + '</div>';
                 friend += content;
-            };
+            }
+            ;
         });
         $(".friends-modal-all-user").html(friend);
     });
 });
+
+
+//Buttom slideToggle
+$(".btn-up").click(function() {
+    var m = $('.user-box').toArray();
+    for (i = 0; i < m.length; i++) {
+        if (m.length > 4) {
+            $('.user-box:last').hide();
+            $('.user-box:first').show();
+        }
+    }
+
+});
+
+//Buttom slideToggle
+$(".btn-down").click(function() {
+    var m = $('.user-box').toArray();
+    for (i = 0; i < m.length; i++) {
+        if (m.length > 4) {
+            $('.user-box:first').hide();
+            $('.user-box:last').show();
+        }
+    }
+
+
+});
+

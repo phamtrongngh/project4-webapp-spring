@@ -451,7 +451,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kiếm (Hàng tháng)</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">79,400,000 VND</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -468,7 +468,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Kiếm (Hàng năm)</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">552,000,000 VND</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -484,7 +484,7 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nhiệm vụ</div>
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Mục tiêu</div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
@@ -729,6 +729,71 @@
 <script src="/public/js/swiper.min.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                         var progress = document.getElementById('animationProgress');
+                         let myChart = document.getElementById('myChart').getContext('2d');
+                         // Global options
+                         Chart.defaults.global.defaultFontFamily = 'Lato';
+                         Chart.defaults.global.defaultFontSize = 20;
+                         Chart.defaults.global.defaultFontColor = '#777';
+                         var chart = new Chart(myChart, {
+                             type: 'line',
+                             data: {
+                                 labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                                 datasets: [{
+                                         label: ['Doanh thu'],
+                                         data: [
+                                             100,
+                                             200,
+                                             223,
+                                             50,
+                                             80,
+                                             70,
+                                             90,
+                                             179,
+                                             190,
+                                             150,
+                                             30,
+                                             22,
+                                         ],
+                                         backgroundColor: 'rgba(0, 0, 0, 0)',
+                                         borderWidth: 2,
+                                         borderColor: '#da484a',
+                                         hoverborderWidth: 3,
+                                         hoverborderColor: '#000',
+                                     }],
+                             },
+                             options: {
+                                 title: {
+                                     display: 'true',
+                                     text: 'Doanh thu hàng tháng',
+                                     fontSize: 30,
+                                     fontStyle: 'bold',
+                                 },
+                                 legend: {
+                                     display: 'true',
+                                     position: 'right',
+                                     labels: {
+                                         fontColor: '#000',
+                                     }
+                                 },
+                                 layout: {
+                                     padding: {
+                                         left: 50,
+                                         right: 0,
+                                         bottom: 50,
+                                         top: 50,
+                                     },
+                                 },
+                                 animation: {
+                                     duration: 2000,
+                                     easing: 'linear',
+                                 },
+                             },
+                         });
+=======
+=======
 
                         var listOrders;
                         callAjax("/getMyRestaurantOrders/${restaurant._id}", "GET", null, function(data) {
@@ -736,6 +801,7 @@
                         })
 
 
+>>>>>>> cbc713f4940a1657f76cd9b3a3dd481ed6a3c49e
                         var progress = document.getElementById('animationProgress');
                         let myChart = document.getElementById('myChart').getContext('2d');
                         let
@@ -845,9 +911,10 @@
                                 },
                             },
                         });
+>>>>>>> 1d441757c509f2d74977710ab4421ad01b70f199
 </script>
 <script async defered>
-    goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
+    goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
     var map = new goongjs.Map({
         container: 'map', // container id
         style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -856,7 +923,7 @@
     });
 
     var geocoder = new GoongGeocoder({
-        accessToken: "YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE",
+        accessToken: "Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3",
         goongjs: goongjs
     })
 
@@ -902,7 +969,7 @@
 
     marker.on('dragend', function() {
         var lngLat = marker.getLngLat();
-        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&limit=1')
                 .then(function(response) {
                     return response.json()
                 })
@@ -915,7 +982,7 @@
         var lng = e.coords.longitude;
         var lat = e.coords.latitude;
         marker._lngLat = {lat: lat, lng: lng}
-        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE', {mode: "cors"})
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3', {mode: "cors"})
                 .then(function(response) {
                     return response.json()
                 })
@@ -945,13 +1012,13 @@
     function getLocation(address, target) {
         var placeId;
 
-        fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
+        fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&limit=1')
                 .then(function(response) {
                     return response.json()
                 })
                 .then(function(data) {
                     placeId = data.predictions[0].place_id;
-                    fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE")
+                    fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3")
                             .then(function(response) {
                                 return response.json()
                             })
@@ -990,7 +1057,7 @@
     }
     function getDistance(origin, dest) {
         return new Promise(function(resolve, reject) {
-            fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&alternatives=true&vehicle=bike')
+            fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&alternatives=true&vehicle=bike')
                     .then(function(response) {
                         return response.json()
                     })
