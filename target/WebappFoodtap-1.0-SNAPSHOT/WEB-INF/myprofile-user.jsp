@@ -693,7 +693,7 @@
                                                                         </div>
 
                                                                     </div>
-                                                                    <a href="#" style="margin-right: 10px" class="float-right friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
+                                                                    <a href="#" style=" position: absolute;left: 250px;top: 478px;" class="friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8">
@@ -763,7 +763,6 @@
                                                                                         <div class="dropleft">
                                                                                             <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                                                             <div class="dropdown-menu" >
-                                                                                                <a class="dropdown-item" href="#">Ẩn</a>
                                                                                                 <a class="dropdown-item" href="#">Sửa</a>
                                                                                                 <a class="dropdown-item" href="#">Xóa</a>
                                                                                             </div>
@@ -916,9 +915,7 @@
                                                                                         <div class="dropleft">
                                                                                             <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                                                             <div class="dropdown-menu" >
-                                                                                                <a class="dropdown-item" href="#">Ẩn</a>
-                                                                                                <a class="dropdown-item" href="#">Sửa</a>
-                                                                                                <a class="dropdown-item" href="#">Xóa</a>
+                                                                                                <a class="dropdown-item" href="#">Sửa</a>                                                                                              
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
