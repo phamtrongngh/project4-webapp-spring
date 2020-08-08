@@ -1443,9 +1443,12 @@ $(".img-all-user").click(function() {
     callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
         var html = "";
         data.forEach(function(item) {
-            var content =
+            if (item.images[0]!=null) {
+                var content =
                     '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
             html += content;
+            }
+            
         });
         $(".img-modal-all").html(html);
     })
@@ -1464,12 +1467,7 @@ $(".friends-all-user").click(function() {
                         '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
                         + '</div>';
                 friend += content;
-<<<<<<< HEAD
-=======
-
->>>>>>> 1d4c4ba0a83b4a7c1f3d1299d04ec648b635755c
-            }
-            ;
+            };
         });
         $(".friends-modal-all").html(friend);
     });

@@ -474,12 +474,12 @@
                             <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
                             <div class="img-contain row ">
                                 <c:forEach  var="item" items="${user.newfeeds}">
-                                    
-                                        <div class="img-contains col-sm-4">
-                                            <image class="rounded" src ="http://localhost:9032/public/image/" />
-                                            <a href="/user-profile/">${item.fullname}</a>
-                                        </div>
-                                    
+
+                                    <div class="img-contains col-sm-4">
+                                        <image class="rounded" src ="http://localhost:9032/public/image/" />
+                                        <a href="/user-profile/">${item.fullname}</a>
+                                    </div>
+
                                 </c:forEach>
                             </div>
                             <a href="#"  style=" position: absolute;left: 250px;top: 478px;">Xem tất cả</a>
@@ -534,12 +534,20 @@
                                         </div>
                                     </div>
                                     <hr class="hr-newsfeed"/>
-                                    <div class="icon2">
-                                        <div class="subicon1">
-
+                                    <div class="subicon1">
+                                        <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal" idValue="${item.product}"></i>
+                                        </a>
+                                        <c:set var="checkLike" value="${true}" />
+                                        <c:forEach var="like" items="${item.likes}">
+                                            <c:if test="${like==cookie['_id'].getValue()}">
+                                                <i class="fab fa-gratipay like-newpost"  aria-hidden="true"></i>
+                                                <c:set var="checkLike" value="${false}" />
+                                            </c:if>
+                                        </c:forEach>
+                                        <c:if test="${checkLike!=false}">
                                             <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
-                                            <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
-                                        </div>
+                                        </c:if>
+                                        <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                     </div>
                                     <div class="collapse newfeed" idValue="${item._id}" id="collapse${item._id}">
                                         <div class="card card-body">

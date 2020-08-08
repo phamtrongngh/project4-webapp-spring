@@ -43,7 +43,7 @@
                 <div class=" align-items-md-center justify-content-between">
                     <div class="coupon-container row img-modal-all">
                     </div>
-                    
+
 
                 </div>
             </div>
@@ -683,15 +683,15 @@
                                                                         <div class="img-contain row " >
                                                                             <c:forEach begin="0" end="5" var="item" items="${user.friends}">
                                                                                 <c:if test="${item.status =='accepted'}">
-                                                                                <div class="img-contains col-sm-4">
-                                                                                    <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
-                                                                                    <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
-                                                                                </div>
+                                                                                    <div class="img-contains col-sm-4">
+                                                                                        <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
+                                                                                        <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
+                                                                                    </div>
                                                                                 </c:if>
                                                                             </c:forEach>
-                                                                            
+
                                                                         </div>
-                                                                        
+
                                                                     </div>
                                                                     <a href="#" style="margin-right: 10px" class="float-right friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                 </div>
@@ -790,20 +790,20 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <hr class="hr-newsfeed"/>
-                                                                                <div class="icon2">
-                                                                                    <div class="subicon1">
-                                                                                        <c:set var="checkLike2" value="${true}" />
-                                                                                        <c:forEach var="like" items="${item.likes}">
-                                                                                            <c:if test="${like==cookie['_id'].getValue()}">
-                                                                                                <i class="fab fa-gratipay like-newpost"  aria-hidden="true"></i>
-                                                                                                <c:set var="checkLike2" value="${false}" />
-                                                                                            </c:if>
-                                                                                        </c:forEach>
-                                                                                        <c:if test="${checkLike2!=false}">
-                                                                                            <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
+                                                                                <div class="subicon1">
+                                                                                    <a><i class="fas fa-utensils" data-toggle="modal" data-target="#orderModal" idValue="${item.product}"></i>
+                                                                                    </a>
+                                                                                    <c:set var="checkLike" value="${true}" />
+                                                                                    <c:forEach var="like" items="${item.likes}">
+                                                                                        <c:if test="${like==cookie['_id'].getValue()}">
+                                                                                            <i class="fab fa-gratipay like-newpost"  aria-hidden="true"></i>
+                                                                                            <c:set var="checkLike" value="${false}" />
                                                                                         </c:if>
-                                                                                        <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
-                                                                                    </div>
+                                                                                    </c:forEach>
+                                                                                    <c:if test="${checkLike!=false}">
+                                                                                        <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
+                                                                                    </c:if>
+                                                                                    <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                                                                 </div>
                                                                                 <div class="collapse newfeed" idValue="${item._id}" id="collapse${item._id}">
                                                                                     <div class="card card-body">
