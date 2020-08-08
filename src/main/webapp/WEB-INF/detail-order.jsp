@@ -38,15 +38,58 @@
 
                             </div>
                             <div class="cart-total">
-                                <strong class="cart-total-title">Tổng:</strong>
+                                <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
+                                    <div class="col">
+                                        Tạm tính: 
+                                    </div>
 
-                                <span class="cart-total-price">${order.amount}</span>VNĐ
-                                <input type="text" class="cart-total-price-data" style="display: none;"/>
+                                    <div class="col"><span class="price-foodnumber total-status"></span>VNĐ</div>
+
+                                </div>
+                                <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
+                                    <div class="col">
+                                        Phí vận chuyển: <span id="distance"></span>km 
+                                    </div>
+                                    <div class="col"><span class="price-foodnumber fee-status"></span>VNĐ</div>
+                                </div>
+                                <div class="row" style="margin: 0 0 0 35px;color: #ff0000;">
+                                    <div class="col">
+                                        Phiếu giảm giá: 
+                                    </div>
+                                    <div class="col"><span class="price-foodnumber discount-status"></span>VNĐ</div>
+                                </div>
+                                <div class="row" style="margin: 0 0 0 35px;font-size: 20px;font-weight: 600;">
+                                    <div class="col">
+                                        Tổng cộng 
+                                    </div>
+                                    <div class="col"><span class="price-foodnumber totals-status">x`</span>VNĐ</div>
+                                </div>
                             </div>
 
                         </section>
                     </div>
                 </div>
+                <form action="action">
+                    <div>
+                        <div class="text-center" style="margin-top: 20px;font-size: 24px;font-weight: 500;color: #da484a;">Hãy đánh giá cho nhà hàng</div>
+                        <div style="width: 160px">
+                            <form action="">
+                                <input class="star star-5" id="star-5" type="radio" name="star" />
+                                <label class="star star-5" for="star-5"></label>
+                                <input class="star star-4" id="star-4" type="radio" name="star" />
+                                <label class="star star-4" for="star-4"></label>
+                                <input class="star star-3" id="star-3" type="radio" name="star" />
+                                <label class="star star-3" for="star-3"></label>
+                                <input class="star star-2" id="star-2" type="radio" name="star" />
+                                <label class="star star-2" for="star-2"></label>
+                                <input class="star star-1" id="star-1" type="radio" name="star" />
+                                <label class="star star-1" for="star-1"></label>
+                            </form>
+                        </div>
+                        <textarea cols="3" style="width: 100%;"></textarea>
+                        <button class="btn btn-success" type="submit">Gửi</button>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -113,6 +156,27 @@
                     </c:if>
                 </form>
             </div>
+            <form action="action">
+                <div>
+                    <div class="text-center" style="margin-top: 20px;font-size: 24px;font-weight: 500;color: #da484a;">Hãy đánh giá cho tài xế</div>
+                    <div style="width: 160px">
+                        <form action="">
+                            <input class="star star-5" id="star-5" type="radio" name="star" />
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star" />
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star" />
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star" />
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-1" id="star-1" type="radio" name="star" />
+                            <label class="star star-1" for="star-1"></label>
+                        </form>
+                    </div>
+                    <textarea cols="3" style="width: 100%;"></textarea>
+                    <button class="btn btn-success" type="submit">Gửi</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
