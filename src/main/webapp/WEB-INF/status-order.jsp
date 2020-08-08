@@ -159,7 +159,11 @@
 
 <<<<<<< HEAD
                                             var i = 0;
+<<<<<<< HEAD
+                                            goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
+=======
                                             goongjs.accessToken = 'Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3';
+>>>>>>> 1d441757c509f2d74977710ab4421ad01b70f199
 =======
 
 
@@ -269,13 +273,18 @@
                                                 $("#loading-cart").addClass("loading-cart");
                                                 $("#img-loadcart").addClass("img-loadcart");
                                                 $("html, body").css("pointer-events", "none");
+<<<<<<< HEAD
+
+                                                fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&limit=1')
+=======
                                                 fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
+>>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
                                                         .then(function(response) {
                                                             return response.json()
                                                         })
                                                         .then(function(data) {
                                                             placeId = data.predictions[0].place_id;
-                                                            fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE")
+                                                            fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3")
                                                                     .then(function(response) {
                                                                         return response.json()
                                                                     })
@@ -312,7 +321,7 @@
                                             }
                                             function getDistance(origin, dest) {
                                                 return new Promise(function(resolve, reject) {
-                                                    fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&alternatives=true&vehicle=bike')
+                                                    fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&alternatives=true&vehicle=bike')
                                                             .then(function(response) {
                                                                 return response.json()
                                                             })
