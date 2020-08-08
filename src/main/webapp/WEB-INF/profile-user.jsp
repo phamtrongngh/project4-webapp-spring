@@ -718,10 +718,17 @@
                                     </div>
                                     <hr class="hr-newsfeed"/>
                                     <div class="icon2">
-
                                         <div class="subicon1">
-
-                                            <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
+                                            <c:set var="checkLike2" value="${true}" />
+                                            <c:forEach var="like" items="${item.likes}">
+                                                <c:if test="${like==cookie['_id'].getValue()}">
+                                                    <i class="fab fa-gratipay like-newpost"  aria-hidden="true"></i>
+                                                    <c:set var="checkLike2" value="${false}" />
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:if test="${checkLike2!=false}">
+                                                <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
+                                            </c:if>
                                             <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                         </div>
                                     </div>
