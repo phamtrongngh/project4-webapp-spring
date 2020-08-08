@@ -45,10 +45,15 @@ public class UserController {
         restOrder = new RESTOrderHelper(Order.class);
     }
 
-    @RequestMapping(value = "/search-page")
-    public ModelAndView searchpage() throws IOException {
+    @RequestMapping(value = "/search-page/{keyword}", method= RequestMethod.GET)
+    public ModelAndView searchpage(@PathVariable("keyword") String keyword) throws IOException {
+        return new ModelAndView("search-page").addObject("searchResult", restUser.searchAll(keyword));
+    }
 
-        return new ModelAndView("search-page");
+    @RequestMapping(value = "/search/{keyword}", produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getSearchResult(@PathVariable("keyword") String keyword) throws IOException {
+        return restUser.search(keyword);
     }
 
     @RequestMapping(value = "/user-info")
@@ -84,7 +89,7 @@ public class UserController {
     public ModelAndView statistical() {
         return new ModelAndView("statistical");
     }
-    
+
     @RequestMapping(value = "/addToCart", method = RequestMethod.POST)
     @ResponseBody
     public String addToCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
@@ -160,7 +165,7 @@ public class UserController {
     public String follow(@RequestBody String json) throws IOException {
         return restUser.follow(json);
     }
-    
+
     @RequestMapping(value = "/switchCart", method = RequestMethod.POST)
     @ResponseBody
     public String switchCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
