@@ -958,7 +958,7 @@ $(document).ready(function() {
                     '</a>' +
                     '<div class="comment-body ">' +
                     '<div class="comment-heading ">' +
-                    '<h4 class="user "><a href="/user-profile/' + data.user._id + '">' + data.user.fullname + '</a></h4>' +             
+                    '<h4 class="user "><a href="/user-profile/' + data.user._id + '">' + data.user.fullname + '</a></h4>' +
                     '<h5 class="time ">' + '3 minutes ago' + '</h5>' +
                     '<div class="report dropright">' +
                     '<a href="#" class="" data-toggle="dropdown">' + '<i class="fas fa-ellipsis-h" aria-hidden="true">' + '</i>' +
@@ -1014,7 +1014,9 @@ $(document).ready(function() {
         var newfeed = $(this).closest(".status").find(".newfeed").attr("idValue");
         callAjax("/newfeed/getListLike/" + newfeed, "GET", null, function(data) {
             var html = "";
+            var count = data.length;
             data.forEach(function(item) {
+                
                 var content =
                         '<div class="row row-like">' +
                         '<div class="col-md-2">' +
@@ -1029,6 +1031,7 @@ $(document).ready(function() {
                         '</div>';
                 html += content;
             });
+            $(".count-like-tap").html(count);
             $("#steplike").html(html);
         })
     })
@@ -1373,23 +1376,23 @@ function printDiv() {
     a.close();
     return  true;
 }
-$(document).ready(function (){
-    if ($(".error-register").html()=="SĐT đã tồn tại") {
-            $("#alertModalCart").modal("show");
-            $("#alertModalCart .modal-title").html("Thông báo");
-            $("#alertModalCart .content").html($(".error-register").html());
-            
-            $(".register-tab").trigger("click");
-
-    } 
-    if ($(".error-pass").html()=="Sai SĐT hoặc mật khẩu") {
+$(document).ready(function() {
+    if ($(".error-register").html() == "SĐT đã tồn tại") {
         $("#alertModalCart").modal("show");
-           $("#alertModalCart .modal-title").html("Thông báo");
-           $("#alertModalCart .content").html($(".error-pass").html()); 
-          
+        $("#alertModalCart .modal-title").html("Thông báo");
+        $("#alertModalCart .content").html($(".error-register").html());
+
+        $(".register-tab").trigger("click");
 
     }
-    
+    if ($(".error-pass").html() == "Sai SĐT hoặc mật khẩu") {
+        $("#alertModalCart").modal("show");
+        $("#alertModalCart .modal-title").html("Thông báo");
+        $("#alertModalCart .content").html($(".error-pass").html());
+
+
+    }
+
 });
 var arraystore = [];
 var arrayIDstore = [];
@@ -1403,7 +1406,7 @@ $(".dropdown-item").click(function() {
             }
         }
 
-        
+
         arraystore.push($(this).find(".name-store").text().toString());
         arrayIDstore.push($(this).find(".id-store").text().toString());
         a.val(a.val() + $(this).find(".id-store").text() + ", ");
@@ -1417,3 +1420,45 @@ $(".dropdown-item").click(function() {
         $(".store-coupon").val($(".store-coupon").val() + $(this).find(".name-store").text() + ", ");
     }
 });
+$(".img-all-user").click(function() {
+    callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
+        var html = "";
+        data.forEach(function(item) {
+            var content =
+                    '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
+            html += content;
+        });
+        $(".img-modal-all").html(html);
+    })
+});
+$(".friends-all-user").click(function() {
+    callAjax("/getMyFriends", "GET", null, function(data) {
+        var friend = "";
+        data.friends.forEach(function(item) {
+            if (item.status == "accepted") {
+                    var content =
+                '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">'+
+                '<div class="coupon-container d-flex align-items-md-center">'+ 
+                '<img src="http://localhost:9032/public/image/' + item.user.avatar + '" class="img-coupon" />'+
+                '<a href="/user-profile/'+item.user._id+'"><p>' + item.user.fullname + '</p></a>'+
+                '</div>'+
+                '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
+        +'</div>';
+                friend += content;
+                
+                            };
+        });
+        $(".friends-modal-all").html(friend);
+    });
+});
+$(".img-all-user").click(function() {
+    callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
+        var html = "";
+        data.forEach(function(item) {
+            var content =
+                    '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
+            html += content;
+        });
+        $(".img-modal-all").html(html);
+    })
+}); 

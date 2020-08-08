@@ -1631,12 +1631,12 @@ label.star:before {
 }
 .img-list .img-contain .img-contains {
     width: 100%;
-    padding-left: 10px
+    padding-left: 0px;
 }
 .img-list .img-contain .img-contains img{
-    width: 70px;
+    width: 90px;
     height: 70px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 .friend-list h3{
     font-size: 15px;
@@ -1654,7 +1654,7 @@ label.star:before {
 }
 .friend-list .img-contain .img-contains {
     width: 100%;
-    padding-left: 10px
+    padding-left: 20px
 }
 .friend-list .img-contain .img-contains img{
     width: 80px;
@@ -2375,7 +2375,6 @@ input[type="radio"]:checked {
 .img-user{
     width: 200px;
     height: 200px;
-    margin-left: 10px;
      margin-bottom: 10px;
 }
 /*END */
