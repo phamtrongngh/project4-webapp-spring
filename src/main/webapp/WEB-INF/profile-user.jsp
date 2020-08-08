@@ -499,10 +499,9 @@
                                         <image class="rounded" src ="http://localhost:9032/public/image/${item.images[0]}" />  
                                     </div>
                                 </c:forEach>
-
                             </div>
-                            <a href="#" class="img-all-user-id" idValue="${user._id}"   data-toggle="modal" data-target="#see-img" style=" position: absolute;left: 250px;top: 203px;">Xem tất cả</a>
                         </div>
+  <a href="#" class="img-all-user-id d-flex justify-content-end" style="margin-right: 10px" idValue="${user._id}"   data-toggle="modal" data-target="#see-img" >Xem tất cả</a>
                     </div>
                     <div class="profile-list-friend rounded" >
                         <div class="friend-list">
@@ -517,12 +516,11 @@
 
                                 </c:forEach>
                             </div>
-                            
-                            <a href="#"  style=" position: absolute;left: 250px;top: 478px;" idValue="${user._id}" class="friend-userpage"data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                         </div>
+                           <a href="#" idValue="${user._id}" class="friend-userpage d-flex justify-content-end"  style="margin-right: 10px" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                     </div>
                 </div>
-                        <div class="col-md-8" style="padding-top: 10px;">
+                <div class="col-md-8" style="padding-top: 10px;">
                     <c:forEach var="item" items="${user.newfeeds}">
                         <c:choose>
                             <c:when test="${item.product!=null}">
