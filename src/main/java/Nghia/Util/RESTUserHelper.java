@@ -78,6 +78,15 @@ public class RESTUserHelper extends RESTHelper {
                 .get(String.class);
         return string;
     }
+    public String searchByFullName(String keyword) throws IOException {
+        String url = BASE_URI + "/searchByFullName";
+        webTarget = client.target(url);
+        String string = webTarget.path(keyword).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        return string;
+    }
+    
     public Map<String, ?> searchAll(String keyword) throws IOException {
         String url = BASE_URI + "/searchAll";
         webTarget = client.target(url);

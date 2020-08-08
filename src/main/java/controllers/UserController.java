@@ -46,7 +46,7 @@ public class UserController {
         restOrder = new RESTOrderHelper(Order.class);
     }
 
-    @RequestMapping(value = "/search-page/{keyword}", method= RequestMethod.GET)
+    @RequestMapping(value = "/search-page/{keyword}", method = RequestMethod.GET)
     public ModelAndView searchpage(@PathVariable("keyword") String keyword) throws IOException {
         return new ModelAndView("search-page").addObject("searchResult", restUser.searchAll(keyword));
     }
@@ -55,6 +55,12 @@ public class UserController {
     @ResponseBody
     public String getSearchResult(@PathVariable("keyword") String keyword) throws IOException {
         return restUser.search(keyword);
+    }
+
+    @RequestMapping(value = "/searchByFullName/{keyword}", produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getSearchByNameResult(@PathVariable("keyword") String keyword) throws IOException {
+        return restUser.searchByFullName(keyword);
     }
 
     @RequestMapping(value = "/user-info")
@@ -71,6 +77,7 @@ public class UserController {
         Object user = restUser.getOne(id);
         return new ModelAndView("profile-user").addObject("user", user);
     }
+
     @RequestMapping(value = "/getOneImg/{id}", produces = "application/json;charset=UTF-8")
     @ResponseBody
     public String getOneImg(@PathVariable("id") String id) throws IOException {
@@ -78,6 +85,7 @@ public class UserController {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(user);
     }
+
     @RequestMapping(value = "/myprofile-user")
     public ModelAndView myprofileuser() throws IOException {
         Map<String, ?> user = restUser.getMyUser();

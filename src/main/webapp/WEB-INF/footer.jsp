@@ -34,8 +34,8 @@
             </c:forEach>
         </div>
         <div>
-            <p class="viewMore"><a href="#"><i class="fa fa-chevron-circle-down "aria-hidden="true "></i></a></p> 
-            <p class="viewLess"><a href="#"><i class="fa fa-chevron-circle-down "aria-hidden="true "></i></a></p>
+            <a  class="btn-down"><i class="fa fa-chevron-circle-down "aria-hidden="true "></i></a>
+
         </div>
     </div>
 </div>
