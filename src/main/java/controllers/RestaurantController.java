@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import models.FoodCategory;
 import models.Restaurant;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
@@ -31,6 +32,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -54,6 +56,15 @@ public class RestaurantController implements IController<Restaurant> {
     public ModelAndView statistical(@PathVariable("id") String id) throws IOException {
         Map<String, ?> restaurant = restHelper.manageMyRestaurant(id);
         return new ModelAndView("statistical").addObject("restaurant", restaurant).addObject("foodCaterogys", restdFoodcategoryHelper.getAll());
+    }
+
+    @RequestMapping(value = "/getMyRestaurantOrders/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public String getMyRestaurantOrders(@PathVariable("id") String id,HttpServletResponse response) throws IOException {
+        Map<String, ?> restaurant = restHelper.manageMyRestaurant(id);
+        ObjectMapper objectMapper = new ObjectMapper();
+        response.setContentType("application/json;charset=UTF-8");
+        return objectMapper.writeValueAsString(restaurant);
     }
 
     @RequestMapping(value = "/store-profile/{id}", method = RequestMethod.GET)
@@ -225,10 +236,10 @@ public class RestaurantController implements IController<Restaurant> {
             file2.delete();
         }
         String url = response.readEntity(String.class);
-        
-        responses.sendRedirect(url.replace("\"",""));
+
+        responses.sendRedirect(url.replace("\"", ""));
         return mystore();
-        
+
     }
 
     @RequestMapping(value = "/restaurant/paying", method = RequestMethod.GET)

@@ -5,7 +5,6 @@
     <h1 style="margin-top: 10px;text-align: center;">Thông tin đơn hàng</h1>
     <div class="row">
         <div class="col-md-7 col-sm-12 info-product">
-
             <div class="container">
                 <div class="card shopping-cart">
                     <div class="card-header text-light" style="background-color: #fc7a7b;">

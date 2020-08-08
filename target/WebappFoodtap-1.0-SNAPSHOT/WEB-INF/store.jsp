@@ -418,7 +418,16 @@
                 </div>
 
                 <div class="col-md-1 profile-container-buttons">
-                    <button id="btn-like" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
+                    <c:set var="check" value="${true}" />
+                    <c:forEach var="item" items="${restaurant.followers}">
+                        <c:if test="${(cookie['_id'].getValue()) == item}">
+                            <button id="btn-like" class="btn btn-primary form-control" idValue="${restaurant._id}"><i class="far fa-thumbs-up"></i>Đã thích</button>
+                            <c:set var="check" value="${false}" />
+                        </c:if>
+                    </c:forEach>
+                    <c:if test="${check==true}">
+                        <button id="btn-like" class="btn btn-primary form-control" idValue="${restaurant._id}"><i class="far fa-thumbs-up"></i>Thích</button>
+                    </c:if>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
                     <button class="btn btn-danger form-control " data-toggle="modal" data-target="#repostModal"><i class="fas fa-poll-h" ></i>Báo cáo</button>
                 </div>

@@ -87,8 +87,6 @@
                                             </div>
                                         </c:forEach>
                                         <hr/>
-
-
                                         <div class="row" style="margin: 0 0 0 35px;font-weight: 100;">
                                             <div class="col">
                                                 Tạm tính: 
@@ -139,8 +137,13 @@
                                         <script src="/public/js/jquery-ui.js"></script>
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
-                                        <script async defered>
+<!--                                        <script async defered>
                                             var i = 0;
+                                            var userLocation;
+                                            var restaurantLocation;
+                                            var distance;
+                                            var pointsToRestaurant;
+                                            var shipperLocation;
                                             var marker2; //marker of Shipper
 <<<<<<< HEAD
                                             var socket = io('http://localhost:9032 ');
@@ -163,7 +166,7 @@
 >>>>>>> 1d441757c509f2d74977710ab4421ad01b70f199
 =======
 
-                                            
+
                                             goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
 >>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
                                             var map = new goongjs.Map({
@@ -207,17 +210,33 @@
                                                 });
                                                 //When Shipper accept order
                                                 socket.on("acceptOrder", function(data) {
-
                                                     $("#status-text").html("Đang đi nhận món");
                                                     $(".shipperName").html(data.shipper.fullname);
                                                     $(".shipperPhone").html(data.shipper.phone);
                                                     $("#shipper").css("background", "url('http://localhost:9032/public/image/" + data.shipper.avatar + "')");
                                                     $("#shipper").css("background-size", "cover");
-
                                                     map.flyTo({
                                                         center: [data.latLng[1], data.latLng[0]],
                                                         zoom: 15
                                                     })
+                                                    getDistance(data.latLng[0] + "%2C" + data.latLng[1], restaurantLocation).then(function(location) {
+                                                        var polyline = location.routes[0].overview_polyline.points;
+                                                        var idOrder = '${order._id}';
+                                                        var data = {
+                                                            polyline: polyline,
+                                                            idOrder : idOrder
+                                                        }
+                                                        $.ajax({
+                                                            url: "/sendRouteToShipper/",
+                                                            type: "POST",
+                                                            contentType: "application/json;charset=UTF-8",
+                                                            dataType: 'json',
+                                                            data: JSON.stringify(data),
+                                                            success: function(data) {
+                                                                
+                                                            }
+                                                        })
+                                                    });
                                                 })
                                                 //When Shipper receive Food
                                                 socket.on("deliveringOrder", function(data) {
@@ -231,12 +250,12 @@
                                                 socket.on("cancelOrder", function(data) {
                                                     window.location.href = "/detail-order/" + data._id;
                                                 })
-                                                
+
                                                 //Update shipper's location
                                                 socket.on("shipperLocation", function(data) {
                                                     marker2._lngLat = {lat: data.latitude, lng: data.longitude}
                                                 })
-                                                
+
                                             });
 
 
@@ -248,9 +267,7 @@
                                                 $("#mapModel").modal("hide");
                                             })
                                             //Fee distance functions
-                                            var userLocation;
-                                            var restaurantLocation;
-                                            var distance;
+
                                             function getLocation(address, target) {
                                                 var placeId;
                                                 $("#loading-cart").addClass("loading-cart");
@@ -282,11 +299,11 @@
                                                                             restaurantLocation = data.result.geometry.location.lat + "%2C" + data.result.geometry.location.lng;
                                                                         }
 
-                                                                        if (true) {
+                                                                        if (userLocation && restaurantLocation) {
                                                                             getDistance(userLocation, restaurantLocation).then(function(data) {
                                                                                 distance = data.routes[0].legs[0].distance.text;
                                                                                 $("#distance").html(distance.split(" ")[0]);
-                                                                                i++;
+
                                                                                 map.flyTo({
                                                                                     center: [
                                                                                         userLocation.split("%2C")[1],
@@ -298,6 +315,7 @@
                                                                                 marker3._lngLat = {lng: restaurantLocation.split("%2C")[1], lat: restaurantLocation.split("%2C")[0]}
                                                                             });
                                                                         }
+
                                                                     })
                                                         });
                                             }
@@ -315,8 +333,7 @@
 
                                             getLocation('${order.restaurant.address}', "restaurant");
                                             getLocation('${order.address}', "user");
-
-                                        </script>
+                                        </script>-->
                                         </body>
                                         </html>
 
