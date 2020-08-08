@@ -43,7 +43,7 @@
                 <div class=" align-items-md-center justify-content-between">
                     <div class="coupon-container row img-modal-all">
                     </div>
-                    
+
 
                 </div>
             </div>
@@ -685,15 +685,15 @@
                                                                         <div class="img-contain row " >
                                                                             <c:forEach begin="0" end="5" var="item" items="${user.friends}">
                                                                                 <c:if test="${item.status =='accepted'}">
-                                                                                <div class="img-contains col-sm-4">
-                                                                                    <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
-                                                                                    <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
-                                                                                </div>
+                                                                                    <div class="img-contains col-sm-4">
+                                                                                        <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
+                                                                                        <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
+                                                                                    </div>
                                                                                 </c:if>
                                                                             </c:forEach>
-                                                                            
+
                                                                         </div>
-                                                                        
+
                                                                     </div>
                                                                     <a href="#" style="margin-right: 10px" class="float-right friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                 </div>

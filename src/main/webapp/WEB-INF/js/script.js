@@ -113,7 +113,6 @@ function update() {
     else if ($(".saleoff-food").css("display") == "none") {
         var total1 = q * tien;
         var t = format2(total1, '').replace(".000", "");
-        console.log(t);
         $(".total-foodnumber").html(t);
     }
     ;
@@ -1029,6 +1028,40 @@ $(document).ready(function() {
         var id = $(this).attr("idValue");
         $("#postModal-food img").attr("src", image.attr("src"));
         $("#postModal-food form").attr("action", "/newfeed/postFoodNewFeed/" + id);
+    })
+    //Like restaurant
+    $("#btn-like").click(function() {
+        var data = {
+            idValue: $(this).attr("idValue"),
+            target: "restaurant"
+        }
+        $.ajax({
+            url: "/user/follow",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data) {
+                
+            }
+        })
+    })
+    //Follow User
+    $("#btn-follow").click(function() {
+        var data = {
+            idValue: $(this).attr("idValue"),
+            target: "user"
+        }
+        $.ajax({
+            url: "/user/follow",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data) {
+
+            }
+        })
     })
     //call ajax upload image
     $("input[type=file]").change(function() {
