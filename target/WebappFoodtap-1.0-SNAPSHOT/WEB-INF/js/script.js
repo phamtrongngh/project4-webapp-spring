@@ -113,7 +113,6 @@ function update() {
     else if ($(".saleoff-food").css("display") == "none") {
         var total1 = q * tien;
         var t = format2(total1, '').replace(".000", "");
-        console.log(t);
         $(".total-foodnumber").html(t);
     }
     ;
@@ -1016,7 +1015,7 @@ $(document).ready(function() {
             var html = "";
             var count = data.length;
             data.forEach(function(item) {
-                
+
                 var content =
                         '<div class="row row-like">' +
                         '<div class="col-md-2">' +
@@ -1043,6 +1042,40 @@ $(document).ready(function() {
         var id = $(this).attr("idValue");
         $("#postModal-food img").attr("src", image.attr("src"));
         $("#postModal-food form").attr("action", "/newfeed/postFoodNewFeed/" + id);
+    })
+    //Like restaurant
+    $("#btn-like").click(function() {
+        var data = {
+            idValue: $(this).attr("idValue"),
+            target: "restaurant"
+        }
+        $.ajax({
+            url: "/user/follow",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data) {
+                
+            }
+        })
+    })
+    //Follow User
+    $("#btn-follow").click(function() {
+        var data = {
+            idValue: $(this).attr("idValue"),
+            target: "user"
+        }
+        $.ajax({
+            url: "/user/follow",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data) {
+
+            }
+        })
     })
     //call ajax upload image
     $("input[type=file]").change(function() {
@@ -1422,17 +1455,18 @@ $(".friends-all-user").click(function() {
         var friend = "";
         data.friends.forEach(function(item) {
             if (item.status == "accepted") {
-                    var content =
-                '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">'+
-                '<div class="coupon-container d-flex align-items-md-center">'+ 
-                '<img src="http://localhost:9032/public/image/' + item.user.avatar + '" class="img-coupon" />'+
-                '<a href="/user-profile/'+item.user._id+'"><p>' + item.user.fullname + '</p></a>'+
-                '</div>'+
-                '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
-        +'</div>';
+                var content =
+                        '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">' +
+                        '<div class="coupon-container d-flex align-items-md-center">' +
+                        '<img src="http://localhost:9032/public/image/' + item.user.avatar + '" class="img-coupon" />' +
+                        '<a href="/user-profile/' + item.user._id + '"><p>' + item.user.fullname + '</p></a>' +
+                        '</div>' +
+                        '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
+                        + '</div>';
                 friend += content;
-                
-                            };
+
+            }
+            ;
         });
         $(".friends-modal-all").html(friend);
     });

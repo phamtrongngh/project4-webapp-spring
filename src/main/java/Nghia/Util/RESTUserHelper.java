@@ -117,6 +117,15 @@ public class RESTUserHelper extends RESTHelper {
         return string;
     }
 
+    public String follow(String json) {
+        String url = BASE_URI + "follow";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.json(json), String.class);
+        return string;
+    }
+
     public String like(String id) {
         String url = BASE_URI + "like";
         webTarget = client.target(url);

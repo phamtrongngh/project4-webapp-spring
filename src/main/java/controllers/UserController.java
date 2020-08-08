@@ -84,7 +84,7 @@ public class UserController {
     public ModelAndView statistical() {
         return new ModelAndView("statistical");
     }
-
+    
     @RequestMapping(value = "/addToCart", method = RequestMethod.POST)
     @ResponseBody
     public String addToCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
@@ -155,6 +155,12 @@ public class UserController {
         return restUser.comment(comment);
     }
 
+    @RequestMapping(value = "/user/follow", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String follow(@RequestBody String json) throws IOException {
+        return restUser.follow(json);
+    }
+    
     @RequestMapping(value = "/switchCart", method = RequestMethod.POST)
     @ResponseBody
     public String switchCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
