@@ -117,7 +117,7 @@ public class NewfeedController implements IController<Newfeed> {
         newfeed.setProduct(id);
         rESTNewfeedHelper.postFoodNewfeed(newfeed);
         response.sendRedirect("/");
-        return null;
+        return new ModelAndView("index");
     }
 
     @RequestMapping(value = "/newfeed/getMyNewfeeds", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
