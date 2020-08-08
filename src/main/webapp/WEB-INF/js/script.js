@@ -559,8 +559,6 @@ $(document).ready(function() {
 //load post
 
 $(window).scroll(function() {
-
-
     if ($(this).scrollTop() + $(this).height() - 110 > $(".scrollpost").height()) {
         $(window).stop();
         $("#loading").css("display", "block");
@@ -1491,9 +1489,12 @@ $(".img-all-user").click(function() {
     callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
         var html = "";
         data.forEach(function(item) {
-            var content =
+            if (item.images[0]!=null) {
+                var content =
                     '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
             html += content;
+            }
+            
         });
         $(".img-modal-all").html(html);
     })
@@ -1512,21 +1513,40 @@ $(".friends-all-user").click(function() {
                         '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
                         + '</div>';
                 friend += content;
-
-            }
-            ;
+            };
         });
         $(".friends-modal-all").html(friend);
     });
 });
-$(".img-all-user").click(function() {
-    callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
+$(".img-all-user-id").click(function() {
+            var imgalluser = $(this).attr("idValue");
+    callAjax("/getOneImg/"+imgalluser, "GET", null, function(data) {
         var html = "";
-        data.forEach(function(item) {
+        data.newfeeds.forEach(function(item) {
             var content =
                     '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
             html += content;
         });
-        $(".img-modal-all").html(html);
+        $(".img-modal-all-user").html(html);
     })
-}); 
+});
+$(".friend-userpage").click(function() {
+    var friendUser = $(this).attr("idValue");
+    callAjax("/getOneImg/"+friendUser, "GET", null, function(data) {
+        var friend = "";
+        data.friends.forEach(function(item) {
+            if (item.status == "accepted") {
+                var content =
+                        '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">' +
+                        '<div class="coupon-container d-flex align-items-md-center">' +
+                        '<img src="http://localhost:9032/public/image/' + item.user.avatar + '" class="img-coupon" />' +
+                        '<a href="/user-profile/' + item.user._id + '"><p>' + item.user.fullname + '</p></a>' +
+                        '</div>' +
+                        '<button  class="btn btn-success float-right ">Hủy kết bạn</button>'
+                        + '</div>';
+                friend += content;
+            };
+        });
+        $(".friends-modal-all-user").html(friend);
+    });
+});

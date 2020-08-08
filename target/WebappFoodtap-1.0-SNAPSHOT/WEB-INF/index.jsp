@@ -297,7 +297,7 @@
                                                     <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#">Ẩn bình luận</a>
+
                                                         <a class="dropdown-item" href="#">Báo cáo</a>
                                                     </div>
                                                 </div>
@@ -331,7 +331,6 @@
                                                             <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
 
                                                                 <a class="dropdown-item" href="#">Báo cáo</a>
                                                             </div>
@@ -367,7 +366,6 @@
                                                             <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
 
                                                                 <a class="dropdown-item" href="#">Báo cáo</a>
                                                             </div>
@@ -536,14 +534,20 @@
                                     <div class="dropleft">
                                         <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                         <div class="dropdown-menu" >
-                                            <a class="dropdown-item" href="#">Ẩn</a>
-                                            <a class="dropdown-item" href="#">Sửa</a>
-
-
+                                            
+                                            <c:choose>
+                                                <c:when test="${item.restaurant.managers[0].user == cookie['_id'].getValue()}">
+                                                    <a class="dropdown-item" href="#">Sửa</a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <a class="dropdown-item" href="#">Báo cáo</a>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="font1">
+                                    
                                     ${item.content}
                                 </div>
                                 <!--                                <div>
@@ -638,9 +642,7 @@
                                                                                     <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                                                     </a>
                                                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                                                        <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                        <a class="dropdown-item" href="#">Sửa </a>
-                                                                                        <a class="dropdown-item" href="#">Báo cáo</a>
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -696,20 +698,22 @@
                                             </div>
                                         </c:otherwise>
                                     </c:choose>
-
-
-
-
                                     <div class="dropleft">
                                         <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                         <div class="dropdown-menu" >
-                                            <a class="dropdown-item" href="#">Ẩn</a>
-                                            <a class="dropdown-item" href="#">Sửa</a>
-
+                                            <c:choose>
+                                                <c:when test="${item.user._id == cookie['_id'].getValue()}">
+                                                    <a class="dropdown-item" href="#">Sửa</a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <a class="dropdown-item" href="#">Báo cáo</a>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="font1">
+
                                     ${item.content}
                                 </div>
                                 <!--                                <div>
@@ -807,8 +811,6 @@
                                                                                     <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                                                     </a>
                                                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                                                        <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                        <a class="dropdown-item" href="#">Sửa </a>
                                                                                         <a class="dropdown-item" href="#">Báo cáo</a>
                                                                                     </div>
                                                                                 </div>
