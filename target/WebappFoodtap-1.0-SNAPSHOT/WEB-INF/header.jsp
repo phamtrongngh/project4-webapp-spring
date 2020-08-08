@@ -217,24 +217,17 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fa fa-comment fa-menu" aria-hidden="true"></i></i><span class="badge count-cart">3</span><span class="caret"></span></a></a>
                         <div class="dropdown-menu dropdown-messenger">
                             <c:forEach var="item" items="${chatters}">
-                            <div class="messenger" idValue="${item.user._id}">
-                                <img src="http://localhost:9032/public/image/${item.user.avatar}" class="messenger-avatar" alt=""/>
-                                <div style="width: 245px;">
-<<<<<<< HEAD
-                                    <div class="messenger-name">${item.user.fullname}</div>
-                                    <p class="messenger-content">đâsdsadasdasd</p>
+                                <div class="messenger" idValue="${item.user._id}">
+                                    <img src="http://localhost:9032/public/image/${item.user.avatar}" class="messenger-avatar" alt=""/>
+                                    <div style="width: 245px;">
+
+                                        <div class="messenger-name">${item.user.fullname}</div>
+                                        <p class="messenger-content">đâsdsadasdasd</p>
+                                    </div>
+                                    <div>12:00</div>
                                 </div>
-                                <div>12:00</div>
-                            </div>
-                           </c:forEach>
-=======
-                                    <div class="messenger-name">Truong</div>
-                                    <p class="messenger-content">Tôi tới đây</p>
-                                </div>
-                                <div>12:00</div>
-                            </div>
+                            </c:forEach>
                             
->>>>>>> master
                             <div class="messenger-footer">
                                 <span><a  href="/message/">Xem tất cả</a></span>
                                 <span style="float: right;"><a href="#">Đánh dấu đã đọc tất cả</a></span>
