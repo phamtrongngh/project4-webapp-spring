@@ -466,20 +466,20 @@
                                 </c:forEach>
 
                             </div>
-                            <a href="#" class=""   data-toggle="modal" data-target="#see-img" style=" position: absolute;left: 250px;top: 203px;">Xem tất cả</a>
+                            <a href="#" class="img-all-user-id" idValue="${user._id}"   data-toggle="modal" data-target="#see-img" style=" position: absolute;left: 250px;top: 203px;">Xem tất cả</a>
                         </div>
                     </div>
                     <div class="profile-list-friend rounded" >
                         <div class="friend-list">
                             <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
                             <div class="img-contain row ">
-                                <c:forEach begin="0" end="5" var="item" items="${user.friends}">
-                                    <c:if test="${item.status =='accepted'}">
+                                <c:forEach  var="item" items="${user.newfeeds}">
+                                    
                                         <div class="img-contains col-sm-4">
-                                            <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
-                                            <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
+                                            <image class="rounded" src ="http://localhost:9032/public/image/" />
+                                            <a href="/user-profile/">${item.fullname}</a>
                                         </div>
-                                    </c:if>
+                                    
                                 </c:forEach>
                             </div>
                             <a href="#"  style=" position: absolute;left: 250px;top: 478px;">Xem tất cả</a>

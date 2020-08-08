@@ -4,6 +4,7 @@ import Nghia.Util.CookieHelper;
 import Nghia.Util.MultipartContainer;
 import Nghia.Util.RESTOrderHelper;
 import Nghia.Util.RESTUserHelper;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -64,7 +65,13 @@ public class UserController {
         Object user = restUser.getOne(id);
         return new ModelAndView("profile-user").addObject("user", user);
     }
-
+    @RequestMapping(value = "/getOneImg/{id}", produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String getOneImg(@PathVariable("id") String id) throws IOException {
+        Object user = restUser.getOne(id);
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(user);
+    }
     @RequestMapping(value = "/myprofile-user")
     public ModelAndView myprofileuser() throws IOException {
         Map<String, ?> user = restUser.getMyUser();
