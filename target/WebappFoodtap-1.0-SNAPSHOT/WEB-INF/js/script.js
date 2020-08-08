@@ -371,12 +371,16 @@ function callAjax(url, type, data, cb) {
         success: cb
     })
 }
-function formatDate(rawDate) {
+function formatDateLong(rawDate) {
     var date = new Date(rawDate);
     return date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 }
+function formatDateShort(rawDate) {
+    var date = new Date(rawDate);
+    return date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+}
 function getReceiveBox(message) {
-    var senderBox = '<div class="msg-time-send">' + formatDate(message.createdAt) + '</div>';
+    var senderBox = '<div class="msg-time-send">' + formatDateLong(message.createdAt) + '</div>';
     senderBox += '<div class="d-flex justify-content-end mb-4">';
     senderBox += '<div class="msg-cotainer-send">';
     senderBox += message.content;
@@ -388,7 +392,7 @@ function getReceiveBox(message) {
 
 function getSenderBox(message) {
     var date = new Date(message.createdAt);
-    var receiveBox = '<div class="msg-time">' + formatDate(message.createdAt) + '</div>';
+    var receiveBox = '<div class="msg-time">' + formatDateLong(message.createdAt) + '</div>';
     receiveBox += '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
     receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
@@ -1056,7 +1060,7 @@ $(document).ready(function() {
             dataType: 'json',
             data: JSON.stringify(data),
             success: function(data) {
-                
+
             }
         })
     })
@@ -1096,8 +1100,9 @@ $(document).ready(function() {
     }
 
 //SOCKETIO receive message chat
-    var socket = io('http://localhost:9032 ');
+    var socket = io('http://localhost:9032');
     socket.emit("join", $("#idUser").val());
+
     socket.on("sendMessage", function(item) {
         var chatBoxvalue = "";
         if (item.sender != idUser) {
@@ -1109,6 +1114,7 @@ $(document).ready(function() {
         $(".card-body.msg-card-body").append(chatBoxvalue);
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+        $('.msg-card-body').stop().animate({scrollTop: 99999999});
     });
     //socket request friend
     socket.on("friendRequest", function(data) {
@@ -1133,7 +1139,6 @@ $(document).ready(function() {
     })
     //socket on order
     socket.on("newOrderRestaurant", function(data) {
-        console.log(data);
         var number;
         if ($(".numberFriendRequest").html() == "") {
             number = 1;
@@ -1239,11 +1244,54 @@ $(document).ready(function() {
             $(this).addClass("fa-heart");
         }
     });
+//    var debounce = function(func, wait){
+//        var timeout;
+//
+//        return function executedFunction(...args) {
+//            var later = function(){
+//                timeout = null;
+//                func(...args);
+//            };
+//            clearTimeout(timeout);
+//            timeout = setTimeout(later, wait);
+//        };
+//    };
     $("#dropdownMenuButton").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#List a").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
+        var keyword = $(this).val();
+        $("#search-all").attr("href", "/search-page/" + keyword);
+        $("#search-form").attr("action", "/search-page/" + keyword)
+        if (keyword != "") {
+            callAjax("/search/" + keyword, "GET", null, function(data) {
+                var htmlUser = "";
+                data.users.forEach(function(item) {
+                    htmlUser += '<a class="dropdown-item" href="/user-profile/' + item._id + '">' +
+                            '<img src="http://localhost:9032/public/image/' + item.avatar + '" class="rounded-circle search-avatar" alt=""/>' +
+                            item.fullname +
+                            '</a>'
+                })
+                $(".result-search-user").html(htmlUser);
+
+                var htmlRestaurant = "";
+                data.restaurants.forEach(function(item) {
+                    htmlRestaurant += '<a class="dropdown-item" href="/restaurant/' + item._id + '">' +
+                            '<img src="http://localhost:9032/public/image/' + item.avatar + '" class="rounded-circle search-avatar" alt=""/>' +
+                            item.name +
+                            '</a>'
+                })
+                $(".result-search-restaurant").html(htmlRestaurant);
+                $("#List").css("display", "block");
+                var htmlProducts = "";
+                data.products.forEach(function(item) {
+                    htmlProducts += '<a class="dropdown-item watch-product" idValue=' + item._id + '">' +
+                            '<img src="http://localhost:9032/public/image/' + item.image + '" class="rounded-circle search-avatar" alt=""/>' +
+                            item.name +
+                            '</a>'
+                })
+                $(".result-search-product").html(htmlProducts);
+            })
+        } else {
+            $("#List").css("display", "none");
+        }
     });
     // Get the input field
     var input = document.getElementById("type_msg");
