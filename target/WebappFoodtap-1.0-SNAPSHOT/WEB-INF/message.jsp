@@ -20,7 +20,7 @@
                 <div class="card-body contacts-body">
                     <ui class="contacts">
                         <c:forEach var="item" items="${chatters}">
-                            <li class="active rounded li-item-chat" idValue="${item.user._id}">
+                            <li class="rounded li-item-chat" idValue="${item.user._id}">
                                 <div class="d-flex bd-highlight">
                                     <div class="img-cont">
                                         <img src="http://localhost:9032/public/image/${item.user.avatar}" class="rounded-circle user-img" />

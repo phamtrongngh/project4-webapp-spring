@@ -207,7 +207,6 @@
                                     </div>
                                 </c:forEach>
                             </div>
-
                             <div class="text-center">
                                 <span><a  href="/">Đã xem tất cả</a></span>
                             </div>
