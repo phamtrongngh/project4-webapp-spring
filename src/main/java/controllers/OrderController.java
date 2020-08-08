@@ -65,7 +65,7 @@ public class OrderController {
     @RequestMapping(value = "/order/cancelOrder/{id}", method = RequestMethod.POST)
     public ModelAndView cancelOrder(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
         restOrderHelper.cancelOrder(id);
-        response.sendRedirect("/");
+        response.sendRedirect("/detail-order/"+id);
         return new ModelAndView("index");
     }
 }

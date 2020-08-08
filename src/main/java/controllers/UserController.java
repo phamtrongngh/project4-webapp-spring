@@ -27,6 +27,7 @@ import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -83,7 +84,7 @@ public class UserController {
     public ModelAndView statistical() {
         return new ModelAndView("statistical");
     }
-
+    
     @RequestMapping(value = "/addToCart", method = RequestMethod.POST)
     @ResponseBody
     public String addToCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {
@@ -135,6 +136,13 @@ public class UserController {
         return restUser.acceptRequestFriend(id);
     }
 
+    @RequestMapping(value = "/sendRouteToShipper/", method = RequestMethod.POST)
+    @ResponseBody
+    public String sendRouteToShipper(@RequestBody String json) throws IOException {
+        restUser.sendRouteToShipper(json);
+        return "";
+    }
+
     @RequestMapping(value = "/cancelFriend/{id}", method = RequestMethod.POST)
     @ResponseBody
     public String cancelFriendRequest(@PathVariable("id") String id) throws IOException {
@@ -147,6 +155,12 @@ public class UserController {
         return restUser.comment(comment);
     }
 
+    @RequestMapping(value = "/user/follow", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public String follow(@RequestBody String json) throws IOException {
+        return restUser.follow(json);
+    }
+    
     @RequestMapping(value = "/switchCart", method = RequestMethod.POST)
     @ResponseBody
     public String switchCart(Cart cart, HttpServletRequest request, HttpServletResponse response) {

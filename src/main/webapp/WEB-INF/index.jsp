@@ -14,10 +14,11 @@
             <div class="modal-body">
                 <ul class="nav nav-tabs flex-nowrap text-center" role="tablist" >
                     <li role="presentation" class="nav-item" style="width:50%">
-                        <a href="#steplike" class="nav-link active" data-toggle="tab" aria-controls="steplike" role="tab" title="Like"><i class="fas fa-heart"></i> Lượt thích: <span class="count-like-tap">500</span></a>
+                        <a href="#steplike" class="nav-link active" data-toggle="tab" aria-controls="steplike" role="tab" title="Like"><i class="fas fa-heart"></i> Lượt thích<span></span></a>
+
                     </li>
                     <li role="presentation" class="nav-item" style="width:50%">
-                        <a href="#stepshare" class="nav-link" data-toggle="tab" aria-controls="stepshare" role="tab" title="Share"><i class="fas fa-share-alt"></i> Lượt chia sẻ: <span>600</span></a>
+                        <a href="#stepshare" class="nav-link" data-toggle="tab" aria-controls="stepshare" role="tab" title="Share"><i class="fas fa-share-alt"></i> Lượt chia sẻ <span></span></a>
                     </li>
                 </ul>
                 <div class="tab-content py-2 "  style="height: 400px;overflow-y: auto;overflow-x: hidden;padding-right: 10px;">

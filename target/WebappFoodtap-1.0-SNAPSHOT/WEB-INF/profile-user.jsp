@@ -425,7 +425,7 @@
                     </div>
                 </div>
                 <div class="col-md-2 profile-container-buttons">
-                    <button id="btn-follow" class="btn btn-primary form-control"><i class="fas fa-user-circle"></i>Theo dõi</button>
+                    <button id="btn-follow" class="btn btn-primary form-control" idValue="${user._id}"><i class="fas fa-user-circle"></i>Theo dõi</button>
                     <c:set var="check" value="${true}" />
                     <c:forEach var="item" items="${user.friends}">
                         <c:if test="${(cookie['_id'].getValue()) == item.user._id}">

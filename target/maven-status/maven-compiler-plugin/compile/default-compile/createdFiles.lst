@@ -24,6 +24,7 @@ Nghia\Util\RESTCouponHelper.class
 controllers\MessageController.class
 Nghia\Util\RESTUserHelper$1.class
 Nghia\Util\RESTMessageHelper.class
+controllers\FoodCategoryController.class
 controllers\OrderController.class
 Nghia\Util\CookieHelper.class
 controllers\AuthController.class
@@ -38,9 +39,12 @@ models\Order.class
 Nghia\Util\RESTOrderHelper.class
 controllers\AuthController$1.class
 Nghia\Util\RESTRestaurantHelper$3.class
+models\FoodCategory.class
 models\Message.class
 Nghia\Util\RESTNewfeedHelper.class
 Nghia\Util\MultipartContainer.class
+Nghia\Util\RESTFoodCategory$1.class
+Nghia\Util\RESTFoodCategory.class
 Nghia\Util\RESTUserHelper$3.class
 models\Product.class
 Nghia\Util\RESTHelper$4.class

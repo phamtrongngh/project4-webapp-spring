@@ -418,7 +418,7 @@
                 </div>
 
                 <div class="col-md-1 profile-container-buttons">
-                    <button id="btn-like" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
+                    <button id="btn-like" class="btn btn-primary form-control" idValue="${restaurant._id}"><i class="far fa-thumbs-up"></i>Thích</button>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
                     <button class="btn btn-danger form-control " data-toggle="modal" data-target="#repostModal"><i class="fas fa-poll-h" ></i>Báo cáo</button>
                 </div>
