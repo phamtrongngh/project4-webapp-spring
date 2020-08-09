@@ -505,9 +505,13 @@
                                     </c:if>
 
                                 </c:forEach>
+
                             </div>
+                            
                         </div>
+
                         <a href="#" class="img-all-user-id d-flex justify-content-end" style="margin-right: 10px" idValue="${user._id}"   data-toggle="modal" data-target="#see-img" >Xem tất cả</a>
+
                     </div>
                     <div class="profile-list-friend rounded" >
                         <div class="friend-list">
@@ -524,8 +528,10 @@
                                 </c:forEach>
                             </div>
 
+
                         </div>
                         <a href="#" idValue="${user._id}" class="friend-userpage d-flex justify-content-end"  style="margin-right: 10px" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
+
                     </div>
                 </div>
                 <div class="col-md-8" style="padding-top: 10px;">
