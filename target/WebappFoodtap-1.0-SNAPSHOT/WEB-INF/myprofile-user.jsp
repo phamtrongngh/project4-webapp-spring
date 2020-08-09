@@ -718,7 +718,7 @@
                                                                         </div>
 
                                                                     </div>
-                                                                    <a href="#" style="margin-right: 10px" class="friends-all-user d-flex justify-content-end" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
+                                                                    <a href="#" style="margin-right: 10px" class="d-flex justify-content-end friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8">
