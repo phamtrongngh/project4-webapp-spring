@@ -4,15 +4,15 @@
 <%@include  file="header.jsp" %>
 <!--Modal Friend-->
 <div class="modal" id="see-friends" >
-    <div class="modal-dialog" style="max-width:40%!important;">
-        <div class="modal-content">
+    <div class="modal-dialog" style="max-width:40%!important;height: 90%;">
+        <div class="modal-content" style="height: 100%;">
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title"> Bạn bè</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
-            <div class="modal-body friends-modal-all">
+            <div class="modal-body friends-modal-all" style="overflow: auto;">
                 <div class="d-flex align-items-md-center justify-content-between" style="margin-bottom: 10px;">
                     <div class="coupon-container d-flex align-items-md-center">
                         <img src="/public/image/avatar/momo.png" class="img-coupon" />
@@ -56,8 +56,8 @@
 </div>
 <!--Modal coupon-->
 <div class="modal" id="couponModal-users" >
-    <div class="modal-dialog" style="max-width:40%!important;">
-        <div class="modal-content">
+    <div class="modal-dialog" style="max-width:40%!important; height: 80%">
+        <div class="modal-content" style="height: 100%;">
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title"> Ví Coupon</h4>
@@ -65,14 +65,16 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
-                <div class="d-flex align-items-md-center justify-content-between">
-                    <div class="coupon-container d-flex">
-                        <img src="/public/image/avatar/momo.png" class="img-coupon" />
-                        <p><span id="coupon">FREESHIP</span><br/>Miễn phí vận chuyển</p>
+            <div class="modal-body" style="overflow: auto;">
+                <c:forEach var="c" items="${coupons}">
+                    <div class="d-flex align-items-md-center justify-content-between" style="margin-bottom: 10px;">
+                        <div class="coupon-container d-flex">
+                            <img src="http://localhost:9032/public/image/${c.image}" class="img-coupon" />
+                            <p><span id="coupon">${c.code}</span><br/>${c.description}</p>
+                        </div>
+                        <button id="btn_copy" class="btn btn-danger float-right ">Copy</button>
                     </div>
-                    <button id="btn_copy" class="btn btn-danger float-right ">Copy</button>
-                </div>
+                </c:forEach>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
@@ -665,11 +667,14 @@
                                                                         <h3><i class="fas fa-image"></i>Ảnh</h3>
                                                                         <div class="img-contain">
                                                                             <div class="row">
-                                                                                <c:forEach var="c" begin= "0" end="5" items="${user.newfeeds}">
-                                                                                    <c:if test="${item.product==null}">
+                                                                                <c:set var="count" value="0" scope="page" />
+                                                                                <c:forEach var="c" items="${user.newfeeds}">
+                                                                                    <c:if test="${c.product == null && c.images[0] != null && count<6}">
+                                                                                        <c:set var="count" value="${count+1}" scope="page" />
                                                                                         <div class="img-contains col-md-4">
                                                                                             <image class="rounded" src ="http://localhost:9032/public/image/${c.images[0]}"  />  
                                                                                         </div>
+
                                                                                     </c:if>
 
                                                                                 </c:forEach>
@@ -785,11 +790,13 @@
                                                                                     <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                                                                                 </div>
                                                                                 <div style="margin-top: 2px;display: flex;">
+
                                                                                     <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like">
                                                                                         <div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>
                                                                                         <span class="like-count">${(item.likes).size()}</span></span>
                                                                                     <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapse${item._id}" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a>
                                                                                         <!--<a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <hr class="hr-newsfeed"/>
@@ -939,7 +946,7 @@
                                                                                 </div>
                                                                                 <div style="margin-top: 2px;display: flex;">
                                                                                     <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
-                                                                                    <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" data-target="#collapse${item._id}" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a>
+                                                                                    <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" data-target="#collapse${item._id}" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a>
                                                                                         <!--                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
                                                                                     </div>
                                                                                 </div>

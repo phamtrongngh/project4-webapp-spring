@@ -2109,7 +2109,6 @@ input[type="radio"]:checked {
     margin-top: 0.5em;
 }
 .count-comment{
-    margin-right: 10px;
     color: black;
 }
 .modal-sothich{
@@ -2230,17 +2229,14 @@ input[type="radio"]:checked {
     margin-top: 10px;
 }
 .store .vouchers{
-    background: url(../image/Background/pizza.jpg);
     background-repeat: no-repeat;
     height: 150px;
     width: 100%;
-    margin-top: 10px;
     background-size: 100% 100%;
 }
 .store .header-mission{
-    color: white;
-    position: absolute;
-    background: none;
+    color: black;
+        margin-top: 10px;
 }
 .header-voucher{
     background-color: white;

@@ -18,10 +18,12 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import Nghia.Util.MultipartContainer;
+import Nghia.Util.RESTCouponHelper;
 import Nghia.Util.RESTFoodCategory;
 import Nghia.Util.RESTRestaurantHelper;
 import java.util.ArrayList;
 import java.util.Map;
+import models.Coupon;
 import models.FoodCategory;
 import models.Restaurant;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -45,11 +47,14 @@ import org.springframework.web.servlet.view.RedirectView;
 public class RestaurantController implements IController<Restaurant> {
 
     private final RESTRestaurantHelper restHelper;
-        private final RESTFoodCategory restdFoodcategoryHelper;
+    private final RESTFoodCategory restdFoodcategoryHelper;
+    private RESTCouponHelper rESTCouponHelper;
 
     public RestaurantController() throws InstantiationException, IllegalAccessException {
         restHelper = new RESTRestaurantHelper(Restaurant.class);
-                restdFoodcategoryHelper = new RESTFoodCategory(FoodCategory.class);
+        restdFoodcategoryHelper = new RESTFoodCategory(FoodCategory.class);
+        rESTCouponHelper = new RESTCouponHelper(Coupon.class);
+
     }
 
     @RequestMapping(value = "/manageMyRestaurant/{id}", method = RequestMethod.GET)
@@ -60,7 +65,7 @@ public class RestaurantController implements IController<Restaurant> {
 
     @RequestMapping(value = "/getMyRestaurantOrders/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public String getMyRestaurantOrders(@PathVariable("id") String id,HttpServletResponse response) throws IOException {
+    public String getMyRestaurantOrders(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
         Map<String, ?> restaurant = restHelper.manageMyRestaurant(id);
         ObjectMapper objectMapper = new ObjectMapper();
         response.setContentType("application/json;charset=UTF-8");
@@ -102,7 +107,8 @@ public class RestaurantController implements IController<Restaurant> {
                 return storeprofile(id);
             }
         }
-        return new ModelAndView("store").addObject("restaurant", restaurant);
+        Object coupon = rESTCouponHelper.getAll();
+        return new ModelAndView("store").addObject("restaurant", restaurant).addObject("coupons", coupon);
     }
 
     @RequestMapping(value = "/restaurant", method = RequestMethod.GET)

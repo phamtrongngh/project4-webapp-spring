@@ -918,12 +918,11 @@ $(document).ready(function() {
                     '</div>' +
                     '</div>' +
                     '</p>' +
-                    '</div>'
+                    '</div>';
             collapse.closest(".collapse").find(".parrent-comments").append(html);
-            var number = collapse.closest(".collapse").find(".count-comment").html().split(" ")[0];
-            collapse.closest(".collapse").find(".count-comment")
+            var number = parseInt(collapse.closest(".status").find(".count-comment").html())+1;
             $(".input-comments").val("");
-            collapse.closest(".status").find(".count-comment")
+            collapse.closest(".status").find(".count-comment").html(number);
         });
     });
     //reply comment 
