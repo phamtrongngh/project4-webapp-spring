@@ -864,13 +864,18 @@ $(document).ready(function() {
 
 
     //get product to biding to update product modal box
-    $(".updateProduct").click(function() {
+    $(document).on("click",".updateProduct",function() {
         var content = $(this).closest(".status").find(".font1");
         var idProduct = $(this).attr("idValue");
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $("#updateMenu input[name='name']").val(data.name);
             $("#updateMenu input[name='price']").val(data.price);
             $("#updateMenu input[name='saleoff']").val(data.saleoff);
+             for (var i=0; i<data.category.length;i++){
+                arraystore.push(data.category[i].name);
+                var namestore = data.category[i].name+", ";
+                $("#updateMenu input[name='categories']").val($("#updateMenu input[name='categories']").val()+namestore);
+            }
             $("#updateMenu input[name='id']").val(idProduct);
             $("#updateMenu .image-frame-upload").css("background", "url(http://localhost:9032/public/image/" + data.image + ")");
             $("#updateMenu .image-frame-upload").css("background-size", "cover");
@@ -1348,16 +1353,16 @@ $(document).ready(function() {
         }
     });
 });
-$(".btn_copy").on("click", function (){
-        var copyText = $(this).closest(".coupon-chil").find("#coupon").html();
+$(".btn_copy").on("click", function() {
+    var copyText = $(this).closest(".coupon-chil").find("#coupon").html();
     var textArea = document.createElement("textarea");
     textArea.value = copyText;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
-    alert("Bạn đã coppy mã "+copyText)
-    });
+    alert("Bạn đã coppy mã " + copyText)
+});
 $(document).ready(function() {
     document.getElementById("btn-follow").addEventListener("click", ChangButtonFollow);
 });
@@ -1504,11 +1509,11 @@ $(document).ready(function() {
 var arraystore = [];
 var arrayIDstore = [];
 $(".dropdown-item").click(function() {
-    var a = $(this).closest("#mdMenu").find(".id-store-coupon");
+    var a = $(this).closest("#updateCoupon").find(".id-store-coupon");
     if (arraystore.length != 0) {
         for (var i = 0; i < arraystore.length; i++) {
             if (arraystore[i] == $(this).find(".name-store").text()) {
-                alert("Danh mục này đã được chọn");
+                alert("Cửa hàng này đã được chọn");
                 return false;
             }
         }
@@ -1526,14 +1531,31 @@ $(".dropdown-item").click(function() {
         arraystore.push($(this).find(".name-store").text().toString());
         $(".store-coupon").val($(".store-coupon").val() + $(this).find(".name-store").text() + ", ");
     }
+    if ($(".image-frame-upload").css("background") != null) {
+        $(".img-hidden").css("display", "none");
+    }
+});
+$(".store-coupon").keydown(function(e) {
+    var deletevalue = $(this).value;
+    if (e.key != "Backspace") {
+        alert("Bạn chỉ có thể xóa");
+        return false;
+    }
+    else
+    {
+        $(this).val("");
+        arraystore = [];
+        arrayIDstore = [];
+    }
+
 });
 $(".img-all-user").click(function() {
     callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
-       
+
         var html = "";
         data.forEach(function(item) {
 
-            if (item.images[0] != null && item.product ==null) {
+            if (item.images[0] != null && item.product == null) {
 
                 var content =
                         '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';

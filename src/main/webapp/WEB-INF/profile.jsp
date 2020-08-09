@@ -636,16 +636,20 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="profile-menu-row">
-                                    <div class="col-md-3">
-                                        <a href="#"><img class="rounded " src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" alt="" />
-                                            <div class="rounded photo">
-                                                <div>
-                                                    Kem
-                                                </div>
+                                    <c:forEach var="item" items="${restaurant.menu}">
+                                        <c:forEach var="c" items="${item.category}">
+                                            <div class="col-md-3">
+                                                <a href="#"><img class="rounded " src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" alt="" />
+                                                    <div class="rounded photo">
+                                                        <div>
+                                                            Kem
+                                                        </div>
 
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </c:forEach>
+                                    </c:forEach>
                                     <div class="col-md-3">
                                         <a href="#"><img class="rounded " src="/public/image/images new feed/vit-quay-bac-kinh.jpg" alt="" />
                                             <div class="rounded photo">
@@ -840,113 +844,113 @@
                 </c:forEach>
             </div>
 
-<!--            <div class="text-center">
-                <button type="button" class="btn btn-primary mx-auto dropdown-toggle" id="view-all" data-toggle="collapse" data-target="#see-more"> Xem tất cả</button>
-            </div>
-            <div id="see-more" class="collapse">
-
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="profile-menu-hot row ">
-                                <c:forEach items="${restaurant.menus}" begin="1" end="6" var="item">
-                                    <div class="col-md-4" >
-                                        <a href="" class="click-img" data-toggle="modal" data-target="#order-menu-all" idValue="${item._id}">
-                                            <img src="http://localhost:9032/public/image/${item.image}" class="order-img" alt="" />
-                                            <p>${item.name}</p>
-                                            <div class="text-price"><span class="price-foodnumber">${item.price}</span> <span>VNĐ</span></div>
-                                        </a> 
-                                    </div>
-                                </c:forEach>
-                            </div>
+            <!--            <div class="text-center">
+                            <button type="button" class="btn btn-primary mx-auto dropdown-toggle" id="view-all" data-toggle="collapse" data-target="#see-more"> Xem tất cả</button>
                         </div>
-                        <div class="carousel-item">
-                            <div class="profile-menu-hot ">
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
-                                    <a href="">Nui xào bơ tỏi</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                                    <a href="">Gà phô mai</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                                    <a href="">Gà nướng mật ong</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                            </div>
-                            <div class="profile-menu-hot ">
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
-                                    <a href="">Nui xào bơ tỏi</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                                    <a href="">Gà phô mai</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                                    <a href="">Gà nướng mật ong</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="profile-menu-hot ">
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
-                                    <a href="">Nui xào bơ tỏi</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                                    <a href="">Gà phô mai</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                                    <a href="">Gà nướng mật ong</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                                    <a href="">Gà nướng mật ong</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-
-                            </div>
-                            <div class="profile-menu-hot ">
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
-                                    <a href="">Nui xào bơ tỏi</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                                    <a href="">Gà phô mai</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
-                                    <a href="">Gà nướng mật ong</a>
-                                    <div class="text-price">77.000</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                        <div id="see-more" class="collapse">
+            
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="profile-menu-hot row ">
+            <c:forEach items="${restaurant.menus}" begin="1" end="6" var="item">
+                <div class="col-md-4" >
+                    <a href="" class="click-img" data-toggle="modal" data-target="#order-menu-all" idValue="${item._id}">
+                        <img src="http://localhost:9032/public/image/${item.image}" class="order-img" alt="" />
+                        <p>${item.name}</p>
+                        <div class="text-price"><span class="price-foodnumber">${item.price}</span> <span>VNĐ</span></div>
+                    </a> 
                 </div>
-            </div>-->
+            </c:forEach>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="profile-menu-hot ">
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
+                <a href="">Nui xào bơ tỏi</a>
+                <div class="text-price">77.000</div>
+            </div>
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
+                <a href="">Gà phô mai</a>
+                <div class="text-price">77.000</div>
+            </div>
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
+                <a href="">Gà nướng mật ong</a>
+                <div class="text-price">77.000</div>
+            </div>
+        </div>
+        <div class="profile-menu-hot ">
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
+                <a href="">Nui xào bơ tỏi</a>
+                <div class="text-price">77.000</div>
+            </div>
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
+                <a href="">Gà phô mai</a>
+                <div class="text-price">77.000</div>
+            </div>
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
+                <a href="">Gà nướng mật ong</a>
+                <div class="text-price">77.000</div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="profile-menu-hot ">
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
+                <a href="">Nui xào bơ tỏi</a>
+                <div class="text-price">77.000</div>
+            </div>
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
+                <a href="">Gà phô mai</a>
+                <div class="text-price">77.000</div>
+            </div>
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
+                <a href="">Gà nướng mật ong</a>
+                <div class="text-price">77.000</div>
+            </div>
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
+                <a href="">Gà nướng mật ong</a>
+                <div class="text-price">77.000</div>
+            </div>
+
+        </div>
+        <div class="profile-menu-hot ">
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/pastaveg_640x480.jpg" alt="" />
+                <a href="">Nui xào bơ tỏi</a>
+                <div class="text-price">77.000</div>
+            </div>
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
+                <a href="">Gà phô mai</a>
+                <div class="text-price">77.000</div>
+            </div>
+            <div class="col-md-4">
+                <img src="/public/image/images new feed/chinese-625_625x350_81466064119.jpg" alt="" />
+                <a href="">Gà nướng mật ong</a>
+                <div class="text-price">77.000</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+</div>-->
         </div>
 
         <%@include  file="footer.jsp" %>

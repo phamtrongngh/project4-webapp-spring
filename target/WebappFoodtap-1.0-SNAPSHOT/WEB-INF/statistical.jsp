@@ -242,10 +242,10 @@
                         <input name="saleoff" type="number" class="form-control" />
                     </div>
                     <div class="form-group dropdown row">
-                        <label class="col-sm-4">Cửa hàng áp dụng</label>
+                        <label class="col-sm-4">Danh mục</label>
                         <div class="col-sm-2"></div>
                         <input  type="text" class="col-sm-6  searchstore"  data-toggle="dropdown"  id="dropdownMenuButton" placeholder="Hãy nhập tên cửa hàng" />
-                        <input style="margin-top: 5px;" type="text" readonly="true" class="form-control store-coupon"/>
+                        <input style="margin-top: 5px;" type="text" name="categories"  class="form-control store-coupon"/>
                         <input style="margin-top: 5px;" type="hidden"  class="form-control id-store-coupon" name=""/>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="max-width: 100%;height: 200px;top:68px!important;overflow: auto;">
                             <c:forEach var="item" items="${foodCaterogys}">
@@ -305,15 +305,20 @@
                         <label>Giá khuyến mãi:</label>
                         <input name="saleoff" type="number" class="form-control" />
                     </div>
-                    <div class="form-group">
-                        <label>Danh mục</label>
-                        <!--<select name="" class="form-control select-address-district ">
-                                                                <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                                                                <option value="1 ">Option 1</option>
-                                                                <option value="2 ">Option 2</option>
-                                                                <option value="3 ">Option 3</option>
-                                                            </select>-->
-                        <input name="category" placeholder="Chưa có dữ liệu, khoan nhập mục này" type="text" class="form-control" />
+                    <div class="form-group dropdown row">
+                        <label class="col-sm-4">Danh mục</label>
+                        <div class="col-sm-2"></div>
+                        <input  type="text" class="col-sm-6  searchstore"  data-toggle="dropdown"  id="dropdownMenuButton" placeholder="Hãy nhập tên cửa hàng" />
+                        <input style="margin-top: 5px;" type="text" name="categories"  class="form-control store-coupon"/>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="max-width: 100%;height: 200px;top:68px!important;overflow: auto;">
+                            <c:forEach var="item" items="${foodCaterogys}">
+                                <div class="dropdown-item">
+                                    <img src="http://localhost:9032/public/image/${item.image}" width="25px" class="search-avatar" alt=""/>
+                                    <span class="name-store">${item.name}</span>
+                                    <span style="display: none;" class="id-store">${item._id}</span>
+                                </div>
+                            </c:forEach>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary" style="float: right;">Cập nhật</button>
                 </form>
@@ -323,20 +328,14 @@
         </div>
     </div>
 </div>
+                    
 
 <div class="container" style="margin-top: 100px">
     <!-- Nav tabs -->
     <div class="form-inline" style="margin-bottom: 10px;text-align: end;flex-direction: row-reverse">
-        <form>
-            <select name="" class="form-control select-address-district ">
-                <option value=" " disabled selected>Chọn cửa hàng</option>
-
-                <option value="1 ">Option 1</option>
-                <option value="2 ">Option 2</option>
-                <option value="3 ">Option 3</option>
-            </select>
-            <button class="btn btn-primary">Tìm cửa hàng</button>
-        </form>
+        
+        <a href="/mystore"><button class="btn btn-primary" >Tất cả cửa hàng</button></a>
+        
     </div>
     <ul class="nav nav-tabs">
 
@@ -694,7 +693,11 @@
                                     <tr role="row" class="even">
                                         <td><a href=""><image src="http://localhost:9032/public/image/${item.image}"  style="width: 100px; height: 100px"/></a></td>
                                         <td><a href="">${item.name} </a></td>
-                                        <td>Danh mục</td>
+                                        <td>
+                                            <c:forEach var="c" items="${item.category}">
+                                                ${c.name}, 
+                                            </c:forEach>
+                                        </td>
                                         <td>${item.price} VND</td>
                                         <td><c:if test="${item.saleoff!=null}">${item.saleoff} VND</c:if></td>
                                             <td>
