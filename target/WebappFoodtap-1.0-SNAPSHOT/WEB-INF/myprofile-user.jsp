@@ -700,7 +700,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <a href="#" style="margin-right: 10px" class="d-flex justify-content-end img-all-user"  data-toggle="modal" data-target="#see-img">Xem tất cả</a>
+                                                                    <a href="#" style="margin-right: 10px" class="float-right img-all-user"  data-toggle="modal" data-target="#see-img">Xem tất cả</a>
                                                                 </div>
                                                                 <div class="profile-list-friend rounded" >
                                                                     <div class="friend-list">
@@ -718,7 +718,7 @@
                                                                         </div>
 
                                                                     </div>
-                                                                    <a href="#" style="margin-right: 10px" class="friends-all-user d-flex justify-content-end" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
+                                                                    <a href="#" style=" position: absolute;left: 250px;top: 478px;" class="friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8">
