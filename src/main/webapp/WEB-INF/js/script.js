@@ -1311,18 +1311,16 @@ $(document).ready(function() {
         }
     });
 });
-$(document).ready(function() {
-    document.getElementById("btn_copy").addEventListener("click", copy_coupon);
-});
-function copy_coupon() {
-    var copyText = document.getElementById("coupon");
+$(".btn_copy").on("click", function (){
+        var copyText = $(this).closest(".coupon-chil").find("#coupon").html();
     var textArea = document.createElement("textarea");
-    textArea.value = copyText.textContent;
+    textArea.value = copyText;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
-}
+    alert("Bạn đã coppy mã "+copyText)
+    });
 $(document).ready(function() {
     document.getElementById("btn-follow").addEventListener("click", ChangButtonFollow);
 });
@@ -1494,9 +1492,10 @@ $(".dropdown-item").click(function() {
 });
 $(".img-all-user").click(function() {
     callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
+       
         var html = "";
         data.forEach(function(item) {
-            if (item.images[0] != null) {
+            if (item.images[0] != null && item.product ==null) {
                 var content =
                         '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
                 html += content;
@@ -1531,9 +1530,11 @@ $(".img-all-user-id").click(function() {
     callAjax("/getOneImg/" + imgalluser, "GET", null, function(data) {
         var html = "";
         data.newfeeds.forEach(function(item) {
+            if (item.product==null && item.images[0]!=null) {
             var content =
                     '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
             html += content;
+            }
         });
         $(".img-modal-all-user").html(html);
     })
