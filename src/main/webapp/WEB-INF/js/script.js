@@ -884,18 +884,18 @@ $(document).ready(function() {
 
 
     //get product to biding to update product modal box
-    $(document).on("click",".updateProduct",function() {
+    $(document).on("click", ".updateProduct", function() {
         var idProduct = $(this).attr("idValue");
         $("#updateMenu input[name='categories']").val("");
-        var arraystore =[];
+        var arraystore = [];
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $("#updateMenu input[name='name']").val(data.name);
             $("#updateMenu input[name='price']").val(data.price);
             $("#updateMenu input[name='saleoff']").val(data.saleoff);
-             for (var i=0; i<data.category.length;i++){
+            for (var i = 0; i < data.category.length; i++) {
                 arraystore.push(data.category[i].name);
-                var namestore = data.category[i].name+", ";
-                $("#updateMenu input[name='categories']").val($("#updateMenu input[name='categories']").val()+namestore);
+                var namestore = data.category[i].name + ", ";
+                $("#updateMenu input[name='categories']").val($("#updateMenu input[name='categories']").val() + namestore);
             }
             $("#updateMenu input[name='id']").val(idProduct);
             $("#updateMenu .image-frame-upload").css("background", "url(http://localhost:9032/public/image/" + data.image + ")");
@@ -903,7 +903,7 @@ $(document).ready(function() {
             $("#updateMenu .image-frame-upload").css("background-repeat", "no-repeat");
             namestore = null;
         })
-        
+
     })
     //Send request friend
     $(".send-request-friend").click(function() {
@@ -1556,7 +1556,7 @@ $(document).ready(function() {
 });
 var arraystore = [];
 var arrayIDstore = [];
-$(".dropdown-item").click(function() {
+$(".dropdown-item-DM").click(function() {
     var a = $(this).closest("#updateCoupon").find(".id-store-coupon");
     if (arraystore.length != 0) {
         for (var i = 0; i < arraystore.length; i++) {
@@ -1697,4 +1697,34 @@ $(".btn-down").click(function() {
 
 
 });
+var idReport = "";
+var typeReport = "";
 
+$(".btn-report").click(function() {
+    idReport = $(this).attr("isValue");
+    typeReport = $(this).attr("typed");
+});
+
+$(".send-report").click(function() {
+    if ($(".content-report").val()) {
+        var data = {
+            typed: typeReport,
+            id: idReport,
+            content: $(".content-report").val()
+        }
+        $.ajax({
+            url: "/report",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: function(data) {
+                alert("Foodtap đã tiếp nhận báo cáo của bạn.");
+
+            }
+        })
+           $('#repostModal').modal('toggle');
+
+    }
+
+})
