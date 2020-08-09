@@ -432,7 +432,7 @@
                     <button class="btn btn-danger form-control " data-toggle="modal" data-target="#repostModal"><i class="fas fa-poll-h" ></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
-                    <button class="btn btn-primary form-control "><i class="far fa-comment"></i><br/>Gửi tin</button>
+                    <button class="btn btn-primary form-control send-large-button" idValue="${restaurant.managers[0].user}" nameValue="${restaurant.name}" avatarValue="${restaurant.avatar}"><i class="far fa-comment"></i><br/>Gửi tin</button>
                 </div>
             </div>
             <div class="row">

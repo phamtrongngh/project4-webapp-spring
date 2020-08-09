@@ -667,12 +667,12 @@
         <div class="tab-pane container" id="menu" style="max-width: 100% !important;">
             <div class="mb-4 form-inline" style="margin-top: 10px;text-align: start;">
                 <button class="btn btn-info btn-icon-split" style="margin-left: 10px;" data-toggle="modal" data-target="#mdMenu"><i class="fas fa-file-medical" ></i> Thêm</button>
-                <select name="" class="form-control " style="margin-left: 10px">
+<!--                <select name="" class="form-control " style="margin-left: 10px">
                     <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
                     <option value="1 ">Option 1</option>
                     <option value="2 ">Option 2</option>
                     <option value="3 ">Option 3</option>
-                </select>
+                </select>-->
             </div>
             <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-body">
