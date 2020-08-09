@@ -53,24 +53,24 @@
                 </div>
                 <div class="form-group form-inline">
                     <label>Tên cửa hàng:</label>
-                    <input type="text" name="name" class="form-control input-namestore"/>
-
+                    <input id="name-store" type="text" name="name" class="form-control input-namestore"/>
+                    <span class="error error-user-mess" color="red">Tên cửa hàng không được để trống và không được thêm kí tự đặc biệt</span>
                 </div>
                 <div class="form-group form-inline">
                     <label>Thông tin giới thiệu:</label>
                     <textarea name="description" class="form-control input-info"></textarea>
                 </div>
-                
+
                 <div class="form-group form-inline">
                     <label>Địa chỉ cửa hàng</label>
                     <div class="input-group flex-nowrap" style="width: 46.5%">
-                        <input type="text" class="form-control input-address" name="address">
+                        <input type="text" class="form-control input-address" name="address" disabled>
                         <div class="input-group-prepend">
                             <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
                         </div>
                     </div>
                 </div>
-                
+
                 <ul class="float-right">
                     <li class="list-inline-item">
                         <button type="button" class="btn btn-danger next-step">Tiếp tục</button>
@@ -123,97 +123,97 @@
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
 <script async defered>
-            goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
-            var map = new goongjs.Map({
-                container: 'map', // container id
-                style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
-                center: [106.695833, 10.776111], // starting position [lng, lat]
-                zoom: 9 // starting zoom
-            });
+    goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
+    var map = new goongjs.Map({
+        container: 'map', // container id
+        style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
+        center: [106.695833, 10.776111], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
 
-            var geocoder = new GoongGeocoder({
-                accessToken: "Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3",
-                goongjs: goongjs
-            })
+    var geocoder = new GoongGeocoder({
+        accessToken: "Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3",
+        goongjs: goongjs
+    })
 
-            var geolocateControl = new goongjs.GeolocateControl({
-                positionOptions: {
-                    enableHighAccuracy: true
-                },
-                trackUserLocation: true
-            })
+    var geolocateControl = new goongjs.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    })
 
-            map.addControl(new goongjs.FullscreenControl());
+    map.addControl(new goongjs.FullscreenControl());
 
-            map.on('load', function() {
-                map.addSource('single-point', {
-                    type: 'geojson',
-                    data: {
-                        type: 'FeatureCollection',
-                        features: []
-                    }
+    map.on('load', function() {
+        map.addSource('single-point', {
+            type: 'geojson',
+            data: {
+                type: 'FeatureCollection',
+                features: []
+            }
+        });
+        map.addControl(
+                geocoder
+                )
+        map.addControl(
+                geolocateControl
+                );
+        map.addLayer({
+            id: 'point',
+            source: 'single-point',
+            type: 'circle',
+            paint: {
+                'circle-radius': 10,
+                'circle-color': '#448ee4'
+            }
+        });
+    });
+
+    var marker = new goongjs.Marker({
+        draggable: true
+    })
+            .setLngLat([105, 21])
+            .addTo(map);
+
+    marker.on('dragend', function() {
+
+        var lngLat = marker.getLngLat();
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&limit=1')
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    $(".input-address").val(data.results[0].formatted_address);
                 });
-                map.addControl(
-                        geocoder
-                        )
-                map.addControl(
-                        geolocateControl
-                        );
-                map.addLayer({
-                    id: 'point',
-                    source: 'single-point',
-                    type: 'circle',
-                    paint: {
-                        'circle-radius': 10,
-                        'circle-color': '#448ee4'
-                    }
+    });
+    geolocateControl.on("geolocate", function(e) {
+        var lng = e.coords.longitude;
+        var lat = e.coords.latitude;
+        marker._lngLat = {lat: lat, lng: lng}
+        fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3', {mode: "cors"})
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(data) {
+                    $(".input-address").val(data.results[0].formatted_address);
                 });
-            });
-
-            var marker = new goongjs.Marker({
-                draggable: true
-            })
-                    .setLngLat([105, 21])
-                    .addTo(map);
-
-            marker.on('dragend', function() {
-
-                var lngLat = marker.getLngLat();
-                fetch('https://rsapi.goong.io/Geocode?latlng=' + lngLat.lat + ',' + lngLat.lng + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&limit=1')
-                        .then(function(response) {
-                            return response.json()
-                        })
-                        .then(function(data) {
-                            $(".input-address").val(data.results[0].formatted_address);
-                        });
-            });
-            geolocateControl.on("geolocate", function(e) {
-                var lng = e.coords.longitude;
-                var lat = e.coords.latitude;
-                marker._lngLat = {lat: lat, lng: lng}
-                fetch('https://rsapi.goong.io/Geocode?latlng=' + lat + ',' + lng + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3', {mode: "cors"})
-                        .then(function(response) {
-                            return response.json()
-                        })
-                        .then(function(data) {
-                            $(".input-address").val(data.results[0].formatted_address);
-                        });
-            })
-            geocoder.on("result", function(e) {
-                geocoder.mapMarker.remove();
-                marker._lngLat = geocoder.mapMarker._lngLat;
-                $(".input-address").val(e.result.description);
-            })
-            $(".btn-location").click(function() {
-                $(".goongjs-ctrl-fullscreen").trigger("click");
-            })
-            $("#mapModel .modal-footer button").click(function() {
-                $("#mapModel").modal("hide");
-            })
-            $(".close").click(function() {
-                $(".input-address").val("");
-                $("#mapModel").modal("hide");
-            })
-        </script>
+    })
+    geocoder.on("result", function(e) {
+        geocoder.mapMarker.remove();
+        marker._lngLat = geocoder.mapMarker._lngLat;
+        $(".input-address").val(e.result.description);
+    })
+    $(".btn-location").click(function() {
+        $(".goongjs-ctrl-fullscreen").trigger("click");
+    })
+    $("#mapModel .modal-footer button").click(function() {
+        $("#mapModel").modal("hide");
+    })
+    $(".close").click(function() {
+        $(".input-address").val("");
+        $("#mapModel").modal("hide");
+    })
+</script>
 </body>
 </html>

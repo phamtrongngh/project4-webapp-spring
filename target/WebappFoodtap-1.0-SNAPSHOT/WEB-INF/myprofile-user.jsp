@@ -709,7 +709,8 @@
                                                                         <input type="text" name="place"  value="" hidden />
                                                                         <input type="text" name="user" hidden value="${user._id}" />
                                                                         <div class="col-md-8 post-content">
-                                                                            <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                                                            <textarea  id="content-post" class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                                                             <span class="error error-user-mess" color="red">Nội dung  không được để trống</span>
                                                                             <div class="d-flex" style="width: 30%">
                                                                                 <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
                                                                                 <div class="upload-img-status" >
@@ -747,7 +748,7 @@
                                                                             </div>
                                                                             <hr/>
                                                                             <div>
-                                                                                <button class="btn btn-primary">Đăng</button>
+                                                                                <button class="btn btn-primary" id="btn-post">Đăng</button>
                                                                             </div>
                                                                         </div>
                                                                     </form>

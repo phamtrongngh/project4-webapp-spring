@@ -186,7 +186,7 @@
                         Cửa hàng
                     </div>
                     <div class="d-flex " style="width: 26%">
-                        <input type="text" class="search-food rounded " placeholder="Tìm cửa hàng" >
+                        <input type="text" class="search-food rounded " placeholder="Tìm cửa hàng" id="search-stores" >
                         <div class="input-group-prepend">
                             <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
                         </div>
@@ -209,7 +209,7 @@
                         Mọi người
                     </div>
                     <div class="d-flex " style="width: 26%">
-                        <input type="text" class="search-food rounded " placeholder="Tìm người gần bạn" >
+                        <input type="text" class="search-food rounded " id="search-friends" placeholder="Tìm người gần bạn" >
                         <div class="input-group-prepend">
                             <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
                         </div>
@@ -232,7 +232,7 @@
                         Sản phẩm 
                     </div>
                     <div class="d-flex " style="width: 26%">
-                        <input type="text" class="search-food rounded " placeholder="Tìm người gần bạn" >
+                        <input type="text" class="search-food rounded " placeholder="Tìm người gần bạn" id="search-product" >
                         <div class="input-group-prepend">
                             <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
                         </div>

@@ -1,5 +1,29 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal report -->
+<div class="modal fade" id="repostModal">
+    <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Báo cáo quản trị</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div>
+                    <h3>Nội dụng</h3>
+                    <textarea id="content-report" style="width: 100%" rows="5"></textarea>
+                     <span class="error error-user-mess" color="red">Nội dung không được để trống</span>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button id="btn-send-reports" type="button" class="btn btn-danger submit" >Gửi</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Modal Friend-->
 <div class="modal" id="see-friends" >
     <div class="modal-dialog" style="max-width:40%!important;">
@@ -482,7 +506,7 @@
                         <button id="btn-friends" class="btn btn-success form-control send-request-friend" idValue="${user._id}"><i class="fas fa-user-plus"></i>Kết bạn</button>      
                     </c:if>
 
-                    <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Báo cáo</button>
+                    <button class="btn btn-danger form-control"  data-toggle="modal" data-target="#repostModal"><i class="fas fa-poll-h"></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
                     <button class="btn btn-primary form-control "><i class="far fa-comment"></i><br/>Gửi tin</button>

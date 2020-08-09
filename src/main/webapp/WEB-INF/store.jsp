@@ -1,27 +1,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
-<!-- The Modal repost -->
+<!-- The Modal report -->
 <div class="modal fade" id="repostModal">
     <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title"> Báo cáo quản trị</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div>
-                    <h3>Nội dụng</h3>
-                    <textarea style="width: 100%" rows="5"></textarea>
+
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"> Báo cáo quản trị</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+                        <h3>Nội dụng</h3>
+                        <textarea id="content-report" style="width: 100%" rows="5"></textarea>
+                        <span class="error error-user-mess" color="red">Nội dung không được để trống</span>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button id="btn-send-reports" type="button" class="btn btn-danger submit" >Gửi</button>
                 </div>
             </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger submit" >Gửi</button>
-            </div>
-        </div>
+   
     </div>
 </div>
 <!-- The Modal -->
@@ -483,9 +486,7 @@
                                             <div class="dropleft">
                                                 <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                 <div class="dropdown-menu" >
-                                                    <a class="dropdown-item" href="#">Ẩn</a>
-                                                    <a class="dropdown-item" href="#">Sửa</a>
-                                                    <a class="dropdown-item" href="#">Xóa</a>
+                                                    <a class="dropdown-item" href="#">Báo cáo</a>
                                                 </div>
                                             </div>
                                         </div>

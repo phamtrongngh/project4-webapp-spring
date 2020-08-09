@@ -87,7 +87,8 @@
                         <label class="col-md-3">Họ và tên</label>
 
                         <div class="col-md-9 input-group-prepend">
-                            <input  type="text" value="${user.fullname}" name="fullname" class="form-control"/>
+                            <input id="fullname-info" type="text" value="${user.fullname}" name="fullname" class="form-control"/>
+                            <span class="error error-user-mess" color="red">Họ và tên phải từ 2 ký tự đến 20 ký tự(không có ký tự đặc biệt)</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -99,7 +100,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">Địa chỉ</label>
                         <div class="col-md-9 input-group-prepend">
-                            <input  type="text" value="${user.address}" name="address" class="form-control input-address" />
+                            <input  type="text" value="${user.address}" name="address" class="form-control input-address" disabled />
                             <button style="color: #da484a" type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModeluserupdate" ><i class="fas fa-map-marker-alt"></i></button>
                         </div>
                     </div>
@@ -107,7 +108,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col"><button class="col-7 btn btn-secondary btn-sm float-left" data-toggle="modal" data-target="#Modelmatkhau" type="button">Đổi mật khẩu</button></div>
-                                <div class="col"><button type="submit" class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button></div>
+                                <div class="col"><button type="submit" id="btn-update-user-info" class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button></div>
                             </div>
                         </div>
                     </div>
