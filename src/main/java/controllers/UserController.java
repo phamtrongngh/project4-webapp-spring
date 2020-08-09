@@ -225,7 +225,10 @@ public class UserController {
 
     @RequestMapping(value = "/detail-order/{id}", method = RequestMethod.GET)
     public ModelAndView detailorder(@PathVariable("id") String id) throws IOException {
-        Object order = restOrder.getOne(id);
+        Map<String,?> order = (Map<String,?>)restOrder.getOne(id);
+        if (!order.get("status").equals("completed")){
+            return statusorder(id);
+        }
         return new ModelAndView("detail-order").addObject("order", order);
     }
 
