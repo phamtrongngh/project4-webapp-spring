@@ -57,4 +57,12 @@ public class RESTOrderHelper extends RESTHelper {
                 .post(null, String.class);
         return string;
     }
+    public String rate(String json) {
+        String url = BASE_URI + "rate";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.json(json), String.class);
+        return string;
+    }
 }
