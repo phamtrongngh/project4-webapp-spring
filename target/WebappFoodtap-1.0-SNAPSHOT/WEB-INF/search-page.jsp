@@ -226,7 +226,7 @@
                     </c:forEach>
                 </div>
             </c:if>
-            <c:if test="${searchResult.products!=null}">
+            <c:if test="${searchResult.products.size()>0}">
                 <div class="d-flex justify-content-between" style="width: 100%">
                     <div class="profile-text-near">
                         Sản phẩm 

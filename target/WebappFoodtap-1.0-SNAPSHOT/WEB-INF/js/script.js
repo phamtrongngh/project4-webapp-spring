@@ -8,6 +8,76 @@ var gender;
 var address;
 var password;
 var repassword;
+var currentChatterId;
+//SOCKETIO receive message chat
+var socket = io('http://localhost:9032');
+socket.emit("join", $("#idUser").val());
+
+socket.on("sendMessage", function(item) {
+    if (item.sender == currentChatterId) {
+        var chatBoxvalue = "";
+        if (item.sender != idUser) {
+            chatBoxvalue += getSenderBox(item);
+        }
+        else {
+            chatBoxvalue += getReceiveBox(item);
+        }
+        $(".card-body.msg-card-body").append(chatBoxvalue);
+        $(".msg_body").append(chatBoxvalue);
+        $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+        $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+        $(".img-cont-msg img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+        try {
+            $('.msg-card-body').scrollTop($('.msg-card-body')[0].scrollHeight);
+        } catch (e) {
+
+        }
+        $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
+    }
+});
+//socket request friend
+socket.on("friendRequest", function(data) {
+    var number;
+    if ($(".numberFriendRequest").html() == "") {
+        number = 1;
+    } else {
+        number = parseInt($(".numberFriendRequest").html()) + 1;
+    }
+    $(".numberFriendRequest").html(number);
+    var html = '<div class="messenger h-100">';
+    html += '<img src="http://localhost:9032/public/image/' + data.avatar + '" class="messenger-avatar" alt=""/>';
+    html += '<div style="width: 350px;">'
+    html += '<div class="messenger-name">' + data.fullname + '</div>';
+    html += '</div>';
+    html += '<div  style="display: flex;">';
+    html += '<button class="btn accept-friend" idValue="' + data._id + '" style="margin-right: 10px;height: 35px;">Chấp nhận</button>'
+    html += '<button class="btn cancel-friend" idValue ="' + data._id + '" style ="margin-right: 10px;height: 35px;"> Từ chối </button>'
+    html += '</div>';
+    html += '</div>';
+    $(".listRequest").html($(".listRequest").html() + html)
+})
+//socket on order
+socket.on("newOrderRestaurant", function(data) {
+    var number;
+    if ($(".numberFriendRequest").html() == "") {
+        number = 1;
+    } else {
+        number = parseInt($(".numberFriendRequest").html()) + 1;
+    }
+    $(".numberNoti").html(number);
+    var html = '<div class="notification ">' +
+            '<img src="http://localhost:9032/public/image/' + data.user.avatar + '" class="messenger-avatar" alt=""/>' +
+            '<div>' +
+            '<div >' + data.user.fullname + '</div>' +
+            '<div>' + data.createdAt + '</div>' +
+            '<a href="/restaurant/' + data.restaurant._id + '">' +
+            '<div class="noti-content">Nhà hàng bạn vừa có đơn hàng mới!</div>' +
+            '</a>' +
+            '</div>' +
+            '<img src="http://localhost:9032/public/image/' + data.restaurant.avatar + '" class="store-avatar" alt=""/>' +
+            '</div>';
+    $(".notification-content").html($(".notification-content").html() + html);
+})
 function updateinfo() {
     fullname = $("#fullname-register").val();
     phone = $("#phone-register").val();
@@ -395,7 +465,7 @@ function getSenderBox(message) {
     var receiveBox = '<div class="msg-time">' + formatDateLong(message.createdAt) + '</div>';
     receiveBox += '<div class="d-flex justify-content-start mb-4">';
     receiveBox += '<div class="img-cont-msg">';
-    receiveBox += '<img src="/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
+    receiveBox += '<img src="http://localhost:9032/public/image/avatar/' + message.avatar + '" class="rounded-circle user-img-msg" />';
     receiveBox += '</div>';
     receiveBox += '<div class="msg-cotainer">';
     receiveBox += message.content;
@@ -407,9 +477,10 @@ function getSenderBox(message) {
 
 function showmess() {
 //Click to show conservation
-    $(document).on("click",".contacts-body .contacts li",function() {
+    $(document).on("click", ".contacts-body .contacts li", function() {
         var id = $(this).attr("idValue");
         var chatBoxvalue = "";
+        currentChatterId = id;
         $(".send-btn").attr("idValue", id)
         callAjax("/message/" + id, "GET", null, function(data) {
             data.messages.forEach(function(item) {
@@ -425,7 +496,9 @@ function showmess() {
             $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
             $(".card-body.msg-card-body").html(chatBoxvalue);
             $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
+            $('.msg-card-body').scrollTop($('.msg-card-body')[0].scrollHeight);
         });
+
     })
 }
 $(document).ready(function() {
@@ -449,11 +522,12 @@ $(document).ready(function() {
                 content: $(".type-msg").val(),
                 messageType: "text"
             }
+            $("#chatbox .msg-card-body").append(getReceiveBox({content: $(".type-msg").val(), createdAt: Date.now()}))
             callAjax("/message/", "POST", message);
             $('.type-msg').val('');
-            $('.msg-card-body').stop().animate({scrollTop: 99999999});
+            $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+            $('.msg-card-body').scrollTop($('.msg-card-body')[0].scrollHeight);
         }
-
     })
 })
 
@@ -572,32 +646,53 @@ $(document).ready(function() {
         displayChatBox();
         return false;
     });
-    $(document).on('click', '#sidebar-user-box', function() {
-        var userID = $(this).attr("class");
-        var username = $(this).children().text();
-        if ($.inArray(userID, arr) != -1) {
-            arr.splice($.inArray(userID, arr), 1);
-        }
+    function clickChatSidebar() {
+        $(document).on('click', '#sidebar-user-box', function() {
+            var userID = $(this).attr("idValue");
+            var username = $(this).children().text();
+            var avatar = $(this).find("img").attr("src");
+            currentChatterId = userID;
+            $(".msg_box").css("display", "block")
+            $(".msg_head").html(username + '<div class="close">x</div>');
+            avatarChatter = avatar.replace("http://localhost:9032/public/image/", "");
+            $("#sendBoxButton").attr("idValue", userID);
+            callAjax("/message/" + userID, "GET", null, function(data) {
+                var chatBoxvalue = "";
+                data.messages.forEach(function(item) {
+                    if (item.sender == userID) {
+                        chatBoxvalue += getSenderBox(item);
+                    }
+                    else {
+                        chatBoxvalue += getReceiveBox(item);
+                    }
+                });
+                $(".msg_body").html(chatBoxvalue);
+                $(".img-cont-msg img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
+                $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
+            });
 
-        arr.unshift(userID);
-        chatPopup = '<div class="msg_box" style="right:270px" rel="' + userID + '">' +
-                '<div class="msg_head">' + username +
-                '<div class="close">x</div> </div>' +
-                '<div class="msg_wrap"> <div class="msg_body"> <div class="msg_push"></div> </div>' +
-                '<div class="msg_footer"><textarea name="msg-input" class="msg_input" rows="10"></textarea><div class="btn-footer">\n\
-<button class="bg_none pull-right"><i class="fa fa-paper-plane"></i> </button> \n\
-</div></div></div></div>';
-        $("body").append(chatPopup);
-        displayChatBox();
-    });
+        });
+    }
+    clickChatSidebar();
     $(document).on('keypress', 'textarea[name=msg-input]', function(e) {
         if (e.keyCode == 13 && !e.shiftKey) {
             var msg = $(this).val();
             $(this).val('');
             if (msg.trim().length != 0) {
-                var chatbox = $(this).parents().parents().parents().attr("rel");
-                $('<div class="msg-right">' + msg + '</div>').insertBefore('[rel="' + chatbox + '"] .msg_push');
+                var html = getReceiveBox({content: msg, createdAt: Date.now()});
+                $(".msg_body").append(html);
                 $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
+                var message = {
+                    receiver: $("#sendBoxButton").attr("idValue"),
+                    content: msg,
+                    messageType: "text"
+                }
+                callAjax("/message/", "POST", message, function(data) {
+
+                });
+                $('.type-msg').val('');
+
+
             }
         }
     });
@@ -918,7 +1013,7 @@ $(document).ready(function() {
                     '</div>' +
                     '</div>' +
                     '</p>' +
-                    '</div>'
+                    '</div>';
             collapse.closest(".collapse").find(".parrent-comments").append(html);
             var number = collapse.closest(".collapse").find(".count-comment").html().split(" ")[0];
             collapse.closest(".collapse").find(".count-comment")
@@ -1083,66 +1178,8 @@ $(document).ready(function() {
         $('a[href="' + location.hash + '"]').tab('show');
     }
 
-//SOCKETIO receive message chat
-    var socket = io('http://localhost:9032');
-    socket.emit("join", $("#idUser").val());
 
-    socket.on("sendMessage", function(item) {
-        var chatBoxvalue = "";
-        if (item.sender != idUser) {
-            chatBoxvalue += getSenderBox(item);
-        }
-        else {
-            chatBoxvalue += getReceiveBox(item);
-        }
-        $(".card-body.msg-card-body").append(chatBoxvalue);
-        $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
-        $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
-        $('.msg-card-body').stop().animate({scrollTop: 99999999});
-    });
-    //socket request friend
-    socket.on("friendRequest", function(data) {
-        var number;
-        if ($(".numberFriendRequest").html() == "") {
-            number = 1;
-        } else {
-            number = parseInt($(".numberFriendRequest").html()) + 1;
-        }
-        $(".numberFriendRequest").html(number);
-        var html = '<div class="messenger h-100">';
-        html += '<img src="http://localhost:9032/public/image/' + data.avatar + '" class="messenger-avatar" alt=""/>';
-        html += '<div style="width: 350px;">'
-        html += '<div class="messenger-name">' + data.fullname + '</div>';
-        html += '</div>';
-        html += '<div  style="display: flex;">';
-        html += '<button class="btn accept-friend" idValue="' + data._id + '" style="margin-right: 10px;height: 35px;">Chấp nhận</button>'
-        html += '<button class="btn cancel-friend" idValue ="' + data._id + '" style ="margin-right: 10px;height: 35px;"> Từ chối </button>'
-        html += '</div>';
-        html += '</div>';
-        $(".listRequest").html($(".listRequest").html() + html)
-    })
-    //socket on order
-    socket.on("newOrderRestaurant", function(data) {
-        var number;
-        if ($(".numberFriendRequest").html() == "") {
-            number = 1;
-        } else {
-            number = parseInt($(".numberFriendRequest").html()) + 1;
-        }
-        $(".numberNoti").html(number);
-        var html = '<div class="notification ">' +
-                '<img src="http://localhost:9032/public/image/' + data.user.avatar + '" class="messenger-avatar" alt=""/>' +
-                '<div>' +
-                '<div >' + data.user.fullname + '</div>' +
-                '<div>' + data.createdAt + '</div>' +
-                '<a href="/restaurant/' + data.restaurant._id + '">' +
-                '<div class="noti-content">Nhà hàng bạn vừa có đơn hàng mới!</div>' +
-                '</a>' +
-                '</div>' +
-                '<img src="http://localhost:9032/public/image/' + data.restaurant.avatar + '" class="store-avatar" alt=""/>' +
-                '</div>';
-        $(".notification-content").html($(".notification-content").html() + html);
-    })
+
 })
 function check_discount(data) {
     if (data.min) {
