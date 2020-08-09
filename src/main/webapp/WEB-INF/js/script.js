@@ -884,19 +884,26 @@ $(document).ready(function() {
 
 
     //get product to biding to update product modal box
-    $(".updateProduct").click(function() {
-        var content = $(this).closest(".status").find(".font1");
+    $(document).on("click",".updateProduct",function() {
         var idProduct = $(this).attr("idValue");
+        $("#updateMenu input[name='categories']").val("");
+        var arraystore =[];
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $("#updateMenu input[name='name']").val(data.name);
             $("#updateMenu input[name='price']").val(data.price);
             $("#updateMenu input[name='saleoff']").val(data.saleoff);
+             for (var i=0; i<data.category.length;i++){
+                arraystore.push(data.category[i].name);
+                var namestore = data.category[i].name+", ";
+                $("#updateMenu input[name='categories']").val($("#updateMenu input[name='categories']").val()+namestore);
+            }
             $("#updateMenu input[name='id']").val(idProduct);
             $("#updateMenu .image-frame-upload").css("background", "url(http://localhost:9032/public/image/" + data.image + ")");
             $("#updateMenu .image-frame-upload").css("background-size", "cover");
             $("#updateMenu .image-frame-upload").css("background-repeat", "no-repeat");
+            namestore = null;
         })
-
+        
     })
     //Send request friend
     $(".send-request-friend").click(function() {
@@ -1066,43 +1073,6 @@ $(document).ready(function() {
             collapse.closest(".status").find(".count-comment").html(number);
         });
     });
-    //Rating order
-    $(".btn-send-rating").click(function() {
-        var type;
-        if ($(this).attr("id") == "rating-order-shipper") {
-            type = "shipper";
-        } else {
-            type = "restaurant";
-        }
-        var parentForm = $(this).closest("form").closest("form");
-        var star = $(this).closest("form").find("input[name='star']:checked").val();
-        var content = $(this).closest("form").find("textarea").val();
-        var targetId = $(this).attr("targetId");
-        var orderId = $(this).attr("orderId");
-        if (star) {
-
-            var data = {
-                star: star,
-                type: type,
-                targetId: targetId,
-                content: content,
-                orderId : orderId
-            }
-            $.ajax({
-                url: "/order/rate",
-                type: "POST",
-                contentType: "application/json;charset=UTF-8",
-                dataType: 'json',
-                data: JSON.stringify(data),
-                success: function(data) {
-                    parentForm.css("display","none");
-                    alert("Thanks for rating");
-                    
-                }
-            })
-        }
-    })
-
     //reply comment 
     $(document).on("click", ".reply-comment", function() {
         var content = $(this).closest(".collapse").find(".input-comments").val();
@@ -1587,11 +1557,11 @@ $(document).ready(function() {
 var arraystore = [];
 var arrayIDstore = [];
 $(".dropdown-item").click(function() {
-    var a = $(this).closest("#mdMenu").find(".id-store-coupon");
+    var a = $(this).closest("#updateCoupon").find(".id-store-coupon");
     if (arraystore.length != 0) {
         for (var i = 0; i < arraystore.length; i++) {
             if (arraystore[i] == $(this).find(".name-store").text()) {
-                alert("Danh mục này đã được chọn");
+                alert("Cửa hàng này đã được chọn");
                 return false;
             }
         }
@@ -1609,6 +1579,23 @@ $(".dropdown-item").click(function() {
         arraystore.push($(this).find(".name-store").text().toString());
         $(".store-coupon").val($(".store-coupon").val() + $(this).find(".name-store").text() + ", ");
     }
+    if ($(".image-frame-upload").css("background") != null) {
+        $(".img-hidden").css("display", "none");
+    }
+});
+$(".store-coupon").keydown(function(e) {
+    var deletevalue = $(this).value;
+    if (e.key != "Backspace") {
+        alert("Bạn chỉ có thể xóa");
+        return false;
+    }
+    else
+    {
+        $(this).val("");
+        arraystore = [];
+        arrayIDstore = [];
+    }
+
 });
 $(".img-all-user").click(function() {
     callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
