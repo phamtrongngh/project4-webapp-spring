@@ -24,6 +24,7 @@ public class Product {
     private Date createdAt;
     private Date updatedAt;
     private int __v;
+    private String categories;
     
     public String get_id() {
         return _id;
@@ -108,5 +109,15 @@ public class Product {
     public void set__v(int __v) {
         this.__v = __v;
     }
+
+    public String getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String categories) {
+        this.categories = categories;
+    }
+    
+    
     
 }

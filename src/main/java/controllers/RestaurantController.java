@@ -60,8 +60,7 @@ public class RestaurantController implements IController<Restaurant> {
     @RequestMapping(value = "/manageMyRestaurant/{id}", method = RequestMethod.GET)
     public ModelAndView statistical(@PathVariable("id") String id) throws IOException {
         Map<String, ?> restaurant = restHelper.manageMyRestaurant(id);
-        return new ModelAndView("statistical").addObject("restaurant", restaurant).addObject("foodCaterogys", restdFoodcategoryHelper.getAll());
-    }
+        return new ModelAndView("statistical").addObject("restaurant", restaurant).addObject("foodCaterogys", restdFoodcategoryHelper.getAll()).addObject("restaurants", restHelper.getAll());}
 
     @RequestMapping(value = "/getMyRestaurantOrders/{id}", method = RequestMethod.GET)
     @ResponseBody
