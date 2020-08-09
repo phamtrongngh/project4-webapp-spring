@@ -1365,16 +1365,16 @@ $(document).ready(function() {
         }
     });
 });
-$(".btn_copy").on("click", function (){
-        var copyText = $(this).closest(".coupon-chil").find("#coupon").html();
+$(".btn_copy").on("click", function() {
+    var copyText = $(this).closest(".coupon-chil").find("#coupon").html();
     var textArea = document.createElement("textarea");
     textArea.value = copyText;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
-    alert("Bạn đã coppy mã "+copyText)
-    });
+    alert("Bạn đã coppy mã " + copyText)
+});
 $(document).ready(function() {
     document.getElementById("btn-follow").addEventListener("click", ChangButtonFollow);
 });
@@ -1546,11 +1546,11 @@ $(".dropdown-item").click(function() {
 });
 $(".img-all-user").click(function() {
     callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
-       
+
         var html = "";
         data.forEach(function(item) {
 
-            if (item.images[0] != null && item.product ==null) {
+            if (item.images[0] != null && item.product == null) {
 
                 var content =
                         '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';

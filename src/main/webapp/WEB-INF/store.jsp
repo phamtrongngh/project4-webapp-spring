@@ -385,7 +385,7 @@
                         <div class="profile-name">
                             <div class="text-name">${restaurant.name}</div>
                             <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
-                            <div class="stars">
+<!--                            <div class="stars">
                                 <form action="">
                                     <input class="star star-5" id="star-5" type="radio" name="star" />
                                     <label class="star star-5" for="star-5"></label>
@@ -398,7 +398,7 @@
                                     <input class="star star-1" id="star-1" type="radio" name="star" />
                                     <label class="star star-1" for="star-1"></label>
                                 </form>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
