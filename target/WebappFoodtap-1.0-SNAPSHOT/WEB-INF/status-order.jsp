@@ -137,7 +137,7 @@
                                         <script src="/public/js/jquery-ui.js"></script>
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
-<!--                                        <script async defered>
+                                        <script async defered>
                                             var i = 0;
                                             var userLocation;
                                             var restaurantLocation;
@@ -145,30 +145,17 @@
                                             var pointsToRestaurant;
                                             var shipperLocation;
                                             var marker2; //marker of Shipper
-<<<<<<< HEAD
-                                            var socket = io('http://localhost:9032 ');
-=======
+
                                             function blink_shipper() {
                                                 $("#shipper").fadeOut(2000);
                                                 $("#shipper").fadeIn(2000);
                                             }
                                             setInterval(blink_shipper, 1000);
                                             var socket = io('http://localhost:9032');
->>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
                                             socket.emit("join", $("#idUser").val());
 
-<<<<<<< HEAD
-                                            var i = 0;
-<<<<<<< HEAD
-                                            goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
-=======
-                                            goongjs.accessToken = 'Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3';
->>>>>>> 1d441757c509f2d74977710ab4421ad01b70f199
-=======
 
-
-                                            goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
->>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
+                                            goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
                                             var map = new goongjs.Map({
                                                 container: 'map', // container id
                                                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -224,7 +211,7 @@
                                                         var idOrder = '${order._id}';
                                                         var data = {
                                                             polyline: polyline,
-                                                            idOrder : idOrder
+                                                            idOrder: idOrder
                                                         }
                                                         $.ajax({
                                                             url: "/sendRouteToShipper/",
@@ -233,7 +220,7 @@
                                                             dataType: 'json',
                                                             data: JSON.stringify(data),
                                                             success: function(data) {
-                                                                
+
                                                             }
                                                         })
                                                     });
@@ -273,12 +260,9 @@
                                                 $("#loading-cart").addClass("loading-cart");
                                                 $("#img-loadcart").addClass("img-loadcart");
                                                 $("html, body").css("pointer-events", "none");
-<<<<<<< HEAD
 
-                                                fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&limit=1')
-=======
                                                 fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
->>>>>>> 8139f99c14ea38ab28cfef97c0d3953da85914ba
+
                                                         .then(function(response) {
                                                             return response.json()
                                                         })
@@ -333,7 +317,7 @@
 
                                             getLocation('${order.restaurant.address}', "restaurant");
                                             getLocation('${order.address}', "user");
-                                        </script>-->
+                                        </script>
                                         </body>
                                         </html>
 
