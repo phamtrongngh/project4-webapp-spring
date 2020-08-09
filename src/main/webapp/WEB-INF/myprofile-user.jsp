@@ -99,7 +99,8 @@
                 </ul>
                 <div class="tab-content py-2 "  style="height: 400px;overflow-y: auto;overflow-x: hidden;padding-right: 10px;">
 
-                    <div class="tab-pane row active" role="tabpanel" id="stepheart" style="display: flex;">
+                    <div class="tab-pane  active" role="tabpanel" id="stepheart" >
+                        <div class="row">
                         <div class="col-sm-6" style="padding-right: 10px;border-right:1px solid rgba(100, 100, 100, .4);">
                             <div class="text-center"><h6>Mọi người</h6></div>
                             <c:forEach var="item" items="${user.following.users}">
@@ -128,6 +129,7 @@
                                 </div>
                             </c:forEach>
                         </div>
+                            </div>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="stepdraft">
                         <div class="row row-like" >
