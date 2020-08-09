@@ -26,13 +26,33 @@ socket.on("sendMessage", function(item) {
         $("#chatbox .img-cont img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $("#chatbox img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
         $(".img-cont-msg img").attr("src", "http://localhost:9032/public/image/" + avatarChatter);
+
         try {
             $('.msg-card-body').scrollTop($('.msg-card-body')[0].scrollHeight);
         } catch (e) {
-
         }
         $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
+
+    } else {
+        $(".sign-new-message" + item.sender).css("display", "block");
+        if (currentChatterId != item.sender) {
+            callAjax("/getOneImg/" + item.sender, "GET", null, function(data) {
+                var html = '<div class="messenger" idValue="' + data._id + '">' +
+                        '<img src="http://localhost:9032/public/image/' + data.avatar + '" class="messenger-avatar" alt=""/>' +
+                        '<div style="width: 245px;">' +
+                        '<div class="messenger-name">' + data.fullname + '</div>' +
+                        '<p class="messenger-content">' + item.content + '</p>' +
+                        '</div>' +
+                        '<div class="date-long">' + formatDateLong(item.createdAt) + '</div>' +
+                        '</div>';
+                var number = parseInt($(".count-cart-message").html()) ? (parseInt($(".count-cart-message").html()) + 1) : 1;
+                $(".wrap-message").html(html + $(".wrap-message").html());
+                $(".count-cart-message").html(number);
+            })
+        }
     }
+
+
 });
 //socket request friend
 socket.on("friendRequest", function(data) {
@@ -197,7 +217,7 @@ function quantityChanged1(event) {
 
 
 $(document).ready(function() {
-    $(".noti-date").html(formatDateLong($(".noti-date").html()))
+    $(".date-long").html(formatDateLong($(".date-long").html()))
     /*display time*/
     $('input[name=time]').on('change', function(e) {
 
@@ -443,7 +463,7 @@ function callAjax(url, type, data, cb) {
 }
 function formatDateLong(rawDate) {
     var date = new Date(rawDate);
-    return date.getHours() + ":" + (date.getMinutes() == "0" ? "00" : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+    return date.getHours() + ":" + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 }
 function formatDateShort(rawDate) {
     var date = new Date(rawDate);
@@ -640,40 +660,38 @@ $(document).ready(function() {
         return false;
     });
     $(document).on('click', '.close', function() {
+        currentChatterId = "";
         var chatbox = $(this).parents().parents().attr("rel");
         $('[rel="' + chatbox + '"]').hide();
         arr.splice($.inArray(chatbox, arr), 1);
         displayChatBox();
         return false;
     });
-    function clickChatSidebar() {
-        $(document).on('click', '#sidebar-user-box', function() {
-            var userID = $(this).attr("idValue");
-            var username = $(this).children().text();
-            var avatar = $(this).find("img").attr("src");
-            currentChatterId = userID;
-            $(".msg_box").css("display", "block")
-            $(".msg_head").html(username + '<div class="close">x</div>');
-            avatarChatter = avatar.replace("http://localhost:9032/public/image/", "");
-            $("#sendBoxButton").attr("idValue", userID);
-            callAjax("/message/" + userID, "GET", null, function(data) {
-                var chatBoxvalue = "";
-                data.messages.forEach(function(item) {
-                    if (item.sender == userID) {
-                        chatBoxvalue += getSenderBox(item);
-                    }
-                    else {
-                        chatBoxvalue += getReceiveBox(item);
-                    }
-                });
-                $(".msg_body").html(chatBoxvalue);
-                $(".img-cont-msg img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
-                $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
+    $(document).on('click', '#sidebar-user-box', function() {
+        var userID = $(this).attr("idValue");
+        var username = $(this).children().text();
+        var avatar = $(this).find("img").attr("src");
+        currentChatterId = userID;
+        $(".msg_box").css("display", "block")
+        $(".msg_head").html(username + '<div class="close">x</div>');
+        avatarChatter = avatar.replace("http://localhost:9032/public/image/", "");
+        $("#sendBoxButton").attr("idValue", userID);
+        callAjax("/message/" + userID, "GET", null, function(data) {
+            var chatBoxvalue = "";
+            data.messages.forEach(function(item) {
+                if (item.sender == userID) {
+                    chatBoxvalue += getSenderBox(item);
+                }
+                else {
+                    chatBoxvalue += getReceiveBox(item);
+                }
             });
-
+            $(".msg_body").html(chatBoxvalue);
+            $(".sign-new-message" + userID).css("display", "none");
+            $(".img-cont-msg img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
+            $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
         });
-    }
-    clickChatSidebar();
+    });
     $(document).on('keypress', 'textarea[name=msg-input]', function(e) {
         if (e.keyCode == 13 && !e.shiftKey) {
             var msg = $(this).val();
@@ -876,24 +894,33 @@ $(document).ready(function() {
         })
 
     })
-    //binding data to open explorestore-near
 
+    $(".message-box-button").click(function() {
+
+    })
 
 
     //get product to biding to update product modal box
-    $(".updateProduct").click(function() {
-        var content = $(this).closest(".status").find(".font1");
+    $(document).on("click",".updateProduct",function() {
         var idProduct = $(this).attr("idValue");
+        $("#updateMenu input[name='categories']").val("");
+        var arraystore =[];
         callAjax("/getProduct/" + idProduct, "GET", null, function(data) {
             $("#updateMenu input[name='name']").val(data.name);
             $("#updateMenu input[name='price']").val(data.price);
             $("#updateMenu input[name='saleoff']").val(data.saleoff);
+             for (var i=0; i<data.category.length;i++){
+                arraystore.push(data.category[i].name);
+                var namestore = data.category[i].name+", ";
+                $("#updateMenu input[name='categories']").val($("#updateMenu input[name='categories']").val()+namestore);
+            }
             $("#updateMenu input[name='id']").val(idProduct);
             $("#updateMenu .image-frame-upload").css("background", "url(http://localhost:9032/public/image/" + data.image + ")");
             $("#updateMenu .image-frame-upload").css("background-size", "cover");
             $("#updateMenu .image-frame-upload").css("background-repeat", "no-repeat");
+            namestore = null;
         })
-
+        
     })
     //Send request friend
     $(".send-request-friend").click(function() {
@@ -958,6 +985,32 @@ $(document).ready(function() {
             }
             $("#myCart").css("display", "block");
         })
+    })
+    $(".send-large-button").click(function() {
+        var userID = $(this).attr("idValue");
+        var username = $(this).attr("nameValue");
+        var avatar = $(this).attr("avatarValue");
+        currentChatterId = userID;
+        $(".msg_box").css("display", "block")
+        $(".msg_head").html(username + '<div class="close">x</div>');
+        avatarChatter = avatar.replace("http://localhost:9032/public/image/", "");
+        $("#sendBoxButton").attr("idValue", userID);
+        callAjax("/message/" + userID, "GET", null, function(data) {
+            var chatBoxvalue = "";
+            data.messages.forEach(function(item) {
+                if (item.sender == userID) {
+                    chatBoxvalue += getSenderBox(item);
+                }
+                else {
+                    chatBoxvalue += getReceiveBox(item);
+                }
+            });
+            $(".msg_body").html(chatBoxvalue);
+            $(".sign-new-message" + userID).css("display", "none");
+            $(".img-cont-msg img").attr("src", "http://localhost:9032/public/image/" + data.user.avatar);
+            $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
+        });
+
     })
     //remove cart
     $(".removeCart").click(function() {
@@ -1365,16 +1418,16 @@ $(document).ready(function() {
         }
     });
 });
-$(".btn_copy").on("click", function (){
-        var copyText = $(this).closest(".coupon-chil").find("#coupon").html();
+$(".btn_copy").on("click", function() {
+    var copyText = $(this).closest(".coupon-chil").find("#coupon").html();
     var textArea = document.createElement("textarea");
     textArea.value = copyText;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
-    alert("Bạn đã coppy mã "+copyText)
-    });
+    alert("Bạn đã coppy mã " + copyText)
+});
 $(document).ready(function() {
     document.getElementById("btn-follow").addEventListener("click", ChangButtonFollow);
 });
@@ -1521,11 +1574,11 @@ $(document).ready(function() {
 var arraystore = [];
 var arrayIDstore = [];
 $(".dropdown-item").click(function() {
-    var a = $(this).closest("#mdMenu").find(".id-store-coupon");
+    var a = $(this).closest("#updateCoupon").find(".id-store-coupon");
     if (arraystore.length != 0) {
         for (var i = 0; i < arraystore.length; i++) {
             if (arraystore[i] == $(this).find(".name-store").text()) {
-                alert("Danh mục này đã được chọn");
+                alert("Cửa hàng này đã được chọn");
                 return false;
             }
         }
@@ -1543,14 +1596,31 @@ $(".dropdown-item").click(function() {
         arraystore.push($(this).find(".name-store").text().toString());
         $(".store-coupon").val($(".store-coupon").val() + $(this).find(".name-store").text() + ", ");
     }
+    if ($(".image-frame-upload").css("background") != null) {
+        $(".img-hidden").css("display", "none");
+    }
+});
+$(".store-coupon").keydown(function(e) {
+    var deletevalue = $(this).value;
+    if (e.key != "Backspace") {
+        alert("Bạn chỉ có thể xóa");
+        return false;
+    }
+    else
+    {
+        $(this).val("");
+        arraystore = [];
+        arrayIDstore = [];
+    }
+
 });
 $(".img-all-user").click(function() {
     callAjax("/newfeed/getMyNewfeeds", "GET", null, function(data) {
-       
+
         var html = "";
         data.forEach(function(item) {
 
-            if (item.images[0] != null && item.product ==null) {
+            if (item.images[0] != null && item.product == null) {
 
                 var content =
                         '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';

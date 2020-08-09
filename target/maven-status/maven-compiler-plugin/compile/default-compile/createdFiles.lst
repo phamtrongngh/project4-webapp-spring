@@ -9,7 +9,6 @@ Nghia\Util\RESTHelper$3.class
 Nghia\Util\RESTAuthorizeHelper.class
 controllers\NewfeedController.class
 Nghia\Util\RESTHelper$2.class
-Nghia\Util\RESTMessageHelper$1.class
 controllers\ProductController.class
 models\Newfeed.class
 Nghia\Util\RESTAuthorizeHelper$1.class
@@ -21,9 +20,7 @@ models\Authorization.class
 Nghia\Util\RESTRestaurantHelper$1.class
 interceptor\AuthorizeHandleInterceptor.class
 Nghia\Util\RESTCouponHelper.class
-controllers\MessageController.class
 Nghia\Util\RESTUserHelper$1.class
-Nghia\Util\RESTMessageHelper.class
 controllers\FoodCategoryController.class
 controllers\OrderController.class
 Nghia\Util\CookieHelper.class
