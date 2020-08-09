@@ -25,8 +25,9 @@
         </div>
         <div class="box" id="chat-sidebar">
             <c:forEach var="item" items="${friends}">
-                <div id="sidebar-user-box" idValue="${item.user._id}">
+                <div id="sidebar-user-box" idValue="${item.user._id}" style="position: relative;">
                     <img src="http://localhost:9032/public/image/${item.user.avatar}" class="rounded-circle img-avatar1 " alt=" " />
+                    <div class="rounded-circle" style="position: absolute; top:36px;right: 2px; background-color: #52b769;width: 10px;height: 10px;"></div>
                     <span id="slider-username">${item.user.fullname}</span>
                 </div>
             </c:forEach>

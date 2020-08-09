@@ -12,7 +12,6 @@ var currentChatterId;
 //SOCKETIO receive message chat
 var socket = io('http://localhost:9032');
 socket.emit("join", $("#idUser").val());
-
 socket.on("sendMessage", function(item) {
     if (item.sender == currentChatterId) {
         var chatBoxvalue = "";
@@ -198,6 +197,7 @@ function quantityChanged1(event) {
 
 
 $(document).ready(function() {
+    $(".noti-date").html(formatDateLong($(".noti-date").html()))
     /*display time*/
     $('input[name=time]').on('change', function(e) {
 
