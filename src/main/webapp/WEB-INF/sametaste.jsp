@@ -47,21 +47,23 @@
             </div>
             <div class="profile-menu-hot row">
                 <c:forEach var="item" items="${users}">
-                    <div class="col-md-3  ">
-                        <div class="hovereffect">
-                            <a href="/user-profile/${item._id}" >
-                                <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
+                    <c:if test="${item._id!=cookie['_id'].getValue()}">
+                        <div class="col-md-3  ">
+                            <div class="hovereffect">
+                                <a href="/user-profile/${item._id}" >
+                                    <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
 
-                            </a>
-                            <div class="absohovereffect">
-                                <div class="d-flex">
-                                    <a href=""><div style="width: 170px;font-size: 20px; color: white;">${item.fullname} </div></a>
-                                    <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                                </a>
+                                <div class="absohovereffect">
+                                    <div class="d-flex">
+                                        <a href=""><div style="width: 170px;font-size: 20px; color: white;">${item.fullname} </div></a>
+                                        <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                                    </div>
+
                                 </div>
-
                             </div>
                         </div>
-                    </div>
+                    </c:if>
                 </c:forEach>
             </div>
 
@@ -78,20 +80,22 @@
             </div>
             <div class="profile-menu-near row">
                 <c:forEach var="item" items="${users}">
-                    <div class="col-md-3  ">
-                        <div class="hovereffect">
-                            <a href="/user-profile/${item._id}" >
-                                <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
-                            </a>
-                            <div class="absohovereffect">
-                                <div class="d-flex">
-                                    <a href=""><div style="width: 170px;font-size: 20px; color: white;">${item.fullname} </div></a>
-                                    <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                                </div>
+                    <c:if test="${item._id!=cookie['_id'].getValue()}">
+                        <div class="col-md-3  ">
+                            <div class="hovereffect">
+                                <a href="/user-profile/${item._id}" >
+                                    <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
+                                </a>
+                                <div class="absohovereffect">
+                                    <div class="d-flex">
+                                        <a href=""><div style="width: 170px;font-size: 20px; color: white;">${item.fullname} </div></a>
+                                        <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
+                                    </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:if>
                 </c:forEach>
             </div>
         </div>

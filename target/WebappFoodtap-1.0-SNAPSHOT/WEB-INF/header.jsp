@@ -192,7 +192,7 @@
                                                     <img src="http://localhost:9032/public/image/${noti.fromUser.avatar}" class="messenger-avatar from-noti-avatar" alt=""/>
                                                     <div>
                                                         <div class="noti-fullname">${noti.fromUser.fullname}</div>
-                                                        <div class="noti-date">${noti.date}</div>
+                                                        <div class="noti-date date-long">${noti.date}</div>
                                                         <a href="${noti.link}">
                                                             <div class="noti-content">${noti.content}</div>
                                                         </a>
@@ -218,23 +218,22 @@
 
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fa fa-comment fa-menu" aria-hidden="true"></i></i><span class="badge count-cart">3</span><span class="caret"></span></a></a>
+                    <li class="nav-item dropdown message-box-button">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fa fa-comment fa-menu" aria-hidden="true"></i></i><span class="badge count-cart count-cart-message"></span><span class="caret"></span></a></a>
 
                         <div class="dropdown-menu dropdown-messenger">
-                            <c:forEach var="item" items="${chatters}">
-                                <div class="messenger" idValue="${item.user._id}">
-                                    <img src="http://localhost:9032/public/image/${item.user.avatar}" class="messenger-avatar" alt=""/>
-                                    <div style="width: 245px;">
-
-                                        <div class="messenger-name">${item.user.fullname}</div>
-                                        <p class="messenger-content">đâsdsadasdasd</p>
+                            <div class="wrap-message">
+                                <c:forEach var="item" items="${friends}">
+                                    <div class="messenger" idValue="${item.user._id}">
+                                        <img src="http://localhost:9032/public/image/${item.user.avatar}" class="messenger-avatar" alt=""/>
+                                        <div style="width: 245px;">
+                                            <div class="messenger-name">${item.user.fullname}</div>
+                                            <p class="messenger-content">${item.messages[0].content}</p>
+                                        </div>
+                                        <div class="date-long">${item.messages[0].createdAt}</div>
                                     </div>
-                                    <div>12:00</div>
-
-                                </div>
-                            </c:forEach>
-
+                                </c:forEach>
+                            </div>
                             <div class="messenger-footer">
                                 <span><a  href="/message/">Xem tất cả</a></span>
                                 <span style="float: right;"><a href="#">Đánh dấu đã đọc tất cả</a></span>

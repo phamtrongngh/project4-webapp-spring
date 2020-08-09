@@ -137,7 +137,7 @@
                                         <script src="/public/js/jquery-ui.js"></script>
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
-                                        <script async defered>
+<!--                                        <script async defered>
                                             var i = 0;
                                             var userLocation;
                                             var restaurantLocation;
@@ -317,7 +317,7 @@
 
                                             getLocation('${order.restaurant.address}', "restaurant");
                                             getLocation('${order.address}', "user");
-                                        </script>
+                                        </script>-->
                                         </body>
                                         </html>
 
