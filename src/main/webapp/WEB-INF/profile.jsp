@@ -285,40 +285,23 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="profile-menu-row">
-                                    <c:forEach var="item" begin="0" end="3" items="${restaurant.menus}">
-                                        <c:forEach var="c" items="${item.category}">
-
+                                    <c:forEach var="item" items="${restaurant.category}">
+                                        <c:if test="${item!= null}">
                                             <div class="col-md-3">
-                                                <a href="#"><img class="rounded " src="http://localhost:9032/public/image/${c.image}" alt="" />
+                                                <a href="#"><img class="rounded " src="http://localhost:9032/public/image/${item.image}" alt="" />
                                                     <div class="rounded photo">
                                                         <div>
-                                                            ${c.name}
+                                                            ${item.name}
                                                         </div>
 
                                                     </div>
                                                 </a>
                                             </div>
-                                        </c:forEach>
+                                       </c:if>
                                     </c:forEach>
 
                                 </div>
-                                <div class="profile-menu-row1">
-                                    <c:forEach var="item" begin="4" end="7" items="${restaurant.menus}">
-                                        <c:forEach var="c" items="${item.category}">
-
-                                            <div class="col-md-3">
-                                                <a href="#"><img class="rounded " src="http://localhost:9032/public/image/${c.image}" alt="" />
-                                                    <div class="rounded photo">
-                                                        <div>
-                                                            ${c.name}
-                                                        </div>
-
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </c:forEach>
-                                    </c:forEach>
-                                </div>
+                                
                             </div>
                             <div class="swiper-slide">
                                 <div class="profile-menu-row">

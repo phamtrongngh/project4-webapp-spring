@@ -10,17 +10,19 @@
                 <h4 class="modal-title"> Báo cáo quản trị</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div>
-                    <h3>Nội dụng</h3>
-                    <textarea style="width: 100%" rows="5"></textarea>
+            <form action="#" enctype="" method="POST">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+                        <h3>Nội dung</h3>
+                        <textarea style="width: 100%" rows="5" class="content-report" name="content"></textarea>
+                    </div>
                 </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger submit" >Gửi</button>
-            </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger submit send-report"  >Gửi</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -426,7 +428,7 @@
                         <button id="btn-like" class="btn btn-primary form-control" idValue="${restaurant._id}"><i class="far fa-thumbs-up"></i>Thích</button>
                     </c:if>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
-                    <button class="btn btn-danger form-control " data-toggle="modal" data-target="#repostModal"><i class="fas fa-poll-h" ></i>Báo cáo</button>
+                    <button class="btn btn-danger form-control btn-report" isValue="${restaurant._id}" typed="restaurant"  data-toggle="modal" data-target="#repostModal"><i class="fas fa-poll-h" ></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
                     <button class="btn btn-primary form-control "><i class="far fa-comment"></i><br/>Gửi tin</button>
@@ -480,9 +482,7 @@
                                             <div class="dropleft">
                                                 <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                 <div class="dropdown-menu" >
-                                                    <a class="dropdown-item" href="#">Ẩn</a>
-                                                    <a class="dropdown-item" href="#">Sửa</a>
-                                                    <a class="dropdown-item" href="#">Xóa</a>
+                                                    <a class="dropdown-item btn-report" isValue="${item._id}" typed="newfeed" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -550,7 +550,7 @@
                                                                             <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                                             </a>
                                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                <a class="dropdown-item btn-report" isValue="${comment._id}" typed="restaurant" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -585,9 +585,7 @@
                                                                                             <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                                                             </a>
                                                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                                <a class="dropdown-item btn-report" isValue="" typed="restaurant" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -636,9 +634,7 @@
                                             <div class="dropleft">
                                                 <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                 <div class="dropdown-menu" >
-                                                    <a class="dropdown-item" href="#">Ẩn</a>
-                                                    <a class="dropdown-item" href="#">Sửa</a>
-                                                    <a class="dropdown-item" href="#">Xóa</a>
+                                                    <a class="dropdown-item btn-report" isValue="${item._id}" typed="newfeed" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                 </div>
                                             </div>
                                         </div>
