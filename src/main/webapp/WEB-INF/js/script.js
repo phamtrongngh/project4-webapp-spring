@@ -1066,6 +1066,43 @@ $(document).ready(function() {
             collapse.closest(".status").find(".count-comment").html(number);
         });
     });
+    //Rating order
+    $(".btn-send-rating").click(function() {
+        var type;
+        if ($(this).attr("id") == "rating-order-shipper") {
+            type = "shipper";
+        } else {
+            type = "restaurant";
+        }
+        var parentForm = $(this).closest("form").closest("form");
+        var star = $(this).closest("form").find("input[name='star']:checked").val();
+        var content = $(this).closest("form").find("textarea").val();
+        var targetId = $(this).attr("targetId");
+        var orderId = $(this).attr("orderId");
+        if (star) {
+
+            var data = {
+                star: star,
+                type: type,
+                targetId: targetId,
+                content: content,
+                orderId : orderId
+            }
+            $.ajax({
+                url: "/order/rate",
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: 'json',
+                data: JSON.stringify(data),
+                success: function(data) {
+                    parentForm.css("display","none");
+                    alert("Thanks for rating");
+                    
+                }
+            })
+        }
+    })
+
     //reply comment 
     $(document).on("click", ".reply-comment", function() {
         var content = $(this).closest(".collapse").find(".input-comments").val();
