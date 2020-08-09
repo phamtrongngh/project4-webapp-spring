@@ -518,32 +518,44 @@
                         <div class="img-list">
                             <h3><i class="fas fa-image"></i>Ảnh</h3>
                             <div class="img-contain row">
-                                <c:forEach begin="0" end="5" items="${user.newfeeds}" var="item">
-                                    <div class="img-contains col-sm-4">
-                                        <image class="rounded" src ="http://localhost:9032/public/image/${item.images[0]}" />  
-                                    </div>
+                                <c:set var="count" value="0" scope="page" />
+                                <c:forEach var="c" items="${user.newfeeds}">
+                                    <c:if test="${c.product == null && c.images[0] != null && count<6}">
+                                        <c:set var="count" value="${count+1}" scope="page" />
+                                        <div class="img-contains col-md-4">
+                                            <image class="rounded" src ="http://localhost:9032/public/image/${c.images[0]}"  />  
+                                        </div>
+
+                                    </c:if>
+
                                 </c:forEach>
 
                             </div>
-                            <a href="#" class="img-all-user-id" idValue="${user._id}"   data-toggle="modal" data-target="#see-img" style=" position: absolute;left: 250px;top: 203px;">Xem tất cả</a>
+                            
                         </div>
+
+                        <a href="#" class="img-all-user-id d-flex justify-content-end" style="margin-right: 10px" idValue="${user._id}"   data-toggle="modal" data-target="#see-img" >Xem tất cả</a>
+
                     </div>
                     <div class="profile-list-friend rounded" >
                         <div class="friend-list">
                             <h3><i class="fas fa-user-friends"></i>Bạn bè </h3>
                             <div class="img-contain row ">
                                 <c:forEach  var="item" items="${user.friends}">
-
-                                    <div class="img-contains col-sm-4">
-                                        <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
-                                        <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
-                                    </div>
+                                    <c:if test="${item.status =='accepted'}">
+                                        <div class="img-contains col-sm-4">
+                                            <image class="rounded" src ="http://localhost:9032/public/image/${item.user.avatar}" />
+                                            <a href="/user-profile/${item.user._id}">${item.user.fullname}</a>
+                                        </div>
+                                    </c:if>
 
                                 </c:forEach>
                             </div>
 
-                            <a href="#"  style=" position: absolute;left: 250px;top: 478px;" idValue="${user._id}" class="friend-userpage"data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
+
                         </div>
+                        <a href="#" idValue="${user._id}" class="friend-userpage d-flex justify-content-end"  style="margin-right: 10px" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
+
                     </div>
                 </div>
                 <div class="col-md-8" style="padding-top: 10px;">

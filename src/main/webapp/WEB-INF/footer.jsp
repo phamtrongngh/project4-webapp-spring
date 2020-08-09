@@ -2,20 +2,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- LiST CHAT -->
 <div class="msg_box" style="right:270px; display:none" rel="undefined">
-    <div class="msg_head">
-        Lê Trường Dương
+    <div class="msg_head"> Khang  
         <div class="close">x</div>
     </div>
     <div class="msg_wrap" style="">
         <div class="msg_body">
             <div class="msg-right">Hello?</div>
             <div class="msg_push">?</div>
-            <div class="msg_push">Nice to meet you</div>
         </div>
         <div class="msg_footer">
             <textarea name="msg-input" class="msg_input" rows="10"></textarea>
             <div class="btn-footer">
-                <button class="bg_none pull-right"><i class="fa fa-paper-plane"></i> </button> 
+                <button class="bg_none pull-right" id="sendBoxButton"><i class="fa fa-paper-plane"></i> </button> 
             </div>
         </div>
     </div>
@@ -27,15 +25,15 @@
         </div>
         <div class="box" id="chat-sidebar">
             <c:forEach var="item" items="${friends}">
-                <div id="sidebar-user-box" >
+                <div id="sidebar-user-box" idValue="${item.user._id}" style="position: relative;">
                     <img src="http://localhost:9032/public/image/${item.user.avatar}" class="rounded-circle img-avatar1 " alt=" " />
+                    <div class="rounded-circle" style="position: absolute; top:36px;right: 2px; background-color: #52b769;width: 10px;height: 10px;"></div>
                     <span id="slider-username">${item.user.fullname}</span>
                 </div>
             </c:forEach>
         </div>
         <div>
-            <a  class="btn-down"><i class="fa fa-chevron-circle-down "aria-hidden="true "></i></a>
-
+            <a class="btn-down"><i class="fa fa-chevron-circle-down "aria-hidden="true "></i></a>
         </div>
     </div>
 </div>

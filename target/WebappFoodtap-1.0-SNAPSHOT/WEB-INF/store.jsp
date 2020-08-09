@@ -786,12 +786,18 @@
                         <div class="header-voucher"><h4><i class="fa fa-list-alt" aria-hidden="true"></i> Khuyến mãi</h4></div>
                     </div>
                     <c:forEach var="c" items="${coupons}">
-                        <div style="background-color: white;">
-                            <div class="rounded vouchers" style="background: url(http://localhost:9032/public/image/${c.image}); background-repeat: no-repeat; background-size: 100% 100%;">
+                        <c:forEach var="res" items="${c.restaurants}">
+                            <c:if test="${res._id == restaurant._id}">
+                                <div style="background-color: white;" class="coupon-chil">
+                                    <div class="rounded vouchers btn_copy" style="background: url(http://localhost:9032/public/image/${c.image}); background-repeat: no-repeat; background-size: 100% 100%;">
 
-                            </div>
-                            <div class="header-mission" ><h4><i class="fas fa-percent"></i> Nhập <span style="color: red;">${c.code}</span><br/>"${c.name}"</h4></div>
-                        </div>
+                                    </div>
+                                    <div class="header-mission" ><h4><i class="fas fa-percent"></i> Nhập <span style="color: red;" id="coupon">${c.code}</span><br/>"${c.name}"</h4></div>
+                                </div>
+
+                            </c:if>
+                        </c:forEach>
+
                     </c:forEach>
                 </div>
             </div>
