@@ -517,12 +517,12 @@
 
                                 </c:forEach>
                             </div>
-                            
+
                             <a href="#"  style=" position: absolute;left: 250px;top: 478px;" idValue="${user._id}" class="friend-userpage"data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
                         </div>
                     </div>
                 </div>
-                        <div class="col-md-8" style="padding-top: 10px;">
+                <div class="col-md-8" style="padding-top: 10px;">
                     <c:forEach var="item" items="${user.newfeeds}">
                         <c:choose>
                             <c:when test="${item.product!=null}">
@@ -560,10 +560,8 @@
                                         <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                                     </div>
                                     <div style="margin-top: 2px;display: flex;">
-                                        <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;">
-                                            <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${(item.likes).size()}</span>
-                                        </a>
-                                        <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#" data-target="#collapse${item._id}" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a>
+                                        <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
+                                        <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#" data-target="#collapse${item._id}" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a>
                                             <!--                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
                                         </div>
                                     </div>
@@ -713,19 +711,24 @@
                                         <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                                     </div>
                                     <div style="margin-top: 2px;display: flex;">
-                                        <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;">
-                                            <span style="display: flex;"><div style="margin-right: 5px;margin-left: 15px;"><i class="fa fa-heart rounded-circle" aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div>${(item.likes).size()}</span>
-                                        </a>
-                                        <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#" data-target="#collapse${item._id}" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="count-comment">${(item.comments).size()} bình luận</span></a>
+                                        <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
+                                        <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#" data-target="#collapse${item._id}" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a>
                                             <!--                                                                                <a href="" data-toggle="modal" data-target="#Modallikeshare" style="color: black;"><span>200 chia sẻ</span></a>-->
                                         </div>
                                     </div>
                                     <hr class="hr-newsfeed"/>
                                     <div class="icon2">
-
                                         <div class="subicon1">
-
-                                            <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
+                                            <c:set var="checkLike2" value="${true}" />
+                                            <c:forEach var="like" items="${item.likes}">
+                                                <c:if test="${like==cookie['_id'].getValue()}">
+                                                    <i class="fab fa-gratipay like-newpost"  aria-hidden="true"></i>
+                                                    <c:set var="checkLike2" value="${false}" />
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:if test="${checkLike2!=false}">
+                                                <i class="fa fa-heart like-newpost"  aria-hidden="true"></i>
+                                            </c:if>
                                             <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                         </div>
                                     </div>
