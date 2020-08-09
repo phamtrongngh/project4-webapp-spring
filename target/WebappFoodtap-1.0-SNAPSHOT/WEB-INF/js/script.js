@@ -1015,7 +1015,7 @@ $(document).ready(function() {
                     '</p>' +
                     '</div>';
             collapse.closest(".collapse").find(".parrent-comments").append(html);
-            var number = parseInt(collapse.closest(".status").find(".count-comment").html())+1;
+            var number = parseInt(collapse.closest(".status").find(".count-comment").html()) + 1;
             $(".input-comments").val("");
             collapse.closest(".status").find(".count-comment").html(number);
         });
@@ -1532,7 +1532,9 @@ $(".img-all-user").click(function() {
        
         var html = "";
         data.forEach(function(item) {
+
             if (item.images[0] != null && item.product ==null) {
+
                 var content =
                         '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
                 html += content;
@@ -1567,10 +1569,11 @@ $(".img-all-user-id").click(function() {
     callAjax("/getOneImg/" + imgalluser, "GET", null, function(data) {
         var html = "";
         data.newfeeds.forEach(function(item) {
-            if (item.product==null && item.images[0]!=null) {
-            var content =
-                    '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
-            html += content;
+            if (item.images[0] != null && item.product == null) {
+                var content =
+                        '<img src="http://localhost:9032/public/image/' + item.images[0] + '" class="img-user col-sm-3" />';
+                html += content;
+
             }
         });
         $(".img-modal-all-user").html(html);
