@@ -249,7 +249,7 @@
                         <input style="margin-top: 5px;" type="hidden"  class="form-control id-store-coupon" name=""/>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="max-width: 100%;height: 200px;top:68px!important;overflow: auto;">
                             <c:forEach var="item" items="${foodCaterogys}">
-                                <div class="dropdown-item">
+                                <div class="dropdown-item dropdown-item-DM">
                                     <img src="http://localhost:9032/public/image/${item.image}" width="25px" class="search-avatar" alt=""/>
                                     <span class="name-store">${item.name}</span>
                                     <span style="display: none;" class="id-store">${item._id}</span>
@@ -312,7 +312,7 @@
                         <input style="margin-top: 5px;" type="text" name="categories"  class="form-control store-coupon"/>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="max-width: 100%;height: 200px;top:68px!important;overflow: auto;">
                             <c:forEach var="item" items="${foodCaterogys}">
-                                <div class="dropdown-item">
+                                <div class="dropdown-item dropdown-item-DM">
                                     <img src="http://localhost:9032/public/image/${item.image}" width="25px" class="search-avatar" alt=""/>
                                     <span class="name-store">${item.name}</span>
                                     <span style="display: none;" class="id-store">${item._id}</span>

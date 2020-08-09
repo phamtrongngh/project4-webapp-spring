@@ -1556,7 +1556,7 @@ $(document).ready(function() {
 });
 var arraystore = [];
 var arrayIDstore = [];
-$(".dropdown-item").click(function() {
+$(".dropdown-item-DM").click(function() {
     var a = $(this).closest("#updateCoupon").find(".id-store-coupon");
     if (arraystore.length != 0) {
         for (var i = 0; i < arraystore.length; i++) {
