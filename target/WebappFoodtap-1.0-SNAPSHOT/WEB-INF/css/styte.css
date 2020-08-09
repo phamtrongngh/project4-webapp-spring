@@ -651,6 +651,7 @@ h1 {
 /*LIST FRIENDS*/
 
 .list-friends .img-avatar1 {
+    position: relative;
     margin-top: 40px;
     width: 55px;
     height: 55px;
