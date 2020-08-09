@@ -43,21 +43,18 @@
             </div>
             <div class="profile-menu-hot row">
                 <c:forEach var="item" items="${users}">
-                    <div class="col-md-3  ">
-                        <div class="hovereffect">
-                            <a href="/user-profile/${item._id}" >
-                                <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
-
-                            </a>
-                            <div class="absohovereffect">
-
-                                <a href="/user-profile/${item.user._id}"><div style="width: 100%;font-size: 25px; color: white;"">${item.fullname} </div></a>
-
-
-
+                    <c:if test="${item._id!=cookie['_id'].getValue()}">
+                        <div class="col-md-3  ">
+                            <div class="hovereffect">
+                                <a href="/user-profile/${item._id}" >
+                                    <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
+                                </a>
+                                <div class="absohovereffect">
+                                    <a href="/user-profile/${item.user._id}"><div style="width: 100%;font-size: 25px; color: white;"">${item.fullname} </div></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:if>
                 </c:forEach>
             </div>
 
@@ -74,20 +71,19 @@
             </div>
             <div class="profile-menu-near row">
                 <c:forEach var="item" items="${users}">
-                    <div class="col-md-3  ">
-                        <div class="hovereffect">
-                            <a href="/user-profile/${item._id}" >
-                                <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
-                            </a>
-                            <div class="absohovereffect">
+                    <c:if test="${item._id!=cookie['_id'].getValue()}">
+                        <div class="col-md-3  ">
+                            <div class="hovereffect">
+                                <a href="/user-profile/${item._id}" >
+                                    <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
+                                </a>
+                                <div class="absohovereffect">
+                                    <a href="/user-profile/${item._id}"><div style="width: 100%;font-size: 25px; color: white;">${item.fullname} </div></a>
 
-                                <a href="/user-profile/${item.user._id}"><div style="width: 100%;font-size: 25px; color: white;">${item.fullname} </div></a>
-
-
-
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:if>
                 </c:forEach>
             </div>
         </div>

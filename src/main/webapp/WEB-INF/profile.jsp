@@ -613,7 +613,7 @@
                         <div class="profile-name">
                             <div class="text-name">${restaurant.name}</div>
                             <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
-                            <div class="stars">
+<!--                            <div class="stars">
                                 <form action="">
                                     <input class="star star-5" id="star-5" type="radio" name="star" />
                                     <label class="star star-5" for="star-5"></label>
@@ -626,7 +626,7 @@
                                     <input class="star star-1" id="star-1" type="radio" name="star" />
                                     <label class="star star-1" for="star-1"></label>
                                 </form>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -659,16 +659,20 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="profile-menu-row">
-                                    <div class="col-md-3">
-                                        <a href="#"><img class="rounded " src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" alt="" />
-                                            <div class="rounded photo">
-                                                <div>
-                                                    Kem
-                                                </div>
+                                    <c:forEach var="item" items="${restaurant.menu}">
+                                        <c:forEach var="c" items="${item.category}">
+                                            <div class="col-md-3">
+                                                <a href="#"><img class="rounded " src="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" alt="" />
+                                                    <div class="rounded photo">
+                                                        <div>
+                                                            Kem
+                                                        </div>
 
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </c:forEach>
+                                    </c:forEach>
                                     <div class="col-md-3">
                                         <a href="#"><img class="rounded " src="/public/image/images new feed/vit-quay-bac-kinh.jpg" alt="" />
                                             <div class="rounded photo">

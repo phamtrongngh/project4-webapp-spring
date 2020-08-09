@@ -374,7 +374,7 @@
                     <div class="col-md-4" >
                         <a href="" class="click-img" data-toggle="modal" data-target="#orderModal" idValue="${item._id}" ><img src="http://localhost:9032/public/image/${item.image}" class="order-img"  alt=""  />
                             <p style="margin-bottom:0;">${item.restaurant.name}</p>
-                            <span style="font-weight: 300;font-size: 18px;">${item.name}</span>
+                            <span style="font-weight: 300;font-size: 18px;font-family: auto;">${item.name}</span>
                             <div class="text-price">
                                 <span class="price-foodnumber">${item.price}</span> 
                                 <span>VNĐ</span>
@@ -399,7 +399,7 @@
                     <div class="col-md-4" >
                         <a href="" class="click-img" data-toggle="modal" data-target="#orderModal" idValue="${item._id}" ><img src="http://localhost:9032/public/image/${item.image}" class="order-img"  alt=""  />
                             <p style="margin-bottom:0;">${item.restaurant.name}</p>
-                            <span style="font-weight: 300;font-size: 18px;">${item.name}</span>
+                            <span style="font-weight: 300;font-size: 18px;font-family: auto;">${item.name}</span>
                             <div class="text-price"><span class="price-foodnumber">${item.price}</span> <span>VNĐ</span> </div>
                     </div>
                 </c:forEach>

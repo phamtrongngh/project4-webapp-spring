@@ -6,12 +6,14 @@
 package interceptor;
 
 import Nghia.Util.CookieHelper;
+import Nghia.Util.RESTMessageHelper;
 import Nghia.Util.RESTUserHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Message;
 import models.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AuthorizeHandleInterceptor implements HandlerInterceptor {
 
     private RESTUserHelper restHelper;
+    private RESTMessageHelper restMessage;
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object o, Exception excptn) throws Exception {
@@ -31,17 +34,18 @@ public class AuthorizeHandleInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView mav) throws Exception {
         restHelper = new RESTUserHelper(User.class);
-        List<Map<String, ?>> accepted = new ArrayList<Map<String, ?>>();
-        List<Map<String, ?>> requested = new ArrayList<Map<String, ?>>();;
+        restMessage = new RESTMessageHelper(Message.class);
+        List<Map<String, ?>> requested = new ArrayList<Map<String, ?>>();
         for (Map<String, ?> object : restHelper.getFriendRequests()) {
             if (object.get("status").equals("accepted")) {
-                accepted.add(object);
-            }else if (object.get("status").equals("requested")){
+                // Nothing
+            } else if (object.get("status").equals("requested")) {
                 requested.add(object);
-            }  
+            }
         }
-        mav.addObject("friendRequests",requested).addObject("friends",accepted).addObject("notifications",restHelper.getNotification());
+        mav.addObject("friendRequests", requested).addObject("friends", restMessage.getAllChatter()).addObject("notifications", restHelper.getNotification());
     }
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
 
