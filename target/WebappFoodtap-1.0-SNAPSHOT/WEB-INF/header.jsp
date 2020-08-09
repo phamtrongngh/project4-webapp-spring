@@ -213,7 +213,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <span><a  href="/">Đã xem tất cả</a></span>
+                                <!--<span><a  href="/">Đã xem tất cả</a></span>-->
                             </div>
 
                         </div>
@@ -236,7 +236,7 @@
                             </div>
                             <div class="messenger-footer">
                                 <span><a  href="/message/">Xem tất cả</a></span>
-                                <span style="float: right;"><a href="#">Đánh dấu đã đọc tất cả</a></span>
+                                <!--<span style="float: right;"><a href="#">Đánh dấu đã đọc tất cả</a></span>-->
                             </div>
                         </div>
                     </li>
