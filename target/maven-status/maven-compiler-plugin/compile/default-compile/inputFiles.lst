@@ -1,5 +1,6 @@
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\User.java
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\FoodCategoryController.java
+C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Report.java
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\MessageController.java
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Message.java
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\Nghia\Util\RESTUserHelper.java
@@ -11,6 +12,7 @@ C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controller
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Cart.java
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\Nghia\Util\RESTCouponHelper.java
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Coupon.java
+C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\ReportController.java
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\controllers\AuthController.java
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\models\Restaurant.java
 C:\Users\ASUS\Desktop\WebappFoodtapSpring\WebappFoodtap\src\main\java\Nghia\Util\RESTMessageHelper.java

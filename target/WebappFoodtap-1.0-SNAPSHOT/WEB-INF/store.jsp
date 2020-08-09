@@ -10,17 +10,19 @@
                 <h4 class="modal-title"> Báo cáo quản trị</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div>
-                    <h3>Nội dụng</h3>
-                    <textarea style="width: 100%" rows="5"></textarea>
+            <form action="#" enctype="" method="POST">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+                        <h3>Nội dung</h3>
+                        <textarea style="width: 100%" rows="5" class="content-report" name="content"></textarea>
+                    </div>
                 </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger submit" >Gửi</button>
-            </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger submit send-report"  >Gửi</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -380,21 +382,18 @@
 
                         </div>
                         <div class="profile-name">
-                            <div class="text-name">${restaurant.name}</div>
+                            <div class="text-name">${restaurant.name}<c:if test="${restaurant.verified == true}">
+                                    <img src="/public/image/Background/Tick_Mark_Dark-512.webp" width="20px" />
+                                </c:if></div>
                             <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
                             <div class="stars">
-                                <form action="">
-                                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                                    <label class="star star-5" for="star-5"></label>
-                                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                                    <label class="star star-4" for="star-4"></label>
-                                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                                    <label class="star star-3" for="star-3"></label>
-                                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                                    <label class="star star-2" for="star-2"></label>
-                                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                                    <label class="star star-1" for="star-1"></label>
-                                </form>
+                                <div class="text-center">
+                                    <span class="fa fa-star checked-rating"></span>
+                                    <span class="fa fa-star checked-rating"></span>
+                                    <span class="fa fa-star checked-rating"></span>
+                                    <span class="fa fa-star checked-rating"></span>
+                                    <span class="fa fa-star checked-rating"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -429,7 +428,7 @@
                         <button id="btn-like" class="btn btn-primary form-control" idValue="${restaurant._id}"><i class="far fa-thumbs-up"></i>Thích</button>
                     </c:if>
                     <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
-                    <button class="btn btn-danger form-control " data-toggle="modal" data-target="#repostModal"><i class="fas fa-poll-h" ></i>Báo cáo</button>
+                    <button class="btn btn-danger form-control btn-report" isValue="${restaurant._id}" typed="restaurant"  data-toggle="modal" data-target="#repostModal"><i class="fas fa-poll-h" ></i>Báo cáo</button>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
                     <button class="btn btn-primary form-control send-large-button" idValue="${restaurant.managers[0].user}" nameValue="${restaurant.name}" avatarValue="${restaurant.avatar}"><i class="far fa-comment"></i><br/>Gửi tin</button>
@@ -483,9 +482,7 @@
                                             <div class="dropleft">
                                                 <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                 <div class="dropdown-menu" >
-                                                    <a class="dropdown-item" href="#">Ẩn</a>
-                                                    <a class="dropdown-item" href="#">Sửa</a>
-                                                    <a class="dropdown-item" href="#">Xóa</a>
+                                                    <a class="dropdown-item btn-report" isValue="${item._id}" typed="newfeed" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -553,7 +550,7 @@
                                                                             <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                                             </a>
                                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                <a class="dropdown-item btn-report" isValue="${comment._id}" typed="restaurant" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -588,9 +585,7 @@
                                                                                             <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
                                                                                             </a>
                                                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
+                                                                                                <a class="dropdown-item btn-report" isValue="" typed="restaurant" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -639,9 +634,7 @@
                                             <div class="dropleft">
                                                 <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                 <div class="dropdown-menu" >
-                                                    <a class="dropdown-item" href="#">Ẩn</a>
-                                                    <a class="dropdown-item" href="#">Sửa</a>
-                                                    <a class="dropdown-item" href="#">Xóa</a>
+                                                    <a class="dropdown-item btn-report" isValue="${item._id}" typed="newfeed" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                 </div>
                                             </div>
                                         </div>

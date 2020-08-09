@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <!-- The Modal map -->
@@ -228,21 +228,18 @@
                             <img src="http://localhost:9032/public/image/${restaurant.avatar}" class="rounded-circle img-avartar" alt="" />
                         </div>
                         <div class="profile-name">
-                            <div class="text-name">${restaurant.name}</div>
+                            <div class="text-name">${restaurant.name}<c:if test="${restaurant.verified == true}">
+                                    <img src="/public/image/Background/Tick_Mark_Dark-512.webp" width="20px" />
+                                </c:if></div>
                             <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
                             <div class="stars">
-                                <form action="">
-                                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                                    <label class="star star-5" for="star-5"></label>
-                                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                                    <label class="star star-4" for="star-4"></label>
-                                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                                    <label class="star star-3" for="star-3"></label>
-                                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                                    <label class="star star-2" for="star-2"></label>
-                                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                                    <label class="star star-1" for="star-1"></label>
-                                </form>
+                                <div class="text-center">
+                                    <span class="fa fa-star checked-rating"></span>
+                                    <span class="fa fa-star checked-rating"></span>
+                                    <span class="fa fa-star checked-rating"></span>
+                                    <span class="fa fa-star checked-rating"></span>
+                                    <span class="fa fa-star checked-rating"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
