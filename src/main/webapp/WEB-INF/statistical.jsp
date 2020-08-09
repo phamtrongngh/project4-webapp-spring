@@ -732,20 +732,12 @@
 <script src="http://localhost:9032/socket.io/socket.io.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
-<<<<<<< HEAD
-=======
 
-
->>>>>>> ef5c3bc1a594812b47a40cf2947a372867d9f501
                         var listOrders;
                         callAjax("/getMyRestaurantOrders/${restaurant._id}", "GET", null, function(data) {
                             listOrders = data.orders;
                         })
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ef5c3bc1a594812b47a40cf2947a372867d9f501
                         var progress = document.getElementById('animationProgress');
                         let
                         myChart = document.getElementById('myChart').getContext('2d');
@@ -855,10 +847,6 @@
                                 },
                             },
                         });
-<<<<<<< HEAD
-
-=======
->>>>>>> ef5c3bc1a594812b47a40cf2947a372867d9f501
 </script>
 <script async defered>
     goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';

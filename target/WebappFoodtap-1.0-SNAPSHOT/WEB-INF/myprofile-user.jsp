@@ -5,25 +5,25 @@
 <!--Modal Friend-->
 <div class="modal" id="see-friends" >
     <div class="modal-dialog" style="max-width:40%!important;height: 90%;">
-        <div class="modal-content" style="height: 100%;">
+        <div class="modal-content" >
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title"> Bạn bè</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
-            <div class="modal-body friends-modal-all" style="overflow: auto;">
+            <div class="modal-body friends-modal-all" style="overflow-y: auto;max-height: 350px">
                 <div class="coupon-container d-flex align-items-md-center">
-                    <img src="/public/image/avatar/momo.png" class="img-coupon" />
-                    <p>Huy Trần</p>
+                    
                 </div>
                 <button  class="btn btn-success float-right ">Hủy kết bạn</button>
             </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
         </div>
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-        </div>
+
     </div>
 </div>
 </div>
@@ -38,12 +38,10 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body" style="overflow-y: auto;max-height: 460px" >
                 <div class=" align-items-md-center justify-content-between">
                     <div class="coupon-container row img-modal-all">
                     </div>
-
-
                 </div>
             </div>
             <!-- Modal footer -->
@@ -101,35 +99,35 @@
 
                     <div class="tab-pane  active" role="tabpanel" id="stepheart" >
                         <div class="row">
-                        <div class="col-sm-6" style="padding-right: 10px;border-right:1px solid rgba(100, 100, 100, .4);">
-                            <div class="text-center"><h6>Mọi người</h6></div>
-                            <c:forEach var="item" items="${user.following.users}">
-                                <div class="row row-like" style="margin-bottom: 10px;">
-                                    <div class="col-md-2">
-                                        <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
-                                    </div>
-                                    <div class="col-md-10">
-                                        <a href="/user-profile/${item._id}"><span>${item.fullname}</span></a>
-                                    </div>
+                            <div class="col-sm-6" style="padding-right: 10px;border-right:1px solid rgba(100, 100, 100, .4);">
+                                <div class="text-center"><h6>Mọi người</h6></div>
+                                <c:forEach var="item" items="${user.following.users}">
+                                    <div class="row row-like" style="margin-bottom: 10px;">
+                                        <div class="col-md-2">
+                                            <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <a href="/user-profile/${item._id}"><span>${item.fullname}</span></a>
+                                        </div>
 
-                                </div>
-                            </c:forEach>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-center"><h6>Cửa hàng</h6></div>
-                            <c:forEach var="item" items="${user.following.restaurants}">
-                                <div class="row row-like" style="margin-bottom: 10px;">
-                                    <div class="col-md-2">
-                                        <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
                                     </div>
-                                    <div class="col-md-10">
-                                        <a href="/restaurant/${item._id}"><span>${item.name}</span></a>
-                                    </div>
-
-                                </div>
-                            </c:forEach>
-                        </div>
+                                </c:forEach>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="text-center"><h6>Cửa hàng</h6></div>
+                                <c:forEach var="item" items="${user.following.restaurants}">
+                                    <div class="row row-like" style="margin-bottom: 10px;">
+                                        <div class="col-md-2">
+                                            <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <a href="/restaurant/${item._id}"><span>${item.name}</span></a>
+                                        </div>
+
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="stepdraft">
                         <div class="row row-like" >
@@ -558,7 +556,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="overflow-y: scroll;height: 500px">
+            <div class="modal-body" style="overflow-y: auto;max-height:500px">
                 <div style="display: flex;">
                     <form class="form-inline" style="width: 60%;">
                         <i class="fas fa-search" aria-hidden="true"></i>
@@ -728,7 +726,7 @@
                                                                         <input type="text" name="user" hidden value="${user._id}" />
                                                                         <div class="col-md-8 post-content">
                                                                             <textarea  id="content-post" class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
-                                                                             <span class="error error-user-mess" color="red">Nội dung  không được để trống</span>
+                                                                            <span class="error error-user-mess" color="red">Nội dung  không được để trống</span>
                                                                             <div class="d-flex" style="width: 30%">
                                                                                 <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
                                                                                 <div class="upload-img-status" >

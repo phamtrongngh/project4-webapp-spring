@@ -34,11 +34,10 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
-            <div class="modal-body friends-modal-all-user">
+            <div class="modal-body friends-modal-all-user" style="overflow-y: auto;max-height: 350px">
                 <div class="d-flex align-items-md-center justify-content-between" style="margin-bottom: 10px;">
                     <div class="coupon-container d-flex align-items-md-center">
-                        <img src="/public/image/avatar/momo.png" class="img-coupon" />
-                        <p>Huy Trần</p>
+                        
                     </div>
                     <button  class="btn btn-success float-right ">Hủy kết bạn</button>
                 </div>
@@ -61,7 +60,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body" style="overflow-y: auto;max-height: 460px;">
                 <div class=" align-items-md-center justify-content-between">
                     <div class="coupon-container row img-modal-all-user">
                     </div>
