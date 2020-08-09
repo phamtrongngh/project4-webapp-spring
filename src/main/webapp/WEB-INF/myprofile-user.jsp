@@ -109,7 +109,7 @@
                                         <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
                                     </div>
                                     <div class="col-md-10">
-                                        <span>${item.fullname}</span>
+                                        <a href="/user-profile/${item._id}"><span>${item.fullname}</span></a>
                                     </div>
 
                                 </div>
@@ -123,7 +123,7 @@
                                         <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
                                     </div>
                                     <div class="col-md-10">
-                                        <span>${item.name}</span>
+                                        <a href="/restaurant/${item._id}"><span>${item.name}</span></a>
                                     </div>
 
                                 </div>
