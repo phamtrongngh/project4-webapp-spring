@@ -2,13 +2,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- LiST CHAT -->
 <div class="msg_box" style="right:270px; display:none" rel="undefined">
-    <div class="msg_head"> Khang  
+    <div class="msg_head"> 
         <div class="close">x</div>
     </div>
     <div class="msg_wrap" style="">
         <div class="msg_body">
-            <div class="msg-right">Hello?</div>
-            <div class="msg_push">?</div>
         </div>
         <div class="msg_footer">
             <textarea name="msg-input" class="msg_input" rows="10"></textarea>
@@ -27,7 +25,14 @@
             <c:forEach var="item" items="${friends}">
                 <div id="sidebar-user-box" idValue="${item.user._id}" style="position: relative;">
                     <img src="http://localhost:9032/public/image/${item.user.avatar}" class="rounded-circle img-avatar1 " alt=" " />
-                    <div class="rounded-circle" style="position: absolute; top:36px;right: 2px; background-color: #52b769;width: 10px;height: 10px;"></div>
+                    <c:choose>
+                        <c:when test="${item.status==false}">
+                            <div class="rounded-circle sign-new-message sign-new-message${item.user._id}" style="position: absolute; top:36px;right: 2px; background-color: #52b769;width: 10px;height: 10px;"></div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="rounded-circle sign-new-message sign-new-message${item.user._id}" style="display:none;position: absolute; top:36px;right: 2px; background-color: #52b769;width: 10px;height: 10px;"></div>
+                        </c:otherwise>
+                    </c:choose>
                     <span id="slider-username">${item.user.fullname}</span>
                 </div>
             </c:forEach>
