@@ -440,7 +440,7 @@
         <div class="tab-pane container" id="chart">
             <canvas id="myChart">
             </canvas>
-            
+
             <canvas id="bestSellerChart">
             </canvas>
             <div class="row">
@@ -697,9 +697,9 @@
                                         <td>Danh mục</td>
                                         <td>${item.price} VND</td>
                                         <td><c:if test="${item.saleoff!=null}">${item.saleoff} VND</c:if></td>
-                                        <td>
-                                            <div class="d-flex justify-content-md-center"> 
-                                                <button  type="button" idValue="${item._id}" class="btn btn-info updateProduct" data-toggle="modal" data-target="#updateMenu">CẬP NHẬT</button>
+                                            <td>
+                                                <div class="d-flex justify-content-md-center"> 
+                                                    <button  type="button" idValue="${item._id}" class="btn btn-info updateProduct" data-toggle="modal" data-target="#updateMenu">CẬP NHẬT</button>
                                                 <button  type="button" idValue="${item._id}" class="btn btn-danger postFoodNewFeed" data-toggle="modal" data-target="#postModal-food">ĐĂNG TIN</button>
                                             </div>
                                         </td>
@@ -727,81 +727,16 @@
 <script src="/public/js/datatables-demo.js  "></script>
 <script src="/public/js/Chart.min.js"></script>
 <script src="/public/js/swiper.min.js"></script>
+<script src="http://localhost:9032/socket.io/socket.io.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                         var progress = document.getElementById('animationProgress');
-                         let myChart = document.getElementById('myChart').getContext('2d');
-                         // Global options
-                         Chart.defaults.global.defaultFontFamily = 'Lato';
-                         Chart.defaults.global.defaultFontSize = 20;
-                         Chart.defaults.global.defaultFontColor = '#777';
-                         var chart = new Chart(myChart, {
-                             type: 'line',
-                             data: {
-                                 labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
-                                 datasets: [{
-                                         label: ['Doanh thu'],
-                                         data: [
-                                             100,
-                                             200,
-                                             223,
-                                             50,
-                                             80,
-                                             70,
-                                             90,
-                                             179,
-                                             190,
-                                             150,
-                                             30,
-                                             22,
-                                         ],
-                                         backgroundColor: 'rgba(0, 0, 0, 0)',
-                                         borderWidth: 2,
-                                         borderColor: '#da484a',
-                                         hoverborderWidth: 3,
-                                         hoverborderColor: '#000',
-                                     }],
-                             },
-                             options: {
-                                 title: {
-                                     display: 'true',
-                                     text: 'Doanh thu hàng tháng',
-                                     fontSize: 30,
-                                     fontStyle: 'bold',
-                                 },
-                                 legend: {
-                                     display: 'true',
-                                     position: 'right',
-                                     labels: {
-                                         fontColor: '#000',
-                                     }
-                                 },
-                                 layout: {
-                                     padding: {
-                                         left: 50,
-                                         right: 0,
-                                         bottom: 50,
-                                         top: 50,
-                                     },
-                                 },
-                                 animation: {
-                                     duration: 2000,
-                                     easing: 'linear',
-                                 },
-                             },
-                         });
-=======
-=======
+
 
                         var listOrders;
                         callAjax("/getMyRestaurantOrders/${restaurant._id}", "GET", null, function(data) {
                             listOrders = data.orders;
                         })
 
-
->>>>>>> cbc713f4940a1657f76cd9b3a3dd481ed6a3c49e
                         var progress = document.getElementById('animationProgress');
                         let myChart = document.getElementById('myChart').getContext('2d');
                         let
@@ -882,11 +817,10 @@
                                 ],
                                 labels: ['Tháng 1', 'Tháng 2', 'Tháng 3'],
                             },
-                             options: {
+                            options: {
                                 title: {
                                     display: 'true',
                                     text: 'Top 3 món bán chạy nhất',
-
                                     fontSize: 30,
                                     fontStyle: 'bold',
                                 },
@@ -911,7 +845,6 @@
                                 },
                             },
                         });
->>>>>>> 1d441757c509f2d74977710ab4421ad01b70f199
 </script>
 <script async defered>
     goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
