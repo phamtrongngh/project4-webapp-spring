@@ -185,25 +185,11 @@
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/script.js "></script>
-<<<<<<< HEAD
-<!--<script async defered>
-    goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
-=======
-<script async defered>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
-=======
-    goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
->>>>>>> 01bdac797c5e78a0f8e7433efc5a68f11ec05228
-=======
 
-    goongjs.accessToken = 'Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3';
-<<<<<<< HEAD
->>>>>>> 1d441757c509f2d74977710ab4421ad01b70f199
-=======
->>>>>>> master
->>>>>>> cbc713f4940a1657f76cd9b3a3dd481ed6a3c49e
+<script async defered>
+    goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
+
+
     var map = new goongjs.Map({
         container: 'map', // container id
         style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -371,7 +357,7 @@
     }
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
-</script>-->
+</script>
 
 </body>
 
