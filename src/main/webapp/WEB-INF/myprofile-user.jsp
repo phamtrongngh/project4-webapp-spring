@@ -13,20 +13,19 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body friends-modal-all" style="overflow: auto;">
-                <div class="d-flex align-items-md-center justify-content-between" style="margin-bottom: 10px;">
-                    <div class="coupon-container d-flex align-items-md-center">
-                        <img src="/public/image/avatar/momo.png" class="img-coupon" />
-                        <p>Huy Trần</p>
-                    </div>
-                    <button  class="btn btn-success float-right ">Hủy kết bạn</button>
+                <div class="coupon-container d-flex align-items-md-center">
+                    <img src="/public/image/avatar/momo.png" class="img-coupon" />
+                    <p>Huy Trần</p>
                 </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button  class="btn btn-success float-right ">Hủy kết bạn</button>
             </div>
         </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+        </div>
     </div>
+</div>
 </div>
 <!--Modal Album-->
 <div class="modal" id="see-img" >
@@ -67,12 +66,12 @@
             <!-- Modal body -->
             <div class="modal-body" style="overflow: auto;">
                 <c:forEach var="c" items="${coupons}">
-                    <div class="d-flex align-items-md-center justify-content-between" style="margin-bottom: 10px;">
+                    <div class="d-flex align-items-md-center justify-content-between coupon-chil" style="margin-bottom: 10px;">
                         <div class="coupon-container d-flex">
                             <img src="http://localhost:9032/public/image/${c.image}" class="img-coupon" />
                             <p><span id="coupon">${c.code}</span><br/>${c.description}</p>
                         </div>
-                        <button id="btn_copy" class="btn btn-danger float-right ">Copy</button>
+                        <button  class="btn btn-danger float-right btn_copy">Copy</button>
                     </div>
                 </c:forEach>
             </div>
@@ -100,21 +99,38 @@
                 </ul>
                 <div class="tab-content py-2 "  style="height: 400px;overflow-y: auto;overflow-x: hidden;padding-right: 10px;">
 
-                    <div class="tab-pane active" role="tabpanel" id="stepheart">
-                        <div class="row row-like">
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class=" img-like" />
-                            </div>
-                            <div class="col-md-4">
-                                <span>Trường</span>
-                            </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <span>ádasdsa</span>
-                            </div>
+                    <div class="tab-pane row active" role="tabpanel" id="stepheart" style="display: flex;">
+                        <div class="col-sm-6" style="padding-right: 10px;border-right:1px solid rgba(100, 100, 100, .4);">
+                            <div class="text-center"><h6>Mọi người</h6></div>
+                            <c:forEach var="item" items="${user.following.users}">
+                                <div class="row row-like" style="margin-bottom: 10px;">
+                                    <div class="col-md-2">
+                                        <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <span>${item.fullname}</span>
+                                    </div>
+
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-center"><h6>Cửa hàng</h6></div>
+                            <c:forEach var="item" items="${user.following.restaurants}">
+                                <div class="row row-like" style="margin-bottom: 10px;">
+                                    <div class="col-md-2">
+                                        <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <span>${item.name}</span>
+                                    </div>
+
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="stepdraft">
-                        <div class="row row-like">
+                        <div class="row row-like" >
                             <div class="col-md-2">
                                 <img src="/public/image/avatar/momo.png" class="img-like" />
                             </div>
