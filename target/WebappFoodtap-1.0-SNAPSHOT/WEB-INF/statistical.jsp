@@ -735,12 +735,10 @@
 <script src="http://localhost:9032/socket.io/socket.io.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
-
                         var listOrders;
                         callAjax("/getMyRestaurantOrders/${restaurant._id}", "GET", null, function(data) {
                             listOrders = data.orders;
                         })
-
                         var progress = document.getElementById('animationProgress');
                         let
                         myChart = document.getElementById('myChart').getContext('2d');
@@ -850,6 +848,7 @@
                                 },
                             },
                         });
+
 </script>
 <script async defered>
     goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
