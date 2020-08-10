@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
 <!-- The Modal map -->
@@ -234,11 +235,55 @@
                             <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
                             <div class="stars">
                                 <div class="text-center">
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
+                                    <c:set var="totalRating" value="${0}" />
+                                    <c:set var="countRating" value="${0}" />
+                                    <c:forEach items="${restaurant.rating}" var="item">
+                                        <c:set var="totalRating" value="${totalRating+item.stars}" />
+                                        <c:set var="countRating" value="${countRating+1}" />
+                                        
+                                    </c:forEach>
+                                    <c:set var="TB" value="${totalRating/countRating}"/>
+                                    
+                                    <c:choose> 
+                                        <c:when test="${TB < 5 && TB>=4.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${TB < 4.5 && TB>=3.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                        <c:when test="${TB < 3.5 && TB>=2.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                        <c:when test="${TB < 2.5 && TB >=1.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                    
+                                    <c:otherwise>
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
                                 </div>
                             </div>
                         </div>
@@ -664,24 +709,59 @@
                         <div class="header-voucher"><h4><i class="fas fa-star"></i> Đánh giá</h4></div>
                     </div>
                     <div class="rounded rating-right">
-                        <div>
-                            <div style="display: flex;">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div>
-                                    <strong>Truong</strong> 
-                                    <div style="font-weight: 100;">1 giờ</div>
-                                </div>
-                            </div>
+                        <c:forEach var="c" begin="0" end="2" items="${restaurant.rating}">
                             <div>
-                                <span class="fa fa-star checked-rating"></span>
-                                <span class="fa fa-star checked-rating"></span>
-                                <span class="fa fa-star checked-rating"></span>
-                                <span class="fa fa-star checked-rating"></span>
-                                <span class="fa fa-star checked-rating"></span>
+                                <div style="display: flex;">
+                                    <img src="http://localhost:9032/public/image/${c.user.avatar}" class="messenger-avatar" alt=""/>
+                                    <div>
+                                        <a href="/user-profile/${c.user._id}"><strong>${c.user.fullname}</strong></a> 
+                                        <div style="font-weight: 100;">1 giờ</div>
+                                    </div>
+                                </div>
+                                <c:choose> 
+                                    <c:when test="${c.stars == 5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${c.stars == 4}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${c.stars == 3}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${c.stars == 2}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                    
+                                    <c:otherwise>
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                                <span style="font-style: italic;">${c.comment}</span>
                             </div>
-                            <span style="font-style: italic;">San pham rat tuyet</span>
-                        </div>
-                        <hr/>
+                            <hr/>
+                        </c:forEach>
                         <div>
                             <div style="display: flex;">
                                 <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>

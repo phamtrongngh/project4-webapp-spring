@@ -1754,10 +1754,12 @@ $(".send-report").click(function() {
             dataType: 'json',
             data: JSON.stringify(data),
             success: function(data) {
+                
                 alert("Foodtap đã tiếp nhận báo cáo của bạn.");
-
+                
             }
         })
+            $(".content-report").val("");
            $('#repostModal').modal('toggle');
 
     }
