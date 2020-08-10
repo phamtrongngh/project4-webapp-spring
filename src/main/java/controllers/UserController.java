@@ -138,6 +138,30 @@ public class UserController {
         return current;
     }
 
+    @RequestMapping(value = "/recart/{index}", method = RequestMethod.GET)
+    public ModelAndView recart(@PathVariable("index") String index, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String number = restUser.recart(index);
+        Cookie cookie = new Cookie("cart", number);
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(9999999);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        response.sendRedirect("/cart");
+        return new ModelAndView("index");
+    }
+
+    @RequestMapping(value = "/reorder/{id}", method = RequestMethod.GET)
+    public ModelAndView reorder(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String number = restUser.reorder(id);
+        Cookie cookie = new Cookie("cart", number);
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(9999999);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        response.sendRedirect("/cart");
+        return new ModelAndView("index");
+    }
+    
     @RequestMapping(value = "/getFriendRequests", method = RequestMethod.GET)
     @ResponseBody
     public List<Map<String, ?>> getFriendRequests() throws IOException {
@@ -225,7 +249,10 @@ public class UserController {
 
     @RequestMapping(value = "/detail-order/{id}", method = RequestMethod.GET)
     public ModelAndView detailorder(@PathVariable("id") String id) throws IOException {
-        Object order = restOrder.getOne(id);
+        Map<String, ?> order = (Map<String, ?>) restOrder.getOne(id);
+        if (!order.get("status").equals("completed")) {
+            return statusorder(id);
+        }
         return new ModelAndView("detail-order").addObject("order", order);
     }
 
