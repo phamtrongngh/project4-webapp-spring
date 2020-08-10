@@ -378,10 +378,7 @@
 </div>
 <!-- Modal order-menu-all -->
 <div class="modal" id="order-menu-all">
-    =======
-    <!-<!-- The Modal order -->
-    <div class="modal" id="orderModal">
-        >>>>>>> 81b0067852d1ad6858a69b8205a9136add251855
+
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Modal Header -->
