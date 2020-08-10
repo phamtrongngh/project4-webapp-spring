@@ -546,6 +546,7 @@
         <!-- STATUS -->
         <div class="col-12 col-sm-12 col-md-6 scrollpost">
             <c:forEach var="item" items="${newfeeds}">
+                <c:if test="${item.active == true}">
                 <c:choose>
                     <c:when test="${item.product!=null}">
                         <div class="rounded status">
@@ -867,6 +868,7 @@
                         </div>
                     </c:otherwise>
                 </c:choose>
+                </c:if>
             </c:forEach>
             <div id="loading" ><image src="/public/image/Background/PlushHappygoluckyGoldenmantledgroundsquirrel-max-1mb.gif" style="width: 50px;"/></div>
         </div>
