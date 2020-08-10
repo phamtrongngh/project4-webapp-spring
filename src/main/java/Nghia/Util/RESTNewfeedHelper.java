@@ -62,4 +62,13 @@ public class RESTNewfeedHelper extends RESTHelper {
                 .get(String.class);
         return string;
     }
+    
+    public String getNewfeed(String id) throws IOException {
+        String url = BASE_URI;
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .get(String.class);
+        return string;
+    }
 }

@@ -133,7 +133,7 @@
                             <a href="/myprofile-user"><%=fullname%></a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown nav-friend">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;">
                             <i class="fas fa-users fa-menu"></i>
                             <span class="numberFriendRequest">${friendRequests.size()==0?"":friendRequests.size()}</span>
@@ -165,12 +165,12 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown nav-noti">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;text-decoration: none;"><i class="fa fa-bell fa-menu" aria-hidden="true" ></i>
                             <span class="badge count-cart numberNoti"></span><span class="caret"></span></a>
                         <div class="dropdown-menu dropdown-notification" >
                             <div style="overflow-y: scroll;overflow-x: hidden;max-height: 200px">
-                                <div class="notification" style="background-color: #d8dfed;background-clip: border-box;">
+                                <div class="notification-title" style="background-color: #d8dfed;background-clip: border-box;">
                                     <span>Thông báo</span>
                                 </div>
 
@@ -179,18 +179,23 @@
 
                                         <div class="notification">
                                             <c:choose>
-                                                <c:when test="${noti.fromUser ==null}">
-                                                    <div>
-                                                        <img src="http://localhost:9032/public/image/${noti.fromRestaurant.avatar}" class="messenger-avatar from-noti-avatar" alt=""/>
-                                                        <div class="noti-fullname">${noti.fromRestaurant.name}</div>
-                                                        <div class="noti-date">${noti.date}</div>
+                                                <c:when test="${noti.toNewfeed !=null}">
+                                                    
+                                                        <img src="http://localhost:9032/public/image/${noti.fromUser.avatar}" class="messenger-avatar from-noti-avatar" alt=""/>
+                                                        <div style="margin-right: 120px;">
+                                                        <a href="/user-profile/${noti.fromUser._id}" ><div class="noti-fullname">${noti.fromUser.fullname}</div></a>
+                                                        <div class="noti-date date-long">${noti.date}</div>
+                                                        <a href="${noti.link}">
+                                                            <div class="noti-content">${noti.content}</div> 
+                                                        </a>
+                                                    
                                                     </div>
                                                 </c:when>
                                                 <c:otherwise>
                                                     
                                                     <img src="http://localhost:9032/public/image/${noti.fromUser.avatar}" class="messenger-avatar from-noti-avatar" alt=""/>
                                                     <div>
-                                                        <div class="noti-fullname">${noti.fromUser.fullname}</div>
+                                                        <a href="/user-profile/${noti.fromUser._id}" ><div class="noti-fullname">${noti.fromUser.fullname}</div></a>
                                                         <div class="noti-date date-long">${noti.date}</div>
                                                         <a href="${noti.link}">
                                                             <div class="noti-content">${noti.content}</div> 
@@ -203,9 +208,9 @@
                                                 <c:when test="${noti.toRestaurant!=null}">
                                                     <img src="http://localhost:9032/public/image/${noti.toRestaurant.avatar}" class="store-avatar to-noti-avatar" alt=""/>
                                                 </c:when>
-                                                <c:otherwise>
-                                                    <img src="http://localhost:9032/public/image/${noti.newfeed.avatar}" class="store-avatar to-noti-avatar" alt=""/>
-                                                </c:otherwise>
+                                                <c:when test="${noti.toNewfeed!=null}">
+                                                    <img src="http://localhost:9032/public/image/${noti.toNewfeed.images[0]}" class="store-avatar to-noti-avatar" alt=""/>
+                                                </c:when>
                                             </c:choose>
                                         </div>
                                     </c:forEach>
