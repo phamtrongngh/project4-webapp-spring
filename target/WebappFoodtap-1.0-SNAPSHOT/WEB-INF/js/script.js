@@ -99,19 +99,31 @@ socket.on("newOrderRestaurant", function(data) {
 })
 //socket on like 
 socket.on("likeNewfeed", function(data) {
+    var number;
+    if ($(".numberNoti").html() == "") {
+        number = 1;
+    } else {
+        number = parseInt($(".numberNoti").html()) + 1;
+    }
+    $(".numberNoti").html(number);
     var html = '<div class="notification ">' +
-            '<img src="http://localhost:9032/public/image/' + data.user.avatar + '" class="messenger-avatar" alt=""/>' +
+            '<img src="http://localhost:9032/public/image/' + data.avatar + '" class="messenger-avatar" alt=""/>' +
             '<div>' +
-            '<div >' + data.user.fullname + '</div>' +
-            '<div>' + data.createdAt + '</div>' +
-            '<a href="/restaurant/' + data.restaurant._id + '">' +
-            '<div class="noti-content">Nhà hàng bạn vừa có đơn hàng mới!</div>' +
-            '</a>' +
+            '<div >' + data.fullname + '</div>' +
+            '<div>' + formatDateLong(data.date) + '</div>' +
+            '<a href="/user-profile/'+ data.fromUser + '">' +
+            '<div class="noti-content">mới like hình bạn!</div>' +
+            
             '</div>' +
-            '<img src="http://localhost:9032/public/image/' + data.restaurant.avatar + '" class="store-avatar" alt=""/>' +
+            '</a>' +
+            '<a  href="'+ data.link + '">'+
+            '<img src="http://localhost:9032/public/image/' + data.toNewfeed.images[0] + '" class="store-avatar" alt=""/>' +
+            '</a>'+
             '</div>';
     
     $(".notification-content").html(html + $(".notification-content").html() );
+    console.log(data);
+   
 })
 function updateinfo() {
     fullname = $("#fullname-register").val();
@@ -894,9 +906,6 @@ $(document).ready(function() {
 
     })
 
-    $(".message-box-button").click(function() {
-
-    })
 
 
     //get product to biding to update product modal box
@@ -1784,3 +1793,36 @@ $(".send-report").click(function() {
     }
 
 })
+$(document).on("click", ".btn-hiddennewfeed", function() {
+        var idNewfeed = $(this).attr("idValue");
+        callAjax("/newfeed/blockNewfeed/" + idNewfeed, "POST", null, function(data) {
+            alert("Bài viết đã được xóa");
+            window.location.href = "/myprofile-user";
+        })
+    })
+$(".numberNoti").click(function (){
+        $(".numberNoti").html("");
+
+});
+$(".btn-updateNewfeed").click(function (){
+    var idNewfeedup = $(this).attr("idUpNewfeed");
+    callAjax("/detail-newfeedAjax/" + idNewfeedup, "GET", null, function(data){
+        data = JSON.parse(data);
+        if (data.product!=null) {          
+            
+        $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
+        $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
+                $("#updatenewfeedModal .upload-img-status").css("display", "none");
+
+        }
+        else{
+            
+        $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
+        $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
+        $("#updatenewfeedModal .image-frame-upload").css("background", "url('http://localhost:9032/public/image/" + data.images+ "')");
+        $("#updatenewfeedModal .image-frame-upload").css("background-size", "cover");
+        $("#updatenewfeedModal .image-frame-upload").css("background-repeat", "no-repeat");
+        }
+    })
+});
+        
