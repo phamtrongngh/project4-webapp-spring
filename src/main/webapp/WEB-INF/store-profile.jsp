@@ -244,7 +244,17 @@
                                     </c:forEach>
                                     <c:set var="TB" value="${totalRating/countRating}"/>
 
-                                    <c:choose> 
+                                    <c:choose>
+                                        <c:when test="${totalRating==0}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+
+                                            </div>
+                                        </c:when>
                                         <c:when test="${TB < 5 && TB>=4.5}">
                                             <div>
                                                 <span class="fa fa-star checked-rating"></span>
@@ -764,25 +774,6 @@
                             </div>
                             <hr/>
                         </c:forEach>
-                        <div>
-                            <div style="display: flex;">
-                                <img src="/public/image/avatar/ban-trai-cua-yaya-truong-nhi-la-ai.jpg" class="messenger-avatar" alt=""/>
-                                <div>
-                                    <strong>Truong</strong> 
-                                    <div style="font-weight: 100;">1 giờ</div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="fa fa-star checked-rating"></span>
-                                <span class="fa fa-star checked-rating"></span>
-                                <span class="fa fa-star checked-rating"></span>
-                                <span class="fa fa-star checked-rating"></span>
-
-                            </div>
-                            <span style="font-style: italic;">San pham rat tuyet</span>
-                        </div>
-                        <hr/>
                         <a href="#"><div style="text-align: end;">Xem tất cả</div></a>
                     </div>
 

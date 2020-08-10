@@ -180,8 +180,6 @@
                                         <div class="notification">
                                             <c:choose>
                                                 <c:when test="${noti.fromUser ==null}">
-
-
                                                     <div>
                                                         <img src="http://localhost:9032/public/image/${noti.fromRestaurant.avatar}" class="messenger-avatar from-noti-avatar" alt=""/>
                                                         <div class="noti-fullname">${noti.fromRestaurant.name}</div>
@@ -189,12 +187,13 @@
                                                     </div>
                                                 </c:when>
                                                 <c:otherwise>
+                                                    
                                                     <img src="http://localhost:9032/public/image/${noti.fromUser.avatar}" class="messenger-avatar from-noti-avatar" alt=""/>
                                                     <div>
                                                         <div class="noti-fullname">${noti.fromUser.fullname}</div>
                                                         <div class="noti-date date-long">${noti.date}</div>
                                                         <a href="${noti.link}">
-                                                            <div class="noti-content">${noti.content}</div>
+                                                            <div class="noti-content">${noti.content}</div> 
                                                         </a>
                                                     </div>
                                                 </c:otherwise>
