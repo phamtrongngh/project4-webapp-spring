@@ -388,11 +388,65 @@
                             <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
                             <div class="stars">
                                 <div class="text-center">
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
+                                    <c:set var="totalRating" value="${0}" />
+                                    <c:set var="countRating" value="${0}" />
+                                    <c:forEach items="${restaurant.rating}" var="item">
+                                        <c:set var="totalRating" value="${totalRating+item.stars}" />
+                                        <c:set var="countRating" value="${countRating+1}" />
+
+                                    </c:forEach>
+                                    <c:set var="TB" value="${totalRating/countRating}"/>
+
+                                    <c:choose>
+                                        <c:when test="${totalRating==0}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${TB < 5 && TB>=4.5}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${TB < 4.5 && TB>=3.5}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${TB < 3.5 && TB>=2.5}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${TB < 2.5 && TB >=1.5}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                            </div>
+                                        </c:when>
+
+                                        <c:otherwise>
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
                         </div>
