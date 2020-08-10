@@ -251,7 +251,7 @@
                         <input style="margin-top: 5px;" type="hidden"  class="form-control id-store-coupon" name=""/>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="max-width: 100%;height: 200px;top:68px!important;overflow: auto;">
                             <c:forEach var="item" items="${foodCaterogys}">
-                                <div class="dropdown-item">
+                                <div class="dropdown-item dropdown-item-DM">
                                     <img src="http://localhost:9032/public/image/${item.image}" width="25px" class="search-avatar" alt=""/>
                                     <span class="name-store">${item.name}</span>
                                     <span style="display: none;" class="id-store">${item._id}</span>
@@ -314,7 +314,7 @@
                         <input style="margin-top: 5px;" type="text" name="categories"  class="form-control store-coupon"/>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="List" style="max-width: 100%;height: 200px;top:68px!important;overflow: auto;">
                             <c:forEach var="item" items="${foodCaterogys}">
-                                <div class="dropdown-item">
+                                <div class="dropdown-item dropdown-item-DM">
                                     <img src="http://localhost:9032/public/image/${item.image}" width="25px" class="search-avatar" alt=""/>
                                     <span class="name-store">${item.name}</span>
                                     <span style="display: none;" class="id-store">${item._id}</span>
@@ -669,12 +669,12 @@
         <div class="tab-pane container" id="menu" style="max-width: 100% !important;">
             <div class="mb-4 form-inline" style="margin-top: 10px;text-align: start;">
                 <button class="btn btn-info btn-icon-split" style="margin-left: 10px;" data-toggle="modal" data-target="#mdMenu"><i class="fas fa-file-medical" ></i> Thêm</button>
-                <select name="" class="form-control " style="margin-left: 10px">
+<!--                <select name="" class="form-control " style="margin-left: 10px">
                     <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
                     <option value="1 ">Option 1</option>
                     <option value="2 ">Option 2</option>
                     <option value="3 ">Option 3</option>
-                </select>
+                </select>-->
             </div>
             <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-body">
