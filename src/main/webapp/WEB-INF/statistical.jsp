@@ -737,7 +737,9 @@
 
                         var listOrders;
                         callAjax("/getMyRestaurantOrders/${restaurant._id}", "GET", null, function(data) {
-                            listOrders = data.orders;
+                            listOrders = data.orders.filter(function(item){
+                                return ((item.status == "completed")||(item.status == "failed"))
+                            });
                         })
 
                         var progress = document.getElementById('animationProgress');
