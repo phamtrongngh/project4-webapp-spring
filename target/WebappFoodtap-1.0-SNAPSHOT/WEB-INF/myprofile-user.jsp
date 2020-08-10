@@ -101,59 +101,65 @@
 
                     <div class="tab-pane  active" role="tabpanel" id="stepheart" >
                         <div class="row">
-                        <div class="col-sm-6" style="padding-right: 10px;border-right:1px solid rgba(100, 100, 100, .4);">
-                            <div class="text-center"><h6>Mọi người</h6></div>
-                            <c:forEach var="item" items="${user.following.users}">
-                                <div class="row row-like" style="margin-bottom: 10px;">
-                                    <div class="col-md-2">
-                                        <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
-                                    </div>
-                                    <div class="col-md-10">
-                                        <a href="/user-profile/${item._id}"><span>${item.fullname}</span></a>
-                                    </div>
+                            <div class="col-sm-6" style="padding-right: 10px;border-right:1px solid rgba(100, 100, 100, .4);">
+                                <div class="text-center"><h6>Mọi người</h6></div>
+                                <c:forEach var="item" items="${user.following.users}">
+                                    <div class="row row-like" style="margin-bottom: 10px;">
+                                        <div class="col-md-2">
+                                            <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <a href="/user-profile/${item._id}"><span>${item.fullname}</span></a>
+                                        </div>
 
-                                </div>
-                            </c:forEach>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-center"><h6>Cửa hàng</h6></div>
-                            <c:forEach var="item" items="${user.following.restaurants}">
-                                <div class="row row-like" style="margin-bottom: 10px;">
-                                    <div class="col-md-2">
-                                        <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
                                     </div>
-                                    <div class="col-md-10">
-                                        <a href="/restaurant/${item._id}"><span>${item.name}</span></a>
-                                    </div>
-
-                                </div>
-                            </c:forEach>
-                        </div>
+                                </c:forEach>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="text-center"><h6>Cửa hàng</h6></div>
+                                <c:forEach var="item" items="${user.following.restaurants}">
+                                    <div class="row row-like" style="margin-bottom: 10px;">
+                                        <div class="col-md-2">
+                                            <img src="http://localhost:9032/public/image/${item.avatar}" class=" img-like" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <a href="/restaurant/${item._id}"><span>${item.name}</span></a>
+                                        </div>
+
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="stepdraft">
-                        <div class="row row-like" >
-                            <div class="col-md-2">
-                                <img src="/public/image/avatar/momo.png" class="img-like" />
-                            </div>
-                            <div class="col-md-4 item-hover">
-                                <div>Bánh mì bảo Quyên</div>
-                                <span>2 món</span> (<span>20.000</span>VNĐ)
-                                <div class="tip ">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span>2</span>x<span>Gà gán</span>
-                                        </div>
-                                        <div class="col">
-                                            <span>10,000</span>VNĐ
+                        <c:forEach var="item" varStatus="status" items="${user.draft}">
+                            <div class="row row-like" >
+                                <div class="col-md-2">
+                                    <img src="http://localhost:9032/public/image/${item[0].product.restaurant.avatar}" class="img-like" />
+                                </div>
+                                <div class="col-md-4 item-hover">
+                                    <div>${item[0].product.restaurant.name}</div>
+                                    <span>${item.size()} món</span> 
+                                    <div class="tip ">
+                                        <div class="row">
+                                            <c:forEach var="subitem" items="${item}">
+                                                <div class="col">
+                                                    <span>${subitem.quantity}</span>x<span>${subitem.product.name}</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span>${subitem.product.price}</span>VNĐ
+                                                </div>
+                                            </c:forEach>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="ml-auto p-2 bd-highlight">
+                                    <a href="/recart/${status.index}"><button class="btn re-cart">Đặt lại</button></a>
+                                </div>
+
+
                             </div>
-                            <div class="ml-auto p-2 bd-highlight">
-                                <button class="btn">Đặt lại</button>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -617,7 +623,7 @@
                                                         <c:choose>
                                                             <c:when test="${item.status=='completed' || item.status=='canceled'}">
                                                                 <a href="/detail-order/${item._id}" class="btn btn-history">Chi tiết</a>
-                                                                <a href="" class="btn btn-history">Đặt lại</a>
+                                                                <a href="/reorder/${item._id}" class="btn btn-history">Đặt lại</a>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <a href="/status-order/${item._id}" class="btn btn-history">Chi tiết</a>
