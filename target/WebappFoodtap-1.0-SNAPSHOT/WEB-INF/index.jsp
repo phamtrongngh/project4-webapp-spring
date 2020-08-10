@@ -7,6 +7,31 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal repost -->
+<div class="modal fade" id="repostModal">
+    <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Báo cáo quản trị</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form action="#" enctype="" method="POST">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+                        <h3>Nội dung</h3>
+                        <textarea style="width: 100%" rows="5" class="content-report" name="content"></textarea>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger submit send-report"  >Gửi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <!--Modal like and share-->
 <div class="modal fade" id="Modallikeshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40%!important;">
@@ -521,6 +546,7 @@
         <!-- STATUS -->
         <div class="col-12 col-sm-12 col-md-6 scrollpost">
             <c:forEach var="item" items="${newfeeds}">
+                <c:if test="${item.active == true}">
                 <c:choose>
                     <c:when test="${item.product!=null}">
                         <div class="rounded status">
@@ -534,20 +560,20 @@
                                     <div class="dropleft">
                                         <a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                         <div class="dropdown-menu" >
-                                            
+
                                             <c:choose>
                                                 <c:when test="${item.restaurant.managers[0].user == cookie['_id'].getValue()}">
                                                     <a class="dropdown-item" href="#">Sửa</a>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <a class="dropdown-item" href="#">Báo cáo</a>
+                                                    <a class="dropdown-item btn-report" isValue="${item._id}" typed="newfeed" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                 </c:otherwise>
                                             </c:choose>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="font1">
-                                    
+
                                     ${item.content}
                                 </div>
                                 <!--                                <div>
@@ -706,7 +732,7 @@
                                                     <a class="dropdown-item" href="#">Sửa</a>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <a class="dropdown-item" href="#">Báo cáo</a>
+                                                    <a class="dropdown-item btn-report" isValue="${item._id}" typed="newfeed" href="#" data-toggle="modal" data-target="#repostModal">Báo cáo</a>
                                                 </c:otherwise>
                                             </c:choose>
                                         </div>
@@ -727,7 +753,7 @@
                                 <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
                             </div>
                             <div style="margin-top: 2px;display: flex;">
-                                                                <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
+                                <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
                                 <div style="width: 100%;text-align: end; padding-right: 15px;">
                                     <a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a><span>200 chia sẻ</span></div>
                             </div>
@@ -842,6 +868,7 @@
                         </div>
                     </c:otherwise>
                 </c:choose>
+                </c:if>
             </c:forEach>
             <div id="loading" ><image src="/public/image/Background/PlushHappygoluckyGoldenmantledgroundsquirrel-max-1mb.gif" style="width: 50px;"/></div>
         </div>

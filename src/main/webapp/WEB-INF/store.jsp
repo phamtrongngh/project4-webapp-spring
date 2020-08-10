@@ -468,6 +468,7 @@
                 <div class="col-md-7" style="margin-top: 10px">
 
                     <c:forEach var="item" items="${restaurant.newfeeds}">
+                       <c:if test="${item.active == true}">
                         <c:choose>
                             <c:when test="${item.product!=null}">
                                 <div class="rounded status">
@@ -769,7 +770,7 @@
                                 </div>
                             </c:otherwise>
                         </c:choose>
-
+                       </c:if>
                     </c:forEach>
                 </div>
                 <!--Voucher-->
