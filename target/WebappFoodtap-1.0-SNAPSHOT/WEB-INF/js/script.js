@@ -1752,8 +1752,7 @@ $(".btn-down").click(function() {
 
 
 });
-
-        $ (" #b tn-update-user-info").on("click", function() {
+$ ("#btn-update-user-info").on("click", function() {
     var fullname = $("#fullname-info").val();
     if (!/^([^\s])[a-zA-Z0-9_\s]{1,19}$/.test(change_alias(fullname))) {
 
