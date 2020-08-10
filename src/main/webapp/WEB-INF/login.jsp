@@ -30,7 +30,7 @@
     </head>
 
     <body>
-<!--modal thoong bao-->
+        <!--modal thoong bao-->
         <div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
                 <div class="modal-content">
@@ -103,14 +103,14 @@
                                 <form class="login-form d-flex justify-content-md-center align-items-md-center h-100  " id="commentForm" action="/login" method="POST">
                                     <div class="form-group ">
                                         <input id="phone-login" type="text" name="phone" class="form-control " placeholder="SĐT"/>
-                                        
+
                                     </div>
                                     <div class="form-group ">
                                         <input type="password" name="password" class="form-control " placeholder="Mật Khẩu " />
                                         <span class="error error-pass">${message}</span>
                                     </div>
-                                    
-                                    
+
+
                                     <div style="width: 50%">
                                         <button class="btn btn-danger form-control btn-login ">Đăng nhập</button>
                                     </div>
@@ -187,6 +187,7 @@
         <script src="/public/js/bootstrap/popper.min.js "></script>
         <script src="/public/js/bootstrap/bootstrap.min.js "></script>
         <script src="/public/js/swiper.min.js "></script>
+        <script src="http://localhost:9032/socket.io/socket.io.js"></script>
         <script src="/public/js/script.js "></script>
         <script async defered>
             goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';

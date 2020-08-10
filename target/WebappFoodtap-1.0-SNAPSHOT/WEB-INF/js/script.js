@@ -95,7 +95,23 @@ socket.on("newOrderRestaurant", function(data) {
             '</div>' +
             '<img src="http://localhost:9032/public/image/' + data.restaurant.avatar + '" class="store-avatar" alt=""/>' +
             '</div>';
-    $(".notification-content").html($(".notification-content").html() + html);
+    $(".notification-content").html(html + $(".notification-content").html() );
+})
+//socket on like 
+socket.on("likeNewfeed", function(data) {
+    var html = '<div class="notification ">' +
+            '<img src="http://localhost:9032/public/image/' + data.user.avatar + '" class="messenger-avatar" alt=""/>' +
+            '<div>' +
+            '<div >' + data.user.fullname + '</div>' +
+            '<div>' + data.createdAt + '</div>' +
+            '<a href="/restaurant/' + data.restaurant._id + '">' +
+            '<div class="noti-content">Nhà hàng bạn vừa có đơn hàng mới!</div>' +
+            '</a>' +
+            '</div>' +
+            '<img src="http://localhost:9032/public/image/' + data.restaurant.avatar + '" class="store-avatar" alt=""/>' +
+            '</div>';
+    
+    $(".notification-content").html(html + $(".notification-content").html() );
 })
 function updateinfo() {
     fullname = $("#fullname-register").val();
@@ -1189,7 +1205,7 @@ $(document).ready(function() {
                 type: type,
                 targetId: targetId,
                 content: content,
-                orderId : orderId
+                orderId: orderId
             }
             $.ajax({
                 url: "/order/rate",
@@ -1198,7 +1214,7 @@ $(document).ready(function() {
                 dataType: 'json',
                 data: JSON.stringify(data),
                 success: function(data) {
-                    parentForm.css("display","none");
+                    parentForm.css("display", "none");
                     alert("Thanks for rating");
 
                 }
@@ -1206,8 +1222,8 @@ $(document).ready(function() {
         }
     })
     //re-cart
-    $(".re-cart").click(function(data){
-        
+    $(".re-cart").click(function(data) {
+
     })
     //binding data to post food newfeed
     $(".postFoodNewFeed").click(function() {
@@ -1757,13 +1773,13 @@ $(".send-report").click(function() {
             dataType: 'json',
             data: JSON.stringify(data),
             success: function(data) {
-                
+
                 alert("Foodtap đã tiếp nhận báo cáo của bạn.");
-                
+
             }
         })
-            $(".content-report").val("");
-           $('#repostModal').modal('toggle');
+        $(".content-report").val("");
+        $('#repostModal').modal('toggle');
 
     }
 
