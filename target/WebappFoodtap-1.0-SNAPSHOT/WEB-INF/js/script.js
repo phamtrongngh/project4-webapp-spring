@@ -1205,7 +1205,10 @@ $(document).ready(function() {
             })
         }
     })
-
+    //re-cart
+    $(".re-cart").click(function(data){
+        
+    })
     //binding data to post food newfeed
     $(".postFoodNewFeed").click(function() {
         var image = $(this).parent().parent().parent().find("img");

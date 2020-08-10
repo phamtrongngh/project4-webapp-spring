@@ -118,6 +118,24 @@ public class RESTUserHelper extends RESTHelper {
         return string;
     }
 
+    public String recart(String id) {
+        String url = BASE_URI + "recart";
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(null, String.class);
+        return string;
+    }
+    
+    public String reorder(String id) {
+        String url = BASE_URI + "reorder";
+        webTarget = client.target(url);
+        String string = webTarget.path(id).request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(null, String.class);
+        return string;
+    }
+    
     public String sendRequestFriend(String id) {
         String url = BASE_URI + "requestFriend";
         webTarget = client.target(url);
