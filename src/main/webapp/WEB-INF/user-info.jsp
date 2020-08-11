@@ -99,8 +99,14 @@
                     <div class="form-group row">
                         <label class="col-md-3">Địa chỉ</label>
                         <div class="col-md-9 input-group-prepend">
-                            <input  type="text" value="${user.address}" name="address" class="form-control input-address" />
+                            <input readonly="true"  type="text" value="${user.address}" name="address" class="form-control input-address" />
                             <button style="color: #da484a" type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModeluserupdate" ><i class="fas fa-map-marker-alt"></i></button>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3">Thông tin mô tả</label>
+                        <div class="col-md-9 input-group-prepend">
+                            <textarea  row="3" value="${user.description}" name="description" class="form-control" > </textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -111,6 +117,7 @@
                             </div>
                         </div>
                     </div>
+
 
                 </form>
             </div>
