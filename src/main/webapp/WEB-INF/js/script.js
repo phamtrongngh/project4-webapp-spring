@@ -32,7 +32,6 @@ socket.on("sendMessage", function(item) {
         } catch (e) {
         }
         $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
-
     } else {
         $(".sign-new-message" + item.sender).css("display", "block");
         if (currentChatterId != item.sender) {
@@ -86,7 +85,7 @@ socket.on("newOrderRestaurant", function(data) {
     $(".numberNoti").html(number);
     var html = '<div class="notification ">' +
             '<img src="http://localhost:9032/public/image/' + data.user.avatar + '" class="messenger-avatar" alt=""/>' +
-            '<div>' +
+            '<div style="margin-right: 120px;">' +
             '<div >' + data.user.fullname + '</div>' +
             '<div>' + data.createdAt + '</div>' +
             '<a href="/restaurant/' + data.restaurant._id + '">' +
@@ -108,20 +107,20 @@ socket.on("likeNewfeed", function(data) {
     $(".numberNoti").html(number);
     var html = '<div class="notification ">' +
             '<img src="http://localhost:9032/public/image/' + data.avatar + '" class="messenger-avatar" alt=""/>' +
-            '<div>' +
-            '<div >' + data.fullname + '</div>' +
-            '<div>' + formatDateLong(data.date) + '</div>' +
+            '<div style="margin-right:160px;">' +
             '<a href="/user-profile/' + data.fromUser + '">' +
+            '<div >' + data.fullname + '</div>' +
+            '</a>' +
+            '<div>' + formatDateLong(data.date) + '</div>' +
             '<div class="noti-content">mới like hình bạn!</div>' +
             '</div>' +
-            '</a>' +
             '<a  href="' + data.link + '">' +
             '<img src="http://localhost:9032/public/image/' + data.toNewfeed.images[0] + '" class="store-avatar" alt=""/>' +
             '</a>' +
             '</div>';
 
     $(".notification-content").html(html + $(".notification-content").html());
-    console.log(data);
+
 
 })
 function updateinfo() {
@@ -241,10 +240,15 @@ function quantityChanged1(event) {
     }
     update()
 }
+$(".date-long").each(function(x) {
+    $(this).html(formatDateLong($(this).html()))
 
+});
+$(".date-short").each(function(x) {
+    $(this).html(formatDateShort($(this).html()))
 
+});
 $(document).ready(function() {
-    $(".date-long").html(formatDateLong($(".date-long").html()))
     /*display time*/
     $('input[name=time]').on('change', function(e) {
 
@@ -254,6 +258,7 @@ $(document).ready(function() {
             $(".date-cart").css("display", "none");
         }
     });
+
     /*display time*/
     /*display momo*/
     $('input[name=payment]').on('change', function(e) {
@@ -1345,17 +1350,20 @@ $(".use-coupon").click(function() {
                 $(".cart-discount").html(0);
                 updateCartTotal()
             } else {
-                check_discount(data);
-                updateCartTotal()
-                $(".cart-quantity-input").change(function() {
+                if (!data.percent) {
                     check_discount(data);
-                    updateCartTotal();
-                })
+                    updateCartTotal()
+                    $(".cart-quantity-input").change(function() {
+                        check_discount(data);
+                        updateCartTotal();
+                    })
+                } else {
+
+                }
+
             }
 
-            if (data.percent) {
 
-            }
         }
     });
 });
@@ -1824,6 +1832,7 @@ $(".btn-updateNewfeed").click(function() {
         }
     })
 });
+
 $(document).ready(function() {
     $(".input-comments").on("keyup", function(event) {
         if (event.keyCode === 13) {
@@ -1833,3 +1842,24 @@ $(document).ready(function() {
     });
 });
         
+
+$(".follower").click(function() {
+    callAjax("/getMyFriends", "GET", null, function(data) {
+        var friend = "";
+        data.followers.forEach(function(item) {
+            if (item.active == true) {
+                var content =
+                        '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">' +
+                        '<div class="coupon-container d-flex align-items-md-center">' +
+                        '<img src="http://localhost:9032/public/image/' + item.avatar + '" class="img-coupon" />' +
+                        '<a href="/user-profile/' + item._id + '"><p>' + item.fullname + '</p></a>' +
+                        '</div>'
+                        + '</div>';
+                friend += content;
+            }
+            ;
+        });
+        $(".follower-modal-all").html(friend);
+    });
+});     
+
