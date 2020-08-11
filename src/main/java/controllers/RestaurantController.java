@@ -56,7 +56,10 @@ public class RestaurantController implements IController<Restaurant> {
         rESTCouponHelper = new RESTCouponHelper(Coupon.class);
 
     }
-
+  @RequestMapping(value = "/store-info", method = RequestMethod.GET)
+    public ModelAndView storeinfo() throws IOException {
+        return new ModelAndView("store-info");
+    }
     @RequestMapping(value = "/manageMyRestaurant/{id}", method = RequestMethod.GET)
     public ModelAndView statistical(@PathVariable("id") String id) throws IOException {
         Map<String, ?> restaurant = restHelper.manageMyRestaurant(id);

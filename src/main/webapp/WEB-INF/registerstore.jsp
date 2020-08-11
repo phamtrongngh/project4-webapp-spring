@@ -53,8 +53,8 @@
                 </div>
                 <div class="form-group form-inline">
                     <label>Tên cửa hàng:</label>
-                    <input type="text" name="name" class="form-control input-namestore"/>
-
+                    <input type="text" name="name" class="form-control input-namestore"/><br/>
+                    <span class="error error-namestore" style="color: red;margin-left: 200px">Tên cửa hàng không được để trống</span>
                 </div>
                 <div class="form-group form-inline">
                     <label>Thông tin giới thiệu:</label>
@@ -64,7 +64,7 @@
                 <div class="form-group form-inline">
                     <label>Địa chỉ cửa hàng</label>
                     <div class="input-group flex-nowrap" style="width: 46.5%">
-                        <input type="text" class="form-control input-address" name="address">
+                        <input type="text" class="form-control input-address" name="address" disabled>
                         <div class="input-group-prepend">
                             <button type="button" class="input-group-text btn-location" data-toggle="modal" data-target="#mapModel" ><i class="fas fa-map-marker-alt"></i></button>
                         </div>

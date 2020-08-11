@@ -777,7 +777,24 @@ $(document).ready(function() {
     $(".next-step").click(function() {
         var active = $('.nav-tabs li  a.active');
         active.parent().next().find('.nav-link').removeClass('disabled');
-        nextTab(active);
+        var text = $(".input-namestore").val();
+        if (/^\s{0,}$/.test(change_alias(text))) {
+            $(".input-namestore").addClass("error-user");
+            $(".input-namestore").removeClass("success-user");
+            $(".input-namestore").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-namestore").css("display", "block");
+            $(".input-namestore").focus();
+            return false;
+        }
+        else {
+            $("#update-saleoff").addClass("error-user");
+            $("#update-saleoff").removeClass("success-user");
+            $(".input-namestore").css("box-shadow", "none");
+            $(".input-namestore").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-namestore").css("display", "none");
+            nextTab(active);
+        }
+
     });
     $(".prev-step").click(function() {
         var active = $('.nav-tabs li a.active');
@@ -1320,7 +1337,7 @@ function check_discount(data) {
                 if (discount < data.max) {
                     $(".cart-discount").html(format2(discount, '').replace(".000", ""));
                     $("input[name='coupon']").val(data._id);
-                }else{
+                } else {
                     $(".cart-discount").html(format2(data.max, '').replace(".000", ""));
                     $("input[name='coupon']").val(data._id);
                 }
@@ -1973,7 +1990,7 @@ $("#areapost").on("keypress", function(event) {
 });
 $("#btn-post").on("click", function() {
     var area = $("#areapost").val();
-    if (/^\s{0,}$/.test(change_alias(area))&&$(".img-store-register").val("")) {
+    if (/^\s{0,}$/.test(change_alias(area)) && $(".img-store-register").val("")) {
         $("#alertModalCart").modal("show");
         $("#alertModalCart .modal-title").html("Thông báo");
         $("#alertModalCart .content").html("Bạn đang spam bài đăng!!");
@@ -2019,4 +2036,24 @@ $(".follower").click(function() {
         $(".follower-modal-all").html(friend);
     });
 });
+ $("#btn-change").click(function() {
+        var text = $("#user-name").val();
+        if (/^\s{0,}$/.test(change_alias(text))) {
+            $("#user-name").addClass("error-user");
+            $("#user-name").removeClass("success-user");
+            $("#user-name").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-username").css("display", "block");
+            $("#user-name").focus();
+            return false;
+        }
+        else {
+            $("#user-name").addClass("error-user");
+            $("#user-name").removeClass("success-user");
+            $("#user-name").css("box-shadow", "none");
+            $("#user-name").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-username").css("display", "none");
+            nextTab(active);
+        }
+
+    });
 

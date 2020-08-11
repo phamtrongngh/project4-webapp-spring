@@ -32,34 +32,7 @@
         </div>
     </div>
 </div>
-<!-- Modal change pass-->
-<div class="modal fade" role="dialog" id="Modelmatkhau">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"> Đổi mật khẩu</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form action="/changePassword" method="POST">
-                    <div class="form-group">
-                        <label>Mật khẩu cũ</label>
-                        <input type="password" class="form-control" >
-                    </div>
-                    <div class="form-group">
-                        <label>Mật khẩu mới</label>
-                        <input type="password" class="form-control" >
-                    </div>
-                    <div class="form-group">
-                        <label>Nhập lại mật khẩu mới</label>
-                        <input type="password" class="form-control"  >
-                    </div>
-                    <button type="submit" class="btn btn-primary">Chấp nhận</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!--Content-->
 
 <div style="margin-top: 100px;">
@@ -84,7 +57,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">Họ và tên</label>
+                        <label class="col-md-3">Tên cửa hàng</label>
                         <div class="col-md-9 input-group-prepend">
                             <input id="user-name"  type="text" value="${user.fullname}" name="fullname" class="form-control"/><br/>
                         </div>
@@ -112,7 +85,6 @@
                     <div class="form-group">
                         <div class="container">
                             <div class="row">
-                                <div class="col"><button class="col-7 btn btn-secondary btn-sm float-left" data-toggle="modal" data-target="#Modelmatkhau" type="button">Đổi mật khẩu</button></div>
                                 <div class="col"><button id="btn-change" type="submit" class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button></div>
                             </div>
                         </div>
