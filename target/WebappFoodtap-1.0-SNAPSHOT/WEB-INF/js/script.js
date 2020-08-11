@@ -1833,15 +1833,27 @@ $(".btn-updateNewfeed").click(function() {
     })
 });
 
-$(document).ready(function() {
-    $(".input-comments").on("keyup", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            $(".single-comment").click();
-        }
-    });
+
+$(".input-comments").on("keypress", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        $(".single-comment").click();
+    }
+
 });
-        
+$(".single-comment").click(function() {
+    var h = $(this).closest(".input-group").find(".input-comments")
+    if (/^\s{0,}$/.test(change_alias(h.val())))
+    {
+        $("#alertModalCart").modal("show");
+        $("#alertModalCart .modal-title").html("Thông báo");
+        $("#alertModalCart .content").html("Bạn đang spam bình luận!!");
+        return false;
+    }
+});
+
+
+
 
 $(".follower").click(function() {
     callAjax("/getMyFriends", "GET", null, function(data) {
@@ -1861,5 +1873,5 @@ $(".follower").click(function() {
         });
         $(".follower-modal-all").html(friend);
     });
-});     
+});
 
