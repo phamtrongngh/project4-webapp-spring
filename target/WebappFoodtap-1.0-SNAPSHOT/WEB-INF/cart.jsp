@@ -186,7 +186,7 @@
 <script src="/public/js/swiper.min.js "></script>
 <script src="http://localhost:9032/socket.io/socket.io.js"></script>
 <script src="/public/js/script.js "></script>
-<!--<script async defered>
+<script async defered>
     goongjs.accessToken = '4p35EI5AKS2sqmjuJIN5du5rcv4n8o8wXel5JDGD';
 
     var map = new goongjs.Map({
@@ -356,7 +356,7 @@
     }
     getLocation('${user.cart[0].product.restaurant.address}', "restaurant");
     getLocation('${user.address}', "user");
-</script>-->
+</script>
 
 </body>
 

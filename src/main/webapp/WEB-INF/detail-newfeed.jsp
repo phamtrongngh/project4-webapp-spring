@@ -607,7 +607,7 @@
             </div>
         </div>
         <!-- STATUS -->
-        <div class="col-12 col-sm-12 col-md-6 scrollpost">
+<div class="col-12 col-sm-12 col-md-6 scrollpost">
 
             <c:if test="${newfeed.active == true}">
                 <c:choose>
