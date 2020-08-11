@@ -2,6 +2,99 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--Modal rate-->
+<div class="modal" id="see-rate" >
+    <div class="modal-dialog" >
+        <div class="modal-content" >
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Tất cả đánh giá</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body follower-modal-all" style="overflow: auto;max-height: 350px">
+                <div class="coupon-container media">
+                    <img  src="/public/image/avatar/momo.png" class="img-coupon mr-3" />
+
+                    <div class="media-body" style="padding-top: 0px">
+                        <p style="padding-left: 0px;margin-bottom: 0px">Huy Trần</p>
+                        <div class="stars">
+                            <div >
+                                <c:set var="totalRating" value="${0}" />
+                                <c:set var="countRating" value="${0}" />
+                                <c:forEach items="${restaurant.rating}" var="item">
+                                    <c:set var="totalRating" value="${totalRating+item.stars}" />
+                                    <c:set var="countRating" value="${countRating+1}" />
+
+                                </c:forEach>
+                                <c:set var="TB" value="${totalRating/countRating}"/>
+
+                                <c:choose>
+                                    <c:when test="${totalRating==0}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${TB < 5 && TB>=4.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${TB < 4.5 && TB>=3.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${TB < 3.5 && TB>=2.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${TB < 2.5 && TB >=1.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+
+                                    <c:otherwise>
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                        </div>
+                                <p style="padding-left: 0px">Ngon  tuyệt</p>   
+                    </div>
+                </div>
+
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- The Modal spam comment -->
 <div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
         <div class="modal-content">
@@ -377,12 +470,12 @@
                 </div>
 
                 <div class="col-md-1 profile-container-buttons">
-                    <button href="/store-info" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
-                    <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
-                    <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Thống kê</button>
+                    <a href="http://localhost:8080/manageMyRestaurant/${restaurant._id}#menu"> <button href="/store-info" class="btn btn-primary form-control">Thêm món</button></a>
+                    <a href="http://localhost:8080/manageMyRestaurant/${restaurant._id}#order">  <button class="btn btn-success form-control" >Đơn hàng</button></a>
+                    <a href="http://localhost:8080/manageMyRestaurant/${restaurant._id}#chart"><button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Thống kê</button></a>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
-                    <button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button>
+                    <a href="http://localhost:8080/manageMyRestaurant/${restaurant._id}#store-info"><button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button></a>
                 </div>
             </div>
             <div class="row">
@@ -831,7 +924,7 @@
                             </div>
                             <hr/>
                         </c:forEach>
-                        <a href="#"><div style="text-align: end;">Xem tất cả</div></a>
+                            <a href=""  data-toggle="modal" data-target="#see-rate"><div style="text-align: end;">Xem tất cả</div></a>
                     </div>
 
                 </div>

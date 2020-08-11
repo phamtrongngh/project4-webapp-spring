@@ -88,7 +88,6 @@
 
     </div>
 </div>
-</div>
 <!--Modal Friend-->
 <div class="modal" id="see-friends" >
     <div class="modal-dialog" >
