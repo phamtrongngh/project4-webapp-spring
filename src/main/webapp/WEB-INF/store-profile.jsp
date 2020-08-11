@@ -421,7 +421,7 @@
                             <input type="text" name="user" hidden value="${cookie["_id"].getValue()}" />
                             <input type="text" name="restaurant" hidden value="${restaurant._id}" />
                             <div class="col-md-8 post-content">
-                                <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                <textarea id="areapost" class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                                 <div class="d-flex" style="width: 30%">
                                     <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
                                     <div class="upload-img-status" >
@@ -460,7 +460,7 @@
                                 </div>
                                 <hr/>
                                 <div>
-                                    <button class="btn btn-primary">Đăng</button>
+                                    <button id="btn-post" class="btn btn-primary">Đăng</button>
                                 </div>
                             </div>
                         </form>

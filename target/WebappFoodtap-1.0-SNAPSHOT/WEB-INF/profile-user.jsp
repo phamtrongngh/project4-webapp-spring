@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal spam comment -->
 <div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
         <div class="modal-content">
@@ -21,7 +22,7 @@
     </div>
 </div>
 <!-- The Modal repost -->
-<div class="modal fade" id="repostModal">
+<div class="modal fade" id="repostModal" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -34,7 +35,8 @@
                 <div class="modal-body">
                     <div>
                         <h3>Nội dung</h3>
-                        <textarea style="width: 100%" rows="5" class="content-report" name="content"></textarea>
+                        <textarea  style="width: 100%" rows="5" class="content-report" name="content"></textarea>
+                        <span class="error error-reports" style="color: red">Báo cáo không được để trống</span>
                     </div>
                 </div>
                 <!-- Modal footer -->

@@ -1,7 +1,11 @@
+
+
 <%@page import="java.util.Date"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+
+<!-- The Modal spam comment -->
 <div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
         <div class="modal-content">
@@ -838,12 +842,12 @@
                                                                         <input type="text" name="place"  value="" hidden />
                                                                         <input type="text" name="user" hidden value="${user._id}" />
                                                                         <div class="col-md-8 post-content">
-                                                                            <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                                                            <textarea id="areapost" class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                                                                             <div class="d-flex" style="width: 30%">
                                                                                 <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
                                                                                 <div class="upload-img-status" >
                                                                                     <div class="gallery text-center">
-                                                                                        <a id="chossefile">
+                                                                                        <a class="choosefile">
 
                                                                                             <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
                                                                                                 <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;cursor: pointer">+</span>
@@ -876,7 +880,7 @@
                                                                             </div>
                                                                             <hr/>
                                                                             <div>
-                                                                                <button class="btn btn-primary">Đăng</button>
+                                                                                <button id="btn-post" class="btn btn-primary">Đăng</button>
                                                                             </div>
                                                                         </div>
                                                                     </form>

@@ -66,7 +66,7 @@
     </div>
 </div>
 <!-- The Modal repost -->
-<div class="modal fade" id="repostModal">
+<div class="modal fade" id="repostModal" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -80,6 +80,7 @@
                     <div>
                         <h3>Nội dung</h3>
                         <textarea style="width: 100%" rows="5" class="content-report" name="content"></textarea>
+                          <span class="error error-reports" style="color: red">Báo cáo không được để trống</span>
                     </div>
                 </div>
                 <!-- Modal footer -->

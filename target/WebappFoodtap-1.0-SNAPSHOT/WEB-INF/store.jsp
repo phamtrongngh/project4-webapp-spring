@@ -574,7 +574,7 @@ s<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
                                         </div>
                                         <div class="image1">
-                                            <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
+                                            <img src="http://localhost:9032/public/image/${item.images[0]}" height="400px" width="100%" alt="" />
                                         </div>
                                         <div style="margin-top: 2px;display: flex;">
                                             <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like">
@@ -726,7 +726,7 @@ s<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
                                         </div>
                                         <div class="image1">
-                                            <img src="http://localhost:9032/public/image/${item.images[0]}" class="rounded background" alt="" />
+                                            <img src="http://localhost:9032/public/image/${item.images[0]}" width="100%" height="400px" alt="" />
                                         </div>
                                         <div style="margin-top: 2px;display: flex;">
                                             <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
