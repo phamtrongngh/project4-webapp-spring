@@ -19,6 +19,7 @@ public class User {
     private String phone;
     private String password;
     private String address;
+        private String description;
     private List<String> newfeeds;
     private List<String> followers;
     private List<String> following;
@@ -28,6 +29,22 @@ public class User {
     private Date createdAt;
     private Date updatedAt;
     private int __v;
+
+    public String getId() {
+        return _id;
+    }
+
+    public void setId(String _id) {
+        this._id = _id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getPassword() {
         return password;

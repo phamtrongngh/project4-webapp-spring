@@ -85,7 +85,7 @@ socket.on("newOrderRestaurant", function(data) {
     $(".numberNoti").html(number);
     var html = '<div class="notification ">' +
             '<img src="http://localhost:9032/public/image/' + data.user.avatar + '" class="messenger-avatar" alt=""/>' +
-            '<div>' +
+            '<div style="margin-right: 120px;">' +
             '<div >' + data.user.fullname + '</div>' +
             '<div>' + data.createdAt + '</div>' +
             '<a href="/restaurant/' + data.restaurant._id + '">' +
@@ -241,11 +241,11 @@ function quantityChanged1(event) {
 }
 $(".date-long").each(function(x) {
     $(this).html(formatDateLong($(this).html()))
-    
+
 });
 $(".date-short").each(function(x) {
     $(this).html(formatDateShort($(this).html()))
-    
+
 });
 $(document).ready(function() {
     /*display time*/
@@ -1800,6 +1800,7 @@ $(".send-report").click(function() {
 
 })
 $(document).on("click", ".btn-hiddennewfeed", function() {
+
     var idNewfeed = $(this).attr("idValue");
     callAjax("/newfeed/blockNewfeed/" + idNewfeed, "POST", null, function(data) {
         alert("Bài viết đã được xóa");
@@ -1815,7 +1816,6 @@ $(".btn-updateNewfeed").click(function() {
     callAjax("/detail-newfeedAjax/" + idNewfeedup, "GET", null, function(data) {
         data = JSON.parse(data);
         if (data.product != null) {
-
             $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
             $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
             $("#updatenewfeedModal .upload-img-status").css("display", "none");
@@ -1831,4 +1831,22 @@ $(".btn-updateNewfeed").click(function() {
         }
     })
 });
-        
+$(".follower").click(function() {
+    callAjax("/getMyFriends", "GET", null, function(data) {
+        var friend = "";
+        data.followers.forEach(function(item) {
+            if (item.active == true) {
+                var content =
+                        '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">' +
+                        '<div class="coupon-container d-flex align-items-md-center">' +
+                        '<img src="http://localhost:9032/public/image/' + item.avatar + '" class="img-coupon" />' +
+                        '<a href="/user-profile/' + item._id + '"><p>' + item.fullname + '</p></a>' +
+                        '</div>'
+                        + '</div>';
+                friend += content;
+            }
+            ;
+        });
+        $(".follower-modal-all").html(friend);
+    });
+});     
