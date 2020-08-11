@@ -2,6 +2,44 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal update newfeed -->
+<div class="modal fade" id="updatenewfeedModal">
+    <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Cập nhật bài viết</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form action="/newfeed/updateNewfeed" enctype="multipart/form-data" method="POST">
+                <!-- Modal body -->
+                <div class="modal-body" style="height: 300px;">
+                    <div>
+                        <input type="hidden" class="idUpdatenewfeed" name="id" />
+                        <h3>Nội dung</h3>
+                        <textarea name="content" style="width: 100%" rows="5" class="content-newfeedupdate" name="content"></textarea>
+                    </div>
+                    <div class="upload-img-status" >
+                        <div class="gallery text-center">
+                            <a id="chossefile">
+
+                                <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
+                                    <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 5px;bottom:-20px;">+</span>
+
+                                </div>
+                            </a>
+                            <div class="desc "><input style="width: 100%; display: none;" type="file" name="multipartFile" class="btn btn-danger img-store-register"/></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger submit send-report"  >Gửi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <!--Modal Friend-->
 <div class="modal" id="see-friends" >
     <div class="modal-dialog" style="max-width:40%!important;height: 90%;">
@@ -797,8 +835,9 @@
                                                                                             <div class="dropleft">
                                                                                                 <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                                                                 <div class="dropdown-menu" >
-                                                                                                    <a class="dropdown-item" href="#">Sửa</a>
-                                                                                                    <a class="dropdown-item" href="#">Xóa</a>
+                                                                                                    <a class="dropdown-item btn-updateNewfeed" idUpNewfeed="${item._id}"  data-toggle="modal" data-target="#updatenewfeedModal" href="#">Sửa</a>
+
+                                                                                                    <a class="dropdown-item btn-hiddennewfeed" idValue="${item._id}">Xóa</a>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -953,7 +992,8 @@
                                                                                             <div class="dropleft">
                                                                                                 <a  data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true" ></i></a>
                                                                                                 <div class="dropdown-menu" >
-                                                                                                    <a class="dropdown-item" href="#">Sửa</a>                                                                                              
+                                                                                                    <a class="dropdown-item btn-updateNewfeed" idUpNewfeed="${item._id}"  data-toggle="modal" data-target="#updatenewfeedModal" href="#">Sửa</a>
+                                                                                                    <a class="dropdown-item btn-hiddennewfeed" idValue="${item._id}">Xóa</a>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
