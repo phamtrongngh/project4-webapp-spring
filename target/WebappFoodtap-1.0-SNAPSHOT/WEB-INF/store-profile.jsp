@@ -619,7 +619,7 @@
                                         </div>
 
                                         <div class="collapse newfeed" idValue="${item._id}" id="collapse${item._id}">
-                                            <div class="card card-body">
+                                            <div class=" card-body">
                                                 <div class="post-footer">
                                                     <div class="input-group">
                                                         <input class="form-control input-comments" placeholder="Viết bình luận" type="text" />
@@ -705,7 +705,7 @@
                                             <div class="media">
                                                 <img src="http://localhost:9032/public/image/${restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                                 <div class="media-body">
-                                                    <div href="#" class="name"><a href="/restaurant/${item.restaurant}">${restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
+                                                    <div href="#" class="name"><a href="/restaurant/${item.restaurant}">${restaurant.name}</a>
                                                     </div>
 
                                                 </div>
@@ -753,7 +753,7 @@
                                             </div>
                                         </div>
                                         <div class="collapse newfeed" idValue="${item._id}" id="collapse${item._id}">
-                                            <div class="card card-body">
+                                            <div class=" card-body">
                                                 <div class="post-footer">
                                                     <div class="input-group">
                                                         <input class="form-control input-comments" placeholder="Viết bình luận" type="text" />

@@ -80,7 +80,7 @@ s<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                                 </c:choose>
                             </div>
                         </div>
-                                <p style="padding-left: 0px">Ngon  tuyệt</p>   
+                        <p style="padding-left: 0px">Ngon  tuyệt</p>   
                     </div>
                 </div>
 
@@ -122,7 +122,7 @@ s<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <div class="modal-header">
                 <h4 class="modal-title"> Báo cáo quản trị</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                
+
             </div>
             <form action="#" enctype="" method="POST">
                 <!-- Modal body -->
@@ -639,7 +639,10 @@ s<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                                             <div class="media">
                                                 <img src="http://localhost:9032/public/image/${restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                                 <div class="media-body">
-                                                    <div href="#" class="name"><a href="/restaurant/${item.restaurant}">${restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
+                                                    <div href="#" class="name"><a href="/restaurant/${item.restaurant}">${restaurant.name}</a>
+                                                        <c:if test="${restaurant.verified == true}">
+                                                            <img src="/public/image/Background/Tick_Mark_Dark-512.webp" width="20px" />
+                                                        </c:if>
                                                     </div>
 
                                                 </div>
@@ -691,7 +694,7 @@ s<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                                             <a><i class="fa fa-comment" aria-hidden="true" data-toggle="collapse" data-target="#collapse${item._id}" aria-expanded="false" aria-controls="collapseExample"></i></a>
                                         </div>
                                         <div class="collapse newfeed" idValue="${item._id}" id="collapse${item._id}">
-                                            <div class="card card-body">
+                                            <div class=" card-body" style="max-height: 100%;">
                                                 <div class="post-footer">
                                                     <div class="input-group">
                                                         <input class="form-control input-comments" placeholder="Viết bình luận" type="text" />
@@ -791,7 +794,9 @@ s<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                                             <div class="media">
                                                 <img src="http://localhost:9032/public/image/${restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                                 <div class="media-body">
-                                                    <div href="#" class="name"><a href="/restaurant/${item.restaurant}">${restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
+                                                    <div href="#" class="name"><a href="/restaurant/${item.restaurant}">${restaurant.name}</a><c:if test="${restaurant.verified == true}">
+                                                            <img src="/public/image/Background/Tick_Mark_Dark-512.webp" width="20px" />
+                                                        </c:if>
                                                     </div>
 
                                                 </div>
