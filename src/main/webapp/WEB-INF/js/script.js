@@ -32,7 +32,6 @@ socket.on("sendMessage", function(item) {
         } catch (e) {
         }
         $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
-
     } else {
         $(".sign-new-message" + item.sender).css("display", "block");
         if (currentChatterId != item.sender) {
@@ -95,7 +94,7 @@ socket.on("newOrderRestaurant", function(data) {
             '</div>' +
             '<img src="http://localhost:9032/public/image/' + data.restaurant.avatar + '" class="store-avatar" alt=""/>' +
             '</div>';
-    $(".notification-content").html(html + $(".notification-content").html() );
+    $(".notification-content").html(html + $(".notification-content").html());
 })
 //socket on like 
 socket.on("likeNewfeed", function(data) {
@@ -110,8 +109,8 @@ socket.on("likeNewfeed", function(data) {
             '</div>' +
             '<img src="http://localhost:9032/public/image/' + data.restaurant.avatar + '" class="store-avatar" alt=""/>' +
             '</div>';
-    
-    $(".notification-content").html(html + $(".notification-content").html() );
+
+    $(".notification-content").html(html + $(".notification-content").html());
 })
 function updateinfo() {
     fullname = $("#fullname-register").val();
@@ -231,7 +230,6 @@ function quantityChanged1(event) {
     update()
 }
 
-
 $(document).ready(function() {
     $(".date-long").html(formatDateLong($(".date-long").html()))
     /*display time*/
@@ -243,6 +241,7 @@ $(document).ready(function() {
             $(".date-cart").css("display", "none");
         }
     });
+
     /*display time*/
     /*display momo*/
     $('input[name=payment]').on('change', function(e) {
@@ -1337,17 +1336,20 @@ $(".use-coupon").click(function() {
                 $(".cart-discount").html(0);
                 updateCartTotal()
             } else {
-                check_discount(data);
-                updateCartTotal()
-                $(".cart-quantity-input").change(function() {
+                if (!data.percent) {
                     check_discount(data);
-                    updateCartTotal();
-                })
+                    updateCartTotal()
+                    $(".cart-quantity-input").change(function() {
+                        check_discount(data);
+                        updateCartTotal();
+                    })
+                }else{
+                    
+                }
+
             }
 
-            if (data.percent) {
 
-            }
         }
     });
 });

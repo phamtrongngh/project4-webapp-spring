@@ -328,14 +328,14 @@
         </div>
     </div>
 </div>
-                    
+
 
 <div class="container" style="margin-top: 100px">
     <!-- Nav tabs -->
     <div class="form-inline" style="margin-bottom: 10px;text-align: end;flex-direction: row-reverse">
-        
+
         <a href="/mystore"><button class="btn btn-primary" >Tất cả cửa hàng</button></a>
-        
+
     </div>
     <ul class="nav nav-tabs">
 
@@ -380,7 +380,7 @@
                                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Mã đơn hàng: activate to sort column descending" style="width: 195px;">Mã đơn hàng</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="SĐT khách hàng: activate to sort column ascending" style="width: 294px;">Khách hàng</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Shipper</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Ngày gửi</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Ngày đặt</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Đơn giá: activate to sort column ascending" style="width: 131px;">Tổng tiền</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Tình trạng: activate to sort column ascending" style="width: 121px;">Tình trạng</th>
                                             </tr>
@@ -391,7 +391,7 @@
                                                     <td class="sorting_1"><a href="" data-toggle="modal" data-target="#detailorder${item._id}">${item._id}</a></td>
                                                     <td><a href="/user-profile/${item.user._id}">${item.user.fullname}</a></td>
                                                     <td><a href="/user-profile/${item.shipper._id}">${item.shipper.fullname}</a></td>
-                                                    <td>${item.createdAt}</td>
+                                                    <td class="date-long">${item.createdAt}</td>
                                                     <td>${item.amount} VNĐ</td>
                                                     <td>
                                                         <c:choose>
@@ -667,12 +667,12 @@
         <div class="tab-pane container" id="menu" style="max-width: 100% !important;">
             <div class="mb-4 form-inline" style="margin-top: 10px;text-align: start;">
                 <button class="btn btn-info btn-icon-split" style="margin-left: 10px;" data-toggle="modal" data-target="#mdMenu"><i class="fas fa-file-medical" ></i> Thêm</button>
-<!--                <select name="" class="form-control " style="margin-left: 10px">
-                    <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
-                    <option value="1 ">Option 1</option>
-                    <option value="2 ">Option 2</option>
-                    <option value="3 ">Option 3</option>
-                </select>-->
+                <!--                <select name="" class="form-control " style="margin-left: 10px">
+                                    <option value=" " disabled selected>Hãy chọn mục từ cửa hàng</option>
+                                    <option value="1 ">Option 1</option>
+                                    <option value="2 ">Option 2</option>
+                                    <option value="3 ">Option 3</option>
+                                </select>-->
             </div>
             <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-body">
@@ -733,123 +733,158 @@
 <script src="http://localhost:9032/socket.io/socket.io.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
-
-
                         var listOrders;
+                        var bestSell;
+                        function countBestSeller(orderList) {
+                            var stringArray = orderList.reduce(function(x, y) {
+                                y.products.forEach(function(product) {
+                                    x.push(product.product.name);
+                                });
+                                return x;
+                            }, []);
+                            var occurrences = {};
+                            for (var i = 0, j = stringArray.length; i < j; i++) {
+                                occurrences[stringArray[i]] = (occurrences[stringArray[i]] || 0) + 1;
+                            }
+                            return Object.entries(occurrences).sort(function(a, b) {
+                                return  b[1] - a[1];
+                            });
+                        }
                         callAjax("/getMyRestaurantOrders/${restaurant._id}", "GET", null, function(data) {
-                            listOrders = data.orders.filter(function(item){
-                                return ((item.status == "completed")||(item.status == "failed"))
+                            listOrders = data.orders.filter(function(item) {
+                                return ((item.status == "completed")) && (new Date(item.createdAt).getUTCMonth() == new Date().getUTCMonth())
+                            });
+                            listOrdersIncludeCanceled = data.orders.filter(function(item) {
+                                return ((item.status == "completed") || (item.status == "failed")) && (new Date(item.createdAt).getUTCMonth() == new Date().getUTCMonth())
+                            });
+                            bestSell = countBestSeller(listOrders)
+                            listOrders = groupBy(listOrders, "createdAt");
+                            listOrders = listOrders.sort(function(b, a) {
+                                return  new Date(b[0].createdAt) - new Date(a[0].createdAt);
+                            });
+                            // Global options
+                            Chart.defaults.global.defaultFontFamily = 'Lato';
+                            Chart.defaults.global.defaultFontSize = 20;
+                            Chart.defaults.global.defaultFontColor = '#777';
+                            amountInMonth = listOrders.map(function(item) {
+                                return item.reduce(function(x, y) {
+                                    return x + y.amount;
+                                }, 0)
+                            })
+                            var chart = new Chart(myChart, {
+                                type: 'line',
+                                data: {
+                                    labels: ['Ngày 1', '2', '3', ' 4', ' 5', ' 6', ' 7', ' 8', ' 9', ' 10', ' 11', ' 12', ' 13', ' 14', ' 15', ' 16', ' 17', ' 18', ' 19', ' 20', ' 21', ' 22', ' 23', ' 24', ' 25', ' 26', ' 27', ' 28', ' 29', ' 30'],
+                                    datasets: [{
+                                            label: ['Doanh thu'],
+                                            data: amountInMonth,
+                                            backgroundColor: 'rgba(0, 0, 0, 0)',
+                                            borderWidth: 2,
+                                            borderColor: '#da484a',
+                                            hoverborderWidth: 3,
+                                            hoverborderColor: '#000',
+                                        }],
+                                },
+                                options: {
+                                    title: {
+                                        display: 'true',
+                                        text: 'Doanh thu trong tháng này',
+                                        fontSize: 30,
+                                        fontStyle: 'bold',
+                                    },
+                                    legend: {
+                                        display: 'true',
+                                        position: 'right',
+                                        labels: {
+                                            fontColor: '#000',
+                                        }
+                                    },
+                                    layout: {
+                                        padding: {
+                                            left: 50,
+                                            right: 0,
+                                            bottom: 50,
+                                            top: 50,
+                                        },
+                                    },
+                                    animation: {
+                                        duration: 2000,
+                                        easing: 'linear',
+                                    },
+                                },
+                            });
+                            var myPieChart = new Chart(bestSellerChart, {
+                                type: 'doughnut',
+                                data: {
+                                    datasets: [
+                                        {
+                                            label: "Top",
+                                            data: [
+                                                bestSell[0][1],
+                                                bestSell[1][1],
+                                                bestSell[2][1],
+                                            ],
+                                            backgroundColor: ['rgba(66, 135, 245)', 'rgba(218, 245, 4)', 'rgba(201, 20, 47)']
+                                        }
+                                    ],
+                                    labels: [bestSell[0][0],
+                                        bestSell[1][0],
+                                        bestSell[2][0], ],
+                                },
+                                options: {
+                                    title: {
+                                        display: 'true',
+                                        text: 'Bán chạy nhất tháng theo số đơn',
+                                        fontSize: 30,
+                                        fontStyle: 'bold',
+                                    },
+                                    legend: {
+                                        display: 'true',
+                                        position: 'right',
+                                        labels: {
+                                            fontColor: '#000',
+                                        }
+                                    },
+                                    layout: {
+                                        padding: {
+                                            left: 50,
+                                            right: 0,
+                                            bottom: 50,
+                                            top: 50,
+                                        },
+                                    },
+                                    animation: {
+                                        duration: 2000,
+                                        easing: 'linear',
+                                    },
+                                },
                             });
                         })
 
                         var progress = document.getElementById('animationProgress');
                         let myChart = document.getElementById('myChart').getContext('2d');
-                        let
-                        bestSellerChart = document.getElementById("bestSellerChart").getContext('2d');
 
-                        // Global options
-                        Chart.defaults.global.defaultFontFamily = 'Lato';
-                        Chart.defaults.global.defaultFontSize = 20;
-                        Chart.defaults.global.defaultFontColor = '#777';
-                        var chart = new Chart(myChart, {
-                            type: 'line',
-                            data: {
-                                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
-                                datasets: [{
-                                        label: ['Doanh thu'],
-                                        data: [
-                                            100,
-                                            200,
-                                            223,
-                                            50,
-                                            80,
-                                            70,
-                                            90,
-                                            179,
-                                            190,
-                                            150,
-                                            30,
-                                            22,
-                                        ],
-                                        backgroundColor: 'rgba(0, 0, 0, 0)',
-                                        borderWidth: 2,
-                                        borderColor: '#da484a',
-                                        hoverborderWidth: 3,
-                                        hoverborderColor: '#000',
-                                    }],
-                            },
-                            options: {
-                                title: {
-                                    display: 'true',
-                                    text: 'Doanh thu trong tháng này',
-                                    fontSize: 30,
-                                    fontStyle: 'bold',
-                                },
-                                legend: {
-                                    display: 'true',
-                                    position: 'right',
-                                    labels: {
-                                        fontColor: '#000',
-                                    }
-                                },
-                                layout: {
-                                    padding: {
-                                        left: 50,
-                                        right: 0,
-                                        bottom: 50,
-                                        top: 50,
-                                    },
-                                },
-                                animation: {
-                                    duration: 2000,
-                                    easing: 'linear',
-                                },
-                            },
-                        });
-                        var myPieChart = new Chart(bestSellerChart, {
-                            type: 'doughnut',
-                            data: {
-                                datasets: [
-                                    {
-                                        label: "Top",
-                                        data: [
-                                            100,
-                                            300,
-                                            700,
-                                        ],
-                                        backgroundColor: ['rgba(66, 135, 245)', 'rgba(218, 245, 4)', 'rgba(201, 20, 47)']
-                                    }
-                                ],
-                                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3'],
-                            },
-                            options: {
-                                title: {
-                                    display: 'true',
-                                    text: 'Top 3 món bán chạy nhất',
-                                    fontSize: 30,
-                                    fontStyle: 'bold',
-                                },
-                                legend: {
-                                    display: 'true',
-                                    position: 'right',
-                                    labels: {
-                                        fontColor: '#000',
-                                    }
-                                },
-                                layout: {
-                                    padding: {
-                                        left: 50,
-                                        right: 0,
-                                        bottom: 50,
-                                        top: 50,
-                                    },
-                                },
-                                animation: {
-                                    duration: 2000,
-                                    easing: 'linear',
-                                },
-                            },
-                        });
+                        bestSellerChart = document.getElementById("bestSellerChart").getContext('2d');
+                        function groupBy(collection, property) {
+                            var i = 0, val, index,
+                                    values = [], result = [];
+                            for (; i < collection.length; i++) {
+                                val = collection[i][property];
+                                index = values.indexOf(val);
+                                if (index > -1)
+                                    result[index].push(collection[i]);
+                                else {
+                                    values.push(val);
+                                    result.push([collection[i]]);
+                                }
+                            }
+                            return result;
+                        }
+
+
+
+
+
 </script>
 <script async defered>
     goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
