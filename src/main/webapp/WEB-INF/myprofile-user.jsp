@@ -1,7 +1,31 @@
+
+
 <%@page import="java.util.Date"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+
+<!-- The Modal spam comment -->
+<div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
+        <div class="modal-content">
+            <input id="tempIdProduct" hidden/>
+            <input id="tempQuantityProduct" hidden/>
+            <div class="modal-header" style="padding: 0 15px;">
+                <h5 class="modal-title" id="exampleModalLongTitle">CHUYỂN CỬA HÀNG KHÁC</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <div class="content">Các món trong mỗi đơn hàng chỉ có thể đến từ một cửa hàng, bạn có muốn lưu đơn hiện tại và chuyển cửa hàng?</div>
+                <div style="margin-top: 25px;">
+                    <button type="button" class="btn" data-dismiss="modal" style="color: white;background-color: #da484a;">Chấp nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- The Modal update newfeed -->
 <div class="modal fade" id="updatenewfeedModal">
     <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
@@ -43,27 +67,26 @@
 
 <!--Modal Friend-->
 <div class="modal" id="see-follower" >
-    <div class="modal-dialog" style="max-width:40%!important;height: 90%;">
-        <div class="modal-content" style="height: 100%;">
+    <div class="modal-dialog" >
+        <div class="modal-content" >
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title"> Bạn bè</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
-            <div class="modal-body follower-modal-all" style="overflow: auto;">
+            <div class="modal-body follower-modal-all" style="overflow: auto;max-height: 350px">
                 <div class="coupon-container row">
-                    <img src="/public/image/avatar/momo.png" class="img-coupon col-sm-3" />
-                    <p class="col-sm-9">Huy Trần</p>
+                   
                 </div>
             </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
         </div>
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-        </div>
+
     </div>
-</div>
 </div>
 <!--Modal Friend-->
 <div class="modal" id="see-friends" >
@@ -435,7 +458,7 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Chấp nhận</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" >Chấp nhận</button>
             </div>
         </div>
     </div>
@@ -818,12 +841,12 @@
                                                                         <input type="text" name="place"  value="" hidden />
                                                                         <input type="text" name="user" hidden value="${user._id}" />
                                                                         <div class="col-md-8 post-content">
-                                                                            <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                                                            <textarea id="areapost" class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                                                                             <div class="d-flex" style="width: 30%">
                                                                                 <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
                                                                                 <div class="upload-img-status" >
                                                                                     <div class="gallery text-center">
-                                                                                        <a id="chossefile">
+                                                                                        <a class="choosefile">
 
                                                                                             <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
                                                                                                 <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 8px;bottom:-20px;cursor: pointer">+</span>
@@ -856,7 +879,7 @@
                                                                             </div>
                                                                             <hr/>
                                                                             <div>
-                                                                                <button class="btn btn-primary">Đăng</button>
+                                                                                <button id="btn-post" class="btn btn-primary">Đăng</button>
                                                                             </div>
                                                                         </div>
                                                                     </form>

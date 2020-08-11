@@ -1,7 +1,28 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!-- The Modal spam comment -->
+<div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
+        <div class="modal-content">
+            <input id="tempIdProduct" hidden/>
+            <input id="tempQuantityProduct" hidden/>
+            <div class="modal-header" style="padding: 0 15px;">
+                <h5 class="modal-title" id="exampleModalLongTitle">CHUYỂN CỬA HÀNG KHÁC</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <div class="content">Các món trong mỗi đơn hàng chỉ có thể đến từ một cửa hàng, bạn có muốn lưu đơn hiện tại và chuyển cửa hàng?</div>
+                <div style="margin-top: 25px;">
+                    <button type="button" class="btn" data-dismiss="modal" style="color: white;background-color: #da484a;">Chấp nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- The Modal repost -->
-<div class="modal fade" id="repostModal">
+<div class="modal fade" id="repostModal" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -14,7 +35,8 @@
                 <div class="modal-body">
                     <div>
                         <h3>Nội dung</h3>
-                        <textarea style="width: 100%" rows="5" class="content-report" name="content"></textarea>
+                        <textarea  style="width: 100%" rows="5" class="content-report" name="content"></textarea>
+                        <span class="error error-reports" style="color: red">Báo cáo không được để trống</span>
                     </div>
                 </div>
                 <!-- Modal footer -->

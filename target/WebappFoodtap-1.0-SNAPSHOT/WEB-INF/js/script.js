@@ -777,7 +777,24 @@ $(document).ready(function() {
     $(".next-step").click(function() {
         var active = $('.nav-tabs li  a.active');
         active.parent().next().find('.nav-link').removeClass('disabled');
-        nextTab(active);
+        var text = $(".input-namestore").val();
+        if (/^\s{0,}$/.test(change_alias(text))) {
+            $(".input-namestore").addClass("error-user");
+            $(".input-namestore").removeClass("success-user");
+            $(".input-namestore").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-namestore").css("display", "block");
+            $(".input-namestore").focus();
+            return false;
+        }
+        else {
+            $("#update-saleoff").addClass("error-user");
+            $("#update-saleoff").removeClass("success-user");
+            $(".input-namestore").css("box-shadow", "none");
+            $(".input-namestore").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-namestore").css("display", "none");
+            nextTab(active);
+        }
+
     });
     $(".prev-step").click(function() {
         var active = $('.nav-tabs li a.active');
@@ -1320,7 +1337,7 @@ function check_discount(data) {
                 if (discount < data.max) {
                     $(".cart-discount").html(format2(discount, '').replace(".000", ""));
                     $("input[name='coupon']").val(data._id);
-                }else{
+                } else {
                     $(".cart-discount").html(format2(data.max, '').replace(".000", ""));
                     $("input[name='coupon']").val(data._id);
                 }
@@ -1846,15 +1863,159 @@ $(".btn-updateNewfeed").click(function() {
     })
 });
 
-$(document).ready(function() {
-    $(".input-comments").on("keyup", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            $(".single-comment").click();
-        }
-    });
+
+$(".input-comments").on("keypress", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        $(".single-comment").click();
+    }
+
 });
-        
+$(".single-comment").click(function() {
+    var h = $(this).closest(".input-group").find(".input-comments");
+    if (/^\s{0,}$/.test(change_alias(h.val())))
+    {
+        $("#alertModalCart").modal("show");
+        $("#alertModalCart .modal-title").html("Thông báo");
+        $("#alertModalCart .content").html("Bạn đang spam bình luận!!");
+        return false;
+    }
+});
+$("#btn-create-food").click(function() {
+    var name = $("#name-food").val();
+    var h = $(this).closest("#mdMenu").find("#price-food");
+    var s = $(this).closest("#mdMenu").find("#price-saleoff");
+    if (/^\s{0,}$/.test(change_alias(name))) {
+        $("#name-food").addClass("error-user");
+        $("#name-food").removeClass("success-user");
+        $("#name-food").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+        $(".error-name-food").css("display", "block");
+        $("#name-food").focus();
+        return false;
+    }
+    else {
+        $("#name-food").removeClass("error-user");
+        $("#name-food").addClass("success-user");
+        $("#name-food").css("box-shadow", "none");
+        $("#name-food").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+        $(".error-name-food").css("display", "none");
+    }
+    if (h.val() <= 0 || h.val() > 1000000) {
+        $("#price-food").addClass("error-user");
+        $("#price-food").removeClass("success-user");
+        $("#price-food").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+        $(".error-create-price").css("display", "block");
+        $("#price-food").focus();
+        return false;
+    }
+    else {
+        $("#price-food").removeClass("error-user");
+        $("#price-food").addClass("success-user");
+        $("#price-food").css("box-shadow", "none");
+        $("#price-food").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+        $(".error-create-price").css("display", "none");
+    }
+    if (s.val() > h.val()) {
+        $("#price-saleoff").addClass("error-user");
+        $("#price-saleoff").removeClass("success-user");
+        $("#price-saleoff").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+        $(".error-saleoff-price").css("display", "block");
+        $("#price-saleoff").focus();
+        return false;
+    }
+    else {
+        $("#price-saleoff").removeClass("error-user");
+        $("#price-saleoff").addClass("success-user");
+        $("#price-saleoff").css("box-shadow", "none");
+        $("#price-saleoff").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+        $(".error-saleoff-price").css("display", "none");
+    }
+});
+$("#btn-update-food").click(function() {
+    var name = $("#name-update-food").val();
+    var h = $(this).closest("#updateMenu").find("#price-update-food");
+    var s = $(this).closest("#updateMenu").find("#update-saleoff");
+    if (/^\s{0,}$/.test(change_alias(name))) {
+        $("#name-update-food").addClass("error-user");
+        $("#name-update-food").removeClass("success-user");
+        $("#name-update-food").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+        $(".error-name-food-update").css("display", "block");
+        $("#name-update-food").focus();
+        return false;
+    }
+    else {
+        $("#name-update-food").removeClass("error-user");
+        $("#name-update-food").addClass("success-user");
+        $("#name-update-food").css("box-shadow", "none");
+        $("#name-update-food").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+        $(".error-name-food-update").css("display", "none");
+    }
+    if (h.val() <= 0 || h.val() > 1000000) {
+        $("#price-update-food").addClass("error-user");
+        $("#price-update-food").removeClass("success-user");
+        $("#price-update-food").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+        $(".error-update-price").css("display", "block");
+        $("#price-update-price").focus();
+        return false;
+    }
+    else {
+        $("#price-update-food").removeClass("error-user");
+        $("#price-update-food").addClass("success-user");
+        $("#pprice-update-food").css("box-shadow", "none");
+        $("#price-update-food").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+        $(".error-update-price").css("display", "none");
+    }
+    if (s.val() > h.val()) {
+        $("#update-saleoff").addClass("error-user");
+        $("#update-saleoff").removeClass("success-user");
+        $("#update-saleoff").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+        $(".error-saleoff-update").css("display", "block");
+        $("#update-saleoff").focus();
+        return false;
+    }
+    else {
+        $("#update-saleoff").removeClass("error-user");
+        $("#update-saleoff").addClass("success-user");
+        $("#update-saleoff").css("box-shadow", "none");
+        $("#update-saleoff").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+        $(".error-saleoff-update").css("display", "none");
+    }
+});
+$("#areapost").on("keypress", function(event) {
+    if (event.keyCode === 13 && !event.shiftKey) {
+        event.preventDefault();
+        $("#btn-post").click();
+    }
+
+});
+$("#btn-post").on("click", function() {
+    var area = $("#areapost").val();
+    if (/^\s{0,}$/.test(change_alias(area)) && $(".img-store-register").val("")) {
+        $("#alertModalCart").modal("show");
+        $("#alertModalCart .modal-title").html("Thông báo");
+        $("#alertModalCart .content").html("Bạn đang spam bài đăng!!");
+        return false;
+    }
+});
+$(".send-report").on("click", function() {
+    var text = $(".content-report").val();
+    if (/^\s{0,}$/.test(change_alias(text))) {
+        $(".content-report").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+        $(".error-reports").css("display", "block");
+        $(".content-report").focus();
+        return false;
+    }
+    else {
+        $(".content-report").css("box-shadow", "none");
+        $(".content-report").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+        $(".error-reports").css("display", "none");
+    }
+})
+$("#repostModal .close").click(function() {
+    $(".content-report").val("");
+    $(".error-reports").css("display", "none");
+    $(".content-report").css("box-shadow", "none");
+})
 
 $(".follower").click(function() {
     callAjax("/getMyFriends", "GET", null, function(data) {
@@ -1874,5 +2035,25 @@ $(".follower").click(function() {
         });
         $(".follower-modal-all").html(friend);
     });
-});     
+});
+ $("#btn-change").click(function() {
+        var text = $("#user-name").val();
+        if (/^\s{0,}$/.test(change_alias(text))) {
+            $("#user-name").addClass("error-user");
+            $("#user-name").removeClass("success-user");
+            $("#user-name").css("box-shadow", "rgb(220, 53, 69) 0px 0px 10px 0.2rem");
+            $(".error-username").css("display", "block");
+            $("#user-name").focus();
+            return false;
+        }
+        else {
+            $("#user-name").addClass("error-user");
+            $("#user-name").removeClass("success-user");
+            $("#user-name").css("box-shadow", "none");
+            $("#user-name").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
+            $(".error-username").css("display", "none");
+            nextTab(active);
+        }
+
+    });
 
