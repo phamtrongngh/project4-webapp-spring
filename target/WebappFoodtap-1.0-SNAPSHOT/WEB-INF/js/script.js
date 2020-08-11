@@ -95,7 +95,7 @@ socket.on("newOrderRestaurant", function(data) {
             '</div>' +
             '<img src="http://localhost:9032/public/image/' + data.restaurant.avatar + '" class="store-avatar" alt=""/>' +
             '</div>';
-    $(".notification-content").html(html + $(".notification-content").html() );
+    $(".notification-content").html(html + $(".notification-content").html());
 })
 //socket on like 
 socket.on("likeNewfeed", function(data) {
@@ -111,19 +111,18 @@ socket.on("likeNewfeed", function(data) {
             '<div>' +
             '<div >' + data.fullname + '</div>' +
             '<div>' + formatDateLong(data.date) + '</div>' +
-            '<a href="/user-profile/'+ data.fromUser + '">' +
+            '<a href="/user-profile/' + data.fromUser + '">' +
             '<div class="noti-content">mới like hình bạn!</div>' +
-            
             '</div>' +
             '</a>' +
-            '<a  href="'+ data.link + '">'+
+            '<a  href="' + data.link + '">' +
             '<img src="http://localhost:9032/public/image/' + data.toNewfeed.images[0] + '" class="store-avatar" alt=""/>' +
-            '</a>'+
+            '</a>' +
             '</div>';
-    
-    $(".notification-content").html(html + $(".notification-content").html() );
+
+    $(".notification-content").html(html + $(".notification-content").html());
     console.log(data);
-   
+
 })
 function updateinfo() {
     fullname = $("#fullname-register").val();
@@ -721,7 +720,7 @@ $(document).ready(function() {
         });
     });
     $(document).on('keypress', 'textarea[name=msg-input]', function(e) {
-        if (e.keyCode == 13 && !e.shiftKey) {
+        if (e.keyCode === 13 && !e.shiftKey) {
             var msg = $(this).val();
             $(this).val('');
             if (msg.trim().length != 0) {
@@ -1456,7 +1455,7 @@ $(document).ready(function() {
 // Execute a function when the user releases a key on the keyboard
     input.addEventListener("keyup", function(event) {
         // Number 13 is the "Enter" key on the keyboard
-        if (event.keyCode == 13 && !event.shiftKey) {
+        if (event.keyCode === 13 && !event.shiftKey) {
             // Cancel the default action, if needed
             event.preventDefault();
             // Trigger the button element with a click
@@ -1794,35 +1793,43 @@ $(".send-report").click(function() {
 
 })
 $(document).on("click", ".btn-hiddennewfeed", function() {
-        var idNewfeed = $(this).attr("idValue");
-        callAjax("/newfeed/blockNewfeed/" + idNewfeed, "POST", null, function(data) {
-            alert("Bài viết đã được xóa");
-            window.location.href = "/myprofile-user";
-        })
+    var idNewfeed = $(this).attr("idValue");
+    callAjax("/newfeed/blockNewfeed/" + idNewfeed, "POST", null, function(data) {
+        alert("Bài viết đã được xóa");
+        window.location.href = "/myprofile-user";
     })
-$(".numberNoti").click(function (){
-        $(".numberNoti").html("");
+})
+$(".numberNoti").click(function() {
+    $(".numberNoti").html("");
 
 });
-$(".btn-updateNewfeed").click(function (){
+$(".btn-updateNewfeed").click(function() {
     var idNewfeedup = $(this).attr("idUpNewfeed");
-    callAjax("/detail-newfeedAjax/" + idNewfeedup, "GET", null, function(data){
+    callAjax("/detail-newfeedAjax/" + idNewfeedup, "GET", null, function(data) {
         data = JSON.parse(data);
-        if (data.product!=null) {          
-            
-        $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
-        $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
-                $("#updatenewfeedModal .upload-img-status").css("display", "none");
+        if (data.product != null) {
+
+            $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
+            $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
+            $("#updatenewfeedModal .upload-img-status").css("display", "none");
 
         }
-        else{
-            
-        $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
-        $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
-        $("#updatenewfeedModal .image-frame-upload").css("background", "url('http://localhost:9032/public/image/" + data.images+ "')");
-        $("#updatenewfeedModal .image-frame-upload").css("background-size", "cover");
-        $("#updatenewfeedModal .image-frame-upload").css("background-repeat", "no-repeat");
+        else {
+
+            $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
+            $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
+            $("#updatenewfeedModal .image-frame-upload").css("background", "url('http://localhost:9032/public/image/" + data.images + "')");
+            $("#updatenewfeedModal .image-frame-upload").css("background-size", "cover");
+            $("#updatenewfeedModal .image-frame-upload").css("background-repeat", "no-repeat");
         }
     })
+});
+$(document).ready(function() {
+    $(".input-comments").on("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            $(".single-comment").click();
+        }
+    });
 });
         
