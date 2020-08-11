@@ -470,9 +470,9 @@
                 <div class="col-md-4" style="padding-right: 0 !important;">
                     <div class="profile-intro">
                         <h2 class="text-center ">Giới thiệu: </h2>
-                        
-                        <p>Địa chỉ:  ${user.address}.</p>
-                        <p>Mô tả bản thân: </p>  
+
+                        <p>-<span style="font-weight: bold;">Địa chỉ:</span>  ${user.address}.</p>
+                        <p>-<span style="font-weight: bold;">Mô tả bản thân:</span> ${user.description}</p>  
                     </div>
                 </div>
                 <div class="col-md-2 profile-container-buttons">
