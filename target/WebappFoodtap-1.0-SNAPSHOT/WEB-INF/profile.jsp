@@ -243,15 +243,67 @@
                             </div>
                             <div class="text-like">${(restaurant.followers).size()} lượt thích</div>
                             <div class="stars">
-                                
                                 <div class="text-center">
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
-                                    <span class="fa fa-star checked-rating"></span>
+                                    <c:set var="totalRating" value="${0}" />
+                                    <c:set var="countRating" value="${0}" />
+                                    <c:forEach items="${restaurant.rating}" var="item">
+                                        <c:set var="totalRating" value="${totalRating+item.stars}" />
+                                        <c:set var="countRating" value="${countRating+1}" />
+
+                                    </c:forEach>
+                                    <c:set var="TB" value="${totalRating/countRating}"/>
+
+                                    <c:choose>
+                                        <c:when test="${totalRating==0}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${TB < 5 && TB>=4.5}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${TB < 4.5 && TB>=3.5}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${TB < 3.5 && TB>=2.5}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${TB < 2.5 && TB >=1.5}">
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+                                                <span class="fa fa-star checked-rating"></span>
+                                            </div>
+                                        </c:when>
+
+                                        <c:otherwise>
+                                            <div>
+                                                <span class="fa fa-star checked-rating"></span>
+
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
-                            
                             </div>
                         </div>
                     </div>
@@ -297,11 +349,11 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                       </c:if>
+                                        </c:if>
                                     </c:forEach>
 
                                 </div>
-                                
+
                             </div>
                             <div class="swiper-slide">
                                 <div class="profile-menu-row">
@@ -324,23 +376,23 @@
                                     </div>
                                 </div>
                                 <div class="profile-menu-row1">
-                                   
-                                        <c:forEach var="item" begin="11" end="14" items="${restaurant.menus}">
-                                            <c:forEach var="c" items="${item.category}">
 
-                                                <div class="col-md-3">
-                                                    <a href="#"><img class="rounded " src="http://localhost:9032/public/image/${c.image}"    alt="" />
-                                                        <div class="rounded photo">
-                                                            <div>
-                                                                ${c.name}
-                                                            </div>
+                                    <c:forEach var="item" begin="11" end="14" items="${restaurant.menus}">
+                                        <c:forEach var="c" items="${item.category}">
 
+                                            <div class="col-md-3">
+                                                <a href="#"><img class="rounded " src="http://localhost:9032/public/image/${c.image}"    alt="" />
+                                                    <div class="rounded photo">
+                                                        <div>
+                                                            ${c.name}
                                                         </div>
-                                                    </a>
-                                                </div>
-                                            </c:forEach>
+
+                                                    </div>
+                                                </a>
+                                            </div>
                                         </c:forEach>
-                                    
+                                    </c:forEach>
+
                                 </div>
                             </div>
                         </div>

@@ -4,16 +4,11 @@
 <div class="container sametaste" style="margin-top: 100px">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12">
-            <div class="d-flex justify-content-between" style="width: 99%">
+            <div class=" justify-content-between" style="width: 99%">
                 <div class="profile-text-hot">
                     Bạn bè của tôi
                 </div>
-                <div class="d-flex " style="width: 26%">
-                    <input type="text" class="search-food rounded " placeholder="Tìm bạn bè" >
-                    <div class="input-group-prepend">
-                        <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
+               
             </div>
             <div class="profile-menu-hot row">
                 <c:forEach var="item" items="${friends}">
@@ -32,16 +27,11 @@
                     </div>
                 </c:forEach>
             </div>
-            <div class="d-flex justify-content-between" style="width: 99%">
+            <div class="justify-content-between" style="width: 99%">
                 <div class="profile-text-hot">
-                    Cùng khẩu vị
+                    Mọi người
                 </div>
-                <div class="d-flex " style="width: 26%">
-                    <input type="text" class="search-food rounded " placeholder="Tìm người cùng khẩu vị" >
-                    <div class="input-group-prepend">
-                        <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
+                
             </div>
             <div class="profile-menu-hot row">
                 <c:forEach var="item" items="${users}">
@@ -64,17 +54,7 @@
                 </c:forEach>
             </div>
 
-            <div class="d-flex justify-content-between" style="width: 99%">
-                <div class="profile-text-near">
-                    Gần tôi
-                </div>
-                <div class="d-flex " style="width: 26%">
-                    <input type="text" class="search-food rounded " placeholder="Tìm người gần bạn" >
-                    <div class="input-group-prepend">
-                        <button class="input-group-text btn-search-hot" id="addon-wrapping"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
+           
             <div class="profile-menu-near row">
                 <c:forEach var="item" items="${users}">
                     <c:if test="${item._id!=cookie['_id'].getValue()}">
