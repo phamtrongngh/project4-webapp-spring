@@ -377,14 +377,7 @@
                                             <div class="comment-heading">
                                                 <h4 class="user">Gavino Free</h4>
                                                 <h5 class="time">5 minutes ago</h5>
-                                                <div class="report dropright">
-                                                    <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-
-                                                        <a class="dropdown-item" href="#">Báo cáo</a>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                             <p>Mem mem<br/>
                                                 <a href="#">Thích</a>
@@ -412,12 +405,7 @@
                                                         <h4 class="user">Ryan Haywood</h4>
                                                         <h5 class="time">3 minutes ago</h5>
                                                         <div class="report dropright">
-                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-
-                                                                <a class="dropdown-item" href="#">Báo cáo</a>
-                                                            </div>
+                                                           
                                                         </div>
                                                     </div>
                                                     <p>Relax my friend
@@ -447,12 +435,7 @@
                                                         <h4 class="user">Gavino Free</h4>
                                                         <h5 class="time">3 minutes ago</h5>
                                                         <div class="report dropright">
-                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-
-                                                                <a class="dropdown-item" href="#">Báo cáo</a>
-                                                            </div>
+                                                          
                                                         </div>
                                                     </div>
                                                     <p>Ok, cool. <br/>
@@ -689,14 +672,7 @@
                                                             <div class="comment-body ">
                                                                 <div class="comment-heading ">
                                                                     <h4 class="user "><a href="/user-profile/${comment.user._id}">${comment.user.fullname}</a></h4>
-                                                                    <h5 class="time "></h5>
-                                                                    <div class="report dropright">
-                                                                        <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                        </a>
-                                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                                            <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                        </div>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                                 <p>${comment.content}<br/>
                                                                     <!--<a href="#">Thích</a>-->                                    
@@ -724,14 +700,7 @@
                                                                             <div class="comment-body ">
                                                                                 <div class="comment-heading ">
                                                                                     <h4 class="user "><a href="/user-profile/${subcomment.user._id}">${subcomment.user.fullname}</a></h4>
-                                                                                    <h5 class="time ">3 minutes ago</h5>
-                                                                                    <div class="report dropright">
-                                                                                        <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                        </a>
-                                                                                        <div class="dropdown-menu dropdown-menu-right">
-
-                                                                                        </div>
-                                                                                    </div>
+                                                                                   
                                                                                 </div>
                                                                                 <p>${subcomment.content}
                                                                                     <br/>
@@ -817,7 +786,7 @@
                                 <div style="margin-top: 2px;display: flex;">
                                     <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
                                     <div style="width: 100%;text-align: end; padding-right: 15px;">
-                                        <a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a><span>200 chia sẻ</span></div>
+                                        <a data-toggle="collapse" href="#collapse${item._id}" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a></div>
                                 </div>
                                 <hr class="hr-newsfeed"/>
                                 <div class="icon2">
@@ -854,14 +823,7 @@
                                                             <div class="comment-body ">
                                                                 <div class="comment-heading ">
                                                                     <h4 class="user "><a href="/user-profile/${comment.user._id}">${comment.user.fullname}</a></h4>
-                                                                    <h5 class="time "></h5>
-                                                                    <div class="report dropright">
-                                                                        <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                        </a>
-                                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                                            <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                        </div>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                                 <p>${comment.content}<br/>
                                                                     <!--<a href="#">Thích</a>-->                                    
@@ -889,14 +851,7 @@
                                                                             <div class="comment-body ">
                                                                                 <div class="comment-heading ">
                                                                                     <h4 class="user ">${subcomment.user.fullname}</h4>
-                                                                                    <h5 class="time ">3 minutes ago</h5>
-                                                                                    <div class="report dropright">
-                                                                                        <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                        </a>
-                                                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                                                            <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                        </div>
-                                                                                    </div>
+                                                                                   
                                                                                 </div>
                                                                                 <p>${subcomment.content}
                                                                                     <br/>
