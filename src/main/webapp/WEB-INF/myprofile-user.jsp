@@ -40,6 +40,33 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
+=======
+<!--Modal Friend-->
+<div class="modal" id="see-follower" >
+    <div class="modal-dialog" style="max-width:40%!important;height: 90%;">
+        <div class="modal-content" style="height: 100%;">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Bạn bè</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body follower-modal-all" style="overflow: auto;">
+                <div class="coupon-container row">
+                    <img src="/public/image/avatar/momo.png" class="img-coupon col-sm-3" />
+                    <p class="col-sm-9">Huy Trần</p>
+                </div>
+            </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+        </div>
+    </div>
+</div>
+</div>
+>>>>>>> fddc1c392e9a56f1d1726361409dfbe6be749404
 <!--Modal Friend-->
 <div class="modal" id="see-friends" >
     <div class="modal-dialog" style="max-width:40%!important;height: 90%;">
@@ -711,7 +738,7 @@
                                                             <div class="col-md-3 rounded  " style="padding-left: 0 !important">
                                                                 <div class="profile-intro">
                                                                     <h4 class="text-center" style="color:#da484a;">Giới thiệu</h4>
-                                                                    <div>-Mô tả bản thân: ${user.description}</div>
+                                                                    <div>-<span style="font-weight: bold;">Mô tả bản thân:</span> ${user.description}</div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-1 profile-container-buttons">
@@ -764,6 +791,26 @@
 
                                                                     </div>
                                                                     <a href="#" style="margin-right: 10px" class="d-flex justify-content-end friends-all-user" data-toggle="modal" data-target="#see-friends">Xem tất cả</a>
+                                                                </div>
+                                                                <div class="profile-list-friend rounded" >
+                                                                    <div class="friend-list">
+                                                                        <h3><i class="fas fa-user-circle" style="color: #da484a;"></i> Được theo dõi bởi:</h3>
+                                                                        <div class="img-contain row ">
+                                                                            <c:forEach  var="item" items="${user.followers}">
+                                                                                <c:if test="${item.active = true}">
+                                                                                    <div class="img-contains col-sm-4">
+                                                                                        <image class="rounded" src ="http://localhost:9032/public/image/${item.avatar}" />
+                                                                                        <a href="/user-profile/${item._id}">${item.fullname}</a>
+                                                                                    </div>
+                                                                                </c:if>
+
+                                                                            </c:forEach>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                    <a href="#" idValue="${user._id}" class="follower d-flex justify-content-end"  style="margin-right: 10px" data-toggle="modal" data-target="#see-follower">Xem tất cả</a>
+
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8">

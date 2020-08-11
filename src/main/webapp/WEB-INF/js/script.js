@@ -110,6 +110,7 @@ socket.on("likeNewfeed", function(data) {
             '<div>' +
             '<div >' + data.fullname + '</div>' +
             '<div>' + formatDateLong(data.date) + '</div>' +
+
             '<a href="/user-profile/' + data.fromUser + '">' +
             '<div class="noti-content">mới like hình bạn!</div>' +
             '</div>' +
@@ -1802,6 +1803,7 @@ $(".send-report").click(function() {
 
 })
 $(document).on("click", ".btn-hiddennewfeed", function() {
+<<<<<<< HEAD
     var idNewfeed = $(this).attr("idValue");
     callAjax("/newfeed/blockNewfeed/" + idNewfeed, "POST", null, function(data) {
         alert("Bài viết đã được xóa");
@@ -1834,3 +1836,55 @@ $(".btn-updateNewfeed").click(function() {
     })
 });
         
+=======
+        var idNewfeed = $(this).attr("idValue");
+        callAjax("/newfeed/blockNewfeed/" + idNewfeed, "POST", null, function(data) {
+            alert("Bài viết đã được xóa");
+            window.location.href = "/myprofile-user";
+        })
+    })
+$(".numberNoti").click(function (){
+        $(".numberNoti").html("");
+
+});
+$(".btn-updateNewfeed").click(function (){
+    var idNewfeedup = $(this).attr("idUpNewfeed");
+    callAjax("/detail-newfeedAjax/" + idNewfeedup, "GET", null, function(data){
+        data = JSON.parse(data);
+        if (data.product!=null) {          
+            
+        $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
+        $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
+                $("#updatenewfeedModal .upload-img-status").css("display", "none");
+
+        }
+        else{
+            
+        $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
+        $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
+        $("#updatenewfeedModal .image-frame-upload").css("background", "url('http://localhost:9032/public/image/" + data.images+ "')");
+        $("#updatenewfeedModal .image-frame-upload").css("background-size", "cover");
+        $("#updatenewfeedModal .image-frame-upload").css("background-repeat", "no-repeat");
+        }
+    })
+});
+$(".follower").click(function() {
+    callAjax("/getMyFriends", "GET", null, function(data) {
+        var friend = "";
+        data.followers.forEach(function(item) {
+            if (item.active == true) {
+                var content =
+                        '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">' +
+                        '<div class="coupon-container d-flex align-items-md-center">' +
+                        '<img src="http://localhost:9032/public/image/' + item.avatar + '" class="img-coupon" />' +
+                        '<a href="/user-profile/' + item._id + '"><p>' + item.fullname + '</p></a>' +
+                        '</div>' 
+                        + '</div>';
+                friend += content;
+            }
+            ;
+        });
+        $(".follower-modal-all").html(friend);
+    });
+});     
+>>>>>>> fddc1c392e9a56f1d1726361409dfbe6be749404
