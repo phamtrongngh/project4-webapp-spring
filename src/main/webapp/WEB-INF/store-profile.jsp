@@ -236,7 +236,7 @@
                                 <p class="form-inline quantity">
                                     Số lượng :
 
-                                    <input aria-label="quantity" class="input-qty" min="1" max="999" name="quantity" type="number" value="1" />
+                                    <input aria-label="quantity" class="input-qty" min="1" max="50" name="quantity" type="number" value="1" />
 
                                 </p>
                                 <p class="price-food">Giá : <span class="price-foodnumber-through"></span> VNĐ</p>
