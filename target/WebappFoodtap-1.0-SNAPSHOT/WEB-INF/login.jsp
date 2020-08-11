@@ -141,7 +141,7 @@
                                         <span class="error error-password" color="red">Mật khẩu phải hơn 8 ký tự(bao gồm cả chữ thường, chữ hoa và ít nhất 1 số)</span>
                                     </div>
                                     <div class="form-group ">
-                                        <input type="password" id="repassword-register" name="password" class="form-control input-phone" placeholder="Nhập lại mật khẩu"/>
+                                        <input type="password" id="repassword-register" class="form-control input-phone" placeholder="Nhập lại mật khẩu"/>
                                         <span class="error error-repassword" color="red">Mật khẩu không khớp</span>
                                     </div>
                                     <div class="form-group ">
