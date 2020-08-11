@@ -561,13 +561,7 @@
                                                         <h4 class="user">Ryan Haywood</h4>
                                                         <h5 class="time">3 minutes ago</h5>
                                                         <div class="report dropright">
-                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-
-                                                                <a class="dropdown-item" href="#">Báo cáo</a>
-                                                            </div>
+                                                          
                                                         </div>
                                                     </div>
                                                     <p>Relax my friend
@@ -597,12 +591,7 @@
                                                         <h4 class="user">Gavino Free</h4>
                                                         <h5 class="time">3 minutes ago</h5>
                                                         <div class="report dropright">
-                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-
-                                                                <a class="dropdown-item" href="#">Báo cáo</a>
+                                                           
                                                             </div>
                                                         </div>
                                                     </div>
@@ -969,14 +958,7 @@
                                                                                                                 <div class="comment-body ">
                                                                                                                     <div class="comment-heading ">
                                                                                                                         <h4 class="user "><a href="/user-profile/${comment.user._id}">${comment.user.fullname}</a></h4>
-                                                                                                                        <h5 class="time "></h5>
-                                                                                                                        <div class="report dropright">
-                                                                                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                                            </a>
-                                                                                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                                                            </div>
-                                                                                                                        </div>
+                                                          
                                                                                                                     </div>
                                                                                                                     <p>${comment.content}<br/>
                                                                                                                         <!--<a href="#">Thích</a>-->                                    
@@ -1004,16 +986,7 @@
                                                                                                                                 <div class="comment-body ">
                                                                                                                                     <div class="comment-heading ">
                                                                                                                                         <h4 class="user ">${subcomment.user.fullname}</h4>
-                                                                                                                                        <h5 class="time ">3 minutes ago</h5>
-                                                                                                                                        <div class="report dropright">
-                                                                                                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                                                            </a>
-                                                                                                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                                                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                                                                <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                                                                            </div>
-                                                                                                                                        </div>
+                                                                                                                                       
                                                                                                                                     </div>
                                                                                                                                     <p>${subcomment.content}
                                                                                                                                         <br/>
@@ -1121,14 +1094,7 @@
                                                                                                                 <div class="comment-body ">
                                                                                                                     <div class="comment-heading ">
                                                                                                                         <h4 class="user "><a href="/user-profile/${comment.user._id}">${comment.user.fullname}</a></h4>
-                                                                                                                        <h5 class="time "></h5>
-                                                                                                                        <div class="report dropright">
-                                                                                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                                            </a>
-                                                                                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                                                            </div>
-                                                                                                                        </div>
+                                                                               
                                                                                                                     </div>
                                                                                                                     <p>${comment.content}<br/>
                                                                                                                         <!--<a href="#">Thích</a>-->                                    
@@ -1156,16 +1122,7 @@
                                                                                                                                 <div class="comment-body ">
                                                                                                                                     <div class="comment-heading ">
                                                                                                                                         <h4 class="user ">${subcomment.user.fullname}</h4>
-                                                                                                                                        <h5 class="time ">3 minutes ago</h5>
-                                                                                                                                        <div class="report dropright">
-                                                                                                                                            <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                                                            </a>
-                                                                                                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                                                                                                <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                                                                <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                                                                <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                                                                            </div>
-                                                                                                                                        </div>
+                                                                        
                                                                                                                                     </div>
                                                                                                                                     <p>${subcomment.content}
                                                                                                                                         <br/>
