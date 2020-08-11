@@ -29,6 +29,7 @@ s<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <div class="modal-header">
                 <h4 class="modal-title"> Báo cáo quản trị</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                
             </div>
             <form action="#" enctype="" method="POST">
                 <!-- Modal body -->
@@ -36,6 +37,7 @@ s<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                     <div>
                         <h3>Nội dung</h3>
                         <textarea style="width: 100%" rows="5" class="content-report" name="content"></textarea>
+                        <span class="error error-reports">Nội dung không được để trống</span>
                     </div>
                 </div>
                 <!-- Modal footer -->
