@@ -379,7 +379,7 @@
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Mã đơn hàng: activate to sort column descending" style="width: 195px;">Mã đơn hàng</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="SĐT khách hàng: activate to sort column ascending" style="width: 294px;">Khách hàng</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Shipper</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Người giao</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Ngày gửi: activate to sort column ascending" style="width: 142px;">Ngày đặt</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Đơn giá: activate to sort column ascending" style="width: 131px;">Tổng tiền</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Tình trạng: activate to sort column ascending" style="width: 121px;">Tình trạng</th>
@@ -390,7 +390,7 @@
                                                 <tr role="row" class="odd">
                                                     <td class="sorting_1"><a href="" data-toggle="modal" data-target="#detailorder${item._id}">${item._id}</a></td>
                                                     <td><a href="/user-profile/${item.user._id}">${item.user.fullname}</a></td>
-                                                    <td><a href="/user-profile/${item.shipper._id}">${item.shipper.fullname}</a></td>
+                                                    <td>${item.shipper.fullname}</td>
                                                     <td class="date-long">${item.createdAt}</td>
                                                     <td>${item.amount} VNĐ</td>
                                                     <td>

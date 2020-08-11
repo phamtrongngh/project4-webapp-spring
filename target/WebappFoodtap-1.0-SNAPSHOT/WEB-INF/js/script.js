@@ -248,8 +248,6 @@ $(".date-short").each(function(x) {
     
 });
 $(document).ready(function() {
-
-
     /*display time*/
     $('input[name=time]').on('change', function(e) {
 
