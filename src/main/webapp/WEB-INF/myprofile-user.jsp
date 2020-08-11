@@ -40,6 +40,7 @@
         </div>
     </div>
 </div>
+
 <!--Modal Friend-->
 <div class="modal" id="see-follower" >
     <div class="modal-dialog" style="max-width:40%!important;height: 90%;">
