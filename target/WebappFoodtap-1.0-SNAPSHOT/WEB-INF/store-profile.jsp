@@ -426,7 +426,7 @@
                                     <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
                                     <div class="upload-img-status" >
                                         <div class="gallery text-center">
-                                            <a id="chossefile">
+                                            <a class="choosefile">
 
                                                 <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
                                                     <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 5px;bottom:-20px;">+</span>
