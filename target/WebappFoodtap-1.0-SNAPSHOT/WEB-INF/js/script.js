@@ -122,7 +122,6 @@ socket.on("likeNewfeed", function(data) {
             '</div>';
     
     $(".notification-content").html(html + $(".notification-content").html() );
-    console.log(data);
    
 })
 function updateinfo() {
