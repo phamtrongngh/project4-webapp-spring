@@ -83,7 +83,8 @@ socket.on("newOrderRestaurant", function(data) {
         number = parseInt($(".numberFriendRequest").html()) + 1;
     }
     $(".numberNoti").html(number);
-    var html = '<div class="notification ">' +
+    var html =
+            '<div class="notification ">' +
             '<img src="http://localhost:9032/public/image/' + data.user.avatar + '" class="messenger-avatar" alt=""/>' +
             '<div style="margin-right: 120px;">' +
             '<div >' + data.user.fullname + '</div>' +
@@ -1302,15 +1303,34 @@ $(document).ready(function() {
 })
 function check_discount(data) {
     if (data.min) {
-        if (data.min <= $(".cart-total-price").html().replace(",", "")) {
-            $(".cart-discount").html(format2(data.discount, '').replace(".000", ""));
-            $("input[name='coupon']").val(data._id);
+        if (!data.percent) {
+            if (data.min <= $(".cart-total-price").html().replace(",", "")) {
+                $(".cart-discount").html(format2(data.discount, '').replace(".000", ""));
+                $("input[name='coupon']").val(data._id);
+            } else {
+                $("#alertModalCart").modal("show");
+                $("#alertModalCart .modal-title").html("Thông báo");
+                $("#alertModalCart .content").html("Đơn hàng không đủ điều kiện...");
+                $("input[name='coupon']").val(null);
+                $(".cart-discount").html(0);
+            }
         } else {
-            $("#alertModalCart").modal("show");
-            $("#alertModalCart .modal-title").html("Thông báo");
-            $("#alertModalCart .content").html("Đơn hàng không đủ điều kiện...");
-            $("input[name='coupon']").val(null);
-            $(".cart-discount").html(0);
+            if (data.min <= $(".cart-total-price").html().replace(",", "")) {
+                var discount = $(".cart-total-price").html().replace(",", "") * data.percent / 100;
+                if (discount < data.max) {
+                    $(".cart-discount").html(format2(discount, '').replace(".000", ""));
+                    $("input[name='coupon']").val(data._id);
+                }else{
+                    $(".cart-discount").html(format2(data.max, '').replace(".000", ""));
+                    $("input[name='coupon']").val(data._id);
+                }
+            } else {
+                $("#alertModalCart").modal("show");
+                $("#alertModalCart .modal-title").html("Thông báo");
+                $("#alertModalCart .content").html("Đơn hàng không đủ điều kiện...");
+                $("input[name='coupon']").val(null);
+                $(".cart-discount").html(0);
+            }
         }
     }
 }
@@ -1350,20 +1370,13 @@ $(".use-coupon").click(function() {
                 $(".cart-discount").html(0);
                 updateCartTotal()
             } else {
-                if (!data.percent) {
+                check_discount(data);
+                updateCartTotal()
+                $(".cart-quantity-input").change(function() {
                     check_discount(data);
-                    updateCartTotal()
-                    $(".cart-quantity-input").change(function() {
-                        check_discount(data);
-                        updateCartTotal();
-                    })
-                } else {
-
-                }
-
+                    updateCartTotal();
+                })
             }
-
-
         }
     });
 });
