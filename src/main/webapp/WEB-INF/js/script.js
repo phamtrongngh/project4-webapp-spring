@@ -119,7 +119,6 @@ socket.on("likeNewfeed", function(data) {
             '</a>' +
             '</div>';
 
-
     $(".notification-content").html(html + $(".notification-content").html());
 
 
@@ -726,7 +725,7 @@ $(document).ready(function() {
         });
     });
     $(document).on('keypress', 'textarea[name=msg-input]', function(e) {
-        if (e.keyCode == 13 && !e.shiftKey) {
+        if (e.keyCode === 13 && !e.shiftKey) {
             var msg = $(this).val();
             $(this).val('');
             if (msg.trim().length != 0) {
@@ -1464,7 +1463,7 @@ $(document).ready(function() {
 // Execute a function when the user releases a key on the keyboard
     input.addEventListener("keyup", function(event) {
         // Number 13 is the "Enter" key on the keyboard
-        if (event.keyCode == 13 && !event.shiftKey) {
+        if (event.keyCode === 13 && !event.shiftKey) {
             // Cancel the default action, if needed
             event.preventDefault();
             // Trigger the button element with a click
@@ -1802,7 +1801,6 @@ $(".send-report").click(function() {
 
 })
 $(document).on("click", ".btn-hiddennewfeed", function() {
-
     var idNewfeed = $(this).attr("idValue");
     callAjax("/newfeed/blockNewfeed/" + idNewfeed, "POST", null, function(data) {
         alert("Bài viết đã được xóa");
@@ -1818,6 +1816,7 @@ $(".btn-updateNewfeed").click(function() {
     callAjax("/detail-newfeedAjax/" + idNewfeedup, "GET", null, function(data) {
         data = JSON.parse(data);
         if (data.product != null) {
+
             $("#updatenewfeedModal .idUpdatenewfeed").val(data._id);
             $("#updatenewfeedModal .content-newfeedupdate").val(data.content);
             $("#updatenewfeedModal .upload-img-status").css("display", "none");
@@ -1833,6 +1832,17 @@ $(".btn-updateNewfeed").click(function() {
         }
     })
 });
+
+$(document).ready(function() {
+    $(".input-comments").on("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            $(".single-comment").click();
+        }
+    });
+});
+        
+
 $(".follower").click(function() {
     callAjax("/getMyFriends", "GET", null, function(data) {
         var friend = "";
@@ -1852,3 +1862,4 @@ $(".follower").click(function() {
         $(".follower-modal-all").html(friend);
     });
 });     
+

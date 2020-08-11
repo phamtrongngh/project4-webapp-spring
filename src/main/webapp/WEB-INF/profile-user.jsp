@@ -27,7 +27,7 @@
 </div>
 <!--Modal Friend-->
 <div class="modal" id="see-friends" >
-    <div class="modal-dialog" style="max-width:40%!important;">
+    <div class="modal-dialog" >
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -35,7 +35,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
-            <div class="modal-body friends-modal-all-user">
+            <div class="modal-body friends-modal-all-user" style="overflow: auto;max-height: 350px">
                 <div class="d-flex align-items-md-center justify-content-between" style="margin-bottom: 10px;">
                     <div class="coupon-container d-flex align-items-md-center">
                         <img src="/public/image/avatar/momo.png" class="img-coupon" />
@@ -62,7 +62,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body" style="overflow: auto;max-height: 350px">
                 <div class=" align-items-md-center justify-content-between">
                     <div class="coupon-container row img-modal-all-user">
                     </div>
@@ -470,7 +470,6 @@
                 <div class="col-md-4" style="padding-right: 0 !important;">
                     <div class="profile-intro">
                         <h2 class="text-center ">Giới thiệu: </h2>
-
                         <p>-<span style="font-weight: bold;">Địa chỉ:</span>  ${user.address}.</p>
                         <p>-<span style="font-weight: bold;">Mô tả bản thân:</span> ${user.description}</p>  
                     </div>
