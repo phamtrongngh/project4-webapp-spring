@@ -190,7 +190,7 @@
         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
         <script src="/public/js/script.js "></script>
         <script async defered>
-            goongjs.accessToken = 'tavf7FFrdgUiHcfPX9MfrlGjCCCvNJrOXTxr7YpL';
+            goongjs.accessToken = 'O1Fy59MBnBFFFRxsJGpnkv7TwnR2l5oO7uuHYeHB';
             var map = new goongjs.Map({
                 container: 'map', // container id
                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -199,7 +199,7 @@
             });
 
             var geocoder = new GoongGeocoder({
-                accessToken: "Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3",
+                accessToken: "VdAMDyPKoipIV0sF3HKUPfYpqRxE8nAo9vteqZcF",
                 goongjs: goongjs
             })
 

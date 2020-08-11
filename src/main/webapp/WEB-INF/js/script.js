@@ -1089,14 +1089,6 @@ $(document).ready(function() {
                     '<div class="comment-body ">' +
                     '<div class="comment-heading ">' +
                     '<h4 class="user ">' + '<a href="/user-profile/' + data.user._id + '">' + data.user.fullname + '</a>' + '</h4>' +
-                    '<h5 class="time ">' + '</h5>' +
-                    '<div class="report dropright">' +
-                    '<a href="#" class="" data-toggle="dropdown">' + '<i class="fas fa-ellipsis-h" aria-hidden="true">' + '</i>' +
-                    '</a>' +
-                    '<div class="dropdown-menu dropdown-menu-right">' +
-                    '<a class="dropdown-item" href="#">' + "" + '</a>' +
-                    '</div>' +
-                    '</div>' +
                     '</div>' +
                     '<p>' + data.content + '<br/>' +
 //                    '<a href="#">' + 'Thích ' + '</a>' +
@@ -1139,16 +1131,7 @@ $(document).ready(function() {
                     '<div class="comment-body ">' +
                     '<div class="comment-heading ">' +
                     '<h4 class="user "><a href="/user-profile/' + data.user._id + '">' + data.user.fullname + '</a></h4>' +
-                    '<h5 class="time ">' + '3 minutes ago' + '</h5>' +
-                    '<div class="report dropright">' +
-                    '<a href="#" class="" data-toggle="dropdown">' + '<i class="fas fa-ellipsis-h" aria-hidden="true">' + '</i>' +
-                    '</a>' +
-                    '<div class="dropdown-menu dropdown-menu-right">' +
-                    '<a class="dropdown-item" href="#">Ẩn bình luận</a>' +
-                    '<a class="dropdown-item" href="#">Sửa</a>' +
-                    '<a class="dropdown-item" href="#">Báo cáo</a>' +
-                    '</div>' +
-                    '</div>' +
+                
                     '</div>' +
                     '<p>' + data.content +
                     '<br/>' +
@@ -1867,7 +1850,26 @@ $(".btn-updateNewfeed").click(function() {
 $(".input-comments").on("keypress", function(event) {
     if (event.keyCode === 13) {
         event.preventDefault();
-        $(".single-comment").click();
+         var d =  $(this).closest(".input-group").find(".reply-comment");
+        d.click();
+    }
+
+});
+$(".reply-comment").click(function() {
+    var h = $(this).closest(".input-group").find(".input-comments");
+    if (/^\s{0,}$/.test(change_alias(h.val())))
+    {
+        $("#alertModalCart").modal("show");
+        $("#alertModalCart .modal-title").html("Thông báo");
+        $("#alertModalCart .content").html("Bạn đang spam bình luận!!");
+        return false;
+    }
+});
+$(".input-comments").on("keypress", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+      var c =  $(this).closest(".input-group").find(".single-comment");
+        c.click();
     }
 
 });
@@ -2047,8 +2049,8 @@ $(".follower").click(function() {
             return false;
         }
         else {
-            $("#user-name").addClass("error-user");
-            $("#user-name").removeClass("success-user");
+            $("#user-name").removeClass("error-user");
+            $("#user-name").addClass("success-user");
             $("#user-name").css("box-shadow", "none");
             $("#user-name").css("box-shadow", "#28a745 0px 0px 10px 0.2rem");
             $(".error-username").css("display", "none");
