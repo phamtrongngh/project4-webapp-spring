@@ -24,11 +24,9 @@
 
                             </a>
                             <div class="absohovereffect">
-                                <div class="d-flex">
-                                    <a href=""><div style="width: 170px;font-size: 20px; color: white;" >${item.user.fullname}</div></a>
-                                    <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                                </div>
-
+                             
+                                    <a href=""><div style="width: 100%;font-size: 25px; color: white;font-family: auto" >${item.user.fullname}</div></a>
+                                
                             </div>
                         </div>
                     </div>
@@ -55,10 +53,9 @@
 
                                 </a>
                                 <div class="absohovereffect">
-                                    <div class="d-flex">
-                                        <a href=""><div style="width: 170px;font-size: 20px; color: white;">${item.fullname} </div></a>
-                                        <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                                    </div>
+                                   
+                                        <a href=""><div style="width: 100%;font-size: 25px; color: white;font-family: auto">${item.fullname} </div></a>
+                                      
 
                                 </div>
                             </div>
@@ -87,10 +84,9 @@
                                     <img class="img-responsive" src="http://localhost:9032/public/image/${item.avatar}" alt="" />
                                 </a>
                                 <div class="absohovereffect">
-                                    <div class="d-flex">
-                                        <a href=""><div style="width: 170px;font-size: 20px; color: white;">${item.fullname} </div></a>
-                                        <button class="btn" style="float: right;background-color: #da484a; color: white;"><i class="fas fa-user-plus"></i></button>
-                                    </div>
+                                    
+                                        <a href=""><div style="width: 100%;font-size: 25px; color: white;font-family: auto">${item.fullname} </div></a>
+                                    
 
                                 </div>
                             </div>
