@@ -1825,4 +1825,22 @@ $(".btn-updateNewfeed").click(function (){
         }
     })
 });
-        
+$(".follower").click(function() {
+    callAjax("/getMyFriends", "GET", null, function(data) {
+        var friend = "";
+        data.followers.forEach(function(item) {
+            if (item.active == true) {
+                var content =
+                        '<div class="d-flex align-items-md-center justify-content-between" style="margin-bottom:10px;">' +
+                        '<div class="coupon-container d-flex align-items-md-center">' +
+                        '<img src="http://localhost:9032/public/image/' + item.avatar + '" class="img-coupon" />' +
+                        '<a href="/user-profile/' + item._id + '"><p>' + item.fullname + '</p></a>' +
+                        '</div>' 
+                        + '</div>';
+                friend += content;
+            }
+            ;
+        });
+        $(".follower-modal-all").html(friend);
+    });
+});     
