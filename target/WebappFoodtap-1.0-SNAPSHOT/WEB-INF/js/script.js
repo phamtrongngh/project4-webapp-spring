@@ -107,13 +107,13 @@ socket.on("likeNewfeed", function(data) {
     $(".numberNoti").html(number);
     var html = '<div class="notification ">' +
             '<img src="http://localhost:9032/public/image/' + data.avatar + '" class="messenger-avatar" alt=""/>' +
-            '<div>' +
-            '<div >' + data.fullname + '</div>' +
-            '<div>' + formatDateLong(data.date) + '</div>' +
+            '<div style="margin-right:160px;">' +
             '<a href="/user-profile/' + data.fromUser + '">' +
+            '<div >' + data.fullname + '</div>' +
+            '</a>' +
+            '<div>' + formatDateLong(data.date) + '</div>' +
             '<div class="noti-content">mới like hình bạn!</div>' +
             '</div>' +
-            '</a>' +
             '<a  href="' + data.link + '">' +
             '<img src="http://localhost:9032/public/image/' + data.toNewfeed.images[0] + '" class="store-avatar" alt=""/>' +
             '</a>' +
