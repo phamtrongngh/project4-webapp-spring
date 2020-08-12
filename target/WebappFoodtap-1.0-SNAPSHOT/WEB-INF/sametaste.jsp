@@ -20,7 +20,7 @@
                             </a>
                             <div class="absohovereffect">
                              
-                                    <a href=""><div style="width: 100%;font-size: 25px; color: white;font-family: auto" >${item.user.fullname}</div></a>
+                                    <a href="/user-profile/${item.user._id}"><div style="width: 100%;font-size: 25px; color: white;font-family: auto" >${item.user.fullname}</div></a>
                                 
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 </a>
                                 <div class="absohovereffect">
                                    
-                                        <a href=""><div style="width: 100%;font-size: 25px; color: white;font-family: auto">${item.fullname} </div></a>
+                                        <a href="/user-profile/${item._id}"><div style="width: 100%;font-size: 25px; color: white;font-family: auto">${item.fullname} </div></a>
                                       
 
                                 </div>
@@ -65,7 +65,7 @@
                                 </a>
                                 <div class="absohovereffect">
                                     
-                                        <a href=""><div style="width: 100%;font-size: 25px; color: white;font-family: auto">${item.fullname} </div></a>
+                                        <a href="/user-profile/${item._id}"><div style="width: 100%;font-size: 25px; color: white;font-family: auto">${item.fullname} </div></a>
                                     
 
                                 </div>
