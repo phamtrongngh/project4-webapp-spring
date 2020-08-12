@@ -78,6 +78,7 @@ public class RESTUserHelper extends RESTHelper {
                 .get(String.class);
         return string;
     }
+
     public String searchByFullName(String keyword) throws IOException {
         String url = BASE_URI + "/searchByFullName";
         webTarget = client.target(url);
@@ -86,7 +87,7 @@ public class RESTUserHelper extends RESTHelper {
                 .get(String.class);
         return string;
     }
-    
+
     public Map<String, ?> searchAll(String keyword) throws IOException {
         String url = BASE_URI + "/searchAll";
         webTarget = client.target(url);
@@ -126,7 +127,7 @@ public class RESTUserHelper extends RESTHelper {
                 .post(null, String.class);
         return string;
     }
-    
+
     public String reorder(String id) {
         String url = BASE_URI + "reorder";
         webTarget = client.target(url);
@@ -135,7 +136,7 @@ public class RESTUserHelper extends RESTHelper {
                 .post(null, String.class);
         return string;
     }
-    
+
     public String sendRequestFriend(String id) {
         String url = BASE_URI + "requestFriend";
         webTarget = client.target(url);
@@ -183,6 +184,15 @@ public class RESTUserHelper extends RESTHelper {
 
     public String sendRouteToShipper(String json) {
         String url = BASE_URI + "sendRouteToShipper";
+        webTarget = client.target(url);
+        String string = webTarget.request(MediaType.APPLICATION_JSON)
+                .header("authorization", CookieHelper.getCookie("accessToken"))
+                .post(Entity.json(json), String.class);
+        return string;
+    }
+
+    public String sendLocationUser(String json) {
+        String url = BASE_URI + "sendLocationUser";
         webTarget = client.target(url);
         String string = webTarget.request(MediaType.APPLICATION_JSON)
                 .header("authorization", CookieHelper.getCookie("accessToken"))

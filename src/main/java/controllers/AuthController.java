@@ -65,51 +65,55 @@ public class AuthController implements IController<Authorization> {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(Authorization authorization, HttpServletResponse response) throws IOException {
         Map<String, ?> responseMap = rest.post(authorization);
-         String message = (String) responseMap.get("message");
+        String message = (String) responseMap.get("message");
         String accessToken = (String) responseMap.get("access_token");
-          String myStr = new String();
+        String myStr = new String();
         if (accessToken != null) {
+            if (!accessToken.equals("disabled")) {
 
-            //set cookie for access token
-            Cookie cookie = new Cookie("accessToken", "JWT " + accessToken);
-            cookie.setHttpOnly(true);
-            cookie.setMaxAge(9999999);
-            cookie.setPath("/");
+                //set cookie for access token
+                Cookie cookie = new Cookie("accessToken", "JWT " + accessToken);
+                cookie.setHttpOnly(true);
+                cookie.setMaxAge(9999999);
+                cookie.setPath("/");
 
-            String decodeJWTString = (JwtHelper.decode(accessToken)).getClaims();
-            ObjectMapper mapper = new ObjectMapper();
-            Map<String, String> convertTo = mapper.readValue(decodeJWTString, new TypeReference<Map<String, String>>() {
-            });
-            String originalInput = convertTo.get("fullname");
-            String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
-            Cookie cookie3 = new Cookie("_id", convertTo.get("_id"));
-            Cookie cookie2 = new Cookie("avatar", convertTo.get("avatar"));
-            Cookie cookie4 = new Cookie("cart", convertTo.get("cart"));
-            Cookie cookie1 = new Cookie("fullname", URLEncoder.encode(convertTo.get("fullname"), "UTF-8"));
-            cookie1.setHttpOnly(true);
-            cookie1.setMaxAge(999999);
-            cookie1.setPath("/");
-            cookie2.setHttpOnly(true);
-            cookie2.setMaxAge(999999);
-            cookie2.setPath("/");
-            cookie3.setHttpOnly(true);
-            cookie3.setMaxAge(999999);
-            cookie3.setPath("/");
-            cookie4.setHttpOnly(true);
-            cookie4.setMaxAge(999999);
-            cookie4.setPath("/");
+                String decodeJWTString = (JwtHelper.decode(accessToken)).getClaims();
+                ObjectMapper mapper = new ObjectMapper();
+                Map<String, String> convertTo = mapper.readValue(decodeJWTString, new TypeReference<Map<String, String>>() {
+                });
+                String originalInput = convertTo.get("fullname");
+                String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
+                Cookie cookie3 = new Cookie("_id", convertTo.get("_id"));
+                Cookie cookie2 = new Cookie("avatar", convertTo.get("avatar"));
+                Cookie cookie4 = new Cookie("cart", convertTo.get("cart"));
+                Cookie cookie1 = new Cookie("fullname", URLEncoder.encode(convertTo.get("fullname"), "UTF-8"));
+                cookie1.setHttpOnly(true);
+                cookie1.setMaxAge(999999);
+                cookie1.setPath("/");
+                cookie2.setHttpOnly(true);
+                cookie2.setMaxAge(999999);
+                cookie2.setPath("/");
+                cookie3.setHttpOnly(true);
+                cookie3.setMaxAge(999999);
+                cookie3.setPath("/");
+                cookie4.setHttpOnly(true);
+                cookie4.setMaxAge(999999);
+                cookie4.setPath("/");
 
-            response.addCookie(cookie);
-            response.addCookie(cookie1);
-            response.addCookie(cookie2);
-            response.addCookie(cookie3);
-            response.addCookie(cookie4);
-            
-            response.sendRedirect("/");
-            return null;
+                response.addCookie(cookie);
+                response.addCookie(cookie1);
+                response.addCookie(cookie2);
+                response.addCookie(cookie3);
+                response.addCookie(cookie4);
+
+                response.sendRedirect("/");
+                return null;
+            }else{
+                return new ModelAndView("disable");
+            }
         } else {
-            myStr = "Sai SĐT hoặc mật khẩu";            
-            return new ModelAndView("/login").addObject("message", myStr);
+            myStr = "Sai SĐT hoặc mật khẩu";
+            return new ModelAndView("login").addObject("message", myStr);
         }
     }
 
@@ -161,7 +165,7 @@ public class AuthController implements IController<Authorization> {
             response.addCookie(cookie3);
             response.addCookie(cookie4);
             response.sendRedirect("/");
-            return  null;
+            return null;
         } else {
             myStrRegister = "SĐT đã tồn tại";
             return new ModelAndView("/login").addObject("messageRegister", myStrRegister);
