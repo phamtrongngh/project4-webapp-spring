@@ -192,6 +192,13 @@ public class UserController {
         return "";
     }
 
+    @RequestMapping(value = "/sendLocationUser/", method = RequestMethod.POST)
+    @ResponseBody
+    public String sendLoction(@RequestBody String json) throws IOException {
+        return restUser.sendLocationUser(json);
+    }
+    
+    
     @RequestMapping(value = "/cancelFriend/{id}", method = RequestMethod.POST)
     @ResponseBody
     public String cancelFriendRequest(@PathVariable("id") String id) throws IOException {
@@ -249,7 +256,7 @@ public class UserController {
     @RequestMapping(value = "/detail-order/{id}", method = RequestMethod.GET)
     public ModelAndView detailorder(@PathVariable("id") String id) throws IOException {
         Map<String, ?> order = (Map<String, ?>) restOrder.getOne(id);
-        if (!order.get("status").equals("completed")) {
+        if (!order.get("status").equals("completed") && !order.get("status").equals("canceled")) {
             return statusorder(id);
         }
         return new ModelAndView("detail-order").addObject("order", order);
@@ -272,7 +279,10 @@ public class UserController {
         String result = restUser.like(id);
         return result.replace("\"", "");
     }
-
+    @RequestMapping(value = "/disabled", method =RequestMethod.GET)
+    public ModelAndView disabled(){
+        return new ModelAndView("disable");
+    }
     @RequestMapping(value = "/updateUser")
     public ModelAndView update(MultipartContainer multipartContainer, User user, HttpServletResponse response) throws IOException, ServletException {
         MultipartFile[] multipartFile = multipartContainer.getMultipartFile();

@@ -9,6 +9,7 @@ import Nghia.Util.CookieHelper;
 import Nghia.Util.RESTOrderHelper;
 import java.io.IOException;
 import java.util.Map;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.client.Entity;
@@ -64,18 +65,34 @@ public class OrderController {
     public ModelAndView discount() throws IOException {
         return new ModelAndView("discount");
     }
-    
+
     @RequestMapping(value = "/order/rate", method = RequestMethod.POST)
     @ResponseBody
     public String rate(@RequestBody String json) throws IOException {
         return restOrderHelper.rate(json);
     }
-    
+
     @RequestMapping(value = "/order/cancelOrder/{id}", method = RequestMethod.POST)
-    public ModelAndView cancelOrder(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
-        restOrderHelper.cancelOrder(id);
-        response.sendRedirect("/detail-order/"+id);
-        return new ModelAndView("index");
+    public ModelAndView cancelOrder(@PathVariable("id") String id,HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String object = restOrderHelper.cancelOrder(id).replace("\"", "");
+        if (object.equals("disabled")) {
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    cookie.setValue("");
+                    cookie.setMaxAge(0);
+                    cookie.setHttpOnly(true);
+                    cookie.setPath("/");
+                    response.addCookie(cookie);
+                }
+            }
+            response.sendRedirect("/login");
+            return null;
+        } else {
+            response.sendRedirect("/detail-order/" + id);
+            return new ModelAndView("index");
+        }
+
     }
-    
+
 }

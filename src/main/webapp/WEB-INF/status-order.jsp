@@ -137,7 +137,7 @@
                                         <script src="/public/js/jquery-ui.js"></script>
                                         <script src="http://localhost:9032/socket.io/socket.io.js"></script>
                                         <script src="/public/js/script.js "></script>
-<!--                                        <script async defered>
+                                        <script async defered>
                                             var i = 0;
                                             var userLocation;
                                             var restaurantLocation;
@@ -155,7 +155,7 @@
                                             socket.emit("join", $("#idUser").val());
 
 
-                                            goongjs.accessToken = 'QJDt06YQ1IsBE2OpZGQRZvgVntvppfDYstJb2A8X';
+                                            goongjs.accessToken = 'O1Fy59MBnBFFFRxsJGpnkv7TwnR2l5oO7uuHYeHB';
                                             var map = new goongjs.Map({
                                                 container: 'map', // container id
                                                 style: 'https://tiles.goong.io/assets/goong_map_web.json', // stylesheet location
@@ -196,7 +196,8 @@
                                                     }
                                                 });
                                                 //When Shipper accept order
-                                                socket.on("acceptOrder", function(data) {
+                                                socket.on("acceptOrder", async function(data) {
+                                                    console.log("1");
                                                     $("#status-text").html("Đang đi nhận món");
                                                     $(".shipperName").html(data.shipper.fullname);
                                                     $(".shipperPhone").html(data.shipper.phone);
@@ -206,24 +207,23 @@
                                                         center: [data.latLng[1], data.latLng[0]],
                                                         zoom: 15
                                                     })
-                                                    getDistance(data.latLng[0] + "%2C" + data.latLng[1], restaurantLocation).then(function(location) {
-                                                        var polyline = location.routes[0].overview_polyline.points;
-                                                        var idOrder = '${order._id}';
-                                                        var data = {
-                                                            polyline: polyline,
-                                                            idOrder: idOrder
-                                                        }
-                                                        $.ajax({
-                                                            url: "/sendRouteToShipper/",
-                                                            type: "POST",
-                                                            contentType: "application/json;charset=UTF-8",
-                                                            dataType: 'json',
-                                                            data: JSON.stringify(data),
-                                                            success: function(data) {
+//                                                    var polyline = location.routes[0].overview_polyline.points;
+//                                                        var idOrder = '${order._id}';
+//                                                        var data = {
+//                                                            polyline: polyline,
+//                                                            idOrder: idOrder
+//                                                        }
+//                                                        $.ajax({
+//                                                            url: "/sendRouteToShipper/",
+//                                                            type: "POST",
+//                                                            contentType: "application/json;charset=UTF-8",
+//                                                            dataType: 'json',
+//                                                            data: JSON.stringify(data),
+//                                                            success: function(data) {
+//                                                                
+//                                                            }
+//                                                        })
 
-                                                            }
-                                                        })
-                                                    });
                                                 })
                                                 //When Shipper receive Food
                                                 socket.on("deliveringOrder", function(data) {
@@ -241,6 +241,13 @@
                                                 //Update shipper's location
                                                 socket.on("shipperLocation", function(data) {
                                                     marker2._lngLat = {lat: data.latitude, lng: data.longitude}
+                                                    var idOrder = '${order._id}';
+                                                    var data = {
+                                                        userLocation: userLocation,
+                                                        restaurantLocation: restaurantLocation,
+                                                        idOrder: idOrder
+                                                    }
+                                                    
                                                 })
 
                                             });
@@ -261,14 +268,14 @@
                                                 $("#img-loadcart").addClass("img-loadcart");
                                                 $("html, body").css("pointer-events", "none");
 
-                                                fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=YYtuRRtyZMLFP29xHVl7CmLZEqIljGcINMyCOhFE&limit=1')
+                                                fetch('https://rsapi.goong.io/Place/AutoComplete?input=' + address + '&api_key=VdAMDyPKoipIV0sF3HKUPfYpqRxE8nAo9vteqZcF&limit=1')
 
                                                         .then(function(response) {
                                                             return response.json()
                                                         })
                                                         .then(function(data) {
                                                             placeId = data.predictions[0].place_id;
-                                                            fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3")
+                                                            fetch("https://rsapi.goong.io/Place/Detail?placeid=" + placeId + "&api_key=VdAMDyPKoipIV0sF3HKUPfYpqRxE8nAo9vteqZcF")
                                                                     .then(function(response) {
                                                                         return response.json()
                                                                     })
@@ -305,7 +312,7 @@
                                             }
                                             function getDistance(origin, dest) {
                                                 return new Promise(function(resolve, reject) {
-                                                    fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=Tisp4dFqLpwaK1I0c3iLqZO625wk2ZFZev8roiI3&alternatives=true&vehicle=bike')
+                                                    fetch('https://rsapi.goong.io/Direction?origin=' + origin + '&destination=' + dest + '&api_key=VdAMDyPKoipIV0sF3HKUPfYpqRxE8nAo9vteqZcF&alternatives=true&vehicle=bike')
                                                             .then(function(response) {
                                                                 return response.json()
                                                             })
@@ -314,10 +321,14 @@
                                                             });
                                                 })
                                             }
+                                            function sendLocationUser() {
+                                                return new Promise(function(resolve, reject) {
 
+                                                })
+                                            }
                                             getLocation('${order.restaurant.address}', "restaurant");
                                             getLocation('${order.address}', "user");
-                                        </script>-->
+                                        </script>
                                         </body>
                                         </html>
 
