@@ -2,6 +2,119 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include  file="header.jsp" %>
+<!--Modal rate-->
+<div class="modal" id="see-rate" >
+    <div class="modal-dialog" >
+        <div class="modal-content" >
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> Tất cả đánh giá</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body follower-modal-all" style="overflow: auto;max-height: 350px">
+                <div class="coupon-container media">
+                    <img  src="/public/image/avatar/momo.png" class="img-coupon mr-3" />
+
+                    <div class="media-body" style="padding-top: 0px">
+                        <p style="padding-left: 0px;margin-bottom: 0px">Huy Trần</p>
+                        <div class="stars">
+                            <div >
+                                <c:set var="totalRating" value="${0}" />
+                                <c:set var="countRating" value="${0}" />
+                                <c:forEach items="${restaurant.rating}" var="item">
+                                    <c:set var="totalRating" value="${totalRating+item.stars}" />
+                                    <c:set var="countRating" value="${countRating+1}" />
+
+                                </c:forEach>
+                                <c:set var="TB" value="${totalRating/countRating}"/>
+
+                                <c:choose>
+                                    <c:when test="${totalRating==0}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${TB < 5 && TB>=4.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${TB < 4.5 && TB>=3.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${TB < 3.5 && TB>=2.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${TB < 2.5 && TB >=1.5}">
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+                                            <span class="fa fa-star checked-rating"></span>
+                                        </div>
+                                    </c:when>
+
+                                    <c:otherwise>
+                                        <div>
+                                            <span class="fa fa-star checked-rating"></span>
+
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                        </div>
+                                <p style="padding-left: 0px">Ngon  tuyệt</p>   
+                    </div>
+                </div>
+
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- The Modal spam comment -->
+<div class="modal fade" id="alertModalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 30%;">
+        <div class="modal-content">
+            <input id="tempIdProduct" hidden/>
+            <input id="tempQuantityProduct" hidden/>
+            <div class="modal-header" style="padding: 0 15px;">
+                <h5 class="modal-title" id="exampleModalLongTitle">CHUYỂN CỬA HÀNG KHÁC</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <div class="content">Các món trong mỗi đơn hàng chỉ có thể đến từ một cửa hàng, bạn có muốn lưu đơn hiện tại và chuyển cửa hàng?</div>
+                <div style="margin-top: 25px;">
+                    <button type="button" class="btn" data-dismiss="modal" style="color: white;background-color: #da484a;">Chấp nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- The Modal update newfeed -->
 <div class="modal fade" id="updatenewfeedModal">
     <div class="modal-dialog modal-dialog-centered" style="width: 450px;">
@@ -123,7 +236,7 @@
                                 <p class="form-inline quantity">
                                     Số lượng :
 
-                                    <input aria-label="quantity" class="input-qty" min="1" max="999" name="quantity" type="number" value="1" />
+                                    <input aria-label="quantity" class="input-qty" min="1" max="50" name="quantity" type="number" value="1" />
 
                                 </p>
                                 <p class="price-food">Giá : <span class="price-foodnumber-through"></span> VNĐ</p>
@@ -357,12 +470,12 @@
                 </div>
 
                 <div class="col-md-1 profile-container-buttons">
-                    <button href="/store-info" class="btn btn-primary form-control"><i class="far fa-thumbs-up"></i>Thích</button>
-                    <button class="btn btn-success form-control"><i class="fas fa-star"></i>Đánh giá</button>
-                    <button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Thống kê</button>
+                    <a href="http://localhost:8080/manageMyRestaurant/${restaurant._id}#menu"> <button href="/store-info" class="btn btn-primary form-control">Thêm món</button></a>
+                    <a href="http://localhost:8080/manageMyRestaurant/${restaurant._id}#order">  <button class="btn btn-success form-control" >Đơn hàng</button></a>
+                    <a href="http://localhost:8080/manageMyRestaurant/${restaurant._id}#chart"><button class="btn btn-danger form-control"><i class="fas fa-poll-h"></i>Thống kê</button></a>
                 </div>
                 <div class="col-md-1 containers-sendmess" style="padding-right: 0 !important;">
-                    <button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button>
+                    <a href="http://localhost:8080/manageMyRestaurant/${restaurant._id}#store-info"><button class="btn btn-primary form-control "><i class="fas fa-user-edit"></i><br/>Thông tin</button></a>
                 </div>
             </div>
             <div class="row">
@@ -401,12 +514,12 @@
                             <input type="text" name="user" hidden value="${cookie["_id"].getValue()}" />
                             <input type="text" name="restaurant" hidden value="${restaurant._id}" />
                             <div class="col-md-8 post-content">
-                                <textarea class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
+                                <textarea id="areapost" class="rounded" name="content"  cols="30" rows="5" placeholder="Hãy đăng tin mới nhất về bạn đến mọi người"></textarea>
                                 <div class="d-flex" style="width: 30%">
                                     <!--<image class="rounded" src ="/public/image/images new feed/fruity-tingle-ice-cream-cones-121035-1.jpg" width="80%" height="85px" />-->
                                     <div class="upload-img-status" >
                                         <div class="gallery text-center">
-                                            <a id="chossefile">
+                                            <a class="choosefile">
 
                                                 <div class="image-frame-upload" style="border: 1px solid blue;width: 20%;height: 85px;position: absolute; background-size: cover;background-repeat: no-repeat">
                                                     <span class="img-hidden" style="position: absolute;color: #5b6dc8;font-size:100px;opacity: 0.7;left: 5px;bottom:-20px;">+</span>
@@ -440,7 +553,7 @@
                                 </div>
                                 <hr/>
                                 <div>
-                                    <button class="btn btn-primary">Đăng</button>
+                                    <button id="btn-post" class="btn btn-primary">Đăng</button>
                                 </div>
                             </div>
                         </form>
@@ -484,7 +597,7 @@
                                         </div>
                                         <div style="margin-top: 2px;display: flex;">
                                             <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
-                                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" data-target="#collapse${item._id}" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a><span>200 chia sẻ</span></div>
+                                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" data-target="#collapse${item._id}" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a></div>
                                         </div>
                                         <hr class="hr-newsfeed"/>
                                         <div class="icon2">
@@ -506,7 +619,7 @@
                                         </div>
 
                                         <div class="collapse newfeed" idValue="${item._id}" id="collapse${item._id}">
-                                            <div class="card card-body">
+                                            <div class=" card-body">
                                                 <div class="post-footer">
                                                     <div class="input-group">
                                                         <input class="form-control input-comments" placeholder="Viết bình luận" type="text" />
@@ -524,14 +637,7 @@
                                                                     <div class="comment-body ">
                                                                         <div class="comment-heading ">
                                                                             <h4 class="user "><a href="/user-profile/${comment.user._id}">${comment.user.fullname}</a></h4>
-                                                                            <h5 class="time "></h5>
-                                                                            <div class="report dropright">
-                                                                                <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                </a>
-                                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                                    <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                </div>
-                                                                            </div>
+                                                                           
                                                                         </div>
                                                                         <p>${comment.content}<br/>
                                                                             <!--<a href="#">Thích</a>-->                                    
@@ -559,16 +665,7 @@
                                                                                     <div class="comment-body ">
                                                                                         <div class="comment-heading ">
                                                                                             <h4 class="user ">${subcomment.user.fullname}</h4>
-                                                                                            <h5 class="time ">3 minutes ago</h5>
-                                                                                            <div class="report dropright">
-                                                                                                <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                </a>
-                                                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                                                    <a class="dropdown-item" href="#">Ẩn bình luận</a>
-                                                                                                    <a class="dropdown-item" href="#">Sửa </a>
-                                                                                                    <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                           
                                                                                         </div>
                                                                                         <p>${subcomment.content}
                                                                                             <br/>
@@ -608,7 +705,7 @@
                                             <div class="media">
                                                 <img src="http://localhost:9032/public/image/${restaurant.avatar}" alt="avatar" width="50px" class="rounded-circle avatar" />
                                                 <div class="media-body">
-                                                    <div href="#" class="name"><a href="/restaurant/${item.restaurant}">${restaurant.name}</a><img src="http://localhost:9032/public/image/avatar/${item.images[0]}" class="check" alt="" />
+                                                    <div href="#" class="name"><a href="/restaurant/${item.restaurant}">${restaurant.name}</a>
                                                     </div>
 
                                                 </div>
@@ -637,7 +734,7 @@
                                         </div>
                                         <div style="margin-top: 2px;display: flex;">
                                             <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(item.likes).size()}</span></span>
-                                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a><span>200 chia sẻ</span></div>
+                                            <div style="width: 100%;text-align: end; padding-right: 15px;"><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(item.comments).size()}</span> bình luận</span></a></div>
                                         </div>
                                         <hr class="hr-newsfeed"/>
                                         <div class="icon2">
@@ -656,7 +753,7 @@
                                             </div>
                                         </div>
                                         <div class="collapse newfeed" idValue="${item._id}" id="collapse${item._id}">
-                                            <div class="card card-body">
+                                            <div class=" card-body">
                                                 <div class="post-footer">
                                                     <div class="input-group">
                                                         <input class="form-control input-comments" placeholder="Viết bình luận" type="text" />
@@ -674,14 +771,7 @@
                                                                     <div class="comment-body ">
                                                                         <div class="comment-heading ">
                                                                             <h4 class="user "><a href="/user-profile/${comment.user._id}">${comment.user.fullname}</a></h4>
-                                                                            <h5 class="time "></h5>
-                                                                            <div class="report dropright">
-                                                                                <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                </a>
-                                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                                    <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                </div>
-                                                                            </div>
+                                                                           
                                                                         </div>
                                                                         <p>${comment.content}<br/>
                                                                             <!--<a href="#">Thích</a>-->                                    
@@ -709,14 +799,7 @@
                                                                                     <div class="comment-body ">
                                                                                         <div class="comment-heading ">
                                                                                             <h4 class="user ">${subcomment.user.fullname}</h4>
-                                                                                            <h5 class="time ">3 minutes ago</h5>
-                                                                                            <div class="report dropright">
-                                                                                                <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-                                                                                                </a>
-                                                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                                                    <a class="dropdown-item" href="#">Báo cáo</a>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                           
                                                                                         </div>
                                                                                         <p>${subcomment.content}
                                                                                             <br/>
@@ -811,7 +894,7 @@
                             </div>
                             <hr/>
                         </c:forEach>
-                        <a href="#"><div style="text-align: end;">Xem tất cả</div></a>
+                            <a href=""  data-toggle="modal" data-target="#see-rate"><div style="text-align: end;">Xem tất cả</div></a>
                     </div>
 
                 </div>

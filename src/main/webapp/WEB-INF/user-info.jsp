@@ -85,10 +85,10 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3">Họ và tên</label>
-
                         <div class="col-md-9 input-group-prepend">
-                            <input  type="text" value="${user.fullname}" name="fullname" class="form-control"/>
+                            <input id="user-name"  type="text" value="${user.fullname}" name="fullname" class="form-control"/><br/>
                         </div>
+                        <span class="error error-username" style="color: red;margin-left: 210px">Họ và tên không được để trống</span>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3">SĐT</label>
@@ -113,7 +113,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col"><button class="col-7 btn btn-secondary btn-sm float-left" data-toggle="modal" data-target="#Modelmatkhau" type="button">Đổi mật khẩu</button></div>
-                                <div class="col"><button type="submit" class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button></div>
+                                <div class="col"><button id="btn-change" type="submit" class="col-6 btn btn-primary btn-sm float-right">Thay đổi</button></div>
                             </div>
                         </div>
                     </div>
@@ -132,6 +132,7 @@
 <script src="/public/js/bootstrap/bootstrap.min.js "></script>
 <script src="/public/js/swiper.min.js "></script>
 <script src="/public/js/jquery-ui.js"></script>
+<script src="http://localhost:9032/socket.io/socket.io.js"></script>
 <script src="/public/js/script.js "></script>
 <script>
     $(document).ready(function() {

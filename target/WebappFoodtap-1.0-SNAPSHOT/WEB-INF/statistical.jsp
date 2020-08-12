@@ -216,7 +216,8 @@
                     <input name="restaurant" value="${restaurant._id}" type="text" hidden/>
                     <div class="form-group">
                         <label >Tên món ăn:</label>
-                        <input name="name" type="text" class="form-control"   />
+                        <input id="name-food" name="name" type="text" class="form-control"   />
+                        <span class="error error-food-name" color="red">Tên món không được để trống</span>
                     </div>
                     <div class="form-group form-inline">
                         <label>Hình:</label>
@@ -235,11 +236,13 @@
                     </div>
                     <div class="form-group">
                         <label>Giá:</label>
-                        <input name="price" type="number" class="form-control" />
+                        <input id="price-food" name="price" min="1" value="0" type="number" class="form-control" />
+                        <span class="error error-create-price" color="red">Giá món phải lớn hơn 0 và bé hơn 1 triệu</span>
                     </div>
                     <div class="form-group">
                         <label>Giá khuyến mãi:</label>
-                        <input name="saleoff" type="number" class="form-control" />
+                        <input id="price-saleoff" min="1" value="0" name="saleoff" type="number" class="form-control" />
+                         <span class="error error-saleoff-price" color="red">Giá khuyến mãi phải nhỏ hơn giá món</span>
                     </div>
                     <div class="form-group dropdown row">
                         <label class="col-sm-4">Danh mục</label>
@@ -257,7 +260,7 @@
                             </c:forEach>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
+                    <button id="btn-create-food" type="submit" class="btn btn-primary" style="float: right;">Thêm</button>
                 </form>
 
             </div>
@@ -282,7 +285,8 @@
                     <input name="id" hidden />
                     <div class="form-group">
                         <label >Tên món ăn:</label>
-                        <input name="name" type="text" class="form-control"   />
+                        <input id="name-update-food" name="name" type="text" class="form-control"   />
+                        <span class="error error-name-food-update" color="red">Tên món không được để trống</span>
                     </div>
                     <div class="form-group form-inline">
                         <label>Hình:</label>
@@ -299,11 +303,13 @@
                     </div>
                     <div class="form-group">
                         <label>Giá:</label>
-                        <input name="price" type="number" class="form-control" />
+                        <input id="price-update-food" min="1" name="price" type="number" class="form-control" />
+                        <span class="error error-update-price" color="red">Giá món phải lớn hơn 0 và bé hơn 1 triệu</span>
                     </div>
                     <div class="form-group">
                         <label>Giá khuyến mãi:</label>
-                        <input name="saleoff" type="number" class="form-control" />
+                        <input id="update-saleoff" min="1" name="saleoff" min="1" type="number" class="form-control" />
+                        <span class="error error-saleoff-update" color="red">Giá khuyến mãi phải nhỏ hơn giá món</span>
                     </div>
                     <div class="form-group dropdown row">
                         <label class="col-sm-4">Danh mục</label>
@@ -320,7 +326,7 @@
                             </c:forEach>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="float: right;">Cập nhật</button>
+                    <button id="btn-update-food" type="submit" class="btn btn-primary" style="float: right;">Cập nhật</button>
                 </form>
 
             </div>
