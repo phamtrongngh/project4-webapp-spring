@@ -805,7 +805,7 @@
                             <div style="margin-top: 2px;display: flex;">
                                 <span style="display: flex;" data-toggle="modal" data-target="#Modallikeshare" class="list-like"><div style="margin-right: 5px;margin-left: 15px;"><i  class="fa fa-heart rounded-circle"  aria-hidden="true" style="color: white; background-color: #da484a;padding: 5px;"></i></div><span class="like-count">${(newfeed.likes).size()}</span></span>
                                 <div style="width: 100%;text-align: end; padding-right: 15px;">
-                                    <a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(newfeed.comments).size()}</span> bình luận</span></a><span>200 chia sẻ</span></div>
+                                    <a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"><span style="color: black;"><span class="count-comment">${(newfeed.comments).size()}</span> bình luận</span></a></div>
                             </div>
                             <hr class="hr-newsfeed"/>
                             <div class="icon2">
